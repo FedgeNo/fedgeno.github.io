@@ -14,6 +14,14 @@ S(n,d) is the number of ways to distribute n units of excitation across d oscill
 
 **S(n,d) is the resonant frequency of mode n in sector d, measured in units of m_scale_d.** In natural units where ℏ = c = 1, mass is frequency (E = hν = mc²). A particle with mode index n in sector d is a standing wave resonating at frequency S(n,d) × m_scale_d. The mass formula is not a proportionality — it is an identification.
 
+**S(n,d) has a direct geometric grounding:** the sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and
+
+```
+dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d)
+```
+
+This is a theorem of algebraic geometry. S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry. The sector dimension d specifies which polynomial ring ℝ[ξ₁,…,ξ_d] is physically realised; the Hopf fibration chain determines which values of d are occupied.
+
 **The hockey-stick identity is a proved theorem of combinatorics:**
 
 ```
@@ -23,8 +31,6 @@ S(n, d) = Σ_{k=0}^{n-1} C(k+d−1, d−1)
 This is not decoration. It is the engine of the entire spectrum.
 
 **Physical meaning:** The resonant frequency S(n,d) equals the cumulative count of hidden quantum microstates below level n. These are the same thing. The frequency at which mode n resonates is precisely the total number of accessible hidden states up to that level. Heavier particles — higher frequencies — occupy higher-entropy configurations of the hidden geometry. The hockey-stick identity is the bridge between the spectral and the statistical descriptions.
-
-Mass is not proportional to n. S(n,d) grows as n^d, which is why the mass hierarchy within each sector is so steep.
 
 ---
 
@@ -175,33 +181,78 @@ The bottom quark is a moiré phenomenon — an interference pattern between two 
 
 ---
 
-## 9. Coupling Constants — Derived from Seeds and m_e ✅
+## 9. Coupling Constants — Complete Derived Set ✅
+
+The coupling matrix G with entries G_{dd'} = g_{dd'} has rank 1:
+```
+G_{dd'} = v_d × v_{d'}     where v_d = √g_{dd}
+```
+
+All cross-sector couplings follow from the four derived self-couplings.
+
+**Self-couplings (all derived):**
 
 ```
-g₃₃ = 8√7        [d=3 vacuum stability: gap 16 / coupling coefficient 2/√7]
-g₄₄ = 12/√7      [d=4 co-fixed-point: n_s × n_u / √(n_s + n_u)]
-g₃₄ = 4√6        [rank-1: √(g₃₃ × g₄₄) = √96]
+g₃₃ = 8√7        [vacuum stability: mode-selection threshold at n_s=4]
+g₄₄ = 12/√7      [co-fixed-point seed structure: n_s × n_u / √(n_s + n_u)]
 g₆₆ = 1/4        [anomaly cancellation: Y_L = −1/2, g₆₆ = Y_L²]
+g₁₀,₁₀ = 1/4     [same hypercharge argument: tau has Y_L = −1/2, identical to e and μ]
+```
+
+g₁₀,₁₀ = g₆₆ is not an assumption — it follows from the same anomaly cancellation that fixed g₆₆. The tau lepton carries hypercharge Y_L = −1/2 (same quantum number as the electron and muon), so its sector coupling is Y_L² = 1/4 by identical reasoning.
+
+**Cross-couplings (all from rank-1):**
+
+```
+g₃₄ = v₃ × v₄ = √(g₃₃ × g₄₄) = √96 = 4√6
+g₃₆ = v₃ × v₆ = √(g₃₃ × g₆₆) = √(2√7)
+g₄₆ = v₄ × v₆ = √(g₄₄ × g₆₆) = √(3/√7)
+g₃,₁₀ = √(g₃₃ × g₁₀,₁₀)      = √(2√7)    [= g₃₆]
+g₄,₁₀ = √(g₄₄ × g₁₀,₁₀)      = √(3/√7)   [= g₄₆]
+g₆,₁₀ = √(g₆₆ × g₁₀,₁₀)      = 1/4       [= g₆₆]
 ```
 
 Verification: g₃₄² = 96 = g₃₃ × g₄₄ ✓
 
-From these: m_u/m_d = √(g₄₄/g₃₃) = √(3/14) = 0.463 (PDG: 0.462). The up/down mass ratio is a pure function of the two seed indices.
+**What remains open:** g₂₂ and g₅₅. The d=2 gauge bosons acquire mass via the Higgs mechanism, not through the fermion hypercharge coupling, so g₂₂ is not constrained by Y². The d=5 neutrino sector self-coupling g₅₅ requires g₂₂ to close — the Vandermonde-allowed pair is 2+3=5, so g₃₅ = √(g₃₃ × g₅₅) requires independent knowledge of g₅₅.
+
+From the derived couplings: m_u/m_d = √(g₄₄/g₃₃) = √(3/14) = 0.463 (PDG: 0.462).
 
 ---
 
-## 10. Mass Scale Derivation — Cross-Sector Γ(ω) ✅
+## 10. Mass Scale Derivation ✅
 
-The cross-sector filter Γ(ω) — not the per-sector H_d — is what fixes the scale hierarchy.
+**m_scale_3 from the (d=3)–(d=6) beat:**
 
-The sector delays τ_d = 1/(2√(k₀+d)) give a beat frequency between the d=3 and d=6 sectors:
+The sector delays τ_d = 1/(2√(k₀+d)) give a beat frequency between d=3 and d=6:
 ```
 m_beat(3,6) = 2π × m_e / (τ₃ − τ₆) = 774.98 MeV
 ```
-This is a frequency — and it matches the ρ meson mass to −0.04% with no mass input. This is not a coincidence: the ρ meson is the resonance of the hidden sector at the (d=3)–(d=6) beat frequency. Particles are resonant frequencies; the comb filter picks them out.
-
-Via f_SU(4) = m_beat/2 and the combinatorial formula with numerator 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3):
+This matches the ρ meson mass to −0.04% with no mass input. Via f_SU(4) = m_beat/2 and the combinatorial numerator 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3):
 ```
 m_scale_3 = (448 / (f_SU(4)² × m_scale_6))^(1/3) = 4.702 MeV
 ```
-All sector scales — themselves frequencies in natural units — determined from m_e and the hockey-stick structure alone.
+Equivalently from the coupling: m_scale_3 = m_e × √(g₃₃/g₆₆) — both routes agree.
+
+**m_scale_4 from the coupling ratio:**
+```
+m_scale_4 = m_scale_3 × √(g₄₄/g₃₃) / S(n_up, 4) = m_scale_3 × √(3/14) / 15 = 0.1451 MeV
+```
+
+**m_scale_10 from the hypercharge coupling — derived, not assumed:**
+
+g₁₀,₁₀ = g₆₆ = 1/4 (§9 above). The tau carries Y_L = −1/2 identically to the electron and muon. Therefore:
+```
+m_scale_10 = m_scale_6
+```
+The tau prediction m_τ = m_scale_6 × S(23,10) gives m_τ/m_e = S(23,10)/S(13,6) = 3475.13 (PDG: 3477.23, −0.060%). The scale is closed; any residual is internal to the d=10 sector.
+
+**All sector scales:**
+```
+m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [electron anchor]
+m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
+m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
+m_scale_10 = m_scale_6                             = 2.7526 × 10⁻⁵ MeV  [g₁₀,₁₀ = g₆₆]
+m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [one input: m_W]
+m_scale_5  = open                                   [requires g₅₅]
+```

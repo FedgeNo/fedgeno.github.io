@@ -89,10 +89,11 @@ The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binom
 
 Derived sector scales:
 ```
-m_scale_6  = m_e / S(13,6)      = 2.753 × 10⁻⁵ MeV
-m_scale_3  = m_e × √(g₃₃/g₆₆)  = 4.702 MeV
-m_scale_4  = m_scale_3 / 32.40  = 0.1451 MeV
-m_scale_10 = m_scale_6           [leading order]
+m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [electron anchor]
+m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
+m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
+m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆: tau has Y_L = −1/2]
+m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [one input: m_W]
 ```
 
 | Particle | n | d | Predicted (MeV) | PDG (MeV) | Error |

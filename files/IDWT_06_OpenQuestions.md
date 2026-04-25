@@ -16,25 +16,33 @@ What follows is an honest list of what the framework has not yet derived, with p
 | Scale hierarchy (OQ17) | m_scale_3 from comb filter beat = ρ meson mass |
 | ρ meson from comb filter (OQ35) | Im[Γ₃₄₆] maximum at 775.8 MeV, no mass input |
 | Hilbert space rigour (OQ25) | Absolute convergence proved; operators self-adjoint |
-| Spectral independence | Occupied set is sum-free; proved computationally and structurally |
+| Spectral independence (OQ32) | Occupied set is sum-free with no S-value degeneracy. Proved computationally for all 91 pairs; d=3 internal case proved analytically via non-tetrahedral-number argument; tau dominance algebraic; sector scale gaps structural from {1,4} seeds |
+| Spin-½ from KK Dirac | The 3+1D Dirac equation follows from the Kaluza-Klein Dirac operator on M_∞ = ℝ^{3,1} × Ξ_d when Ψ∞ is a spinor field. Spin-½ is derived from the spinor bundle, not postulated per particle |
+| S(n,d) geometric grounding | dim Sym^n(ℝ^d) = S(n,d) — the mode count is the dimension of the space of degree-n homogeneous polynomials in d variables, a theorem of algebraic geometry |
 
 ---
 
 ## Open
 
-**Prove that Ψ∞ resonates at frequencies S(n,d) × m_scale_d, not at n × m_scale_d**
+**Prove that Ψ∞ actually resonates at frequencies S(n,d) × m_scale_d**
 
-The combinatorics are clean: S(n,d) is the cumulative microstate count, and it is also the resonant frequency of mode n in sector d (in units of m_scale_d). Mass is frequency in natural units. The hockey-stick identity is a theorem. The generation law follows from the Pascal recursion. None of this is in question.
+The mode degeneracy S(n,d) has a geometric grounding: the sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables (the space Sym^n(ℝ^d)), and
 
-What is not yet proved is the dynamical step: that the IDWT coupling structure {g_dd, g_34, k₀=16} forces Ψ∞ to resonate at frequencies S(n,d) × m_scale_d rather than n × m_scale_d. S(n,d) grows as n^d; n grows linearly. The combinatorics select S(n,d); the dynamics must confirm it.
+```
+dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d)
+```
 
-What is established toward this: the graded block structure follows from SU(d) symmetry via Schur's lemma — Schur gives a scalar eigenvalue λ_n on each block, but does not determine its value. The d-dimensional harmonic oscillator has S(n,d) as its cumulative state count (analytically exact). The operator class is identified. The remaining work is showing that the coupling structure forces λ_n = S(n,d) × m_scale_d.
+This is a theorem of algebraic geometry. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and there are exactly S(n,d) of them. The sector dimension d specifies which polynomial ring ℝ[ξ₁,…,ξ_d] is physically realised.
+
+Note: the d-dimensional harmonic oscillator gives degeneracy C(N+d−1, d−1) = S(N, d−1) — this is the per-shell count, off by one power of d. S(n,d) as defined in IDWT is the cumulative count through level n−1, and is the dimension of Sym^n(ℝ^d). Both facts are correct; they refer to different quantities.
+
+What is not yet proved is that Ψ∞ actually resonates at frequencies S(n,d) × m_scale_d. The degeneracy structure is geometrically grounded; the dynamical confirmation that the resonant frequency equals the cumulative count — rather than being set by some other function of n — is the remaining step.
 
 **Top quark derivation (OQ26)**
 n_top = 72 is uniquely selected by the Level-2 double-crossing condition g(n_charm, n_top) = S(n_e, 2) = 91. The proof reduces to a single identity: n_W = S(n_e,2) − n_ν₂ = 76, which follows if n_ν₂ = S(n_s+1, 2) is established from the d=5 Hopf structure rather than matched from oscillation data.
 
 **Tau mass residual**
-The leading-order prediction m_τ = m_e × S(23,10)/S(13,6) = 1775.79 MeV is −0.060% from PDG. The m_scale_10/m_scale_6 ratio is not yet derived geometrically.
+m_scale_10 = m_scale_6 is derived from g₁₀,₁₀ = g₆₆ = 1/4. The tau prediction is therefore m_τ = m_scale_6 × S(23,10) = 1775.79 MeV, −0.060% from PDG. The scale is closed. Any correction would be internal to the d=10 sector — a modification to the n=23 mode frequency — not a scale problem.
 
 **Three k₀ resonance conditions**
 The bottom quark bifurcation at k₀=16 is driven by three independent resonance conditions adding in phase. The mechanism is identified; the three conditions are not yet individually enumerated.
@@ -44,6 +52,11 @@ IDWT derives the SU(3) gauge group, Yang-Mills action, UV coupling, and β-funct
 
 **Full CKM matrix and CP violation**
 The Cabibbo angle follows from the seed ratio. Full CKM mixing angles and the CP-violating phase require a complex phase in the manifold structure — the mechanism is not yet identified.
+
+**Complete the coupling vector v for d=2 and d=5**
+The coupling matrix G_{dd'} = v_d × v_{d'} is now complete for d ∈ {3,4,6,10} — all self-couplings and cross-couplings among these four sectors are derived. Two sectors remain: d=2 (gauge bosons, Higgs mechanism) and d=5 (neutrinos). The Vandermonde pair 2+3=5 means g₅₅ requires g₂₂ first, and g₂₂ is not constrained by the hypercharge argument because bosons acquire mass via the Higgs mechanism rather than the fermion coupling structure. These two encode the electroweak and neutrino mass scales.
+
+A numerical observation at current precision: m_u² ≈ m_d in MeV (4.67 ≈ 4.67, within PDG uncertainties). If structural, only one quark mass would be needed as anchor. Not yet proved.
 
 **Lorentz completion (~90% closed)**
 Scalar covariance, spin-½ from the KK Dirac operator, and chirality from spin^c on CP² are established. Remaining: full Spin(9) decomposition for d=10, and α_s running from the IDWT coupling structure.

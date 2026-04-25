@@ -193,6 +193,15 @@ g(d=4, n_charm=20) = 23 = n_τ              [up-type sector + charm → tau]
 n_up + n_charm + n_top = 3+20+72 = 95 = n_H [all d=4 quarks sum to Higgs]
 ```
 
+Three further exact identities from the Jacobi boundary structure at k₀ = n_s² = 16, where b_k = √(k(k+3)/4):
+```
+b₁₆² = n_W                                  16×19/4 = 76 = n_W
+n_s + n_e = d² + 1                           4+13 = 17 = 4²+1
+n_W + S(n_absent, 3) = d × S(n_s, 3)        76+4 = 80 = 4×20
+```
+
+The second identity is why k₀ = 16 = d² = n_s + n_e − 1. The third connects the W boson mode to the absent n=2 d=3 mode and the strange quark's simplex image, consistent with sin θ_C = 1/√20.
+
 ---
 
 ## 12. Cabibbo Angle 🔶

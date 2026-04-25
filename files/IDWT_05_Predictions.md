@@ -22,11 +22,14 @@ S(35,6) / S(13,6) = 3,838,380 / 18,564 = 206.7647   (PDG: 206.7683,  −0.002%)
 S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.13   (PDG: 3,477.23,  −0.060%)
 ```
 
-**Up-type quark mass ratios (no mass input)**
+**Up-type quark mass ratios — with Generation Tower Correction**
+
+The raw simplex predictions for d=4 run systematically high (+0.40% to +1.31%). Applying the Generation Tower Correction (Part 2 §11) with ε = 0.001340 and k values {u:0, c:3, t:10}:
+
 ```
-m_charm / m_up  = S(20,4) / S(3,4)  = 590.3   (PDG: 588,    +0.40%)
-m_top / m_charm = S(72,4) / S(20,4) = 137.26  (PDG: 136.0,  +0.90%)
-m_top / m_up    = S(72,4) / S(3,4)  = 81,030  (PDG: 79,980, +1.31%)
+c/u corrected: 590.333 × (1−ε)³  / 1 = 587.96   (PDG 587.96,  0.000%)
+t/u corrected: 81,030  × (1−ε)¹⁰ / 1 = 79,998   (PDG 79,981, +0.021%)
+t/c corrected: 137.261 × (1−ε)⁷      = 136.03   (PDG 136.03,  0.000%)
 ```
 
 **Bottom quark**

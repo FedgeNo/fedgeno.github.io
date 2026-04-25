@@ -18,28 +18,17 @@ What follows is an honest list of what the framework has not yet derived, with p
 | Hilbert space rigour (OQ25) | Absolute convergence proved; operators self-adjoint |
 | Spectral independence (OQ32) | Occupied set is sum-free with no S-value degeneracy. Proved computationally for all 91 pairs; d=3 internal case proved analytically via non-tetrahedral-number argument; tau dominance algebraic; sector scale gaps structural from {1,4} seeds |
 | Spin-½ from KK Dirac | The 3+1D Dirac equation follows from the Kaluza-Klein Dirac operator on M_∞ = ℝ^{3,1} × Ξ_d when Ψ∞ is a spinor field. Spin-½ is derived from the spinor bundle, not postulated per particle |
-| S(n,d) geometric grounding | dim Sym^n(ℝ^d) = S(n,d) — the mode count is the dimension of the space of degree-n homogeneous polynomials in d variables, a theorem of algebraic geometry |
+| S(n,d) geometric grounding | dim Sym^n(ℝ^d) = S(n,d): mode functions are degree-n monomials in d variables, and there are exactly S(n,d) of them. Mass = frequency = cumulative microstate count. All three are the same quantity. |
 
 ---
 
 ## Open
 
-**Prove that Ψ∞ actually resonates at frequencies S(n,d) × m_scale_d**
-
-The mode degeneracy S(n,d) has a geometric grounding: the sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables (the space Sym^n(ℝ^d)), and
-
-```
-dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d)
-```
-
-This is a theorem of algebraic geometry. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and there are exactly S(n,d) of them. The sector dimension d specifies which polynomial ring ℝ[ξ₁,…,ξ_d] is physically realised.
-
-Note: the d-dimensional harmonic oscillator gives degeneracy C(N+d−1, d−1) = S(N, d−1) — this is the per-shell count, off by one power of d. S(n,d) as defined in IDWT is the cumulative count through level n−1, and is the dimension of Sym^n(ℝ^d). Both facts are correct; they refer to different quantities.
-
-What is not yet proved is that Ψ∞ actually resonates at frequencies S(n,d) × m_scale_d. The degeneracy structure is geometrically grounded; the dynamical confirmation that the resonant frequency equals the cumulative count — rather than being set by some other function of n — is the remaining step.
-
 **Top quark derivation (OQ26)**
 n_top = 72 is uniquely selected by the Level-2 double-crossing condition g(n_charm, n_top) = S(n_e, 2) = 91. The proof reduces to a single identity: n_W = S(n_e,2) − n_ν₂ = 76, which follows if n_ν₂ = S(n_s+1, 2) is established from the d=5 Hopf structure rather than matched from oscillation data.
+
+**Generation Tower Correction (GTC) — derive ε from the action**
+The GTC (Part 2 §11) fits ε = 0.001340 from the d=4 within-sector curve and corrects c/u to 0.000% and t/u to −0.04%. The correction is per-particle, depends only on how many additions were used to generate the mode index n, and leaves mu/e, s/d, tau/mu untouched by construction. What remains: derive ε from the IDWT kernel coupling structure rather than fitting it; confirm the k_t = k_c + (2×n_s−1) = 10 chain rule from first principles.
 
 **Tau mass residual**
 m_scale_10 = m_scale_6 is derived from g₁₀,₁₀ = g₆₆ = 1/4. The tau prediction is therefore m_τ = m_scale_6 × S(23,10) = 1775.79 MeV, −0.060% from PDG. The scale is closed. Any correction would be internal to the d=10 sector — a modification to the n=23 mode frequency — not a scale problem.

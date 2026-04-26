@@ -135,3 +135,54 @@ m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [one in
 | photon | 0 | 2 | 0 | 0 | exact |
 
 Down and charm are **predictions**, not anchors. The tau is n=23, d=10 — any d=6 assignment gives ~437 MeV, wrong by a factor of 4.
+
+---
+
+## 6. Neutrino Sector ✅
+
+Neutrinos cannot fit d=6 — the mass scale would require S(n,6) < 0.002, below the minimum S(1,6)=1. They occupy **d=5** with mode indices n=(10,15,22), all structurally derived:
+
+```
+n_ν₁ = S(n_u,3) = S(3,3) = 10    [simplex image of up quark into d=3]
+n_ν₂ = S(n_u,4) = S(3,4) = 15    [simplex image of up quark into d=4]
+n_ν₃ = n_τ − n_d = 23 − 1 = 22   [generation law, OQ28]
+```
+
+Redundant check: n_ν₃ = n_ν₁ + n_ν₂ − n_u = 10+15−3 = 22 ✓
+
+d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→S⁵→CP². It is the Hopf partner of d=4 (up quarks) and is not anomalous — it is required by the fibration chain.
+
+**Oscillation ratios (from simplex values alone):**
+```
+m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808   (target 5.86, error 0.88%)
+Δm²₃₁/Δm²₂₁ = 32.949   (target 33.333, error 1.15%)
+```
+
+**Absolute masses (anchored to Δm²₂₁ = 7.53×10⁻⁵ eV²):**
+```
+m_ν₁ ≈ 1.52 meV,   m_ν₂ ≈ 8.81 meV,   m_ν₃ ≈ 49.8 meV,   Σm_ν ≈ 60 meV
+```
+All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₂ = 2.406×10⁻³ eV² is predicted from the solar anchor alone (observed: 2.453×10⁻³ ± 0.033×10⁻³ eV², error −1.4σ).
+
+**Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the generation law; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
+
+---
+
+## 7. Relationship to Existing Physics
+
+| Framework | IDWT equivalent | Derivation status |
+|-----------|----------------|------------------|
+| Quantum mechanics | Projection of Ψ∞ to 3D slice; Born rule from ∫|Ψ∞|²dξ | ✅ |
+| Wave-particle duality | Ψ∞ is a wave; its 3D projection appears particle-like when localised | ✅ |
+| Uncertainty principle | Projection loss prevents simultaneous position+momentum specification | ✅ |
+| Special relativity | □_x component of □_{M∞}; inherited Lorentz covariance from product structure | ✅ |
+| Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry | 🔶 |
+| Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
+| Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
+| CKM Cabibbo angle | sin θ_C = 1/√S(n_s,3) = 1/√20 — from seed uniqueness | ✅ |
+| Neutrino oscillations | d=5 sector, normal ordering | ✅ |
+| Confinement | Colour vector closure E = ε|N⃗| from CP² geometry | ✅ |
+| Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |
+
+**What IDWT does not yet derive:** CP violation, full CKM matrix beyond Cabibbo angle, non-Abelian gauge invariance from first principles (structural motivation only), Dirac chirality, neutrino Majorana/Dirac nature.

@@ -19,7 +19,7 @@ This is the Poisson equation of Newtonian gravity with mass m = S(n,d) × m_scal
 
 ---
 
-## 3. Einstein Field Equations ⚡
+## 3. Einstein Field Equations 🔶
 
 Varying the full action on M_∞ with respect to the visible metric, and projecting to the observable slice:
 ```
@@ -51,4 +51,4 @@ Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ�
 
 **Stage 2 — Stability:** The projected mode must survive 3D QCD dynamics. Colour-non-singlet configurations carry positive kernel energy and decohere.
 
-The unoccupied modes at n=2,3 in d=3 (predicted at 18.7 and 46.7 MeV) fail Stage 1 — they exist as resonances of M_∞ but do not project into distinct 3D fundamentals. Their absence is a prediction.
+The n=2 and n=3 modes in d=3 fail Stage 1. Their predicted masses are m_scale_3 × S(2,3) ≈ 18.8 MeV and m_scale_3 × S(3,3) ≈ 47 MeV — they exist as resonances of M_∞ but do not project into distinct 3D fundamentals. Their absence is a prediction: no stable hadron-like states should exist in the 15–50 MeV window that cannot be explained as pion relatives or nuclear states.

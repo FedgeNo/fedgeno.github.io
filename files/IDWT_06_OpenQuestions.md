@@ -27,8 +27,13 @@ What follows is an honest list of what the framework has not yet derived, with p
 
 ## Open
 
-**Tau mass residual**
-m_scale_10 = m_scale_6 is derived from g₁₀,₁₀ = g₆₆ = 1/4. The tau prediction is therefore m_τ = m_scale_6 × S(23,10) = 1775.79 MeV, −0.060% from PDG. The scale is closed. Any correction would be internal to the d=10 sector.
+**Tau mass residual (κ₁₀)**
+m_tau = m_scale_6 × S(23,10) = 1775.79 MeV, −0.060% from PDG (8.2σ). The scale is closed (m_scale_10 = m_scale_6 from tau hypercharge). The residual is the same κ₂ Casimir mechanism operating on d=10 via the d=6→d=10 back-reaction:
+```
+κ₁₀(n_tau) = 1 + A₁₀ × √C₂(SU(4), n=23) = 1 + A₁₀ × 8.81
+A₁₀ ≈ 6.8×10⁻⁵  [from m_tau residual; derivation from g_{6,10} open]
+```
+Sign is positive (d=6 acts as a source for d=10, vs. negative for κ₂ in d=4 where d=3 is a sink). The factor ~½ relative to A_{d=4} ≈ 1.4×10⁻⁴ is consistent with d=10 being one step further along the Hopf chain than d=3. Mechanism identified; coefficient not yet derived.
 
 **Λ_QCD — the mass gap**
 IDWT derives the SU(3) gauge group, Yang-Mills action, UV coupling, and β-function coefficient. What it does not derive: why Λ_QCD ≈ 310 MeV >> m_scale_3 ≈ 4.7 MeV. Geometric amplification accounts for a factor of ~45; the remaining factor of ~230 requires non-perturbative dynamics. This is the IDWT form of the Yang-Mills mass-gap problem.

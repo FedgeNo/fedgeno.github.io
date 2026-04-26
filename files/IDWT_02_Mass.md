@@ -55,11 +55,17 @@ dΦ_d/dω = 2π / (m_scale_d × S(n(ω), d−1))
 
 The phase of sector d accumulates at a rate inversely proportional to the mode density of sector d−1. This is a recursive inter-sector relation requiring no knowledge of S(n,d) directly. The mass formula m = S(n,d) × m_scale_d is not a postulate — it is the resonance condition Im[H_d(ω)] = 0, derivable from the inter-sector mode density chain.
 
-| Sector | Phase velocity | Mechanism |
-|---|---|---|
-| d=3 | ∝ 1/S(n,2) | d=2 mode density sets d=3 phase |
-| d=4 | ∝ 1/S(n,3) | d=3 mode density sets d=4 phase |
-| d=6 | ∝ 1/S(n,5) | d=5 mode density sets d=6 phase |
+### Angular structure of the kernel
+
+The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere by spherical harmonics:
+
+```
+(ξ_d·ξ_{d'})² = 1/3  [l=0, scalar]  +  (2/3)P₂(cosθ)  [l=2, tensor]
+```
+
+The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the hidden l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the Kähler curvature precession that gives the κ₂ Casimir correction to d=4 masses. All three of those come from the same tensor term.
+
+The self-coupling (d=d') has no l=2 component: P₂(1) = 1, so (ξ·ξ)² = 1 exactly on the unit sphere. Angular mixing only exists in cross-sector couplings.
 
 **Verified numerically** for d=3 (Im[H₃] = 0.0000, Re[H₃] = 1.0000 at n=1,...,6) and d=4 (residuals < 10⁻¹⁴ at n=3, 20, 72).
 
@@ -445,7 +451,16 @@ where n_min(d) is the lightest occupied mode in sector d. For d=3:
 m_scale(3)/m_e = √(g33/g66) × S(13,6)/S(1,3) = √(8√7/0.25) × 18564  ✓
 ```
 
-The g coupling ratio contributes the inter-sector amplitude ratio; the simplex factor S(n_e,6)/S(n_min(d),d) captures the mode density contrast between sectors. Both are required — neither alone reproduces the scale hierarchy.
+**Two independent error levels from the rank-1 structure:**
+
+The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
+
+- **Level 1 (sector-uniform):** OQ35 residual propagating through the scale chain. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. The rank-1 structure forces this — it is not a coincidence.
+- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel (Kähler curvature on CP²), which gives the κ₂ Casimir correction. After subtracting the d=4 sector base (+0.766%), the within-sector excess gives A ≈ 0.032% consistently for charm and top.
+
+The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
+
+**d=6/d=10 kernel symmetry:** v₆ = v₁₀ = 1/2 exactly. The kernel cannot distinguish the charged lepton sector from the tau sector — both have identical coupling strength. The mass difference between muon and tau arises entirely from different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference. This is a genuine symmetry of the kernel, broken only by the Hopf chain's sector manifold assignments.
 
 **Self-consistency derivation route:**
 The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived with zero free parameters beyond m_e and m_W.

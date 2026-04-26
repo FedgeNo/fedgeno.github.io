@@ -266,3 +266,53 @@ g(n_ν₂=15, n_Z=81) = 95 = n_H [ν₂ + Z → Higgs]
 - n_top = n_H − n_u − n_c = 95 − 3 − 20 = 72 (Higgs back-determines top)
 
 The QCP (OQ26, now closed by binomial symmetry) is equivalent to proving any one of: (A) g(d=5, n_top) = n_W; (B) n_W = 4×19 = 76; (C) n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent.
+
+---
+
+## 15. Electromagnetism from the Hopf Fiber ✅
+
+### Structure
+
+The d=2 and d=3 sectors are unified by the Hopf fibration:
+```
+S¹ → S³ → S² = CP¹
+(fiber)  (d=3)  (d=2)
+```
+
+- **d=2 (CP¹ = S²):** The base of the Hopf fibration — gauge bosons parameterize the base
+- **d=3 (S³):** The total space — quarks live here and naturally carry U(1) charge from the fiber action
+- **S¹ fiber = U(1):** The electromagnetic gauge group, not postulated — it is the Hopf fiber
+
+### Photon Derivation ✅
+
+Write Ψ∞ = A·e^{iθ}. The phase gradient defines the gauge field:
+```
+A_μ = ∂_μθ
+```
+
+This is the KK zero mode of the U(1) Hopf fiber. The field tensor:
+```
+F_μν = ∂_μA_ν − ∂_νA_μ
+```
+is the curvature 2-form of the U(1) connection. The Lorentz force equation follows from the geodesic equation in ℝ³ × S¹:
+```
+F = q(E + v × B)
+```
+Electromagnetism is not postulated — it emerges from the phase geometry of Ψ∞ via the Hopf fiber.
+
+### Massless Photon ✅
+
+In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_photon = 0 exactly. The n=0 mode exists because the U(1) fiber has a trivial representation with zero occupation — no fiber excitation means massless gauge boson. The first KK excitation (n=1) has mass m_scale_2 × 1 = 27.47 MeV, safely above photon mass bounds.
+
+### Curvature Unification
+
+Both gravity and electromagnetism are curvature 2-forms in IDWT:
+
+| Force | Bundle | Curvature object |
+|-------|--------|-----------------|
+| Electromagnetism | U(1) Hopf fiber | F_μν = ∂_[μ∂_ν]θ |
+| Gravity | Metric g_μν | Riemann tensor R^ρ_{σμν} |
+
+The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
+
+**What remains open:** The unit of electric charge q from the winding number around S¹ gives integer charge, but the elementary charge e in SI units is not yet derived. The full coupling between Ψ∞ and A_μ in the action needs to be specified.

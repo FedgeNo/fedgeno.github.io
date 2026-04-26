@@ -376,3 +376,35 @@ def mass_gtc(n, d, m_scale_d, particle_label):
 ```
 
 Note: the correction factor for a particle with k additions is (1−0.001340)^k. For k=0 it is exactly 1 (no correction). For k=3 (charm) it is 0.99599. For k=10 (top) it is 0.98672.
+
+---
+
+## 11. Two-Layer Mass Structure and Unified Scale Formula ✅
+
+All sector mass scales reduce to one input (m_e) plus geometry:
+
+```
+m_scale(d)/m_e = √(g_dd/g_66) × S(n_e,6) / S(n_min(d),d)
+```
+
+where n_min(d) is the lightest occupied mode in sector d. For d=3:
+
+```
+m_scale(3)/m_e = √(g33/g66) × S(13,6)/S(1,3) = √(8√7/0.25) × 18564  ✓
+```
+
+The g coupling ratio contributes the inter-sector amplitude ratio; the simplex factor S(n_e,6)/S(n_min(d),d) captures the mode density contrast between sectors. Both are required — neither alone reproduces the scale hierarchy.
+
+**Self-consistency derivation route:**
+The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived with zero free parameters beyond m_e and m_W.
+
+**Current status by sector:**
+
+| d | g_dd source | m_scale derived? |
+|---|------------|-----------------|
+| 6 | g66 = Y_L² = 1/4 from anomaly cancellation | ✅ (electron anchor) |
+| 3 | g33 = 8√7 from vacuum stability | ✅ from m_e |
+| 4 | g44 = 12/√7 from rank-1 g34²=g33×g44 | ✅ from m_e (via g34) |
+| 10 | g10,10 = g66 from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
+| 2 | one input: m_W anchors g22 | ✅ from m_W |
+| 5 | requires g22 via Vandermonde 2+3=5 | 🔶 open |

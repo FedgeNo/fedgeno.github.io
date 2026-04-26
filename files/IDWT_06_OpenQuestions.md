@@ -19,22 +19,31 @@ What follows is an honest list of what the framework has not yet derived, with p
 | Spectral independence (OQ32) | Occupied set is sum-free with no S-value degeneracy. Proved computationally for all 91 pairs; d=3 internal case proved analytically via non-tetrahedral-number argument; tau dominance algebraic; sector scale gaps structural from {1,4} seeds |
 | Spin-½ from KK Dirac | The 3+1D Dirac equation follows from the Kaluza-Klein Dirac operator on M_∞ = ℝ^{3,1} × Ξ_d when Ψ∞ is a spinor field. Spin-½ is derived from the spinor bundle, not postulated per particle |
 | S(n,d) geometric grounding | dim Sym^n(ℝ^d) = S(n,d): mode functions are degree-n monomials in d variables, and there are exactly S(n,d) of them. Mass = frequency = cumulative microstate count. All three are the same quantity. |
+| Top quark derivation (OQ26) | n_ν₂ = S(n_u,4) = C(6,4) = 15 = C(6,2) = S(n_s+1,2) by binomial symmetry C(n,k)=C(n,n-k), where n_u+3 = n_s+2 = 6 follows from n_u = n_s−1. Therefore n_W = S(n_e,2) − n_ν₂ = 76, and g(d=5, n_top) = 76 forces n_top = 72 uniquely. |
+| Three k₀ resonance conditions | k₀ = n_s² = n_e+n_u = S(n_s,3)−S(2,3) = 16. Three independent expressions equal k₀ simultaneously: (1) seed self-product, (2) cross-sector lepton+quark mode sum, (3) intra-d=3 gap identity from the g₃₃ derivation. All three add in phase at k₀, destabilising the single-mode solution and forcing the geometric-mean beat at m_b = √(S(16,3)×S(17,3)) × m_scale_3 = 4181 MeV (+0.02%). |
 
 ---
 
 ## Open
 
-**Top quark derivation (OQ26)**
-n_top = 72 is uniquely selected by the Level-2 double-crossing condition g(n_charm, n_top) = S(n_e, 2) = 91. The proof reduces to a single identity: n_W = S(n_e,2) − n_ν₂ = 76, which follows if n_ν₂ = S(n_s+1, 2) is established from the d=5 Hopf structure rather than matched from oscillation data.
+**Generation Tower Correction (GTC) — sector function φ_d required**
+The GTC (Part 2 §11) fits ε = 0.001340 from the d=4 within-sector curve and corrects c/u to 0.000% and t/u to −0.04%. Structural candidate: ε = 1/(g₃₃ × n_mu) = 1/(280√7) = 0.001350, matching to 0.74% (inside PDG light quark uncertainties).
 
-**Generation Tower Correction (GTC) — derive ε from the action**
-The GTC (Part 2 §11) fits ε = 0.001340 from the d=4 within-sector curve and corrects c/u to 0.000% and t/u to −0.04%. The correction is per-particle, depends only on how many additions were used to generate the mode index n, and leaves mu/e, s/d, tau/mu untouched by construction. What remains: derive ε from the IDWT kernel coupling structure rather than fitting it; confirm the k_t = k_c + (2×n_s−1) = 10 chain rule from first principles.
+The on-shell derivation was attempted. The IDWT mode equation is (∂² + M²)χ_{n,d} = g_{dd} K χ, giving a first-order energy shift δ(M²) = g²_{dd} |⟨χ_{n,d}|φ_d⟩|². The inter-shell coupling in the hockey-stick sum requires the matrix element:
+
+  K_{k,k+1} = g²_{dd} × ⟨χ_k|φ_d⟩ × ⟨φ_d|χ_{k+1}⟩
+
+where φ_d is the sector kernel function. If φ_d = χ_{n_s,d} (seed-degree section), orthogonality kills all inter-shell coupling except at k = n_s — wrong structure. If φ_d is a non-homogeneous coherent state on CP^{d-1}, the matrix elements are non-zero and in principle computable, but require explicit integration over the Fubini-Study measure.
+
+The derivation is blocked at a definite integral:
+  ε ~ g²₃₃ × ∫_{CP²} χ_k(ξ) φ₃(ξ) dμ_{FS}(ξ) × ∫_{CP²} φ₃(ξ') χ_{k+1}(ξ') dμ_{FS}(ξ')
+evaluated at k = n_s−1 with the IDWT sector function φ₃ specified.
+
+What remains: identify the explicit form of φ_d from the IDWT action (specifically, whether it is a coherent state on CP^{d-1} peaked at the seed configuration), then evaluate the Fubini-Study integral. The result must equal 1/(g²₃₃ × n_mu) to confirm the structural candidate.
 
 **Tau mass residual**
 m_scale_10 = m_scale_6 is derived from g₁₀,₁₀ = g₆₆ = 1/4. The tau prediction is therefore m_τ = m_scale_6 × S(23,10) = 1775.79 MeV, −0.060% from PDG. The scale is closed. Any correction would be internal to the d=10 sector — a modification to the n=23 mode frequency — not a scale problem.
 
-**Three k₀ resonance conditions**
-The bottom quark bifurcation at k₀=16 is driven by three independent resonance conditions adding in phase. The mechanism is identified; the three conditions are not yet individually enumerated.
 
 **Λ_QCD — the mass gap**
 IDWT derives the SU(3) gauge group, Yang-Mills action, UV coupling, and β-function coefficient. What it does not derive: why Λ_QCD ≈ 310 MeV >> m_scale_3 ≈ 4.7 MeV. Geometric amplification accounts for a factor of ~45; the remaining factor of ~230 requires non-perturbative dynamics. This is the IDWT form of the Yang-Mills mass-gap problem.

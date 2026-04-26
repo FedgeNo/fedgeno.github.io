@@ -211,3 +211,58 @@ sin θ_C = 1/√S(n_strange, 3) = 1/√20 = 0.2236   (PDG: 0.2245, −0.40%)
 ```
 
 The Cabibbo angle is the square root of the ratio of the two d=3 seed simplex values — Cabibbo's 1963 observation realised geometrically.
+
+---
+
+## 13. Spin^c Structure and Hypercharge Determination ✅
+
+CP² is spin^c (not spin). The spin^c structure requires an auxiliary U(1) bundle — geometrically forced, naturally identified with U(1)_Y (hypercharge).
+
+**N_c = 3 determines all SM hypercharges via gauge anomaly cancellation:**
+
+```
+SU(2)²U(1) anomaly: N_c Y_Q + Y_L = 0  →  Y_Q = 1/(2N_c) = 1/6
+SU(3)²U(1) anomaly: 2Y_Q = Y_u + Y_d   →  Y_u + Y_d = 1/3
+Electric charge:    Q = T₃ + Y          →  Q_u = 2/3, Q_d = −1/3  ✓
+```
+
+All four independent anomaly conditions cancel exactly with SM values. Fractional hypercharges (1/6, 2/3, −1/3) are not inputs — they follow from N_c = 3 from CP² geometry.
+
+**The N_c chain:**
+```
+IDWT d=4 sector: CP² = SU(3)/U(2)
+→ Dirac index = C(3,2) = 3 = N_c
+→ SU(2)²U(1) anomaly-free: Y_Q = 1/(2N_c) = 1/6
+→ All SM hypercharges determined from geometry alone
+```
+
+**What remains open:** Left/right chirality structure (requires zero-mode content of D^c on CP²); generation number (N_gen = N_c = 3 suggestive but unproved).
+
+---
+
+## 14. Sector Coupling Map and Boson Generation Chain ✅
+
+The Vandermonde coupling g(a,b) = a+b−1 between mode indices generates exact inter-sector relationships. Complete scan of all sector dimensions against all named modes:
+
+| Coupling | Result | Identification |
+|---------|--------|----------------|
+| g(d=4, n_ν₁=10) | 13 | n_e — d=4 + ν₁ → electron ✓ |
+| g(d=4, n_c=20) | 23 | n_τ — d=4 + charm → tau ✓ |
+| g(d=5, n_top=72) | 76 | n_W — ν-sector + top → W boson ✓ |
+| g(d=6, n_W=76) | 81 | n_Z — lepton + W → Z boson ✓ |
+| g(n_ν₂=15, n_Z=81) | 95 | n_H — ν₂ + Z → Higgs ✓ |
+| g(d=10, n_s=4) | 13 | n_e — tau + strange → electron ✓ |
+
+**Boson generation chain:**
+```
+g(d=5, n_top=72) = 76 = n_W   [ν-sector + top → W]
+g(d=6, n_W=76)   = 81 = n_Z   [lepton + W → Z]
+g(n_ν₂=15, n_Z=81) = 95 = n_H [ν₂ + Z → Higgs]
+```
+
+**Sum rules:**
+- n_u + n_c = n_τ = 23 (generation law consequence)
+- n_u + n_c + n_top = n_H = 95 (all d=4 quarks sum to Higgs)
+- n_top = n_H − n_u − n_c = 95 − 3 − 20 = 72 (Higgs back-determines top)
+
+The QCP (OQ26, now closed by binomial symmetry) is equivalent to proving any one of: (A) g(d=5, n_top) = n_W; (B) n_W = 4×19 = 76; (C) n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent.

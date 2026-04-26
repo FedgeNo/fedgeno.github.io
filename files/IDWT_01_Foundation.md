@@ -31,14 +31,39 @@ Both emerge from the same geometric structure: mass is the count of hidden micro
 
 ## 2. Projection and the Born Rule ✅
 
-The observable probability density is:
+### 2.1 Observable Reality as a Cross-Section
+
+Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of a 3D sphere. The circle is unaware it is a cross-section. Our entire observable universe is one such slice — its contents (matter, energy, space) are determined by the global structure of Ψ∞ evaluated at ξ⁰.
+
+### 2.2 The Projection Operator
+
+```
+Π: Ψ∞(r, ξ, t)  →  ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
+```
+
+This is a restriction map — it picks out one hypersurface from the full infinite-dimensional field at fixed ξ⁰.
+
+### 2.3 The Born Rule is Not a Postulate
+
 ```
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
 ```
 
-This is not a postulate — it is geometrically necessary given what "observable" means. **Probability is projection loss.** An electron is not fundamentally a cloud; the cloud is the 3D shadow of a structured object in higher-dimensional space.
+This is geometrically necessary given what "observable" means. **Probability is projection loss.** An electron is not a cloud — the cloud is the 3D shadow of a structured object in higher-dimensional space. This also closes the Born rule derivation from Furstenberg theory (§121, IDWT_13): the unique stationary distribution of the projected deterministic cocycle on the neutral bundle is μ ∝ |ψ|².
 
 Entangled particles are features of Ψ∞ that are close together in the hidden dimensions even when their 3D projections are far apart. Their apparent nonlocal correlation is local interaction through hidden geometry.
+
+### 2.4 Connection to Cut-and-Project Construction
+
+The IDWT projection mechanism is structurally identical to the cut-and-project method used to construct quasicrystals. The three-step architecture:
+
+1. **Full space:** M_∞ (infinite-dimensional manifold supporting Ψ∞)
+2. **Slice:** ψ_obs = Ψ∞(r, ω⁰, t) at fixed ω⁰
+3. **Acceptance window:** Two-stage filter (Stage-1 projection mismatch Ω_log + Stage-2 colour closure)
+
+The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the projection geometry.
+
+Key difference from quasicrystals: IDWT projects a continuous wave equation — modes have continuous suppression exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, mass gaps between successive occupied modes approach the ratio S(n+1,d)/S(n,d) = (n+d)/n → d in the large-n limit: the spectrum within each sector is asymptotically geometric.
 
 ---
 

@@ -33,18 +33,20 @@ Modes with Ω_log > ~1.5 fail Stage 1. This threshold is set by the macroscopic 
 
 ### 49.2 Projection Amplitude Table
 
-| Sector | Geometry | A_rel | Physical role |
-|--------|----------|-------|---------------|
-| d=2 | CP¹ | Reference | Gauge bosons |
-| d=3 | S³ | 1.000 | Down-type quarks |
-| d=4 | CP² | 0.313 | Up-type quarks |
-| d=5 | S⁵ | ~0.2 | Neutrinos |
-| d=6 | CP³ | ~0.15 | Charged leptons |
-| d=10 | CP⁵ | ~0.05 | Tau (octonionic) |
+| Sector | Geometry | Physical role | Projection strength |
+|--------|----------|---------------|---------------------|
+| d=2 | CP¹ | Gauge bosons | full (gauge) |
+| d=3 | S³ | Down-type quarks | full (colour-protected) |
+| d=4 | CP² | Up-type quarks | full (colour-protected) |
+| d=5 | S⁵ | Neutrinos | suppressed |
+| d=6 | CP³ | Charged leptons | suppressed |
+| d=10 | CP⁵ | Tau | most suppressed |
+
+Quarks (d=3,4) project at full strength because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c. The suppression hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§50.9).
 
 ### 49.3 Stage-2 Stability
 
-Stage 2 requires that the projected mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (see §49.4d).
+Stage 2 requires that the projected mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (Part 7 §49.4).
 
 ---
 
@@ -70,15 +72,7 @@ m_b = √(S(16,3) × S(17,3)) × m_scale_3
 ```
 PDG: 4,180 ± 10 MeV. Error: +0.02%.
 
-The bottom quark is NOT a simplex mode at n=16 or n=17 — it is the geometric-mean beat between them: m_b = √(S(16,3)×S(17,3)) × m_scale_3. The three k₀ conditions force the drive D_{16} to exceed the stability threshold, making single-mode occupation at n=16 unstable. The beat partner n=17 follows automatically as k₀+1. The two coincidences below are structural notes, not additional derivations:
-
-| Route to k₀=16 | Expression | Type |
-|----------------|-----------|------|
-| Primary | n_s² = 4² = 16 | d=3 seed self-product |
-| Cross-sector | n_e + n_u = 13+3 = 16 | Lepton+quark resonance |
-| Intra-d=3 | S(4,3)−S(2,3) = 20−4 = 16 | Gap identity from g₃₃ derivation |
-
-The beat partner: n=17 = k₀+1 = n_c−n_u = 20−3.
+The beat partner n=17 = k₀+1 = n_c−n_u = 20−3.
 
 ### 49.4c g_{3,4} Effective Coupling at the Bifurcation 🔶
 
@@ -86,23 +80,32 @@ The exact cross-coupling g_{3,4} = 4√6 is now fully derived from seed structur
 
 ---
 
+### 49.5 Cross-Sector Two-Delay Beats
+
+The (d,d') sector pairs give additional predicted resonances:
+
+| Pair | Beat (MeV) | Identification | Error |
+|------|-----------|----------------|-------|
+| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% ✅ |
+| (4,6) | 1207.6 | a₁(1260) = 1230 MeV | −1.82% |
+
+The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.
+
 ### 49.7 Complete d=3 Sideband Beat Tower
 
 The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 generates a full tower:
 
 | n, n+1 | Beat (MeV) | Nearest state | Match |
 |--------|------------|---------------|-------|
-| 4, 5 | 123.5 | π⁰ (134.98) | −8.5% |
-| 11, 12 | 1506.2 | f₂(1525) | −1.2% 🔶 |
+| 4, 5 | 124.4 | π⁰ (134.98) | −7.8% |
+| 11, 12 | 1517.1 | f₂(1525) | −0.5% |
 | **16, 17** | **4181** | **b quark (4180)** | **+0.02% ✅** |
-
-Beats at n < 4 lie below pion threshold and would appear as dark-sector states. The f₂(1525) match is numerical; J^PC verification pending.
 
 ---
 
 ## 50. Two-Stage Filter — Summary ✅
 
-The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as a resonance. Observable particles satisfy both filters. The co-fixed-point uniqueness (§23.9d), spectral independence (§60.3–60.4), and sideband mechanism (§49.4) are all consequences.
+The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as a resonance. Observable particles satisfy both filters. The co-fixed-point uniqueness (Part 1 §5), spectral independence, and sideband mechanism (§49.4 above) are all consequences.
 
 **Laser cavity analogy:**
 
@@ -155,7 +158,7 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 
 ---
 
-## 51. CP^d Projection — Implications and Open Problems 🔶
+## 51. CP^d Projection Geometry 🔶
 
 **What is established:**
 - Exponential hierarchy A_rel = exp(−c_d λ̂_d) with geometrically fixed c_d = d/(d+1)²
@@ -166,12 +169,12 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 **What remains open:**
 - Deriving λ̂_d from vacuum dynamics on CP^d × M⁴
 - Deriving the 3D gauge group from U(d) subgroups
-- Chirality: zero modes of the Dirac operator on CP^d with Hopf flux (Secs 59.8–59.9)
+- Chirality: zero modes of the Dirac operator on CP^d with Hopf flux (see Part 8 §59)
 - Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|
 | m_scale_d hierarchy | A_rel(d) suppression: m_scale_d ∝ (ℏc/R_d) × A_rel |
 | Quarks project strongly | Colour protection forces λ_d = 0 for triplets |
-| 49.2 heuristic A_rel | Replaced by exp(−c_d λ̂_d) with geometrically fixed c_d |
-| Vacuum stability fixes g_res* | Analogous: vacuum stability should fix λ̂_d |
+| Stage-1 heuristic A_rel | Replaced by exp(−c_d λ̂_d) with geometrically fixed c_d |
+| Vacuum stability fixes g₃₃ | Analogous: vacuum stability should fix λ̂_d |

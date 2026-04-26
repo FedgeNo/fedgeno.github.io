@@ -6,27 +6,7 @@ All fundamental forces emerge from the geometry of Ψ∞ and the sector structur
 
 ## 1. Electromagnetism ✅
 
-The d=2 and d=3 sectors are related by the Hopf fibration S¹ → S³ → S²:
-
-```
-d=2: CP¹ = S²   — the base (gauge bosons)
-d=3: S³          — the total space (down quarks)
-fiber: S¹ = U(1) — the electromagnetic gauge group
-```
-
-Writing Ψ∞ = A · e^(iθ) in polar form, the phase gradient defines the gauge field:
-```
-A_μ = ∂_μ θ
-```
-
-The electromagnetic field tensor is the curvature of this phase field:
-```
-F_μν = ∂_μ A_ν − ∂_ν A_μ
-```
-
-A charged particle following a geodesic in ℝ³ × S¹ obeys the Lorentz force equation. **Electromagnetism is not postulated — it emerges from the phase geometry of Ψ∞ through the Hopf fiber.**
-
-**The photon is massless** because its mode index is n=0: S(0,2) = C(1,2) = 0, so m_photon = m_scale_2 × 0 = 0. Derived, not assumed.
+Electromagnetism emerges from the U(1) Hopf fiber connecting the d=2 and d=3 sectors. Writing Ψ∞ = A·e^{iθ}, the phase gradient A_μ = ∂_μθ is the photon field; its curvature F_μν = ∂_μA_ν − ∂_νA_μ gives Maxwell's equations. The photon is massless because its mode index is n=0: S(0,2) = 0. Full derivation in §14.
 
 ---
 
@@ -78,13 +58,13 @@ Assign each quark a colour expectation vector n⃗ ∈ ℝ⁸ (the 8 Gell-Mann m
 
 The energy of a composite system is:
 ```
-E = ε |Σᵢ n⃗(qᵢ)|
+E_conf = λ_c |Σᵢ n⃗(qᵢ)|
 ```
 
 This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
-- **Mesons:** only colour-matched qq̄ pairs give Σn⃗ = 0 → E = 0. All others cost 2ε.
-- **Baryons:** only the (r,g,b) combination and permutations give Σn⃗ = 0 → E = 0.
+- **Mesons:** only colour-matched qq̄ pairs give Σn⃗ = 0 → E_conf = 0. All others cost 2λ_c.
+- **Baryons:** only the (r,g,b) combination and permutations give Σn⃗ = 0 → E_conf = 0.
 
 Confinement is not postulated. It is a necessary consequence of the CP² isometry group acting on the colour vector space.
 
@@ -122,21 +102,13 @@ The full sector Dirac index table:
 | 4 | CP² | 3 | 3 quark colours — exact |
 | 5 | S⁵ | 0 | Weyl neutrinos via coupling |
 | 6 | CP³ | 4 | Full lepton generation (ν_L, e_L, e_R, ν_R) |
-| 10 | CP⁵ | 1 | Tau singlet (octonionic reduction) |
+| 10 | CP⁵ | 6 | Tau octonionic sector 🔶 |
 
 ---
 
 ## 8. Hypercharges from Anomaly Cancellation ✅
 
-With N_c = 3 from the CP² Dirac index, all SM hypercharges follow from requiring gauge anomaly cancellation:
-
-```
-SU(2)²U(1): N_c Y_Q + Y_L = 0  →  Y_Q = 1/6,  Y_L = −1/2
-```
-
-With Q = T₃ + Y: Q_u = 2/3, Q_d = −1/3. **Fractional quark charges are not inputs — they follow from three colours.**
-
-This also gives g₆₆ = Y_L² = 1/4, consistent with the coupling derivation in Part 2.
+With N_c = 3 from the CP² Dirac index, all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours.
 
 ---
 
@@ -157,7 +129,7 @@ b₀ > 0 → **asymptotic freedom is a derived result.** The β-function coeffic
 
 ## 10. Electroweak Predictions ✅
 
-With m_W as the single d=2 input:
+With m_W = 80,377 MeV as the empirical measurement setting the d=2 sector scale:
 
 | Observable | IDWT | Observed | Error |
 |---|---|---|---|
@@ -254,36 +226,7 @@ IDWT d=4 sector: CP² = SU(3)/U(2)
 
 ---
 
-## 14. Sector Coupling Map and Boson Generation Chain ✅
-
-The Vandermonde coupling g(a,b) = a+b−1 between mode indices generates exact inter-sector relationships. Complete scan of all sector dimensions against all named modes:
-
-| Coupling | Result | Identification |
-|---------|--------|----------------|
-| g(d=4, n_ν₁=10) | 13 | n_e — d=4 + ν₁ → electron ✓ |
-| g(d=4, n_c=20) | 23 | n_τ — d=4 + charm → tau ✓ |
-| g(d=5, n_top=72) | 76 | n_W — ν-sector + top → W boson ✓ |
-| g(d=6, n_W=76) | 81 | n_Z — lepton + W → Z boson ✓ |
-| g(n_ν₂=15, n_Z=81) | 95 | n_H — ν₂ + Z → Higgs ✓ |
-| g(d=10, n_s=4) | 13 | n_e — tau + strange → electron ✓ |
-
-**Boson generation chain:**
-```
-g(d=5, n_top=72) = 76 = n_W   [ν-sector + top → W]
-g(d=6, n_W=76)   = 81 = n_Z   [lepton + W → Z]
-g(n_ν₂=15, n_Z=81) = 95 = n_H [ν₂ + Z → Higgs]
-```
-
-**Sum rules:**
-- n_u + n_c = n_τ = 23 (generation law consequence)
-- n_u + n_c + n_top = n_H = 95 (all d=4 quarks sum to Higgs)
-- n_top = n_H − n_u − n_c = 95 − 3 − 20 = 72 (Higgs back-determines top)
-
-The QCP (OQ26, now closed by binomial symmetry) is equivalent to proving any one of: (A) g(d=5, n_top) = n_W; (B) n_W = 4×19 = 76; (C) n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent.
-
----
-
-## 15. Electromagnetism from the Hopf Fiber ✅
+## 14. Electromagnetism from the Hopf Fiber ✅
 
 ### Structure
 

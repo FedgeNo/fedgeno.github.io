@@ -1,4 +1,4 @@
-# IDWT — Part 4: Gravity & Observability
+# IDWT — Part 4: Gravity
 
 ---
 
@@ -51,4 +51,14 @@ Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ�
 
 **Stage 2 — Stability:** The projected mode must survive 3D QCD dynamics. Colour-non-singlet configurations carry positive kernel energy and decohere.
 
-The n=2 and n=3 modes in d=3 fail Stage 1. Their predicted masses are m_scale_3 × S(2,3) ≈ 18.8 MeV and m_scale_3 × S(3,3) ≈ 47 MeV — they exist as resonances of M_∞ but do not project into distinct 3D fundamentals. Their absence is a prediction: no stable hadron-like states should exist in the 15–50 MeV window that cannot be explained as pion relatives or nuclear states.
+The Stage-1 filter has an exact occupation criterion from the Ω_log suppression factor exp(−Ω_log) = S(n,2)/S(n,3) for d=3:
+
+| n | Ω_log | Occupied? |
+|---|-------|-----------|
+| 1 | 0.000 | ✅ down quark |
+| 2 | 0.288 | no — 18.8 MeV |
+| 3 | 0.511 | no — 47.0 MeV |
+| 4 | 0.693 | ✅ strange quark |
+| 5+ | >0.85 | no |
+
+Both occupied modes satisfy Ω_log ≤ ln 2. All unoccupied modes are suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.

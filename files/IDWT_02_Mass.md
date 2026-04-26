@@ -36,8 +36,6 @@ This is not decoration. It is the engine of the entire spectrum.
 
 ## 2. The Per-Sector Comb Filter H_d(ω) ✅
 
-**Status: ✅ Constructed and verified (§120b).**
-
 The cross-sector filter Γ₃₄₆(ω) gives the ρ meson (§10). The intra-sector filter H_d(ω) gives fermion masses:
 
 ```
@@ -63,33 +61,13 @@ The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere b
 (ξ_d·ξ_{d'})² = 1/3  [l=0, scalar]  +  (2/3)P₂(cosθ)  [l=2, tensor]
 ```
 
-The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the hidden l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the Kähler curvature precession that gives the κ₂ Casimir correction to d=4 masses. All three of those come from the same tensor term.
+The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the hidden l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
 
 The self-coupling (d=d') has no l=2 component: P₂(1) = 1, so (ξ·ξ)² = 1 exactly on the unit sphere. Angular mixing only exists in cross-sector couplings.
 
 **Verified numerically** for d=3 (Im[H₃] = 0.0000, Re[H₃] = 1.0000 at n=1,...,6) and d=4 (residuals < 10⁻¹⁴ at n=3, 20, 72).
 
 **Base case d=1:** N₁(x) = x, so H₁(ω) = exp(iωτ) with τ = 2π/m_scale₁ — a single constant-delay comb filter. ✓
-
-Each sector has a natural transfer function:
-
-```
-H_d(ω) = exp(2πi N_d(ω / m_scale_d))
-```
-
-where N_d is the continuous inverse of S(n,d): N_d(S(n,d)) = n. The phase closure condition Im[H_d(ω)] = 0 holds exactly when ω = S(n,d) × m_scale_d — at every particle mass in that sector, and nowhere else. Every zero is constructive: Re[H_d] = +1 at each resonance.
-
-H_d is not a constant-delay comb. Its phase velocity dΦ/dω is set by the mode density of sector (d−1): dΦ_d/dω ∝ 1/S(n, d−1). Each sector's filter is determined by the sector one dimension below, recursing to the base case:
-
-```
-d=1:  H₁(ω) = exp(iωτ)   — a plain constant delay
-d=2:  phase velocity set by S(n,1) = n
-d=3:  phase velocity set by S(n,2) = triangular numbers
-d=4:  phase velocity set by S(n,3) = tetrahedral numbers
-...
-```
-
-The simplex spectrum emerges from this recursion, not from inserting S(n,d) directly.
 
 ---
 
@@ -143,7 +121,7 @@ The Vandermonde-Chu identity is the hockey-stick identity applied twice and conv
 
 This proves: **the d=6 oscillator is exactly the tensor product of two d=3 oscillators.** The lepton sector (d=6 = d=3 ⊗ d=3) is colour-neutral because it is built from products of colour spaces, not embedded in one. This is the geometric origin of the lepton/quark distinction.
 
-Verification: C(40,6) = C(15,3) × C(38,3) = 455 × 8,436 = 3,838,380 — not a coincidence, a theorem.
+Verification (N=32): Σ_{k=0}^{32} C(k+2,2) × C(32−k+2,2) = 435,897 = C(37,5) ✓
 
 ---
 
@@ -155,7 +133,7 @@ The two seeds are not chosen. They are forced by the hockey-stick structure itse
 
 **n_strange = 4** is forced because it is the unique positive integer satisfying S(n,4) = 35 = n_muon. The muon occupies mode 35 in d=6. Only n=4 maps there via the simplex function in d=4. Why is 35 the muon's mode? Because 35 = S(4,4) = 1+4+10+20 — the hockey-stick sum of the d=4 simplex through level 3. The strange quark's seed index is identified by requiring its hockey-stick image in d=4 to land on an occupied lepton mode. No other integer does this.
 
-At the vacuum stability coupling g_res* = 8√7, the effective energy has local minima at exactly n=1 and n=4 and nowhere else. The seeds are not chosen — they are the fixed points.
+At the vacuum stability coupling g₃₃ = 8√7, the effective energy has local minima at exactly n=1 and n=4 and nowhere else. The seeds are not chosen — they are the fixed points.
 
 ---
 
@@ -173,7 +151,7 @@ n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal
 n_ν₃    = n_ν₁ + n_ν₂ − n_up = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
 n_top   = 2 × S(8, 2)   = 72      [triangular ladder on n_strange]
-n_W     = n_strange + n_top = 76
+n_W     = n_strange + n_top = 76  [= g(d=5, n_top): d_ν−1 = n_s so g(d=5,n_top) = n_s+n_top]
 n_Z     = n_down + n_strange + n_W = 81
 n_Higgs = n_down + n_e + n_Z = 95
 ```
@@ -199,7 +177,7 @@ n_ν₃ − n_ν₂ = 7 = n_up + n_strange
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-Anchoring to the solar mass splitting: m_ν₁ ≈ 1.52 meV, m_ν₂ ≈ 8.81 meV, m_ν₃ ≈ 49.8 meV, sum ≈ 60 meV.
+Anchoring to the solar mass splitting: m_ν₁ = 1.517 meV, m_ν₂ = 8.809 meV, m_ν₃ = 49.833 meV, Σm_ν = 60.16 meV.
 
 ---
 
@@ -218,7 +196,7 @@ The bottom quark is a moiré phenomenon — an interference pattern between two 
 
 ## 9. Coupling Constants — Complete Derived Set ✅
 
-The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the four self-couplings; these four are derived independently from vacuum stability, anomaly cancellation, and co-fixed-point geometry.
+The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the four self-couplings. g₃₃ and g₄₄ come from the seed structure {n_s, n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation.
 
 ---
 
@@ -263,7 +241,7 @@ The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption �
 
 ### g₆₆ = 1/4 — from anomaly cancellation ✅
 
-With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1, §59.9), the SU(2)²U(1) gauge anomaly cancellation condition gives Y_Q = 1/(2N_c) = 1/6. The lepton hypercharge follows: Y_L = Y_Q − 1/2 = −1/3 − ... = −1/2 (from the SU(3)²U(1) condition with Q = T₃ + Y). Therefore:
+With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1 — see Part 8 §59), the SU(2)²U(1) gauge anomaly cancellation gives Y_Q = 1/(2N_c) = 1/6. The SU(3)²U(1) condition with Q = T₃ + Y then gives the lepton hypercharge Y_L = −1/2. Therefore:
 ```
 g₆₆ = Y_L² = (−1/2)² = 1/4
 ```
@@ -298,14 +276,14 @@ g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 
 ### m_scale_3 — two independent derivations that agree ✅
 
-**Route A — from the comb filter beat (OQ17, §108):**
+**Route A — from the comb filter beat (OQ17):**
 
 The Jacobi chain delays at resonance site k₀=16 are τ_d = 1/(2√(k₀+d)) in units of MeV⁻¹. The beat frequency between d=3 and d=6:
 ```
 Δτ₃₆ = τ₃ − τ₆ = 1/(2√19) − 1/(2√22) = 0.0081075 MeV⁻¹
 m_beat(3,6) = 2π / Δτ₃₆ = 774.983 MeV
 ```
-No particle masses enter — pure IDWT geometry from the seeds {1,4} (which fix k₀=16) alone. This matches the ρ meson mass to −0.036% (§109). f_SU(4) is the SU(4)/U(3) coset symmetry-breaking scale — the analogue of the pion decay constant for the coupled d=3/d=4 sector. It equals half the ρ meson mass (the ρ is the gauge boson of the d=3/d=4 chiral symmetry) and is a consequence of the beat, not an input. The combinatorial identity 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) gives:
+No particle masses enter — pure IDWT geometry from the seeds {1,4} (which fix k₀=16) alone. This matches the ρ meson mass to −0.036%. f_SU(4) is the SU(4)/U(3) coset symmetry-breaking scale — the analogue of the pion decay constant for the coupled d=3/d=4 sector. It equals half the ρ meson mass (the ρ is the gauge boson of the d=3/d=4 chiral symmetry) and is a consequence of the beat, not an input. The combinatorial identity 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) gives:
 ```
 f_SU(4)² = 448 / (m_scale_3³ × m_scale_6)   →   m_scale_3 = 4.768 MeV
 ```
@@ -324,7 +302,7 @@ m_scale_3 = m_e × √(g₃₃/g₆₆) = 0.511 × √(8√7/0.25) = 0.511 × 9.
 
 ### OQ35 — ρ Meson ✅ CLOSED
 
-The (d=3)–(d=6) comb beat matches the ρ meson mass. The exact three-delay transfer function Im[Γ_{346}(ω)] with inputs g₃₃=(8√7)², g₄₄=12/√7, g₆₆=1/4 and τ_d as above gives:
+The (d=3)–(d=6) comb beat matches the ρ meson mass. The exact three-delay transfer function Im[Γ_{346}(ω)] with inputs g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4 and τ_d as above gives:
 
 ```
 m_rho* = arg max Im[Γ_{346}(ω)] = 775.794 MeV    (PDG: 775.260 ± 0.250 MeV)
@@ -333,33 +311,21 @@ Error: +0.069%
 
 The 0.534 MeV residual is attributed to (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric IDWT, and (c) leading-order WKB approximation in τ_d. All three are O(0.5 MeV). OQ35 is closed at the 0.069% level.
 
-### m_scale_3 from f_SU(4)
-
-The ρ meson identification m_beat(3,6) = m_ρ gives f_SU(4) = m_ρ/2 = 387.5 MeV. The purely combinatorial formula (numerator 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) = 16² × 7/4):
-```
-f_SU(4)² = 448 / (m_scale_3³ × m_scale_6)
-
-m_scale_3 = (448 / (f_SU(4)² × m_scale_6))^(1/3) = 4.768 MeV
-```
-Also from coupling: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV. The 2.1% gap between these is the OQ35 residual — it vanishes if OQ35 closes exactly. Both routes give consistent results within that residual.
-
 ### OQ17 — Scale Hierarchy Closed ✅
 
-**Single empirical input: m_e = 0.51099895 MeV. All else derived.**
+**Single empirical input: m_e = 0.51099895 MeV. All else derived.** (Values below use Route A — comb filter; Route B values in "All sector scales" below.)
 
 | Quantity | Source | Value |
 |---------|--------|-------|
 | m_scale_6 | m_e/S(13,6) | 2.7526×10⁻⁵ MeV |
-| k₀ = 16 | n_s + n_e − 1 (from seeds) | exact |
+| k₀ = 16 | n_s² (from seeds) | exact |
 | m_beat(3,6) | Comb filter, k₀ | 774.983 MeV |
 | f_SU(4) | m_beat/2 | 387.492 MeV |
-| m_scale_3 | f_SU(4) + §23.10b formula | 4.768 MeV (+2.1% OQ35) |
+| m_scale_3 | comb filter Route A | 4.768 MeV (+2.1% OQ35) |
 | m_scale_4 | m_scale_3 / (15√(14/3)) | 0.1473 MeV |
 | m_scale_6/m_scale_3 | Comb filter only | 5.775×10⁻⁶ |
 
 OQ17 is closed. The uniform +0.682% offset in d=3 quark predictions and +0.766%–2.09% in d=4 are the OQ35 residual propagated through the scale chain. They are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%).
-
-**The ×(18/19) projection defect correction from §97 is obsolete.** It was correcting the approximation error in the old g₄₄ ≈ 5.01. With exact g₄₄ = 12/√7 it overcorrects to −5.2% and must not be applied.
 
 ### All sector scales
 ```
@@ -367,8 +333,7 @@ m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  
 m_scale_3  = m_e × √(g₃₃/g₆₆)                        = 4.702 MeV
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)        = 0.1451 MeV
 m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: tau Y_L = −1/2]
-m_scale_2  = m_W / S(76,2)                             = 27.47 MeV  [one input: m_W]
-m_scale_5  = open                                       [requires g₅₅]
+m_scale_2  = m_W / S(76,2)                             = 27.47 MeV  [empirical measurement: m_W]
 ```
 
 ---
@@ -413,9 +378,7 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
-**Geometric equivalence (κ₂ framework):** The same d=4 excess is described geometrically by the SU(3) Casimir correction κ₂(n) = 1 − A×√(n(n+3)/3), where √(n(n+3)/3) = √C₂ is the RMS angular momentum of mode n on CP² (§109b). The GTC and κ₂ descriptions are numerically close (both give ~0% for c/u, ~−1.3% for t/u) but physically distinct: GTC counts additive operations in the index generation tower; κ₂ measures Kähler curvature precession on the sector manifold. The coefficient A = 0.0336% in κ₂ remains fitted; ε = 1/(280√7) in GTC is derived. Both describe the same open problem — deriving the d=4 excess from the IDWT action.
-
-**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.060%, μ at −0.001% — nearly no drift). d=4 is earliest (largest n-dependent excess). This chain order is consistent with d=4 receiving downstream phase load from d=3, d=5, and d=6, while d=6 receives nothing downstream.
+**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.060%, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none.
 
 ### Results
 
@@ -424,8 +387,8 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | mu/e | −0.001% | −0.001% (Δk=0) |
 | s/d | 0.000% | 0.000% (Δk=0) |
 | c/u | +0.403% | **0.000%** |
-| t/u | +1.311% | **−0.039%** |
-| t/c | +0.904% | **−0.039%** |
+| t/u | +1.311% | **−0.048%** |
+| t/c | +0.904% | **−0.045%** |
 | tau/mu | −0.059% | −0.059% (Δk=0, separate issue) |
 
 ```python
@@ -434,44 +397,39 @@ GTC_K   = {'down':0,'strange':0,'up':0,'charm':3,
             'electron':1,'muon':1,'tau':1,'top':10,'bottom':0}
 ```
 
-
 ---
 
 ## 12. Two-Layer Mass Structure and Unified Scale Formula ✅
 
-All sector mass scales reduce to one input (m_e) plus geometry:
+All sector mass scales reduce to m_e (via m_scale_6 = m_e/S(13,6)) plus the coupling ratios:
 
 ```
-m_scale(d)/m_e = √(g_dd/g_66) × S(n_e,6) / S(n_min(d),d)
+m_scale_d = m_scale_6 × √(g_dd/g_66) × S(n_e,6) / S(n_min(d),d)
 ```
 
-where n_min(d) is the lightest occupied mode in sector d. For d=3:
-
-```
-m_scale(3)/m_e = √(g33/g66) × S(13,6)/S(1,3) = √(8√7/0.25) × 18564  ✓
-```
+where n_min(d) is the lightest occupied mode in sector d. For d=3 this gives m_scale_3 = m_scale_6 × √(g33/g66) × 18564/1 = m_e × √(g33/g66) = 4.702 MeV ✓
 
 **Two independent error levels from the rank-1 structure:**
 
 The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
 
 - **Level 1 (sector-uniform):** OQ35 residual propagating through the scale chain. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. The rank-1 structure forces this — it is not a coincidence.
-- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel (Kähler curvature on CP²), which gives the κ₂ Casimir correction. After subtracting the d=4 sector base (+0.766%), the within-sector excess gives A ≈ 0.032% consistently for charm and top.
+- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.766%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
 
 The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
 
 **d=6/d=10 kernel symmetry:** v₆ = v₁₀ = 1/2 exactly. The kernel cannot distinguish the charged lepton sector from the tau sector — both have identical coupling strength. The mass difference between muon and tau arises entirely from different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference. This is a genuine symmetry of the kernel, broken only by the Hopf chain's sector manifold assignments.
 
 **Self-consistency derivation route:**
-The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived with zero free parameters beyond m_e and m_W.
+The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived. m_e and m_W are the two empirical inputs from measurement; the framework has no free parameters.
 
 **Current status by sector:**
 
 | d | g_dd source | m_scale derived? |
 |---|------------|-----------------|
-| 6 | g66 = Y_L² = 1/4 from anomaly cancellation | ✅ (electron anchor) |
-| 3 | g33 = 8√7 from vacuum stability | ✅ from m_e |
-| 4 | g44 = 12/√7 from rank-1 g34²=g33×g44 | ✅ from m_e (via g34) |
-| 10 | g10,10 = g66 from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
-| 2 | one input: m_W anchors g22 | ✅ from m_W |
-| 5 | requires g22 via Vandermonde 2+3=5 | 🔶 open |
+| 6 | g₆₆ = Y_L² = 1/4 from anomaly cancellation | ✅ (electron anchor) |
+| 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
+| 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
+| 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
+| 2 | empirical measurement: m_W | ✅ from m_W |
+| 5 | requires g₂₂ via Vandermonde 2+3=5 | 🔶 |

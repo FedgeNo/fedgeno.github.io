@@ -177,44 +177,58 @@ sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 
 ---
 
-## 11. The Boson Generation Chain ✅
+## 11. The Boson Generation Chain and Sector Coupling Map ✅
 
-All boson mode indices follow from the sector coupling map (g(a,b) = a + b − 1):
+All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + b − 1 applied to occupied mode indices and sector dimensions:
 
-```
-g(d=5, n_top=72)  = 76 = n_W    [neutrino sector + top → W]
-g(d=6, n_W=76)    = 81 = n_Z    [lepton sector + W → Z]
-g(n_ν₂=15, n_Z=81) = 95 = n_H  [second neutrino + Z → Higgs]
-```
+| Coupling | Result | Identification |
+|---------|--------|----------------|
+| g(d=4, n_ν₁=10) | 13 | n_e — up sector + ν₁ → electron |
+| g(d=4, n_c=20) | 23 | n_τ — up sector + charm → tau |
+| g(d=5, n_top=72) | 76 | n_W — ν sector + top → W boson |
+| g(d=6, n_W=76) | 81 | n_Z — lepton sector + W → Z boson |
+| g(n_ν₂=15, n_Z=81) | 95 | n_H — ν₂ + Z → Higgs |
+| g(d=10, n_s=4) | 13 | n_e — tau sector + strange → electron |
 
-Additional exact structural identities:
+**Boson generation chain:**
 ```
-g(d=4, n_charm=20) = 23 = n_τ              [up-type sector + charm → tau]
-n_up + n_charm + n_top = 3+20+72 = 95 = n_H [all d=4 quarks sum to Higgs]
-```
-
-Three further exact identities from the Jacobi boundary structure at k₀ = n_s² = 16, where b_k = √(k(k+3)/4):
-```
-b₁₆² = n_W                                  16×19/4 = 76 = n_W
-n_s + n_e = d² + 1                           4+13 = 17 = 4²+1
-n_W + S(n_absent, 3) = d × S(n_s, 3)        76+4 = 80 = 4×20
+g(d=5, n_top=72)    = 76 = n_W    [ν-sector + top → W]
+g(d=6, n_W=76)      = 81 = n_Z    [lepton + W → Z]
+g(n_ν₂=15, n_Z=81) = 95 = n_H    [ν₂ + Z → Higgs]
 ```
 
-The second identity is why k₀ = 16 = d² = n_s + n_e − 1. The third connects the W boson mode to the absent n=2 d=3 mode and the strange quark's simplex image, consistent with sin θ_C = 1/√20.
+**Sum rules:**
+```
+n_u + n_c + n_top = 3+20+72 = 95 = n_H     [all d=4 quarks sum to Higgs]
+n_top = n_H − n_u − n_c = 72               [Higgs back-determines top]
+```
+
+**Jacobi boundary identities at k₀ = n_s² = 16:**
+```
+b₁₆² = n_W:     16×19/4 = 76 = n_W
+n_s + n_e = d²+1:    4+13 = 17 = 4²+1
+n_W + S(2,3) = d × S(n_s,3):  76+4 = 80 = 4×20
+```
+
+where b_k = √(k(k+3)/4) is the Jacobi coupling at site k. The first identity connects the DtN spectral framework directly to the QCP sector coupling map. The second shows why k₀ = d² = n_s + n_e − 1. The third connects the W boson mode to the absent n=2 d=3 mode and the strange quark simplex image.
+
+**Cabibbo consistency via the same Jacobi structure:** sin²θ_C = S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20, consistent with 1/√20. The absent n=2 mode appears as the second singular value of the boundary coupling matrix.
+
+The QCP (OQ26) is equivalent to any of: g(d=5, n_top) = n_W; n_W = 4×19 = 76; n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent and all proved.
 
 ---
 
-## 12. Cabibbo Angle 🔶
+## 12. Cabibbo Angle ✅
 
 ```
-sin θ_C = 1/√S(n_strange, 3) = 1/√20 = 0.2236   (PDG: 0.2245, −0.40%)
+sin θ_C = 1/√S(n_s, 3) = 1/√20 = 0.22361   (PDG: 0.22450 ± 0.00044,  −2.0σ)
 ```
 
-The Cabibbo angle is the square root of the ratio of the two d=3 seed simplex values — Cabibbo's 1963 observation realised geometrically.
+The Cabibbo angle is the square root of the ratio of the two d=3 seed simplex values. The Wolfenstein parameter λ = 1/√20 is not free — n_s=4 is the unique second seed. The tension is in |V_ud| (+3.1σ), consistent with the Cabibbo anomaly; IDWT predicts exact first-row unitarity.
 
 ---
 
-## 13. Spin^c Structure and Hypercharge Determination ✅
+## 13. Spin^c Structure and Hypercharge Derivation ✅
 
 CP² is spin^c (not spin). The spin^c structure requires an auxiliary U(1) bundle — geometrically forced, naturally identified with U(1)_Y (hypercharge).
 

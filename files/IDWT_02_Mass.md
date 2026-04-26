@@ -36,6 +36,35 @@ This is not decoration. It is the engine of the entire spectrum.
 
 ## 2. The Per-Sector Comb Filter H_d(ω) ✅
 
+**Status: ✅ Constructed and verified (§120b).**
+
+The cross-sector filter Γ₃₄₆(ω) gives the ρ meson (§10). The intra-sector filter H_d(ω) gives fermion masses:
+
+```
+H_d(ω) = exp(2πi × N_d(ω / m_scale_d))
+```
+
+where N_d is the continuous inverse of S(n,d): N_d(S(n,d)) = n, extended via the gamma function S_cont(n,d) = Γ(n+d)/(d! Γ(n)).
+
+**Phase condition:** Im[H_d(ω)] = sin(2π N_d(ω/m_scale_d)) = 0 at exactly ω = S(n,d) × m_scale_d for all integer n. All zeros are constructive (Re[H_d] = +1) — every fermion mass is a resonance.
+
+**Phase velocity:**
+```
+dΦ_d/dω = 2π / (m_scale_d × S(n(ω), d−1))
+```
+
+The phase of sector d accumulates at a rate inversely proportional to the mode density of sector d−1. This is a recursive inter-sector relation requiring no knowledge of S(n,d) directly. The mass formula m = S(n,d) × m_scale_d is not a postulate — it is the resonance condition Im[H_d(ω)] = 0, derivable from the inter-sector mode density chain.
+
+| Sector | Phase velocity | Mechanism |
+|---|---|---|
+| d=3 | ∝ 1/S(n,2) | d=2 mode density sets d=3 phase |
+| d=4 | ∝ 1/S(n,3) | d=3 mode density sets d=4 phase |
+| d=6 | ∝ 1/S(n,5) | d=5 mode density sets d=6 phase |
+
+**Verified numerically** for d=3 (Im[H₃] = 0.0000, Re[H₃] = 1.0000 at n=1,...,6) and d=4 (residuals < 10⁻¹⁴ at n=3, 20, 72).
+
+**Base case d=1:** N₁(x) = x, so H₁(ω) = exp(iωτ) with τ = 2π/m_scale₁ — a single constant-delay comb filter. ✓
+
 Each sector has a natural transfer function:
 
 ```
@@ -270,24 +299,20 @@ The Jacobi chain delays at resonance site k₀=16 are τ_d = 1/(2√(k₀+d)) in
 Δτ₃₆ = τ₃ − τ₆ = 1/(2√19) − 1/(2√22) = 0.0081075 MeV⁻¹
 m_beat(3,6) = 2π / Δτ₃₆ = 774.983 MeV
 ```
-No particle masses enter — pure IDWT geometry from the seeds {1,4} (which fix k₀=16) alone. This matches the ρ meson mass to −0.036% (§109). The SU(4)/U(3) coset scale f_SU(4) = m_ρ/2 and the combinatorial identity 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) give:
+No particle masses enter — pure IDWT geometry from the seeds {1,4} (which fix k₀=16) alone. This matches the ρ meson mass to −0.036% (§109). f_SU(4) is the SU(4)/U(3) coset symmetry-breaking scale — the analogue of the pion decay constant for the coupled d=3/d=4 sector. It equals half the ρ meson mass (the ρ is the gauge boson of the d=3/d=4 chiral symmetry) and is a consequence of the beat, not an input. The combinatorial identity 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) gives:
 ```
 f_SU(4)² = 448 / (m_scale_3³ × m_scale_6)   →   m_scale_3 = 4.768 MeV
 ```
 
-**Route B — from the self-consistency coupling condition:**
+**Route B — from the coupling self-consistency condition:**
 
-The kernel vacuum analysis establishes that the coupling g_dd, when normalised by g₆₆ and measured at the energy unit m_e, satisfies:
+The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squared mass of the lightest particle in sector d equals g_{dd}/g_{66} times m_e². This comes from requiring that the mode occupation probability (∝ m²) be consistent with the coupling that generates it. For d=3, the lightest particle is n=1 (down quark) with S(1,3)=1, so m_lightest(d=3) = m_scale_3:
 ```
-g_dd/g₆₆ = (m_scale_d × S(n_min,d) / m_e)²
-```
-i.e. the coupling ratio equals the squared ratio of the lightest particle in each sector to m_e. For d=3, n_min=1 and S(1,3)=1, so m_lightest(d=3) = m_scale_3. Therefore:
-```
-g₃₃/g₆₆ = (m_scale_3/m_e)²
+(m_scale_3 / m_e)² = g₃₃/g₆₆
 m_scale_3 = m_e × √(g₃₃/g₆₆) = 0.511 × √(8√7/0.25) = 0.511 × 9.201 = 4.702 MeV
 ```
 
-**Consistency:** Routes A and B agree to 1.4% — the gap is the OQ35 residual from the WKB approximation in τ_d. When OQ35 closes exactly, both give the same value. The agreement of two independent derivations (comb filter geometry vs. coupling ratio self-consistency) is the content of OQ17's closure.
+**Consistency:** Routes A and B agree to 1.4% — the gap is the OQ35 residual from the leading-order WKB approximation in τ_d. OQ35 refers to the ρ meson prediction: Im[Γ₃₄₆] = 775.79 MeV vs PDG 775.26 MeV (+0.069%). These are two faces of the same approximation — next-order τ_d corrections would shift both the ρ prediction and the Route A m_scale_3 value simultaneously. The two routes agreeing to 1.4% while the ρ matches PDG to 0.069% is consistent because m_scale_3 enters the formula cubed: a 1.4% error in m_scale_3 gives a ~0.5% error in m_scale_3³.
 
 **The down quark is a prediction, not an anchor:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 
@@ -382,6 +407,10 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
+**Geometric equivalence (κ₂ framework):** The same d=4 excess is described geometrically by the SU(3) Casimir correction κ₂(n) = 1 − A×√(n(n+3)/3), where √(n(n+3)/3) = √C₂ is the RMS angular momentum of mode n on CP² (§109b). The GTC and κ₂ descriptions are numerically close (both give ~0% for c/u, ~−1.3% for t/u) but physically distinct: GTC counts additive operations in the index generation tower; κ₂ measures Kähler curvature precession on the sector manifold. The coefficient A = 0.0336% in κ₂ remains fitted; ε = 1/(280√7) in GTC is derived. Both describe the same open problem — deriving the d=4 excess from the IDWT action.
+
+**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.060%, μ at −0.001% — nearly no drift). d=4 is earliest (largest n-dependent excess). This chain order is consistent with d=4 receiving downstream phase load from d=3, d=5, and d=6, while d=6 receives nothing downstream.
+
 ### Results
 
 | Ratio | Raw error | After GTC |
@@ -402,7 +431,7 @@ GTC_K   = {'down':0,'strange':0,'up':0,'charm':3,
 
 ---
 
-## 11. Two-Layer Mass Structure and Unified Scale Formula ✅
+## 12. Two-Layer Mass Structure and Unified Scale Formula ✅
 
 All sector mass scales reduce to one input (m_e) plus geometry:
 

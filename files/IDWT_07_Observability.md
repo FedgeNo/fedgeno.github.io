@@ -70,26 +70,19 @@ m_b = √(S(16,3) × S(17,3)) × m_scale_3
 ```
 PDG: 4,180 ± 10 MeV. Error: +0.02%.
 
-**Index coincidences (not the derivation, but structurally informative):**
+The bottom quark is NOT a simplex mode at n=16 or n=17 — it is the geometric-mean beat between them: m_b = √(S(16,3)×S(17,3)) × m_scale_3. The three k₀ conditions force the drive D_{16} to exceed the stability threshold, making single-mode occupation at n=16 unstable. The beat partner n=17 follows automatically as k₀+1. The two coincidences below are structural notes, not additional derivations:
 
 | Route to k₀=16 | Expression | Type |
 |----------------|-----------|------|
-| Quartic k₀ | n_s² = 4² | **Primary — d=3 internal** |
-| Cross-sector | n_e + n_u = 13+3 | Coincidence / resonance condition |
-| Intra-d=3 gap | S(4,3)−S(2,3) = 20−4 | Coincidence / resonance condition |
+| Primary | n_s² = 4² = 16 | d=3 seed self-product |
+| Cross-sector | n_e + n_u = 13+3 = 16 | Lepton+quark resonance |
+| Intra-d=3 | S(4,3)−S(2,3) = 20−4 = 16 | Gap identity from g₃₃ derivation |
 
-| Route to n=17 | Expression |
-|---------------|-----------|
-| Quartic K_{16,17} | k₀ + 1 |
-| Cross-sector | n_c − n_u = 20−3 |
+The beat partner: n=17 = k₀+1 = n_c−n_u = 20−3.
 
-### 49.4c g_{3,4} Effective Coupling 🔶
+### 49.4c g_{3,4} Effective Coupling at the Bifurcation 🔶
 
-From U(3)×U(4) symmetry and Vandermonde closure:
-```
-g_{3,4}^eff ≈ g_res* × √[(S(16,3)+S(17,3))/12] × 0.485 ≈ 10.3
-```
-The 0.485 Vandermonde overlap factor is fitted, not derived. OQ30b-secondary (exact g_{3,4}) remains open.
+The exact cross-coupling g_{3,4} = 4√6 is now fully derived from seed structure (Part 2 §9). At the bifurcation site k₀=16, the effective coupling involves kernel overlap integrals at n=16,17 in d=3. The bottom quark prediction (+0.02%) is consistent with g_{3,4} = 4√6; the detailed prefactor for the quartic amplitude is not yet derived from first principles.
 
 ---
 

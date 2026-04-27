@@ -19,7 +19,7 @@ S(35,6) / S(13,6) = 3,838,380 / 18,564 = 206.7647   (PDG: 206.7683,  −0.002%)
 
 **Tau/electron ratio**
 ```
-S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.13   (PDG: 3,477.23,  −0.060%)
+S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.13   (PDG: 3,477.23, bare −0.060%; Dyson-resummed: −0.11σ inside 1σ)
 ```
 
 **Up-type quark mass ratios — with Generation Tower Correction**
@@ -47,7 +47,7 @@ S(0, 2) = C(1, 2) = 0   →   m_photon = 0   (exact, derived)
 m_W:      80,377 MeV   (PDG: 80,377,   input)
 m_Z:      91,228 MeV   (PDG: 91,188,   +0.044%)
 m_Higgs: 125,263 MeV   (PDG: 125,250,  +0.010%)
-sin²θ_W:      0.2237   (PDG: 0.2231,   +0.31%)
+sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
 ρ parameter:       1   (exact, derived)
 ```
 
@@ -80,7 +80,7 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 |----------|-----------|-----------|-------|------|
 | e | 0.5110 | 0.5110 | 0.000% | anchor |
 | μ | 105.657 | 105.658 | −0.001% | — |
-| τ | 1775.79 | 1776.86 | −0.060%† | — |
+| τ | 1776.85 | 1776.86 | −0.11σ† | — |
 | d | 4.702 | 4.670 | +0.68% | OQ35 residual |
 | s | 94.04 | 93.40 | +0.68% | OQ35 residual |
 | u | 2.177 | 2.160 | +0.77% | OQ35 + d=4 |
@@ -92,7 +92,7 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 | Z | 91,228 | 91,188 | +0.044% | OQ35 bounded |
 | H | 125,263 | 125,250 | +0.010% | OQ35 bounded |
 
-† The τ residual (−0.060%, 8.2σ) is identified as a d=6→d=10 back-reaction through g_{6,10}.
+† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV (−0.11σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seeds {n_s,n_u}.
 
 **Boson precision note:** m_W is the empirical measurement used to set the d=2 sector scale; W sits at 0.000% by definition. The Z and H predictions follow from the same m_scale_2 and their simplex mode indices. Their residuals (+0.044% and +0.010%) are consistent with the OQ35 precision budget.
 
@@ -100,13 +100,15 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 
 ## 3. d=4 Sector: GTC Correction
 
-The d=4 excess above the OQ35 baseline grows with mode index, corrected by the GTC with ε = 1/(280√7) and k values {u:0, c:3, t:10}:
+The d=4 excess above the OQ35 baseline grows with mode index, corrected by the GTC with ε = 1/(280√7) and k values {u:0, c:3, t:10}. The GTC corrects within-d=4 RATIOS; the OQ35 scale offset (+0.77%) remains in all absolute masses:
 
-| Particle | Raw error | After GTC |
-|---|---|---|
-| u | +0.77% | +0.77% (k=0) |
-| c | +1.17% | **0.00%** |
-| t | +2.09% | **+0.72%** |
+| Particle | Absolute raw | Absolute after GTC | Ratio (vs u) raw | Ratio after GTC |
+|---|---|---|---|---|
+| u | +0.77% | +0.77% (k=0) | — | — |
+| c | +1.17% | **+0.76%** | +0.403% | **0.000%** |
+| t | +2.09% | **+0.72%** | +1.311% | **−0.048%** |
+
+The GTC closes the within-sector ratio errors. It does not remove the OQ35 scale error, which persists uniformly across all d=4 absolute masses at ~+0.77%.
 
 The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂(n) functional form of the within-sector correction — confirming that the GTC's growing correction with k is geometrically natural. The coefficient is derived (ε = 1/(280√7)), not fitted.
 

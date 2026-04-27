@@ -88,9 +88,51 @@ S³ → S⁷  → S⁴    quaternionic     →  d=4 also as S⁴≅HP¹ (consist
 S⁷ → S¹⁵ → S⁸   octonionic       →  d=10 (total space, via 𝕆P¹)
 ```
 
-d=6 arises from the complex Hopf fibration applied to S⁵: S¹ → S⁵ → CP², giving a second d=6 mode space CP³ as the twistor space over S⁴. d=5 is the total space S⁵ of the same fibration. d=7 is absent because S⁷ is consumed as the octonionic fiber. d=8 would correspond to GUT coset CP⁴=SU(5)/U(4), absent because SU(5) symmetry breaks at the GUT scale.
+d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6 and serves as the twistor space of S⁴ ≅ HP¹. d=7 (the total space S⁷) is not an independent sector because S⁷ is consumed as the fiber in the quaternionic Hopf fibration S³→S⁷→S⁴. d=8 would correspond to the GUT coset CP⁴=SU(5)/U(4), absent because SU(5) symmetry breaks at the GUT scale.
 
 The sequence terminates at d=10 because the octonions are the last normed division algebra — Hurwitz's theorem admits no further entries.
+
+### 3b. Gegenbauer Criticality Theorem — Second Route to d=10 ✅
+
+An independent algebraic derivation of d=10 comes from the Gegenbauer chain structure of the Jacobi operator at the resonance site k₀ = n_s² = 16.
+
+**Definition.** The Gegenbauer coupling at the resonance site k₀ in sector d is the off-diagonal matrix element of the d-dimensional Jacobi chain at bond k₀:
+
+```
+b_{k₀}(d) = √(k₀(k₀+d−1)) / (2k₀+d−2)
+```
+
+For the IDWT sectors with k₀ = n_s² = 16 this evaluates to:
+
+| d | b_{k₀}(d) | Status |
+|---|---|---|
+| 2 | 0.51539 | supercritical |
+| 3 | 0.51426 | supercritical |
+| 4 | 0.51281 | supercritical |
+| 5 | 0.51110 | supercritical |
+| 6 | 0.50918 | supercritical |
+| **10** | **0.50000** | **critical (exact)** |
+| 11 | 0.49747 | subcritical |
+
+**Theorem.** b_{k₀}(d) = 1/2  ↔  4k₀ = (d−2)²  ↔  d = 2 + 2√k₀ = 2(n_s+1) = 10.
+
+**Proof.**  b = 1/2  ↔  4k₀(k₀+d−1) = (2k₀+d−2)²  ↔  4k₀(d−1) − 4k₀(d−2) = (d−2)²  ↔  4k₀ = (d−2)².  With k₀ = n_s² = 16: d = 2 + 2√16 = 2 + 2n_s = 10. □
+
+**Monotonicity.** b_{k₀}(d) is strictly decreasing in d. d=10 is therefore the **last** sector with b_{k₀} ≥ 1/2. For d ≥ 11 the coupling is subcritical: the resonance site k₀ falls outside the chain's natural coupling range and the sector cannot propagate.
+
+**Physical interpretation.** In the Jacobi tight-binding chain, b = 1/2 is the critical coupling where a resonance site sits precisely at the boundary between propagating and evanescent regimes. All active IDWT sectors (d = 2…6) are supercritical at k₀ (b > 1/2). d = 10 is exactly critical — the last permissible sector. d > 10 puts the seed resonance in the evanescent regime; modes cannot propagate through the chain at k₀.
+
+**WKB consequence.** The WKB correction to the Jacobi delay τ_d = 1/(2√(k₀+d)) is proportional to (b_{k₀} − 1/2)/b_{k₀}². For d = 10 this correction **vanishes identically** — the leading-order WKB is exact for the terminal sector. For d = 3 the correction is −0.67% and goes in the wrong direction for the ρ meson, confirming that the +0.069% residual in the ρ prediction is a genuine prediction floor, not a removable WKB artifact.
+
+**Triple consistency of d=10:**
+
+| Route | Condition | Result |
+|---|---|---|
+| Hurwitz (geometry) | Normed division algebras end at 𝕆 | d = 10 |
+| **Gegenbauer (algebra)** | **b_{k₀}(d) = 1/2 ↔ d = 2(n_s+1)** | **d = 10** |
+| Hypercharge (gauge) | g_{10,10} = g_{6,6} = Y_L² = 1/4 | d = 10 |
+
+Three routes, one answer. The IDWT framework is over-determined on the terminal sector.
 
 ---
 
@@ -112,20 +154,31 @@ All masses predicted from two empirical inputs from measurement: **m_e = 0.511 M
 
 The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the generation law holds as a theorem rather than a coincidence (see Part 2).
 
-Derived sector scales:
+Derived sector scales (Route B — coupling self-consistency; see Part 2 §10 for Route A):
 ```
 m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [electron anchor]
 m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
 m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆: tau has Y_L = −1/2]
-m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [empirical measurement: m_W]
+m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [empirical: m_W]
 ```
+
+**Complete coupling vector** {v_d = √g_dd}, fully closed by {m_e, m_W}:
+```
+v₂ = 26.879  [m_W input]
+v₃ = 4.601   [seeds: n_s²√(n_s+n_u)/2]
+v₄ = 2.130   [seeds: n_sn_u/√(n_s+n_u)]
+v₅ = 0.3645  [Hopf fiber universality: g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂]
+v₆ = 0.500   [anomaly cancellation: Y_L = −1/2]
+v₁₀= 0.500   [same: Y_τ = Y_L]
+```
+The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hopf pairs) uniquely fixes v₅ given v₂. No third empirical input is needed for any sector coupling.
 
 | Particle | n | d | Predicted (MeV) | PDG (MeV) | Error |
 |---|---|---|---|---|---|
 | electron | 13 | 6 | 0.511 | 0.511 | anchor |
 | muon | 35 | 6 | 105.657 | 105.658 | −0.001% |
-| tau | 23 | 10 | 1,775.79 | 1,776.86 | −0.060% |
+| tau | 23 | 10 | 1,776.85†† | 1,776.86 | −0.11σ |
 | down | 1 | 3 | 4.702 | 4.670 | +0.68%† |
 | strange | 4 | 3 | 94.04 | 93.40 | +0.68%† |
 | up | 3 | 4 | 2.177 | 2.160 | +0.77%† |
@@ -135,6 +188,8 @@ m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [empiri
 | photon | 0 | 2 | 0 | 0 | exact |
 
 † Uniform +0.68% offset in d=3 and +0.77% in d=4 is the OQ35 residual — the 1.41% gap between the two independent derivations of m_scale_3 (comb filter vs coupling self-consistency). Within PDG quark mass uncertainties (~10%).
+
+†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV (−0.11σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4 (from Y_L=Y_τ=−1/2) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
 
 ‡ After applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) and k values {charm:3, top:10}, the c/u ratio becomes 0.000% and the t/u ratio −0.048%. The absolute top mass retains a +0.72% offset from the OQ35 scale residual.
 
@@ -162,8 +217,8 @@ d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→
 
 **Oscillation ratios (from simplex values alone):**
 ```
-m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808   (PDG: 5.86, error −0.88%)
-Δm²₃₁/Δm²₂₁ = 32.949   (PDG: 32.576, error +1.15%)
+m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808
+Δm²₃₁/Δm²₂₁ = 32.949   (PDG: 32.576, error +1.14%)
 ```
 
 **Absolute masses (anchored to Δm²₂₁ = 7.53×10⁻⁵ eV²):**

@@ -136,12 +136,12 @@ With m_W = 80,377 MeV as the empirical measurement setting the d=2 sector scale:
 | m_photon | 0 (exact) | 0 | — |
 | m_Z | 91,228 MeV | 91,188 MeV | +0.044% |
 | m_Higgs | 125,263 MeV | 125,250 MeV | +0.010% |
-| sin²θ_W | 0.2237 | 0.2231 | +0.31% |
+| sin²θ_W | 0.2237 | 0.22290 (on-shell) | +0.37% |
 | ρ parameter | 1 (exact) | 1.002 | −0.2% |
 
 **sin²θ_W is parameter-free:**
 ```
-n_Z − n_W = n_down + n_strange = 5
+n_Z − n_W = n_s + n_d = 4 + 1 = 5   (seed index + down mode index)
 sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 ```
 

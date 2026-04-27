@@ -86,7 +86,7 @@ The (d,d') sector pairs give additional predicted resonances:
 
 | Pair | Beat (MeV) | Identification | Error |
 |------|-----------|----------------|-------|
-| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% ✅ |
+| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07%) ✅ |
 | (4,6) | 1207.6 | a₁(1260) = 1230 MeV | −1.82% |
 
 The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.
@@ -117,7 +117,7 @@ The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as
 | Lasing modes | Occupied spectrum {1,4,...} |
 | Gain saturation | Co-fixed-point self-consistency |
 
-The n=2,3 modes in d=3 fail Stage 1 — Ω_log exceeds the acceptance threshold from the hydrogen spectroscopy bound. The suppression is geometric, not depleted by occupancy.
+The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass Stage 1 (Ω_log = 0.288, 0.511, both below ln 2) but are not selected by the hockey-stick fixed-point structure. Their suppression is combinatorial, not geometric.
 
 ---
 

@@ -61,4 +61,4 @@ The Stage-1 filter has an exact occupation criterion from the Ω_log suppression
 | 4 | 0.693 | ✅ strange quark |
 | 5+ | >0.85 | no |
 
-Both occupied modes satisfy Ω_log ≤ ln 2. All unoccupied modes are suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.
+Both occupied modes (n=1,4) are exactly those selected by the co-fixed-point spectrum {1,4}. Modes n=2,3 also pass Stage 1 (Ω_log = 0.288, 0.511 < ln 2) but are absent from the co-fixed-point spectrum — they are unoccupied resonances of M_∞, not suppressed by projection. Modes n≥5 (Ω_log > ln 2) fail Stage 1 and are additionally suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.

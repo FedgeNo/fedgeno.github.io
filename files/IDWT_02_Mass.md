@@ -151,9 +151,9 @@ n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal
 n_ν₃    = n_ν₁ + n_ν₂ − n_up = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
 n_top   = 2 × S(8, 2)   = 72      [triangular ladder on n_strange]
-n_W     = n_strange + n_top = 76  [= g(d=5, n_top): d_ν−1 = n_s so g(d=5,n_top) = n_s+n_top]
-n_Z     = n_down + n_strange + n_W = 81
-n_Higgs = n_down + n_e + n_Z = 95
+n_W     = n_strange + n_top = 76  [Vandermonde: d_ν + n_top − 1 = 4 + 72 = 76; see Part 3 §11]
+n_Z     = n_down + n_strange + n_W = 81  [n_down=1, n_strange=4 are MODE indices; n_s=4=n_strange by coincidence]
+n_Higgs = n_up   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
 ```
 
 The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the generation law must hold exactly.** It is not that the framework predicts these relations and then they happen to work — the hockey-stick identity leaves no room for them to fail.
@@ -196,7 +196,7 @@ The bottom quark is a moiré phenomenon — an interference pattern between two 
 
 ## 9. Coupling Constants — Complete Derived Set ✅
 
-The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the four self-couplings. g₃₃ and g₄₄ come from the seed structure {n_s, n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation.
+The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ come from the seed structure {n_s, n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₅₅ from Hopf fiber universality; g₂₂ from m_W.
 
 ---
 
@@ -255,10 +255,49 @@ The tau lepton carries Y_L = −1/2 identically to the electron and muon (same S
 
 ---
 
+### g₅₅ — from Hopf fiber universality ✅
+
+The two U(1) Hopf fibrations sharing the electromagnetic fiber are:
+```
+S¹ → S³  → CP¹   (d=3 total, d=2 base)
+S¹ → S⁵  → CP²   (d=5 total, d=4 base)
+```
+
+The fiber is the same U(1) in both. Universality requires the ratio (total-space coupling)/(base coupling) to be identical:
+
+```
+v₃ / v₂ = v₅ / v₄
+```
+
+Cross-multiplying: **v₃ × v₄ = v₂ × v₅**, i.e. **g₂₅ = g₃₄ = 4√6**.
+
+The cross-coupling between the two Hopf partner pairs is equal. Solving for v₅:
+
+```
+v₅ = v₃ × v₄ / v₂ = g₃₄ / v₂
+
+g₅₅ = v₅² = (g₃₃ × g₄₄) / g₂₂ = 96 / g₂₂
+```
+
+Numerically with g₂₂ = 722.46 (from m_W):
+
+```
+g₅₅ = 0.1329,   v₅ = 0.3645
+```
+
+**Verification:** v₃/v₂ = v₅/v₄ = 0.17116 ✓ and g₂₅ = v₂×v₅ = 9.798 = g₃₄ = 4√6 ✓
+
+**Key consequence:** g₅₅ is fully determined by g₂₂ (which is set by m_W) — no additional measurement is needed. The coupling algebra is closed by the two measured constants {m_e, m_W}: five of the six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from anomaly cancellation, g₅₅ = 96/g₂₂ from Hopf universality); g₂₂ alone is empirical.
+
+**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via naive Route B, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed; the mass scale mechanism for d=5 requires additional physics (non-perturbative Stage-1 suppression at λ̂₅ >> 1, or a seesaw-like mechanism within S⁵ geometry). The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
+
+---
+
 ### Cross-couplings — all from rank-1 ✅
 
 ```
 g₃₄ = √(g₃₃ × g₄₄) = √96 = 4√6
+g₂₅ = √(g₂₂ × g₅₅) = √96 = 4√6   [= g₃₄: Hopf universality]
 g₃₆ = √(g₃₃ × g₆₆) = √(2√7)
 g₄₆ = √(g₄₄ × g₆₆) = √(3/√7)
 g₃,₁₀ = √(g₃₃ × g₁₀,₁₀) = √(2√7)   [= g₃₆]
@@ -266,7 +305,7 @@ g₄,₁₀ = √(g₄₄ × g₁₀,₁₀) = √(3/√7)  [= g₄₆]
 g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 ```
 
-**What remains open:** g₂₂ and g₅₅. The W/Z bosons acquire mass via the Higgs mechanism — g₂₂ is not constrained by Y². The d=5 neutrino sector coupling g₅₅ requires g₂₂ to close (Vandermonde pair 2+3=5).
+**What remains open:** g₂₂ alone. The W/Z bosons acquire mass via the Higgs mechanism — g₂₂ is confirmed non-derivable from CP¹ geometry and requires m_W as an empirical input. All other couplings are derived: g₃₃ and g₄₄ from seeds {n_s,n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₅₅ = 96/g₂₂ from Hopf universality.
 
 **Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± 15%. Error: +0.08%.
 
@@ -371,14 +410,13 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | strange | 4 | 0 | seed |
 | up | 3 | 0 | n_s − 1: subtraction only |
 | charm | 20 | 3 | S(n_s,3): n_s=4 terms → 3 internal additions |
-| electron | 13 | 1 | n_ν₁ + n_up: one addition |
-| muon | 35 | 1 | n_charm + n_ν₂: one addition |
-| tau | 23 | 1 | n_ν₃ + n_down: one addition |
 | top | 72 | 10 | 2×S(2n_s,2): k_c=3 chained with S(8,2) internal k=7 → 3+7=10 |
+
+**GTC is a d=4-sector correction only.** The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_up, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9).
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
-**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.060%, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none.
+**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9), not the GTC.
 
 ### Results
 
@@ -389,12 +427,12 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | c/u | +0.403% | **0.000%** |
 | t/u | +1.311% | **−0.048%** |
 | t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% | −0.059% (Δk=0, separate issue) |
+| tau/mu | −0.059% raw | **+0.011%** after Dyson resummation (separate mechanism: §9) |
 
 ```python
 GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350
-GTC_K   = {'down':0,'strange':0,'up':0,'charm':3,
-            'electron':1,'muon':1,'tau':1,'top':10,'bottom':0}
+GTC_K   = {'down':0, 'strange':0, 'up':0, 'charm':3, 'top':10, 'bottom':0}
+# d=6 and d=10 particles not in GTC table: GTC correction cancels in all d=6 ratios
 ```
 
 ---
@@ -432,4 +470,32 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
 | 2 | empirical measurement: m_W | ✅ from m_W |
-| 5 | requires g₂₂ via Vandermonde 2+3=5 | 🔶 |
+| 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ algebra closed; mass hierarchy open 🔶 |
+
+---
+
+## 13. Sector Termination — Gegenbauer Criticality ✅
+
+The IDWT sector set {2,3,4,5,6,10} terminates at d=10 for three independent reasons. The third — Gegenbauer criticality — was derived as a purely algebraic consequence of the seed structure.
+
+**Definition.** The Gegenbauer polynomial coupling at the seed resonance site k₀ = n_s² = 16 in the d-dimensional Jacobi chain is:
+
+```
+b_{k₀}(d) = √(k₀(k₀+d−1)) / (2k₀+d−2)
+```
+
+For the six IDWT sectors: b_{k₀} takes values 0.51539 (d=2) down to **0.50000 (d=10) exactly**, then 0.49747 (d=11, subcritical).
+
+**Theorem.**  b_{k₀}(d) = 1/2  ⟺  4k₀ = (d−2)²  ⟺  d = 2 + 2n_s = 10.
+
+**Proof.**  b = 1/2  ↔  4k₀(k₀+d−1) = (2k₀+d−2)².  Expanding: LHS = 4k₀² + 4k₀(d−1), RHS = 4k₀² + 4k₀(d−2) + (d−2)². Subtracting: 4k₀ = (d−2)². With k₀ = n_s² = 16: d = 2 + 2√16 = 2 + 2n_s = 10. □
+
+**Corollary (WKB exactness for d=10).** The leading-order WKB delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a WKB artifact.
+
+**Sector summary — three routes to d=10:**
+
+| Route | Origin | Statement |
+|---|---|---|
+| Hurwitz (geometry) | Division algebras | 𝕆 = last normed algebra; octonionic Hopf → d=10 |
+| **Gegenbauer (algebra)** | **Jacobi chain criticality** | **b_{k₀}=1/2 iff d=2(n_s+1)=10** |
+| Hypercharge (gauge) | Anomaly cancellation | g_{10,10}=g_{6,6}=Y_L²=1/4 |

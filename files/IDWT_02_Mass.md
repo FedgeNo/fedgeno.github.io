@@ -151,8 +151,8 @@ n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal
 n_ν₃    = n_ν₁ + n_ν₂ − n_up = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
 n_top   = 2 × S(8, 2)   = 72      [triangular ladder on n_strange]
-n_W     = n_strange + n_top = 76  [Vandermonde: d_ν + n_top − 1 = 4 + 72 = 76; see Part 3 §11]
-n_Z     = n_down + n_strange + n_W = 81  [n_down=1, n_strange=4 are MODE indices; n_s=4=n_strange by coincidence]
+n_W     = n_top + 4 = 76     [Vandermonde: g(d=5, n_top) = n_top + (d−1) = 72 + 4 = 76; see Part 3 §11]
+n_Z     = n_W + 5 = 81       [Vandermonde: g(d=6, n_W) = n_W + (d−1) = 76 + 5 = 81]
 n_Higgs = n_up   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
 ```
 
@@ -289,7 +289,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Key consequence:** g₅₅ is fully determined by g₂₂ (which is set by m_W) — no additional measurement is needed. The coupling algebra is closed by the two measured constants {m_e, m_W}: five of the six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from anomaly cancellation, g₅₅ = 96/g₂₂ from Hopf universality); g₂₂ alone is empirical.
 
-**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via naive Route B, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed; the mass scale mechanism for d=5 requires additional physics (non-perturbative Stage-1 suppression at λ̂₅ >> 1, or a seesaw-like mechanism within S⁵ geometry). The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
+**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via naive Route B, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. With Ψ∞ a spinor, the seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
 
 ---
 
@@ -306,6 +306,49 @@ g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 ```
 
 **What remains open:** g₂₂ alone. The W/Z bosons acquire mass via the Higgs mechanism — g₂₂ is confirmed non-derivable from CP¹ geometry and requires m_W as an empirical input. All other couplings are derived: g₃₃ and g₄₄ from seeds {n_s,n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₅₅ = 96/g₂₂ from Hopf universality.
+
+---
+
+## 9b. Tau Mass — Dyson Resummation ✅
+
+The tau is the one lepton whose raw simplex prediction requires a correction beyond the GTC. The mechanism is the isotropic back-reaction between the d=6 and d=10 sectors.
+
+**Setup.** The d=6 and d=10 sectors share the same self-coupling: g_{6,6} = g_{6,10} = g_{10,10} = 1/4 exactly, because Y_L = Y_τ = −1/2 (the tau and electron/muon are in the same SU(2)_L doublet structure). This isotropy means the back-reaction from d=6 onto d=10 feeds back on itself via g_{10,10}.
+
+**Self-consistent equation.** The d=6 → d=10 back-reaction shift Δm satisfies:
+
+```
+Δm = ε_{6→10} × m_τ + g_{10,10} × Δm
+```
+
+The second term is the self-feedback: the shifted tau mass generates further back-reaction through its own g_{10,10} coupling. Solving:
+
+```
+Δm = ε_{6→10} × m_τ / (1 − g_{10,10})
+```
+
+Since g_{10,10} = 1/n_s = 1/4, the denominator is 3/4 = n_u/n_s, giving resummation factor n_s/n_u = 4/3. This ratio is forced by n_u = n_s − 1; it is not a free parameter.
+
+**The total correction.** The leading ε_{6→10} is:
+
+```
+ε_{6→10} = g_{6,10} / (k₀ × n_mu) = (1/4) / (16 × 35) = 1/2240
+```
+
+Multiplied by the resummation factor 4/3:
+
+```
+ε_total = 1/2240 × 4/3 = 1/1680 = 1/(n_u × n_s² × S(n_s,4))
+```
+
+**Result.**
+
+```
+m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV
+PDG: 1776.86 ± 0.12 MeV.   Error: −0.11σ.   Inside 1σ.
+```
+
+No inputs beyond m_e and the seeds {n_s, n_u}.
 
 **Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± 15%. Error: +0.08%.
 
@@ -412,11 +455,11 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | charm | 20 | 3 | S(n_s,3): n_s=4 terms → 3 internal additions |
 | top | 72 | 10 | 2×S(2n_s,2): k_c=3 chained with S(8,2) internal k=7 → 3+7=10 |
 
-**GTC is a d=4-sector correction only.** The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_up, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9).
+**GTC is a d=4-sector correction only.** The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_up, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
-**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9), not the GTC.
+**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
 
 ### Results
 
@@ -427,7 +470,7 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | c/u | +0.403% | **0.000%** |
 | t/u | +1.311% | **−0.048%** |
 | t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% raw | **+0.011%** after Dyson resummation (separate mechanism: §9) |
+| tau/mu | −0.059% raw | **+0.011%** after Dyson resummation (separate mechanism: §9b) |
 
 ```python
 GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350

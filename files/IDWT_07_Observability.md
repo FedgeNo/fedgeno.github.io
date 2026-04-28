@@ -169,8 +169,8 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 **What remains open:**
 - Deriving λ̂_d from vacuum dynamics on CP^d × M⁴
 - Deriving the 3D gauge group from U(d) subgroups
-- Chirality: zero modes of the Dirac operator on CP^d with Hopf flux (see Part 8 §59)
-- Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed
+- Chirality: derived from Kähler γ₅ on CP^d (Part 3 §7, Part 8 §59.3) — ✅ closed
+- Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed (seesaw forbidden by d=5 Majorana prohibition; suppression must be geometric)
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|

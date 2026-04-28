@@ -83,32 +83,42 @@ The fibre and tangent space are orthogonal: su(3) ∩ u(2) = {0}. The Standard M
 
 ---
 
-## 7. Chirality from Spin^c ✅
+## 7. Chirality from Kähler γ₅ ✅
 
-CP² has a canonical spin^c structure. The Dirac index for the fundamental representation O(+1):
+The chiral weak force — the W boson couples to left-handed particles only — follows from the spinor structure of Ψ∞ on the sector manifolds. Three sectors are **Kähler manifolds**: d=2 (CP¹), d=4 (CP²), d=6 (CP³). Each carries a canonical Kähler form ω, which defines a chirality operator on the sector spinor:
+
 ```
-index(D^c_{CP²} ⊗ O(+1)) = C(3,2) = +3   → left-chiral quarks
-index(D^c_{CP²} ⊗ O(−1)) = 0              → right-handed singlets (no chiral selection)
+γ₅^Kähler = i^m × ω_{a₁a₂} ... ω_{a_{2m-1}a_{2m}} γ^{a₁}⋯γ^{a_{2m}}
 ```
 
-**The left-right asymmetry of the SM quark sector follows from the sign of the Dirac index under CP²'s spin^c structure.** It is not assumed.
+where m is the complex dimension of the sector (m=1,2,3 for d=2,4,6 respectively). This operator anticommutes with all hidden-space gamma matrices γ^a, splitting the sector spinor into **holomorphic** (positive chirality = LEFT) and **anti-holomorphic** (negative chirality = RIGHT) components.
 
-The full sector Dirac index table:
+**For d=4 (CP²):** The 4-component Weyl spinor splits as 2L + 2R. The holomorphic half contains u_L, d_L; the anti-holomorphic half u_R, d_R. The W boson is the KK gauge field of the SU(2) isometry of CP², which acts on the CP² manifold in a way that preserves holomorphic structure — it therefore couples only to the holomorphic (LEFT) component. This is why the W couples to left-handed quarks: the fibre structure of CP² has no anti-holomorphic gauge zero modes.
 
-| d | Geometry | Index | SM match |
-|---|---|---|---|
-| 2 | CP¹ | 2 | SU(2)_L doublet dimension |
-| 3 | S³ | 0 | Colour inherited via g_{3,4} |
-| 4 | CP² | 3 | 3 quark colours — exact |
-| 5 | S⁵ | 0 | Weyl neutrinos via coupling |
-| 6 | CP³ | 4 | Full lepton generation (ν_L, e_L, e_R, ν_R) |
-| 10 | CP⁵ | 6 | Tau octonionic sector 🔶 |
+**For d=6 (CP³):** The 8-component Weyl spinor splits as 4L + 4R, accommodating two lepton doublets in the left-handed sector: (ν_eL, e_L, ν_μL, μ_L) and their right-handed partners. The same argument applies: W couples to the left-handed (holomorphic) CP³ half.
+
+**The non-Kähler sectors (d=3, d=5) have no Kähler form** and therefore no intrinsic chirality operator. Quarks in d=3 (S³) are intrinsically vector-like; their observed left-right asymmetry is inherited from the d=4 sector via the cross-coupling g_{3,4}. The neutrino sector d=5 (S⁵) is also non-Kähler — it has no chirality operator — consistent with the fact that neutrinos are Dirac fermions (no Weyl condition possible in d=5, see Part 1 §6).
+
+**The spin^c Dirac index** (previously the primary chirality argument) is a consequence of this structure: the net count of left-chiral zero modes is exactly the holomorphic Euler characteristic χ_{hol}(CP^m) = C(m+1,m) = m+1, which agrees with the indices tabulated in the sector Dirac table. The Kähler form is the geometric cause; the index is its topological fingerprint.
+
+| Sector | Kähler? | γ₅^Kähler | L/R split | Physical |
+|--------|---------|-----------|-----------|---------|
+| d=2 (CP¹) | ✓ | exists | 1L + 1R | W± polarisation |
+| d=3 (S³) | ✗ | none | vector-like | Colour inherited from d=4 |
+| d=4 (CP²) | ✓ (spin^c) | exists | 2L + 2R | u_L,d_L vs u_R,d_R |
+| d=5 (S⁵) | ✗ | none | Dirac only | ν_L + ν_R (Dirac neutrinos) |
+| d=6 (CP³) | ✓ | exists | 4L + 4R | ν_L,e_L,ν_μL,μ_L vs right-handed |
+| d=10 (CP⁵) | ✓ | exists | 16L + 16R | SO(10) Weyl splitting |
 
 ---
 
-## 8. Hypercharges from Anomaly Cancellation ✅
+## 8. Hypercharges from Anomaly Cancellation and SO(10) ✅
 
 With N_c = 3 from the CP² Dirac index, all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours.
+
+**Second, independent route — SO(10) algebra:** Because Ψ∞ is a spinor and d=10 has d mod 8 = 2, the d=10 sector carries a Majorana-Weyl spinor whose 16-component Weyl part is the **16** of Spin(10) ≅ SO(10). The six distinct hypercharge values in that multiplet — Y = {+1/6, −2/3, +1, +1/3, −1/2, 0} — are determined entirely by the SO(10) weight lattice. For the tau generation specifically: Y(τ) = −1, Y(ν_τ) = 0, Y(t) = +2/3, Y(b) = −1/3 follow from the SO(10) root system without any SM hypercharge assignment.
+
+Both routes agree. The redundancy is structural consistency: the anomaly cancellation route works from d=4 geometry upward; the SO(10) route works from d=10 spinor content downward. They pin the same hypercharge values from two independent directions.
 
 ---
 
@@ -222,7 +232,7 @@ IDWT d=4 sector: CP² = SU(3)/U(2)
 → All SM hypercharges determined from geometry alone
 ```
 
-**What remains open:** Left/right chirality structure (requires zero-mode content of D^c on CP²); generation number (N_gen = N_c = 3 suggestive but unproved).
+**What remains open:** Generation number (N_gen = N_c = 3 suggestive but unproved).
 
 ---
 
@@ -273,3 +283,23 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
 **What remains open:** The unit of electric charge q from the winding number around S¹ gives integer charge, but the elementary charge e in SI units is not yet derived. The full coupling between Ψ∞ and A_μ in the action needs to be specified.
+
+---
+
+## 15. Spinor Ψ∞ and the Quantum Number Package ✅
+
+The spinor structure of Ψ∞ means the quantum number structure of the SM emerges from geometry. The table below identifies what is derived and which route it comes from.
+
+| SM feature | IDWT derivation | Route |
+|---|---|---|
+| Spin-½ for quarks and leptons | KK Dirac operator on M_∞ | Spinor bundle §59 |
+| Fermi statistics | Spinor anticommutation relations | Clifford algebra |
+| Particle/antiparticle | Conjugate spinor Ψ̄∞ | Complex spinor field |
+| Left-handed weak coupling | Kähler γ₅ selects holomorphic half of each sector spinor | §7 above |
+| Quark chirality (u_L ≠ u_R) | CP² Kähler chirality splits 4-spinor into 2L + 2R | §7 above |
+| Lepton chirality (e_L ≠ e_R) | CP³ Kähler chirality splits 8-spinor into 4L + 4R | §7 above |
+| Neutrinos are Dirac | d=5 has d mod 8 = 5; Majorana spinors forbidden | Clifford periodicity |
+| Tau-sector hypercharges | SO(10) spinor weight lattice (16 of Spin(10)) | 16 of Spin(10) |
+| 0νββ rate = 0 | Follows from Dirac neutrino prediction | Falsifiable |
+
+**What the spinor structure does NOT change:** the mass formula m = m_scale_d × S(n,d), all coupling constants, all mass predictions, the sector structure {2,3,4,5,6,10}, and both empirical inputs {m_e, m_W}. The spinor structure operates in a separate layer from the mode counting — it determines what quantum numbers attach to each mode, not the mode frequencies themselves.

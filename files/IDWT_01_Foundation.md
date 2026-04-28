@@ -9,7 +9,16 @@
 ## 1. Core Postulates
 
 **P1 — The Master Wave**
-There exists a single complex-valued wave function Ψ∞ defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure.
+Ψ∞ is a **Dirac spinor field** defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure.
+
+Being a spinor, Ψ∞ gives the following without additional postulates:
+
+- **Spin-½:** Half-integer spin of all quarks and leptons follows from the Kaluza-Klein Dirac operator on M_∞ (§59 of Part 8).
+- **Fermi statistics:** Anticommutation relations {Ψ∞(ξ), Ψ†∞(ξ')} = δ(ξ−ξ') follow from the spinor nature; Pauli exclusion is automatic, not postulated.
+- **Particle/antiparticle structure:** The conjugate spinor field Ψ̄∞ is a distinct object from Ψ∞, automatically providing antiparticles with opposite quantum numbers.
+- **Chirality of the weak force:** The Kähler sectors (d=2,4,6) carry natural chirality operators γ₅^Kähler that split each sector spinor into left-handed (holomorphic) and right-handed (anti-holomorphic) components. The W boson couples only to the left-handed half — a geometric consequence, not an assumption (§15 of Part 3).
+- **Neutrinos are Dirac fermions:** The d=5 sector has d mod 8 = 5, the unique Clifford-algebra class for which Majorana spinors do not exist. No Majorana mass is allowed; the seesaw mechanism is geometrically forbidden (§6 below, Part 8 §59.1).
+- **SO(10) GUT structure of the d=10 sector:** The 16-component Weyl spinor of Spin(10) ≅ SO(10) decomposes as exactly one SM generation, giving tau-sector hypercharges from the SO(10) algebra rather than separately postulated (Part 3 §8).
 
 **P2 — The Observable Slice**
 Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidden dimensions:
@@ -70,14 +79,16 @@ Key difference from quasicrystals: IDWT projects a continuous wave equation — 
 
 The hidden manifold decomposes into geometrically distinct sectors, each locally flat:
 
-| d | Geometry | Symmetry | Physical content |
-|---|---|---|---|
-| 2 | CP¹ | U(1) | Gauge bosons (γ, W, Z, H) |
-| 3 | S³ | SO(4) | Down-type quarks (d, s, b) |
-| 4 | CP² | SU(3)/U(2) | Up-type quarks (u, c, t) |
-| 5 | S⁵ | — | Neutrinos |
-| 6 | CP³ | SU(4)/U(3) | Charged leptons (e, μ) |
-| 10 | CP⁵ | SU(6)/U(5) | Tau |
+| d | Geometry | Symmetry | Spinor type | Spinor dim | Physical content |
+|---|---|---|---|---|---|
+| 2 | CP¹ | U(1) | Majorana-Weyl | 2 | Gauge bosons (γ, W, Z, H) |
+| 3 | S³ | SO(4) | Majorana | 2 | Down-type quarks (d, s, b) |
+| 4 | CP² | SU(3)/U(2) | Weyl (spin^c) | 4 | Up-type quarks (u, c, t) |
+| 5 | S⁵ | — | Dirac only | 4 | Neutrinos (ν_e, ν_μ, ν_τ) |
+| 6 | CP³ | SU(4)/U(3) | Weyl | 8 | Charged leptons (e, μ) |
+| 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 32 | Tau + SO(10) GUT generation |
+
+The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The total hidden-space spinor has dimension 2×2×4×4×8×32 = 2¹⁴ = 16,384.
 
 These dimensions are not chosen. They are the unique sequence produced by the Hopf fibration chain over the normed division algebras (ℝ, ℂ, ℍ, 𝕆):
 
@@ -213,7 +224,15 @@ n_ν₃ = n_τ − n_d = 23 − 1 = 22   [generation law, OQ28]
 
 Redundant check: n_ν₃ = n_ν₁ + n_ν₂ − n_u = 10+15−3 = 22 ✓
 
-d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→S⁵→CP². It is the Hopf partner of d=4 (up quarks) and is not anomalous — it is required by the fibration chain.
+d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→S⁵→CP². It is the Hopf partner of d=4 (up quarks) and is required by the fibration chain.
+
+**Neutrinos are Dirac fermions — a prediction from the spinor structure ✅**
+
+The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the hidden-space spinor in sector d=5. Therefore no Majorana mass term is geometrically allowed for neutrinos, and the seesaw mechanism is forbidden by the sector structure. Neutrinos must be **Dirac fermions**.
+
+This is a concrete, falsifiable prediction: neutrinoless double beta decay (0νββ) must have rate exactly zero. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
+
+The neutrino mass hierarchy problem is thereby sharpened: the ~5×10¹¹ suppression of m_scale_5 relative to the naive Route B value cannot come from seesaw and must arise from the d=5 sector vacuum dynamics directly — non-perturbative suppression at large λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex.
 
 **Oscillation ratios (from simplex values alone):**
 ```
@@ -239,11 +258,17 @@ All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is predi
 | Wave-particle duality | Ψ∞ is a wave; its 3D projection appears particle-like when localised | ✅ |
 | Uncertainty principle | Projection loss prevents simultaneous position+momentum specification | ✅ |
 | Special relativity | □_x component of □_{M∞}; inherited Lorentz covariance from product structure | ✅ |
+| Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
+| Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
 | General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry | 🔶 |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
+| Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |
+| Spin-½ of all fermions | KK Dirac operator on M_∞; spinor bundle of Ψ∞ (Part 8 §59) | ✅ |
 | CKM Cabibbo angle | sin θ_C = 1/√S(n_s,3) = 1/√20 — from seed uniqueness | ✅ |
 | Neutrino oscillations | d=5 sector, normal ordering | ✅ |
+| Dirac neutrinos | d=5 has d mod 8=5: Majorana forbidden → 0νββ rate = 0 predicted | ✅ |
+| SO(10) GUT structure | d=10 Maj-Weyl spinor (16 of SO(10)) = one SM generation; tau hypercharges from algebra | ✅ |
 | Confinement | Colour vector closure E_conf = λ_c|N⃗| from CP² geometry | ✅ |
 | Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |

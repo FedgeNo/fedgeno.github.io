@@ -70,6 +70,12 @@ m_u / m_d = √(3/14) = 0.463   (PDG: 0.462,  +0.08%)
 **Neutrino mass ordering: normal hierarchy**
 S(n,5) is monotonically increasing, n_ν₁ < n_ν₂ < n_ν₃ → m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
+**Neutrinos are Dirac fermions**
+The d=5 sector has d mod 8 = 5, the unique Clifford class for which Majorana spinors are geometrically forbidden. No Majorana mass is allowed; no seesaw mechanism is possible. Prediction: the neutrinoless double beta decay rate is exactly zero. Current experiments (KamLAND-Zen 2023: m_ββ < 36 meV) have seen no signal, consistent with the prediction. This is a qualitative, falsifiable prediction independent of the mass spectrum.
+
+**Left-handed weak coupling is geometric**
+The W boson couples only to the left-handed (holomorphic) half of each Kähler sector spinor. The Kähler γ₅ operator on CP² (d=4) and CP³ (d=6) splits each sector spinor into holomorphic left-handed and anti-holomorphic right-handed components; the W is a holomorphic KK gauge field and therefore couples exclusively to the left-handed half.
+
 ---
 
 ## 2. Full Prediction Table with Statistical Significance
@@ -155,3 +161,4 @@ Both mode indices are independently derived. The matching is observed, not deriv
 4. A fourth SM quark generation
 5. Tau lepton requiring n ≠ 23 or d ≠ 10 in any consistent assignment
 6. Normal neutrino mass ordering falsified by experiment
+7. **Neutrinoless double beta decay observed** — directly falsifies the spinor Ψ∞ prediction that d=5 forbids Majorana spinors and therefore neutrinos must be Dirac (0νββ rate = 0 exactly)

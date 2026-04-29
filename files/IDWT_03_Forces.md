@@ -99,7 +99,7 @@ where m is the complex dimension of the sector (m=1,2,3 for d=2,4,6 respectively
 
 **The non-Kähler sectors (d=3, d=5) have no Kähler form** and therefore no intrinsic chirality operator. Quarks in d=3 (S³) are intrinsically vector-like; their observed left-right asymmetry is inherited from the d=4 sector via the cross-coupling g_{3,4}. The neutrino sector d=5 (S⁵) is also non-Kähler — it has no chirality operator — consistent with the fact that neutrinos are Dirac fermions (no Weyl condition possible in d=5, see Part 1 §6).
 
-**The spin^c Dirac index** (previously the primary chirality argument) is a consequence of this structure: the net count of left-chiral zero modes is exactly the holomorphic Euler characteristic χ_{hol}(CP^m) = C(m+1,m) = m+1, which agrees with the indices tabulated in the sector Dirac table. The Kähler form is the geometric cause; the index is its topological fingerprint.
+**The spin^c Dirac index** is a consequence of this structure: the net count of left-chiral zero modes is exactly the holomorphic Euler characteristic χ_{hol}(CP^m) = C(m+1,m) = m+1, which agrees with the indices tabulated in the sector Dirac table. The Kähler form is the geometric cause; the index is its topological fingerprint.
 
 | Sector | Kähler? | γ₅^Kähler | L/R split | Physical |
 |--------|---------|-----------|-----------|---------|
@@ -286,7 +286,7 @@ The statement from P4 — all physics follows from the geometry of M_∞ — is 
 
 ---
 
-## 15. Spinor Ψ∞ and the Quantum Number Package ✅
+## 15. The Quantum Number Package ✅
 
 The spinor structure of Ψ∞ means the quantum number structure of the SM emerges from geometry. The table below identifies what is derived and which route it comes from.
 
@@ -302,4 +302,4 @@ The spinor structure of Ψ∞ means the quantum number structure of the SM emerg
 | Tau-sector hypercharges | SO(10) spinor weight lattice (16 of Spin(10)) | 16 of Spin(10) |
 | 0νββ rate = 0 | Follows from Dirac neutrino prediction | Falsifiable |
 
-**What the spinor structure does NOT change:** the mass formula m = m_scale_d × S(n,d), all coupling constants, all mass predictions, the sector structure {2,3,4,5,6,10}, and both empirical inputs {m_e, m_W}. The spinor structure operates in a separate layer from the mode counting — it determines what quantum numbers attach to each mode, not the mode frequencies themselves.
+The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and both empirical inputs {m_e, m_W} are determined by the geometric and combinatorial structure of M_∞ independently of spin.

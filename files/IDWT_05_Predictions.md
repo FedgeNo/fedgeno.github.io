@@ -164,4 +164,4 @@ Both mode indices are independently derived. The matching is observed, not deriv
 4. A fourth SM quark generation
 5. Tau lepton requiring n ≠ 23 or d ≠ 10 in any consistent assignment
 6. Normal neutrino mass ordering falsified by experiment
-7. **Neutrinoless double beta decay observed** — directly falsifies the spinor Ψ∞ prediction that d=5 forbids Majorana spinors and therefore neutrinos must be Dirac (0νββ rate = 0 exactly)
+7. **Neutrinoless double beta decay observed** — d=5 has d mod 8 = 5, which forbids Majorana spinors geometrically. Neutrinos are therefore Dirac fermions and the 0νββ rate is exactly zero. An observed signal would directly falsify this prediction.

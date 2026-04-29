@@ -289,7 +289,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Key consequence:** g₅₅ is fully determined by g₂₂ (which is set by m_W) — no additional measurement is needed. The coupling algebra is closed by the two measured constants {m_e, m_W}: five of the six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from anomaly cancellation, g₅₅ = 96/g₂₂ from Hopf universality); g₂₂ alone is empirical.
 
-**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via the coupling fixed-point, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. With Ψ∞ a spinor, the seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
+**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via the coupling fixed-point, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. The seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
 
 ---
 
@@ -350,7 +350,7 @@ PDG: 1776.86 ± 0.12 MeV.   Error: −0.14σ.   Inside 1σ.
 
 No inputs beyond m_e and the seeds {n_s, n_u}.
 
-**Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± 15%. Error: +0.08%.
+**Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± 15%. Error: +0.20%.
 
 ---
 

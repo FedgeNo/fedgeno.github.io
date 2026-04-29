@@ -177,7 +177,7 @@ n_ν₃ − n_ν₂ = 7 = n_up + n_strange
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-Anchoring to the solar mass splitting: m_ν₁ = 1.517 meV, m_ν₂ = 8.809 meV, m_ν₃ = 49.833 meV, Σm_ν = 60.16 meV.
+Anchoring to the solar mass splitting (ratios are IDWT predictions; scale is external): m_ν₁ ≈ 1.52 meV, m_ν₂ ≈ 8.81 meV, m_ν₃ ≈ 49.8 meV, Σm_ν ≈ 60 meV.
 
 ---
 
@@ -344,8 +344,8 @@ Multiplied by the resummation factor 4/3:
 **Result.**
 
 ```
-m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV
-PDG: 1776.86 ± 0.12 MeV.   Error: −0.11σ.   Inside 1σ.
+m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV
+PDG: 1776.86 ± 0.12 MeV.   Error: −0.14σ.   Inside 1σ.
 ```
 
 No inputs beyond m_e and the seeds {n_s, n_u}.
@@ -378,7 +378,7 @@ m_rho* = arg max Im[Γ_{346}(ω)] = 775.794 MeV    (PDG: 775.260 ± 0.250 MeV)
 Error: +0.069%
 ```
 
-No mass input is used. The 0.534 MeV residual is consistent with (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric kernel, and (c) the leading-order WKB approximation in τ_d being exact only for d=10 (see Part 1 §3b). The ρ meson prediction is closed at the 0.069% level.
+No direct mass input is used. The 0.534 MeV residual is consistent with (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric kernel, and (c) the leading-order WKB approximation in τ_d being exact only for d=10 (see Part 1 §3b). The agreement is a consistency check of the coupling geometry at the 0.069% level.
 
 Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase delay at the resonance site k₀, where both d=3 and d=6 modes are evaluated at the same resonance frequency scale set by k₀=n_s²=16. The delay formula does not assume comparable mass scales between sectors — it depends only on the Jacobi chain structure at k₀, which is a geometric property of the manifold, not the sector mass scale.
 
@@ -457,7 +457,7 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 | c/u | +0.403% | **0.000%** |
 | t/u | +1.311% | **−0.048%** |
 | t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% raw | **+0.011%** after Dyson resummation (separate mechanism: §9b) |
+| tau/mu | −0.059% raw | **+0.001%** after Dyson resummation (separate mechanism: §9b) |
 
 ```python
 GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350

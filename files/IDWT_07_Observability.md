@@ -86,7 +86,7 @@ The (d,d') sector pairs give additional predicted resonances:
 
 | Pair | Beat (MeV) | Identification | Error |
 |------|-----------|----------------|-------|
-| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07%) ✅ |
+| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07% consistency check) ✅ |
 | (4,6) | 1207.6 | a₁(1260) = 1230 MeV | −1.82% |
 
 The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.

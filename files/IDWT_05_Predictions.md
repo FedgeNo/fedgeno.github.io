@@ -6,6 +6,8 @@
 
 The mass ratios below are not fitted. Within each sector, S(n,d)/S(m,d) is a ratio of binomial coefficients — fixed the moment the mode indices are assigned. The generation law identities (muon = charm + ν₂, etc.) are consequences of the Pascal recursion S(n,d) = S(n,d−1) + S(n−1,d), not separate postulates.
 
+The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seeds {n_s=4, n_u=3} and anomaly cancellation respectively. Full derivation in Part 2 §10.
+
 **Strange/down ratio = 20 exactly**
 ```
 S(4,3) / S(1,3) = 20 / 1 = 20.000
@@ -19,7 +21,7 @@ S(35,6) / S(13,6) = 3,838,380 / 18,564 = 206.7647   (PDG: 206.7683,  −0.002%)
 
 **Tau/electron ratio**
 ```
-S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.13   (PDG: 3,477.23, bare −0.060%; Dyson-resummed: −0.11σ inside 1σ)
+S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.126   (PDG: 3,477.23, bare −0.060%; Dyson-resummed: −0.14σ inside 1σ)
 ```
 
 **Up-type quark mass ratios — with Generation Tower Correction**
@@ -51,11 +53,11 @@ sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
 ρ parameter:       1   (exact, derived)
 ```
 
-**ρ meson from the comb filter (no mass input)**
+**ρ meson from the comb filter (consistency check)**
 ```
 Im[Γ₃₄₆(ω)] peak = 775.8 MeV   (PDG: 775.3 MeV,  +0.07%)
 ```
-All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 — come from seeds {1,4} and m_e alone.
+All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 — come from seeds {1,4} and m_e alone. This is a cross-check of the coupling geometry, not an independent mass prediction.
 
 **Cabibbo angle**
 ```
@@ -86,7 +88,7 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 |----------|-----------|-----------|-------|------|
 | e | 0.5110 | 0.5110 | 0.000% | anchor |
 | μ | 105.657 | 105.658 | −0.001% | — |
-| τ | 1776.85 | 1776.86 | −0.11σ† | — |
+| τ | 1776.84 | 1776.86 | −0.14σ† | — |
 | d | 4.702 | 4.670 | +0.68% | sector-uniform offset |
 | s | 94.04 | 93.40 | +0.68% | sector-uniform offset |
 | u | 2.177 | 2.160 | +0.77% | sector-uniform offset |
@@ -98,7 +100,7 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 | Z | 91,228 | 91,188 | +0.044% | — |
 | H | 125,263 | 125,250 | +0.010% | — |
 
-† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV (−0.11σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seeds {n_s,n_u}.
+† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seeds {n_s,n_u}.
 
 **Boson precision note:** m_W is the empirical measurement used to set the d=2 sector scale; W sits at 0.000% by definition. The Z and H predictions follow from the same m_scale_2 and their simplex mode indices.
 
@@ -133,11 +135,12 @@ n=3: 47.0 MeV   (= m_scale_3 × S(3,3))
 ```
 Real resonances of M_∞ that fail Stage-1 projection. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
 
-**Neutrino absolute masses** (anchored to solar mass splitting Δm²₂₁ = 7.53×10⁻⁵ eV²)
+**Neutrino absolute masses** (ratios are IDWT predictions; overall scale anchored to Δm²₂₁ = 7.53×10⁻⁵ eV²)
 ```
-m_ν₁ = 1.517 meV,   m_ν₂ = 8.809 meV,   m_ν₃ = 49.833 meV,   Σm_ν = 60.16 meV
+m_ν₁ = 1.52 meV,   m_ν₂ = 8.81 meV,   m_ν₃ = 49.8 meV,   Σm_ν ≈ 60 meV
 Δm²₃₁ predicted = 2.481×10⁻³ eV²   (observed: 2.453×10⁻³ eV²,  +1.14%)
 ```
+The mass *ratios* m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808 and m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86 are genuine IDWT predictions. The atmospheric splitting Δm²₃₁ is predicted from the ratios and the solar anchor alone. The absolute masses above follow from combining these ratios with the experimental Δm²₂₁; m_scale_5 is not independently derived.
 
 **Absent high-energy states** — observation of either falsifies the framework:
 ```

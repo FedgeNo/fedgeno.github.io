@@ -218,8 +218,8 @@ m_W = 80377.0       # MeV -- W boson mass (PDG)
 m_scale6 = m_e / S(n_e, 6)
 
 # m_scale_3 = m_e * sqrt(g33 / g66)
-# Route B (coupling self-consistency): the fixed-point equation for the d=3
-# sector vacuum requires m_scale_3^2 / m_e^2 = g33 / g66.
+# Coupling self-consistency: the kernel vacuum fixed-point equation requires
+# m_scale_3^2 / m_e^2 = g33 / g66 (l=0 scalar part of the cross-sector kernel).
 # m_scale_3 ~= 4.702 MeV. (Part 2 section 10)
 m_scale3 = m_e * math.sqrt(g33 / g66)
 

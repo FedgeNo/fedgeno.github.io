@@ -289,7 +289,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Key consequence:** g₅₅ is fully determined by g₂₂ (which is set by m_W) — no additional measurement is needed. The coupling algebra is closed by the two measured constants {m_e, m_W}: five of the six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from anomaly cancellation, g₅₅ = 96/g₂₂ from Hopf universality); g₂₂ alone is empirical.
 
-**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via naive Route B, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. With Ψ∞ a spinor, the seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
+**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via the coupling fixed-point, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. With Ψ∞ a spinor, the seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
 
 ---
 
@@ -354,68 +354,55 @@ No inputs beyond m_e and the seeds {n_s, n_u}.
 
 ---
 
-## 10. Mass Scale Derivation — OQ17 Closed ✅ / OQ35 Closed ✅
+## 10. Mass Scale Derivation — OQ17 Closed ✅
 
-### m_scale_3 — two independent derivations that agree ✅
+### m_scale_3 — from the coupling self-consistency condition ✅
 
-**Route A — from the comb filter beat (OQ17):**
+The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squared mass of the lightest particle in sector d equals g_{dd}/g_{66} times m_e². This requires that the mode occupation probability (∝ m²) be consistent with the coupling that generates it. For d=3, the lightest mode is n=1 (down quark) with S(1,3)=1, so m_lightest(d=3) = m_scale_3:
 
-The Jacobi chain delays at resonance site k₀=16 are τ_d = 1/(2√(k₀+d)) in units of MeV⁻¹. The beat frequency between d=3 and d=6:
 ```
-Δτ₃₆ = τ₃ − τ₆ = 1/(2√19) − 1/(2√22) = 0.0081075 MeV⁻¹
-m_beat(3,6) = 2π / Δτ₃₆ = 774.983 MeV
-```
-No particle masses enter — pure IDWT geometry from the seeds {1,4} (which fix k₀=16) alone. This matches the ρ meson mass to −0.036%. f_SU(4) is the SU(4)/U(3) coset symmetry-breaking scale — the analogue of the pion decay constant for the coupled d=3/d=4 sector. It equals half the ρ meson mass (the ρ is the gauge boson of the d=3/d=4 chiral symmetry) and is a consequence of the beat, not an input. The combinatorial identity 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3) gives:
-```
-f_SU(4)² = 448 / (m_scale_3³ × m_scale_6)   →   m_scale_3 = 4.768 MeV
-```
-
-**Route B — from the coupling self-consistency condition:**
-
-The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squared mass of the lightest particle in sector d equals g_{dd}/g_{66} times m_e². This comes from requiring that the mode occupation probability (∝ m²) be consistent with the coupling that generates it. For d=3, the lightest particle is n=1 (down quark) with S(1,3)=1, so m_lightest(d=3) = m_scale_3:
-```
-(m_scale_3 / m_e)² = g₃₃/g₆₆
+(m_scale_3 / m_e)² = g₃₃ / g₆₆
 m_scale_3 = m_e × √(g₃₃/g₆₆) = 0.511 × √(8√7/0.25) = 0.511 × 9.201 = 4.702 MeV
 ```
 
-**Consistency:** Routes A and B agree to 1.4% — the gap is the OQ35 residual from the leading-order WKB approximation in τ_d. OQ35 refers to the ρ meson prediction: Im[Γ₃₄₆] = 775.79 MeV vs PDG 775.26 MeV (+0.069%). These are two faces of the same approximation — next-order τ_d corrections would shift both the ρ prediction and the Route A m_scale_3 value simultaneously. The two routes agreeing to 1.4% while the ρ matches PDG to 0.069% is consistent because m_scale_3 enters the formula cubed: a 1.4% error in m_scale_3 gives a ~0.5% error in m_scale_3³.
+This comes from the l=0 scalar part of the cross-sector kernel (ξ_d·ξ_{d'})². It requires only m_e and the derived coupling constants g₃₃ and g₆₆ — both from seeds {n_s,n_u} and anomaly cancellation respectively. No particle mass other than m_e enters.
 
 **The down quark is a prediction, not an anchor:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 
-### OQ35 — ρ Meson ✅ CLOSED
+### The ρ Meson — Comb Filter Prediction ✅
 
-The (d=3)–(d=6) comb beat matches the ρ meson mass. The exact three-delay transfer function Im[Γ_{346}(ω)] with inputs g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4 and τ_d as above gives:
+The inter-sector comb filter Im[Γ_{346}(ω)] predicts the ρ meson mass independently of m_scale_3. Its inputs are the coupling constants g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4 (all derived from seeds and anomaly cancellation) and the Jacobi chain delays τ_d = 1/(2√(k₀+d)) at resonance site k₀=16:
 
 ```
 m_rho* = arg max Im[Γ_{346}(ω)] = 775.794 MeV    (PDG: 775.260 ± 0.250 MeV)
 Error: +0.069%
 ```
 
-The 0.534 MeV residual is attributed to (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric IDWT, and (c) leading-order WKB approximation in τ_d. All three are O(0.5 MeV). OQ35 is closed at the 0.069% level.
+No mass input is used. The 0.534 MeV residual is consistent with (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric kernel, and (c) the leading-order WKB approximation in τ_d being exact only for d=10 (see Part 1 §3b). The ρ meson prediction is closed at the 0.069% level.
+
+Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase delay at the resonance site k₀, where both d=3 and d=6 modes are evaluated at the same resonance frequency scale set by k₀=n_s²=16. The delay formula does not assume comparable mass scales between sectors — it depends only on the Jacobi chain structure at k₀, which is a geometric property of the manifold, not the sector mass scale.
 
 ### OQ17 — Scale Hierarchy Closed ✅
 
-**Single empirical input: m_e = 0.51099895 MeV. All else derived.** (Values below use Route A — comb filter; Route B values in "All sector scales" below.)
+**Single empirical input: m_e = 0.51099895 MeV. All sector scales derived.**
 
 | Quantity | Source | Value |
 |---------|--------|-------|
-| m_scale_6 | m_e/S(13,6) | 2.7526×10⁻⁵ MeV |
-| k₀ = 16 | n_s² (from seeds) | exact |
-| m_beat(3,6) | Comb filter, k₀ | 774.983 MeV |
-| f_SU(4) | m_beat/2 | 387.492 MeV |
-| m_scale_3 | comb filter Route A | 4.768 MeV (+2.1% OQ35) |
-| m_scale_4 | m_scale_3 / (15√(14/3)) | 0.1473 MeV |
-| m_scale_6/m_scale_3 | Comb filter only | 5.775×10⁻⁶ |
+| m_scale_6 | m_e / S(13,6) | 2.7526×10⁻⁵ MeV |
+| m_scale_3 | m_e × √(g₃₃/g₆₆) | 4.702 MeV |
+| m_scale_4 | m_scale_3 × √(g₄₄/g₃₃) / S(3,4) | 0.1451 MeV |
+| m_scale_10 | = m_scale_6 | 2.7526×10⁻⁵ MeV |
+| m_scale_2 | m_W / S(76,2) | 27.47 MeV |
 
-OQ17 is closed. The uniform +0.682% offset in d=3 quark predictions and +0.766%–2.09% in d=4 are the OQ35 residual propagated through the scale chain. They are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%).
+OQ17 is closed. The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
 
 ### All sector scales
 ```
-m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  [anchor]
-m_scale_3  = m_e × √(g₃₃/g₆₆)                        = 4.702 MeV
+m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  [electron anchor]
+m_scale_3  = m_e × √(g₃₃/g₆₆)                        = 4.702 MeV           [from seeds + anomaly]
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)        = 0.1451 MeV
-m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: tau Y_L = −1/2]
-m_scale_2  = m_W / S(76,2)                             = 27.47 MeV  [empirical measurement: m_W]
+m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: Y_τ = Y_L]
+m_scale_2  = m_W / S(76,2)                             = 27.47 MeV           [empirical: m_W]
 ```
 
 ---
@@ -432,7 +419,7 @@ where k counts the additions used to generate n from seeds.
 
 ### Derived Parameter ✅
 
-ε is now derived from the coupling structure:
+ε is derived from the coupling structure:
 
 ```
 ε = g_coeff / (k₀ × n_mu)
@@ -494,7 +481,7 @@ where n_min(d) is the lightest occupied mode in sector d. For d=3 this gives m_s
 
 The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
 
-- **Level 1 (sector-uniform):** OQ35 residual propagating through the scale chain. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. The rank-1 structure forces this — it is not a coincidence.
+- **Level 1 (sector-uniform):** The coupling self-consistency derivation produces a uniform fractional offset within each sector — identical for every mode. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. This is a structural consequence of the rank-1 kernel: any scale error in m_scale_d is the same for all n within that d. It is not a coincidence — the rank-1 structure forces it.
 - **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.766%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
 
 The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
@@ -519,7 +506,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 
 ## 13. Sector Termination — Gegenbauer Criticality ✅
 
-The IDWT sector set {2,3,4,5,6,10} terminates at d=10 for three independent reasons. The third — Gegenbauer criticality — was derived as a purely algebraic consequence of the seed structure.
+The IDWT sector set {2,3,4,5,6,10} terminates at d=10 for three independent reasons, the third being an algebraic consequence of the seed structure: Gegenbauer criticality.
 
 **Definition.** The Gegenbauer polynomial coupling at the seed resonance site k₀ = n_s² = 16 in the d-dimensional Jacobi chain is:
 

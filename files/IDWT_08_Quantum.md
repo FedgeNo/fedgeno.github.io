@@ -206,11 +206,11 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§64)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
 
-All absolute scales are outputs of the same kernel + unoccupied-mode sums. f_SU(4) = 387.5 MeV (= m_ρ/2) has purely combinatorial numerator 448 = (S(4,3)−S(2,3))² × S(4,4)/S(4,3).
+All absolute scales are outputs of the same kernel + unoccupied-mode sums.
 
 ---
 
-## 53. Cabibbo Angle
+## 53. Cabibbo Angle ✅
 
 See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from seed uniqueness, no free parameters. The structural coupling g_{3,4}(n_s, n_c) = n_τ = 23 gives an independent route to the tau index from the same algebra.
 
@@ -272,12 +272,12 @@ g_A ≈ 1.272     (PDG: 1.2723 ± 0.0023)
 **Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§61) — the kernel contributes zero extra hidden energy at leading order.
 
 **Proton mass estimate:**
-- Current quark masses: 2m_u + m_d ≈ 2×2.16 + 4.70 = 9.02 MeV
+- Current quark masses: 2m_u + m_d ≈ 2×2.18 + 4.70 = 9.06 MeV  (IDWT predictions)
 - Kernel-induced binding (attractive for singlet closure): ~929 MeV
 - Total: ~938 MeV ✓ (matches observed 938.3 MeV)
 
 **N-P mass difference:**
-- m_d − m_u ≈ 2.54 MeV (direct from sector anchors)
+- m_d − m_u ≈ 2.53 MeV (from IDWT sector predictions: 4.702 − 2.177)
 - EM self-energy (proton charged, neutron neutral) adds ~−1.29 MeV shift
 - Computed Δm_{N-P} ≈ 1.29 MeV (observed: 1.293 MeV) ✓
 

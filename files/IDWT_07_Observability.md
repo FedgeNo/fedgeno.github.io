@@ -58,7 +58,7 @@ The bottom quark survives as a geometric-mean beat between two virtual d=3 modes
 k₀ = n_strange² = 4² = 16
 ```
 
-Three independent resonance conditions add in phase at k₀ (see Part 2 §11 and the three k₀ conditions, now closed):
+Three independent resonance conditions add in phase at k₀ (see Part 2 §8 and the three k₀ conditions):
 
 1. k₀ = n_s² = 16 (seed self-product)
 2. k₀ = n_e + n_u = 13 + 3 = 16 (cross-sector lepton + quark sum)
@@ -76,7 +76,7 @@ The beat partner n=17 = k₀+1 = n_c−n_u = 20−3.
 
 ### 49.4c g_{3,4} Effective Coupling at the Bifurcation 🔶
 
-The exact cross-coupling g_{3,4} = 4√6 is now fully derived from seed structure (Part 2 §9). At the bifurcation site k₀=16, the effective coupling involves kernel overlap integrals at n=16,17 in d=3. The bottom quark prediction (+0.02%) is consistent with g_{3,4} = 4√6; the detailed prefactor for the quartic amplitude is not yet derived from first principles.
+The exact cross-coupling g_{3,4} = 4√6 is fully derived from seed structure (Part 2 §9). At the bifurcation site k₀=16, the effective coupling involves kernel overlap integrals at n=16,17 in d=3. The bottom quark prediction (+0.02%) is consistent with g_{3,4} = 4√6; the detailed prefactor for the quartic amplitude is not yet derived from first principles.
 
 ---
 

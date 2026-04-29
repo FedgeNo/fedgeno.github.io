@@ -189,7 +189,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 |---|---|---|---|---|---|
 | electron | 13 | 6 | 0.511 | 0.511 | anchor |
 | muon | 35 | 6 | 105.657 | 105.658 | −0.001% |
-| tau | 23 | 10 | 1,776.85†† | 1,776.86 | −0.11σ |
+| tau | 23 | 10 | 1,776.84†† | 1,776.86 | −0.14σ |
 | down | 1 | 3 | 4.702 | 4.670 | +0.68%† |
 | strange | 4 | 3 | 94.04 | 93.40 | +0.68%† |
 | up | 3 | 4 | 2.177 | 2.160 | +0.77%† |
@@ -200,7 +200,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 
 † The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 
-†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.85 MeV (−0.11σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4 (from Y_L=Y_τ=−1/2) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
+†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4 (from Y_L=Y_τ=−1/2) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
 
 ‡ After applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) and k values {charm:3, top:10}, the c/u ratio becomes 0.000% and the t/u ratio −0.048%. The GTC corrects within-sector ratios; the uniform +0.77% sector-wide offset persists in all d=4 absolute masses.
 
@@ -240,11 +240,11 @@ m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808
 Δm²₃₁/Δm²₂₁ = 32.949   (PDG: 32.576, error +1.14%)
 ```
 
-**Absolute masses (anchored to Δm²₂₁ = 7.53×10⁻⁵ eV²):**
+**Absolute masses** (ratios are IDWT predictions; scale anchored to Δm²₂₁ = 7.53×10⁻⁵ eV²):
 ```
-m_ν₁ = 1.517 meV,   m_ν₂ = 8.809 meV,   m_ν₃ = 49.833 meV,   Σm_ν = 60.16 meV
+m_ν₁ = 1.52 meV,   m_ν₂ = 8.81 meV,   m_ν₃ = 49.8 meV,   Σm_ν ≈ 60 meV
 ```
-All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is predicted from the solar anchor alone: Δm²₃₁ = m_ν₃² − m_ν₁² = 2.481×10⁻³ eV² (observed: 2.453×10⁻³ eV², error +1.14%).
+All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is derived from the ratios and the solar anchor alone: Δm²₃₁ = m_ν₃² − m_ν₁² = 2.481×10⁻³ eV² (observed: 2.453×10⁻³ eV², +1.14%). The mass scale m_scale_5 is not independently derived; only the ratios are IDWT predictions.
 
 **Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the generation law; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
 

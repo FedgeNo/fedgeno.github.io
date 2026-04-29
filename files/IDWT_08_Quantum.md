@@ -216,9 +216,9 @@ See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from
 
 ---
 
-## 61b. SU(3) Status — Automorphism Route ✅
+## 61b. SU(3) Status — Automorphism ✅
 
-**Route B: Aut(ℂ³, Ω) = SU(3) — verified.** The holomorphic automorphisms of ℂ³ preserving a volume form are exactly SU(3). Combined with the CP² identification of the d=4 sector, this gives SU(3) as the natural symmetry group.
+**Aut(ℂ³, Ω) = SU(3) — verified.** The holomorphic automorphisms of ℂ³ preserving a volume form are exactly SU(3). Combined with the CP² identification of the d=4 sector, this gives SU(3) as the natural symmetry group.
 
 **Critical issue:** The d=4 sector geometry is CP² = SU(3)/U(2), not S³. The automorphism group of CP² with Fubini-Study metric is SU(3)/ℤ₃. The sector realises SU(3) as an isometry, not as an internal gauge symmetry. The step from geometric SU(3) isometry to SU(3) gauge invariance of the strong force requires the spin^c connection identification (§59 above) — a genuine open problem.
 

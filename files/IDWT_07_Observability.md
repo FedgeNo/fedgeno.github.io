@@ -27,7 +27,7 @@ The projection mismatch for mode (n,d):
 Ω_log(n,d) = ln(S(n,d) / S(n,2))
 ```
 
-Modes with Ω_log > ~1.5 fail Stage 1. This threshold is set by the macroscopic hidden-wavelength bound (< 41 feV from hydrogen spectroscopy).
+Modes with Ω_log > ~1.5 fail Stage 1. This threshold is set by the macroscopic hidden geometry: sector manifolds with large radii produce small per-mode energy corrections to 3D physics.
 
 **Partition function interpretation:** The Stage-1 suppression factor exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The projection-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the projected count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of the projection geometry itself.
 
@@ -149,7 +149,7 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 
 **Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — they project at full strength. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This explains why quarks project strongly while leptons and neutrinos are suppressed.
 
-**KK gap prediction.** First excited modes on CP^d have energy ΔE ≈ (d+1) × 395 MeV (for R_d ≈ 0.5 fm). These are genuine predictions of bulk excitations with coupling suppressed by √A_rel.
+**KK gap prediction.** First excited modes on CP^d have energy ΔE ≈ (d+1)/R_d². For macroscopic sector radii, these energies are negligibly small and undetectable in any current experiment — consistent with the hidden dimensions being hidden.
 
 **Caveats:**
 1. The notation S(n,d) in the heat-kernel derivation refers to the Laplacian eigenvalue n(n+d−1), NOT the IDWT simplex count C(n+d−1,d). The IDWT mass formula m = C(n+d−1,d) × m_scale_d takes priority.
@@ -163,18 +163,17 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 **What is established:**
 - Exponential hierarchy A_rel = exp(−c_d λ̂_d) with geometrically fixed c_d = d/(d+1)²
 - Colour protection: quarks get λ_d = 0 automatically (gauge argument)
-- KK excitation mass predictions: ΔE ≈ (d+1) × 395 MeV
+- KK excitation energies: ΔE ≈ (d+1)/R_d² — negligibly small for macroscopic R_d
 - Falsifiability: ratio log(A_rel(d₁))/log(A_rel(d₂)) predictable once two masses per sector are set
 
 **What remains open:**
 - Deriving λ̂_d from vacuum dynamics on CP^d × M⁴
 - Deriving the 3D gauge group from U(d) subgroups
-- Chirality: derived from Kähler γ₅ on CP^d (Part 3 §7, Part 8 §59.3) — ✅ closed
 - Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed (seesaw forbidden by d=5 Majorana prohibition; suppression must be geometric)
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|
-| m_scale_d hierarchy | A_rel(d) suppression: m_scale_d ∝ (ℏc/R_d) × A_rel |
+| m_scale_d hierarchy | A_rel(d) suppression: m_scale_d set by vacuum stability fixed-point, modulated by A_rel |
 | Quarks project strongly | Colour protection forces λ_d = 0 for triplets |
 | Stage-1 heuristic A_rel | Replaced by exp(−c_d λ̂_d) with geometrically fixed c_d |
 | Vacuum stability fixes g₃₃ | Analogous: vacuum stability should fix λ̂_d |

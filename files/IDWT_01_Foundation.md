@@ -9,16 +9,7 @@
 ## 1. Core Postulates
 
 **P1 — The Master Wave**
-Ψ∞ is a **Dirac spinor field** defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure.
-
-Being a spinor, Ψ∞ gives the following without additional postulates:
-
-- **Spin-½:** Half-integer spin of all quarks and leptons follows from the Kaluza-Klein Dirac operator on M_∞ (§59 of Part 8).
-- **Fermi statistics:** Anticommutation relations {Ψ∞(ξ), Ψ†∞(ξ')} = δ(ξ−ξ') follow from the spinor nature; Pauli exclusion is automatic, not postulated.
-- **Particle/antiparticle structure:** The conjugate spinor field Ψ̄∞ is a distinct object from Ψ∞, automatically providing antiparticles with opposite quantum numbers.
-- **Chirality of the weak force:** The Kähler sectors (d=2,4,6) carry natural chirality operators γ₅^Kähler that split each sector spinor into left-handed (holomorphic) and right-handed (anti-holomorphic) components. The W boson couples only to the left-handed half — a geometric consequence, not an assumption (§15 of Part 3).
-- **Neutrinos are Dirac fermions:** The d=5 sector has d mod 8 = 5, the unique Clifford-algebra class for which Majorana spinors do not exist. No Majorana mass is allowed; the seesaw mechanism is geometrically forbidden (§6 below, Part 8 §59.1).
-- **SO(10) GUT structure of the d=10 sector:** The 16-component Weyl spinor of Spin(10) ≅ SO(10) decomposes as exactly one SM generation, giving tau-sector hypercharges from the SO(10) algebra rather than separately postulated (Part 3 §8).
+Ψ∞ is a **Dirac spinor field** defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure. The quantum number structure of matter (spin, chirality, statistics, hypercharges) follows from the spinor geometry of M_∞; the mass spectrum follows from the combinatorial mode structure S(n,d).
 
 **P2 — The Observable Slice**
 Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidden dimensions:
@@ -27,7 +18,7 @@ Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidd
 ```
 
 **P3 — Hidden Dimensions are Macroscopic**
-The hidden dimensions are not compact. They are full-scale spatial dimensions with wavelengths ≳ 6 mm. Derivation: the 1S–2S hydrogen transition is sensitive to corrections from hidden-mode loops. Current precision (~10⁻¹⁵) constrains hidden-mode energy corrections to < 41 feV. For a hidden wavelength λ_h, the energy correction scales as (m_e/m_pl)² × (a₀/λ_h)². Setting this below 41 feV gives λ_h ≳ 6 mm — macroscopic, not Planck-scale. This means the hidden dimensions are large and slowly varying, justifying the locally-flat sector geometry used throughout.
+The hidden dimensions are not compact. They are full-scale spatial dimensions, macroscopic in extent. This is consistent with all gravitational experiments because IDWT has no gravitons — gravity is purely geometric, arising from the curvature of the projected 4D slice. The standard exclusions of macroscopic extra dimensions (Eöt-Wash torsion balance, collider KK graviton searches) all presuppose that gravitons propagate into the extra dimensions; in a graviton-free theory this category of constraint does not apply. See Part 4 §1b for the full argument.
 
 **P4 — Geometry First**
 The governing equation is a wave equation on a curved manifold. The potential arises from the intrinsic curvature of M_∞, not from an independent input.
@@ -77,7 +68,7 @@ Key difference from quasicrystals: IDWT projects a continuous wave equation — 
 
 ## 3. The Sector Structure of M_∞ ✅
 
-The hidden manifold decomposes into geometrically distinct sectors, each locally flat:
+The hidden manifold decomposes into geometrically distinct sectors, each macroscopic in extent:
 
 | d | Geometry | Symmetry | Spinor type | Spinor dim | Physical content |
 |---|---|---|---|---|---|
@@ -261,7 +252,7 @@ All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is deriv
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
-| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry | 🔶 |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden dimensions are consistent because graviton propagation exclusions do not apply (Part 4 §1b) | 🔶 (formal derivation from action open) |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |

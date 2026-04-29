@@ -10,7 +10,7 @@ The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a
 
 **Established:**
 - □_x φ + m²_eff φ = 0 is Lorentz-covariant ✅
-- The projection ψ(x) = ∫Ψ∞ dμ is Lorentz-covariant if dμ is a scalar measure ✅
+- The projection ψ_obs(r,t) = Ψ∞(r, ξ⁰, t) is Lorentz-covariant: restriction to a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates ✅
 - S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate ✅
 - Fermion spin-½ from the KK Dirac operator on M_∞ — see §59 ✅
 
@@ -18,7 +18,7 @@ The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the KK reduction; correction
 
 ---
 
-## 59. Spinor Ψ∞ and Hidden-Sector Quantum Numbers ✅
+## 59. Hidden-Sector Quantum Numbers ✅
 
 Ψ∞ is a Dirac spinor field. The KK separation on M_∞ = ℝ^{3,1} × Ξ_d gives:
 
@@ -33,7 +33,7 @@ Under Ψ∞(x,ξ) = ψ(x) ⊗ χ(ξ), this separates into the 4D massive Dirac e
 D_{Ξ} χ = m_eff χ              [mass = Dirac eigenvalue on Ξ_d]
 ```
 
-Spin-½ of all quarks and leptons follows from the spinor bundle on M_∞. Mode degeneracies S(n,d) are unchanged — the spinor structure determines which quantum numbers attach to each mode, not the mode frequencies.
+Spin-½ of all quarks and leptons follows from the spinor bundle on M_∞. The spinor structure determines which quantum numbers attach to each mode; the mode frequencies themselves are determined by the combinatorial structure S(n,d) independently of spin.
 
 ### 59.1 Majorana/Weyl Classification by Sector
 
@@ -310,7 +310,7 @@ The kernel naturally produces m_π << m_K because the strange quark (n=4) increa
 - High projection mismatch Ω_log > 1.5 → exponential Stage-1 suppression
 
 ```
-ρ_vac^obs ≈ N_unocc × ⟨S_unocc⟩ × m_scale_3⁴ × exp(−Ω_typ) × (ℏc/R_CP³)⁴ × f_overlap
+ρ_vac^obs ≈ N_unocc × ⟨S_unocc⟩ × m_scale_3⁴ × exp(−Ω_typ) × f_overlap
 ```
 
 With N_unocc ≈ 15, ⟨S_unocc⟩ ≈ 500, Ω_typ ≈ 1.8, the suppression factor exp(−Ω_typ) ≈ 0.17 brings the vacuum contribution well below the naive UV estimate.

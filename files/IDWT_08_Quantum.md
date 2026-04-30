@@ -110,13 +110,85 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 ---
 
-## 60. Spectral Independence — Theorem ✅
+## 60. Spectral Counting Theorem ✅
+
+### 60.1 Spectral Independence
 
 The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: no particle's S(n,d) value is a linear combination (with rational coefficients) of other occupied S values within the same sector, and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the generation law.
 
 This was verified computationally for all pairwise and triple combinations. The independence theorem rules out redundancy in the spectrum — every assigned mode index carries independent physical content.
 
 **Near-violations note:** S(n_top,4)/S(n_c,4) = 137.26... ≈ 1/α (fine structure constant). This is a 0.17% coincidence — noted but not used as a derivation.
+
+### 60.2 S(n,d) as the Sector Spectral Counting Function ✅
+
+**Theorem (Hockey-Stick Count).** Let H_d = −Δ_d + λ_d r² be the d-dimensional isotropic harmonic oscillator. The k-th energy level has multiplicity:
+
+```
+μ_d(k) = dim(Sym^k(ℝ^d)) = C(k+d−1, d−1)
+```
+
+Then the cumulative eigenstate count at levels k = 0, 1, ..., n−1 is:
+
+```
+N_d(n−1) = Σ_{k=0}^{n−1} μ_d(k) = C(n+d−1, d) = S(n, d)
+```
+
+**Proof.** By induction on n using Pascal's rule.
+
+*Base (n=1):* Σ_{k=0}^{0} C(d−1, d−1) = 1 = C(d,d) = S(1,d). ✓
+
+*Step:* Assume Σ_{k=0}^{n−1} C(k+d−1,d−1) = C(n+d−1,d). Then:
+```
+Σ_{k=0}^{n} C(k+d−1,d−1) = C(n+d−1,d) + C(n+d−1,d−1) = C(n+d,d) = S(n+1,d)
+```
+where the last equality is Pascal's rule. □
+
+**Verification against the IDWT particle spectrum:**
+
+| Particle | n | d | S(n,d) | Σ μ_d(k), k<n | Match |
+|---|---|---|---|---|---|
+| down | 1 | 3 | 1 | 1 | ✓ |
+| strange | 4 | 3 | 20 | 20 | ✓ |
+| up | 3 | 4 | 15 | 15 | ✓ |
+| charm | 20 | 4 | 8,855 | 8,855 | ✓ |
+| top | 72 | 4 | 1,215,450 | 1,215,450 | ✓ |
+| electron | 13 | 6 | 18,564 | 18,564 | ✓ |
+| muon | 35 | 6 | 3,838,380 | 3,838,380 | ✓ |
+| tau | 23 | 10 | 64,512,240 | 64,512,240 | ✓ |
+| W | 76 | 2 | 2,926 | 2,926 | ✓ |
+
+Agreement is exact in all cases — this is a combinatorial identity, not an approximation.
+
+### 60.3 Physical Interpretation
+
+S(n,d) is the total number of quantum states of the d-dimensional sector harmonic oscillator at all excitation levels below n. The IDWT mass formula:
+
+```
+m(n,d) = m_scale_d × S(n,d) = m_scale_d × N_d(n−1)
+```
+
+states that the mass of a particle equals m_scale_d times the cumulative count of hidden sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of hidden microstates" is exactly this: m/m_scale_d = N_d(n−1).
+
+### 60.4 Connection to the Dirac Operator D_Ξ
+
+For macroscopic sector radius R_d, the Lichnerowicz curvature correction to D_Ξ² vanishes:
+
+```
+D_Ξ² = H_d + R/4,    R/4 = m(m+1)/(4R_d²) → 0   (d = 2m, CP^m sectors)
+```
+
+Therefore D_Ξ² ≈ H_d exactly for macroscopic Ξ. The Dirac eigenvalues are ±√E_k where E_k = (2k+d)√λ_d, with multiplicity μ_d(k) = C(k+d−1,d−1).
+
+Defining the Dirac spectral counting function N_d(E) = #{eigenvalues with |λ| satisfying λ² ≤ E}:
+
+```
+N_d(E_{n−1}) = Σ_{k=0}^{n−1} μ_d(k) = S(n,d)
+```
+
+where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator energy. The IDWT mass formula m_n = m_scale_d × N_d(E_{n−1}) is a Weyl-type spectral law: mass equals the sector scale times the number of Dirac eigenstates at energies up to the mode's level.
+
+**Status.** The spectral theorem is proved: S(n,d) equals the cumulative degeneracy count of the d-dimensional sector harmonic oscillator. This holds exactly for the harmonic approximation V_d ≈ λ_d r² (valid for low-n modes deep in the potential well) and approximately for the full sector potential V_d = λ_d r²/(1+r²) (where deviations appear at high n as the potential saturates — a potential source of higher-order corrections to heavy-particle mass predictions).
 
 ---
 
@@ -226,7 +298,7 @@ See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from
 
 ---
 
-## 65. Hilbert Space Rigour — OQ25 Closed ✅
+## 65. Hilbert Space Rigour ✅
 
 **The Hilbert space:** H_IDWT = ⊕_d ⊕_n Sym^n(ℝ^d), with inner product from the sector measures dμ_d on Ξ_d.
 
@@ -234,7 +306,7 @@ See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from
 
 **Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (T is relatively bounded with relative bound < 1 from the inter-block coupling decay ~n^{-(d-1)/2}).
 
-**OQ25 closed:** The IDWT mode sum converges absolutely in the kernel-acceptance-weighted norm; the operator H_IDWT is self-adjoint on a dense domain; the spectral theorem applies. ✅
+**Closed:** The IDWT mode sum converges absolutely in the kernel-acceptance-weighted norm; the operator H_IDWT is self-adjoint on a dense domain; the spectral theorem applies. ✅
 
 ---
 

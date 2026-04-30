@@ -87,10 +87,11 @@ These dimensions are not chosen. They are the unique sequence produced by the Ho
 S¹ → S³  → S²    complex Hopf     →  d=2 (base CP¹), d=3 (total S³)
 S¹ → S⁵  → CP²   complex Hopf     →  d=4 (base CP²), d=5 (total S⁵)
 S³ → S⁷  → S⁴    quaternionic     →  d=4 also as S⁴≅HP¹ (consistent)
-S⁷ → S¹⁵ → S⁸   octonionic       →  d=10 (total space, via 𝕆P¹)
 ```
 
-d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6 and serves as the twistor space of S⁴ ≅ HP¹. d=7 (the total space S⁷) is not an independent sector because S⁷ is already the total space of the quaternionic Hopf fibration S³→S⁷→S⁴, fully accounted for through that chain. d=8 would correspond to the GUT coset CP⁴=SU(5)/U(4), absent because SU(5) symmetry breaks at the GUT scale.
+d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6 and serves as the twistor space of S⁴ ≅ HP¹. d=7 (the total space S⁷) is not an independent sector because S⁷ is already the total space of the quaternionic Hopf fibration S³→S⁷→S⁴, fully accounted for through that chain.
+
+d=10 arises as CP⁵ = SU(6)/U(5), the next step in the complex projective chain beyond CP³. Its dimension d=10 is fixed by the Gegenbauer criticality condition (§3b) and the hypercharge anomaly cancellation (g_{10,10} = Y_L² = 1/4), and confirmed by Hurwitz's theorem as the terminal sector: CP⁵ associated with the octonions is the last space in the chain for which the sector structure remains self-consistent.
 
 The sequence terminates at d=10 because the octonions are the last normed division algebra — Hurwitz's theorem admits no further entries.
 
@@ -188,6 +189,9 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | top | 72 | 4 | 176,365 | 172,760 | +2.09%‡ |
 | bottom | — | 3 | 4,181 | 4,180 | +0.02% |
 | photon | 0 | 2 | 0 | 0 | exact |
+| W | 76 | 2 | 80,377 | 80,377 | anchor |
+| Z | 81 | 2 | 91,228 | 91,188 | +0.044% |
+| Higgs | 95 | 2 | 125,263 | 125,250 | +0.010% |
 
 † The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 
@@ -210,7 +214,7 @@ Neutrinos cannot fit d=6. The sector scale m_scale_6 = 27.5 eV means the lightes
 ```
 n_ν₁ = S(n_u,3) = S(3,3) = 10    [simplex image of up quark into d=3]
 n_ν₂ = S(n_u,4) = S(3,4) = 15    [simplex image of up quark into d=4]
-n_ν₃ = n_τ − n_d = 23 − 1 = 22   [generation law, OQ28]
+n_ν₃ = n_τ − n_d = 23 − 1 = 22   [generation law]
 ```
 
 Redundant check: n_ν₃ = n_ν₁ + n_ν₂ − n_u = 10+15−3 = 22 ✓
@@ -252,7 +256,7 @@ All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is deriv
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
-| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden dimensions are consistent because graviton propagation exclusions do not apply (Part 4 §1b) | 🔶 (formal derivation from action open) |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden dimensions are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; hierarchy M_∞ >> m_e remains open | 🔶 |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |

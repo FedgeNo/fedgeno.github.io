@@ -227,7 +227,7 @@ The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which
 
 This is a concrete, falsifiable prediction: neutrinoless double beta decay (0νββ) must have rate exactly zero. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
 
-The neutrino mass hierarchy problem is thereby sharpened: the ~5×10¹¹ suppression of m_scale_5 relative to its naive coupling value cannot come from seesaw and must arise from the d=5 sector vacuum dynamics directly — non-perturbative suppression at large λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex.
+The neutrino mass hierarchy problem is thereby sharpened: the ~2.5×10⁵ suppression of m_scale_5 relative to its naive coupling value cannot come from seesaw and must arise from the d=5 sector vacuum dynamics directly — non-perturbative suppression at large λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex.
 
 **Oscillation ratios (from simplex values alone):**
 ```

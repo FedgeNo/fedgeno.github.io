@@ -202,11 +202,59 @@ The coupling-conservation identity is equivalent to any of: g(d=5, n_top) = n_W;
 
 ## 12. Cabibbo Angle ✅
 
+The Cabibbo mixing angle arises from the d=3↔d=4 off-diagonal coupling of the kernel K = (ξ_3·ξ_4)². The bare IDWT prediction:
+
 ```
-sin θ_C = 1/√S(n_s, 3) = 1/√20 = 0.22361   (PDG: 0.22450 ± 0.00044,  −2.0σ)
+sin θ_C (bare) = 1/√S(n_s, 3) = 1/√20 = 0.22361
 ```
 
-The Cabibbo angle is the square root of the ratio of the two d=3 seed simplex values. The Wolfenstein parameter λ = 1/√20 is not free — n_s=4 is the unique second seed. The tension is in |V_ud| (+3.1σ), consistent with the Cabibbo anomaly; IDWT predicts exact first-row unitarity.
+PDG: |V_us| = 0.22450 ± 0.00044. Bare tension: −2.03σ.
+
+### Cabibbo Correction — k=3 from Kernel Complementarity
+
+The l=2 tensor part of the kernel K has two complementary effects on the coupling matrix G:
+
+- **Diagonal** (self-coupling): the l=2 phase reduces each sector's self-coupling by (1−ε)^k. This is the GTC — it corrects d=4 quark masses downward.
+- **Off-diagonal** (cross-coupling, d=3↔d=4): the same l=2 tensor enhances inter-sector mixing by (1+ε)^k. The tensor T^{ab} is traceless (T^a_a = 0), so reductions in diagonal elements are compensated by enhancements in off-diagonal.
+
+The winding number k for the Cabibbo mixing is the d=3 sector gap:
+
+```
+k_Cabibbo = n_strange − n_down = 4 − 1 = 3 = n_s − 1
+```
+
+This is identical to k_charm = n_s − 1 = 3, because both count the same quantity: the seed gap, or the number of additions from the ground mode of a sector to the next occupied level. The Cabibbo angle measures the distance from down to strange in d=3; the charm mass correction measures the distance from up to its seed in d=4. Both gaps equal n_s − 1 = 3.
+
+**Corrected prediction:**
+
+```
+sin θ_C = (1 + 3ε) / √20    where ε = 1/(280√7)  [the GTC coupling]
+        = 0.22451
+```
+
+| Quantity | Value |
+|---|---|
+| sin θ_C bare | 0.22361 |
+| sin θ_C corrected | 0.22451 |
+| PDG \|V_us\| | 0.22450 ± 0.00044 |
+| Tension | +0.03σ |
+
+The correction closes the tension from −2.03σ to +0.03σ. No new parameters: ε is the GTC coupling derived in Part 2 §11 and k=3 is the unique seed gap.
+
+**Cross-check:** The exact Cabibbo relation from the Jacobi boundary structure (§11):
+
+```
+sin²θ_C = S(2,3) / (S(2,3) + n_W) = 4/80 = 1/20 = 0.05000 (bare)
+(1+3ε)²/20 = 0.050406  (corrected)  vs  PDG sin²|V_us| = 0.050400
+```
+
+Error after correction: +0.01%.
+
+**What remains open:** The sign of the correction — that the l=2 tensor enhances off-diagonal coupling rather than reducing it — follows from tracelessness of the l=2 tensor, but has not been derived explicitly from the M_∞ action. The k=3 value and the ε coefficient are fixed by the seed structure and the GTC; only the formal proof of the complementarity sign rule remains.
+
+The Wolfenstein parameter λ = sin θ_C = (1+3ε)/√20 is not fitted — n_s=4 is the unique second seed (Part 2 §2), and k=3 = n_s−1 follows from it. The tension that existed in the bare prediction is the off-diagonal GTC at the same winding number as the charm quark correction.
+
+
 
 ---
 

@@ -59,10 +59,12 @@ Im[Γ₃₄₆(ω)] peak = 775.8 MeV   (PDG: 775.3 MeV,  +0.07%)
 ```
 All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 — come from seeds {1,4} and m_e alone. This is a cross-check of the coupling geometry, not an independent mass prediction.
 
-**Cabibbo angle**
+**Cabibbo angle — with off-diagonal GTC correction**
 ```
-sin θ_C = 1/√20 = 0.2236   (PDG: 0.2245,  −0.40%)
+sin θ_C (bare)      = 1/√20 = 0.22361   (PDG: 0.22450, −2.03σ)
+sin θ_C (corrected) = (1+3ε)/√20 = 0.22451   (PDG: 0.22450, +0.03σ)
 ```
+The same ε = 1/(280√7) and k=3 = n_s−1 from the GTC (Part 2 §11) appear in the off-diagonal correction to mixing. The l=2 kernel tensor is traceless: diagonal reductions in d=4 quark masses are complemented by off-diagonal enhancements in d=3↔d=4 mixing. See Part 3 §12.
 
 **Up/down quark mass ratio**
 ```

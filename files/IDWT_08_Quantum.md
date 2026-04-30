@@ -300,13 +300,59 @@ See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from
 
 ## 65. Hilbert Space Rigour ✅
 
-**The Hilbert space:** H_IDWT = ⊕_d ⊕_n Sym^n(ℝ^d), with inner product from the sector measures dμ_d on Ξ_d.
+### The Weighted Hilbert Space
 
-**Kernel-induced cutoff:** The suppression factor exp(−Ω_log(n,d)) = S(n,2)/S(n,d) provides an exponential decay in the mode sum for large n. For d ≥ 3 and large n, S(n,d)/S(n,2) ~ n^{d-2} → exponential suppression by the kernel acceptance window ensures absolute convergence.
+The IDWT state space is the weighted Hilbert space:
 
-**Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (T is relatively bounded with relative bound < 1 from the inter-block coupling decay ~n^{-(d-1)/2}).
+```
+‖Ψ‖_w² = Σ_{d∈D} Σ_{n≥1} S(n,d) |c_{n,d}|²
+```
 
-**Closed:** The IDWT mode sum converges absolutely in the kernel-acceptance-weighted norm; the operator H_IDWT is self-adjoint on a dense domain; the spectral theorem applies. ✅
+with D = {2,3,4,5,6,10} and c_{n,d} the mode coefficients.
+
+**Kernel-induced convergence:** The projection weight exp(−Ω_log(n,d)) = S(n,2)/S(n,d) ensures that modes at high n are exponentially suppressed. For d ≥ 3 and large n, S(n,d)/S(n,2) ~ n^{d−2}, giving absolute convergence of all physical sums.
+
+**Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (the inter-block coupling T is relatively bounded with relative bound < 1 from the kernel decay ~n^{−(d−1)/2}).
+
+### Weighted Norm Convergence — Analytical Proof ✅
+
+**Theorem.** For S(n,d) = C(n+d−1,d) and d ≥ 2:
+
+```
+Σ_{n=1}^∞ 1/S(n,d) = d/(d-1)
+```
+
+**Proof.** The telescoping identity:
+
+```
+1/S(n,d) = d/(d-1) × (1/S(n,d-1) − 1/S(n+1,d-1))
+```
+
+holds for all n ≥ 1 (verified by direct substitution using Pascal's rule C(n+d−1,d) = C(n+d−1,d−1) × n/(n+d−1)). Summing from n=1 to N:
+
+```
+Σ_{n=1}^N 1/S(n,d) = d/(d-1) × (1 − 1/S(N+1,d-1)) → d/(d-1)  as N → ∞
+```
+
+since S(1,d−1) = 1 and S(N+1,d−1) → ∞. □
+
+**Values for all IDWT sectors:**
+
+| d | 2 | 3 | 4 | 5 | 6 | 10 |
+|---|---|---|---|---|---|---|
+| Σ 1/S(n,d) | 2 | 3/2 | 4/3 | 5/4 | 6/5 | 10/9 |
+
+**Consequence.** By Cauchy-Schwarz, the evaluation functional |Ψ(ξ₀)| ≤ ‖Ψ‖_w × (Σ_{d∈D} d/(d−1))^{1/2} < 3‖Ψ‖_w is bounded without any ultraviolet cutoff. The S(n,d) weighting provides natural regularisation — the same weighting that defines the mass formula also makes the evaluation functional continuous.
+
+### Projection Operator Properties ✅
+
+The projection P: H_w → H_obs, PΨ = Ψ(·,ξ₀) satisfies:
+
+- **Bounded:** from the evaluation functional bound above
+- **Idempotent (P² = P):** evaluation at a fixed point is idempotent
+- **Commuting ([P,O] = 0):** O = ⊕_d O_d acts as O φ_{n,d} = m_scale(d)×S(n,d)×φ_{n,d}; P is diagonal in the same (n,d) basis; diagonal operators commute
+
+Physical meaning: physical states remain physical under time evolution.
 
 ---
 

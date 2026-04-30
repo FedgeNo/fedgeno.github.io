@@ -79,7 +79,7 @@ CP² carries two independent gauge-algebraic structures:
 | Isometry | SU(3) acts on fibre ℂ³ | SU(3) | 8 | Gluons |
 | Holonomy | Fubini-Study metric | U(2) = SU(2)×U(1) | 4 | Electroweak |
 
-The fibre and tangent space are orthogonal: su(3) ∩ u(2) = {0}. The Standard Model gauge algebra has dimension 8+3+1 = 12. The match is exact from a single manifold.
+The fibre and tangent space are orthogonal: the SU(3) isometries act on the colour fibre, while U(2) holonomy acts on the tangent directions. As gauge symmetries on their respective spaces they are disjoint. The Standard Model gauge algebra has dimension 8+3+1 = 12. The match is exact from a single manifold.
 
 ---
 
@@ -196,7 +196,7 @@ where b_k = √(k(k+3)/4) is the Jacobi coupling at site k. The first identity c
 
 **Cabibbo consistency via the same Jacobi structure:** sin²θ_C = S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20, consistent with 1/√20. The absent n=2 mode appears as the second singular value of the boundary coupling matrix.
 
-The QCP (OQ26) is equivalent to any of: g(d=5, n_top) = n_W; n_W = 4×19 = 76; n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent and all proved.
+The coupling-conservation identity is equivalent to any of: g(d=5, n_top) = n_W; n_W = 4×19 = 76; n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent and all proved.
 
 ---
 

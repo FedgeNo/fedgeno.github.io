@@ -204,12 +204,12 @@ The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}.
 
 Both coupling constants are derived simultaneously from the seeds {n_s=4, n_u=3} using a single universal structure. Neither is primary.
 
-**The universal coupling coefficient** (same for both sectors by OQ26 binomial symmetry):
+**The universal coupling coefficient** (same for both sectors by binomial symmetry C(n,k)=C(n,n-k)):
 ```
 g_coeff = √(n_s(n_s+1)/S(n_s,4)) = √(20/35) = √(4/7) = 2/√7
          = √(n_u(n_u+1)/S(n_u,5)) = √(12/21) = √(4/7) = 2/√7
 ```
-These are equal because n_s+3 = n_u+4 = 6 → C(6,4)=C(6,2). The same binomial symmetry that closed OQ26 makes the coupling coefficient universal.
+These are equal because n_u+3 = n_s+2 = 6 (using n_s = n_u+1) → C(6,4)=C(6,2). The same binomial symmetry makes the coupling coefficient universal.
 
 **The gaps:**
 ```
@@ -354,7 +354,7 @@ No inputs beyond m_e and the seeds {n_s, n_u}.
 
 ---
 
-## 10. Mass Scale Derivation — OQ17 Closed ✅
+## 10. Mass Scale Derivation ✅
 
 ### m_scale_3 — from the coupling self-consistency condition ✅
 
@@ -382,7 +382,7 @@ No direct mass input is used. The 0.534 MeV residual is consistent with (a) Brei
 
 Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase delay at the resonance site k₀, where both d=3 and d=6 modes are evaluated at the same resonance frequency scale set by k₀=n_s²=16. The delay formula does not assume comparable mass scales between sectors — it depends only on the Jacobi chain structure at k₀, which is a geometric property of the manifold, not the sector mass scale.
 
-### OQ17 — Scale Hierarchy Closed ✅
+### Scale Hierarchy ✅
 
 **Single empirical input: m_e = 0.51099895 MeV. All sector scales derived.**
 
@@ -394,7 +394,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 | m_scale_10 | = m_scale_6 | 2.7526×10⁻⁵ MeV |
 | m_scale_2 | m_W / S(76,2) | 27.47 MeV |
 
-OQ17 is closed. The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
+The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
 
 ### All sector scales
 ```
@@ -446,7 +446,7 @@ Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.7
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
-**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.001%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
+**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.002%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
 
 ### Results
 

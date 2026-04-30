@@ -95,7 +95,7 @@ n_nu1 = S(n_up, 3)    # = 10
 # Second neutrino mode: the image of the up quark seed into d=4. This equals
 # C(6,2) = 15 by binomial symmetry C(n,k) = C(n,n-k), which connects it
 # directly to n_W = 76 via: n_W = S(n_e, 2) - n_nu2 = 91 - 15 = 76.
-# The binomial symmetry identity here is the content of OQ26. (Part 2 section 5, Part 3 section 11)
+# The binomial symmetry C(n,k)=C(n,n-k) applied here is what makes the coupling coefficient universal across the two Hopf pairs. (Part 2 section 5, Part 3 section 11)
 n_nu2 = S(n_up, 4)    # = 15
 
 # n_nu3 = n_nu1 + n_nu2 - n_up = 10 + 15 - 3 = 22
@@ -139,7 +139,7 @@ n_tau = n_nu3 + n_down    # = 23
 # n_top = n_charm + 4 * n_e = 20 + 52 = 72
 # Top quark mode index derivable in two equivalent ways:
 #   (a) Primary (Vandermonde chain):
-#       n_W = S(n_e, 2) - n_nu2 = 91 - 15 = 76 (from QCP/OQ26)
+#       n_W = S(n_e, 2) - n_nu2 = 91 - 15 = 76 (from the Vandermonde chain)
 #       Vandermonde rule g(d=5, n_top) = n_W gives n_top = n_W - 4 = 72.
 #   (b) Algebraic identity: n_charm + 4*n_e = 20 + 52 = 72,
 #       also equal to 2 * S(2*n_s, 2) = 2 * C(9,2) = 2*36 = 72.

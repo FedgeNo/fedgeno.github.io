@@ -17,17 +17,18 @@ This reframes mode selection from a dynamical problem inside M_∞ to a geometri
 
 ### 49.1 Projection Amplitude (Stage 1)
 
-The projection amplitude for sector d relative to the quark sector (d=3) is:
+The projection amplitude for sector d relative to the quark sector (d=3) scales roughly as:
 ```
-A_rel(d) = (m_scale_d / m_scale_3)^{1/3}
+A_rel(d) ~ (m_scale_d / m_scale_3)^{1/3}
 ```
+This is a heuristic estimate. The rigorous derivation from the sector heat kernel is in §50.9, which gives A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)² and λ̂_d ≈ 1.
 
 The projection mismatch for mode (n,d):
 ```
 Ω_log(n,d) = ln(S(n,d) / S(n,2))
 ```
 
-Modes with Ω_log > ~1.5 fail Stage 1. This threshold is set by the macroscopic hidden geometry: sector manifolds with large radii produce small per-mode energy corrections to 3D physics.
+Ω_log measures how much larger the hidden-sector mode count is relative to the d=2 gauge sector baseline. Stage-1 suppresses each mode by exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ and are fully projected out. Bound states have finite Ω_log; the co-fixed-point structure of the generation law selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
 
 **Partition function interpretation:** The Stage-1 suppression factor exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The projection-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the projected count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of the projection geometry itself.
 
@@ -125,7 +126,7 @@ The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass
 
 The heuristic A_rel(d) = (m_scale_d/m_scale_3)^{1/3} is replaced by a first-principles derivation.
 
-**Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/R_d². The gap to the first excited multiplet: E₁ = (d+1)/R_d².
+**Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = 1/κ_d is the sector localization length (the Agmon decay length of the ground-state mode, proved to be the natural sector length scale in Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d².
 
 **Breaking operator.** The lowest-degree spurion breaking SU(d+1) → SU(d)×U(1):
 ```
@@ -135,7 +136,9 @@ Gauge-invariant, unique lowest-rank perturbation coupling only n=0 and n=1 secto
 
 **Projection weight:**
 ```
-A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
+A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d L_d²  ≈ 1
+
+where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically λ̂_d = λ_d L_d² = λ_d/(λ_d − E_0) ≈ 1 for all sectors (the mode localization and potential depth self-normalize; see Part 4 §3.9).
 ```
 
 | Sector | d | c_d = d/(d+1)² |
@@ -149,7 +152,7 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 
 **Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — they project at full strength. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This explains why quarks project strongly while leptons and neutrinos are suppressed.
 
-**KK gap prediction.** First excited modes on CP^d have energy ΔE ≈ (d+1)/R_d². For macroscopic sector radii, these energies are negligibly small and undetectable in any current experiment — consistent with the hidden dimensions being hidden.
+**KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 projection for the same reason scattering states do: insufficient projection amplitude at ξ⁰.
 
 **Caveats:**
 1. The notation S(n,d) in the heat-kernel derivation refers to the Laplacian eigenvalue n(n+d−1), NOT the IDWT simplex count C(n+d−1,d). The IDWT mass formula m = C(n+d−1,d) × m_scale_d takes priority.
@@ -167,7 +170,7 @@ A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d R_d²
 - Falsifiability: ratio log(A_rel(d₁))/log(A_rel(d₂)) predictable once two masses per sector are set
 
 **What remains open:**
-- Deriving λ̂_d from vacuum dynamics on CP^d × M⁴
+- Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; this would also determine L_d = 1/√(λ_d − E_0) and hence G_eff)
 - Deriving the 3D gauge group from U(d) subgroups
 - Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed (seesaw forbidden by d=5 Majorana prohibition; suppression must be geometric)
 

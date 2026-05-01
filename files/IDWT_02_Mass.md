@@ -12,15 +12,29 @@ S(n, d) = C(n+d−1, d)
 
 S(n,d) is the number of ways to distribute n units of excitation across d oscillator modes — equivalently, the dimension of the space of degree-n homogeneous polynomials in d variables.
 
-**S(n,d) is the resonant frequency of mode n in sector d, measured in units of m_scale_d.** In natural units where ℏ = c = 1, mass is frequency (E = hν = mc²). A particle with mode index n in sector d is a standing wave resonating at frequency S(n,d) × m_scale_d. The mass formula is not a proportionality — it is an identification.
+### S(n,d) as a Universal Combinatorial Measure Field
 
-**S(n,d) has a direct geometric grounding:** the sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and
+S(n,d) appears in four distinct physical roles across IDWT. These are not inconsistent uses — they are four different functionals applied to the same underlying combinatorial object. The formal declaration:
+
+**S(n,d) is the cumulative spectral counting function of the d-dimensional sector harmonic oscillator:**
 
 ```
-dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d)
+S(n,d) = N_d(n−1) = #{eigenvalues of H_d at level k < n, counted with multiplicity}
+        = Σ_{k=0}^{n-1} C(k+d−1, d−1)    [proved in Part 8 §60]
 ```
 
-This is a theorem of algebraic geometry. S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry. The sector dimension d specifies which polynomial ring ℝ[ξ₁,…,ξ_d] is physically realised; the Hopf fibration chain determines which values of d are occupied.
+Given this single definition, the four applications are different functionals on S:
+
+| Role | Functional | Physical meaning |
+|---|---|---|
+| **Mass eigenvalue** | F_mass = m_scale_d × S(n,d) | Mass = sector scale × cumulative microstate count |
+| **Hilbert space weight** | F_norm = S(n,d) (weight in ‖Ψ‖_w²) | Energy-weighted norm: ‖Ψ‖_w² = Σ m(n,d)|c_{n,d}|²/m_scale_d |
+| **Projection amplitude** | F_proj = S(n,2)/S(n,d) (ratio) | Projection loss = ratio of d=2 to d-sector state counts |
+| **Convergence bound** | F_conv = Σ_n 1/S(n,d) = d/(d-1) | Reciprocal sum bounds the evaluation functional |
+
+These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — projection loss is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
+
+**S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry.** The sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry.
 
 **The hockey-stick identity is a proved theorem of combinatorics:**
 
@@ -42,7 +56,7 @@ The cross-sector filter Γ₃₄₆(ω) gives the ρ meson (§10). The intra-sec
 H_d(ω) = exp(2πi × N_d(ω / m_scale_d))
 ```
 
-where N_d is the continuous inverse of S(n,d): N_d(S(n,d)) = n, extended via the gamma function S_cont(n,d) = Γ(n+d)/(d! Γ(n)).
+where N_d is the continuous inverse of S(n,d): N_d(S(n,d)) = n, extended via the gamma function S_cont(n,d) = Γ(n+d)/(d! Γ(n)). This extension is strictly increasing in n for all n > 0 (a consequence of the log-convexity of the Gamma function: log Γ(n+d) − log Γ(n) is convex and strictly increasing). N_d is therefore well-defined and injective on all ω > 0, not just at mass eigenvalues.
 
 **Phase condition:** Im[H_d(ω)] = sin(2π N_d(ω/m_scale_d)) = 0 at exactly ω = S(n,d) × m_scale_d for all integer n. All zeros are constructive (Re[H_d] = +1) — every fermion mass is a resonance.
 
@@ -55,7 +69,7 @@ The phase of sector d accumulates at a rate inversely proportional to the mode d
 
 ### Angular structure of the kernel
 
-The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere by spherical harmonics:
+The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S^{d-1} (where the sector modes χ_{n,d} are evaluated, since they are monomials of degree n normalised on the unit sphere) by spherical harmonics:
 
 ```
 (ξ_d·ξ_{d'})² = 1/3  [l=0, scalar]  +  (2/3)P₂(cosθ)  [l=2, tensor]
@@ -79,7 +93,7 @@ The hockey-stick identity implies the Pascal recursion:
 S(n, d) = S(n, d−1) + S(n−1, d)
 ```
 
-This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **This single identity generates the generation law without any additional assumptions.**
+This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the generation law:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not generate the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
 
 **Generation 2 — the clearest case:**
 
@@ -350,7 +364,7 @@ PDG: 1776.86 ± 0.12 MeV.   Error: −0.14σ.   Inside 1σ.
 
 No inputs beyond m_e and the seeds {n_s, n_u}.
 
-**Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± 15%. Error: +0.20%.
+**Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± ~0.10 (the ratio carries ±25% uncertainty from lattice QCD). Error relative to central value: +0.20%.
 
 ---
 
@@ -419,7 +433,21 @@ where k counts the additions used to generate n from seeds.
 
 ### Derived Parameter ✅
 
-ε is derived from the coupling structure:
+**g_coeff = 2/√7 from the kernel self-consistency eigenvalue.**
+
+The kernel self-consistency condition from Part 2 §9 requires:
+
+```
+n_s(n_s+1) / S(n_s,4) = n_u(n_u+1) / S(n_u,5) = 4/7
+```
+
+Both ratios equal 4/7 exactly: 4×5/35 = 12/21 = 4/7. This is the coupling self-consistency eigenvalue at the Jacobi critical site k₀ = n_s² = 16. The l=2 kernel coupling amplitude is the square root of this eigenvalue:
+
+```
+g_coeff = √(n_s(n_s+1) / S(n_s,4)) = √(4/7) = 2/√7
+```
+
+The GTC correction per winding normalised at k₀ and n_mu = S(n_s,4) = 35:
 
 ```
 ε = g_coeff / (k₀ × n_mu)
@@ -428,7 +456,7 @@ where k counts the additions used to generate n from seeds.
   = 0.001350
 ```
 
-where g_coeff = 2/√7 is the universal Jacobi coupling coefficient, k₀ = n_s² = 16 is the vacuum stability gap, and n_mu = S(n_s,4) = 35 is the fixed-point mode scale. Physical reading: ε is the inter-shell coupling divided by the energy cost of crossing k₀ at the seed mode.
+ε is now fully derived from the Lagrangian — the self-consistency eigenvalue 4/7 determines g_coeff; the critical site k₀=16 and muon mode index n_mu=35 set the normalization.
 
 Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.74% — within PDG light quark uncertainties.
 

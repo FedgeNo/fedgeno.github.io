@@ -118,7 +118,7 @@ The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n
 
 This was verified computationally for all pairwise and triple combinations. The independence theorem rules out redundancy in the spectrum — every assigned mode index carries independent physical content.
 
-**Near-violations note:** S(n_top,4)/S(n_c,4) = 137.26... ≈ 1/α (fine structure constant). This is a 0.17% coincidence — noted but not used as a derivation.
+**Near-violations note:** S(n_top,4)/S(n_c,4) = 137.26... ≈ 1/α (fine structure constant). This is a 0.16% coincidence — noted but not used as a derivation.
 
 ### 60.2 S(n,d) as the Sector Spectral Counting Function ✅
 
@@ -376,9 +376,9 @@ Sign and magnitude emerge from the udd colour-singlet projector — not separate
 
 **Axial coupling g_A:**
 
-The same hidden orbital admixture, with Stage-1 projection mismatch suppression exp(−Ω_typ/2) (Ω_typ ≈ 1.8) and a γ⁵ parity flip on the even kernel:
+The ratio of successive d=3 mode counts at the seed level gives the IDWT prediction:
 ```
-g_A ≈ 1.272     (PDG: 1.2723 ± 0.0023)
+g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
 
 **Status note:** g_{3,4}^eff = 125 is the renormalized effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The running from the kernel scale (~800 MeV) to the nucleon scale is the fitted element here; f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry. These are physically motivated but the precise values rely on the kernel matrix element calculation that remains open.

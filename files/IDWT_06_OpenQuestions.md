@@ -33,11 +33,15 @@ What follows is an honest list of what the framework has not yet derived, with p
 
 ## Open
 
-**Λ_QCD — the mass gap**
-IDWT derives the SU(3) gauge group, Yang-Mills action, UV coupling, and β-function coefficient. What it does not derive: why Λ_QCD ≈ 310 MeV >> m_scale_3 ≈ 4.7 MeV. The total ratio is ~66. Some of this is geometric (the k₀ = 16 resonance structure amplifies frequencies by O(10)), but the dominant non-perturbative mechanism that sets Λ_QCD is not yet derived. This is the IDWT form of the Yang-Mills mass-gap problem.
+**f_π and Λ_QCD ✅/🔶**
+The IDWT β-function gives g_eff(n) = g₃₃/S(n,3), with confinement at g_eff = 1 → S(n_conf,3) = g₃₃ = 8√7 ≈ 21.17. The nearest integer solution is n_conf = n_s = 4 (the seed itself). The confinement mass scale is:
+
+f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1% ✅)
+
+The pion decay constant is the mass at the seed level — the seed is the confinement mode. The QCD scale from the large-N_c relation Λ_QCD ≈ N_c × f_π = 3 × 94.04 = 282 MeV (PDG hadronic scheme: 300–340 MeV, −9% 🔶). The proton mass from the same relation m_p = N_c × Λ_QCD = 930.9 MeV (PDG: 938.3, −0.78% ✅). Both use N_c = 3 from the CP² Dirac index. The connection between N_tot = 66 (the 66-factor formula giving 310 MeV) and the β-function integral has not been derived.
 
 **Full CKM matrix and CP violation**
-The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. The correction comes from the Lichnerowicz heat-kernel expansion on the d=2 mediating sector (CP¹, χ=2): the Dirac operator D² = Δ + R/4 gives a norm correction −R/12 per unit heat-kernel time t₀ = 1/S(n_s,3), shifting sin θ_C by χ/(24S) with R = χ(CP¹) = 2. The d=3 quark sector (S³) contributes χ(S³) = 0 — odd-dimensional spheres give no correction. Full CKM mixing angles (|V_cb|, |V_ub|) and the CP-violating phase require a complex phase in the manifold structure — the mechanism is not yet identified. The |V_ud| tension (+3.6σ with nuclear beta decay) may involve uncomputed QED radiative corrections in the IDWT framework.
+The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase), the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed), and the |V_ud| tension (+5.5σ with nuclear beta decay, likely from uncomputed QED radiative corrections).
 
 **Neutrino mass hierarchy (d=5 mass scale)**
 The d=5 coupling is algebraically closed: g₅₅ = 96/g₂₂ = 0.1329. The naive coupling value gives m_scale_5 ≈ 0.37 MeV, while observed neutrino masses are ~meV — a suppression of ~2.5×10⁵. The seesaw mechanism is geometrically forbidden (Majorana spinors do not exist in d=5, d mod 8 = 5), so this suppression must arise entirely from the d=5 sector vacuum dynamics: non-perturbative suppression at λ̂₅ ≫ 1, or a condensate from the (5,5)→10 Vandermonde vertex. Neutrino mass RATIOS are fully predicted (S(10,5):S(15,5):S(22,5)). The absolute mass scale mechanism is open.

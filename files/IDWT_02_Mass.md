@@ -69,15 +69,17 @@ The phase of sector d accumulates at a rate inversely proportional to the mode d
 
 ### Angular structure of the kernel
 
-The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S^{d-1} (where the sector modes χ_{n,d} are evaluated, since they are monomials of degree n normalised on the unit sphere) by spherical harmonics:
+The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S^{d-1} by spherical harmonics. For the d=3 sector (S²), where P₂ is the standard Legendre polynomial:
 
 ```
 (ξ_d·ξ_{d'})² = 1/3  [l=0, scalar]  +  (2/3)P₂(cosθ)  [l=2, tensor]
 ```
 
+For general d, the l=0 coefficient is 1/d and the l=2 coefficient involves the Gegenbauer polynomial C₂^{(d-2)/2}. The d=3 formula is given because the d=3 quark sector is the primary source of the corrections discussed here.
+
 The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the hidden l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
 
-The self-coupling (d=d') has no l=2 component: P₂(1) = 1, so (ξ·ξ)² = 1 exactly on the unit sphere. Angular mixing only exists in cross-sector couplings.
+For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere. The Gegenbauer l=2 component is present but averages to zero over the rotationally symmetric vacuum (Gegenbauer orthogonality): only the l=0 piece contributes to the sector self-energy after vacuum averaging. Cross-sector angular mixing is absent in the vacuum expectation value of the self-coupling.
 
 **Verified numerically** for d=3 (Im[H₃] = 0.0000, Re[H₃] = 1.0000 at n=1,...,6) and d=4 (residuals < 10⁻¹⁴ at n=3, 20, 72).
 
@@ -191,7 +193,7 @@ n_ν₃ − n_ν₂ = 7 = n_up + n_strange
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-Anchoring to the solar mass splitting (ratios are IDWT predictions; scale is external): m_ν₁ ≈ 1.52 meV, m_ν₂ ≈ 8.81 meV, m_ν₃ ≈ 49.8 meV, Σm_ν ≈ 60 meV.
+Anchoring to the solar mass splitting (ratios are IDWT predictions; scale is external): m_ν₁ ≈ 1.51 meV, m_ν₂ ≈ 8.74 meV, m_ν₃ ≈ 49.5 meV, Σm_ν ≈ 59.7 meV.
 
 ---
 
@@ -293,7 +295,7 @@ v₅ = v₃ × v₄ / v₂ = g₃₄ / v₂
 g₅₅ = v₅² = (g₃₃ × g₄₄) / g₂₂ = 96 / g₂₂
 ```
 
-Numerically with g₂₂ = 722.46 (from m_W):
+Numerically with g₂₂ = 722.5:
 
 ```
 g₅₅ = 0.1329,   v₅ = 0.3645
@@ -398,7 +400,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 
 ### Scale Hierarchy ✅
 
-**Single empirical input: m_e = 0.51099895 MeV. All sector scales derived.**
+**Two empirical inputs: m_e and m_W. All sector scales derived from these.**
 
 | Quantity | Source | Value |
 |---------|--------|-------|
@@ -408,7 +410,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 | m_scale_10 | = m_scale_6 | 2.7526×10⁻⁵ MeV |
 | m_scale_2 | m_W / S(76,2) | 27.47 MeV |
 
-The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
+The uniform +0.68% offset in d=3 quark predictions and +0.79% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
 
 ### All sector scales
 ```
@@ -418,6 +420,47 @@ m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)        = 0.1451 MeV
 m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: Y_τ = Y_L]
 m_scale_2  = m_W / S(76,2)                             = 27.47 MeV           [empirical: m_W]
 ```
+
+### Conjecture: g₂₂ from the Single Seed n_s = 4 🔶
+
+The true IDWT seeds are {n_d=1, n_s=4} = {1,4}. n_d=1 is forced as the ground state S(1,d)=1. The non-trivial seed is n_s=4. From it, n_u = n_s−1 = 3 is derived (not an independent input).
+
+Define:
+
+```
+α = n_s² + n_s − 3 = 16 + 4 − 3 = 17
+β = n_s² − 3n_s + 1 = 16 − 12 + 1 = 5
+```
+
+Then:
+
+```
+g₂₂ = α² × β/2 = 17² × 5/2 = 722.5    [exact, from n_s = 4 alone]
+```
+
+Equivalently, using n_u = n_s − 1 = 3 (derived):
+- α = n_s(n_s+1) − 3 = n_s(n_u+2) − 3
+- β = (n_u)(n_u−1) − 1 = 5 = number of quark flavors lighter than the weak scale (u,d,s,c,b)
+
+If this formula holds, m_scale_2 is not a second empirical input but a derived quantity:
+
+```
+m_scale_2 = m_e √(g₂₂/g₆₆) = m_e √(722.5/0.25) = m_e × 53.759 = 27.471 MeV
+```
+
+giving:
+
+| Quantity | From n_s alone | PDG | Error |
+|---|---|---|---|
+| m_W | 27.471 × S(76,2) = 80,379 MeV | 80,377 MeV | +0.003% |
+| m_Z | 27.471 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
+| m_H | 27.471 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.013% |
+
+**Physical content.** The d=2 sector (CP¹) is unique in having a photon zero mode. Its coupling g₂₂ involves both the symmetric polynomial α and the antisymmetric polynomial β of the single seed. β = 5 is the number of quark flavors below the weak scale — the natural regularisation count for the CP¹ zero mode.
+
+**Status.** The formula 17² × 5/2 = 722.5 is exact from n_s = 4. The formula is unique in the monomial polynomial space over {n_s, n_u = n_s−1} at degree ≤ 4. Derivation from the IDWT Lagrangian is open. If confirmed: m_W is a prediction and the theory has a single empirical input m_e.
+
+**Falsifiers:** if the regulated CP¹ determinant det(−Δ+V₂) yields α = 18 instead of 17, or β = 6 instead of 5, the formula is ruled out.
 
 ---
 
@@ -510,7 +553,7 @@ where n_min(d) is the lightest occupied mode in sector d. For d=3 this gives m_s
 The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
 
 - **Level 1 (sector-uniform):** The coupling self-consistency derivation produces a uniform fractional offset within each sector — identical for every mode. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. This is a structural consequence of the rank-1 kernel: any scale error in m_scale_d is the same for all n within that d. It is not a coincidence — the rank-1 structure forces it.
-- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.766%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
+- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.79%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
 
 The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
 

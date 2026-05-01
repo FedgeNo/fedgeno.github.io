@@ -130,8 +130,9 @@ Since mode amplitudes at the observer address scale as |χ_n(ξ₀)| ∝ 1/√S(
 
 The Cabibbo angle is the d=3 intra-sector mixing (down ↔ strange):
 ```
-sin²θ_C = S(n_d, 3) / S(n_s, 3) = 1/20    → sin θ_C = 1/√20    ✅
+sin²θ_C = S(n_d, 3) / S(n_s, 3) = 1/20    → sin θ_C = 1/√20 = 0.22361  [bare]
 ```
+Corrected by CP¹ curvature (Lichnerowicz, §12): sin θ_C = (1+1/240)/√20 = 0.22454 ✅
 
 The |V_cb| element is the d=4 intra-sector mixing (up ↔ charm):
 ```
@@ -183,7 +184,7 @@ The correct order of magnitude emerges from pure sector masses with no parameter
 
 ---
 
-
+## 1. Electromagnetism ✅
 
 Electromagnetism emerges from the U(1) Hopf fiber connecting the d=2 and d=3 sectors. Writing Ψ∞ = A·e^{iθ}, the phase gradient A_μ = ∂_μθ is the photon field; its curvature F_μν = ∂_μA_ν − ∂_νA_μ gives Maxwell's equations. The photon is massless because its mode index is n=0: S(0,2) = 0. Full derivation in §14.
 
@@ -423,7 +424,7 @@ With m_W = 80,377 MeV as the empirical measurement setting the d=2 sector scale:
 | Observable | IDWT | Observed | Error |
 |---|---|---|---|
 | m_photon | 0 (exact) | 0 | — |
-| m_Z | 91,228 MeV | 91,188 MeV | +0.044% |
+| m_Z | 91,230 MeV | 91,188 MeV | +0.047% |
 | m_Higgs | 125,263 MeV | 125,250 MeV | +0.010% |
 | sin²θ_W | 0.2237 | 0.22290 (on-shell) | +0.37% |
 | ρ parameter | 1 (exact) | 1.002 | −0.2% |
@@ -466,12 +467,10 @@ n_top = n_H − n_u − n_c = 72               [Higgs back-determines top]
 
 **Jacobi boundary identities at k₀ = n_s² = 16:**
 ```
-b₁₆² = n_W:     16×19/4 = 76 = n_W
-n_s + n_e = d²+1:    4+13 = 17 = 4²+1
-n_W + S(2,3) = d × S(n_s,3):  76+4 = 80 = 4×20
+b₁₆² = n_W:         16×19/4 = 76 = n_W
+n_s + n_e = n_s²+1: 4+13 = 17 = n_s(n_s−1)+1   [equivalently n_e = n_s²−n_s+1]
+n_W + S(2,3) = n_s × S(n_s,3):  76+4 = 80 = 4×20
 ```
-
-where b_k = √(k(k+3)/4) is the Jacobi coupling at site k. The first identity connects the DtN spectral framework directly to the QCP sector coupling map. The second shows why k₀ = d² = n_s + n_e − 1. The third connects the W boson mode to the absent n=2 d=3 mode and the strange quark simplex image.
 
 **Cabibbo consistency via the same Jacobi structure:** sin²θ_C = S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20, consistent with 1/√20. The absent n=2 mode appears as the second singular value of the boundary coupling matrix.
 
@@ -571,11 +570,10 @@ The correction closes the tension from −2.03σ to +0.09σ with no free paramet
 **First-row unitarity.** IDWT's CKM matrix is unitary by construction. With sin θ_C = (1+1/240)/√20:
 
 ```
-|V_ud|² = 1 − sin²θ_C = 1 − (1+1/120)/20 ≈ 19/20 × (1 − 1/120)
-|V_ud| ≈ √(19/20) × (1 − 1/240) = 0.97421
+|V_ud| = √(1 − sin²θ_C) = 0.97446
 ```
 
-PDG |V_ud| = 0.97370 ± 0.00014. Tension +3.6σ. This persistent tension with the nuclear beta decay measurement is the Cabibbo anomaly; it may involve the uncomputed QED radiative correction to |V_ud| in the IDWT framework.
+PDG |V_ud| = 0.97370 ± 0.00014. Tension +5.5σ. This persistent tension with the nuclear beta decay measurement may involve the uncomputed QED radiative correction to |V_ud| in the IDWT framework.
 
 
 

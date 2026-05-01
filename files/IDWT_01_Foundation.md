@@ -16,15 +16,18 @@ Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidd
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
+The observer's location ξ⁰ weights the projection amplitude for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and generation law (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in the amplitude with which each mode projects onto their slice.
 
 **P3 — Hidden Dimensions are Macroscopic**
 The hidden dimensions are not compact. They are full-scale spatial dimensions, macroscopic in extent. This is consistent with all gravitational experiments because IDWT has no gravitons — gravity is purely geometric, arising from the curvature of the projected 4D slice. The standard exclusions of macroscopic extra dimensions (Eöt-Wash torsion balance, collider KK graviton searches) all presuppose that gravitons propagate into the extra dimensions; in a graviton-free theory this category of constraint does not apply. See Part 4 §1b for the full argument.
+
+SM fields are not bulk propagators. Every SM particle is a bound state of a sector potential V_d(r) = λ_d r²/(1+r²), localised exponentially in the hidden directions by the Agmon decay theorem (Part 4 §3.8). Scattering states — modes that would propagate freely through the hidden space — are eliminated by the Stage-1 observability filter: they fail to project onto the 3D slice with finite amplitude. There are no bulk KK excitations of the SM fields accessible to experiment; the SM spectrum is the complete set of sector resonances that survive both observability filters.
 
 **P4 — Geometry First**
 The governing equation is a wave equation on a curved manifold. The potential arises from the intrinsic curvature of M_∞, not from an independent input.
 
 **P5 — Mass and Gravity are One Thing**
-Both emerge from the same geometric structure: mass is the count of hidden microstates at a mode level; gravity is the distortion that concentration causes in surrounding geometry. They are the same number because they are the same thing.
+Both emerge from the same geometric structure. Mass is the count of hidden microstates accessible at a mode level, scaled by the sector's energy unit: m(n,d) = m_scale_d × S(n,d). Gravity is the distortion that concentration of |Ψ∞|² causes in the surrounding 4D geometry. They are manifestations of the same geometric object because they are sourced by the same underlying mode structure. The derivation of m_scale_d from the coupling constants is in Part 2 §10.
 
 ---
 
@@ -42,15 +45,15 @@ Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of
 
 This is a restriction map — it picks out one hypersurface from the full infinite-dimensional field at fixed ξ⁰.
 
-### 2.3 The Born Rule is Not a Postulate
+### 2.3 The Born Rule Applied to Ψ∞
 
 ```
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
 ```
 
-This is geometrically necessary given what "observable" means. **Probability is projection loss.** An electron is not a cloud — the cloud is the 3D shadow of a structured object in higher-dimensional space. The Born rule emerges from the measure on M_∞: the unique stationary measure of the projected dynamics is μ ∝ |ψ|², which is the Born rule.
+Standard quantum mechanics assigns probability density |ψ|² to any quantum field. IDWT applies this to Ψ∞ directly. The observable density ρ(r,t) is the hidden-space integral of |Ψ∞|², which marginalises over the hidden coordinates and recovers the 3D probability density. This is not a new postulate — it is the Born rule of quantum mechanics applied to the field Ψ∞ on M_∞, with the hidden dimensions integrated out.
 
-Entangled particles are features of Ψ∞ that are close together in the hidden dimensions even when their 3D projections are far apart. Their apparent nonlocal correlation is local interaction through hidden geometry.
+The physical interpretation: an electron is not a cloud in 3D — it is a structured object in M_∞ whose 3D shadow (the projection) appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the hidden dimensions even when their 3D projections are far apart.
 
 ### 2.4 Connection to Cut-and-Project Construction
 
@@ -58,7 +61,7 @@ The IDWT projection mechanism is structurally identical to the cut-and-project m
 
 1. **Full space:** M_∞ (infinite-dimensional manifold supporting Ψ∞)
 2. **Slice:** ψ_obs = Ψ∞(r, ξ⁰, t) at fixed ξ⁰
-3. **Acceptance window:** Two-stage filter (Stage-1 projection mismatch Ω_log + Stage-2 colour closure)
+3. **Acceptance window:** Two-stage filter (Stage-1 projection mismatch Ω_log + Stage-2 colour closure). In quasicrystal theory the acceptance window is a geometric region; in IDWT it is a spectral criterion. The analogy captures the structure of selection — an underlying high-dimensional object, a slice, and a filter — rather than the mechanism.
 
 The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the projection geometry.
 
@@ -79,7 +82,11 @@ The hidden manifold decomposes into geometrically distinct sectors, each macrosc
 | 6 | CP³ | SU(4)/U(3) | Weyl | 8 | Charged leptons (e, μ) |
 | 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 32 | Tau + SO(10) GUT generation |
 
-The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The total hidden-space spinor has dimension 2×2×4×4×8×32 = 2¹⁴ = 16,384.
+This list is constrained from three independent directions: the Hopf fibration chain terminates at d=6; the Gegenbauer criticality condition (§3b) terminates the viable seed resonance structure at d=10; and the hypercharge anomaly cancellation requires d=10 for the tau-sector representation content. Three independent constraints converging on the same sector set is structural evidence, not overconstraint. A completeness theorem — proving no additional sectors exist — has not been constructed; the three constraints are each necessary but their sufficiency for exhaustiveness has not been formally established.
+
+d=10 in particular has multiple justifications: Hopf/octonionic chain (approximate), Gegenbauer criticality (exact), SO(10) GUT content (exact), and Hurwitz-type termination (exact). Their agreement is the reason d=10 is assigned ✅ rather than 🔶.
+
+The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The sectors are independent in the sense that each carries a distinct Clifford algebra Cl(d) with no shared generators; their spinor spaces therefore combine as a tensor product. The total hidden-space spinor dimension is 2×2×4×4×8×32 = 2¹⁴ = 16,384 [tensor product over all six sectors].
 
 These dimensions are not chosen. They are the unique sequence produced by the Hopf fibration chain over the normed division algebras (ℝ, ℂ, ℍ, 𝕆):
 

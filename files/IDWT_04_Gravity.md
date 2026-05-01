@@ -383,7 +383,49 @@ This is exact and sector-independent. The factor |χ_d(ξ⁰)|² ∝ L_d^{-d} fr
 
 **Consequence:** G is the same for particles in every sector. Electrons, quarks, neutrinos, and the tau lepton all couple to gravity with the same G. This is a theorem — the equivalence principle (§3.6) — not an assumption.
 
-### 3.11.2 What the Sector Geometry Does Predict
+### 3.11.3 Why Hidden Sector Loops Do Not Renormalise G_eff
+
+A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom generates corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
+
+```
+M_Pl^{4D,eff} = M_Pl^{6D} × √Vol(compact space)
+```
+
+**IDWT has a different structure that forbids this correction.**
+
+The one-loop effective action from Ξ sector fluctuations is:
+
+```
+Γ_Ξ = (1/2) Tr_Ξ[log O_Ξ]    where O_Ξ = −D_Ξ² + V_d(ξ)
+```
+
+Via the Seeley-DeWitt heat kernel expansion, this generates terms of the form:
+
+```
+Γ_Ξ ~ ∫_Ξ [a_0 + a_2 R_Ξ + a_4 R_Ξ² + ...] dμ_ξ
+```
+
+The a_2 term, proportional to the Ricci scalar R_Ξ of the hidden manifold, is the one that would correct the 4D Planck mass in a KK theory.
+
+**The key: O_Ξ is independent of g_μν.**
+
+O_Ξ = −D_Ξ² + V_d(ξ) acts on functions of ξ only. It depends on the hidden metric h_ab(ξ) and the sector potential V_d, but has no dependence on the 4D metric g_μν(x). This is enforced by the product metric structure of M_∞ = M₄ × Ξ:
+
+```
+ds²_{M_∞} = g_μν(x) dx^μ dx^ν + h_ab(ξ) dξ^a dξ^b
+```
+
+There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled by construction. Therefore:
+
+```
+δ(Tr_Ξ log O_Ξ) / δg_μν = 0   [exactly]
+```
+
+Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to the M_∞² coefficient in S_EH.
+
+**Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single object. Its 4D and extra-dimensional components mix through the moduli fields — the size of the compact space fluctuates and couples to 4D gravity. Integrating out these fluctuations generates the 4D Planck mass. In IDWT, h_ab(ξ) is a fixed classical background with no dynamics — it is not integrated over, not varied, and does not couple to g_μν. There are no moduli, no metric fluctuations in Ξ, and therefore no KK-type renormalisation of M_∞.
+
+**Conclusion.** G_eff = 1/(8π M_∞²) is exact, not merely tree-level. The absence of a Ξ-induced correction to S_EH follows from the product metric structure of M_∞, which is a built-in consequence of treating Ξ as a fixed background rather than a dynamical field. This is the precise statement that makes "gravity is purely geometric curvature of the 4D slice" a theorem rather than a postulate.
 
 The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
@@ -422,7 +464,7 @@ The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometr
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §60 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
-| G_eff = 1/(8π M_∞²), sector-independent | ✅ §3.11.1 |
+| G_eff = 1/(8π M_∞²), sector-independent, loop-exact | ✅ §3.11 |
 | Hierarchy M_∞ >> m_scale_d | 🔶 open |
 
 ---

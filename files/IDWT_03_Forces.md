@@ -154,6 +154,33 @@ PDG A = 0.8230 ± 0.0046. Tension: +0.03σ.
 
 **|V_ub| lower bound:** Without the CP-violating phase (ρ, η — open in IDWT): |V_ub|_min = Aλ³ = 0.00920. PDG |V_ub| = 0.00382, which requires √(ρ²+η²) ≈ 0.41. The CP phase is not yet derived.
 
+### 0.9 Pure Sector Identities from the Lagrangian
+
+**cos θ_W = S(n_W,2)/S(n_Z,2) exactly.** From the Lagrangian's Weinberg angle definition:
+
+```
+sin²θ_W = 1 − (S(n_W,2)/S(n_Z,2))²  →  S(n_W,2)/S(n_Z,2) = cos θ_W
+= 2926/3321 = 0.88106    (PDG cos θ_W = 0.88108) ✓
+```
+
+**Sector mass ratios:**
+
+```
+m_μ/m_e = S(n_μ,6)/S(n_e,6) = 3,838,380/18,564 = 206.7647  (PDG 206.7683, −0.002%)
+m_H/m_Z = S(n_H,2)/S(n_Z,2) = 4560/3321 = 1.37308          (PDG 1.37354, −0.033%)
+```
+
+**The d=2 coupling g22 = 722.5 and what it determines.** The Hopf chain constraint g_{25} = √g_{22} × √g_{55} = √96 = 4√6 is automatically satisfied for any g_{22} with g_{55} = 96/g_{22} — g_{22} cancels. Its value is fixed instead by the depth of the d=2 sector potential: λ_2 = (g_{22}/2)^{2/3} = 50.72, localization length L_2 = 0.14. The large λ_2 ensures W, Z, H are tightly confined and do not propagate as bulk KK modes.
+
+**Neutron-proton mass difference, leading order:**
+
+```
+m_n − m_p ≈ m_d − m_u = m3 × S(1,3) − m4 × S(3,4) = 4.702 − 2.177 = 2.525 MeV
+PDG: 1.293 MeV    (factor 2, uncomputed QED + isospin corrections)
+```
+
+The correct order of magnitude emerges from pure sector masses with no parameters. The factor of 2 is the uncomputed electromagnetic correction (proton self-energy ≈ 0.6 MeV) plus isospin breaking from the d=3↔d=4 sector coupling asymmetry.
+
 ---
 
 

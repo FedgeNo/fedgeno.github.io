@@ -301,9 +301,16 @@ S(72,10) × m_scale_10 ≈ 51.7 TeV    [beyond LHC reach; no fourth generation]
 
 **Fine-structure observation**
 ```
-S(72,4) / S(20,4) = 137.261 ≈ 1/α   (0.17% from CODATA)
+S(72,4) / S(20,4) = 137.261 ≈ 1/α   (0.16% from CODATA)
 ```
 Both mode indices are independently derived. The matching is observed, not derived.
+
+**EW coupling ratio — derived**
+```
+α(0) / (G_F/√2) = 2 m_W² sin²θ_W / π = 9.20×10⁸ MeV²
+PDG: 8.85×10⁸ MeV²     Error: +4.0%
+```
+Both m_W and sin²θ_W are mode-count ratios (S(76,2)/S(81,2)). The +4% matches the expected electroweak radiative correction Δr ≈ 0.04 at 1-loop. α and G_F individually require the IDWT Ward identity, which is an open problem. The W mass in IDWT is a confinement mass from the d=2 sector potential — analogous to the ρ meson mass in d=3 — not a Higgs mechanism product. The SM relation G_F = g₂²/(8m_W²) does not apply directly; g₂ in IDWT is an interaction vertex coupling, not a sector scale parameter.
 
 ---
 

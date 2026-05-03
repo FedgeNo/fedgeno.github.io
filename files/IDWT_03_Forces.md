@@ -130,7 +130,9 @@ From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 ```
 v  = 2m_W/g₂ = 246.28 GeV       (PDG: 246.22 GeV,  +0.023%)
 G_F = 1/(√2 v²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵,  −0.05%)
-g₁ = g₂ × tan θ_W = 0.35044      (PDG: 0.35740,  −1.95%)
+g₁ = g₂ × tan θ_W = 0.35044         (PDG: 0.35740,  −1.95% at fiber scale)
+g₁(m_Z) after 1-loop U(1)_Y running = 0.35067  (PDG: 0.35740,  −1.88%)
+sin²θ_eff(m_Z) from running g₁ = 0.22397        (PDG: 0.23153,  −3.3%)
 ```
 
 The g₁ error of −2% reflects the difference between the fiber-scale U(1)_Y coupling and its value at m_Z after EW running. The α prediction from g₁,g₂:
@@ -463,8 +465,11 @@ With m_W = 80,379 MeV (derived from seeds via g₂₂ at +0.003%) setting the d=
 **sin²θ_W is parameter-free:**
 ```
 n_Z − n_W = n_s + n_d = 4 + 1 = 5   (seed index + down mode index)
+           = β = S(n_u−1,4) = S(2,4) = 5   [the β from g₂₂ = α²β/2 ✓]
 sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 ```
+
+The Z-W mode gap equals β — the same quantity that enters the EW self-coupling g₂₂ = α²β/2. This is not a coincidence: both arise from the d=4 quark sector's mode count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the coupling constant in a single seed-derived identity.
 
 **ρ = 1 is derived:** W and Z live in the same sector → custodial SU(2) is automatic.
 

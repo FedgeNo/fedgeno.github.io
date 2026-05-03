@@ -39,7 +39,7 @@ S_IDWT[Ψ∞, g_μν]
       dμ_4 dμ_ξ dμ_{ξ'}
 ```
 
-where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed structure {n_s=4, n_u=3}.
+where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed n_s=4 (with n_u = n_s−1 derived).
 
 The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector. Its quartic-in-Ψ form is the hidden-sector analogue of the Nambu–Jona-Lasinio interaction.
 
@@ -119,10 +119,11 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 **Derivation of g₂.** The CP² integration (Part 3 §4) gives g_s = √(2g₄₄/π²) — the SU(3) QCD coupling. The SU(2)_L subgroup of SU(3) acts on the (u,d) doublet. Under the CP²→CP¹ dimensional reduction (d=4→d=2 sector), the SU(2) coupling is projected by the up-quark electric charge Q_u = 2/3:
 
 ```
-g₂  = Q_u × √g_s = (2/3)×√g_s = (2/3)×(2g₄₄/π²)^(1/4)
-g₂² = (4/9) × g_s = 8g₄₄/(9π²)   [QCD coupling: g_s = √(2g₄₄/π²)]
+g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [QCD coupling, from CP² integration]
+g₂  = (2/3)√g_s  = (2/3)(2g₄₄/π²)^(1/4)
+g₂² = (4/9) × g_s = (4/9)(2g₄₄/π²)^(1/2)
 
-g₂ = (2/3) √g_s = (2/3) √(2g₄₄/π²) = 0.65275
+g₂ = (2/3)√g_s = 0.65275
 PDG: 0.65270.  Error: +0.008%
 ```
 
@@ -466,11 +467,11 @@ With the d=2 sector scale m_scale_2 = 27.47 MeV:
 **sin²θ_W is parameter-free:**
 ```
 n_Z − n_W = n_s + n_d = 4 + 1 = 5   (seed index + down mode index)
-           = β = S(n_u−1,4) = S(2,4) = 5   [the β from g₂₂ = α²β/2 ✓]
+           = β = S(n_u,4)−S(n_u,3) = S(2,4) = 5   [same β as in Theorem S3]
 sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 ```
 
-The Z-W mode gap equals β — the same quantity that enters the EW self-coupling g₂₂ = α²β/2. This is not a coincidence: both arise from the d=4 quark sector's mode count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the coupling constant in a single seed-derived identity.
+The Z-W mode gap equals β — the same Dirac eigenstate increment that enters g₂₂ (Theorem S3, Part 8 §60b). Both arise from the d=4 sector's eigenvalue count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the EW coupling constant through a single spectral identity.
 
 **ρ = 1 is derived:** W and Z live in the same sector → custodial SU(2) is automatic.
 

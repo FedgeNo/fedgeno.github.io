@@ -8,8 +8,9 @@
 #
 #     m(n, d) = m_scale(d) x S(n, d)
 #
-# where S(n,d) = C(n+d-1, d) counts the degree-n monomials in d variables
-# (the dimension of Sym^n(R^d)), and m_scale(d) is derived from seeds and g-couplings.
+# where S(n,d) = C(n+d-1, d) = dim(Sym^{n-1}(C^{d+1})) is the cumulative count
+# of monomials of degree 0 through n-1 in d variables; and m_scale(d) is derived
+# from seeds and coupling constants.
 # m_e is the sole unit reference — it converts dimensionless mass ratios into MeV.
 # No free parameters whatsoever. All masses, including the W boson, follow from m_e and seeds.
 #
@@ -34,12 +35,24 @@ def S(n, d):
     """
     S(n, d) = C(n+d-1, d)  -- the binomial coefficient used throughout IDWT.
 
-    Physical meaning: S(n,d) is the dimension of the space of degree-n symmetric
-    tensors in d variables, equivalently the number of degree-n monomials in d
-    variables. In IDWT this counts the distinct hidden microstates at excitation
-    level n in sector d. Mass IS this count (in units of m_scale_d):
-    'mass is frequency is microstate count' -- all three are the same quantity.
+    Mathematical identity: S(n,d) = dim(Sym^{n-1}(C^{d+1})), the dimension of
+    the (n-1)-th symmetric power of C^{d+1}. Equivalently, S(n,d) is the
+    cumulative count of monomials of degree 0 through n-1 in d variables:
+
+        S(n,d) = sum_{k=0}^{n-1} C(k+d-1, d-1)     [hockey-stick identity]
+
+    This is NOT the count of degree-n monomials in d variables (that is
+    C(n+d-1, d-1), one index off). The distinction matters: S(1,d) = 1 for
+    all d (ground state uniqueness), while C(d-1, d-1) = 1 only trivially.
+
+    Physical meaning in IDWT: S(n,d) counts the cumulative hidden microstates
+    at excitation levels 0 through n-1 in sector d. The mass formula
+    m(n,d) = m_scale_d * S(n,d) assigns mass proportional to this count.
     (Part 1 section 5, Part 2 section 1)
+
+    Spectral grounding (d=3): S(n,3) = (1/2) * N_{D_{S^3}}(n-1), where
+    N_{D_{S^3}}(n-1) is the cumulative positive Dirac eigenvalue count on the
+    unit 3-sphere at levels 0 through n-1. (Theorem S1, Part 8 section 60b)
 
     The hockey-stick recursion S(n,d) = S(n,d-1) + S(n-1,d) is the algebraic
     engine behind the generation law: every generation relationship is a
@@ -52,32 +65,33 @@ def S(n, d):
 # =============================================================================
 # STEP 1 -- BUILD THE MODE-INDEX TOWER
 # =============================================================================
-# The entire particle spectrum follows from two forced integers {n_s, n_u},
-# called the seeds. All mode indices are derived by explicit addition using
-# the hockey-stick (generation law) recursion -- no fits, no choices.
+# The entire particle spectrum follows from two forced integers:
+#   n_s = 4  (the single non-trivial seed, forced by the muon fixed-point)
+#   n_d = 1  (trivially forced: S(1,d)=1 for every sector d)
+# Every other mode index, including n_up, is derived by explicit addition
+# using the hockey-stick recursion. No other inputs.
 # (Part 2 sections 2-4, Part 1 section 5)
 
 # --- Seeds -------------------------------------------------------------------
-# n_d = 1  (down quark seed)
-# Forced because S(1, d) = 1 for every sector d. Every sector's ground state
-# has mode index 1. No other choice is consistent. (Part 2 section 2)
+# n_d = 1  (down quark: the universal ground state)
+# S(1, d) = C(d, d) = 1 for every d, so the ground-state mode index is
+# identically 1 in every sector. No other value is consistent. (Part 2 section 2)
 n_down = 1
 
-# n_s = 4  (strange quark seed)
-# This is the unique positive integer solving S(n, 4) = 35, where 35 is the
-# mode index of the muon (n_mu = S(4,4) = 35). The strange quark must sit at
-# the d=3 simplex level whose d=4 simplex image equals n_mu. That equation
-# S(n,4) = 35 has exactly one solution: n = 4. (Part 2 section 2, Part 1 section 5)
-n_strange = 4  # unique solution to S(n_s, 4) = 35
+# n_s = 4  (strange quark: the unique non-trivial seed)
+# The unique positive integer satisfying S(n_s, 4) = n_mu = 35, where n_mu is
+# the muon mode index. This self-referential fixed point -- the muon mode is the
+# d=4 image of the strange mode -- has exactly one solution: n_s = 4.
+# (Part 2 section 2, Part 1 section 5)
+n_strange = 4  # unique solution to S(n_strange, 4) = 35
 
-# n_u = 3  (up quark seed)
-# Forced as n_s - 1 = 3. This is not a separate postulate -- it follows from
-# the vacuum stability condition: the seed pair {n_s, n_u} must satisfy
-# n_u = n_s - 1 for the kernel fixed-point equation to be self-consistent.
-# Equivalently, the Jacobi chain at resonance site k0 = n_s^2 = 16 requires
-# n_u = n_s - 1 for the Dyson resummation factor n_s/n_u to be the ratio
-# of the two smallest consecutive integers (4/3). (Part 2 sections 3 and 9)
-n_up = n_strange - 1   # = 3
+# --- First derived index: up quark -------------------------------------------
+# n_up = n_s - 1 = 3
+# Derived from n_s via the Hopf chain reduction: the d=4 sector ground state
+# sits one level below n_s. Equivalently, n_up = n_s - 1 is required for the
+# Dyson resummation factor n_s/n_up = 4/3 to be the ratio of consecutive integers
+# (forced by the d=10 self-consistency, Part 2 section 9). This is not a seed.
+n_up = n_strange - 1   # = 3  (derived)
 
 # --- Neutrino mode indices ---------------------------------------------------
 # Neutrinos live in the d=5 sector (S^5). Their mode indices are derived as
@@ -86,13 +100,13 @@ n_up = n_strange - 1   # = 3
 # which is why neutrinos are predicted to be Dirac fermions with no Majorana
 # mass and no seesaw mechanism. (Part 1 section 6, Part 2 section 6, Part 8 section 59.1)
 
-# n_nu1 = S(n_u, 3) = S(3, 3) = C(5,3) = 10
+# n_nu1 = S(n_up, 3) = S(3, 3) = C(5,3) = 10
 # The first neutrino mode index is the image of the up quark seed under the
 # d=3 simplex map. The d=5 sector couples to d=3 via the Vandermonde rule,
 # and the lightest d=5 mode resonates at the d=3 simplex value of the up quark.
 n_nu1 = S(n_up, 3)    # = 10
 
-# n_nu2 = S(n_u, 4) = S(3, 4) = C(6,4) = 15
+# n_nu2 = S(n_up, 4) = S(3, 4) = C(6,4) = 15
 # Second neutrino mode: the image of the up quark seed into d=4. This equals
 # C(6,2) = 15 by binomial symmetry C(n,k) = C(n,n-k), which connects it
 # directly to n_W = 76 via: n_W = S(n_e, 2) - n_nu2 = 91 - 15 = 76.
@@ -161,8 +175,8 @@ n_W = n_top + 5 - 1    # = 76
 
 # n_Z = g(d=6, n_W) = n_W + 6 - 1 = 81
 # Z boson: the lepton sector (d=6) coupled to the W mode.
-# Cross-check: n_Z = n_W + n_nu1/2 = 76 + 5 = 81, where the +5 is the
-# neutral-current contribution from the lightest neutrino mode index.
+# n_Z - n_W = 5 = beta (the d=4 eigenstate increment at the up threshold);
+# this is the same beta that enters g22 (Theorem S3, Part 8 section 60b).
 n_Z = n_W + 6 - 1      # = 81
 
 # n_H = g(n_nu2, n_Z) = n_nu2 + n_Z - 1 = 95
@@ -178,17 +192,17 @@ n_H = n_Z + n_nu2 - 1  # = 95
 # =============================================================================
 # The inter-sector coupling matrix G has rank 1: G_{dd'} = v_d x v_{d'} where
 # v_d = sqrt(g_{dd}). All cross-couplings follow from the six self-couplings.
-# g33 and g44 come entirely from the seeds {n_s, n_u}. (Part 2 section 8, Part 3 section 15)
+# g33 and g44 come entirely from the seeds {n_s, n_up}. (Part 2 section 8, Part 3 section 15)
 
-# g33 = n_s^2 * sqrt(n_s + n_u) / 2 = 16 * sqrt(7) / 2 = 8*sqrt(7) ~= 21.166
+# g33 = n_s^2 * sqrt(n_s + n_up) / 2 = 16 * sqrt(7) / 2 = 8*sqrt(7) ~= 21.166
 # Derivation: the vacuum stability fixed-point equation for the d=3 sector
 # kernel requires this exact value. The factor n_s^2 is k0 = 16 (the resonance
-# site where the generation-level coupling concentrates), and sqrt(n_s+n_u)/2
+# site where the generation-level coupling concentrates), and sqrt(n_s+n_up)/2
 # = sqrt(7)/2 is the universal Jacobi coefficient. (Part 2 section 8)
 g33 = (n_strange**2) * math.sqrt(n_strange + n_up) / 2.0
 
-# g44 = n_s * n_u / sqrt(n_s + n_u) = 12 / sqrt(7) ~= 4.536
-# The d=4 self-coupling from seeds. Note: g33 * g44 = n_s^3 * n_u / 2 = 96
+# g44 = n_s * n_up / sqrt(n_s + n_up) = 12 / sqrt(7) ~= 4.536
+# The d=4 self-coupling from seeds. Note: g33 * g44 = n_s^3 * n_up / 2 = 96
 # exactly (8*sqrt(7) * 12/sqrt(7) = 8*12 = 96). This product 96 appears
 # throughout: (4*sqrt(6))^2 = 96 = g_{3,4}^2 (cross-coupling between d=3 and
 # d=4), and g55 * g22 = 96 (from Hopf fiber universality). (Part 2 sections 8-9)
@@ -212,7 +226,6 @@ g66 = 0.25
 # (Part 1 section 5, Part 2 sections 9c and 10)
 
 m_e = 0.51099895    # MeV -- unit reference: converts dimensionless mass ratios to MeV
-m_W = 80377.0       # MeV -- PDG value for comparison only; IDWT derives m_W = 80379 (+0.003%)
 
 # m_scale_6 = m_e / S(n_e, 6) = m_e / S(13, 6) = m_e / 18564
 # The electron (n=13, d=6) fixes the d=6 sector scale. Since m_e is known in MeV,
@@ -228,7 +241,7 @@ m_scale3 = m_e * math.sqrt(g33 / g66)
 
 # m_scale_4 = m_scale_3 * sqrt(g44 / g33) / S(n_up, 4)
 # The d=4 scale is set by the fixed-point condition between d=3 and d=4,
-# divided by S(n_u, 4) = S(3,4) = 15 to set the d=4 scale at the up quark mode
+# divided by S(n_up, 4) = S(3,4) = 15 to set the d=4 scale at the up quark mode
 # (the lightest occupied d=4 mode at n=3). m_scale_4 ~= 0.1451 MeV. (Part 2 section 10)
 m_scale4 = m_scale3 * math.sqrt(g44 / g33) / S(n_up, 4)
 
@@ -238,13 +251,24 @@ m_scale4 = m_scale3 * math.sqrt(g44 / g33) / S(n_up, 4)
 # S(23,10) >> S(35,6), not because their sector scales differ. (Part 2 section 10)
 m_scale10 = m_scale6
 
-# g22 = (S(n_s,3) - n_u)^2 * S(n_u-1,4) / 2
-# The d=2 (EW gauge sector) self-coupling is determined by two hockey-stick
-# differences evaluated at the seed pair {n_s, n_u}:
-#   alpha = S(n_s,3) - n_u   [d=3 mode count at the strange level minus the up seed]
-#   beta  = S(n_u-1,4)       [new d=4 modes at level n_u-1; equals S(n_u,4)-S(n_u,3)
-#                              by the hockey-stick identity S(n,d)-S(n,d-1)=S(n-1,d)]
-# This gives g22 = 17^2 * 5 / 2 = 722.5 exactly from seeds. (Part 2 section 10)
+# g22 = (M_{n_s-1}^{S^3} - n_up)^2 * beta / 2     [Theorem S3, Part 8 section 60b]
+#
+# The positive Dirac eigenvalue at level l = n_s-1 = 3 on the unit 3-sphere S^3
+# has multiplicity  M_3^{S^3} = (3+1)(3+2) = 20 = S(n_s, 3).  (Theorem S1)
+#
+# alpha = M_3^{S^3} - n_up  =  S(n_s,3) - n_up  =  20 - 3  =  17
+#   The 20 eigenstates at Dirac level 3, less the n_up = 3 states already
+#   accounted for by the up-quark sector boundary (Theorem S2).
+#
+# beta  = S(n_up,4) - S(n_up,3)  =  15 - 10  =  5  =  S(n_up-1, 4)
+#   The hockey-stick increment: d=4 eigenstate count at the up-quark threshold.
+#
+# The two-body kernel (xi.xi')^2 contributes alpha^2 (two d=3 legs, each
+# with alpha available Dirac eigenstates) and beta once (single d=4 insertion).
+# The factor 1/2 is the Bose symmetry of the symmetric kernel.
+#
+# g22 = alpha^2 * beta / 2  =  17^2 * 5 / 2  =  722.5   (exact from seeds)
+# (Part 2 section 10, Theorem S3 Part 8 section 60b)
 g22_alpha = S(n_strange, 3) - n_up           # = 17
 g22_beta  = S(n_up - 1, 4)                  # = 5 = S(n_up,4) - S(n_up,3)
 g22       = g22_alpha**2 * g22_beta / 2.0   # = 722.5
@@ -254,7 +278,6 @@ g22       = g22_alpha**2 * g22_beta / 2.0   # = 722.5
 # m_scale_2 × S(n_W, 2) = 80379 MeV, like any other particle mass.
 m_scale2 = m_e * math.sqrt(g22 / g66)
 
-# PDG m_W retained only for the comparison column in the output table.
 
 # Collect sector scales keyed by dimension.
 scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
@@ -272,7 +295,7 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 
 # epsilon = 1 / (280 * sqrt(7)) ~= 0.001350
 # Derived from: g_coeff / (k0 * n_mu)
-#   g_coeff = 2 / sqrt(n_s + n_u) = 2/sqrt(7)  (universal Jacobi coefficient)
+#   g_coeff = 2 / sqrt(n_s + n_up) = 2/sqrt(7)  (universal Jacobi coefficient)
 #   k0      = n_s^2 = 16                         (vacuum stability resonance site)
 #   n_mu    = S(n_s, 4) = 35                     (the d=4 fixed-point mode scale)
 # Result: (2/sqrt(7)) / (16 * 35) = 1/(280*sqrt(7)). (Part 2 section 11)
@@ -281,9 +304,10 @@ epsilon = 1.0 / (280.0 * math.sqrt(7.0))
 # k-values: phase load per quark in the d=4 sector.
 #   up:    k = 0 (generation 1, no additional phase)
 #   charm: k = 3 = n_up = n_s - 1  (phase load at the generation-2 boundary)
-#   top:   k = 10 = n_nu1 = S(n_u, 3) (phase load equals first neutrino mode;
-#                a non-trivial cross-sector consistency check)
-# After correction: c/u error 0.000%, t/u error -0.048%. (Part 2 section 11)
+#   top:   k = 10 = n_nu1 = S(n_up, 3) (phase load equals the first neutrino
+#                mode index -- a cross-sector consistency relation)
+# After correction: c/u ratio error -0.003%, t/u ratio error -0.048%.
+# (Part 2 section 11)
 k_vals = {"up": 0, "charm": 3, "top": 10}
 
 # --- Tau Dyson resummation ---------------------------------------------------
@@ -296,14 +320,14 @@ k_vals = {"up": 0, "charm": 3, "top": 10}
 #   delta_m = eps_leading * m_tau + g_{10,10} * delta_m
 #   => delta_m = eps_leading * m_tau / (1 - g_{10,10})
 # Since g_{10,10} = 1/n_s = 1/4:
-#   resummation factor = 1/(1 - 1/n_s) = n_s/(n_s-1) = n_s/n_u = 4/3
-# (This ratio is forced by n_u = n_s - 1, so the Dyson factor is not free.)
+#   resummation factor = 1/(1 - 1/n_s) = n_s/(n_s-1) = n_s/n_up = 4/3
+# (This ratio is forced by n_up = n_s - 1, so the Dyson factor is not free.)
 #
 # Total correction epsilon:
-#   eps_total = 1 / (n_u * n_s^2 * S(n_s, 4)) = 1/(3 * 16 * 35) = 1/1680
+#   eps_total = 1 / (n_up * n_s^2 * S(n_s, 4)) = 1/(3 * 16 * 35) = 1/1680
 #
-# Result: m_tau = m_tau_bare * (1 + 1/1680) = 1776.85 MeV.
-# PDG: 1776.86 +/- 0.12 MeV. Error: -0.11 sigma. Inside 1 sigma. (Part 2 section 9)
+# Result: m_tau = m_tau_bare * (1 + 1/1680) = 1776.84 MeV.
+# PDG: 1776.86 +/- 0.12 MeV. Error: -0.14 sigma. (Part 2 section 9)
 dyson_factor = 1.0 + 1.0 / (n_up * n_strange**2 * S(n_strange, 4))
 
 
@@ -330,21 +354,21 @@ print(f"n_H     = n_Z  + n_nu2-1 = {n_Z}  + {n_nu2} - 1 = {n_H}  [Vandermonde: g
 # STEP 6 -- OUTPUT: COUPLINGS
 # =============================================================================
 print("\n=== COUPLINGS DERIVED FROM SEEDS ===")
-print("g33 = n_s^2 * sqrt(n_s + n_u) / 2")
+print("g33 = n_s^2 * sqrt(n_s + n_up) / 2")
 print(f"    = {n_strange}^2 * sqrt({n_strange} + {n_up}) / 2 = {n_strange**2} * sqrt({n_strange+n_up}) / 2")
 print(f"    = 8*sqrt(7) = {g33:.6f}")
 print()
-print("g44 = n_s * n_u / sqrt(n_s + n_u)")
+print("g44 = n_s * n_up / sqrt(n_s + n_up)")
 print(f"    = {n_strange} * {n_up} / sqrt({n_strange} + {n_up}) = {n_strange*n_up} / sqrt({n_strange+n_up})")
 print(f"    = 12/sqrt(7) = {g44:.6f}")
 print()
 print(f"Consistency: g33 * g44 = {g33*g44:.4f}  [exact: 8*sqrt(7) * 12/sqrt(7) = 8*12 = 96]")
 print()
 print()
-print("g22 = (S(n_s,3) - n_u)^2 * S(n_u-1,4) / 2  [cross-sector mode formula, derived from seeds]")
-print(f"    alpha = S(n_s,3) - n_u = {S(n_strange,3)} - {n_up} = {g22_alpha}  [d=3 mode gap]")
-print(f"    beta  = S(n_u-1,4) = {g22_beta}  [d=4 increment at up level]")
-print(f"    g22   = {g22_alpha}^2 * {g22_beta} / 2 = {g22}")
+print("g22 = (M_3^{S^3} - n_up)^2 * beta / 2  [Theorem S3: Dirac multiplicity product]")
+print(f"    alpha = M_3^{{S^3}} - n_up = {S(n_strange,3)} - {n_up} = {g22_alpha}  [Dirac multiplicity at level 3, less up-sector boundary]")
+print(f"    beta  = S(n_up,4) - S(n_up,3) = {S(n_up,4)} - {S(n_up,3)} = {g22_beta}  [d=4 eigenstate increment at up threshold]")
+print(f"    g22   = alpha^2 * beta / 2 = {g22_alpha}^2 * {g22_beta} / 2 = {g22}")
 print("g66 = Y_L^2 = (1/2)^2 = 0.25  [SU(2)^2 U(1) anomaly cancellation with N_c=3]")
 print(f"    = {g66}")
 
@@ -355,7 +379,7 @@ print(f"    = {g66}")
 print("\n=== SECTOR SCALES (all derived from m_e and seeds) ===")
 print(f"m_scale_6  = m_e / S(n_e,6)  = {m_e} / {S(n_e,6)} = {m_scale6:.6g} MeV  [{m_scale6*1e6:.3f} eV]")
 print(f"m_scale_3  = m_e * sqrt(g33/g66)  = {m_e} * sqrt({g33:.3f}/{g66}) = {m_scale3:.6g} MeV")
-print(f"m_scale_4  = m_scale_3 * sqrt(g44/g33) / S(n_u,4) = {m_scale4:.6g} MeV")
+print(f"m_scale_4  = m_scale_3 * sqrt(g44/g33) / S(n_up,4) = {m_scale4:.6g} MeV")
 print(f"m_scale_10 = m_scale_6  [g_{{10,10}} = g66 since Y_tau = Y_L]")
 print(f"m_scale_2  = m_e * sqrt(g22/g66) = {m_e} * sqrt({g22}/{g66}) = {m_scale2:.6g} MeV  [derived from seeds via g22]")
 
@@ -370,10 +394,10 @@ print(f"           = {epsilon:.8f}")
 print(f"k-values in d=4 sector:  up k={k_vals['up']},  charm k={k_vals['charm']},  top k={k_vals['top']}")
 print(f"  (correction factor per quark = (1 - epsilon)^k)")
 print()
-print("Tau Dyson factor = 1 + 1/(n_u * n_s^2 * S(n_s,4))")
+print("Tau Dyson factor = 1 + 1/(n_up * n_s^2 * S(n_s,4))")
 print(f"  = 1 + 1/({n_up} x {n_strange}^2 x {S(n_strange,4)}) = 1 + 1/1680")
 print(f"  = {dyson_factor:.8f}")
-print(f"  Resummation: g_{{10,10}} = 1/n_s = 1/{n_strange}, so factor = n_s/n_u = {n_strange}/{n_up}")
+print(f"  Resummation: g_{{10,10}} = 1/n_s = 1/{n_strange}, so factor = n_s/n_up = {n_strange}/{n_up}")
 
 
 # =============================================================================
@@ -409,11 +433,14 @@ def pred_uncorrected(name, d, n):
       n=0 (ground state fiber) mode of the d=2 gauge sector. Zero simplex
       value is zero mass. (Part 3 section 14)
 
-    - bottom: not a standard simplex mode. The b quark arises from a quartic
-      bifurcation at the d=3 resonance site k0 = n_s^2 = 16. Three independent
-      conditions (k0 = n_s^2 = n_e + n_up = S(n_s,3) - S(2,3) = 16) coincide
-      at k0, making it a three-fold resonance point. The bifurcation forces
-      equal amplitude at modes n=16 and n=17, giving mass as the geometric mean:
+    - bottom: not a standard simplex mode. The b quark arises from a triple
+      resonance at the d=3 resonance site k0 = n_s^2 = 16. Three independent
+      conditions coincide at k0:
+          k0 = n_s^2 = 16
+          k0 = n_e + n_up = 13 + 3 = 16
+          k0 = S(n_s,3) - S(2,3) = 20 - 4 = 16
+      The triple coincidence forces equal spectral weight at adjacent modes
+      n=16 and n=17, giving mass as the geometric mean of their eigenvalues:
           m_b = sqrt(S(16,3) * S(17,3)) * m_scale_3
       S(16,3) = C(18,3) = 816, S(17,3) = C(19,3) = 969.
       Result: ~4181 MeV vs PDG 4180 MeV (+0.02%). (Part 2 section 12, Part 7)
@@ -497,19 +524,18 @@ g2   = Q_up * math.sqrt(g_s)    # = (2/3) * sqrt(g_s)
 # tan^2(theta_W) = sin^2(theta_W) / cos^2(theta_W) = g_1^2 / g_2^2.
 g1   = g2 * math.sqrt(sin2_W / (1.0 - sin2_W))
 
-# Higgs vev v: from the W mass and g_2 via the tree-level relation m_W = g_2 v/2.
-# In IDWT the W mass is a confinement mass (like the rho meson in QCD), so the
-# Higgs mechanism does not generate it -- but v is consistently defined as 2m_W/g_2
-# and the Fermi constant is G_F = 1/(sqrt(2) v^2). (Part 3 section 0.7)
+# Higgs vev v = 2 m_W / g_2 where m_W = m_scale2 * S(n_W, 2) is the derived W mass.
+# In IDWT the W mass is a confinement mass (like the rho meson in QCD).
+# G_F = 1/(sqrt(2) v^2). (Part 3 section 0.7)
 v_GeV = 2.0 * (m_scale2 * S(n_W, 2) / 1000.0) / g2   # GeV — uses derived m_W
 
 # Fermi constant from the Higgs vev. The factor 1/sqrt(2) is the standard
 # normalisation from the four-fermion Lagrangian.
 GF_pred = 1.0 / (math.sqrt(2.0) * v_GeV**2)   # GeV^{-2}
 
-# Fine structure constant alpha at the electroweak scale (fiber scale ~ m_W).
-# Running from this scale to the Z mass reduces 1/alpha by roughly 3.8 units
-# from hadronic vacuum polarisation, recovering 1/alpha(m_Z) ~ 127.9.
+# Fine structure constant alpha at the fiber scale (the EW scale, near m_W).
+# Running to the Z mass reduces 1/alpha by ~3.8 from hadronic vacuum polarisation,
+# recovering 1/alpha(m_Z) ~ 127.9.
 alpha_ew = (g1**2 * g2**2) / ((g1**2 + g2**2) * 4.0 * math.pi)
 
 print("\n=== ELECTROWEAK SECTOR ===")
@@ -531,18 +557,19 @@ for label, (pred, pdg, note) in pdg_vals.items():
 # =============================================================================
 # The Cabibbo angle theta_C governs mixing between the first and second quark
 # generations. In IDWT the bare value 1/sqrt(S(n_s, 3)) = 1/sqrt(20) comes from
-# the ratio of d=3 mode counts. A small curvature correction from the CP^1
-# mediating sector (Lichnerowicz heat-kernel, factor chi(CP^1)/(24*S) = 1/240)
-# shifts it to excellent agreement. (Part 3 section 12)
+# the ratio of d=3 mode counts at the seed level. A small curvature correction
+# from the CP^1 mediating sector (Lichnerowicz heat-kernel first-order term,
+# factor chi(CP^1) / (24 * S(n_s,3)) = 2/(24*20) = 1/240) shifts it to
+# excellent agreement. (Part 3 section 12)
 sin_C    = (1.0 + 1.0/240.0) / math.sqrt(S(n_strange, 3))
 
 # |V_cb| comes from the same overlap formula applied within the d=4 sector:
-# the coupling from the up quark (mode n_u) to the charm quark (mode n_charm)
-# is proportional to sqrt(S(n_u,4) / S(n_charm,4)). (Part 3 section 0.8)
+# the coupling from the up quark (mode n_up) to the charm quark (mode n_charm)
+# is proportional to sqrt(S(n_up,4) / S(n_charm,4)). (Part 3 section 0.8)
 Vcb      = math.sqrt(S(n_up, 4) / S(n_charm, 4))
 
 # Wolfenstein parameter A = |V_cb| / sin^2(theta_C). In IDWT this equals
-# sqrt(S(n_u,4)/S(n_charm,4)) * S(n_s,3) -- a pure ratio of mode counts.
+# sqrt(S(n_up,4)/S(n_charm,4)) * S(n_s,3) -- a pure ratio of mode counts.
 A_wolf   = Vcb * S(n_strange, 3)   # = |V_cb| / lambda^2 where lambda^2 = 1/S(n_s,3) = 1/20 (bare Cabibbo)
 
 print("\n=== CKM MIXING ===")
@@ -603,9 +630,9 @@ hbar_MeV_s = 6.582119569e-22                             # hbar in MeV*s
 tau_mu   = hbar_MeV_s / Gamma_mu                        # seconds
 
 # W total width: sum over three lepton families and two light quark families
-# (ud and cs; the tb channel is kinematically closed because m_top > m_W).
-# Each lepton channel contributes g_2^2 m_W / (48 pi), and each quark channel
-# picks up a factor N_c = 3 for colour.
+# (ud and cs; the tb channel is kinematically closed because m_top > m_scale2*S(n_W,2)).
+# Each lepton channel contributes g_2^2 m_scale2 * S(n_W,2) / (48 pi),
+# and each quark channel picks up a factor N_c = 3 for colour.
 Gamma_Wlnu = g2**2 * m_scale2 * S(n_W, 2) / (48.0 * math.pi)     # MeV per lepton gen — derived m_W
 Gamma_W    = 3 * Gamma_Wlnu + 2 * N_c * Gamma_Wlnu
 
@@ -653,13 +680,9 @@ for label, (pred, pdg, note) in decay_vals.items():
 # The n_up/n_strange = 3/4 factor is the ratio of the Hopf chain seeds.
 # No neutrino data of any kind enters this derivation.
 
-m_scale_6_lep = m_e / S(n_e, 6)       # lepton sector scale = m_e / S(13,6)
-m_scale5      = (n_up / n_strange) * m_scale_6_lep**3 / m_scale4**2
+m_scale5      = (n_up / n_strange) * m_scale6**3 / m_scale4**2
 
-# Neutrino mode indices from seeds (Part 2 section 6):
-n_nu1 = S(n_up, 3)                             # = S(3,3) = 10
-n_nu2 = S(n_up, 4)                             # = S(3,4) = 15
-n_nu3 = S(n_strange, 3) + n_up - n_down        # = 20 + 3 - 1 = 22
+# Neutrino mode indices (n_nu1, n_nu2, n_nu3) already defined in Step 1.
 
 m_nu1_MeV = m_scale5 * S(n_nu1, 5)
 m_nu2_MeV = m_scale5 * S(n_nu2, 5)
@@ -683,7 +706,7 @@ nu_vals = [
     ("m_nu3 (meV)",     m_nu3_meV,  0,       "heaviest; not yet measured"),
     ("Sum m_nu (meV)",  sum_mnu,    0,       "Planck 2023 bound: < 120 meV"),
     ("Delta_m21 (eV2)", dm2_21,     7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
-    ("Delta_m31 (eV2)", dm2_31,     2.584e-3,"PDG: (2.584+-0.025)e-3; -5.4% from mode ratio"),
+    ("Delta_m31 (eV2)", dm2_31,     2.584e-3,"PDG: (2.584+-0.025)e-3; -7.7% structural (mode ratio S(22,5)/S(10,5))"),
 ]
 for label, pred, pdg, note in nu_vals:
     if pdg > 0:

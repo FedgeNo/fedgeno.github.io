@@ -102,7 +102,7 @@ The SU(3) gauge symmetry follows from the CP² isometry group (Part 3 §3–4).
 
 ### 0.7 Coupling Constants from the Action
 
-All physical coupling constants follow from {g_{dd'}} and the single empirical input m_e (m_W is derived at +0.003% from seeds via g₂₂):
+All physical coupling constants follow from {g_{dd'}} and the sole unit reference m_e (m_W is derived at +0.003% from seeds via g₂₂):
 
 | Physical quantity | Formula | Value |
 |---|---|---|
@@ -111,7 +111,7 @@ All physical coupling constants follow from {g_{dd'}} and the single empirical i
 | GTC correction | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
 | Newton's constant | G_eff = 1/(8πM_∞²) | exact |
-| **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√(2g₄₄/π²)** | **0.65275** |
+| **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
 | **Higgs vev** | **v = 2m_W/g₂** | **246.28 GeV** |
 | **Fermi constant** | **G_F = 1/(√2 v²)** | **1.1658×10⁻⁵ GeV⁻²** |
 | **Higgs quartic** | **λ_H = m_H²/(2v²)** | **0.1294** |
@@ -119,7 +119,8 @@ All physical coupling constants follow from {g_{dd'}} and the single empirical i
 **Derivation of g₂.** The CP² integration (Part 3 §4) gives g_s = √(2g₄₄/π²) — the SU(3) QCD coupling. The SU(2)_L subgroup of SU(3) acts on the (u,d) doublet. Under the CP²→CP¹ dimensional reduction (d=4→d=2 sector), the SU(2) coupling is projected by the up-quark electric charge Q_u = 2/3:
 
 ```
-g₂² = Q_u² × g_s = (4/9) × g_s = 8g₄₄/(9π²)
+g₂  = Q_u × √g_s = (2/3)×√g_s = (2/3)×(2g₄₄/π²)^(1/4)
+g₂² = (4/9) × g_s = 8g₄₄/(9π²)   [QCD coupling: g_s = √(2g₄₄/π²)]
 
 g₂ = (2/3) √g_s = (2/3) √(2g₄₄/π²) = 0.65275
 PDG: 0.65270.  Error: +0.008%
@@ -452,7 +453,7 @@ b₀ > 0 → **asymptotic freedom is a derived result.** The β-function coeffic
 
 ## 10. Electroweak Predictions ✅
 
-With m_W = 80,379 MeV (derived from seeds via g₂₂ at +0.003%) setting the d=2 sector scale:
+With the d=2 sector scale m_scale_2 = 27.47 MeV:
 
 | Observable | IDWT | Observed | Error |
 |---|---|---|---|
@@ -707,7 +708,7 @@ The spinor structure of Ψ∞ means the quantum number structure of the SM emerg
 | Tau-sector hypercharges | SO(10) spinor weight lattice (16 of Spin(10)) | 16 of Spin(10) |
 | 0νββ rate = 0 | Follows from Dirac neutrino prediction | Falsifiable |
 
-The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and the single empirical input m_e are determined by the geometric and combinatorial structure of M_∞ independently of spin. m_W is derived.
+The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and the sole unit reference m_e are determined by the geometric and combinatorial structure of M_∞ independently of spin. m_W is derived.
 
 ---
 

@@ -1,6 +1,6 @@
 # idwt.py — IDWT mass calculator with full derivation commentary
 # =============================================================================
-# Infinite-Dimensional Wave Theory: mass predictions from two measured constants.
+# Infinite-Dimensional Wave Theory: mass predictions from a single unit reference.
 #
 # The single empirical framework: a Dirac spinor field Psi_inf lives on an
 # infinite-dimensional manifold M_inf = R^{3,1} x (sector manifolds). Particles
@@ -9,13 +9,14 @@
 #     m(n, d) = m_scale(d) x S(n, d)
 #
 # where S(n,d) = C(n+d-1, d) counts the degree-n monomials in d variables
-# (the dimension of Sym^n(R^d)), and m_scale(d) is fixed by the two inputs
-# m_e and m_W. No fitting beyond those two measurements.
+# (the dimension of Sym^n(R^d)), and m_scale(d) is derived from seeds and g-couplings.
+# m_e is the sole unit reference — it converts dimensionless mass ratios into MeV.
+# No free parameters whatsoever. All masses, including the W boson, follow from m_e and seeds.
 #
 # Structure of this script (all computation before all output):
 #   STEP 1  -- Build the mode-index tower by explicit seed addition
 #   STEP 2  -- Derive coupling constants g33, g44, g66 from seeds
-#   STEP 3  -- Compute sector scales from m_e and m_W
+#   STEP 3  -- Compute sector scales from m_e (unit reference) and g-couplings
 #   STEP 4  -- Compute corrections (GTC, Dyson resummation)
 #   STEPS 5-11 -- Print everything
 #
@@ -203,17 +204,19 @@ g66 = 0.25
 
 
 # =============================================================================
-# STEP 3 -- SECTOR SCALES FROM TWO EMPIRICAL INPUTS
+# STEP 3 -- SECTOR SCALES
 # =============================================================================
-# All five sector scales derive from two measurements: m_e and m_W. Every
-# other scale follows algebraically. (Part 1 section 5, Part 2 section 10)
+# All sector scales are derived algebraically from m_e (the unit reference)
+# and the seed-derived coupling constants. m_e sets the MeV scale; the
+# dimensionless mass ratios are fixed entirely by sector geometry.
+# (Part 1 section 5, Part 2 sections 9c and 10)
 
-m_e = 0.51099895    # MeV -- the single empirical input
-m_W = 80377.0       # MeV -- PDG value kept for comparison only (now derived: see g22)
+m_e = 0.51099895    # MeV -- unit reference: converts dimensionless mass ratios to MeV
+m_W = 80377.0       # MeV -- PDG value for comparison only; IDWT derives m_W = 80379 (+0.003%)
 
 # m_scale_6 = m_e / S(n_e, 6) = m_e / S(13, 6) = m_e / 18564
-# The electron (n=13, d=6) anchors the entire lepton sector. Rearranging
-# m_e = m_scale_6 * S(13,6) gives this scale directly.
+# The electron (n=13, d=6) fixes the d=6 sector scale. Since m_e is known in MeV,
+# m_scale_6 = m_e / S(13,6) converts the unit reference into the sector mass unit.
 # Numerically: m_scale_6 ~= 2.7526 x 10^-5 MeV = 27.53 eV. (Part 2 section 10)
 m_scale6 = m_e / S(n_e, 6)
 
@@ -225,8 +228,8 @@ m_scale3 = m_e * math.sqrt(g33 / g66)
 
 # m_scale_4 = m_scale_3 * sqrt(g44 / g33) / S(n_up, 4)
 # The d=4 scale is set by the fixed-point condition between d=3 and d=4,
-# divided by S(n_u, 4) = S(3,4) = 15 to anchor to the up quark (the lightest
-# occupied d=4 mode at n=3). m_scale_4 ~= 0.1451 MeV. (Part 2 section 10)
+# divided by S(n_u, 4) = S(3,4) = 15 to set the d=4 scale at the up quark mode
+# (the lightest occupied d=4 mode at n=3). m_scale_4 ~= 0.1451 MeV. (Part 2 section 10)
 m_scale4 = m_scale3 * math.sqrt(g44 / g33) / S(n_up, 4)
 
 # m_scale_10 = m_scale_6
@@ -247,13 +250,11 @@ g22_beta  = S(n_up - 1, 4)                  # = 5 = S(n_up,4) - S(n_up,3)
 g22       = g22_alpha**2 * g22_beta / 2.0   # = 722.5
 
 # m_scale_2 = m_e * sqrt(g22 / g66)
-# The EW sector scale follows from the same fixed-point equation as m_scale_3,
-# using g22 (now derived from seeds) in place of m_W. m_scale_2 ~= 27.47 MeV.
-# Cross-check: m_W = m_scale_2 * S(n_W, 2) = 80379 MeV (+0.003% vs PDG 80377).
+# The d=2 sector scale: m_scale_2 = m_e × √(g₂₂/g₆₆). The W boson mass is
+# m_scale_2 × S(n_W, 2) = 80379 MeV, like any other particle mass.
 m_scale2 = m_e * math.sqrt(g22 / g66)
 
-# m_W is no longer an empirical input -- it is derived from m_e and seeds.
-# We keep the PDG value for the comparison table only.
+# PDG m_W retained only for the comparison column in the output table.
 
 # Collect sector scales keyed by dimension.
 scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
@@ -500,7 +501,7 @@ g1   = g2 * math.sqrt(sin2_W / (1.0 - sin2_W))
 # In IDWT the W mass is a confinement mass (like the rho meson in QCD), so the
 # Higgs mechanism does not generate it -- but v is consistently defined as 2m_W/g_2
 # and the Fermi constant is G_F = 1/(sqrt(2) v^2). (Part 3 section 0.7)
-v_GeV = 2.0 * (m_W / 1000.0) / g2       # GeV
+v_GeV = 2.0 * (m_scale2 * S(n_W, 2) / 1000.0) / g2   # GeV — uses derived m_W
 
 # Fermi constant from the Higgs vev. The factor 1/sqrt(2) is the standard
 # normalisation from the four-fermion Lagrangian.
@@ -605,7 +606,7 @@ tau_mu   = hbar_MeV_s / Gamma_mu                        # seconds
 # (ud and cs; the tb channel is kinematically closed because m_top > m_W).
 # Each lepton channel contributes g_2^2 m_W / (48 pi), and each quark channel
 # picks up a factor N_c = 3 for colour.
-Gamma_Wlnu = g2**2 * (m_W / 1000.0) * 1000.0 / (48.0 * math.pi)  # MeV per lepton gen
+Gamma_Wlnu = g2**2 * m_scale2 * S(n_W, 2) / (48.0 * math.pi)     # MeV per lepton gen — derived m_W
 Gamma_W    = 3 * Gamma_Wlnu + 2 * N_c * Gamma_Wlnu
 
 # Z total width: contributions from all fermions lighter than m_Z.

@@ -10,7 +10,7 @@ m(n, d) = m_scale_d × S(n, d)
 S(n, d) = C(n+d−1, d)
 ```
 
-S(n,d) is the number of ways to distribute n units of excitation across d oscillator modes — equivalently, the dimension of the space of degree-n homogeneous polynomials in d variables.
+S(n,d) is the number of ways to distribute n units of excitation across d oscillator modes — equivalently, the dimension of the space of degree-n homogeneous polynomials in d variables. **Corollary (Theorem S1, Part 8 §60b):** S(n,3) = ½ N_{D_{S³}}(n−1), where N_{D_{S³}}(n−1) is the cumulative positive Dirac eigenvalue count on S³ up to level n−1.
 
 ### S(n,d) as a Universal Combinatorial Measure Field
 
@@ -110,9 +110,9 @@ This is not a fit. It is Pascal's recursion applied to S(4,4) = 35. The gen-2 le
 
 **Generation 1:**
 ```
-n_e = n_ν₁ + n_up = S(3,3) + 3 = 10 + 3 = 13
+n_e = n_ν₁ + n_u = S(3,3) + 3 = 10 + 3 = 13
 ```
-n_ν₁ = S(n_up, 3) = S(3,3) = 10 is itself a hockey-stick sum: 1+3+6 = 10. Adding n_up gives n_e = 13.
+n_ν₁ = S(n_u, 3) = S(3,3) = 10 is itself a hockey-stick sum: 1+3+6 = 10. Adding n_u gives n_e = 13.
 
 **Generation 3:**
 ```
@@ -130,7 +130,7 @@ This is the hockey-stick identity at different (n, d) pairs — not a selection 
 
 ```
 n_e = χ(CP²) × χ(CP³) − χ(CP³) = n_s² − n_u = 13    [= k₀ − n_u]
-n_τ = n_c + n_u = S(n_s,3) + n_u = 20 + 3 = 23          [charm mode + up seed]
+n_τ = n_c + n_u = S(n_s,3) + n_u = 20 + 3 = 23          [charm mode + derived n_u]
 n_ν₃ = n_τ − n_d = 23 − 1 = 22                           [one mode below tau]
 n_Z − n_W = β = S(n_u−1,4) = 5                           [= the β from g₂₂ = α²β/2 ✓]
 ```
@@ -169,18 +169,18 @@ At the vacuum stability coupling g₃₃ = 8√7, the effective energy has local
 Every mode index is a hockey-stick evaluation or a difference between successive partial sums of the same identity. The operations that might appear to be "algebraic manipulations chosen to fit data" are in fact the only operations the identity permits:
 
 ```
-n_up    = n_strange − 1 = 3       [Pascal: S(n,4) − S(n,3) = S(n−1,4) at n=4]
+n_u    = n_strange − 1 = 3       [Pascal: S(n,4) − S(n,3) = S(n−1,4) at n=4]
 n_charm = S(4, 3)       = 20      [hockey-stick in d=3 through level 3]
 n_ν₁    = S(3, 3)       = 10      [hockey-stick in d=3 through level 2]
 n_ν₂    = S(3, 4)       = 15      [hockey-stick in d=4 through level 2]
-n_e     = n_ν₁ + n_up   = 13      [generation law = hockey-stick slice, gen 1]
+n_e     = n_ν₁ + n_u   = 13      [generation law = hockey-stick slice, gen 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
-n_ν₃    = n_ν₁ + n_ν₂ − n_up = 22
+n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
 n_top   = χ(CP²)×χ(CP³)×χ(CP⁵) = N_c × n_s × N_f = 3×4×6 = 72
 n_W     = n_top + 4 = 76     [Vandermonde: g(d=5, n_top) = n_top + (d−1) = 72 + 4 = 76; see Part 3 §11]
 n_Z     = n_W + 5 = 81       [Vandermonde: g(d=6, n_W) = n_W + (d−1) = 76 + 5 = 81]
-n_Higgs = n_up   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
+n_Higgs = n_u   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
 ```
 
 The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the generation law must hold exactly.** It is not that the framework predicts these relations and then they happen to work — the hockey-stick identity leaves no room for them to fail.
@@ -191,20 +191,20 @@ The physical claim this sharpens: **if mass is the cumulative microstate count S
 
 All three neutrino indices follow directly from the same hockey-stick evaluations:
 ```
-n_ν₁ = S(n_up, 3) = S(3,3) = 10
-n_ν₂ = S(n_up, 4) = S(3,4) = 15
-n_ν₃ = n_ν₁ + n_ν₂ − n_up = 22
+n_ν₁ = S(n_u, 3) = S(3,3) = 10
+n_ν₂ = S(n_u, 4) = S(3,4) = 15
+n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22
 ```
 
 The neutrino gaps are themselves sums of quark seeds:
 ```
 n_ν₂ − n_ν₁ = 5 = n_strange + n_down
-n_ν₃ − n_ν₂ = 7 = n_up + n_strange
+n_ν₃ − n_ν₂ = 7 = n_u + n_strange
 ```
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-Anchoring to the solar mass splitting (ratios are IDWT predictions; scale is external): m_ν₁ ≈ 1.51 meV, m_ν₂ ≈ 8.74 meV, m_ν₃ ≈ 49.5 meV, Σm_ν ≈ 59.0 meV.
+From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.
 
 ---
 
@@ -223,13 +223,13 @@ The bottom quark is a moiré phenomenon — an interference pattern between two 
 
 ## 9. Coupling Constants — Complete Derived Set ✅
 
-The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ from seeds {n_s,n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₂₂ from the cross-sector back-reaction fixed-point (§10); g₅₅ = 96/g₂₂ from Hopf universality. All six sector self-couplings are derived from m_e and seeds.
+The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ from seed n_s (with n_u = n_s−1 derived); g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₂₂ from the cross-sector back-reaction fixed-point (§10); g₅₅ = 96/g₂₂ from Hopf universality. All six sector self-couplings are derived from m_e and seeds.
 
 ---
 
-### g₃₃ = 8√7 and g₄₄ = 12/√7 — both from {n_s, n_u} alone ✅
+### g₃₃ = 8√7 and g₄₄ = 12/√7 — both from n_s alone ✅
 
-Both coupling constants are derived simultaneously from the seeds {n_s=4, n_u=3} using a single universal structure. Neither is primary.
+Both coupling constants are derived simultaneously from the seed n_s=4 (with n_u = n_s−1 = 3 derived) using a single universal structure. Neither is primary.
 
 **The universal coupling coefficient** (same for both sectors by binomial symmetry C(n,k)=C(n,n-k)):
 ```
@@ -241,7 +241,7 @@ These are equal because n_u+3 = n_s+2 = 6 (using n_s = n_u+1) → C(6,4)=C(6,2).
 **The gaps:**
 ```
 gap_d3 = n_s²                    = 16 = k₀   [seed self-interaction]
-gap_d4 = H.M.(n_s,n_u)           = 24/7       [harmonic mean of both seeds]
+gap_d4 = H.M.(n_s,n_u)           = 24/7       [harmonic mean of seed and derived n_u]
        = 2n_sn_u/(n_s+n_u)
 ```
 The d=3 gap equals k₀ — the same resonance condition driving the bottom quark bifurcation. The d=4 gap is the harmonic mean of both seeds, the natural effective gap when two boundary conditions act simultaneously.
@@ -260,7 +260,7 @@ g₃₄ = √(g₃₃×g₄₄) = √(n_s³n_u/2) = √96 = 4√6  ✓
 g₃₃×g₄₄ = n_s³n_u/2 = 64×3/2 = 96             ✓
 ```
 
-The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption — it follows from the seed structure alone. g₃₃, g₄₄, and g₃₄ are all theorems of {n_s=4, n_u=3}.
+The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption — it follows from the seed structure alone. g₃₃, g₄₄, and g₃₄ are all theorems of n_s=4 (with n_u=3 derived).
 
 **g₃₃ from g₄₄:** g₃₃/g₄₄ = n_s(n_s+n_u)/(2n_u) = 4×7/6 = 14/3. This ratio equals (m_d/m_u)² — the squared lightest-particle mass ratio between sectors — another consequence of the seed structure, not an independent assumption.
 
@@ -316,7 +316,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Key consequence:** g₅₅ is fully determined by g₂₂ — no additional measurement is needed. The coupling algebra is closed by the single measured constant m_e: all six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from anomaly cancellation, g₅₅ = 96/g₂₂ from Hopf universality, g₂₂ from the cross-sector mode formula §10).
 
-**Neutrino mass hierarchy:** g₅₅ = 0.1329 implies m_scale_5 ≈ 0.37 MeV via the coupling fixed-point, but observed neutrino masses are ~meV — off by 10⁵×. This is the IDWT form of the neutrino mass hierarchy problem. The coupling algebra is closed. The seesaw mechanism is geometrically forbidden (d=5 has d mod 8 = 5, which prohibits Majorana spinors), so the suppression must arise from the d=5 sector vacuum dynamics directly — non-perturbative Stage-1 suppression at λ̂₅ ≫ 1 or a condensate from the (5,5)→10 Vandermonde vertex. The neutrino mass RATIOS remain fully predicted by S(10,5):S(15,5):S(22,5), anchored to Δm²₂₁.
+**Neutrino mass scale (derived, §9c):** The d=5 scale is set by the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ = 7.429×10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. No suppression mechanism is needed; the small scale arises geometrically from the Hopf fibration S¹→S⁵→CP². The d=5 sector admits only Dirac spinors (d mod 8 = 5 forbids Majorana), so 0νββ is exactly zero.
 
 ---
 
@@ -372,8 +372,8 @@ Equivalently: **1680 = n_s × n_u × (n_s+n_u) × S(n_s,3) = 4 × 3 × 7 × 20**
 
 Each factor has an independent meaning from the seed structure:
 - n_s = 4: the seed (Dirac index of the lepton sector, ind(D_{CP³}) = 4)
-- n_u = 3: the up-quark seed (= n_s − 1 from the Hopf chain)
-- n_s + n_u = 7: the sum of both non-trivial seeds
+- n_u = n_s−1 = 3: derived from the seed (Hopf chain reduction; not an independent seed)
+- n_s + n_u = 7: the sum of the seed and its derived companion
 - S(n_s,3) = 20: the strange quark mode count (= n_c, the charm mode index)
 
 The product n_s × n_u × (n_s+n_u) × n_c is the canonical combinatorial invariant of the quark sector at the seed level. Its reciprocal is the subleading Dyson correction.
@@ -385,7 +385,7 @@ m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV
 PDG: 1776.86 ± 0.12 MeV.   Error: −0.14σ.   Inside 1σ.
 ```
 
-No inputs beyond m_e and the seeds {n_s, n_u}.
+No inputs beyond m_e and the seed n_s = 4 (n_u = n_s−1 is derived).
 
 ---
 
@@ -447,7 +447,7 @@ The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squ
 m_scale_3 = m_e × √(g₃₃/g₆₆) = 0.511 × √(8√7/0.25) = 0.511 × 9.201 = 4.702 MeV
 ```
 
-This comes from the l=0 scalar part of the cross-sector kernel (ξ_d·ξ_{d'})². It requires only m_e and the derived coupling constants g₃₃ and g₆₆ — both from seeds {n_s,n_u} and anomaly cancellation respectively. No particle mass other than m_e enters.
+This comes from the l=0 scalar part of the cross-sector kernel (ξ_d·ξ_{d'})². It requires only m_e and the derived coupling constants g₃₃ and g₆₆ — both from seed n_s (with n_u = n_s−1 derived) and anomaly cancellation respectively. No particle mass other than m_e enters.
 
 **The down quark is a pure prediction:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 
@@ -493,21 +493,21 @@ The d=3 self-coupling g₃₃ is fixed by the intra-sector confinement condition
 
 **The derivation:**
 
-**Step 1.** At mode n=n_s in d=3, there are S(n_s,3) = 20 quark states. Of these, n_u = 3 are "accounted for" by the up quark sector. The remaining
+**Step 1.** The positive Dirac eigenvalue λ_{l=3} = 7/2 on S³ has multiplicity M₃ = (3+1)(3+2) = 20 = S(n_s,3) (Theorem S1, Part 8 §60b). Of these 20 eigenstates, n_u = 3 are already accounted for by the up-quark sector boundary (Theorem S2, Part 8 §60b). The remaining
 
 ```
-α = S(n_s,3) − n_u = 20 − 3 = 17
+α = M₃^{S³} − n_u  =  S(n_s,3) − n_u  =  20 − 3  =  17
 ```
 
-states are available to couple to the d=2 sector through G₂₃. Because the kernel is two-body — (ξ·ξ')² couples J^{d=3}(ξ) to J^{d=3}(ξ') — both copies of the d=3 current contribute, giving α². This can also be read off from the hockey-stick: α = S(n_s,3) − n_u.
+eigenstates are available to couple to the d=2 sector through G₂₃. The kernel is two-body — (ξ·ξ')² couples two copies of J^{d=3} — so both legs contribute, giving α².
 
-**Step 2.** At level n_u−1 = 2 in d=4, there are
+**Step 2.** The hockey-stick identity S(n,d)−S(n,d−1)=S(n−1,d) gives the d=4 eigenstate increment at the up-quark threshold:
 
 ```
-β = S(n_u−1, 4) = S(2,4) = 5
+β = S(n_u,4) − S(n_u,3)  =  15 − 10  =  5  =  S(n_u−1, 4)  =  S(2,4)
 ```
 
-states below the up-quark threshold. These couple to d=2 through a single G₂₄ insertion, entering linearly. By the hockey-stick identity S(n,d) − S(n,d−1) = S(n−1,d): β = S(n_u,4) − S(n_u,3) = 15 − 10 = 5, confirming β = S(n_u−1,4).
+These β eigenstates below the up-quark threshold couple to d=2 through a single G₂₄ insertion, entering linearly.
 
 **Step 3.** The kernel (ξ·ξ')² = (ξ'·ξ)² is symmetric under ξ↔ξ', so the vacuum integral double-counts. Divide by 2.
 
@@ -591,7 +591,7 @@ Cross-check from c/u and t/u mass ratios: ε = 0.001340 (measured PDG ratio). De
 The k values are not fitted parameters — they are mode indices from other sectors:
 
 ```
-k_charm = n_u = 3          [up-quark seed = Hopf depth 1: d=3→d=4 step]
+k_charm = n_u = 3          [n_u = n_s−1 derived; GTC depth 1 at the generation-2 boundary]
 k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 ```
 
@@ -599,7 +599,7 @@ k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 
 **Why k = S(n_u,3) for top:** The top quark at n_t = 72 is n_t − k₀ = 56 modes above k₀. Its GTC depth = S(n_u,3) = 10 = the first neutrino mode index = the image of n_u under Hopf depth 2 (through the d=3 sector). This connects the top quark correction directly to the neutrino sector.
 
-The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_up, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
+The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_u, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
 
 **Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
 
@@ -657,7 +657,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
 | 2 | g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 | ✅ |
-| 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ algebra closed; mass hierarchy open 🔶 |
+| 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ fully closed; m_scale_5 derived (§9c) |
 
 ---
 

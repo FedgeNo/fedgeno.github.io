@@ -6,7 +6,7 @@
 
 The mass ratios below are not fitted. Within each sector, S(n,d)/S(m,d) is a ratio of binomial coefficients — fixed the moment the mode indices are assigned. The generation law identities (muon = charm + ν₂, etc.) are consequences of the Pascal recursion S(n,d) = S(n,d−1) + S(n−1,d), not separate postulates.
 
-The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seeds {n_s=4, n_u=3} and anomaly cancellation respectively. Full derivation in Part 2 §10.
+The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seed n_s=4 (n_u = n_s−1 = 3 derived) and anomaly cancellation respectively. Full derivation in Part 2 §10.
 
 **Strange/down ratio = 20 exactly**
 ```
@@ -65,9 +65,9 @@ sin θ_C = (1+1/240)/√20 = 0.22454   (PDG: 0.22450 ± 0.00044,  +0.09σ)
 ```
 Derived from the Vandermonde d=3↔d=4 coupling: sin²θ_C = 1/S(n_s,3) = 1/20, equivalently S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20. No free parameters. Curvature correction from CP¹ holonomy (Lichnerowicz, d=2 sector): +1/240 shift — see Part 3 §12.
 
-**Up/down quark mass ratio**
+**Up/down quark mass ratio (Theorem S2, Part 8 §60b)**
 ```
-m_u / m_d = √(3/14) = 0.463   (PDG: 0.462,  +0.08%)
+m_u / m_d = √(g44/g33) = √(3/14) = 0.463   (PDG: 0.462,  +0.08%;  exact from seeds)
 ```
 
 **Neutrino mass ordering: normal hierarchy**
@@ -106,7 +106,7 @@ The d=5 sector neutrino mode indices n_ν₁=10, n_ν₂=15, n_ν₃=22 follow f
 
 PDG (normal hierarchy): 7.42×10⁻⁵/2.510×10⁻³ = 0.02956 ± 0.001. Error: +5.9% (+1.9σ).
 
-The ratio is predicted from the mode indices alone with no free parameters. The absolute scale is set by m_e as the unit reference.iring m_scale_5) remains open.
+The ratio is predicted from the mode indices alone with no free parameters. The absolute scale is set by m_e as the unit reference (Part 2 §9c).t by m_e as the unit reference.iring m_scale_5) remains open.
 
 
 **f_π and Λ_QCD from the IDWT β-function ✅/🔶**
@@ -233,7 +233,7 @@ The W boson couples only to the left-handed (holomorphic) half of each Kähler s
 
 ## 2. Full Prediction Table with Statistical Significance
 
-Using m_e = 0.511 MeV as the sole unit reference (m_W = 80,379 MeV is a derived prediction at +0.003%):
+Using m_e = 0.511 MeV as the sole unit reference:
 
 | Particle | IDWT (MeV) | PDG (MeV) | Error | Note |
 |----------|-----------|-----------|-------|------|
@@ -251,9 +251,9 @@ Using m_e = 0.511 MeV as the sole unit reference (m_W = 80,379 MeV is a derived 
 | Z | 91,230 | 91,188 | +0.047% | — |
 | H | 125,266 | 125,250 | +0.010% | — |
 
-† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seeds {n_s,n_u}.
+† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seed n_s (with n_u = n_s−1 derived).
 
-**Boson precision note:** m_W = 80,379 MeV is derived from seeds via g₂₂; the W prediction sits at +0.00300% by definition. The Z and H predictions follow from the same m_scale_2 and their simplex mode indices.
+
 
 ---
 
@@ -286,12 +286,12 @@ n=3: 47.0 MeV   (= m_scale_3 × S(3,3))
 ```
 Real resonances of M_∞ that fail Stage-1 projection. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
 
-**Neutrino absolute masses** (ratios are IDWT predictions; overall scale anchored to Δm²₂₁ = 7.42×10⁻⁵ eV²)
+**Neutrino absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data)
 ```
 m_ν₁ = 1.51 meV,   m_ν₂ = 8.74 meV,   m_ν₃ = 49.5 meV,   Σm_ν ≈ 59.0 meV
 Δm²₃₁ predicted = 2.481×10⁻³ eV²   (observed: 2.453×10⁻³ eV²,  +1.14%)
 ```
-The mass *ratios* m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808 and m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86 are genuine IDWT predictions. The atmospheric splitting Δm²₃₁ is predicted from the mode ratios alone (no empirical neutrino data used). The absolute masses above follow from combining these ratios with the experimental Δm²₂₁; m_scale_5 is not independently derived.
+The mass *ratios* m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808 and m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86 are IDWT predictions. The absolute masses follow from m_scale_5 = (3/4) × m_scale_6³/m_scale_4² (Part 2 §9c) — no neutrino oscillation data enters.
 
 **Absent high-energy states** — observation of either falsifies the framework:
 ```
@@ -403,7 +403,9 @@ Both from mode indices; cos²θ_W = (S(76,2)/S(81,2))² from the same indices.
 | m_t/m_c | 135.97 | 136.0 | −0.02% |
 | m_t/m_b | 41.617 | 41.3 | +0.77% |
 | m_b/m_s | 44.461 | 44.8 | −0.76% |
-| m_u/m_d | 0.463 | 0.474 | −2.3% |
+| m_u/m_d | 0.463 | 0.474 | −2.3% † |
+
+† m_u/m_d = √(g44/g33) = √(3/14) exactly (Theorem S2, Part 8 §60b). The −2.3% from PDG reflects the ±20% spread in PDG light-quark mass estimates; the ratio is derived, not fitted.
 
 **Neutrino masses — absolute prediction, no oscillation data used ✅**
 

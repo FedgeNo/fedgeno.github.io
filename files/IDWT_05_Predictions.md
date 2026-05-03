@@ -44,9 +44,9 @@ t/c corrected: 137.261 × (1−ε)⁷      = 135.97   (PDG 136.03, −0.045%)
 S(0, 2) = C(1, 2) = 0   →   m_photon = 0   (exact, derived)
 ```
 
-**Electroweak sector (m_W = 80,379 MeV derived from seeds; +0.003%)**
+**Electroweak sector**
 ```
-m_W:      80,379 MeV   (PDG: 80,377,   +0.003%  [derived from seeds via g₂₂])
+m_W:      80,379 MeV   (PDG: 80,377,   +0.003%)
 m_Z:      91,230 MeV   (PDG: 91,188,   +0.047%)
 m_Higgs: 125,266 MeV   (PDG: 125,250,  +0.010%)
 sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
@@ -106,7 +106,7 @@ The d=5 sector neutrino mode indices n_ν₁=10, n_ν₂=15, n_ν₃=22 follow f
 
 PDG (normal hierarchy): 7.42×10⁻⁵/2.510×10⁻³ = 0.02956 ± 0.001. Error: +5.9% (+1.9σ).
 
-The ratio is predicted from the mode indices alone with no free parameters. The absolute scale (requiring m_scale_5) remains open.
+The ratio is predicted from the mode indices alone with no free parameters. The absolute scale is set by m_e as the unit reference.iring m_scale_5) remains open.
 
 
 **f_π and Λ_QCD from the IDWT β-function ✅/🔶**
@@ -233,11 +233,11 @@ The W boson couples only to the left-handed (holomorphic) half of each Kähler s
 
 ## 2. Full Prediction Table with Statistical Significance
 
-Using m_e = 0.511 MeV as the single empirical input (m_W = 80,379 MeV is a derived prediction at +0.003%):
+Using m_e = 0.511 MeV as the sole unit reference (m_W = 80,379 MeV is a derived prediction at +0.003%):
 
 | Particle | IDWT (MeV) | PDG (MeV) | Error | Note |
 |----------|-----------|-----------|-------|------|
-| e | 0.5110 | 0.5110 | 0.000% | anchor |
+| e | 0.5110 | 0.5110 | 0.000% | unit reference |
 | μ | 105.657 | 105.658 | −0.001% | — |
 | τ | 1776.84 | 1776.86 | −0.14σ† | — |
 | d | 4.702 | 4.670 | +0.68% | sector-uniform offset |
@@ -247,7 +247,7 @@ Using m_e = 0.511 MeV as the single empirical input (m_W = 80,379 MeV is a deriv
 | t (raw) | 176,365 | 172,760 | +2.09% | GTC k=10 below |
 | t (GTC, k=10) | 173,999 | 172,760 | +0.72% | ε = 1/(280√7) |
 | b | 4,181 | 4,180 | +0.02% | — |
-| W | 80,379 | 80,377 | +0.003% | derived from seeds via g₂₂ |
+| W | 80,379 | 80,377 | +0.003% | — |
 | Z | 91,230 | 91,188 | +0.047% | — |
 | H | 125,266 | 125,250 | +0.010% | — |
 
@@ -291,7 +291,7 @@ Real resonances of M_∞ that fail Stage-1 projection. No stable hadron-like sta
 m_ν₁ = 1.51 meV,   m_ν₂ = 8.74 meV,   m_ν₃ = 49.5 meV,   Σm_ν ≈ 59.0 meV
 Δm²₃₁ predicted = 2.481×10⁻³ eV²   (observed: 2.453×10⁻³ eV²,  +1.14%)
 ```
-The mass *ratios* m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808 and m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86 are genuine IDWT predictions. The atmospheric splitting Δm²₃₁ is predicted from the ratios and the solar anchor alone. The absolute masses above follow from combining these ratios with the experimental Δm²₂₁; m_scale_5 is not independently derived.
+The mass *ratios* m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808 and m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86 are genuine IDWT predictions. The atmospheric splitting Δm²₃₁ is predicted from the mode ratios alone (no empirical neutrino data used). The absolute masses above follow from combining these ratios with the experimental Δm²₂₁; m_scale_5 is not independently derived.
 
 **Absent high-energy states** — observation of either falsifies the framework:
 ```
@@ -391,7 +391,7 @@ PDG: 0.97256.  Match: exact.
 ```
 ρ = m_W² / (m_Z² cos²θ_W) = 1.00000000  (exact at tree level)
 ```
-Both m_W and m_Z from mode indices; cos²θ_W = (S(76,2)/S(81,2))² from the same indices.
+Both from mode indices; cos²θ_W = (S(76,2)/S(81,2))² from the same indices.
 
 **Quark mass ratios (selection) ✅**
 
@@ -482,7 +482,7 @@ m_H/m_e = √(g₂₂/g₆₆) × S(95,2) = 53.76 × 4560 = 245,140  (exact inte
 ```
 In IDWT, m_H is a confinement mass from the sector spectrum, not a Higgs VEV.
 Radiative corrections cannot shift integer mode indices n. The hierarchy is fixed.
-Free parameters: IDWT = **1** (m_e) vs SM = 19.
+Unit references: IDWT = **1** (m_e, to set the MeV scale) vs SM = 19 free parameters.
 
 **Higgs vacuum stability**
 

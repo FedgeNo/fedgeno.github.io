@@ -449,7 +449,7 @@ while the particle mass scales are:
 m_scale_6 ≈ 2.75 × 10⁻⁵ MeV,    m_scale_3 ≈ 4.70 MeV
 ```
 
-The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometry. This 43-order hierarchy between the fundamental action scale M_∞ and the lightest sector mass scale m_scale_6 is the IDWT form of the hierarchy problem. The sector coupling constants g_dd are all dimensionless and O(1) to O(10³), which do not by themselves generate a 10²⁶ ratio.
+The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometry. This 26-order hierarchy between the fundamental action scale M_∞ and the lightest sector mass scale m_scale_6 is the IDWT form of the hierarchy problem. The sector coupling constants g_dd are all dimensionless and O(1) to O(10³), which do not by themselves generate a 10²⁶ ratio.
 
 **Summary of the gravity programme status:**
 

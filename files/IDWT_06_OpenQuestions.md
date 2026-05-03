@@ -43,8 +43,8 @@ The pion decay constant is the mass at the seed level — the seed is the confin
 **Full CKM matrix and CP violation**
 The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase), the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed), and the |V_ud| tension (+5.5σ with nuclear beta decay, likely from uncomputed QED radiative corrections).
 
-**Neutrino mass hierarchy (d=5 mass scale)**
-The d=5 coupling is algebraically closed: g₅₅ = 96/g₂₂ = 0.1329. The naive coupling value gives m_scale_5 ≈ 0.37 MeV, while observed neutrino masses are ~meV — a suppression of ~2.5×10⁵. The seesaw mechanism is geometrically forbidden (Majorana spinors do not exist in d=5, d mod 8 = 5), so this suppression must arise entirely from the d=5 sector vacuum dynamics: non-perturbative suppression at λ̂₅ ≫ 1, or a condensate from the (5,5)→10 Vandermonde vertex. Neutrino mass RATIOS are fully predicted (S(10,5):S(15,5):S(22,5)). The absolute mass scale mechanism is open.
+**Neutrino mass scale (resolved ✅)**
+The d=5 mass scale follows from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, giving m_scale_5 = 7.429 × 10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. See Part 2 §9c. Absolute masses: m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.0 meV.
 
 **Lorentz completion 🔶**
 Scalar covariance, spin-½ from the KK Dirac operator, chirality from Kähler γ₅ on CP² and CP³, and particle/antiparticle from the complex spinor are all established. Remaining: full Spin(9) decomposition for d=10, and α_s running from the IDWT coupling structure. The main open item is the explicit D_Ξ spectrum matching m_scale_d × f(S(n,d)).

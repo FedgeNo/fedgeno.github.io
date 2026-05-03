@@ -177,7 +177,7 @@ n_e     = n_ν₁ + n_up   = 13      [generation law = hockey-stick slice, gen 1
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
 n_ν₃    = n_ν₁ + n_ν₂ − n_up = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
-n_top   = 2 × S(8, 2)   = 72      [triangular ladder on n_strange]
+n_top   = χ(CP²)×χ(CP³)×χ(CP⁵) = N_c × n_s × N_f = 3×4×6 = 72
 n_W     = n_top + 4 = 76     [Vandermonde: g(d=5, n_top) = n_top + (d−1) = 72 + 4 = 76; see Part 3 §11]
 n_Z     = n_W + 5 = 81       [Vandermonde: g(d=6, n_W) = n_W + (d−1) = 76 + 5 = 81]
 n_Higgs = n_up   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
@@ -332,7 +332,7 @@ g₄,₁₀ = √(g₄₄ × g₁₀,₁₀) = √(3/√7)  [= g₄₆]
 g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 ```
 
-**Coupling algebra now closed ✅:** All six sector self-couplings are derived from m_e and the seeds {1,4}. g₃₃ and g₄₄ from seed equations; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4) / 2 from seeds (§10); g₅₅ = 96/g₂₂ from Hopf universality. m_W is derived at +0.003% accuracy.
+**Coupling algebra now closed ✅:** All six sector self-couplings are derived from m_e and the seeds {1,4}. g₃₃ and g₄₄ from seed equations; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4) / 2 from seeds (§10); g₅₅ = 96/g₂₂ from Hopf universality.
 
 ---
 
@@ -449,7 +449,7 @@ m_scale_3 = m_e × √(g₃₃/g₆₆) = 0.511 × √(8√7/0.25) = 0.511 × 9.
 
 This comes from the l=0 scalar part of the cross-sector kernel (ξ_d·ξ_{d'})². It requires only m_e and the derived coupling constants g₃₃ and g₆₆ — both from seeds {n_s,n_u} and anomaly cancellation respectively. No particle mass other than m_e enters.
 
-**The down quark is a prediction, not an anchor:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
+**The down quark is a pure prediction:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 
 ### The ρ Meson — Comb Filter Prediction ✅
 
@@ -466,7 +466,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 
 ### Scale Hierarchy ✅
 
-**Single empirical input: m_e. All sector scales derived from m_e and seeds.**
+**Unit reference: m_e. All sector scales derived from m_e (unit reference) and seeds.**
 
 | Quantity | Source | Value |
 |---------|--------|-------|
@@ -480,7 +480,7 @@ The uniform +0.68% offset in d=3 quark predictions and +0.79% base in d=4 reflec
 
 ### All sector scales
 ```
-m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  [electron anchor]
+m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  [unit reference: sets the MeV scale for d=6]
 m_scale_3  = m_e × √(g₃₃/g₆₆)                        = 4.702 MeV           [from seeds + anomaly]
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)        = 0.1451 MeV
 m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: Y_τ = Y_L]
@@ -531,7 +531,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 | m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
 | m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.013% |
 
-**IDWT has a single empirical input: m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
+**IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
 
 
 
@@ -574,7 +574,7 @@ The GTC correction per winding normalised at k₀ and n_mu = S(n_s,4) = 35:
 
 ε is now fully derived from the Lagrangian — the self-consistency eigenvalue 4/7 determines g_coeff; the critical site k₀=16 and muon mode index n_mu=35 set the normalization.
 
-Empirical fit from c/u and t/u: ε = 0.001340. Derived value: 0.001350. Gap: 0.74% — within PDG light quark uncertainties.
+Cross-check from c/u and t/u mass ratios: ε = 0.001340 (measured PDG ratio). Derived value from seeds: 0.001350. Gap: 0.74% — within PDG light quark uncertainties.
 
 ### k Values by Particle
 
@@ -646,17 +646,17 @@ The two levels are structurally independent: Level 1 comes from the l=0 scalar p
 **d=6/d=10 kernel symmetry:** v₆ = v₁₀ = 1/2 exactly. The kernel cannot distinguish the charged lepton sector from the tau sector — both have identical coupling strength. The mass difference between muon and tau arises entirely from different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference. This is a genuine symmetry of the kernel, broken only by the Hopf chain's sector manifold assignments.
 
 **Self-consistency derivation route:**
-The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived. m_e is the single empirical input. m_W is now derived from seeds at +0.003% (Part 2 §10). The framework has no free parameters beyond m_e.
+The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived. m_e is the sole unit reference. m_W is now derived from seeds at +0.003% (Part 2 §10). The framework has no free parameters beyond m_e.
 
 **Current status by sector:**
 
 | d | g_dd source | m_scale derived? |
 |---|------------|-----------------|
-| 6 | g₆₆ = Y_L² = 1/4 from anomaly cancellation | ✅ (electron anchor) |
+| 6 | g₆₆ = Y_L² = 1/4 from anomaly cancellation | ✅ (unit reference: fixes d=6 scale from m_e) |
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
-| 2 | g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 | ✅ m_W derived (+0.003%) |
+| 2 | g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 | ✅ |
 | 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ algebra closed; mass hierarchy open 🔶 |
 
 ---

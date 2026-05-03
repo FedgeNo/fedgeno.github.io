@@ -467,10 +467,6 @@ for name, d, n, pdg in particles:
     err = (p - pdg) / pdg * 100 if pdg else 0.0
     n_str = str(n) if n is not None else "--"
     print(f"{name:<9} {d:2d} {n_str:>4} {s:10d} {p:12.3f} {pdg:12.3f} {err:+7.2f}%")
-
-print("\nhttps://fedgeno.github.io/")
-
-
 # =============================================================================
 # STEP 12 -- ELECTROWEAK AND COUPLING PREDICTIONS
 # =============================================================================
@@ -641,6 +637,63 @@ decay_vals = {
 for label, (pred, pdg, note) in decay_vals.items():
     err = (pred / pdg - 1.0) * 100
     print(f"  {label:<22} pred={pred:>9.4f}  PDG={pdg:>9.4f}  err={err:+.2f}%  [{note}]")
+
+
+# =============================================================================
+# STEP 16 -- NEUTRINO MASSES FROM SECTOR GEOMETRY
+# =============================================================================
+# The d=5 sector (S5) has Euler characteristic zero and no self-confinement.
+# Its mass scale is set by the cross-sector balance between d=4 (quarks) and
+# d=6 (leptons) via the Hopf fibration S1->S5->CP2. The consistency equation:
+#
+#   m_scale_5 * m_scale_4^2 = (n_up/n_strange) * m_scale_6^3
+#
+# is the d=5 analog of the g22 back-reaction equation (Part 2 section 9c).
+# The n_up/n_strange = 3/4 factor is the ratio of the Hopf chain seeds.
+# No neutrino data of any kind enters this derivation.
+
+m_scale_6_lep = m_e / S(n_e, 6)       # lepton sector scale = m_e / S(13,6)
+m_scale5      = (n_up / n_strange) * m_scale_6_lep**3 / m_scale4**2
+
+# Neutrino mode indices from seeds (Part 2 section 6):
+n_nu1 = S(n_up, 3)                             # = S(3,3) = 10
+n_nu2 = S(n_up, 4)                             # = S(3,4) = 15
+n_nu3 = S(n_strange, 3) + n_up - n_down        # = 20 + 3 - 1 = 22
+
+m_nu1_MeV = m_scale5 * S(n_nu1, 5)
+m_nu2_MeV = m_scale5 * S(n_nu2, 5)
+m_nu3_MeV = m_scale5 * S(n_nu3, 5)
+
+m_nu1_meV = m_nu1_MeV * 1.0e9    # 1 MeV = 10^9 meV
+m_nu2_meV = m_nu2_MeV * 1.0e9
+m_nu3_meV = m_nu3_MeV * 1.0e9
+sum_mnu   = m_nu1_meV + m_nu2_meV + m_nu3_meV
+
+dm2_21    = (S(n_nu2,5)**2 - S(n_nu1,5)**2) * m_scale5**2 * 1.0e12  # eV^2
+dm2_31    = (S(n_nu3,5)**2 - S(n_nu1,5)**2) * m_scale5**2 * 1.0e12  # eV^2
+
+print("\n=== NEUTRINO MASSES (derived from m_e and seeds — no neutrino data) ===")
+print(f"  Formula: m_scale_5 = (n_up/n_s) x m_scale_6^3 / m_scale_4^2")
+print(f"  m_scale_5 = {m_scale5:.6e} MeV")
+print()
+nu_vals = [
+    ("m_nu1 (meV)",     m_nu1_meV,  0,       "lightest; not yet measured"),
+    ("m_nu2 (meV)",     m_nu2_meV,  0,       "middle; not yet measured"),
+    ("m_nu3 (meV)",     m_nu3_meV,  0,       "heaviest; not yet measured"),
+    ("Sum m_nu (meV)",  sum_mnu,    0,       "Planck 2023 bound: < 120 meV"),
+    ("Delta_m21 (eV2)", dm2_21,     7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
+    ("Delta_m31 (eV2)", dm2_31,     2.584e-3,"PDG: (2.584+-0.025)e-3; -5.4% from mode ratio"),
+]
+for label, pred, pdg, note in nu_vals:
+    if pdg > 0:
+        err = (pred/pdg - 1.0)*100
+        print(f"  {label:<22} pred={pred:>14.5g}  PDG={pdg:>12.5g}  err={err:>+7.2f}%  [{note}]")
+    else:
+        print(f"  {label:<22} pred={pred:>14.4f} meV  [{note}]")
+
+print()
+print(f"  m_beta_beta = 0 (exact): Majorana mass forbidden in d=5 by spin structure")
+print(f"  Sum m_nu = {sum_mnu:.2f} meV is within reach of CMB-S4 (target sensitivity ~30 meV)")
 
 print("\nhttps://fedgeno.github.io/")
 

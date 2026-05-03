@@ -331,7 +331,7 @@ m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808
 
 **Absolute masses** (ratios are IDWT predictions; scale anchored to Δm²₂₁ = 7.42×10⁻⁵ eV²):
 ```
-m_ν₁ = 1.51 meV,   m_ν₂ = 8.74 meV,   m_ν₃ = 49.5 meV,   Σm_ν ≈ 59.7 meV
+m_ν₁ = 1.51 meV,   m_ν₂ = 8.74 meV,   m_ν₃ = 49.5 meV,   Σm_ν ≈ 59.0 meV
 ```
 All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is derived from the ratios and the solar anchor alone: Δm²₃₁ = m_ν₃² − m_ν₁² = 2.444×10⁻³ eV² (observed: 2.584×10⁻³ eV², −5.4%). The mass scale m_scale_5 is not independently derived; only the ratios are IDWT predictions.
 

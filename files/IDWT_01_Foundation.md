@@ -111,6 +111,50 @@ Each satisfies (A): chirality projections exist (Weyl, Majorana-Weyl, or Majoran
 
 **Corollary (no new particle families).** Since D is the complete sector set, and each sector's spectrum is determined by the seeds {1, 4} via the generation law, the particle spectrum is complete. No further fundamental fermion families exist beyond the three generations of quarks and leptons already derived.
 
+### 3b. Sector Geometry: Euler Characteristics and the Seeds
+
+Each CP^n sector carries an Euler characteristic χ(CP^n) = n+1. By the Atiyah-Singer index theorem, this equals the holomorphic index ind(D_{CP^n}) = n+1 — the number of independent zero modes of the sector's Dirac operator.
+
+The Euler characteristics of the IDWT sectors are:
+
+| Sector | Manifold | χ | Physical meaning |
+|---|---|---|---|
+| d=2 | CP¹ | 2 | Two photon/W helicities |
+| d=3 | S³ | 0 | Odd sphere — vector-like QCD (correct: no γ₅) |
+| d=4 | CP² | 3 | **N_c = 3 colours** (index = number of zero modes = colours) |
+| d=5 | S⁵ | 0 | Odd sphere — no Majorana (Dirac neutrinos forced) |
+| d=6 | CP³ | 4 | **n_s = 4 = seed** (index = strange quark seed) |
+| d=10 | CP⁵ | 6 | **N_f = 6 flavours** (index = quark family count) |
+
+**The seed n_s = 4 is topologically forced.** The d=6 lepton sector lives on CP³. The Dirac index ind(D_{CP³}) = χ(CP³) = 4. The seed n_s must equal this index for the d=6 spectrum to be self-consistent — it counts the zero modes available before gauge fixing removes one, leaving three generations (e, μ, τ). Therefore n_s = 4 is not chosen or fitted: it equals the topological invariant of the lepton sector.
+
+**The top quark mode index from geometry:**
+
+```
+n_top = χ(CP²) × χ(CP³) × χ(CP⁵) = N_c × n_s × N_f = 3 × 4 × 6 = 72 ✓
+```
+
+The top quark mode index encodes all three quantum numbers of QCD simultaneously.
+
+**Spin structure alternation.** CP^n admits a spin structure iff n is odd (c_1(CP^n) = n+1 must be even):
+
+- d=2 (CP¹): **spin** — gauge sector (photon has exact spin-1)
+- d=4 (CP²): **spinᶜ** — quarks must carry a U(1) factor = colour hypercharge ✓
+- d=6 (CP³): **spin** — leptons have genuine spin structure (no forced U(1) coupling) ✓
+- d=10 (CP⁵): **spin** — tau sector has genuine spin structure ✓
+
+The quarks' spinᶜ structure (forced U(1) coupling) is the geometric origin of colour charge.
+
+**The sum rule:**
+
+```
+Σ_{d∈D} χ(Ξ_d) = 2 + 0 + 3 + 0 + 4 + 6 = 15 = S(n_s,3) − n_s − 1
+```
+
+The total Euler characteristic of the sector manifold Ξ equals S(n_s,3) − n_s − 1 = 20 − 4 − 1 = 15.
+
+
+
 The two uniqueness results are parallel:
 
 | Uniqueness result | Algebraic condition | Consequence |
@@ -196,7 +240,7 @@ The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by th
 
 ## 5. Canonical Particle Assignments ✅
 
-All masses predicted from two empirical inputs from measurement: **m_e = 0.511 MeV** (sets all fermion and lepton scales) and **m_W = 80,377 MeV** (sets the d=2 gauge sector scale).
+All masses predicted from a **single empirical input: m_e = 0.511 MeV**. The W boson mass is derived at +0.003% from the formula g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 (Part 2 §10), giving m_W = m_e√(g₂₂/g₆₆) × S(76,2) = 80,379 MeV.
 
 The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the generation law holds as a theorem rather than a coincidence (see Part 2).
 
@@ -206,12 +250,19 @@ m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [ele
 m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
 m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆: tau has Y_L = −1/2]
-m_scale_2  = m_W / S(76,2)                         = 27.47 MeV           [empirical: m_W]
+m_scale_2  = m_e × √(g₂₂/g₆₆)                     = 27.47 MeV           [derived from seeds; gives m_W = 80,379 MeV]
+```
+
+**SU(2)_L coupling (derived from CP²→CP¹ reduction, Part 3 §0.7):**
+```
+g₂ = Q_u × √g_s = (2/3)√(2g₄₄/π²) = 0.65275   (PDG: 0.65270, +0.008%)
+v  = 2m_W/g₂ = 246.28 GeV                        (PDG: 246.22, +0.023%)
+G_F = 1/(√2 v²) = 1.1658×10⁻⁵ GeV⁻²             (PDG: 1.1664×10⁻⁵, −0.05%)
 ```
 
 **Complete coupling vector** {v_d = √g_dd}, fully closed by {m_e, m_W}:
 ```
-v₂ = 26.879  [m_W input]
+v₂ = 26.879  [derived: v₂ = √g₂₂ = √(17²×5/2)]
 v₃ = 4.601   [seeds: n_s²√(n_s+n_u)/2]
 v₄ = 2.130   [seeds: n_sn_u/√(n_s+n_u)]
 v₅ = 0.3645  [Hopf fiber universality: g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂]

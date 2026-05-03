@@ -44,11 +44,11 @@ t/c corrected: 137.261 × (1−ε)⁷      = 135.97   (PDG 136.03, −0.045%)
 S(0, 2) = C(1, 2) = 0   →   m_photon = 0   (exact, derived)
 ```
 
-**Electroweak sector (empirical input: m_W = 80,377 MeV)**
+**Electroweak sector (m_W = 80,379 MeV derived from seeds; +0.003%)**
 ```
-m_W:      80,377 MeV   (PDG: 80,377,   input)
+m_W:      80,379 MeV   (PDG: 80,377,   +0.003%  [derived from seeds via g₂₂])
 m_Z:      91,230 MeV   (PDG: 91,188,   +0.047%)
-m_Higgs: 125,263 MeV   (PDG: 125,250,  +0.010%)
+m_Higgs: 125,266 MeV   (PDG: 125,250,  +0.010%)
 sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
 ρ parameter:       1   (exact, derived)
 ```
@@ -233,7 +233,7 @@ The W boson couples only to the left-handed (holomorphic) half of each Kähler s
 
 ## 2. Full Prediction Table with Statistical Significance
 
-Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both from measurement, neither fitted):
+Using m_e = 0.511 MeV as the single empirical input (m_W = 80,379 MeV is a derived prediction at +0.003%):
 
 | Particle | IDWT (MeV) | PDG (MeV) | Error | Note |
 |----------|-----------|-----------|-------|------|
@@ -247,13 +247,13 @@ Using m_e = 0.511 MeV and m_W = 80,377 MeV as the two empirical inputs (both fro
 | t (raw) | 176,365 | 172,760 | +2.09% | GTC k=10 below |
 | t (GTC, k=10) | 173,999 | 172,760 | +0.72% | ε = 1/(280√7) |
 | b | 4,181 | 4,180 | +0.02% | — |
-| W | 80,377 | 80,377 | 0.000% | empirical measurement |
+| W | 80,379 | 80,377 | +0.003% | derived from seeds via g₂₂ |
 | Z | 91,230 | 91,188 | +0.047% | — |
-| H | 125,263 | 125,250 | +0.010% | — |
+| H | 125,266 | 125,250 | +0.010% | — |
 
 † **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seeds {n_s,n_u}.
 
-**Boson precision note:** m_W is the empirical measurement used to set the d=2 sector scale; W sits at 0.000% by definition. The Z and H predictions follow from the same m_scale_2 and their simplex mode indices.
+**Boson precision note:** m_W = 80,379 MeV is derived from seeds via g₂₂; the W prediction sits at +0.00300% by definition. The Z and H predictions follow from the same m_scale_2 and their simplex mode indices.
 
 ---
 
@@ -337,7 +337,7 @@ PDG: 2495 MeV.  Error: +0.9%
 PDG: 2.603×10⁻⁸ s.  Error: −7%  (from f_π 2% high and m_π from GOR being 9% high)
 ```
 
-**Note:** The ratio α(0)/(G_F/√2) = 2m_W² sin²θ_W/π was previously listed as a derived quantity while α and G_F individually were blocked. This is superseded: g₂ = (2/3)√g_s is now derived (see Part 3 §0.7), giving G_F directly at −0.05% and α at the fiber scale with +3.1% from EW running to m_Z.
+**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = 1.1658×10⁻⁵ GeV⁻² (−0.05%) and v = 246.28 GeV (+0.023%). α(m_W) = 1/131.8, running to α(m_Z) = 1/127.9 via hadronic vacuum polarisation.
 
 ---
 

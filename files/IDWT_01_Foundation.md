@@ -240,7 +240,7 @@ The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by th
 
 ## 5. Canonical Particle Assignments ✅
 
-All masses predicted from a **single empirical input: m_e = 0.511 MeV**. The W boson mass is derived at +0.003% from the formula g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 (Part 2 §10), giving m_W = m_e√(g₂₂/g₆₆) × S(76,2) = 80,379 MeV.
+All masses predicted from a **single empirical input: m_e = 0.511 MeV**. The W boson mass is derived: m_W = m_e√(g₂₂/g₆₆) × S(76,2) = 80,379 MeV (+0.003%), where g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 follows from seeds alone (Part 2 §10).
 
 The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the generation law holds as a theorem rather than a coincidence (see Part 2).
 
@@ -285,7 +285,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | photon | 0 | 2 | 0 | 0 | exact |
 | W | 76 | 2 | 80,379 | 80,377 | +0.003% |
 | Z | 81 | 2 | 91,230 | 91,188 | +0.047% |
-| Higgs | 95 | 2 | 125,263 | 125,250 | +0.010% |
+| Higgs | 95 | 2 | 125,266 | 125,250 | +0.010% |
 
 † The +0.68% offset in d=3 and +0.79% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 

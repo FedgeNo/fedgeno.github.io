@@ -212,7 +212,7 @@ The bottom quark is a moiré phenomenon — an interference pattern between two 
 
 ## 9. Coupling Constants — Complete Derived Set ✅
 
-The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ come from the seed structure {n_s, n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₅₅ from Hopf fiber universality; g₂₂ from seeds via the cross-sector mode formula (§10 below). m_W is derived, not empirical.
+The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ from seeds {n_s,n_u}; g₆₆ and g₁₀,₁₀ from anomaly cancellation; g₂₂ from the cross-sector back-reaction fixed-point (§10); g₅₅ = 96/g₂₂ from Hopf universality. All six sector self-couplings are derived from m_e and seeds.
 
 ---
 
@@ -400,7 +400,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 
 ### Scale Hierarchy ✅
 
-**Two empirical inputs: m_e and m_W. All sector scales derived from these.**
+**Single empirical input: m_e. All sector scales derived from m_e and seeds.**
 
 | Quantity | Source | Value |
 |---------|--------|-------|
@@ -408,7 +408,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 | m_scale_3 | m_e × √(g₃₃/g₆₆) | 4.702 MeV |
 | m_scale_4 | m_scale_3 × √(g₄₄/g₃₃) / S(3,4) | 0.1451 MeV |
 | m_scale_10 | = m_scale_6 | 2.7526×10⁻⁵ MeV |
-| m_scale_2 | m_W / S(76,2) | 27.47 MeV |
+| m_scale_2 | m_e × √(g₂₂/g₆₆) = m_e × 53.759 | 27.47 MeV |
 
 The uniform +0.68% offset in d=3 quark predictions and +0.79% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
 
@@ -567,7 +567,7 @@ The two levels are structurally independent: Level 1 comes from the l=0 scalar p
 **d=6/d=10 kernel symmetry:** v₆ = v₁₀ = 1/2 exactly. The kernel cannot distinguish the charged lepton sector from the tau sector — both have identical coupling strength. The mass difference between muon and tau arises entirely from different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference. This is a genuine symmetry of the kernel, broken only by the Hopf chain's sector manifold assignments.
 
 **Self-consistency derivation route:**
-The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived. m_e and m_W are the two empirical inputs from measurement; the framework has no free parameters.
+The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the kernel self-consistency fixed-point equation. Once g_dd is computed from the sector geometry (CP², S³, CP³) for each sector, all mass scales become fully derived. m_e is the single empirical input. m_W is now derived from seeds at +0.003% (Part 2 §10). The framework has no free parameters beyond m_e.
 
 **Current status by sector:**
 
@@ -577,7 +577,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
-| 2 | empirical measurement: m_W | ✅ from m_W |
+| 2 | g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 | ✅ m_W derived (+0.003%) |
 | 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ algebra closed; mass hierarchy open 🔶 |
 
 ---

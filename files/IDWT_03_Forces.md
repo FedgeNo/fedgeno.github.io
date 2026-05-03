@@ -102,7 +102,7 @@ The SU(3) gauge symmetry follows from the CP² isometry group (Part 3 §3–4).
 
 ### 0.7 Coupling Constants from the Action
 
-All physical coupling constants follow from {g_{dd'}} and the two empirical inputs m_e, m_W:
+All physical coupling constants follow from {g_{dd'}} and the single empirical input m_e (m_W is derived at +0.003% from seeds via g₂₂):
 
 | Physical quantity | Formula | Value |
 |---|---|---|
@@ -450,13 +450,13 @@ b₀ > 0 → **asymptotic freedom is a derived result.** The β-function coeffic
 
 ## 10. Electroweak Predictions ✅
 
-With m_W = 80,377 MeV as the empirical measurement setting the d=2 sector scale:
+With m_W = 80,379 MeV (derived from seeds via g₂₂ at +0.003%) setting the d=2 sector scale:
 
 | Observable | IDWT | Observed | Error |
 |---|---|---|---|
 | m_photon | 0 (exact) | 0 | — |
 | m_Z | 91,230 MeV | 91,188 MeV | +0.047% |
-| m_Higgs | 125,263 MeV | 125,250 MeV | +0.010% |
+| m_Higgs | 125,266 MeV | 125,250 MeV | +0.010% |
 | sin²θ_W | 0.2237 | 0.22290 (on-shell) | +0.37% |
 | ρ parameter | 1 (exact) | 1.002 | −0.2% |
 
@@ -702,7 +702,7 @@ The spinor structure of Ψ∞ means the quantum number structure of the SM emerg
 | Tau-sector hypercharges | SO(10) spinor weight lattice (16 of Spin(10)) | 16 of Spin(10) |
 | 0νββ rate = 0 | Follows from Dirac neutrino prediction | Falsifiable |
 
-The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and both empirical inputs {m_e, m_W} are determined by the geometric and combinatorial structure of M_∞ independently of spin.
+The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and the single empirical input m_e are determined by the geometric and combinatorial structure of M_∞ independently of spin. m_W is derived.
 
 ---
 

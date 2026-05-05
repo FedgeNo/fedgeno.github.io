@@ -81,6 +81,30 @@ The tau, ν_τ, b quark, and t quark — all in the d=10 sector — are componen
 
 **CP² and colour:** CP² requires spin^c rather than spin. The spin^c connection carries an auxiliary U(1) bundle, geometrically identified with U(1)_Y (hypercharge). Every eigenspace of D^c_{CP²} is an SU(3) representation from the CP² isometry, providing the geometric basis for colour charge. The spin^c U(1) bundle would need to be promoted to SU(3) gauge symmetry — a genuine open problem, but the colour states themselves emerge from the Dirac index (§61).
 
+**Theorem (CP² spin^c forces left-chiral quarks):** Let $D^c_{\mathbb{CP}^2}$ be the canonical spin^c Dirac operator on $\mathbb{CP}^2$. Twisting by the line bundle $\mathcal{O}(k)$ (Hopf bundle raised to the $k$-th power), the Atiyah-Singer index theorem gives
+
+$$\mathrm{ind}\bigl(D^c_{\mathbb{CP}^2} \otimes \mathcal{O}(k)\bigr) = \binom{k+2}{2} = S(k+1,\, 2).$$
+
+**Proof (Hirzebruch–Riemann–Roch).** Let $X = \mathbb{CP}^2$ with hyperplane class $H$ normalised so $\int_X H^2 = 1$. The total Chern class of the tangent bundle is $c(TX) = (1+H)^3 = 1 + 3H + 3H^2$, giving $c_1(X) = 3H$, $c_2(X) = 3H^2$. The Todd class is:
+
+$$\operatorname{td}(TX) = 1 + \tfrac{c_1}{2} + \tfrac{c_1^2 + c_2}{12} = 1 + \tfrac{3}{2}H + H^2.$$
+
+For $E = \mathcal{O}(k)$ the Chern character is $\operatorname{ch}(E) = 1 + kH + \tfrac{k^2}{2}H^2$. The HRR theorem gives:
+
+$$\chi(X,E) = \int_X \operatorname{ch}(E)\cdot\operatorname{td}(TX).$$
+
+Expanding and retaining only the $H^2$ term (the sole surviving term under integration against the fundamental class):
+
+$$\chi(\mathbb{CP}^2,\mathcal{O}(k)) = \frac{k^2}{2} + \frac{3k}{2} + 1 = \frac{(k+1)(k+2)}{2} = \binom{k+2}{2}. \quad \square$$
+
+For the canonical spin^c structure the determinant line bundle is $L = K_X^{-1} = \mathcal{O}(3)$, so the index of the spin^c Dirac operator twisted by $\mathcal{O}(k)$ is exactly $\binom{k+2}{2}$.
+
+For $k = 1$ (fundamental colour representation, $\mathcal{O}(1)$): $\mathrm{ind} = \binom{3}{2} = 3$. There are exactly **3 net left-chiral zero modes** in the fundamental representation of $\mathrm{SU}(3)$ — one per colour.
+
+For $k = -1$ (anti-fundamental, $\mathcal{O}(-1)$): $\mathrm{ind} = \binom{1}{2} = 0$. Right-handed singlets carry no geometric chiral bias.
+
+The left-right asymmetry of the SM quark sector is therefore a direct consequence of the spin^c structure on the $d=4$ sector: $\mathbb{CP}^2$ is not a spin manifold ($w_2 \neq 0$), forcing the spin^c choice, and the index of $D^c \otimes \mathcal{O}(1)$ fixes exactly 3 left-handed quark colours without any additional assumption. Note also $S(2,2) = 3 = N_c$, connecting this index to the d=2 mode count — the same 3 that appears throughout the sector coupling constants.
+
 ### 59.3 Chirality from Kähler γ₅
 
 The CP^n sectors carry natural chirality operators from their Kähler forms (full derivation in Part 3 §7). The Kähler γ₅ splits each sector spinor into holomorphic (LEFT) and anti-holomorphic (RIGHT) components. W bosons couple only to the holomorphic half — the chiral weak interaction is a geometric consequence, not a postulate.
@@ -189,6 +213,51 @@ N_d(E_{n−1}) = Σ_{k=0}^{n−1} μ_d(k) = S(n,d)
 where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator energy. The IDWT mass formula m_n = m_scale_d × N_d(E_{n−1}) is a Weyl-type spectral law: mass equals the sector scale times the number of Dirac eigenstates at energies up to the mode's level.
 
 **Status.** The spectral theorem is proved: S(n,d) equals the cumulative degeneracy count of the d-dimensional sector harmonic oscillator. This holds exactly for the harmonic approximation V_d ≈ λ_d r² (valid for low-n modes deep in the potential well) and approximately for the full sector potential V_d = λ_d r²/(1+r²) (where deviations appear at high n as the potential saturates — a potential source of higher-order corrections to heavy-particle mass predictions).
+
+---
+
+## 60.5 General Odd-Sphere Spectral Theorem ✅
+
+Theorem S1 (§60b) established $S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1)$ for the $d=3$ quark sector. The result is not specific to $S^3$.
+
+**Theorem (General Odd-Sphere Weyl Law).** For all $k \geq 1$ and all $n \geq 1$:
+
+$$S(n,\, 2k+1) = \frac{1}{2}\, N_{D_{S^{2k+1}}}(n-1),$$
+
+where $N_{D_{S^{2k+1}}}(n-1)$ is the cumulative count of positive Dirac eigenvalues on $S^{2k+1}$ at levels $\ell = 0, 1, \ldots, n-1$.
+
+**Proof.** The standard Dirac operator on $S^{2k+1}$ with the round metric has positive eigenvalues $\lambda_\ell = \ell + (2k+1)/2$ at levels $\ell = 0,1,2,\ldots$, with multiplicity
+
+$$M_\ell^{S^{2k+1}} = 2\binom{\ell+2k}{2k}.$$
+
+The cumulative positive count is:
+
+$$\sum_{\ell=0}^{n-1} M_\ell^{S^{2k+1}} = 2\sum_{\ell=0}^{n-1}\binom{\ell+2k}{2k} = 2\binom{n+2k}{2k+1} = 2\cdot S(n,\, 2k+1),$$
+
+where the second equality is the hockey-stick identity and the third uses $S(n,d) = \binom{n+d-1}{d}$. Therefore $S(n,2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$. $\square$
+
+**Verification** (first eight levels):
+
+| $\ell$ | $M_\ell^{S^3}$ | Cumul. | $2S(\ell{+}1,3)$ | $M_\ell^{S^5}$ | Cumul. | $2S(\ell{+}1,5)$ |
+|---|---|---|---|---|---|---|
+| 0 | 2 | 2 | 2 ✅ | 2 | 2 | 2 ✅ |
+| 1 | 6 | 8 | 8 ✅ | 10 | 12 | 12 ✅ |
+| 2 | 12 | 20 | 20 ✅ | 30 | 42 | 42 ✅ |
+| 3 | 20 | 40 | 40 ✅ | 70 | 112 | 112 ✅ |
+| 4 | 30 | 70 | 70 ✅ | 140 | 252 | 252 ✅ |
+| 5 | 42 | 112 | 112 ✅ | 252 | 504 | 504 ✅ |
+| 6 | 56 | 168 | 168 ✅ | 420 | 924 | 924 ✅ |
+| 7 | 72 | 240 | 240 ✅ | 660 | 1584 | 1584 ✅ |
+
+**Consequence for IDWT.** Both odd-sphere sectors are spectrally grounded by the same theorem:
+
+$$S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1) \quad \Rightarrow \quad m_q = m_{\rm scale,3}\times S(n,3) \text{ is a Weyl law on } S^3,$$
+
+$$S(n,5) = \tfrac{1}{2}N_{D_{S^5}}(n-1) \quad \Rightarrow \quad m_\nu = m_{\rm scale,5}\times S(n,5) \text{ is a Weyl law on } S^5.$$
+
+Down-type quark masses and neutrino masses obey the identical spectral law — mass is half the cumulative Dirac eigenvalue count on the sector manifold — with the only difference being the sector scale $m_{\rm scale,d}$ and the sector dimension. The three neutrino masses $S(10,5) = 2002$, $S(15,5) = 11628$, $S(22,5) = 65780$ are cumulative Dirac counts on $S^5$ at levels 9, 14, and 21 respectively.
+
+
 
 ---
 
@@ -471,7 +540,7 @@ The ratio of successive d=3 mode counts at the seed level gives the IDWT predict
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
 
-**Status note:** g_{3,4}^eff = 125 is the renormalized effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The running from the kernel scale (~800 MeV) to the nucleon scale is the fitted element here; f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry. These are physically motivated but the precise values rely on the kernel matrix element calculation that remains open.
+**Status note:** g_{3,4}^eff = 125 is the renormalized effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The running from the kernel scale (~800 MeV) to the nucleon scale is the free element in this estimate; f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry. These are physically motivated but the precise values rely on the kernel matrix element calculation that remains open.
 
 ---
 

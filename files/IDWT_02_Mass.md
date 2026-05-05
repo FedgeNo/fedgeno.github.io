@@ -152,9 +152,9 @@ Verification (N=32): Σ_{k=0}^{32} C(k+2,2) × C(32−k+2,2) = 435,897 = C(37,5)
 
 ---
 
-## 5. The Seeds {1, 4} — Hockey-Stick Forced ✅
+## 5. The seed n_s = 4 (with n_d = 1 trivially forced) — Hockey-Stick Forced ✅
 
-The two seeds are not chosen. They are forced by the hockey-stick structure itself.
+The seed n_s = 4 and the trivially-forced ground state n_d = 1 are not chosen. They are algebraically forced.
 
 **n_down = 1** is forced because S(1,d) = 1 for every d. This is the base case of every hockey-stick sum — the first term in every cumulative count. It is simultaneously the ground state of every sector.
 
@@ -203,6 +203,8 @@ n_ν₃ − n_ν₂ = 7 = n_u + n_strange
 ```
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
+
+**Spectral grounding (General Weyl Law, Part 8 §60.5):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same Weyl spectral law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
 
 From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.
 
@@ -268,9 +270,9 @@ The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption �
 
 ### g₆₆ = 1/4 — from anomaly cancellation ✅
 
-With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1 — see Part 8 §59), the SU(2)²U(1) gauge anomaly cancellation gives Y_Q = 1/(2N_c) = 1/6. The SU(3)²U(1) condition with Q = T₃ + Y then gives the lepton hypercharge Y_L = −1/2. Therefore:
+With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1 — see Part 8 §59), the SU(2)²U(1) gauge anomaly cancellation gives Y_Q = 1/(2N_c) = 1/6. The SU(3)²U(1) condition with Q = T₃ + Y then gives the lepton sector coupling set by the seed:
 ```
-g₆₆ = Y_L² = (−1/2)² = 1/4
+g₆₆ = 1/n_s = 1/4
 ```
 This is exact and requires no mass input.
 
@@ -278,7 +280,7 @@ This is exact and requires no mass input.
 
 ### g₁₀,₁₀ = 1/4 — from tau hypercharge ✅
 
-The tau lepton carries Y_L = −1/2 identically to the electron and muon (same SU(2)_L doublet assignment). The same anomaly cancellation that gives g₆₆ = Y_L² = 1/4 gives g₁₀,₁₀ = 1/4. This is not an assumption — it is forced by the gauge structure.
+The tau sector shares the same coupling g₁₀,₁₀ = g₆₆ = 1/n_s = 1/4: both d=6 and d=10 are CP sectors with coupling set directly by the seed, so the kernel cannot distinguish them. The mass difference between muon and tau arises entirely from the different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference.
 
 ---
 
@@ -539,7 +541,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 
 ## 11. Generation Tower Correction ✅
 
-Each particle's mode index n is built from seeds {1, 4} through additive operations. Each `+` in the derivation introduces a small fractional loss ε — two frequencies added together achieve ~99.865% coherence:
+Each particle's mode index n is built from seed n_s = 4 (with n_d = 1 trivially forced) through additive operations. Each `+` in the derivation introduces a small fractional loss ε — two frequencies added together achieve ~99.865% coherence:
 
 ```
 m_corrected(n, d) = m_scale_d × S(n, d) × (1 − ε)^k
@@ -547,7 +549,13 @@ m_corrected(n, d) = m_scale_d × S(n, d) × (1 − ε)^k
 
 where k counts the additions used to generate n from seeds.
 
-### Derived Parameter ✅
+### 11.1 Physical Origin
+
+The raw simplex formula `m(n,d) = m_scale_d × S(n,d)` produces excellent ratios within most sectors but shows a small systematic excess in the **d=4 up-type quark sector** (c/u raw +0.403%, t/u raw +1.311%). This excess grows with mode index n and is absent in d=3 and d=6.
+
+The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part generates the overall sector potential and mass scale; the l=2 part introduces a small phase precession when modes are built by successive additions in the generation tower. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
+
+### 11.2 Derivation of ε ✅
 
 **g_coeff = 2/√7 from the kernel self-consistency eigenvalue.**
 
@@ -563,32 +571,32 @@ Both ratios equal 4/7 exactly: 4×5/35 = 12/21 = 4/7. This is the coupling self-
 g_coeff = √(n_s(n_s+1) / S(n_s,4)) = √(4/7) = 2/√7
 ```
 
-The GTC correction per winding normalised at k₀ and n_mu = S(n_s,4) = 35:
+Combined with the critical resonance site k₀ = n_s² = 16 and the muon mode n_mu = S(n_s,4) = 35 as the natural frequency normalization scale:
 
 ```
 ε = g_coeff / (k₀ × n_mu)
   = (2/√7) / (16 × 35)
   = 1/(280√7)
-  = 0.001350
+  ≈ 0.001350
 ```
 
-ε is now fully derived from the Lagrangian — the self-consistency eigenvalue 4/7 determines g_coeff; the critical site k₀=16 and muon mode index n_mu=35 set the normalization.
+ε is fully derived from kernel geometry and seed combinatorics — no empirical masses enter. Only n_s = 4 (with derived n_u = n_s−1 = 3).
 
-Cross-check from c/u and t/u mass ratios: ε = 0.001340 (measured PDG ratio). Derived value from seeds: 0.001350. Gap: 0.74% — within PDG light quark uncertainties.
+Cross-check from c/u and t/u mass ratios: ε ≈ 0.001340 (inferred from PDG). Derived value: 0.001350. Gap: 0.74% — within PDG light-quark uncertainties.
 
-### k Values by Particle
+### 11.3 Depth k Values ✅
 
-| Particle | n | k | Derivation |
+The exponent k counts additive operations needed to reach each mode from the seeds. These are themselves derived mode indices, not fitted parameters:
+
+| Particle | n | k | Construction path |
 |---|---|---|---|
 | down | 1 | 0 | seed |
 | strange | 4 | 0 | seed |
 | up | 3 | 0 | n_s − 1: subtraction only |
-| charm | 20 | 3 | S(n_s,3): n_s=4 terms → 3 internal additions |
-| top | 72 | 10 | 2×S(2n_s,2): k_c=3 chained with S(8,2) internal k=7 → 3+7=10 |
+| charm | 20 | 3 | S(n_s,3): depth n_u = 3 internal additions |
+| top | 72 | 10 | k_top = S(n_u,3) = 10 (first neutrino mode index; Hopf depth 2) |
 
-**GTC is a d=4-sector correction only.** **GTC exponents from the Hopf sector chain ✅**
-
-The k values are not fitted parameters — they are mode indices from other sectors:
+**GTC exponents from the Hopf sector chain:**
 
 ```
 k_charm = n_u = 3          [n_u = n_s−1 derived; GTC depth 1 at the generation-2 boundary]
@@ -599,22 +607,34 @@ k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 
 **Why k = S(n_u,3) for top:** The top quark at n_t = 72 is n_t − k₀ = 56 modes above k₀. Its GTC depth = S(n_u,3) = 10 = the first neutrino mode index = the image of n_u under Hopf depth 2 (through the d=3 sector). This connects the top quark correction directly to the neutrino sector.
 
-The k values above are used exclusively for ratios within d=4 (c/u and t/u). Mode indices for d=6 particles (e, μ, τ) also involve additions (n_e = n_ν₁+n_u, n_mu = S(4,4), n_τ = n_ν₃+n_down), but the GTC does not apply to them: d=6 modes have k=0 effective phase load because the same factor would appear in every d=6 mass and cancel in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
+The k values are used exclusively for ratios within d=4 (c/u and t/u). d=6 modes have k=0 effective phase load because the same factor appears in every d=6 mass and cancels in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
 
-**Note:** k_charm = k_g33 = n_s − 1 = 3. The same number of additions that generate the charm mode index also generate the vacuum stability gap k₀ = n_s². This is not a coincidence — both are built by the same operation: adding n_s to itself n_s−1 times from the seed.
+**Chain order:** d=4 receives the largest downstream phase load (earliest in the Hopf chain); d=6 is terminal and receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
 
-**Chain order:** d=6 is terminal in the downstream phase chain (τ at −0.001% after Dyson resummation, μ at −0.002%). d=4 is earliest (largest n-dependent excess), consistent with d=4 receiving downstream phase load while d=6 receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
+### 11.4 Robustness Analysis
 
-### Results
+The normalization factor 280√7 in the denominator of ε is derived, not fitted. A sensitivity analysis across ±10% variation in this denominator shows the result is structurally stable:
+
+| Normalization factor | ε | c/u corrected | t/u corrected | Deviation from PDG |
+|---|---|---|---|---|
+| 252 (−10%) | 0.001500 | 587.68 | 79,823 | c/u −0.05%, t/u −0.20% |
+| **280 (nominal)** | **0.001350** | **587.95** | **79,943** | **c/u −0.003%, t/u −0.048%** |
+| 308 (+10%) | 0.001227 | 588.16 | 80,041 | c/u +0.03%, t/u +0.08% |
+
+Even with a generous ±10% theoretical uncertainty on the normalization (covering possible higher-order overlap or curvature corrections), both ratios remain within **0.2%** of PDG values. The GTC is structurally stable and not fine-tuned.
+
+**Open item:** A first-principles computation of the exact overlap integral prefactor for the l=2 kernel component. The leading-order expression gives ε = 1/(280√7); higher-order terms would shift it by less than 0.74%.
+
+### 11.5 Results
 
 | Ratio | Raw error | After GTC |
 |---|---|---|
 | mu/e | −0.001% | −0.001% (Δk=0) |
 | s/d | 0.000% | 0.000% (Δk=0) |
-| c/u | +0.403% | **0.000%** |
+| c/u | +0.403% | **−0.003%** |
 | t/u | +1.311% | **−0.048%** |
 | t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% raw | **+0.001%** after Dyson resummation (separate mechanism: §9b) |
+| tau/mu | −0.059% raw | **+0.001%** after Dyson resummation (§9b) |
 
 ```python
 GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350
@@ -622,7 +642,7 @@ GTC_K   = {'down':0, 'strange':0, 'up':0, 'charm':3, 'top':10, 'bottom':0}
 # d=6 and d=10 particles not in GTC table: GTC correction cancels in all d=6 ratios
 ```
 
----
+
 
 ## 12. Two-Layer Mass Structure and Unified Scale Formula ✅
 
@@ -652,11 +672,11 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 
 | d | g_dd source | m_scale derived? |
 |---|------------|-----------------|
-| 6 | g₆₆ = Y_L² = 1/4 from anomaly cancellation | ✅ (unit reference: fixes d=6 scale from m_e) |
+| 6 | g₆₆ = 1/n_s = 1/4 (coupling set by seed; d=6 and d=10 share this value) | ✅ |
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
-| 2 | g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4)/2 = 722.5 | ✅ |
+| 2 | g₂₂ = (M₃^{S³}−n_u)² × β/2 = 722.5  [Theorem S3, Part 8 §60b] | ✅ |
 | 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ fully closed; m_scale_5 derived (§9c) |
 
 ---

@@ -122,7 +122,71 @@ The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass
 
 ---
 
-## 50.9 Heat-Kernel Derivation of Stage-1 Projection Weights 🔶
+## 50.5 Complete Low-n Observability Atlas ✅
+
+Full enumeration of all low-n modes, with Ω_log = ln(S(n,d)/S(n,2)) quantifying the Stage-1 projection suppression. Modes with Ω_log ≲ ln 2 ≈ 0.693 pass Stage 1; co-fixed-point membership (Stage 2) determines final occupancy.
+
+**d=2 (Gauge bosons)** — all have Ω_log = 0 by convention (d=2 is the reference sector):
+
+| n | S(n,2) | Mass | Status |
+|---|--------|------|--------|
+| 0 | 0 | 0 | photon (massless, exact) |
+| 76 | 2926 | 80.379 GeV | **W** |
+| 81 | 3321 | 91.230 GeV | **Z** |
+| 95 | 4560 | 125.266 GeV | **H** |
+
+**d=3 (Down-type quarks)** — m_scale_3 = 4.702 MeV:
+
+| n | S(n,3) | Mass (MeV) | Ω_log | Stage 1 | Stage 2 | Final status |
+|---|--------|------------|-------|---------|---------|--------------|
+| 1 | 1 | 4.702 | 0.000 | ✅ pass | ✅ co-fp | **Occupied (down)** |
+| 2 | 4 | 18.807 | 0.288 | ✅ pass | ❌ absent | Short-lived resonance only |
+| 3 | 10 | 47.019 | 0.511 | ✅ pass | ❌ absent | Short-lived resonance only |
+| 4 | 20 | 94.037 | 0.693 | ✅ marginal | ✅ co-fp | **Occupied (strange / confinement)** |
+| 5 | 35 | 164.565 | 0.847 | ❌ suppressed | — | Absent |
+| 6 | 56 | 263.304 | 0.981 | ❌ suppressed | — | Absent |
+
+The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable hadrons; they may appear as very short-lived colour-triplet resonances. No stable particles are predicted in the 15–50 MeV window beyond known pion sector states. The n=5 mode is the first to fail Stage 1 outright (Ω_log > ln 2).
+
+**d=4 (Up-type quarks)** — m_scale_4 = 0.14510 MeV:
+
+| n | S(n,4) | Mass (MeV) | Ω_log | Status |
+|---|--------|------------|-------|--------|
+| 3 | 15 | 2.177 | 0.916 | **Occupied (up)** |
+| 20 | 8,855 | 1,279.7 | 3.742 | **Occupied (charm)** |
+| 72 | 1,215,450 | 174,000 | 6.137 | **Occupied (top)** |
+
+**d=5 (Neutrinos)** — m_scale_5 = 7.429 × 10⁻¹³ MeV:
+
+| n | S(n,5) | Mass (meV) | Ω_log | Status |
+|---|--------|------------|-------|--------|
+| 10 | 2,002 | 1.487 | 3.595 | **Occupied (ν₁)** |
+| 15 | 11,628 | 8.639 | 4.574 | **Occupied (ν₂)** |
+| 22 | 65,780 | 48.871 | 5.561 | **Occupied (ν₃)** |
+
+**d=6 (Charged leptons)** — m_scale_6 = 2.753 × 10⁻⁵ MeV:
+
+| n | S(n,6) | Mass (MeV) | Ω_log | Status |
+|---|--------|------------|-------|--------|
+| 13 | 18,564 | 0.511 | 5.318 | **Occupied (e)** |
+| 35 | 3,838,380 | 105.657 | 8.715 | **Occupied (μ)** |
+
+**d=10 (Tau sector)** — m_scale_10 = m_scale_6:
+
+| n | S(n,10) | Mass (MeV) | Ω_log | Status |
+|---|---------|------------|-------|--------|
+| 23 | 64,512,240 | 1776.84 | 12.362 | **Occupied (τ)** |
+
+**Falsifiable predictions from this atlas:**
+
+1. Two light colour-triplet d=3 resonances at **18.807 MeV** (n=2) and **47.019 MeV** (n=3) should exist as short-lived states but are absent as stable particles (pass Stage 1, fail Stage 2). No stable hadrons or narrow resonances are predicted in the 15–50 MeV window beyond the known pion sector.
+2. The next d=3 mode above strange (n=5, 164.565 MeV) is suppressed at Stage 1 (Ω_log = 0.847 > ln 2 = 0.693) and absent entirely.
+3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §50.9).
+
+**Note on three corrected Ω_log values:** The draft submitted for review used approximate (~) values for the top quark (5.99 → **6.137**), muon (7.85 → **8.715**), and tau (9.47 → **12.362**). The exact values are printed above; all three come from ln(S(n,d)/S(n,2)) evaluated at the correct mode indices.
+
+---
+
 
 The heuristic A_rel(d) = (m_scale_d/m_scale_3)^{1/3} is replaced by a first-principles derivation.
 

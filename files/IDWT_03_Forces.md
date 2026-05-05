@@ -802,5 +802,5 @@ The Ward identity establishes:
 3. α is not renormalized by the kernel
 4. The running α(q²) is correctly reproduced at 1-loop
 
-The fiber-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. The hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α, and leptonic running adds 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent empirical input — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
+The fiber-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. The hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α, and leptonic running adds 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent unit reference — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
 

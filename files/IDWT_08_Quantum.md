@@ -138,7 +138,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 ### 60.1 Spectral Independence
 
-The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: no particle's S(n,d) value is a linear combination (with rational coefficients) of other occupied S values within the same sector, and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the generation law.
+The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: no particle's S(n,d) value is a linear combination (with rational coefficients) of other occupied S values within the same sector, and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the eigenmode selection rule.
 
 This was verified computationally for all pairwise and triple combinations. The independence theorem rules out redundancy in the spectrum — every assigned mode index carries independent physical content.
 
@@ -426,7 +426,7 @@ $$V_{\rm kernel} = \sum_{\text{allowed }(d,d')} g_{d,d'}(\xi)\,(ξ_d\cdot\xi_{d'
 
 where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and V_harmonic(ξ) = Σ_d ½ m_scale_d ω_d² |ξ_d|².
 
-**What this single equation generates (all derived, no extra terms):**
+**What this single equation yields (all derived, no extra terms):**
 
 - **Particle spectrum:** Local minima after projection select exactly the {1,4} seeds and the full observed set (co-fixed-point uniqueness proved — Part 1 §5)
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)

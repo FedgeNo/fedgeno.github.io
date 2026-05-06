@@ -116,10 +116,16 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | **Fermi constant** | **G_F = 1/(√2 v²)** | **1.1658×10⁻⁵ GeV⁻²** |
 | **Higgs quartic** | **λ_H = m_H²/(2v²)** | **0.1294** |
 
-**Derivation of g₂.** The CP² integration (Part 3 §4) gives g_s = √(2g₄₄/π²) — the SU(3) QCD coupling. The SU(2)_L subgroup of SU(3) acts on the (u,d) doublet. Under the CP²→CP¹ dimensional reduction (d=4→d=2 sector), the SU(2) coupling is projected by the up-quark electric charge Q_u = 2/3:
+**Derivation of g₂.** The QCD coupling g_s arises from the Wilson loop holonomy of the Fubini-Study gauge connection over the d=4 sector manifold CP². The Fubini-Study metric has fundamental 2-cycle area π; integrating the Yang-Mills action density over CP² introduces the volume factor 2/π² (ratio of the sphere volumes at successive Hopf levels), giving:
 
 ```
-g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [QCD coupling, from CP² integration]
+g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [holonomy integral over CP²]
+```
+
+The up-quark charge Q_u = 2/3 follows from the spin^c index on CP²: ind(D^c_{CP²} ⊗ O(1)) = 3 = N_c colours (Theorem S3, Part 8 §59.2), so each colour carries charge 1/N_c = 1/3 and the doublet carries 2Q_u = 2 × 2/3. The SU(2)_L coupling is therefore:
+
+```
+g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [QCD coupling, from CP² holonomy]
 g₂  = (2/3)√g_s  = (2/3)(2g₄₄/π²)^(1/4)
 g₂² = (4/9) × g_s = (4/9)(2g₄₄/π²)^(1/2)
 
@@ -301,7 +307,7 @@ g²_YM = 2 × (12/√7) / π² = 0.919
 α_s(fiber) = g²_YM/(4π) = 0.073 ≈ 1/(4π)
 ```
 
-The Yang-Mills coupling is derived from the kernel coupling g₄₄ and the volume of CP², neither of which is a free parameter. The formula 1/g²_YM = Vol(CP²)/g₆² is the standard Kaluza-Klein result; the IDWT contribution is identifying g₆² = g₄₄/m_scale₄² from the kernel structure.
+The Yang-Mills coupling is derived from the kernel coupling g₄₄ and the volume of CP², neither of which is a free parameter. The formula 1/g²_YM = Vol(CP²)/g₆² arises from integrating the sector kinetic term over CP²; the IDWT contribution is identifying g₆² = g₄₄/m_scale₄² from the kernel structure. (This is not a Kaluza-Klein result: CP² is the configuration space of d=4 internal degrees of freedom, not a geometrically compact extra dimension.)
 
 ---
 
@@ -477,7 +483,7 @@ The Z-W mode gap equals β — the same Dirac eigenstate increment that enters g
 
 ---
 
-## 11. The Boson Generation Chain and Sector Coupling Map ✅
+## 11. The Boson Eigenmode Selection and Sector Coupling Map ✅
 
 All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + b − 1 applied to occupied mode indices and sector dimensions:
 
@@ -490,7 +496,7 @@ All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + 
 | g(n_ν₂=15, n_Z=81) | 95 | n_H — ν₂ + Z → Higgs |
 | g(d=10, n_s=4) | 13 | n_e — tau sector + strange → electron |
 
-**Boson generation chain:**
+**Boson filtration chain:**
 ```
 g(d=5, n_top=72)    = 76 = n_W    [ν-sector + top → W]
 g(d=6, n_W=76)      = 81 = n_Z    [lepton + W → Z]
@@ -747,7 +753,7 @@ holds automatically from gauge invariance.
 
 ### 14.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
 
-**Theorem.** The IDWT kernel cannot generate a photon mass at any order in perturbation theory.
+**Theorem.** The IDWT kernel cannot produce a photon mass at any order in perturbation theory.
 
 **Proof.** The kernel is (ξ·ξ')², a degree-2 polynomial in the inner product ξ·ξ'. This is EVEN under ξ·ξ' → −(ξ·ξ'), so its spherical harmonic decomposition on S^{d−1} contains only even-l terms:
 
@@ -769,7 +775,7 @@ Therefore the photon self-energy from kernel diagrams:
 
 The photon mass m_γ² = Π_kernel(0) = 0 exactly, to all orders in the kernel. □
 
-This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT generate a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
+This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT produce a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
 
 ### 14.3 The Running of α ✅
 

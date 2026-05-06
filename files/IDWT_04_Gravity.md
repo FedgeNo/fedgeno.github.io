@@ -182,7 +182,7 @@ This decay defines a natural length scale:
 L_d ≡ 1/κ_d = 1/√(λ_d − E_0(d))
 ```
 
-This is the IDWT analogue of the Bohr radius. The hydrogen atom provides the exact analogy: the potential −e²/r generates a bound state whose exponential decay defines a_0 = ℏ²/m_e e² — the Bohr radius is not a compactification radius, it is the localization length of the ground-state wave function in an infinite space. Exactly the same here.
+This is the IDWT analogue of the Bohr radius. The hydrogen atom provides the exact analogy: the potential −e²/r producess a bound state whose exponential decay defines a_0 = ℏ²/m_e e² — the Bohr radius is not a compactification radius, it is the localization length of the ground-state wave function in an infinite space. Exactly the same here.
 
 **The localization length in the harmonic approximation.** For the harmonic limit V_d ≈ λ_d r² near the origin, the d-dimensional isotropic harmonic oscillator has ground-state energy:
 
@@ -385,7 +385,7 @@ This is exact and sector-independent. The factor |χ_d(ξ⁰)|² ∝ L_d^{-d} fr
 
 ### 3.11.3 Why Hidden Sector Loops Do Not Renormalise G_eff
 
-A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom generates corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
+A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
 ```
 M_Pl^{4D,eff} = M_Pl^{6D} × √Vol(compact space)
@@ -399,7 +399,7 @@ The one-loop effective action from Ξ sector fluctuations is:
 Γ_Ξ = (1/2) Tr_Ξ[log O_Ξ]    where O_Ξ = −D_Ξ² + V_d(ξ)
 ```
 
-Via the Seeley-DeWitt heat kernel expansion, this generates terms of the form:
+Via the Seeley-DeWitt heat kernel expansion, this yields terms of the form:
 
 ```
 Γ_Ξ ~ ∫_Ξ [a_0 + a_2 R_Ξ + a_4 R_Ξ² + ...] dμ_ξ
@@ -423,7 +423,9 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 
 Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to the M_∞² coefficient in S_EH.
 
-**Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single object. Its 4D and extra-dimensional components mix through the moduli fields — the size of the compact space fluctuates and couples to 4D gravity. Integrating out these fluctuations generates the 4D Planck mass. In IDWT, h_ab(ξ) is a fixed classical background with no dynamics — it is not integrated over, not varied, and does not couple to g_μν. There are no moduli, no metric fluctuations in Ξ, and therefore no KK-type renormalisation of M_∞.
+**Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its 4D and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the hidden dimensions. Integrating out these fluctuations produces the 4D Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
+
+In IDWT, the sector manifolds Ξ_d are not literal geometrically compact extra dimensions through which gravitons propagate. They are the configuration spaces of the internal degrees of freedom of Ψ∞ — analogous to spin (an internal degree of freedom, not a spatial dimension). The background metric h_ab(ξ) is fixed and classical, not varied, not dynamical, and does not couple to g_μν. There are no moduli, no metric fluctuations in Ξ_d, and therefore no KK graviton tower. All KK-exclusion bounds (graviton propagation, Eöt-Wash torsion balance, collider searches for KK modes) presuppose graviton propagation into the hidden dimensions; they do not apply to IDWT.
 
 **Conclusion.** G_eff = 1/(8π M_∞²) is exact, not merely tree-level. The absence of a Ξ-induced correction to S_EH follows from the product metric structure of M_∞, which is a built-in consequence of treating Ξ as a fixed background rather than a dynamical field. This is the precise statement that makes "gravity is purely geometric curvature of the 4D slice" a theorem rather than a postulate.
 
@@ -449,7 +451,7 @@ while the particle mass scales are:
 m_scale_6 ≈ 2.75 × 10⁻⁵ MeV,    m_scale_3 ≈ 4.70 MeV
 ```
 
-The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometry. This 26-order hierarchy between the fundamental action scale M_∞ and the lightest sector mass scale m_scale_6 is the IDWT form of the hierarchy problem. The sector coupling constants g_dd are all dimensionless and O(1) to O(10³), which do not by themselves generate a 10²⁶ ratio.
+The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometry. This 26-order hierarchy between the fundamental action scale M_∞ and the lightest sector mass scale m_scale_6 is the IDWT form of the hierarchy problem. The sector coupling constants g_dd are all dimensionless and O(1) to O(10³), which do not by themselves produce a 10²⁶ ratio.
 
 **Summary of the gravity programme status:**
 

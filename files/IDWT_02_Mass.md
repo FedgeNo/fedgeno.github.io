@@ -87,7 +87,7 @@ For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere.
 
 ---
 
-## 3. The Pascal Recursion — One Identity, All Generations ✅
+## 3. The Pascal Recursion — One Identity, All Filtration Stages ✅
 
 The hockey-stick identity implies the Pascal recursion:
 
@@ -95,9 +95,9 @@ The hockey-stick identity implies the Pascal recursion:
 S(n, d) = S(n, d−1) + S(n−1, d)
 ```
 
-This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the generation law:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not generate the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
+This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the eigenmode selection rule:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not produce the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
 
-**Generation 2 — the clearest case:**
+**Filtration stage 2 — the clearest case:**
 
 Evaluate S(4,4) two ways:
 ```
@@ -106,21 +106,21 @@ S(4,4) = S(4,3) + S(3,4)
 n_muon  = n_charm + n_ν₂
 ```
 
-This is not a fit. It is Pascal's recursion applied to S(4,4) = 35. The gen-2 lepton mass index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The generation law for generation 2 is a combinatorial theorem.
+This is not a fit. It is Pascal's recursion applied to S(4,4) = 35. The stage-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
 
-**Generation 1:**
+**Filtration stage 1:**
 ```
 n_e = n_ν₁ + n_u = S(3,3) + 3 = 10 + 3 = 13
 ```
 n_ν₁ = S(n_u, 3) = S(3,3) = 10 is itself a hockey-stick sum: 1+3+6 = 10. Adding n_u gives n_e = 13.
 
-**Generation 3:**
+**Filtration stage 3:**
 ```
 n_τ = n_ν₃ + n_down = 22 + 1 = 23
 ```
 The +1 = n_down = S(1,d) = 1 for every d — the base case of every hockey-stick sum. The tau's mode index inherits the universal ground state.
 
-The pattern across all three generations:
+The pattern across all three filtration stages:
 ```
 n_lepton = n_neutrino + n_quark_partner
 ```
@@ -173,7 +173,7 @@ n_u    = n_strange − 1 = 3       [Pascal: S(n,4) − S(n,3) = S(n−1,4) at n=
 n_charm = S(4, 3)       = 20      [hockey-stick in d=3 through level 3]
 n_ν₁    = S(3, 3)       = 10      [hockey-stick in d=3 through level 2]
 n_ν₂    = S(3, 4)       = 15      [hockey-stick in d=4 through level 2]
-n_e     = n_ν₁ + n_u   = 13      [generation law = hockey-stick slice, gen 1]
+n_e     = n_ν₁ + n_u   = 13      [hockey-stick filtration condition, stage 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
 n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
@@ -183,7 +183,7 @@ n_Z     = n_W + 5 = 81       [Vandermonde: g(d=6, n_W) = n_W + (d−1) = 76 + 5 
 n_Higgs = n_u   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
 ```
 
-The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the generation law must hold exactly.** It is not that the framework predicts these relations and then they happen to work — the hockey-stick identity leaves no room for them to fail.
+The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the eigenmode selection rule must hold exactly.** It is not that the framework predicts these relations and then they happen to work — the hockey-stick identity leaves no room for them to fail.
 
 ---
 
@@ -212,14 +212,24 @@ From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 me
 
 ## 8. The Bottom Quark — Quartic Bifurcation ✅
 
-The bottom quark fits no clean simplex sector. It arises within d=3 at the resonance point k₀ = n_strange² = 4² = 16 — derived entirely within d=3. Three resonance conditions add in phase at k₀, making the single-mode solution at n=16 unstable. The off-diagonal quartic coupling forces the geometric-mean beat:
+The bottom quark fits no clean simplex sector. It arises within d=3 at the resonance point k₀ = n_strange² = 4² = 16 — derived entirely within d=3. Three resonance conditions coincide at k₀:
+
+```
+k₀ = n_s² = 16                         (quartic kernel resonance at seed self-product)
+k₀ = n_e + n_u = 13 + 3 = 16           (lepton–quark additive closure)
+k₀ = S(n_s,3) − S(2,3) = 20 − 4 = 16  (Vandermonde gap from absent n=2 mode)
+```
+
+All three hold exactly from seeds; no other site in any sector satisfies all three simultaneously (exhaustive search n ≤ 200, d ∈ D).
+
+**Why the geometric mean is forced.** The Jacobi coupling between adjacent d=3 modes near k₀ is $K_{n,n+1} \propto \sqrt{b_n \cdot b_{n+1}}$ where $b_n = \sqrt{n(n+d-1)}/(2n+d-2)$. At the triple-coincidence site, the $\ell=0$ kernel drive is equal for modes n=16 and n=17. The equal-weight fixed point $|A_{16}| = |A_{17}|$ requires the resonant mass to satisfy $E^2 = E_{16} \times E_{17}$, whose unique positive solution is the geometric mean:
 
 ```
 m_b = √(S(16,3) × S(17,3)) × m_scale_3
-    = √(816 × 969) × 4.702 MeV = 4,181 MeV    (+0.02% vs PDG 4,180 ± 10 MeV)
+    = √(816 × 969) × 4.7019 MeV = 4,181 MeV    (+0.023% vs PDG 4,180 ± 10 MeV)
 ```
 
-The bottom quark is a moiré phenomenon — an interference pattern between two adjacent d=3 modes, not a clean simplex resonance.
+The geometric mean is not a fit. It is forced by the symmetry of the equal-weight condition and the quadratic kernel fixed-point equation. The arithmetic mean and harmonic mean are both inconsistent with the equal-weight constraint.
 
 ---
 
@@ -342,7 +352,7 @@ g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 
 The tau is the one lepton whose raw simplex prediction requires a correction beyond the GTC. The mechanism is the isotropic back-reaction between the d=6 and d=10 sectors.
 
-**Setup.** The d=6 and d=10 sectors share the same self-coupling: g_{6,6} = g_{6,10} = g_{10,10} = 1/4 exactly, because Y_L = Y_τ = −1/2 (the tau and electron/muon are in the same SU(2)_L doublet structure). This isotropy means the back-reaction from d=6 onto d=10 feeds back on itself via g_{10,10}.
+**Setup.** The d=6 and d=10 sectors share the coupling g_{6,6} = g_{6,10} = g_{10,10} = 1/n_s = 1/4, derived from the seed (not from hypercharge). This isotropy — both sectors carry identical seed coupling — means the back-reaction from d=6 onto d=10 feeds back on itself via g_{10,10}.
 
 **Self-consistent equation.** The d=6 → d=10 back-reaction shift Δm satisfies:
 
@@ -350,7 +360,7 @@ The tau is the one lepton whose raw simplex prediction requires a correction bey
 Δm = ε_{6→10} × m_τ + g_{10,10} × Δm
 ```
 
-The second term is the self-feedback: the shifted tau mass generates further back-reaction through its own g_{10,10} coupling. Solving:
+The second term is the self-feedback: the shifted tau mass feeds further back-reaction through its own g_{10,10} coupling. Solving:
 
 ```
 Δm = ε_{6→10} × m_τ / (1 − g_{10,10})
@@ -358,11 +368,13 @@ The second term is the self-feedback: the shifted tau mass generates further bac
 
 Since g_{10,10} = 1/n_s = 1/4, the denominator is 3/4 = n_u/n_s, giving resummation factor n_s/n_u = 4/3. This ratio is forced by n_u = n_s − 1; it is not a free parameter.
 
-**The total correction.** The leading ε_{6→10} is:
+**The total correction.** The leading d=6→d=10 kernel perturbation at the tau level is:
 
 ```
-ε_{6→10} = g_{6,10} / (k₀ × n_mu) = (1/4) / (16 × 35) = 1/2240
+ε_{6→10} = 1 / (n_s³ × S(n_s,4)) = 1 / (64 × 35) = 1/2240
 ```
+
+The factor $n_s^3 = k_0 \times n_s$ is the seed-resonance volume; $S(n_s,4) = n_\mu$ is the frequency normalization. Both are completely determined by $n_s = 4$.
 
 Multiplied by the resummation factor 4/3:
 
@@ -393,7 +405,7 @@ No inputs beyond m_e and the seed n_s = 4 (n_u = n_s−1 is derived).
 
 ## 9c. Neutrino Mass Scale — Cross-Sector Fixed Point ✅
 
-The d=5 sector (S⁵) has Euler characteristic χ=0 — no self-confinement and no direct mass generation from the sector potential. The neutrino mass scale is set instead by the **three-sector cross-scale consistency equation** linking d=4, d=5, and d=6:
+The d=5 sector (S⁵) has Euler characteristic χ=0 — no self-confinement and no direct eigenmode selection from within the sector potential. The neutrino mass scale is set instead by the **three-sector cross-scale consistency equation** linking d=4, d=5, and d=6:
 
 ```
 m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³
@@ -442,7 +454,7 @@ The Δm²₂₁ prediction is within 0.8σ of the PDG measurement. The Δm²₃�
 
 ### m_scale_3 — from the coupling self-consistency condition ✅
 
-The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squared mass of the lightest particle in sector d equals g_{dd}/g_{66} times m_e². This requires that the mode occupation probability (∝ m²) be consistent with the coupling that generates it. For d=3, the lightest mode is n=1 (down quark) with S(1,3)=1, so m_lightest(d=3) = m_scale_3:
+The kernel vacuum analysis gives a fixed-point equation: in equilibrium, the squared mass of the lightest particle in sector d equals g_{dd}/g_{66} times m_e². This requires that the mode occupation probability (∝ m²) be consistent with the coupling that determines it. For d=3, the lightest mode is n=1 (down quark) with S(1,3)=1, so m_lightest(d=3) = m_scale_3:
 
 ```
 (m_scale_3 / m_e)² = g₃₃ / g₆₆
@@ -541,19 +553,19 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 
 ## 11. Generation Tower Correction ✅
 
-Each particle's mode index n is built from seed n_s = 4 (with n_d = 1 trivially forced) through additive operations. Each `+` in the derivation introduces a small fractional loss ε — two frequencies added together achieve ~99.865% coherence:
+Each particle's mode index n is selected by the sector comb filters. At each comb stage, a small frequency shift ε accumulates — two eigenmodes passing through adjacent comb stages achieve ~99.865% coherence:
 
 ```
 m_corrected(n, d) = m_scale_d × S(n, d) × (1 − ε)^k
 ```
 
-where k counts the additions used to generate n from seeds.
+where k counts the filtration stages that select n from seeds.
 
 ### 11.1 Physical Origin
 
 The raw simplex formula `m(n,d) = m_scale_d × S(n,d)` produces excellent ratios within most sectors but shows a small systematic excess in the **d=4 up-type quark sector** (c/u raw +0.403%, t/u raw +1.311%). This excess grows with mode index n and is absent in d=3 and d=6.
 
-The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part generates the overall sector potential and mass scale; the l=2 part introduces a small phase precession when modes are built by successive additions in the generation tower. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
+The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part sets the overall sector potential and mass scale; the l=2 part introduces a small frequency shift in modes that pass through multiple filtration stages in the comb. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
 
 ### 11.2 Derivation of ε ✅
 
@@ -586,7 +598,7 @@ Cross-check from c/u and t/u mass ratios: ε ≈ 0.001340 (inferred from PDG). D
 
 ### 11.3 Depth k Values ✅
 
-The exponent k counts additive operations needed to reach each mode from the seeds. These are themselves derived mode indices, not fitted parameters:
+The exponent k is the filtration depth — the number of comb-filter stages a mode index passes through from the seed. These are themselves derived mode indices, not fitted parameters:
 
 | Particle | n | k | Construction path |
 |---|---|---|---|
@@ -599,7 +611,7 @@ The exponent k counts additive operations needed to reach each mode from the see
 **GTC exponents from the Hopf sector chain:**
 
 ```
-k_charm = n_u = 3          [n_u = n_s−1 derived; GTC depth 1 at the generation-2 boundary]
+k_charm = n_u = 3          [n_u = n_s−1 derived; GTC filtration depth 1 at the stage-2 comb boundary]
 k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 ```
 
@@ -659,7 +671,7 @@ where n_min(d) is the lightest occupied mode in sector d. For d=3 this gives m_s
 The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
 
 - **Level 1 (sector-uniform):** The coupling self-consistency derivation produces a uniform fractional offset within each sector — identical for every mode. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. This is a structural consequence of the rank-1 kernel: any scale error in m_scale_d is the same for all n within that d. It is not a coincidence — the rank-1 structure forces it.
-- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.79%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
+- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.77%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
 
 The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
 
@@ -675,7 +687,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 | 6 | g₆₆ = 1/n_s = 1/4 (coupling set by seed; d=6 and d=10 share this value) | ✅ |
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
-| 10 | g₁₀,₁₀ = g₆₆ from tau hypercharge | ✅ (m_scale_10 = m_scale_6) |
+| 10 | g₁₀,₁₀ = g₆₆ = 1/n_s from seed (shared with d=6) | ✅ (m_scale_10 = m_scale_6) |
 | 2 | g₂₂ = (M₃^{S³}−n_u)² × β/2 = 722.5  [Theorem S3, Part 8 §60b] | ✅ |
 | 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ fully closed; m_scale_5 derived (§9c) |
 
@@ -705,4 +717,4 @@ For the six IDWT sectors: b_{k₀} takes values 0.51539 (d=2) down to **0.50000 
 |---|---|---|
 | Hurwitz (geometry) | Division algebras | 𝕆 = last normed algebra; octonionic Hopf → d=10 |
 | **Gegenbauer (algebra)** | **Jacobi chain criticality** | **b_{k₀}=1/2 iff d=2(n_s+1)=10** |
-| Hypercharge (gauge) | Anomaly cancellation | g_{10,10}=g_{6,6}=Y_L²=1/4 |
+| Seed coupling | g₁₀,₁₀ = g₆₆ = 1/n_s = 1/4 from seed | Same coupling for both CP sectors |

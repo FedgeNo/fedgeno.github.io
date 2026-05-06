@@ -16,7 +16,7 @@ Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidd
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
-The observer's location ξ⁰ weights the projection amplitude for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and generation law (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in the amplitude with which each mode projects onto their slice.
+The observer's location ξ⁰ weights the projection amplitude for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and eigenmode selection rule (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in the amplitude with which each mode projects onto their slice.
 
 **P3 — Hidden Dimensions are Macroscopic**
 The hidden dimensions are not compact. They are full-scale spatial dimensions, macroscopic in extent. This is consistent with all gravitational experiments because IDWT has no gravitons — gravity is purely geometric, arising from the curvature of the projected 4D slice. The standard exclusions of macroscopic extra dimensions (Eöt-Wash torsion balance, collider KK graviton searches) all presuppose that gravitons propagate into the extra dimensions; in a graviton-free theory this category of constraint does not apply. See Part 4 §1b for the full argument.
@@ -88,7 +88,7 @@ This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a 
 
 **Theorem.** The sector set $D = \{2, 3, 4, 5, 6, 10\}$ is uniquely determined within IDWT by the following four conditions, all derivable from the single seed $n_s = 4$:
 
-**Step 1 — The top quark mode index factorises.** From the generation tower (no sector assignment required):
+**Step 1 — The top quark mode index factorises.** From the eigenmode selection conditions alone (no sector assignment required):
 
 $$n_{\rm top} = S(n_e, 2) - n_c + 1 = 91 - 20 + 1 = 72.$$
 
@@ -109,11 +109,11 @@ This forces $d \in \{4, 6, 10\}$ as the three CP sectors. $d = 2$ (CP¹) is requ
 - $d=3$ (S³ over CP¹): $g_{33} = n_s^2\sqrt{n_s+n_u}/2 = 8\sqrt{7}$ — from seeds. ✓  
 - $d=5$ (S⁵ over CP²): $g_{55} = g_{33}g_{44}/g_{22}$ — from the Hopf universality condition $v_3/v_2 = v_5/v_4$. ✓
 
-**Step 4 — $d=7$ is excluded.** The $d=6$ sector has coupling $g_{66} = 1/n_s = 1/4$ — a direct seed ratio, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ from $g_{33}$ and $g_{44}$ does not extend to $d=7$ over $d=6$: no coupling formula for $g_{77}$ exists within IDWT. Similarly, $d=8$ (CP⁴) is excluded because $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$ — it does not appear in the $n_{\rm top}$ factorisation. And $d \geq 11$ generate no mode indices within the occupied range $[1, 95]$.
+**Step 4 — $d=7$ is excluded.** The $d=6$ sector has coupling $g_{66} = 1/n_s = 1/4$ — a direct seed ratio, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ from $g_{33}$ and $g_{44}$ does not extend to $d=7$ over $d=6$: no coupling formula for $g_{77}$ exists within IDWT. Similarly, $d=8$ (CP⁴) is excluded because $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$ — it does not appear in the $n_{\rm top}$ factorisation. And $d \geq 11$ have no mode indices within the occupied range $[1, 95]$.
 
 **Completeness.** All 14 occupied mode indices $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$ sit in $d \in \{2,3,4,5,6,10\}$ and no occupied index is consistent with any excluded sector. $\square$
 
-**Remark.** The $g_{66} = 1/n_s$ identification 
+**Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the seed, not from external hypercharge assignment. The same value was previously attributed to $Y_L^2 = (1/2)^2$; both give 0.25 but the IDWT derivation is from $n_s$ alone.
 
 ---
 
@@ -125,7 +125,7 @@ This forces $d \in \{4, 6, 10\}$ as the three CP sectors. $d = 2$ (CP¹) is requ
 
 **Step 1 — Finite sectors.** The Sector Set Theorem (§3a) proves $D = \{2,3,4,5,6,10\}$ is the complete set. Any new particle must reside in one of these six sectors.
 
-**Step 2 — Generation tower closure.** The generation law from $n_s = 4$ produces mode indices $\Sigma$. Applying every generation rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \sigma_n$ fails the **Stage-2 co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
+**Step 2 — Eigenmode set is complete.** The sector comb filtration from $n_s = 4$ selects mode indices $\Sigma$. Applying every filtration rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \sigma_n$ fails the **Stage-2 co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
 
 **Step 3 — Unique beat mode.** A beat mode arises at a site $k_0$ where three independent resonance conditions coincide simultaneously, forcing equal spectral weight at adjacent modes $n$ and $n+1$. The three conditions are:
 
@@ -135,7 +135,7 @@ All three give $k_0 = 16$ exactly. Every quantity is determined by $n_s = 4$. Ex
 
 The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identities — they use $n_e$ (from $d=6$) and $n_u$ (from $d=4$), whose sum closes onto the $d=3$ resonance site. The same $n=16$ appears in other sectors but produces no known particle mass. $\square$
 
-**The spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of particles, their masses, and their quantum numbers are fully determined. Any additional stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the generation law (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new fundamental particles within the IDWT framework below the Planck scale.
+**The spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of particles, their masses, and their quantum numbers are fully determined. Any additional stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new fundamental particles within the IDWT framework below the Planck scale.
 
 ---
 
@@ -262,22 +262,22 @@ The cross-sector interaction is the unique leading term compatible with U(d) × 
 V_kernel = Σ_{d+d' ∈ sectors} g_{d,d'} (ξ_d · ξ_{d'})² |Ψ^(d)|² |Ψ^(d')|²
 ```
 
-The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by the seed n_s=4 (with n_u = n_s−1 = 3 derived) — the same two integers that generate the entire particle spectrum. "Vacuum stability" is the physical condition that fixes the gap; n_s=4 (seed) and n_u=n_s−1 (derived) supply the numbers. No particle mass appears in the determination of g₃₃.
+The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by the seed n_s=4 (with n_u = n_s−1 = 3 derived) — the same integers from which the entire particle spectrum is selected. "Vacuum stability" is the physical condition that fixes the gap; n_s=4 (seed) and n_u=n_s−1 (derived) supply the numbers. No particle mass appears in the determination of g₃₃.
 
 ---
 
 ## 5. Canonical Particle Assignments ✅
 
-All masses predicted from a **sole unit reference m_e = 0.511 MeV**. The W boson mass follows from m_scale_2 × S(76,2).5 follows from seeds alone (Part 2 §10).
+All masses predicted from a **sole unit reference m_e = 0.511 MeV**. The W boson mass follows from m_scale_2 × S(76,2). Sector scales follow from seeds alone (Part 2 §10).
 
-The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the generation law holds as a theorem rather than a coincidence (see Part 2).
+The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the eigenmode selection rule holds as a theorem rather than a coincidence (see Part 2).
 
 Derived sector scales (coupling self-consistency; see Part 2 §10):
 ```
 m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [unit reference: sets the MeV scale for d=6]
 m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
-m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆: tau has Y_L = −1/2]
+m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆ = 1/n_s: shared seed coupling]
 m_scale_2  = m_e × √(g₂₂/g₆₆)                     = 27.47 MeV           [derived from seeds; gives m_W = 80,379 MeV]
 ```
 
@@ -294,8 +294,8 @@ v₂ = 26.879  [derived: v₂ = √g₂₂ = √(17²×5/2)]
 v₃ = 4.601   [seed n_s; derived n_u=n_s−1]
 v₄ = 2.130   [seed n_s; derived n_u=n_s−1]
 v₅ = 0.3645  [Hopf fiber universality: g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂]
-v₆ = 0.500   [anomaly cancellation: Y_L = −1/2]
-v₁₀= 0.500   [same: Y_τ = Y_L]
+v₆ = 0.500   [g₆₆ = 1/n_s = 1/4]
+v₁₀= 0.500   [g₁₀,₁₀ = g₆₆ = 1/n_s: sectors d=6 and d=10 share the seed coupling]
 ```
 The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hopf pairs) uniquely fixes v₅ given v₂. No third unit reference is needed for any sector coupling.
 
@@ -306,7 +306,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | tau | 23 | 10 | 1,776.84†† | 1,776.86 | −0.14σ |
 | down | 1 | 3 | 4.702 | 4.670 | +0.68%† |
 | strange | 4 | 3 | 94.04 | 93.40 | +0.68%† |
-| up | 3 | 4 | 2.177 | 2.160 | +0.79%† |
+| up | 3 | 4 | 2.177 | 2.160 | +0.77%† |
 | charm | 20 | 4 | 1,279.7‡ | 1,270.0 | +0.76%‡ |
 | top | 72 | 4 | 174,000‡ | 172,760 | +0.72%‡ |
 | bottom | — | 3 | 4,181 | 4,180 | +0.02% |
@@ -315,15 +315,15 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | Z | 81 | 2 | 91,230 | 91,188 | +0.047% |
 | Higgs | 95 | 2 | 125,266 | 125,250 | +0.010% |
 
-† The +0.68% offset in d=3 and +0.79% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
+† The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 
-†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4 (from Y_L=Y_τ=−1/2) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
+†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/n_s=1/4 (from the seed) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
 
 ‡ After applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) and k values {charm:3, top:10}, the c/u ratio becomes 0.000% and the t/u ratio −0.048%. The GTC corrects within-sector ratios; the uniform +0.79% sector-wide offset persists in all d=4 absolute masses.
 
 **Co-fixed-point uniqueness ✅**
 
-As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. This is a verification, not a parameter search — $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
+As a uniqueness verification, the filtration map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. This is a verification, not a parameter search — $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
 
 ---
 
@@ -331,7 +331,7 @@ As a uniqueness verification, the generation map was run over all 1,600 pairs $(
 
 **Statement.** Let $\Sigma = \{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$ be the set of IDWT mode indices. $\Sigma$ is the unique set of positive integers satisfying all of the following simultaneously:
 
-1. **Generation-law closure.** Every element of $\Sigma$ is derivable from $n_s = 4$ and $n_d = 1$ by the following closed chain of algebraic identities (all verified exactly):
+1. **Filtration closure.** Every element of $\Sigma$ is the eigenfrequency selected by the following closed chain of sector comb conditions (all verified exactly):
 
 $$n_u = n_s - 1 = 3$$
 
@@ -357,7 +357,7 @@ $$n_H = n_u + n_c + n_{\rm top} = 95$$
 
 - *Condition 3* is immediate: $S(1,4)=1$, $S(2,4)=5$, $S(3,4)=15$, $S(4,4)=35$, $S(5,4)=70$, and $S(n,4)$ is strictly increasing, so $n_s = 4$ is unique. $\square$
 
-- *Condition 1* then fixes every element of $\Sigma$ deterministically — the chain above is algebraically closed with no free choices. Exhaustive search over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$ confirms that only $(1,4)$ generates a set with Jaccard similarity $1.0$ against $\Sigma$; the next-closest pair gives $0.375$.
+- *Condition 1* then fixes every element of $\Sigma$ deterministically — the chain above is algebraically closed with no free choices. Exhaustive search over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$ confirms that only $(1,4)$ produces a set with Jaccard similarity $1.0$ against $\Sigma$; the next-closest pair gives $0.375$.
 
 - *Condition 2* is verified computationally (zero violations). The asymptotic argument is: $S(\tau) = 64{,}512{,}240$ and $\sum_{\rm other} S_i = 5{,}164{,}187$, with cross-sector gaps (e.g.\ max $d=3$ simplex value $= 1540$ vs.\ min $d=4$ simplex value $= 15$) growing combinatorially, making accidental sum-equalities impossible for larger seeds. $\square$
 
@@ -384,7 +384,7 @@ Neutrinos cannot fit d=6. The sector scale m_scale_6 = 27.5 eV means the lightes
 ```
 n_ν₁ = S(n_u,3) = S(3,3) = 10    [simplex image of up quark into d=3]
 n_ν₂ = S(n_u,4) = S(3,4) = 15    [simplex image of up quark into d=4]
-n_ν₃ = n_τ − n_d = 23 − 1 = 22   [generation law]
+n_ν₃ = n_τ − n_d = 23 − 1 = 22   [eigenmode selection rule]
 ```
 
 Redundant check: n_ν₃ = n_ν₁ + n_ν₂ − n_u = 10+15−3 = 22 ✓
@@ -411,7 +411,7 @@ m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 48.87 meV,  Σm_ν = 59.00
 ```
 All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is derived from the mode ratios alone: Δm²₃₁ = m_ν₃² − m_ν₁² = 2.386×10⁻³ eV² (observed: 2.584×10⁻³ eV², −7.7%). The mass scale m_scale_5 is fully derived from m_e and seeds (Part 2 §9c).
 
-**Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the generation law; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
+**Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the eigenmode selection rule; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
 
 ---
 

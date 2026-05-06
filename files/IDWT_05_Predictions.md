@@ -4,7 +4,7 @@
 
 ## 1. Confirmed Predictions
 
-The mass ratios below are not fitted. Within each sector, S(n,d)/S(m,d) is a ratio of binomial coefficients — fixed the moment the mode indices are assigned. The generation law identities (muon = charm + ν₂, etc.) are consequences of the Pascal recursion S(n,d) = S(n,d−1) + S(n−1,d), not separate postulates.
+The mass ratios below are not fitted. Within each sector, S(n,d)/S(m,d) is a ratio of binomial coefficients — fixed the moment the mode indices are assigned. The eigenmode selection rule identities (muon = charm + ν₂, etc.) are consequences of the Pascal recursion S(n,d) = S(n,d−1) + S(n−1,d), not separate postulates.
 
 The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seed n_s=4 (n_u = n_s−1 = 3 derived) and anomaly cancellation respectively. Full derivation in Part 2 §10.
 
@@ -95,7 +95,7 @@ See Part 3 §0.8 for the derivation.
 
 **Neutrino mass-squared ratio**
 
-The d=5 sector neutrino mode indices n_ν₁=10, n_ν₂=15, n_ν₃=22 follow from the generation law. The mass-squared difference ratio:
+The d=5 sector neutrino mode indices n_ν₁=10, n_ν₂=15, n_ν₃=22 follow from the eigenmode selection rule. The mass-squared difference ratio:
 
 ```
 Δm²₂₁ / Δm²₃₂ = (S(15,5)² − S(10,5)²) / (S(22,5)² − S(15,5)²)
@@ -242,7 +242,7 @@ Using m_e = 0.511 MeV as the sole unit reference:
 | τ | 1776.84 | 1776.86 | −0.14σ† | — |
 | d | 4.702 | 4.670 | +0.68% | sector-uniform offset |
 | s | 94.04 | 93.40 | +0.68% | sector-uniform offset |
-| u | 2.177 | 2.160 | +0.79% | sector-uniform offset |
+| u | 2.177 | 2.160 | +0.77% | sector-uniform offset |
 | c | 1279.7 | 1270.0 | +0.76% | GTC k=3 |
 | t (raw) | 176,365 | 172,760 | +2.09% | GTC k=10 below |
 | t (GTC, k=10) | 173,999 | 172,760 | +0.72% | ε = 1/(280√7) |
@@ -259,15 +259,15 @@ Using m_e = 0.511 MeV as the sole unit reference:
 
 ## 3. d=4 Sector: GTC Correction
 
-The d=4 sector carries a uniform +0.79% offset (from the coupling self-consistency derivation) plus a mode-dependent excess that grows with n. The GTC with ε = 1/(280√7) and k values {u:0, c:3, t:10} corrects the mode-dependent part:
+The d=4 sector carries a uniform +0.77% offset (from the coupling self-consistency derivation) plus a mode-dependent excess that grows with n. The GTC with ε = 1/(280√7) and k values {u:0, c:3, t:10} corrects the mode-dependent part:
 
 | Particle | Absolute raw | Absolute after GTC | Ratio (vs u) raw | Ratio after GTC |
 |---|---|---|---|---|
-| u | +0.79% | +0.79% (k=0) | — | — |
+| u | +0.77% | +0.77% (k=0) | — | — |
 | c | +0.76% raw | +0.76%‡ | +0.403% | 0.000% |
 | t | +2.09% | **+0.72%** | +1.311% | **−0.048%** |
 
-The GTC closes the within-sector ratio errors exactly. The uniform +0.79% offset persists in absolute masses — it is the same for every d=4 mode because the rank-1 kernel forces sector-wide uniformity.
+The GTC closes the within-sector ratio errors exactly. The uniform +0.77% offset persists in absolute masses — it is the same for every d=4 mode because the rank-1 kernel forces sector-wide uniformity.
 
 The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂(n) functional form of the within-sector correction — confirming that the GTC's growing correction with k is geometrically natural. The coefficient is derived (ε = 1/(280√7)), not fitted.
 

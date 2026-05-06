@@ -28,7 +28,7 @@ The projection mismatch for mode (n,d):
 Ω_log(n,d) = ln(S(n,d) / S(n,2))
 ```
 
-Ω_log measures how much larger the hidden-sector mode count is relative to the d=2 gauge sector baseline. Stage-1 suppresses each mode by exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ and are fully projected out. Bound states have finite Ω_log; the co-fixed-point structure of the generation law selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
+Ω_log measures how much larger the hidden-sector mode count is relative to the d=2 gauge sector baseline. Stage-1 suppresses each mode by exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ and are fully projected out. Bound states have finite Ω_log; the co-fixed-point structure of the eigenmode selection rule selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
 
 **Partition function interpretation:** The Stage-1 suppression factor exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The projection-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the projected count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of the projection geometry itself.
 
@@ -94,7 +94,7 @@ The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chira
 
 ### 49.7 Complete d=3 Sideband Beat Tower
 
-The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 generates a full tower:
+The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full tower:
 
 | n, n+1 | Beat (MeV) | Nearest state | Match |
 |--------|------------|---------------|-------|

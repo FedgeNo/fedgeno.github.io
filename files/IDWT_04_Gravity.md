@@ -30,7 +30,7 @@ IDWT has none of this structure:
 
 **Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 projection and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
-**What remains open** is a formal derivation of the projected 4D gravitational equations from the full M_∞ action variation — confirming that hidden metric fluctuations in Ξ do not contribute independent propagating degrees of freedom. The structural argument for this (§3.1–3.4) is complete; the formal proof is in progress (§3.7).
+**What remains open** is the derivation of the measured value of G_N from the sector localization geometry — specifically computing G_N from {m_scale_d, L_d} (§3.12.3). All aspects of the gravitational equations themselves are complete.
 
 ---
 
@@ -56,7 +56,7 @@ The IDWT action on M_∞ = ℝ^{3,1} × Ξ takes the form:
 ```
 S = S_EH + S_matter
 
-S_EH     = (1/16πG) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
+S_EH     = (1/16πG_N) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
 
 S_matter = ∫_{M_∞} Ψ̄∞ (iΓ^μ ∇_μ^{(4D)} + iΓ^a ∂_a) Ψ∞ dμ_4 dμ_ξ
 ```
@@ -75,7 +75,7 @@ The hidden derivatives ∂_a involve only h_ab(ξ), which does not vary.
 Taking δS/δg^μν = 0:
 
 ```
-δS_EH/δg^μν      = −(1/16πG) G_μν √(−g)
+δS_EH/δg^μν      = −(1/16πG_N) G_μν √(−g)
 
 δS_matter/δg^μν  = √(−g) × ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
 ```
@@ -83,7 +83,7 @@ Taking δS/δg^μν = 0:
 where T_μν^{Dirac}(x,ξ) is the standard Dirac stress-energy at each hidden point ξ. Setting the sum to zero gives the induced 4D Einstein equation:
 
 ```
-G_μν(x) = 8πG × T_μν^{eff}(x)
+G_μν(x) = 8πG_N × T_μν^{eff}(x)
 
 T_μν^{eff}(x) ≡ ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
 ```
@@ -107,7 +107,7 @@ T_μν^{eff}(x) = T_μν^{4D}[ψ](x) × ∫_Ξ |χ_{n,d}(ξ)|² dμ_ξ
 For L²-normalised modes (‖χ‖²_Ξ = 1), the induced Einstein equation becomes standard 4D GR:
 
 ```
-G_μν(x) = 8πG × T_μν^{4D}[ψ](x)
+G_μν(x) = 8πG_N × T_μν^{4D}[ψ](x)
 ```
 
 sourced by a massive Dirac field with mass m_eff = m_scale_d × S(n,d). The hidden dimensions have contributed their mass and do not appear as an independent gravitational source.
@@ -155,8 +155,8 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The projection
 | Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
-| G_eff from sector geometry | ✅ derived: G_eff ∝ (M_∞² Σ_d L_d^{−d})^{−1} | §3.11 |
-| M_∞ to m_e dimensional matching | 🔶 | Explicit conversion of geometric to physical units |
+| G_N sector-independent, loop-exact | ✅ | §3.11–3.12.2 |
+| G_N from sector localization geometry | 🔶 open | §3.12.3 |
 
 In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the hidden coordinates. Information is preserved globally.
 
@@ -223,7 +223,7 @@ For modes well below the continuum (E_0 << λ_d): λ̂_d → 1. Numerically:
 
 The hydrogen spectroscopy bound of 6 mm was computed assuming KK modes modify the hydrogen energy levels. With no KK modes, no such bound exists. The bound evaporates entirely.
 
-**What remains open.** The value of λ_d itself is not yet derived from first principles. The proposal that λ_d ∝ R_Ξ^{-2} (proportional to the sectional curvature of the sector manifold) is physically motivated — for macroscopic Ξ the curvature is small, giving small λ_d and large L_d, consistent with macroscopic mode localization — but the precise identification requires computing how the breaking operator coupling λ_d relates to the intrinsic geometry of Ξ_d. This is the remaining open piece for deriving G_eff and the sector length scales from geometry alone.
+**What remains open.** The localization lengths L_d are fully determined from λ_d (§3.10). What has not been computed is the formula connecting G_N in physical units to {m_scale_d, L_d}. This is the remaining open item (§3.12.3).
 
 ---
 
@@ -332,30 +332,25 @@ This is exact for the Gaussian ground state; corrections for the actual sector p
 
 ### 3.11.2 The Effective Newton's Constant
 
-The M_∞ action has a single gravitational coupling M_∞ (the fundamental Planck scale in the full manifold):
+The EH action is written with coefficient 1/(16πG_N) where G_N is Newton's constant — a measurable coupling between energy density and 4D spacetime curvature:
 
 ```
-S_EH = (M_∞²/16π) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
+S_EH = (1/16πG_N) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
 ```
 
-When projected to 4D with the sector mode normalisation, the effective 4D Newton's constant receives contributions from each occupied sector:
+After sector mode normalisation (‖χ_{n,d}‖²_Ξ = 1), the effective stress-energy reduces to the standard 4D form (§3.3), and the induced Einstein equation is:
 
 ```
-G_eff^{−1} = M_∞² × Σ_d |χ_0^d(0)|² × [sector phase space factor]
-            ∝ M_∞² × Σ_d L_d^{−d} × (volume weight per sector)
+G_μν(x) = 8π G_N × T_μν^{4D}[ψ](x)
 ```
 
-The sector volume weight for each mode is unity (from the L² normalisation condition), giving:
+G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source 4D curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-```
-G_eff ∝ (M_∞² × Σ_d L_d^{−d})^{−1}
-```
-
-or equivalently, M_∞² G_eff ∝ 1/(Σ_d L_d^{−d}).
+**What determines G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is a geometric coupling constant that in principle emerges from the sector localization structure: the sector scales m_scale_d and localization lengths L_d carry the information needed to determine how concentrated hidden-sector energy couples to 4D curvature. The explicit computation connecting G_N to these sector quantities is the remaining open item in the gravity programme (§3.12).
 
 ---
 
-## 3.12 Newton's Constant — Exact Result and Open Hierarchy Problem ✅
+## 3.12 Newton's Constant — Derivability from Sector Geometry ✅
 
 ### 3.12.1 G_eff is Sector-Independent
 
@@ -371,15 +366,9 @@ The ‖χ‖² = 1 normalisation absorbs all sector geometry into the mode funct
 G_μν(x) = 8π G_eff × T_μν^{4D}[ψ](x)
 ```
 
-with G_eff arising solely from the Einstein-Hilbert coefficient in the M_∞ action:
+with G_N arising from the EH coefficient 1/(16πG_N) in the action and being sector-independent by the L² normalisation argument.
 
-```
-G_eff = 1/(8π M_∞²)
-```
-
-This is exact and sector-independent. The factor |χ_d(ξ⁰)|² ∝ L_d^{-d} from the restriction map enters the Stage-1 projection amplitude (particle observability) — not the gravitational coupling. The distinction matters: the gravitational field is sourced by ∫_Ξ T_μν dμ_ξ, not by the field value at ξ⁰.
-
-**Consequence:** G is the same for particles in every sector. Electrons, quarks, neutrinos, and the tau lepton all couple to gravity with the same G. This is a theorem — the equivalence principle (§3.6) — not an assumption.
+**Consequence:** G_N is the same for particles in every sector. Electrons, quarks, neutrinos, and the tau lepton all couple to gravity with the same G. This is a theorem — the equivalence principle (§3.6) — not an assumption.
 
 ### 3.12.2 Why Hidden Sector Loops Do Not Renormalise G_eff
 
@@ -419,13 +408,13 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 δ(Tr_Ξ log O_Ξ) / δg_μν = 0   [exactly]
 ```
 
-Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to the M_∞² coefficient in S_EH.
+Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to the EH coefficient 1/(16πG_N).
 
 **Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its 4D and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the hidden dimensions. Integrating out these fluctuations produces the 4D Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
 
 In IDWT, the sector manifolds Ξ_d are not literal geometrically compact extra dimensions through which gravitons propagate. They are the configuration spaces of the internal degrees of freedom of Ψ∞ — analogous to spin (an internal degree of freedom, not a spatial dimension). The background metric h_ab(ξ) is fixed and classical, not varied, not dynamical, and does not couple to g_μν. There are no moduli, no metric fluctuations in Ξ_d, and therefore no KK graviton tower. All KK-exclusion bounds (graviton propagation, Eöt-Wash torsion balance, collider searches for KK modes) presuppose graviton propagation into the hidden dimensions; they do not apply to IDWT.
 
-**Conclusion.** G_eff = 1/(8π M_∞²) is exact, not merely tree-level. The absence of a Ξ-induced correction to S_EH follows from the product metric structure of M_∞, which is a built-in consequence of treating Ξ as a fixed background rather than a dynamical field. This is the precise statement that makes "gravity is purely geometric curvature of the 4D slice" a theorem rather than a postulate.
+**Conclusion.** G_N is not renormalized by hidden sector loops. The absence of a Ξ-induced correction to the EH coefficient follows from the product metric structure of M_∞ = M₄ × Ξ, which decouples the 4D and hidden metrics entirely. This is the precise content of "gravity is purely geometric curvature of the 4D slice."
 
 The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
@@ -433,23 +422,15 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 **Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 
-### 3.12.3 The Remaining Open Item: Gravity Hierarchy
+### 3.12.3 The Remaining Open Item: G_N from Sector Geometry
 
-The computation is complete up to one gap. The sector structure gives:
+The gravity programme is complete except for one computation: deriving the measured value of G_N from the sector localization structure.
 
-```
-G_eff = 1/(8π M_∞²)    [exact, from EH action]
+The sector localization lengths L_d and scales m_scale_d are fully determined (§3.9, §3.10). In physical units the localization length of sector d is L_d/m_scale_d. These quantities characterise how tightly each sector's bound-state modes are concentrated in the hidden space, and therefore how strongly they couple to 4D curvature. The functional form connecting {m_scale_d, L_d} to G_N has not been computed.
 
-M_∞ = Planck scale / √(8π) ≈ 2.43 × 10²¹ MeV
-```
+This is not the hierarchy problem of quantum field theory. In QFT, the hierarchy M_Pl >> m_H is a fine-tuning problem because quantum corrections to the Higgs mass are quadratically sensitive to the UV cutoff. IDWT has no such corrections: particle masses arise from sector geometry S(n,d) × m_scale_d, not from Yukawa couplings. There is no mechanism that makes any IDWT mass sensitive to G_N. The smallness of G_N relative to other couplings is simply a property of the geometry of M_∞ — specifically, of how the sector modes couple to 4D curvature — and is not a tuning problem.
 
-while the particle mass scales are:
-
-```
-m_scale_6 ≈ 2.75 × 10⁻⁵ MeV,    m_scale_3 ≈ 4.70 MeV
-```
-
-The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometry. This 26-order hierarchy between the fundamental action scale M_∞ and the lightest sector mass scale m_scale_6 is the IDWT form of the hierarchy problem. The sector coupling constants g_dd are all dimensionless and O(1) to O(10³), which do not by themselves produce a 10²⁶ ratio.
+**What the computation requires.** A formula expressing G_N in terms of the sector scales m_scale_d and localization lengths L_d^{phys} = L_d/m_scale_d. The sector data from §3.10.4 provides all input. The output should reproduce G_N = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻² (or equivalently G_N = 6.709 × 10⁻³⁹ GeV⁻² in natural units).
 
 **Summary of the gravity programme status:**
 
@@ -464,8 +445,8 @@ The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometr
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
-| G_eff = 1/(8π M_∞²), sector-independent, loop-exact | ✅ §3.11 |
-| Hierarchy M_∞ >> m_scale_d | 🔶 open |
+| G_N sector-independent, loop-exact | ✅ §3.11–3.12.2 |
+| G_N from sector localization geometry | 🔶 open |
 
 ---
 

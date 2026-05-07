@@ -295,9 +295,8 @@ The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction weighted 
 
 ```
 g₂ = (2/3) √(2g₄₄/π²) = 0.65275     (PDG: 0.65270,  +0.008%)
-G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)  []
-v is not derived separately; the EW scale √Tr(D²) = 248.3 GeV (PDG: 246.22,   +0.023%)
 G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)
+v is not derived separately; the EW scale √Tr(D²) = 248.3 GeV (PDG: 246.22, +0.85%)
 λ_H = m_H²/(2v²) = 0.1294             (PDG: 0.129,    +0.3%)
 1/α (at fiber scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
 ```

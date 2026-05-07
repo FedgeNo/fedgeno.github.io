@@ -57,7 +57,7 @@ A systematic review of the labelled "open items" against PDG experimental uncert
   sin²θ₁₃=0.02211 (PDG 0.022, +0.51%). From g₅₅=96/g₂₂ and mode indices.
   Still open: CP phase δ and Jarlskog invariant J
 - CP-violating phase δ (Hopf Chern-Simons integral)
-- Gravity hierarchy M_∞/m_e ~ 4.8×10²¹
+- G_N from sector localization geometry: the measured value of Newton's constant should emerge from the sector scales m_scale_d and localization lengths L_d — this computation has not been performed. This is not the QFT hierarchy problem; particle masses in IDWT are not sensitive to G_N.
 - 2-loop QED matching for g₁
 
 ---
@@ -81,7 +81,7 @@ The d=5 mass scale follows from the cross-sector fixed point m_scale_5 × m_scal
 Scalar covariance, spin-½ from the KK Dirac operator, chirality from Kähler γ₅ on CP² and CP³, and particle/antiparticle from the complex spinor are all established. Remaining: full Spin(9) decomposition for d=10, and α_s running from the IDWT coupling structure. The main open item is the explicit D_Ξ spectrum matching m_scale_d × f(S(n,d)).
 
 **4D gravity from M_∞ action ✅ (complete)**
-The gravity programme is complete. Proved: 4D Einstein equations from the M_∞ action (§3.1–3.4), no hidden gravitational propagating modes (§3.4), equivalence principle m_grav = m_inertial (§3.6), L²(Ξ) normalisability (§3.8 Part I), Bianchi identity ∇^μ T_μν^{eff} = 0 (§3.8 Part II), spectral counting S(n,d) = N_d(n−1) (§60), sector localization lengths L_d from Agmon theory (§3.9), sector potential depth λ_d = (g_dd/2)^{2/3} from kernel self-consistency (§3.10), G_eff = 1/(8π M_∞²) sector-independent (§3.11.1), and G_eff is loop-exact — hidden sector loops cannot renormalise M_∞² because the Ξ operator O_Ξ is independent of g_μν by the product metric structure of M_∞ = M₄ × Ξ (§3.11.3). The hierarchy M_∞ >> m_e is the remaining open item in a different category — it is the IDWT form of the hierarchy problem, not a gap in the gravitational framework.
+The gravity programme is complete except for the derivation of G_N from sector geometry. Proved: 4D Einstein equations from the M_∞ action (§3.1–3.4), no hidden gravitational propagating modes (§3.4), equivalence principle m_grav = m_inertial (§3.6), L²(Ξ) normalisability (§3.8 Part I), Bianchi identity ∇^μ T_μν^{eff} = 0 (§3.8 Part II), spectral counting S(n,d) = N_d(n−1) (§60), sector localization lengths L_d from Agmon theory (§3.9), sector potential depth λ_d = (g_dd/2)^{2/3} from kernel self-consistency (§3.10), G_N sector-independent (§3.11.1), and G_N is loop-exact — hidden sector loops cannot renormalise the EH coefficient because O_Ξ is independent of g_μν by the product metric structure of M_∞ = M₄ × Ξ (§3.11.3). The derivation of the measured value of G_N from {m_scale_d, L_d} is the remaining open item. Note: M_∞ is the manifold name, not a numeric Planck mass. There is no hierarchy problem in IDWT because gravity is not quantized and particle masses are not sensitive to G_N.
 
 
 ---

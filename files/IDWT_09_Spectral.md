@@ -8,7 +8,7 @@
 
 This document states IDWT as a sequence of self-contained spectral theorems. It is a mathematical companion to Parts 1–8: where those parts develop physical motivation, derivation history, and numerical tables, Part 9 states only the theorems and their proofs.
 
-**Logical flow:** define the operator (T0, T0.5) → describe its spectral coefficients (T1) → justify the interaction term (T2) → prove which sectors exist (T3) → fix the unique seed (T4) → identify the critical endpoint (T5) → derive observables (T6–T11) → bound the remaining hierarchy (T12).
+**Logical flow:** define the operator (T0, T0.5) → describe its spectral coefficients (T1) → justify the interaction term (T2) → prove which sectors exist (T3) → fix the unique seed (T4) → identify the critical endpoint (T5) → derive observables (T6–T11) → G_N from sector geometry (T12).
 
 **Physical intuition.** Each theorem is an instance of the same fact: the eigenvalue spectrum of a self-adjoint operator on a symmetric space with a nonlinear filter produces a discrete, deterministic point set. In laser physics this is mode selection in a high-Q cavity; in quasicrystal theory it is the cut-and-project spectrum of a higher-dimensional lattice; in condensed matter it is the tight-binding spectrum near a metal-insulator transition. IDWT identifies the specific operator ($D$ on $M_\infty$), the specific filter (Stage-1 projection amplitude + Stage-2 co-fixed-point stability), and reads off the SM particle masses as its filtered spectrum. All analogies are correct and all are incomplete; the actual object is $D$.
 
@@ -278,7 +278,7 @@ All six sector self-couplings are derived from $n_s=4$, $n_u=3$:
 
 **T10a** (Generation Tower Correction). The $\ell=2$ kernel component (T2, condition 2) generates a frequency correction at mode depth $k$ in the $d=4$ sector:
 
-$$\boxed{\varepsilon = \frac{g_{\rm coeff}}{k_0\times S(n_{\nu_2},5)} = \frac{2/\sqrt{7}}{16\times15} = \frac{1}{280\sqrt{7}} \approx 0.001350.}$$
+$$\boxed{\varepsilon = \frac{g_{\rm coeff}}{k_0\times n_{\rm mu}} = \frac{2/\sqrt{7}}{16\times35} = \frac{1}{280\sqrt{7}} \approx 0.001350.}$$
 
 GTC depths $\{0,\,n_u,\,S(n_u,3)\}=\{0,3,10\}$ for $\{u,c,t\}$: closes $c/u$ ratio error to $0.000\%$, $t/u$ to $-0.048\%$.
 
@@ -309,25 +309,13 @@ $$\boxed{m_{\rm scale,5} = \frac{n_u}{n_s}\,\frac{m_{\rm scale,6}^3}{m_{\rm scal
 
 ---
 
-## T12. The Gravity Hierarchy ✅/🔶
+## T12. G_N from Sector Geometry 🔶
 
-**Conjecture T12.** The reduced Planck mass $M_\infty=2.435\times10^{21}$ MeV satisfies
+**Open item T12.** The measured value of Newton's constant G_N should emerge from the sector localization structure — the sector scales m_scale_d and Agmon localization lengths L_d^{phys} = L_d/m_scale_d (T9, Part 4 §3.9–3.10). The explicit formula has not been derived.
 
-$$\frac{M_\infty^2}{v_{\rm Higgs}^2} = \frac{f_2}{c_0} = \mathcal{O}\!\left(e^{76.9}\right).$$
+**What is established.** G_N is sector-independent and loop-exact: hidden sector fluctuations cannot renormalize the EH coefficient 1/(16πG_N) because O_Ξ is independent of g_μν (Part 4 §3.12.2). The sector localization data from Part 4 §3.10.4 provides all required input.
 
-The spectral function $f_2$ governs both $G_N^{-1}=f_2\operatorname{Tr}(D^2)/(8\pi)$ and $v^2\propto f_2\operatorname{Tr}(D^2)/c_0$. The hierarchy problem is equivalently: why is $\log f_2\approx76.9$?
-
-**Mechanism (dimensional transmutation).** The hidden sector RG flow gives
-
-$$M_\infty = m_{\rm IR}\times\exp\!\left(\frac{1}{\beta_0\,g_*^2}\right),$$
-
-where $\beta_0$ and $g_*$ are the one-loop coefficient and fixed-point coupling of the hidden-sector beta function. Required: $1/(\beta_0 g_*^2)=76.9$. These have not been computed from IDWT couplings. Status: mechanism identified, computation open.
-
-**Structural bound (✅).** The near-coincidence
-
-$$\log\!\left(\frac{M_\infty}{m_e}\right) = 49.9 \approx (n_s+n_d)\times\log S(n_e,6) = 5\times9.83 = 49.1$$
-
-holds within $1.6\%$ in the exponent (factor $2.2$ in the ratio). This is a necessary constraint on the hierarchy formula.
+**Why this is not the QFT hierarchy problem.** M_∞ is the infinite-dimensional manifold — it carries no numeric value. The QFT hierarchy problem (why quantum corrections do not drive m_H to M_Pl) does not arise in IDWT: particle masses come from S(n,d) × m_scale_d and are not sensitive to G_N. The smallness of G_N relative to particle interaction strengths reflects the sector localization geometry and is not a tuning problem.
 
 ---
 
@@ -349,6 +337,6 @@ holds within $1.6\%$ in the exponent (factor $2.2$ in the ratio). This is a nece
 | T10a | GTC $\varepsilon=1/(280\sqrt7)$ | ✅ | $<0.1\%$ | Fine structure of quark masses |
 | T10b | Dyson $\tau$ correction $+1/1680$ | ✅ | $0.001\%$ | Critical-sector regularisation |
 | T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=59$ meV | ✅ | $<2.5\%$ | $0\nu\beta\beta=0$ exact |
-| T12 | Gravity hierarchy $M_\infty/m_e\sim10^{21}$ | 🔶 | Factor 2.2 bound | Hierarchy from hidden RG |
+| T12 | G_N from sector localization geometry | 🔶 | Open | G_N emerges from {m_scale_d, L_d}; not a QFT hierarchy problem |
 
-**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); (ii) gravity hierarchy exact formula — hidden sector beta function (T12); (iii) $g_1$ 2-loop QED threshold; (iv) $\Delta m^2_{31}$ 7.7% structural gap.
+**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $g_1$ 2-loop QED threshold; (iv) $\Delta m^2_{31}$ 7.7% structural gap.

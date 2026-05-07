@@ -24,7 +24,7 @@ The Higgs VEV is a **spectral quantity** — the RMS eigenvalue of $D$ — not a
 
 | Open item | Spectral geometry statement |
 |---|---|
-| Gravity hierarchy | Spectral gap of $D$ on full $M_\infty$ vs ground state eigenvalue |
+| Gravity hierarchy | Spectral gap of $D$ on full $M_\infty$ vs ground state eigenvalue — reframed: G_N from sector localization geometry (Part 4 §3.12) |
 | PMNS mixing | Holonomy of lepton sector bundle over graph $d=5\to6\to10\to5$ |
 | CP phase | Berry phase around the lepton sector loop |
 | $\sin^2\theta_W$ residual | Spectral function normalisation $f_2 \neq 1$ exactly |
@@ -171,7 +171,7 @@ All three give $k_0 = 16$ exactly. Every quantity is determined by $n_s = 4$. Ex
 
 The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identities — they use $n_e$ (from $d=6$) and $n_u$ (from $d=4$), whose sum closes onto the $d=3$ resonance site. The same $n=16$ appears in other sectors but produces no known particle mass. $\square$
 
-**The spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of particles, their masses, and their quantum numbers are fully determined. Any additional stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new fundamental particles within the IDWT framework below the Planck scale.
+**The spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of particles, their masses, and their quantum numbers are fully determined. Any additional stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new fundamental particles within the IDWT framework.
 
 ---
 
@@ -463,7 +463,7 @@ All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is deriv
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
-| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden dimensions are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; hierarchy M_∞ >> m_e remains open | 🔶 |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden dimensions are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; G_N from sector localization geometry is the remaining open item (Part 4 §3.12) | 🔶 |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |

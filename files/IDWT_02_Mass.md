@@ -490,14 +490,14 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 | m_scale_10 | = m_scale_6 | 2.7526×10⁻⁵ MeV |
 | m_scale_2 | m_e × √(g₂₂/g₆₆) = m_e × 53.759 | 27.47 MeV |
 
-The uniform +0.68% offset in d=3 quark predictions and +0.79% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
+The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
 
 ### All sector scales
 ```
 m_scale_6  = m_e / S(13,6)                            = 2.7526 × 10⁻⁵ MeV  [unit reference: sets the MeV scale for d=6]
 m_scale_3  = m_e × √(g₃₃/g₆₆)                        = 4.702 MeV           [from seeds + anomaly]
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)        = 0.1451 MeV
-m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆: Y_τ = Y_L]
+m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆ = 1/n_s: d=6 and d=10 share the seed coupling]
 m_scale_2  = m_e √(g₂₂/g₆₆)                           = 27.47 MeV           [derived from seeds via g₂₂]
 ```
 

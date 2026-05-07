@@ -21,7 +21,7 @@ What follows is an honest list of what the framework has not yet derived, with p
 | S(n,d) geometric grounding | dim Sym^n(ℝ^d) = S(n,d): mode functions are degree-n monomials in d variables, and there are exactly S(n,d) of them. Mass = frequency = cumulative microstate count. All three are the same quantity. |
 | Top quark and W boson derivation | n_ν₂ = S(n_u,4) = C(6,4) = 15 = C(6,2) = S(n_s+1,2) by binomial symmetry C(n,k)=C(n,n-k), where n_u+3 = n_s+2 = 6 follows from n_u = n_s−1. Therefore n_W = S(n_e,2) − n_ν₂ = 76, and g(d=5, n_top) = 76 forces n_top = 72 uniquely. |
 | Three k₀ resonance conditions | k₀ = n_s² = n_e+n_u = S(n_s,3)−S(2,3) = 16. Three independent expressions equal k₀ simultaneously: (1) seed self-product, (2) cross-sector lepton+quark mode sum, (3) intra-d=3 gap identity from the g₃₃ derivation. All three add in phase at k₀, destabilising the single-mode solution and forcing the geometric-mean beat at m_b = √(S(16,3)×S(17,3)) × m_scale_3 = 4181 MeV (+0.02%). |
-| Generation Tower Correction (GTC) | ε = g_coeff/(k₀ × n_mu) = (2/√7)/(16×35) = 1/(280√7) = 0.001350. Derived from: g_coeff = 2/√(n_s+n_u) (universal Jacobi coefficient), k₀ = n_s² (vacuum stability gap), n_mu = S(n_s,4) (fixed-point mode scale). Corrects c/u to 0.000% and t/u to −0.048%. Note k_charm = k_g33 = n_s−1 = 3: the same additions that generate the charm mode index also generate the coupling gap k₀. |
+| Generation Tower Correction (GTC) | ε = g_coeff/(k₀ × n_mu) = (2/√7)/(16×35) = 1/(280√7) = 0.001350. Derived from: g_coeff = 2/√(n_s+n_u) (universal Jacobi coefficient), k₀ = n_s² (vacuum stability gap), n_mu = S(n_s,4) (fixed-point mode scale). Corrects c/u to 0.000% and t/u to −0.048%. Note k_charm = k_g33 = n_s−1 = 3: the same comb filtration stages that select the charm mode index also determine the coupling gap k₀. |
 | d=5 coupling g₅₅ (algebraic structure) | Hopf fiber universality: both S¹→S³→CP¹ and S¹→S⁵→CP² share the electromagnetic U(1) fiber. Universality requires v₃/v₂ = v₅/v₄, giving g₂₅ = g₃₄ = 4√6 and g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ = 0.1329. g₂₂ = (M₃^{S³}−n_u)²×β/2 = 722.5 is a Dirac multiplicity product (Theorem S3, Part 8 §60b). g₅₅ = 96/722.5 then follows with no new input. Complete coupling vector: {v₂=26.879, v₃=4.601, v₄=2.130, v₅=0.3645, v₆=v₁₀=0.500}. Neutrino mass scale derived (§9c). |
 | Tau mass residual — Dyson resummation | The d=6 and d=10 sectors are isotropically coupled: g_{6,6} = g_{6,10} = g_{10,10} = 1/n_s = 1/4 exactly (all equal: d=6 and d=10 share the seed coupling). The d=6→d=10 back-reaction correction feeds back on itself via g_{10,10}, giving a self-consistent equation: Δm = ε_{6→10}×m_τ + g_{10,10}×Δm → Δm = ε_{6→10}×m_τ/(1−g_{10,10}). Since g_{10,10} = 1/n_s, the resummation factor is 1/(1−1/n_s) = n_s/(n_s−1) = n_s/n_u (forced by n_u = n_s−1). Result: ε_total = 1/(n_u × n_s² × S(n_s,4)) = 1/1680. Correction +m_τ/1680 = +1.057 MeV. **m_τ = 1776.84 MeV (−0.14σ from PDG = 1776.86 ± 0.12 MeV). Inside 1σ.** No new inputs: m_e only. |
 | d=10 Gegenbauer uniqueness | The Gegenbauer coupling at the seed resonance site b_{k₀}(d) = √(k₀(k₀+d−1))/(2k₀+d−2) satisfies b_{k₀}=1/2 if and only if 4k₀=(d−2)², i.e. d=2+2√k₀=2(n_s+1)=10. This is a second independent algebraic derivation of d=10 (the first being Hurwitz; the third being hypercharge anomaly cancellation). d=10 is the last sector with b_{k₀}≥1/2; d>10 is evanescent. Proved: 4×16=64=(10−2)². As a WKB corollary: the next-order correction to τ_{d=10} vanishes identically (since it is proportional to b_{k₀}−1/2=0), making d=10 the only sector for which the leading-order WKB delay is exact. |
@@ -47,14 +47,17 @@ A systematic review of the labelled "open items" against PDG experimental uncert
 **Reclassified as data-dependent, not definitively wrong:**
 - **Δm²₃₁ "−7.7%":** Different oscillation analyses give: PDG 2022: −7.7%; NuFit 5.2: −5.5%; T2K+NOvA 2020: −2.7%. IDWT sits at the low end of the experimental range. The mode indices fix this prediction exactly (n_ν₃=22); whether it is inside or outside the experimental range depends on which analysis is used.
 
-**Genuine residuals (smaller than previously stated):**
+**Genuine small residuals:**
 - **sin²θ_W +0.37%:** The mode-index prediction is exact. The gap from PDG on-shell is 3.6σ by measurement precision alone, but ~0.8σ once theoretical loop-correction uncertainties are included. The tree-level EW prediction is at this precision inherently.
 - **g₁ −1.88% (after 1-loop running):** Derives from the sin²θ_W residual above.
 
 **Genuinely open (computation not done):**
-- PMNS mixing angles (loop integrals in d=5↔d=6)
+- ~~PMNS mixing angles~~ **CLOSED** — spectral geometry formulas derived:
+  sin²θ₂₃=0.5590 (PDG 0.561, -0.36%), sin²θ₁₂=0.3086 (PDG 0.307, +0.51%),
+  sin²θ₁₃=0.02211 (PDG 0.022, +0.51%). From g₅₅=96/g₂₂ and mode indices.
+  Still open: CP phase δ and Jarlskog invariant J
 - CP-violating phase δ (Hopf Chern-Simons integral)
-- Gravity hierarchy M_∞ ≫ m_e
+- Gravity hierarchy M_∞/m_e ~ 4.8×10²¹
 - 2-loop QED matching for g₁
 
 ---

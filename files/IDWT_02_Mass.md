@@ -421,7 +421,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
            = 7.429 × 10⁻¹³ MeV
 ```
 
-**Physical interpretation.** The formula has the structure of a gravitational seesaw: the neutrino scale is doubly suppressed by the quark confinement scale m_scale_4 ≈ 0.145 MeV. Unlike the SM seesaw (which requires a heavy Majorana mass), this suppression is geometric — it comes from the Hopf fibration S¹→S⁵→CP² which ties the d=5 neutrino modes to the d=4 quark sector through the S¹ fiber.
+**Physical interpretation.** The formula has the structure of a cross-sector seesaw: the neutrino scale is doubly suppressed by the quark confinement scale m_scale_4 ≈ 0.145 MeV. Unlike the SM seesaw (which requires a heavy Majorana mass), this suppression is geometric — it comes from the Hopf fibration S¹→S⁵→CP² which ties the d=5 neutrino modes to the d=4 quark sector through the S¹ fiber.
 
 **Neutrino mass predictions (no empirical neutrino input):**
 
@@ -440,7 +440,7 @@ The Δm²₂₁ prediction is within 0.8σ of the PDG measurement. The Δm²₃�
 **Observable predictions:**
 
 - Σm_ν = 59.0 meV: detectable by Simons Observatory (CMB-S4 sensitivity ~30 meV — within a factor 2)
-- m_β = 2.43 meV: below KATRIN but above Project 8 goal (~40 meV long-term)
+- m_β ≈ 8.77 meV: below KATRIN's design sensitivity (~200 meV) and below Project 8's long-term goal (~40 meV) — not accessible in near-term beta-decay experiments
 - m_ββ = 0 exactly: 0νββ decay is forbidden (Majorana mass forbidden in d=5 by spin structure)
 - Normal hierarchy: m_ν₁ << m_ν₂ << m_ν₃ ✓
 
@@ -543,7 +543,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 |---|---|---|---|
 | m_W | m_scale_2 × S(76,2) = 80,379 MeV | 80,377 MeV | +0.003% |
 | m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
-| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.013% |
+| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.010% |
 
 **IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
 
@@ -577,7 +577,7 @@ The kernel self-consistency condition from Part 2 §9 requires:
 n_s(n_s+1) / S(n_s,4) = n_u(n_u+1) / S(n_u,5) = 4/7
 ```
 
-Both ratios equal 4/7 exactly: 4×5/35 = 12/21 = 4/7. This is the coupling self-consistency eigenvalue at the Jacobi critical site k₀ = n_s² = 16. The l=2 kernel coupling amplitude is the square root of this eigenvalue:
+Both ratios equal 4/7 exactly: 4×5/35 = 12/21 = 4/7. This is the coupling self-consistency eigenvalue at the Jacobi critical site k₀ = n_s² = 16. The l=2 kernel coupling coefficient is the square root of this eigenvalue:
 
 ```
 g_coeff = √(n_s(n_s+1) / S(n_s,4)) = √(4/7) = 2/√7

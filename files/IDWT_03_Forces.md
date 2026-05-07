@@ -154,13 +154,14 @@ The +3% is the EW running from the fiber scale (≈m_W) to m_Z.
 
 ### 0.8 CKM Matrix from the Kernel
 
-The kernel off-diagonal matrix element between modes n_i (lighter) and n_j (heavier) within the same sector d is:
+The projection operator Π is a lowpass filter: $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$, so heavier modes (larger S) are attenuated at the observer address relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:
 
 ```
-|⟨χ_{n_i}|K_{dd}|χ_{n_j}⟩| ∝ |χ_{n_i}(ξ₀)| / |χ_{n_j}(ξ₀)|
+|⟨χ_{n_lighter}|K_{dd}|χ_{n_heavier}⟩| ∝ |χ_{n_heavier}(ξ₀)| / |χ_{n_lighter}(ξ₀)|
+                                          = √(S(n_lighter,d) / S(n_heavier,d))
 ```
 
-Since mode amplitudes at the observer address scale as |χ_n(ξ₀)| ∝ 1/√S(n,d) (from L² normalisation), the intra-sector mixing satisfies:
+The mixing probability is the square of this ratio:
 
 ```
 |V_{i→j}|² = S(n_lighter, d) / S(n_heavier, d)    [within sector d]

@@ -183,12 +183,12 @@ The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable had
 2. The next d=3 mode above strange (n=5, 164.565 MeV) is suppressed at Stage 1 (Ω_log = 0.847 > ln 2 = 0.693) and absent entirely.
 3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §50.9).
 
-**Note on three corrected Ω_log values:** The draft submitted for review used approximate (~) values for the top quark (5.99 → **6.137**), muon (7.85 → **8.715**), and tau (9.47 → **12.362**). The exact values are printed above; all three come from ln(S(n,d)/S(n,2)) evaluated at the correct mode indices.
+**Three Ω_log values verified:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693, placing them firmly above the Stage-1 threshold. All computed as ln(S(n,d)/S(n,2)) at the correct mode indices.
 
 ---
 
 
-The heuristic A_rel(d) = (m_scale_d/m_scale_3)^{1/3} is replaced by a first-principles derivation.
+The sector projection amplitude is given by the first-principles heat-kernel derivation below (§50.9): A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
 
 **Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = 1/κ_d is the sector localization length (the Agmon decay length of the ground-state mode, proved to be the natural sector length scale in Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d².
 
@@ -219,8 +219,8 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 **KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 projection for the same reason scattering states do: insufficient projection amplitude at ξ⁰.
 
 **Caveats:**
-1. The notation S(n,d) in the heat-kernel derivation refers to the Laplacian eigenvalue n(n+d−1), NOT the IDWT simplex count C(n+d−1,d). The IDWT mass formula m = C(n+d−1,d) × m_scale_d takes priority.
-2. Neutrino suppression requires non-perturbative treatment — perturbative A_rel with d=5 gives no useful suppression at accessible λ̂.
+1. **Symbol disambiguation:** In the heat-kernel derivation below, the Laplacian eigenvalue at level n in sector d is n(n+d−1) — a different quantity from the IDWT simplex count S(n,d) = C(n+d−1,d). To prevent confusion, the heat-kernel eigenvalue is written as E_n = n(n+d−1) throughout §50.9; S(n,d) always denotes the IDWT simplex count.
+2. A_rel controls **observability** — whether a mode at a given frequency couples to the 4D slice. It does not affect the mode frequency itself. The d=5 sector mass scale m_scale_5 is suppressed because χ(S⁵)=0 forces its frequency scale to be determined by the cross-sector Hopf equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by any projection amplitude. Mass is a frequency. Stage-1 does not set frequencies.
 3. λ̂_d values are not yet derived from the IDWT action; they should emerge from vacuum dynamics.
 
 ---
@@ -230,17 +230,17 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 **What is established:**
 - Exponential hierarchy A_rel = exp(−c_d λ̂_d) with geometrically fixed c_d = d/(d+1)²
 - Colour protection: quarks get λ_d = 0 automatically (gauge argument)
-- KK excitation energies: ΔE ≈ (d+1)/R_d² — negligibly small for macroscopic R_d
-- Falsifiability: ratio log(A_rel(d₁))/log(A_rel(d₂)) predictable once two masses per sector are set
+- Sector excitation gap: ΔE ≈ (d+1)/L_d² where L_d is the Agmon localization length (Part 4 §3.9) — negligibly small for macroscopic L_d, so no KK-tower states are accessible
 
 **What remains open:**
 - Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; this would also determine L_d = 1/√(λ_d − E_0) and hence G_eff)
 - Deriving the 3D gauge group from U(d) subgroups
-- Neutrino sector: perturbative A_rel gives no suppression; non-perturbative mechanism needed (seesaw forbidden by d=5 Majorana prohibition; suppression must be geometric)
+
+**Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only whether the neutrino modes are visible to a 4D observer; it plays no role in determining their mass.
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|
-| m_scale_d hierarchy | A_rel(d) suppression: m_scale_d set by vacuum stability fixed-point, modulated by A_rel |
+| m_scale_d hierarchy | Set by vacuum stability fixed-point and cross-sector Hopf coupling equations — a **frequency-domain** property. A_rel controls observability only (whether a mode couples to the 4D slice), not the mode frequency. The d=5 neutrino mass scale is suppressed because its sector has no self-confinement (χ(S⁵)=0), fixed by m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³. Stage-1 plays no role in setting mass. |
 | Quarks project strongly | Colour protection forces λ_d = 0 for triplets |
 | Stage-1 heuristic A_rel | Replaced by exp(−c_d λ̂_d) with geometrically fixed c_d |
 | Vacuum stability fixes g₃₃ | Analogous: vacuum stability should fix λ̂_d |

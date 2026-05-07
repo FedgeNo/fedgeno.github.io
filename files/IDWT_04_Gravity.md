@@ -26,7 +26,7 @@ IDWT has none of this structure:
 - At any macroscopic distance from the source, the hidden mode is already suppressed as exp(−r/L_d), where L_d is the mode localization length
 - The gravitational interaction at all distances is standard 4D: G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a 4D point mass (proved in §3.2–3.6)
 
-**The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the standard 4D stress-energy of the particles it generates.
+**The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the standard 4D stress-energy of the particles it hosts.
 
 **Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 projection and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
@@ -164,11 +164,9 @@ In the static strong-field regime, the projected metric develops an apparent hor
 
 ## 3.9 The Sector Localization Length — No Compactification Needed ✅
 
-The previous framework referred to "sector radii R_d" without defining them as anything other than an open parameter. This section closes that gap.
+**L_d is the Agmon localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the e-folding length of the sector ground-state wavefunction in the hidden direction, derived from the Agmon decay theorem (§3.8).
 
-**R_d is not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. There is no circle of circumference 2πR_d and no quantization condition p_ξ = n/R_d. The space Ξ is limitless. Imposing a compactification radius would contradict P3 and was never physically motivated in IDWT — it was an artifact borrowed from the language of compact extra-dimension theories.
-
-**What R_d actually is: the Agmon localization length.**
+**What L_d is:**
 
 Every physical mode χ_{n,d} is a bound state of the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with V_d(r) = λ_d r²/(1+r²). By the Agmon decay theorem proved in §3.8, the ground-state mode decays as:
 
@@ -431,7 +429,7 @@ In IDWT, the sector manifolds Ξ_d are not literal geometrically compact extra d
 
 The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
-**Stage-1 filter.** The projection amplitude A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are visible to the 3D observer. Modes with larger L_d (more macroscopic localization) have smaller A_rel and are progressively more suppressed in the observability filter. This is why the d=5 neutrino sector, with the largest L_d, requires the additional Stage-1 analysis to explain the mass scale suppression.
+**Stage-1 filter.** The projection amplitude A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are *visible* to the 3D observer — it controls observability, not mass. Mass is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index. The Stage-1 filter cannot change a frequency; it only determines whether a mode at that frequency couples to the 4D slice with sufficient amplitude to be detected. The d=5 neutrino sector has the smallest sector mass scale m_scale_5 not because of Stage-1 suppression, but because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
 
 **Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 

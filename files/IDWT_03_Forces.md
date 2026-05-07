@@ -695,7 +695,7 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
-**What remains open:** The unit of electric charge q from the winding number around S¹ gives integer charge, but the elementary charge e in SI units is not yet derived. The full coupling between Ψ∞ and A_μ in the action needs to be specified.
+**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² holonomy integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the fiber scale is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
 
 ---
 

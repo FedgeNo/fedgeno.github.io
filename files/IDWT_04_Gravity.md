@@ -129,7 +129,7 @@ The question of cross-terms between different hidden addresses — δ²S/δg_μ�
 
 For macroscopic (non-compact) Ξ, the variation of ∫_Ξ ... dμ_ξ by parts requires boundary conditions as |ξ| → ∞.
 
-Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 7 §50.9). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
+Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 7 §2.9). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
 
 Non-normalizable (scattering) modes do not satisfy this condition — they fail Stage-1 projection (Ω_log > ln 2) and are absent from the physical spectrum. The two-stage observability filter automatically selects precisely the modes for which the hidden-space integrals converge.
 
@@ -152,7 +152,7 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The projection
 |---|---|---|
 | L²(Ξ) normalisability of χ_{n,d} | ✅ proved | §3.8 Part I |
 | Bianchi identity: ∇^μ T_μν^{eff} = 0 | ✅ proved unconditionally | §3.8 Part II |
-| Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §60 |
+| Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
 | G_eff from sector geometry | ✅ derived: G_eff ∝ (M_∞² Σ_d L_d^{−d})^{−1} | §3.11 |
@@ -196,7 +196,7 @@ L_d^{harm} = 1/√(λ_d − d√λ_d)  [upper bound on L_d]
 
 The actual L_d < L_d^{harm} because V_d < λ_d r² everywhere, so the actual ground state sits lower in energy, and κ_d is larger.
 
-**The dimensionless coupling is naturally O(1).** Part 7 §50.9 uses the dimensionless coupling λ̂_d = λ_d × L_d². With L_d = 1/κ_d = 1/√(λ_d − E_0):
+**The dimensionless coupling is naturally O(1).** Part 7 §2.9 uses the dimensionless coupling λ̂_d = λ_d × L_d². With L_d = 1/κ_d = 1/√(λ_d − E_0):
 
 ```
 λ̂_d = λ_d × L_d² = λ_d / (λ_d − E_0)
@@ -355,9 +355,9 @@ or equivalently, M_∞² G_eff ∝ 1/(Σ_d L_d^{−d}).
 
 ---
 
-## 3.11 Newton's Constant — Exact Result and True Open Item ✅
+## 3.12 Newton's Constant — Exact Result and Open Hierarchy Problem ✅
 
-### 3.11.1 G_eff is Sector-Independent
+### 3.12.1 G_eff is Sector-Independent
 
 From the variational derivation (§3.2), for any L²-normalised mode (n,d):
 
@@ -381,7 +381,7 @@ This is exact and sector-independent. The factor |χ_d(ξ⁰)|² ∝ L_d^{-d} fr
 
 **Consequence:** G is the same for particles in every sector. Electrons, quarks, neutrinos, and the tau lepton all couple to gravity with the same G. This is a theorem — the equivalence principle (§3.6) — not an assumption.
 
-### 3.11.3 Why Hidden Sector Loops Do Not Renormalise G_eff
+### 3.12.2 Why Hidden Sector Loops Do Not Renormalise G_eff
 
 A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
@@ -433,7 +433,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 **Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 
-### 3.11.3 The True Remaining Open Item
+### 3.12.3 The Remaining Open Item: Gravity Hierarchy
 
 The computation is complete up to one gap. The sector structure gives:
 
@@ -461,7 +461,7 @@ The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometr
 | Boundary terms vanish on non-compact Ξ | ✅ §3.5 |
 | L²(Ξ) normalisability via Agmon theorem | ✅ §3.8 Part I |
 | Bianchi identity ∇^μ T_μν^{eff} = 0 | ✅ §3.8 Part II |
-| Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §60 |
+| Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_eff = 1/(8π M_∞²), sector-independent, loop-exact | ✅ §3.11 |
@@ -469,7 +469,7 @@ The ratio M_∞/m_scale_6 ≈ 10²⁶ is not yet derived from the sector geometr
 
 ---
 
-## 3.8 Covariant Conservation of T_μν^{eff} ✅
+## 3.13 Covariant Conservation of T_μν^{eff} ✅
 
 **Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 projection — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
 
@@ -518,7 +518,7 @@ for sufficiently large r.
                   = C² × (d−1)! / (2κ)^d < ∞
 ```
 
-for all d ≥ 1, all κ > 0, and all macroscopic radii R_d. Compactness of Ξ_d is not required. □
+for all d ≥ 1, all κ > 0, and all macroscopic localization lengths L_d. Compactness of Ξ_d is not required. □
 
 Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)³ = √2/2 = 0.7071 ✓
 

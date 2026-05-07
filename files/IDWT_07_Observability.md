@@ -4,7 +4,7 @@
 
 ---
 
-## 49. All Modes Exist — Two-Stage Observability ✅
+## 1. All Modes Exist — Two-Stage Observability ✅
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
 
@@ -15,13 +15,13 @@ This reframes mode selection from a dynamical problem inside M_∞ to a geometri
 
 ---
 
-### 49.1 Projection Amplitude (Stage 1)
+### 1.1 Projection Amplitude (Stage 1)
 
 The projection amplitude for sector d relative to the quark sector (d=3) scales roughly as:
 ```
 A_rel(d) ~ (m_scale_d / m_scale_3)^{1/3}
 ```
-This is a heuristic estimate. The rigorous derivation from the sector heat kernel is in §50.9, which gives A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)² and λ̂_d ≈ 1.
+This is a heuristic estimate. The rigorous derivation from the sector heat kernel is in §2.9, which gives A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)² and λ̂_d ≈ 1.
 
 The projection mismatch for mode (n,d):
 ```
@@ -32,7 +32,7 @@ The projection mismatch for mode (n,d):
 
 **Partition function interpretation:** The Stage-1 suppression factor exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The projection-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the projected count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of the projection geometry itself.
 
-### 49.2 Projection Amplitude Table
+### 1.2 Projection Amplitude Table
 
 | Sector | Geometry | Physical role | Projection strength |
 |--------|----------|---------------|---------------------|
@@ -43,15 +43,15 @@ The projection mismatch for mode (n,d):
 | d=6 | CP³ | Charged leptons | suppressed |
 | d=10 | CP⁵ | Tau | most suppressed |
 
-Quarks (d=3,4) project at full strength because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c. The suppression hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§50.9).
+Quarks (d=3,4) project at full strength because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c. The suppression hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§2.9).
 
-### 49.3 Stage-2 Stability
+### 1.3 Stage-2 Stability
 
-Stage 2 requires that the projected mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (Part 7 §49.4).
+Stage 2 requires that the projected mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (Part 7 §1.4).
 
 ---
 
-### 49.4 Quartic Bifurcation — The Bottom Quark ✅
+### 1.4 Quartic Bifurcation — The Bottom Quark ✅
 
 The bottom quark survives as a geometric-mean beat between two virtual d=3 modes rather than as a single simplex mode. The bifurcation point:
 
@@ -75,13 +75,13 @@ PDG: 4,180 ± 10 MeV. Error: +0.02%.
 
 The beat partner n=17 = k₀+1 = n_c−n_u = 20−3.
 
-### 49.4c g_{3,4} Effective Coupling at the Bifurcation 🔶
+### 1.4c g_{3,4} Effective Coupling at the Bifurcation 🔶
 
 The exact cross-coupling g_{3,4} = 4√6 is fully derived from seed structure (Part 2 §9). At the bifurcation site k₀=16, the effective coupling involves kernel overlap integrals at n=16,17 in d=3. The bottom quark prediction (+0.02%) is consistent with g_{3,4} = 4√6; the detailed prefactor for the quartic amplitude is not yet derived from first principles.
 
 ---
 
-### 49.5 Cross-Sector Two-Delay Beats
+### 1.5 Cross-Sector Two-Delay Beats
 
 The (d,d') sector pairs give additional predicted resonances:
 
@@ -92,7 +92,7 @@ The (d,d') sector pairs give additional predicted resonances:
 
 The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.
 
-### 49.7 Complete d=3 Sideband Beat Tower
+### 1.6 Complete d=3 Sideband Beat Tower
 
 The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full tower:
 
@@ -104,9 +104,9 @@ The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full t
 
 ---
 
-## 50. Two-Stage Filter — Summary ✅
+## 2. Two-Stage Filter — Summary ✅
 
-The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as a resonance. Observable particles satisfy both filters. The co-fixed-point uniqueness (Part 1 §5), spectral independence, and sideband mechanism (§49.4 above) are all consequences.
+The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as a resonance. Observable particles satisfy both filters. The co-fixed-point uniqueness (Part 1 §5), spectral independence, and sideband mechanism (§1.4 above) are all consequences.
 
 **Laser cavity analogy:**
 
@@ -122,7 +122,7 @@ The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass
 
 ---
 
-## 50.5 Complete Low-n Observability Atlas ✅
+## 2.5 Complete Low-n Observability Atlas ✅
 
 Full enumeration of all low-n modes, with Ω_log = ln(S(n,d)/S(n,2)) quantifying the Stage-1 projection suppression. Modes with Ω_log ≲ ln 2 ≈ 0.693 pass Stage 1; co-fixed-point membership (Stage 2) determines final occupancy.
 
@@ -181,14 +181,14 @@ The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable had
 
 1. Two light colour-triplet d=3 resonances at **18.807 MeV** (n=2) and **47.019 MeV** (n=3) should exist as short-lived states but are absent as stable particles (pass Stage 1, fail Stage 2). No stable hadrons or narrow resonances are predicted in the 15–50 MeV window beyond the known pion sector.
 2. The next d=3 mode above strange (n=5, 164.565 MeV) is suppressed at Stage 1 (Ω_log = 0.847 > ln 2 = 0.693) and absent entirely.
-3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §50.9).
+3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §2.9).
 
 **Three Ω_log values verified:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693, placing them firmly above the Stage-1 threshold. All computed as ln(S(n,d)/S(n,2)) at the correct mode indices.
 
 ---
 
 
-The sector projection amplitude is given by the first-principles heat-kernel derivation below (§50.9): A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
+The sector projection amplitude is given by the first-principles heat-kernel derivation below (§2.9): A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
 
 **Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = 1/κ_d is the sector localization length (the Agmon decay length of the ground-state mode, proved to be the natural sector length scale in Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d².
 
@@ -219,13 +219,13 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 **KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 projection for the same reason scattering states do: insufficient projection amplitude at ξ⁰.
 
 **Caveats:**
-1. **Symbol disambiguation:** In the heat-kernel derivation below, the Laplacian eigenvalue at level n in sector d is n(n+d−1) — a different quantity from the IDWT simplex count S(n,d) = C(n+d−1,d). To prevent confusion, the heat-kernel eigenvalue is written as E_n = n(n+d−1) throughout §50.9; S(n,d) always denotes the IDWT simplex count.
+1. **Symbol disambiguation:** In the heat-kernel derivation below, the Laplacian eigenvalue at level n in sector d is n(n+d−1) — a different quantity from the IDWT simplex count S(n,d) = C(n+d−1,d). To prevent confusion, the heat-kernel eigenvalue is written as E_n = n(n+d−1) throughout §2.9; S(n,d) always denotes the IDWT simplex count.
 2. A_rel controls **observability** — whether a mode at a given frequency couples to the 4D slice. It does not affect the mode frequency itself. The d=5 sector mass scale m_scale_5 is suppressed because χ(S⁵)=0 forces its frequency scale to be determined by the cross-sector Hopf equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by any projection amplitude. Mass is a frequency. Stage-1 does not set frequencies.
 3. λ̂_d values are not yet derived from the IDWT action; they should emerge from vacuum dynamics.
 
 ---
 
-## 51. CP^d Projection Geometry 🔶
+## 3. CP^d Projection Geometry 🔶
 
 **What is established:**
 - Exponential hierarchy A_rel = exp(−c_d λ̂_d) with geometrically fixed c_d = d/(d+1)²

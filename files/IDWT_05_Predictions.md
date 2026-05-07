@@ -65,7 +65,7 @@ sin θ_C = (1+1/240)/√20 = 0.22454   (PDG: 0.22450 ± 0.00044,  +0.09σ)
 ```
 Derived from the Vandermonde d=3↔d=4 coupling: sin²θ_C = 1/S(n_s,3) = 1/20, equivalently S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20. No free parameters. Curvature correction from CP¹ holonomy (Lichnerowicz, d=2 sector): +1/240 shift — see Part 3 §12.
 
-**Up/down quark mass ratio (Theorem S2, Part 8 §60b)**
+**Up/down quark mass ratio (Theorem S2, Part 8 §5)**
 ```
 m_u / m_d = √(g44/g33) = √(3/14) = 0.463   (PDG: 0.462,  +0.08%;  exact from seeds)
 ```
@@ -200,13 +200,6 @@ B±   = m_b + Λ_QCD = 4181+310 = 4491 MeV           (PDG: 5279, −15%)
 
 The systematic −12 to −15% for heavy-quark mesons reflects Λ_QCD being 9% low and the HQET correction Λ̄ (the residual from the heavy quark limit) not yet computed in IDWT. The quark masses themselves (m_c, m_b) are correct; the offset is purely the non-perturbative HQET parameter.
 
-**Higgs quartic coupling ✅**
-
-```
-λ_H = m_H²/(2v²) = 0.1297   (SM: 0.129, +0.5%)
-```
-
-
 
 ```
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229
@@ -214,15 +207,6 @@ PDG: 1.2723 ± 0.0023.  Error: +4.0%
 ```
 
 The ratio of successive d=3 mode counts at the seed level — the geometric mean of the mode density transition at the confinement boundary.
-
-**Higgs quartic coupling λ_H ✅**
-
-```
-λ_H = m_H² / (2v²) = (125,266)² / (2 × 246,000²) = 0.1297
-SM: 0.129.  Error: +0.5%
-```
-
-m_H = m_scale_2 × S(95,2) from mode assignment; v = 246 GeV from SM. The Higgs quartic is geometrically consistent with SM to 0.5% without additional parameters.
 
 The d=5 sector has d mod 8 = 5, the unique Clifford class for which Majorana spinors are geometrically forbidden. No Majorana mass is allowed; no seesaw mechanism is possible. Prediction: the neutrinoless double beta decay rate is exactly zero. Current experiments (KamLAND-Zen 2023: m_ββ < 36 meV) have seen no signal, consistent with the prediction. This is a qualitative, falsifiable prediction independent of the mass spectrum.
 
@@ -311,8 +295,9 @@ The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction weighted 
 
 ```
 g₂ = (2/3) √(2g₄₄/π²) = 0.65275     (PDG: 0.65270,  +0.008%)
-v  = 2m_W/g₂ = 246.28 GeV             (PDG: 246.22,   +0.023%)
-G_F = 1/(√2 v²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)
+G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)  []
+v is not derived separately; the EW scale √Tr(D²) = 248.3 GeV (PDG: 246.22,   +0.023%)
+G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)
 λ_H = m_H²/(2v²) = 0.1294             (PDG: 0.129,    +0.3%)
 1/α (at fiber scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
 ```
@@ -330,14 +315,14 @@ PDG: 2.197×10⁻⁶ s.  Error: −0.3%
 Γ_W = g₂² m_W/(48π) × (3ℓ + 2q×N_c) = 2044 MeV
 PDG: 2085 MeV.  Error: −2.0%
 
-Γ_Z = g_Z² m_Z/(48π) × Σ_f N_c(c_V² + c_A²) = 2517 MeV
-PDG: 2495 MeV.  Error: +0.9%
+Γ_Z = g_Z² m_Z/(48π) × Σ_f N_c(c_V² + c_A²) = 2444 MeV
+PDG: 2495 MeV.  Error: −2.0%
 
 τ_π = 1/Γ(π→μν) = 4π/(G_F² f_π² m_π m_μ²(1−m_μ²/m_π²)²) = 2.42×10⁻⁸ s
 PDG: 2.603×10⁻⁸ s.  Error: −7%  (from f_π 2% high and m_π from GOR being 9% high)
 ```
 
-**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = 1.1658×10⁻⁵ GeV⁻² (−0.05%) and v = 246.28 GeV (+0.023%). α(m_W) = 1/131.8, running to α(m_Z) = 1/127.9 via hadronic vacuum polarisation.
+**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻² (−0.05%). The spectral action EW scale √Tr(D²) = 248.3 GeV (+0.85%). α at fiber scale 1/α = 131.8; after hadronic vacuum polarisation: 1/α(m_Z) = 127.9.
 
 ---
 
@@ -405,7 +390,7 @@ Both from mode indices; cos²θ_W = (S(76,2)/S(81,2))² from the same indices.
 | m_b/m_s | 44.461 | 44.8 | −0.76% |
 | m_u/m_d | 0.463 | 0.474 | −2.3% † |
 
-† m_u/m_d = √(g44/g33) = √(3/14) exactly (Theorem S2, Part 8 §60b). The −2.3% from PDG reflects the ±20% spread in PDG light-quark mass estimates; the ratio is derived, not fitted.
+† m_u/m_d = √(g44/g33) = √(3/14) exactly (Theorem S2, Part 8 §5). The −2.3% from PDG reflects the ±20% spread in PDG light-quark mass estimates; the ratio is derived, not fitted.
 
 **Neutrino masses — absolute prediction, no oscillation data used ✅**
 
@@ -488,13 +473,13 @@ Unit references: IDWT = **1** (m_e, to set the MeV scale) vs SM = 19 free parame
 
 **Higgs vacuum stability**
 
-The 1-loop RG running of λ_H with m_t = 174 GeV gives λ_H(M_Pl) < 0, suggesting metastability — the same result as the SM. In IDWT, the 'Higgs' is a confinement mode; the UV running of λ is a different physical problem than in the SM (no quartic scalar sector), so this result is schematic.
+In IDWT the Higgs is a confinement mode of the d=2 sector — there is no quartic scalar sector and no RG running of a Higgs self-coupling. The concept of vacuum metastability from λ_H running does not apply.
 
 ## 3d. d=3 Hadronic Resonance Spectrum ✅
 
 The d=3 sector hosts a tower of hadronic resonance modes at n > n_s = 4. These modes are not stable particles (they fail Stage-2 co-fixed-point stability), but they are colour singlet composites observable as broad resonances. The IDWT prediction for each resonance mass is m = m_scale_3 × S(n,3) with m_scale_3 = 4.7019 MeV.
 
-**Absence of pion as a sector mode.** The pion (~140 MeV) is absent from the d=3 sector spectrum — there is no integer n with S(n,3) × 4.7019 = 140 MeV. This is **consistent**: the pion is a Goldstone boson from spontaneous chiral symmetry breaking (a collective excitation), not a fundamental sector mode. IDWT correctly assigns no sector mode index to it.
+**Absence of pion as a sector mode.** The pion (~140 MeV) is absent from the d=3 sector spectrum — no integer n satisfies S(n,3) × 4.7019 MeV = 140 MeV, and no mode passes both Stage-1 and Stage-2 filters at the pion mass. This is consistent with the pion being a collective excitation of the d=3 quark condensate, not a stable eigenstate of D. IDWT assigns no mode index to collective excitations; only single-particle sector eigenstates appear in the spectrum.
 
 **ρ–ω degeneracy.** The ρ(770) and ω(782) are the I=1 and I=0 isospin partners of the lightest vector meson. IDWT gives their SU(3)-averaged mass from a single mode n=9:
 
@@ -532,7 +517,7 @@ The same integer labels a bottomonium ground state, a charmed meson, and the hea
 
 **Falsifiable prediction:** no narrow hadronic resonance should exist in the 15–50 MeV window (d=3 modes n=2,3 pass Stage-1 but fail Stage-2; they exist only as very broad states). The 100–165 MeV window below the ρ contains n=5,6,7,8 modes (164–564 MeV) — these should appear only as very broad structures with widths comparable to their mass, not as narrow resonances. This is consistent with the observed QCD spectrum.
 
-## 3g. PMNS Mixing — Tribimaximal Leading Order ✅
+## 4. PMNS Mixing ✅
 
 **The μ–τ interchange symmetry.** The d=6 (electron, muon) and d=10 (tau) sectors carry identical self-couplings: $g_{66} = g_{10,10} = 1/n_s = 1/4$ (shared seed coupling). Therefore $v_6 = \sqrt{g_{66}} = v_{10} = \sqrt{g_{10,10}} = 1/2$ **exactly**. The coupling of each charged lepton to the d=5 neutrino sector is:
 
@@ -564,7 +549,7 @@ where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles from $g_{55}$ and 
 
 ---
 
-## 3e. 1-Loop Electroweak Running ✅
+## 5. 1-Loop Electroweak Running ✅
 
 The g₁ coupling in IDWT is computed at the fiber scale (approximately m_W). The PDG value g₁ = 0.35740 is quoted at m_Z in the $\overline{\rm MS}$ scheme. The 1-loop U(1)_Y running between m_W and m_Z, with β-function coefficient b₁ = 41/6 (full SM particle content above m_W):
 
@@ -581,7 +566,7 @@ where C is a computable 2-loop colour factor. This places the required 2-loop co
 ---
 
 
-## 3h. PMNS Angle Hierarchy from Mode-Index Proximity ✅
+## 6. PMNS Angle Hierarchy ✅
 
 Three exact algebraic identities connect charged-lepton and neutrino mode indices to the quark mode indices:
 
@@ -602,7 +587,7 @@ The hierarchy $\theta_{23}>\theta_{12}>\theta_{13}$ is a robust structural predi
 
 ---
 
-## 3i. d=10 as the Aubry-André Critical Point ✅
+## 7. d=10 as the Aubry-André Critical Point ✅
 
 The Jacobi coupling $b_{k_0}(d) = \sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ plays the role of the hopping-to-disorder ratio in the Aubry-André (AA) tight-binding model of quasicrystals. The AA metal-insulator transition occurs at $b=1/2$.
 
@@ -617,7 +602,7 @@ This is the **unique** dimension satisfying $4k_0=(d-2)^2$. All $d\in D\setminus
 
 ---
 
-## 3j. S(n,d) as Integrated Density of States ✅
+## 8. S(n,d) as IDOS ✅
 
 $S(n,d) = \binom{n+d-1}{d}$ is the **integrated density of states (IDOS)** of a $d$-dimensional harmonic oscillator at quantum level $n$: it counts the total number of eigenstates up to level $n$. In laser cavity physics, $S(n,d)$ is the cumulative count of transverse modes up to mode order $n$ in a $(d-1)$-dimensional cavity. The IDWT mass formula:
 $$m(n,d) = S(n,d) \times m_{\rm scale,d} = \text{(IDOS at level }n\text{)} \times \text{(sector energy scale)}$$

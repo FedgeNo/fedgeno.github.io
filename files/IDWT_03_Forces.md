@@ -88,7 +88,7 @@ The KK ansatz Ψ∞ = ψ(x) ⊗ χ_n(ξ) reduces the equation of motion to:
 H_d χ_n = m_eff χ_n                  [sector eigenvalue problem]
 ```
 
-The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §60). The mass formula is a consequence of the action, not a separate postulate.
+The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §3). The mass formula is a consequence of the action, not a separate postulate.
 
 ### 0.6 Yang-Mills from the Kernel
 
@@ -112,9 +112,9 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
 | Newton's constant | G_eff = 1/(8πM_∞²) | exact |
 | **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
-| **Higgs vev** | **v = 2m_W/g₂** | **246.28 GeV** |
-| **Fermi constant** | **G_F = 1/(√2 v²)** | **1.1658×10⁻⁵ GeV⁻²** |
-| **Higgs quartic** | **λ_H = m_H²/(2v²)** | **0.1294** |
+| **EW scale √Tr(D²)** | **spectral action RMS** | **248.3 GeV** |
+| **Fermi constant** | **G_F = g₂²/(4√2 m_W²)** | **1.1658×10⁻⁵ GeV⁻²** |
+
 
 **Derivation of g₂.** The QCD coupling g_s arises from the Wilson loop holonomy of the Fubini-Study gauge connection over the d=4 sector manifold CP². The Fubini-Study metric has fundamental 2-cycle area π; integrating the Yang-Mills action density over CP² introduces the volume factor 2/π² (ratio of the sphere volumes at successive Hopf levels), giving:
 
@@ -122,7 +122,7 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [holonomy integral over CP²]
 ```
 
-The up-quark charge Q_u = 2/3 follows from the spin^c index on CP²: ind(D^c_{CP²} ⊗ O(1)) = 3 = N_c colours (Theorem S3, Part 8 §59.2), so each colour carries charge 1/N_c = 1/3 and the doublet carries 2Q_u = 2 × 2/3. The SU(2)_L coupling is therefore:
+The up-quark charge Q_u = 2/3 follows from the spin^c index on CP²: ind(D^c_{CP²} ⊗ O(1)) = 3 = N_c colours (Theorem S3, Part 8 §2.2), so each colour carries charge 1/N_c = 1/3 and the doublet carries 2Q_u = 2 × 2/3. The SU(2)_L coupling is therefore:
 
 ```
 g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [QCD coupling, from CP² holonomy]
@@ -136,8 +136,7 @@ PDG: 0.65270.  Error: +0.008%
 From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 
 ```
-v  = 2m_W/g₂ = 246.28 GeV       (PDG: 246.22 GeV,  +0.023%)
-G_F = 1/(√2 v²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵,  −0.05%)
+G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵,  −0.05%)
 g₁ = g₂ × tan θ_W = 0.35044         (PDG: 0.35740,  −1.95% at fiber scale)
 g₁(m_Z) after 1-loop U(1)_Y running = 0.35067  (PDG: 0.35740,  −1.88%)
 sin²θ_eff(m_Z) from running g₁ = 0.22397        (PDG: 0.23153,  −3.3%)
@@ -327,7 +326,7 @@ This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
 **Only colour-matched configurations are stable.** It is a necessary consequence of the CP² isometry group acting on the colour vector space.
 
-**Status note:** This colour-vector model is a *selection rule* — it correctly identifies which states are colour-neutral and therefore stable. It does not derive the confinement *mechanism* (linear potential, flux-tube formation, Wilson loop area law) from the M_∞ kernel. The derivation of λ_c from the inter-sector coupling structure, and the equivalence to the QCD area law, are open items addressed further in §61 and Part 8 §62.
+**Status note:** This colour-vector model is a *selection rule* — it correctly identifies which states are colour-neutral and therefore stable. It does not derive the confinement *mechanism* (linear potential, flux-tube formation, Wilson loop area law) from the M_∞ kernel. The derivation of λ_c from the inter-sector coupling structure, and the equivalence to the QCD area law, are open items addressed further in §8 and Part 8 §11.
 
 ---
 
@@ -477,7 +476,7 @@ n_Z − n_W = n_s + n_d = 4 + 1 = 5   (seed index + down mode index)
 sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 ```
 
-The Z-W mode gap equals β — the same Dirac eigenstate increment that enters g₂₂ (Theorem S3, Part 8 §60b). Both arise from the d=4 sector's eigenvalue count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the EW coupling constant through a single spectral identity.
+The Z-W mode gap equals β — the same Dirac eigenstate increment that enters g₂₂ (Theorem S3, Part 8 §5). Both arise from the d=4 sector's eigenvalue count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the EW coupling constant through a single spectral identity.
 
 **ρ = 1 is derived:** W and Z live in the same sector → custodial SU(2) is automatic.
 
@@ -719,9 +718,9 @@ The spinor structure governs quantum numbers — what attaches to each mode. The
 
 ---
 
-## 14. Electromagnetism: Ward Identity and L-Parity Protection ✅
+## 15. Electromagnetism: Ward Identity and L-Parity Protection ✅
 
-### 14.1 The Ward Identity in IDWT
+### 15.1 The Ward Identity in IDWT
 
 The IDWT kinetic term contains the covariant derivative:
 
@@ -751,7 +750,7 @@ q_μ Γ^μ(p, p+q) = S^{-1}(p+q) − S^{-1}(p)
 
 holds automatically from gauge invariance.
 
-### 14.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
+### 15.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
 
 **Theorem.** The IDWT kernel cannot produce a photon mass at any order in perturbation theory.
 
@@ -777,7 +776,7 @@ The photon mass m_γ² = Π_kernel(0) = 0 exactly, to all orders in the kernel. 
 
 This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT produce a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
 
-### 14.3 The Running of α ✅
+### 15.3 The Running of α ✅
 
 The kernel does not contribute to the photon self-energy (§14.2). Therefore α runs only via standard fermion loops:
 
@@ -800,7 +799,7 @@ PDG:     1/127.9   [includes hadronic vacuum polarisation + 2-loop]
 
 The gap of ~4 units between 1/131.8 and 1/127.9 is entirely accounted for by hadronic vacuum polarisation (~3.5 units) and two-loop QED corrections (~0.5 units), neither of which is specific to IDWT. The three-generation structure is exactly that needed.
 
-### 14.4 Status of α
+### 15.4 Status of α
 
 The Ward identity establishes:
 1. ∂^μ J_μ^{EM} = 0 exactly

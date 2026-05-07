@@ -8,16 +8,14 @@
 
 ## 0. The Actual Structure: A Spectral Triple
 
-**IDWT is the spectral action programme of noncommutative geometry, applied to the unique self-consistent Dirac-Harmonic operator on $M_\infty$.**
-
-The SM is not a list of 25 quantum fields. It is the **spectral data** of one operator $D$ on one space $M_\infty$. The mathematical object is a spectral triple $(\mathcal{A},\,\mathcal{H},\,D)$:
+**IDWT identifies the Standard Model as the spectral data of one operator $D$ on one space $M_\infty$.** It is the spectral action programme of Connes' noncommutative geometry, applied to the unique self-consistent Dirac-Harmonic operator on $M_\infty$. The mathematical object is a spectral triple $(\mathcal{A},\,\mathcal{H},\,D)$:
 
 $$\mathcal{A} = C(M_\infty)\otimes\bigoplus_{d\in D}\mathcal{M}_{n_d}(\mathbb{C}), \quad \mathcal{H} = L^2(M_\infty, \mathcal{S}_\infty), \quad D = -i\gamma^\mu\partial_\mu + \sum_{d\in D} D_d$$
 
 where $D_d$ is the Dirac-Harmonic operator in sector $d$ with potential $V_d(r) = \lambda_d r^2/(1+r^2)$. The stable spectrum of $|D|$ is exactly $\{S(n,d)\times m_{\text{scale},d}\}$. The spectral action $\text{Tr}(f(D/\Lambda))$ expands as:
 $$\text{Tr}(f(D/\Lambda)) = f_2\Lambda^2\,\text{Tr}(D^2) + \cdots = \frac{1}{G_N}\int R + S_{\text{SM}}.$$
 
-**Verification.** Computing $\text{Tr}(D^2) = \sum_i m_i^2$ from the 15 IDWT particles (dominated by top, $W$, $Z$, Higgs):
+**Verification.** Computing $\text{Tr}(D^2) = \sum_i m_i^2$ from the 15 IDWT particles (top quark 50.5%, Higgs 25.5%, $Z$ 13.5%, $W$ 10.5%):
 $$\sqrt{\text{Tr}(D^2)} = 248.3\text{ GeV} \approx v_{\text{Higgs}} = 246.2\text{ GeV} \quad (+0.85\%).$$
 
 The Higgs VEV is a **spectral quantity** — the RMS eigenvalue of $D$ — not an independent input. The 0.85% residual is the same spectral function normalization that produces the $\sin^2\theta_W$ and $g_1$ residuals; it is not a separate error.
@@ -50,10 +48,10 @@ The observer's location ξ⁰ weights the projection amplitude for each mode (St
 **P3 — Hidden Dimensions are Infinite and Non-Compact**
 The sector spaces $\Xi_d$ are infinite Riemannian spaces — full-size dimensions, not rolled up or compactified in any sense. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). These bound states are the particles. The symmetry labels $\mathbb{CP}^n$ and $S^n$ in the sector table describe the local geometry at the bottom of the potential well — the symmetry of the mode wavefunctions near $r=0$ — not the global topology of $\Xi_d$. This is exactly analogous to a hydrogen atom: the electron lives in infinite $\mathbb{R}^3$ but the ground state has $S^2$ symmetry from the spherically symmetric potential. No dimension is curled up; the modes bind themselves through the potential. The standard KK exclusions (Eöt-Wash, collider searches) presuppose graviton propagation into small compact dimensions; they do not apply here. See Part 4 §1b and §3.9.
 
-SM fields are not bulk propagators. Every SM particle is a bound state of a sector potential V_d(r) = λ_d r²/(1+r²), localised exponentially in the hidden directions by the Agmon decay theorem (Part 4 §3.8). Scattering states — modes that would propagate freely through the hidden space — are eliminated by the Stage-1 observability filter: they fail to project onto the 3D slice with finite amplitude. There are no bulk KK excitations of the SM fields accessible to experiment; the SM spectrum is the complete set of sector resonances that survive both observability filters.
+Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the hidden space) are eliminated by the Stage-1 observability filter: they fail to project onto the 4D slice with finite amplitude. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
 
 **P4 — Geometry First**
-The governing equation is a wave equation on a curved manifold. The potential arises from the intrinsic curvature of M_∞, not from an independent input.
+The governing equation is a Dirac wave equation on the curved manifold $M_\infty$. The sector potentials $V_d(r)$ arise from the intrinsic curvature of $M_\infty$ evaluated at the vacuum $\xi^0_d$ — they are not independent inputs but consequences of the geometry.
 
 **P5 — Mass and Gravity are One Thing**
 Both emerge from the same geometric structure. Mass is the count of hidden microstates accessible at a mode level, scaled by the sector's energy unit: m(n,d) = m_scale_d × S(n,d). Gravity is the distortion that concentration of |Ψ∞|² causes in the surrounding 4D geometry. They are manifestations of the same geometric object because they are sourced by the same underlying mode structure. The derivation of m_scale_d from the coupling constants is in Part 2 §10.
@@ -109,7 +107,7 @@ The hidden space decomposes into sectors with distinct potential well symmetries
 | 4 | CP² | SU(3)/U(2) | Weyl (spin^c) | 4 | Up-type quarks (u, c, t) |
 | 5 | S⁵ | SO(6) | Dirac only | 4 | Neutrinos (ν_e, ν_μ, ν_τ) |
 | 6 | CP³ | SU(4)/U(3) | Weyl | 8 | Charged leptons (e, μ) |
-| 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 32 | Tau + SO(10) GUT generation |
+| 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 32 | Tau lepton; d mod 8=2 Maj-Weyl (cross-check: coincides with 16 of Spin(10)) |
 
 This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a below.
 
@@ -121,7 +119,7 @@ This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a 
 
 $$n_{\rm top} = S(n_e, 2) - n_c + 1 = 91 - 20 + 1 = 72.$$
 
-The unique factorisation $72 = N_c \times n_s \times N_f$ with $N_c = 3$ (from the CP² spin^c index, Part 8 §59.2), $n_s = 4$ (seed), and $N_f = 72/(N_c \times n_s) = 6$ (derived entirely within IDWT — no external input).
+The unique factorisation $72 = N_c \times n_s \times N_f$ with $N_c = 3$ (from the CP² spin^c index, Part 8 §2.2), $n_s = 4$ (seed), and $N_f = 72/(N_c \times n_s) = 6$ (derived entirely within IDWT — no external input).
 
 Cross-check: $N_f = S(n_u, 2) = S(3,2) = \binom{4}{2} = 6$. Both expressions for $N_f$ give the same value, confirming internal consistency.
 
@@ -140,7 +138,7 @@ This forces $d \in \{4, 6, 10\}$ as the three CP sectors. $d = 2$ (CP¹) is requ
 
 **Step 4 — Exclusion of remaining Hopf spaces.** The complex Hopf chain $S^1 \to S^{2n+1} \to \mathbb{CP}^n$ generates candidate pairs at every $n$. Two termination rules eliminate all unlisted spaces:
 
-*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the seed ratio — a direct output of the seed, not a kernel fixed-point coupling. The Hopf universality condition $v_3/v_2 = v_5/v_4$ that derives $g_{55}$ from fixed-point couplings cannot extend to $d=7$ (S⁷ over $\mathbb{CP}^3$): there is no fixed-point $g_{77}$. Since $d=8,9$ also have no path to the kernel fixed-point from the broken chain at $d=6$, all of $d \in \{7,8,9\}$ are excluded by Rule A.
+*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the seed ratio — a direct output of the seed, not a kernel fixed-point coupling. The Hopf universality condition $v_3/v_2 = v_5/v_4$ that derives $g_{55}$ from fixed-point couplings cannot extend beyond $d=6$: there is no fixed-point formula for $g_{77}$, so $d=7$ is excluded. Sectors $d=8$ and $d=9$ (the $n=4$ Hopf pair, $\mathbb{CP}^4$ and $S^9$) have no path to the kernel fixed-point from the broken chain at $d=6$, so they are likewise excluded.
 
 *Rule B (Gegenbauer criticality).* The Jacobi coupling $b_{k_0}(d) = \sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ must satisfy $b_{k_0} \geq 1/2$ for a sector to support stable bound-state modes. At $d=10$:
 $$4k_0 = (d-2)^2 \quad \Longrightarrow \quad 4\times 16 = 64 = (10-2)^2,$$
@@ -163,7 +161,7 @@ $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs } n=1,2} \cup \underbrace{\{6\}
 
 **Step 1 — Finite sectors.** The Sector Set Theorem (§3a) proves $D = \{2,3,4,5,6,10\}$ is the complete set. Any new particle must reside in one of these six sectors.
 
-**Step 2 — Eigenmode set is complete.** The sector comb filtration from $n_s = 4$ selects mode indices $\Sigma$. Applying every filtration rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \sigma_n$ fails the **Stage-2 co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
+**Step 2 — Eigenmode set is complete.** The sector comb filtration from $n_s = 4$ selects mode indices $\Sigma$. Applying every filtration rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \Sigma$ fails the **Stage-2 co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
 
 **Step 3 — Unique beat mode.** A beat mode arises at a site $k_0$ where three independent resonance conditions coincide simultaneously, forcing equal spectral weight at adjacent modes $n$ and $n+1$. The three conditions are:
 
@@ -177,7 +175,7 @@ The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identit
 
 ---
 
-
+### Sector Topology and the Atiyah-Singer Index ✅
 
 Each CP^n sector carries an Euler characteristic χ(CP^n) = n+1. By the Atiyah-Singer index theorem, this equals the holomorphic index ind(D_{CP^n}) = n+1 — the number of independent zero modes of the sector's Dirac operator.
 
@@ -221,6 +219,8 @@ The total Euler characteristic of the sector manifold Ξ equals S(n_s,3) − n_s
 
 
 
+### Parallel Uniqueness Results
+
 The two uniqueness results are parallel:
 
 | Uniqueness result | Algebraic condition | Consequence |
@@ -230,7 +230,7 @@ The two uniqueness results are parallel:
 
 
 
-d=10 in particular has multiple justifications: Hopf/octonionic chain (approximate), Gegenbauer criticality (exact), SO(10) GUT content (exact), and Hurwitz-type termination (exact). Their agreement is the reason d=10 is assigned ✅ rather than 🔶.
+**Convergence on d=10.** Four independent routes — Hopf/octonionic chain (approximate), Gegenbauer criticality (exact), Spin(10) spinor weight lattice (cross-check), and Hurwitz termination (exact) — all give d=10. Their agreement is the reason d=10 carries ✅ rather than 🔶.
 
 The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The sectors are independent in the sense that each carries a distinct Clifford algebra Cl(d) with no shared generators; their spinor spaces therefore combine as a tensor product. The total hidden-space spinor dimension is 2×2×4×4×8×32 = 2¹⁴ = 16,384 [tensor product over all six sectors].
 
@@ -322,8 +322,7 @@ m_scale_2  = m_e × √(g₂₂/g₆₆)                     = 27.47 MeV        
 **SU(2)_L coupling (derived from CP²→CP¹ reduction, Part 3 §0.7):**
 ```
 g₂ = Q_u × √g_s = (2/3)√(2g₄₄/π²) = 0.65275   (PDG: 0.65270, +0.008%)
-v  = 2m_W/g₂ = 246.28 GeV                        (PDG: 246.22, +0.023%)
-G_F = 1/(√2 v²) = 1.1658×10⁻⁵ GeV⁻²             (PDG: 1.1664×10⁻⁵, −0.05%)
+G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²        (PDG: 1.1664×10⁻⁵, −0.05%)
 ```
 
 **Complete coupling vector** {v_d = √g_dd}, fully closed by seeds and m_e:
@@ -440,7 +439,7 @@ The d=5 sector mass scale is derived from the cross-sector fixed point m_scale_5
 **Oscillation ratios (from simplex values alone):**
 ```
 m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 11628/2002 = 5.808
-Δm²₃₁/Δm²₂₁ = 32.949   (PDG 2022: 34.825, deficit −5.4%; see §6 of Part 5 for full experimental range analysis)
+Δm²₃₁/Δm²₂₁ = 32.949   (PDG 2022: 34.825, deficit −5.4%; see Part 5 §3 and Part 6 for experimental range analysis)
 ```
 
 **Absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data):
@@ -468,10 +467,10 @@ All below KATRIN bound (450 meV). The atmospheric splitting Δm²₃₁ is deriv
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |
-| Spin-½ of all fermions | KK Dirac operator on M_∞; spinor bundle of Ψ∞ (Part 8 §59) | ✅ |
+| Spin-½ of all fermions | Dirac operator on $M_\infty$; spinor bundle of $\Psi_\infty$ (Part 8 §2) | ✅ |
 | CKM Cabibbo angle | sin θ_C = (1+1/240)/√S(n_s,3) = 0.22454 — seed + Lichnerowicz | ✅ |
 | Neutrino oscillations | d=5 sector, normal ordering | ✅ |
 | Dirac neutrinos | d=5 has d mod 8=5: Majorana forbidden → 0νββ rate = 0 predicted | ✅ |
-| SO(10) GUT structure | d=10 Maj-Weyl spinor (16 of SO(10)) = one SM generation; tau hypercharges from algebra | ✅ |
+| Spin(10) spinor weight lattice | d=10 Maj-Weyl spinor (d mod 8 = 2) has 16-component Weyl part; its weight lattice gives tau hypercharges as cross-check on the anomaly cancellation derivation | ✅ |
 | Confinement | Colour vector closure E_conf = λ_c|N⃗| from CP² geometry | ✅ |
 | Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |

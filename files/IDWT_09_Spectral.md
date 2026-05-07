@@ -60,13 +60,13 @@ Together Stage 1 selects the sectors (gain bandwidth) and Stage 2 selects the st
 
 $$\boxed{m(n,d) = S(n,d)\times m_{\mathrm{scale},d}, \qquad S(n,d) = \binom{n+d-1}{d}}$$
 
-states that $m(n,d)/m_{\mathrm{scale},d}$ is the coefficient of $t^n$ in the Poincare-Hilbert series of the free commutative algebra $\mathbb{R}[x_1,\ldots,x_d]$:
+states that $m(n,d)/m_{\mathrm{scale},d}$ is the coefficient of $t^n$ in the Poincaré-Hilbert series of the free commutative algebra $\mathbb{R}[x_1,\ldots,x_d]$:
 
 $$P_d(t) = \frac{1}{(1-t)^d} = \sum_{n\geq 1} S(n,d)\,t^n.$$
 
-**Proof.** $S(n,d)=\binom{n+d-1}{d}$ counts the degree-$(n-1)$ monomials in $d$ variables, equals $\dim\mathrm{Sym}^{n-1}(\mathbb{R}^d)$, and equals the IDOS (integrated density of states) of the $d$-dimensional harmonic oscillator at level $n$ — the number of eigenstates with quantum number $\leq n-1$. In laser cavity terms: the cumulative count of transverse modes up to order $n-1$ in a $(d-1)$-transverse-mode cavity. $\square$
+**Proof.** $S(n,d)=\binom{n+d-1}{d}$ counts the degree-$(n-1)$ monomials in $d$ variables, equals $\dim\mathrm{Sym}^{n-1}(\mathbb{R}^{d+1})$, and equals the IDOS (integrated density of states) of the $d$-dimensional harmonic oscillator at level $n$ — the number of eigenstates with quantum number $\leq n-1$. In laser cavity terms: the cumulative count of transverse modes up to order $n-1$ in a $(d-1)$-transverse-mode cavity. $\square$
 
-$$\boxed{S(n,d) \;=\; \dim\mathrm{Sym}^{n-1}(\mathbb{R}^d) \;=\; \mathrm{IDOS}_d(n) \;=\; [t^n]\frac{1}{(1-t)^d}}$$
+$$\boxed{S(n,d) \;=\; \dim\mathrm{Sym}^{n-1}(\mathbb{R}^{d+1}) \;=\; \mathrm{IDOS}_d(n) \;=\; [t^n]\frac{1}{(1-t)^d}}$$
 
 **Corollary (Hockey-stick = quasicrystal inflation).** The identity $S(n+1,d)=S(n,d)+S(n,d-1)$ is the $d$-dimensional generalisation of the Penrose inflation rule ($L\to LS$, $S\to L$). The IDWT filtration is a $d$-dimensional quasicrystal inflation seeded at $n_s=4$; the observable spectrum is its cut-and-project image on the 4D slice, selected by T0.5.
 
@@ -130,7 +130,8 @@ Jacobi couplings at $k_0=16$ (all sectors in $D$ must have $b_{k_0}\geq1/2$, by 
 | $d$ | $b_{k_0}(d)$ | Regime | In $D$? |
 |---|---|---|---|
 | 2, 3, 4, 5, 6 | $0.515,\;0.514,\;0.513,\;0.511,\;0.509$ | supercritical | ✓ |
-| 7, 8, 9 | $0.507,\;0.505,\;0.502$ | supercritical, excluded by Rule A | ✗ |
+| 7 | $0.507$ | supercritical, excluded by Rule A (no $g_{77}$) | ✗ |
+| 8, 9 | $0.505,\;0.502$ | supercritical, skipped ($n=4$ Hopf pair not selected) | ✗ |
 | **10** | **0.500000** | **AA critical endpoint** | **✓** |
 | 11, 12, … | $0.497,\;0.495,\ldots$ | subcritical | ✗ |
 
@@ -265,7 +266,7 @@ All six sector self-couplings are derived from $n_s=4$, $n_u=3$:
 
 **T9a** (Kernel product). $g_{33}\times g_{44}=96$ exactly; also $g_{22}\cdot g_{55}=96$.
 
-**T9b** (Hopf universality). $v_3/v_2=v_5/v_4$ exactly, deriving $g_{55}$ from $d=3,4$ couplings. Required by T2 condition 3.
+**T9b** (Hopf universality). $v_3/v_2=v_5/v_4$ exactly, deriving $g_{55}$ from the $d=3,4$ couplings via the Hopf chain condition (T3 Rule B). The rank-1 factorisation of T2 gives $g_{dd'}=v_d v_{d'}$; the specific ratio $v_3/v_2=v_5/v_4$ is the additional Hopf universality constraint.
 
 **T9c** ($\mu$-$\tau$ symmetry). $g_{66}=g_{10,10}=1/n_s$ exactly, giving $v_6=v_{10}=1/2$. This is the $\mu$-$\tau$ interchange symmetry that drives TBM (T6 Step 2).
 

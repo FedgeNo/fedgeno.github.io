@@ -10,7 +10,7 @@ m(n, d) = m_scale_d × S(n, d)
 S(n, d) = C(n+d−1, d)
 ```
 
-S(n,d) is the number of ways to distribute n units of excitation across d oscillator modes — equivalently, the dimension of the space of degree-n homogeneous polynomials in d variables. **Corollary (Theorem S1, Part 8 §60b):** S(n,3) = ½ N_{D_{S³}}(n−1), where N_{D_{S³}}(n−1) is the cumulative positive Dirac eigenvalue count on S³ up to level n−1.
+S(n,d) is the cumulative count of harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the integrated density of states (IDOS). Equivalently, it is the number of ways to write n−1 as an ordered sum of d non-negative integers (stars and bars with d slots), which equals dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d). **Corollary (Theorem S1, Part 8 §5):** S(n,3) = ½ N_{D_{S³}}(n−1), where N_{D_{S³}}(n−1) is the cumulative positive Dirac eigenvalue count on S³ up to level n−1.
 
 ### S(n,d) as a Universal Combinatorial Measure Field
 
@@ -20,7 +20,7 @@ S(n,d) appears in four distinct physical roles across IDWT. These are not incons
 
 ```
 S(n,d) = N_d(n−1) = #{eigenvalues of H_d at level k < n, counted with multiplicity}
-        = Σ_{k=0}^{n-1} C(k+d−1, d−1)    [proved in Part 8 §60]
+        = Σ_{k=0}^{n-1} C(k+d−1, d−1)    [proved in Part 8 §3]
 ```
 
 Given this single definition, the four applications are different functionals on S:
@@ -34,7 +34,7 @@ Given this single definition, the four applications are different functionals on
 
 These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — projection loss is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
 
-**S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry.** The sector manifold Ξ_d supports degree-n homogeneous polynomials in d variables. The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n, and dim Sym^n(ℝ^d) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry.
+**S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
 **The hockey-stick identity is a proved theorem of combinatorics:**
 
@@ -204,7 +204,7 @@ n_ν₃ − n_ν₂ = 7 = n_u + n_strange
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-**Spectral grounding (General Weyl Law, Part 8 §60.5):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same Weyl spectral law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
+**Spectral grounding (General Weyl Law, Part 8 §3.5):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same Weyl spectral law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
 
 From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.
 
@@ -280,7 +280,7 @@ The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption �
 
 ### g₆₆ = 1/4 — from anomaly cancellation ✅
 
-With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1 — see Part 8 §59), the SU(2)²U(1) gauge anomaly cancellation gives Y_Q = 1/(2N_c) = 1/6. The SU(3)²U(1) condition with Q = T₃ + Y then gives the lepton sector coupling set by the seed:
+With N_c = 3 colour charges (derived geometrically from the Dirac index of CP² with Hopf flux k=1 — see Part 8 §2), the SU(2)²U(1) gauge anomaly cancellation gives Y_Q = 1/(2N_c) = 1/6. The SU(3)²U(1) condition with Q = T₃ + Y then gives the lepton sector coupling set by the seed:
 ```
 g₆₆ = 1/n_s = 1/4
 ```
@@ -501,13 +501,13 @@ m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆
 m_scale_2  = m_e √(g₂₂/g₆₆)                           = 27.47 MeV           [derived from seeds via g₂₂]
 ```
 
-### §10. g₂₂ — the kernel back-reaction fixed-point ✅
+### 10b. g₂₂ — the kernel back-reaction fixed-point ✅
 
 The d=3 self-coupling g₃₃ is fixed by the intra-sector confinement condition g_eff(n_s,3) = g₃₃/S(n_s,3) ≈ 1 (Part 2 §8). The d=2 sector has no self-confinement — the W is massive but not confined in the quark sense. Its self-coupling g₂₂ is instead fixed by the **cross-sector back-reaction**: the requirement that the d=2 vacuum amplitude is consistent with the d=3 and d=4 quark sector structures at the seed level.
 
 **The derivation:**
 
-**Step 1.** The positive Dirac eigenvalue λ_{l=3} = 7/2 on S³ has multiplicity M₃ = (3+1)(3+2) = 20 = S(n_s,3) (Theorem S1, Part 8 §60b). Of these 20 eigenstates, n_u = 3 are already accounted for by the up-quark sector boundary (Theorem S2, Part 8 §60b). The remaining
+**Step 1.** The positive Dirac eigenvalue λ_{l=3} = 7/2 on S³ has multiplicity M₃ = (3+1)(3+2) = 20 = S(n_s,3) (Theorem S1, Part 8 §5). Of these 20 eigenstates, n_u = 3 are already accounted for by the up-quark sector boundary (Theorem S2, Part 8 §5). The remaining
 
 ```
 α = M₃^{S³} − n_u  =  S(n_s,3) − n_u  =  20 − 3  =  17
@@ -688,7 +688,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ = 1/n_s from seed (shared with d=6) | ✅ (m_scale_10 = m_scale_6) |
-| 2 | g₂₂ = (M₃^{S³}−n_u)² × β/2 = 722.5  [Theorem S3, Part 8 §60b] | ✅ |
+| 2 | g₂₂ = (M₃^{S³}−n_u)² × β/2 = 722.5  [Theorem S3, Part 8 §5] | ✅ |
 | 5 | g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ from Hopf fiber universality | ✅ fully closed; m_scale_5 derived (§9c) |
 
 ---

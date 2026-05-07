@@ -22,11 +22,11 @@ where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite hidden space $\Xi
 
 The Standard Model contains 19 free parameters, including six fermion masses spanning five orders of magnitude, three CKM angles, and the electroweak mixing angle. Despite extraordinary experimental precision, no principle relates these parameters from first principles. This paper asks: is there a spectral interpretation of particle masses in which every mass equals a combinatorial integer (a mode count) multiplied by a sector-dependent energy scale, where the integers are forced by a topological uniqueness condition rather than chosen to match observations?
 
-We show this interpretation exists, is unique, and is grounded in the Dirac spectra of compact manifolds. The framework produces quantitative predictions for all 13 measured particle masses, the electroweak sector, CKM observables, and — new in this work — the absolute masses of all three neutrinos, from two inputs: the integer $n_s = 4$ and the electron mass $m_e$.
+We show this interpretation exists, is unique, and is grounded in the Dirac spectra of infinite-extent sector manifolds with harmonic potential wells (the Agmon-localized modes of the sector Dirac-Harmonic operator). The framework produces quantitative predictions for all 13 measured particle masses, the electroweak sector, CKM observables, and — new in this work — the absolute masses of all three neutrinos, from two inputs: the integer $n_s = 4$ and the electron mass $m_e$.
 
 ### 1.1 What IDWT Is and Is Not
 
-IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The compact sector manifolds $\Xi_d$ are not literal extra dimensions accessible to gravitons or KK excitations. They are the configuration spaces of the hidden internal degrees of freedom of the master wavefunction $\Psi_\infty$ — analogous to the way spin is an internal degree of freedom of the Dirac spinor, not a geometrically compact extra dimension. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the 4D metric — purely geometric, with no graviton propagation into the hidden sectors. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
+IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The sector manifolds $\Xi_d$ are infinite Riemannian spaces — not compact extra dimensions, not accessible to gravitons or KK excitations. They are the configuration spaces of the hidden internal degrees of freedom of the master wavefunction $\Psi_\infty$ — analogous to the way spin is an internal degree of freedom of the Dirac spinor, not a geometrically compact extra dimension. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the 4D metric — purely geometric, with no graviton propagation into the hidden sectors. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
 
 This framework does not employ Higgs fields, Yukawa couplings, or spontaneous symmetry breaking to generate masses. The $W$ and $Z$ masses are confinement masses of the $d=2$ sector — analogous to the $\rho$ meson mass in QCD — not consequences of a Higgs mechanism. The mass formula $m \propto S(n,d)$ holds for all particles simultaneously.
 
@@ -332,7 +332,9 @@ The $\rho$ parameter $\rho = m_W^2/(m_Z^2\cos^2\theta_W) = 1$ exactly — $W$ an
 
 The $Z$–$W$ mode gap $n_Z - n_W = 5 = \beta$ is the same $\beta$ that enters $g_{22}$ (Theorem S3). The W-Z mass ratio and the EW self-coupling share a single spectral origin.
 
-From Section 5.2, $g_2 = 0.65275$. The Higgs vev $v = 2m_W/g_2 = 246.28$ GeV and $G_F = 1/(\sqrt{2}v^2) = 1.16584 \times 10^{-5}$ GeV$^{-2}$.
+From Section 5.2, $g_2 = 0.65275$ and $m_W = m_{\text{scale},2}\times S(76,2) = 80379$ MeV. Both are independently derived. The Fermi constant follows from the $W$ propagator at $q^2 \ll m_W^2$:
+$$G_F = \frac{g_2^2}{4\sqrt{2}\,m_W^2} = 1.16584\times10^{-5}\text{ GeV}^{-2}\quad (\text{PDG: }1.16638\times10^{-5},\;-0.047\%).$$
+No Higgs VEV enters — $g_2$ and $m_W$ have independent spectral origins.
 
 | EW quantity | IDWT | PDG | Error |
 |---|---|---|---|
@@ -355,7 +357,7 @@ The bare value $1/\sqrt{S(n_s,3)} = 1/\sqrt{20}$ comes from the ratio of $d=3$ m
 
 $$|V_{cb}| = \sqrt{\frac{S(n_u,4)}{S(n_c,4)}} = \sqrt{\frac{15}{8855}} = 0.04116, \qquad A_{\rm Wolf} = |V_{cb}| \times S(n_s,3) = 0.82315.$$
 
-**CKM unitarity.** At tree level: $|V_{ud}|^2 + |V_{us}|^2 + |V_{ub}|^2 = 1.000013$ — exact to 0.001\%. The reported "+5.5$\sigma$ CKM unitarity tension" in the literature is in the nuclear-QED-corrected extraction of $|V_{ud}|$ from superallowed $\beta$ decay, not in the bare coupling. IDWT predicts the bare coupling; the nuclear radiative correction $\delta_R \approx 0.024$ is external nuclear physics.
+**CKM unitarity.** At tree level: $|V_{ud}|^2 + |V_{us}|^2 + |V_{ub}|^2 = 1$ exactly — since $|V_{ud}|=\sqrt{1-|V_{us}|^2}$ and $|V_{ub}|=0$ at tree level. The reported "+5.5$\sigma$ CKM unitarity tension" in the literature is in the nuclear-QED-corrected extraction of $|V_{ud}|$ from superallowed $\beta$ decay, not in the bare coupling. IDWT predicts the bare coupling; the nuclear radiative correction $\delta_R \approx 0.024$ is external nuclear physics.
 
 | Observable | IDWT | PDG | Tension |
 |---|---|---|---|
@@ -442,12 +444,12 @@ IDWT is distinctive in providing: (a) parameter-free masses for all 13 particles
 ## 15. Open Items
 
 1. **CP-violating phase $\delta$.** Requires loop-level computation of the Hopf Chern-Simons integral.
-2. **PMNS mixing angles.** Tree-level IDWT predicts an identity PMNS matrix; large mixing must arise from IR-enhanced loop corrections (near-zero-mass $d=5$ modes). Loop integrals not yet computed.
+2. **PMNS mixing angles.** ~~Open.~~ Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 0.561, $-0.36\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires Berry phase integral).
 3. **$\Delta m^2_{31}$ discrepancy $-7.7\%$.** Structural to $n_{\nu_3} = 22$; a Dyson-type correction analogous to the $\tau$ resummation is expected but not yet derived.
-4. **$g_1$ residual $-1.95\%$.** Consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$; analytic computation in progress.
+4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.
 6. **Hierarchy $M_\infty \gg m_e$.** The 26-order ratio is not yet derived from the sector geometry.
-7. **Gravity coupling.** $G_{\rm eff}$ is derived in terms of $M_\infty$ but $M_\infty$ itself is not yet fixed from the sector structure.
+7. **Gravity coupling.** $G_{\rm eff}$ is derived in terms of $M_\infty$ but $M_\infty$ itself is not yet fixed from the sector structure. The spectral action gives $\sqrt{\operatorname{Tr}(D^2)}=248.3$ GeV $\approx v_{\rm Higgs}$ ($+0.85\%$), confirming the IDWT Dirac operator reproduces the SM electroweak scale.
 
 ---
 
@@ -476,7 +478,7 @@ All results from $n_s = 4$ and $m_e$ alone.
 | **Dyson** | $1/1680=1/(n_s n_u(n_s+n_u)S(n_s,3))$ | $d=6\to d=10$ |
 | **$\sum m_\nu$** | $59.00$ meV (no oscillation data) | §10 |
 | **$m_{\beta\beta}$** | $0$ (exact, Bott periodicity on $S^5$) | §10 |
-| **CKM unitarity** | $\|V_{ud}\|^2+\|V_{us}\|^2+\|V_{ub}\|^2=1.000013$ | §9 |
+| **CKM unitarity** | $|V_{ud}|^2+|V_{us}|^2+|V_{ub}|^2=1$ (exact) | §9 |
 
 ---
 

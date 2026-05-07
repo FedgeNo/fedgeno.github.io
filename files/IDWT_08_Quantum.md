@@ -4,7 +4,7 @@
 
 ---
 
-## 58. Lorentz Covariance ✅
+## 1. Lorentz Covariance ✅
 
 The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n. Their count is S(n,d) = C(n+d−1,d) — the dimension of Sym^n(ℝ^d). This is a theorem of algebraic geometry, not a postulate.
 
@@ -12,13 +12,13 @@ The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a
 - □_x φ + m²_eff φ = 0 is Lorentz-covariant ✅
 - The projection ψ_obs(r,t) = Ψ∞(r, ξ⁰, t) is Lorentz-covariant: restriction to a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates ✅
 - S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate ✅
-- Fermion spin-½ from the KK Dirac operator on M_∞ — see §59 ✅
+- Fermion spin-½ from the KK Dirac operator on M_∞ — see §2 ✅
 
 The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the KK reduction; corrections couple modes.
 
 ---
 
-## 59. Hidden-Sector Quantum Numbers ✅
+## 2. Hidden-Sector Quantum Numbers ✅
 
 Ψ∞ is a Dirac spinor field. The KK separation on M_∞ = ℝ^{3,1} × Ξ_d gives:
 
@@ -35,7 +35,7 @@ D_{Ξ} χ = m_eff χ              [mass = Dirac eigenvalue on Ξ_d]
 
 Spin-½ of all quarks and leptons follows from the spinor bundle on M_∞. The spinor structure determines which quantum numbers attach to each mode; the mode frequencies themselves are determined by the combinatorial structure S(n,d) independently of spin.
 
-### 59.1 Majorana/Weyl Classification by Sector
+### 2.1 Majorana/Weyl Classification by Sector
 
 The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8 determines which spinor types exist in each sector:
 
@@ -46,7 +46,7 @@ The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8
 | 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
 | **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no Majorana mass → neutrinos are Dirac** |
 | 6 | 6 | ✓ | ✗ | ✗ | 8 | Weyl: Kähler γ₅ splits lepton doublets |
-| 10 | 2 | ✓ | ✓ | ✓ | 32 | Maj-Weyl: 16 of SO(10) = one SM generation |
+| 10 | 2 | ✓ | ✓ | ✓ | 32 | Maj-Weyl; Spin(10) weight lattice gives tau hypercharges (cross-check) |
 
 Total hidden-space spinor: 2×2×4×4×8×32 = 2¹⁴ = 16,384 components.
 
@@ -68,7 +68,7 @@ Total hidden-space spinor: 2×2×4×4×8×32 = 2¹⁴ = 16,384 components.
 
 The tau, ν_τ, b quark, and t quark — all in the d=10 sector — are components of one SO(10) multiplet. Their hypercharges Y(τ)=−1, Y(ν_τ)=0, Y(t)=+2/3, Y(b)=−1/3 follow from the SO(10) weight lattice, not from separate SM assignment.
 
-### 59.2 Spin Structure by Sector
+### 2.2 Spin Structure by Sector
 
 | Sector | Geometry | Spin structure | Notes |
 |--------|----------|---------------|-------|
@@ -79,7 +79,7 @@ The tau, ν_τ, b quark, and t quark — all in the d=10 sector — are componen
 | d=6 | CP³ | Spin | |
 | d=10 | CP⁵ | Spin | CP^n is spin when n is odd (n=5) |
 
-**CP² and colour:** CP² requires spin^c rather than spin. The spin^c connection carries an auxiliary U(1) bundle, geometrically identified with U(1)_Y (hypercharge). Every eigenspace of D^c_{CP²} is an SU(3) representation from the CP² isometry, providing the geometric basis for colour charge. The spin^c U(1) bundle would need to be promoted to SU(3) gauge symmetry — a genuine open problem, but the colour states themselves emerge from the Dirac index (§61).
+**CP² and colour:** CP² requires spin^c rather than spin. The spin^c connection carries an auxiliary U(1) bundle, geometrically identified with U(1)_Y (hypercharge). Every eigenspace of D^c_{CP²} is an SU(3) representation from the CP² isometry, providing the geometric basis for colour charge. The spin^c U(1) bundle would need to be promoted to SU(3) gauge symmetry — a genuine open problem, but the colour states themselves emerge from the Dirac index (§8).
 
 **Theorem (CP² spin^c forces left-chiral quarks):** Let $D^c_{\mathbb{CP}^2}$ be the canonical spin^c Dirac operator on $\mathbb{CP}^2$. Twisting by the line bundle $\mathcal{O}(k)$ (Hopf bundle raised to the $k$-th power), the Atiyah-Singer index theorem gives
 
@@ -105,7 +105,7 @@ For $k = -1$ (anti-fundamental, $\mathcal{O}(-1)$): $\mathrm{ind} = \binom{1}{2}
 
 The left-right asymmetry of the SM quark sector is therefore a direct consequence of the spin^c structure on the $d=4$ sector: $\mathbb{CP}^2$ is not a spin manifold ($w_2 \neq 0$), forcing the spin^c choice, and the index of $D^c \otimes \mathcal{O}(1)$ fixes exactly 3 left-handed quark colours without any additional assumption. Note also $S(2,2) = 3 = N_c$, connecting this index to the d=2 mode count — the same 3 that appears throughout the sector coupling constants.
 
-### 59.3 Chirality from Kähler γ₅
+### 2.3 Chirality from Kähler γ₅
 
 The CP^n sectors carry natural chirality operators from their Kähler forms (full derivation in Part 3 §7). The Kähler γ₅ splits each sector spinor into holomorphic (LEFT) and anti-holomorphic (RIGHT) components. W bosons couple only to the holomorphic half — the chiral weak interaction is a geometric consequence, not a postulate.
 
@@ -116,7 +116,7 @@ d=6 (CP³): 8-spinor = 4L + 4R  →  (ν_L, e_L, ν_μL, μ_L) + right-handed pa
 
 The non-Kähler sectors (d=3, d=5) have no chirality operator and are intrinsically vector-like — consistent with neutrinos requiring a full Dirac spinor in d=5.
 
-### 59.4 Dirac Index per Sector
+### 2.4 Dirac Index per Sector
 
 The net count of left-chiral zero modes (the holomorphic Euler characteristic) agrees with the SM fermion count:
 
@@ -134,9 +134,9 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 ---
 
-## 60. Spectral Counting Theorem ✅
+## 3. Spectral Counting Theorem ✅
 
-### 60.1 Spectral Independence
+### 3.1 Spectral Independence
 
 The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: no particle's S(n,d) value is a linear combination (with rational coefficients) of other occupied S values within the same sector, and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the eigenmode selection rule.
 
@@ -144,7 +144,7 @@ This was verified computationally for all pairwise and triple combinations. The 
 
 **Near-violations note:** S(n_top,4)/S(n_c,4) = 137.26... ≈ 1/α (fine structure constant). This is a 0.16% coincidence — noted but not used as a derivation.
 
-### 60.2 S(n,d) as the Sector Spectral Counting Function ✅
+### 3.2 S(n,d) as the Sector Spectral Counting Function ✅
 
 **Theorem (Hockey-Stick Count).** Let H_d = −Δ_d + λ_d r² be the d-dimensional isotropic harmonic oscillator. The k-th energy level has multiplicity:
 
@@ -184,7 +184,7 @@ where the last equality is Pascal's rule. □
 
 Agreement is exact in all cases — this is a combinatorial identity, not an approximation.
 
-### 60.3 Physical Interpretation
+### 3.3 Physical Interpretation
 
 S(n,d) is the total number of quantum states of the d-dimensional sector harmonic oscillator at all excitation levels below n. The IDWT mass formula:
 
@@ -194,12 +194,12 @@ m(n,d) = m_scale_d × S(n,d) = m_scale_d × N_d(n−1)
 
 states that the mass of a particle equals m_scale_d times the cumulative count of hidden sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of hidden microstates" is exactly this: m/m_scale_d = N_d(n−1).
 
-### 60.4 Connection to the Dirac Operator D_Ξ
+### 3.4 Connection to the Dirac Operator D_Ξ
 
-For macroscopic sector radius R_d, the Lichnerowicz curvature correction to D_Ξ² vanishes:
+For macroscopic sector extent (Agmon localization length $L_d$), the Lichnerowicz curvature correction to D_Ξ² vanishes:
 
 ```
-D_Ξ² = H_d + R/4,    R/4 = m(m+1)/(4R_d²) → 0   (d = 2m, CP^m sectors)
+D_Ξ² = H_d + R/4,    R/4 = m(m+1)/(4L_d²) → 0   (d = 2m, CP^m sectors)
 ```
 
 Therefore D_Ξ² ≈ H_d exactly for macroscopic Ξ. The Dirac eigenvalues are ±√E_k where E_k = (2k+d)√λ_d, with multiplicity μ_d(k) = C(k+d−1,d−1).
@@ -216,9 +216,9 @@ where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator ener
 
 ---
 
-## 60.5 General Odd-Sphere Spectral Theorem ✅
+## 4. General Odd-Sphere Spectral Theorem ✅
 
-Theorem S1 (§60b) established $S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1)$ for the $d=3$ quark sector. The result is not specific to $S^3$.
+Theorem S1 (§3b) established $S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1)$ for the $d=3$ quark sector. The result is not specific to $S^3$.
 
 **Theorem (General Odd-Sphere Weyl Law).** For all $k \geq 1$ and all $n \geq 1$:
 
@@ -261,13 +261,13 @@ Down-type quark masses and neutrino masses obey the identical spectral law — m
 
 ---
 
-## 60b. Spectral Numerical Theorems ✅
+## 5. Spectral Numerical Theorems ✅
 
 Three targeted spectral validations, each staying entirely in the eigenvalue domain (no wavefunctions). Results confirmed numerically to machine precision.
 
 ---
 
-### Theorem S1 — S³ Dirac Spectrum Grounds S(n,3) ✅
+### 5.1 Theorem S1 — S³ Dirac Spectrum Grounds S(n,3) ✅
 
 **Setup.** The Dirac operator D_{S³} on the unit 3-sphere has eigenvalues ±(l+3/2) for l = 0, 1, 2, …, with multiplicity M_l = (l+1)(l+2) at each level. This is a standard result from the representation theory of Spin(4) ≅ SU(2)×SU(2).
 
@@ -296,7 +296,7 @@ Three targeted spectral validations, each staying entirely in the eigenvalue dom
 
 ---
 
-### Theorem S2 — Cross-Sector Frequency Ratio m_u/m_d ✅
+### 5.2 Theorem S2 — Cross-Sector Frequency Ratio m_u/m_d ✅
 
 **Theorem.** The ratio of the lightest d=4 quark frequency to the lightest d=3 quark frequency equals √(g44/g33) exactly:
 
@@ -329,7 +329,7 @@ m_u/m_d = 0.46291005
 
 ---
 
-### Theorem S3 — g22 is a Dirac Multiplicity Product ✅
+### 5.3 Theorem S3 — g22 is a Dirac Multiplicity Product ✅
 
 **Theorem.** The d=2 EW self-coupling g22 = 722.5 equals the product of Dirac eigenvalue multiplicities at the seed level across the d=3 and d=4 sectors, divided by the two-body kernel symmetry factor:
 
@@ -414,7 +414,7 @@ Mesons and baryons are colour-neutral ✅
 
 ---
 
-## 52. The Master IDWT Equation ✅
+## 6. The Master IDWT Equation ✅
 
 The full governing equation:
 
@@ -430,34 +430,34 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 
 - **Particle spectrum:** Local minima after projection select exactly the {1,4} seeds and the full observed set (co-fixed-point uniqueness proved — Part 1 §5)
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)
-- **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§61)
-- **Meson masses:** Binding shifts from kernel overlap integrals (§63)
-- **Nucleon properties:** μ_p, μ_n, g_A from hidden l=1 spin-orbit admixture (§66 below)
+- **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
+- **Meson masses:** Binding shifts from kernel overlap integrals (§12)
+- **Nucleon properties:** μ_p, μ_n, g_A from hidden l=1 spin-orbit admixture (§10 below)
 - **QCD running:** β(α_s) from vacuum polarization of unoccupied modes
-- **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§64)
+- **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§13)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
 
 All absolute scales are outputs of the same kernel + unoccupied-mode sums.
 
 ---
 
-## 53. Cabibbo Angle ✅
+## 7. Cabibbo Angle ✅
 
 See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from seed uniqueness, no free parameters. The structural coupling g_{3,4}(n_s, n_c) = n_τ = 23 gives an independent route to the tau index from the same algebra.
 
 ---
 
-## 61b. SU(3) Status — Automorphism ✅
+## 8. SU(3) Status — Automorphism ✅
 
 **Aut(ℂ³, Ω) = SU(3) — verified.** The holomorphic automorphisms of ℂ³ preserving a volume form are exactly SU(3). Combined with the CP² identification of the d=4 sector, this gives SU(3) as the natural symmetry group.
 
-**Critical issue:** The d=4 sector geometry is CP² = SU(3)/U(2), not S³. The automorphism group of CP² with Fubini-Study metric is SU(3)/ℤ₃. The sector realises SU(3) as an isometry, not as an internal gauge symmetry. The step from geometric SU(3) isometry to SU(3) gauge invariance of the strong force requires the spin^c connection identification (§59 above) — a genuine open problem.
+**Critical issue:** The d=4 sector geometry is CP² = SU(3)/U(2), not S³. The automorphism group of CP² with Fubini-Study metric is SU(3)/ℤ₃. The sector realises SU(3) as an isometry, not as an internal gauge symmetry. The step from geometric SU(3) isometry to SU(3) gauge invariance of the strong force requires the spin^c connection identification (§2 above) — a genuine open problem.
 
 **Precise status:** SU(3) as a group acting on d=4 sector modes is established geometrically. SU(3) as a local gauge symmetry of the 3+1D QCD action is motivated but not fully derived.
 
 ---
 
-## 65. Hilbert Space Rigour ✅
+## 9. Hilbert Space Rigour ✅
 
 ### The Weighted Hilbert Space
 
@@ -515,7 +515,7 @@ Physical meaning: physical states remain physical under time evolution.
 
 ---
 
-## 66. Baryon Magnetic Moments and Axial Coupling 🔶
+## 10. Baryon Magnetic Moments and Axial Coupling 🔶
 
 All three nucleon static properties follow from the same kernel that produces confinement, vector mesons, and mass scales — no additional inputs.
 
@@ -544,9 +544,9 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 ---
 
-## 62. Proton Binding and N-P Mass Difference 🔶
+## 11. Proton Binding and N-P Mass Difference 🔶
 
-**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§61) — the kernel contributes zero extra hidden energy at leading order.
+**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§8) — the kernel contributes zero extra hidden energy at leading order.
 
 **Proton mass estimate:**
 - Current quark masses: 2m_u + m_d ≈ 2×2.18 + 4.70 = 9.06 MeV  (IDWT predictions)
@@ -562,7 +562,7 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 ---
 
-## 63. Pion, Kaon, and Vector Meson Masses 🔶
+## 12. Pion, Kaon, and Vector Meson Masses 🔶
 
 Mesons are colour-singlet qq̄ bound states. Their mass arises from current quarks plus kernel binding:
 ```
@@ -580,7 +580,7 @@ The kernel naturally produces m_π << m_K because the strange quark (n=4) increa
 
 ---
 
-## 64. Cosmological Constant from Unoccupied-Mode Vacuum Energy 🔶
+## 13. Cosmological Constant from Unoccupied-Mode Vacuum Energy 🔶
 
 **Mechanism:** Dominant vacuum energy comes from unoccupied low-n modes across all sectors. These have:
 - Low S(n,d) values (n=2,3,5,... gaps in d=3 and analogous gaps elsewhere)

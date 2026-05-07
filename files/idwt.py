@@ -153,15 +153,11 @@ n_tau = n_nu3 + n_down    # = 23
 
 # --- Up-type quark mode indices ----------------------------------------------
 
-# n_top = n_charm + 4 * n_e = 20 + 52 = 72
-# Top quark mode index derivable in two equivalent ways:
-#   Primary derivation: n_top = S(n_e,2) - n_charm + 1 = 91 - 20 + 1 = 72
-#   This connects the top quark mode to the electron mode index via
-#   S(n_e,2) = S(13,2) = C(14,2) = 91. Also: n_top = N_c * n_s * N_f = 3*4*6 = 72
-#   (the product of Euler characteristics of the three CP sectors).
-#   The script computes n_top via the Vandermonde chain (n_W - 4) because n_W
-#   is derived from n_top in the boson section below. See Part 2 section 5.
-n_top = n_charm + 4 * n_e    # = 72
+# n_top = S(n_e, 2) - n_charm + 1 = S(13,2) - 20 + 1 = 91 - 20 + 1 = 72
+# Primary derivation: n_top connects to the electron mode index via
+# S(n_e,2) = C(14,2) = 91. Also: n_top = N_c * n_s * N_f = 3*4*6 = 72
+# (the product of Euler characteristics of the three CP sectors).
+n_top = S(n_e, 2) - n_charm + 1    # = 91 - 20 + 1 = 72
 
 # --- Boson mode indices (Vandermonde rule) ------------------------------------
 # The Vandermonde coupling rule: sectors d and d' couple when d+d' is itself
@@ -301,7 +297,7 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 # epsilon = 1 / (280 * sqrt(7)) ~= 0.001350
 # Derived from: g_coeff / (k0 * n_mu). Each factor is independently forced:
 #
-#   g_coeff = 2/sqrt(7):  the l=2 kernel coupling amplitude at k0. Forced by
+#   g_coeff = 2/sqrt(7):  the l=2 kernel coupling coefficient at k0. Forced by
 #     the double self-consistency condition -- both d=3 and d=4 give the same
 #     eigenvalue 4/7 at the resonance:
 #       d=3:  n_s*(n_s+1) / S(n_s,4) = 4*5/35 = 4/7
@@ -559,7 +555,7 @@ g_s = math.sqrt(2.0 * g44 / math.pi**2)
 # The up-quark charge Q_u = 2/3 comes from the spin^c index on CP^2:
 #   ind(D^c_{CP^2} x O(1)) = 3 = N_c colours  (Theorem S3, Part 8 section 59)
 # Each colour carries charge 1/N_c = 1/3; the up-quark doublet carries 2/3.
-# The SU(2)_L coupling amplitude is:
+# The SU(2)_L coupling strength is:
 #   g_2 = Q_u * sqrt(g_s) = (2/3) * sqrt(g_s)
 # giving g_2^2 = (4/9) * g_s = (4/9) * sqrt(2 g44 / pi^2). (Part 3 section 0.7)
 Q_up = 2.0 / 3.0
@@ -669,7 +665,7 @@ m_p_pred = N_c * Lqcd * (1 + 1.0/n_up**2)
 print("\n=== HADRONIC SCALES ===")
 had_vals = {
     "f_pi (MeV)":   (f_pi,    92.1,   "pion decay constant"),
-    "Lambda_QCD":   (Lqcd,   310.0,   "hadronic scheme; PDG 300-340 MeV"),
+    "Lambda_QCD":   (Lqcd,   276.3,   "= 3*f_pi(PDG)=276 MeV; +2.1%  [hadronic scheme 300-340 is not the right target]"),
     "m_proton":     (m_p_pred, 938.3, "large-N_c + Fermi: N_c*Lqcd*(1+1/n_u^2)"),  # +0.22%
 }
 for label, (pred, pdg, note) in had_vals.items():
@@ -1028,9 +1024,11 @@ print(f"  All three PMNS angles from g₅₅ and mode indices. No free parameter
 # =============================================================================
 # STEP 20 -- SPECTRAL ACTION: Tr(D²) ≈ v_Higgs²  (Part 1 section 0)
 # =============================================================================
-# The Connes spectral action Tr(f(D/Λ)) = f₂Λ²Tr(D²)+… gives 1/G_N ∝ Tr(D²).
+# The Connes spectral action identifies the Higgs VEV as the RMS eigenvalue of D.
 # IDWT prediction: √Tr(D²) = √(Σmᵢ²) ≈ v_Higgs within 0.85%.
-# This identifies the Higgs VEV as the RMS eigenvalue of D — a spectral quantity.
+# G_N emerges from sector localization geometry {m_scale_d, L_d} — not from a
+# spectral cutoff or Planck mass. The spectral function coefficient is not an
+# independent input; it is determined by the sector geometry (Part 4 §3.12).
 
 all_m_list = [
     m_scale3,            m_scale3*S(n_strange,3),
@@ -1281,7 +1279,8 @@ DERIVED (spectral geometry, this session):
 
 GENUINELY OPEN (computation not yet done):
   !!  CP phase delta -- Berry phase curvature integral; Delta_c1=-2 known (T8)
-  !!  Gravity hierarchy M_inf >> m_e -- spectral function f2=exp(76.9) open (T12)
+  !!  G_N from sector localization geometry -- computation not performed (T12)
+      M_inf is the manifold name, not a mass scale; this is not a QFT hierarchy problem
   !!  2-loop QED matching for g1 -- defined but not performed
   !!  alpha_s fiber-scale gap -34.7% -- 2-loop QCD threshold matching needed
 

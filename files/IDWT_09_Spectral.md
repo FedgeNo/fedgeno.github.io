@@ -236,18 +236,20 @@ PDG: $v_{\rm Higgs}^{\rm PDG}=246.22$ GeV. Agreement $+0.85\%$. The residual is 
 
 ## T8. The Berry Phase Theorem (CP Violation) 🔶
 
-**Theorem T8.** The CP-violating phase $\delta_{CP}$ is the Berry phase of the lepton sector connection around the loop $d=5\to6\to10\to5$.
+**Theorem T8.** The CP-violating phase $\delta_{CP}$ is the holonomy of the Fubini-Study connection on the lepton sector bundle around the loop $d=5\to6\to10\to5$.
 
-**At tree level.** Vacuum at $\xi^0_d=0$; Berry phase vanishes:
-$$\delta_{CP}^{(\rm tree)} = \oint_{\rm loop} A_{FS}\bigg|_{r=0} = 0.$$
+**At tree level.** Vacuum at $\xi^0_d=0$; holonomy vanishes:
+$$\delta_{CP}^{(\rm tree)} = 0.$$
 
-**Topological source.** Sectors $d=6$ ($\mathbb{CP}^3$, $c_1=4$) and $d=10$ ($\mathbb{CP}^5$, $c_1=6$). The loop holonomy at effective displacement $r_{\rm eff}$ is
+**Topological source.** Sectors $d=6$ ($\mathbb{CP}^3$, $c_1=4$) and $d=10$ ($\mathbb{CP}^5$, $c_1=6$) carry different first Chern classes. The Chern-number difference
 
-$$\boxed{\gamma_{\rm Berry} = \bigl(c_1(\mathbb{CP}^3) - c_1(\mathbb{CP}^5)\bigr)\pi r_{\rm eff}^2 = -2\pi r_{\rm eff}^2.}$$
+$$\boxed{\Delta c_1 = c_1(\mathbb{CP}^3) - c_1(\mathbb{CP}^5) = 4 - 6 = -2}$$
 
-The Chern-number difference $\Delta c_1=-2$ is the topological integer sourcing CP violation. It is non-zero because the two complex lepton sectors sit at different levels of the Hopf chain (T3 Rule B selects $n=3$ and $n=5$, with $\chi(\mathbb{CP}^3)=4\neq6=\chi(\mathbb{CP}^5)$).
+is the topological integer sourcing CP violation. It is non-zero because the two CP lepton sectors sit at different levels of the Hopf chain (T3 Rule B selects $n=3$ and $n=5$). This is a purely geometric fact, independent of any normalisation of $\Psi_\infty$.
 
-**Status.** $\delta_{CP}^{(\rm tree)}=0$ exact. Loop-level value requires the curvature integral over the sector bundle — open.
+**What the computation requires.** The actual value of $\delta_{CP}$ is the integral of the Fubini-Study curvature 2-form $\omega_{\rm FS}$ around the effective area swept by the loop in **sector coupling parameter space** — the space of coupling constants $g_{dd'}$, not in $|\Psi_\infty|$ amplitude space. The absolute amplitude of $\Psi_\infty$ is not an observable (only $|\Psi_\infty|^2$ integrated over regions is). The curvature integral must therefore be expressed entirely in terms of the dimensionless coupling constants $g_{5,6}$, $g_{5,10}$, and the Fubini-Study geometry of $\mathbb{CP}^3$ and $\mathbb{CP}^5$. This computation has not been performed.
+
+**Status.** $\delta_{CP}^{(\rm tree)}=0$ exact; $\Delta c_1=-2$ identified; curvature integral over coupling parameter space open.
 
 ---
 

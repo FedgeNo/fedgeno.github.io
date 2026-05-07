@@ -18,16 +18,16 @@ $$\text{Tr}(f(D/\Lambda)) = f_2\Lambda^2\,\text{Tr}(D^2) + \cdots = \frac{1}{G_N
 **Verification.** Computing $\text{Tr}(D^2) = \sum_i m_i^2$ from the 15 IDWT particles (top quark 50.5%, Higgs 25.5%, $Z$ 13.5%, $W$ 10.5%):
 $$\sqrt{\text{Tr}(D^2)} = 248.3\text{ GeV} \approx v_{\text{Higgs}} = 246.2\text{ GeV} \quad (+0.85\%).$$
 
-The Higgs VEV is a **spectral quantity** — the RMS eigenvalue of $D$ — not an independent input. The 0.85% residual is the same spectral function normalization that produces the $\sin^2\theta_W$ and $g_1$ residuals; it is not a separate error.
+The Higgs VEV is a **spectral quantity** — the RMS eigenvalue of $D$ — not an independent input. The 0.85% residual in $\sqrt{\text{Tr}(D^2)}$ vs $v_{\text{Higgs}}$ reflects the small prediction errors in the mass spectrum (dominated by the +0.72% top quark offset from the GTC); it is not an independent error.
 
 **Open computations reframed as spectral geometry:**
 
 | Open item | Spectral geometry statement |
 |---|---|
-| Gravity hierarchy | Spectral gap of $D$ on full $M_\infty$ vs ground state eigenvalue — reframed: G_N from sector localization geometry (Part 4 §3.12) |
+| G_N derivation | G_N from sector localization geometry — how concentrated sector energy couples to 4D curvature (Part 4 §3.12) |
 | PMNS mixing | Holonomy of lepton sector bundle over graph $d=5\to6\to10\to5$ |
 | CP phase | Berry phase around the lepton sector loop |
-| $\sin^2\theta_W$ residual | Spectral function normalisation $f_2 \neq 1$ exactly |
+| $\sin^2\theta_W$ residual | Mode index ratio $S(76,2)/S(81,2)$ gives $\sin^2\theta_W=0.2237$ exactly; +0.37% from PDG on-shell value is within known 1-loop EW radiative corrections |
 
 The laser, quasicrystal, Aubry-André, and atomic analogies are all instances of the same mathematical fact: the spectrum of a self-adjoint operator with a filtering condition. IDWT names that operator: $D$ on $M_\infty$. The SM is its spectral data.
 
@@ -70,7 +70,13 @@ Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of
 Π: Ψ∞(r, ξ, t)  →  ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
 
-This is a restriction map — it picks out one hypersurface from the full infinite-dimensional field at fixed ξ⁰.
+This is a restriction map — it picks out one hypersurface from the full infinite-dimensional field at fixed ξ⁰. **The projection is the one place in IDWT where amplitude computation occurs.** Evaluating Ψ∞ at a specific address ξ⁰ gives a definite amplitude for each mode at that point.
+
+In mode space, Π acts as a **lowpass filter**: the amplitude of sector-d mode n at the observer address scales as
+
+$$|\chi_n(\xi^0)| \propto \frac{1}{\sqrt{S(n,d)}}$$
+
+from the L² normalisation of the sector mode functions. Higher mode indices (heavier particles) are progressively suppressed at ξ⁰. This is the physical mechanism behind the Stage-1 observability filter (Part 7) and the intra-sector mixing ratios (Part 3 §11). Every other IDWT prediction — masses, coupling constants, PMNS angles, the CP phase — involves ratios or eigenvalues of the sector geometry and does not require knowing the global normalisation of Ψ∞.
 
 ### 2.3 The Born Rule Applied to Ψ∞
 
@@ -386,7 +392,7 @@ $$n_W = S(n_e, 2) - n_{\nu_2} = 76, \quad n_Z = n_W + \beta = 81 \;\; [\beta = S
 
 $$n_H = n_u + n_c + n_{\rm top} = 95$$
 
-2. **Spectral independence.** No three elements $i, j, k \in \Sigma$ satisfy $S(i, d_i) + S(j, d_j) = S(k, d_k)$, where $d_i$ is the sector of mode $i$. The 14 occupied $S$-values are: $\{1, 15, 20, 1540, 2002, 2926, 3321, 4560, 11628, 18564, 65780, 1215450, 3838380, 64512240\}$. All 91 unordered pairs were checked; there are **zero violations**.
+2. **Spectral independence.** No three elements $i, j, k \in \Sigma$ satisfy $S(i, d_i) + S(j, d_j) = S(k, d_k)$, where $d_i$ is the sector of mode $i$. The 14 occupied $S$-values are: $\{1, 15, 20, 2002, 2926, 3321, 4560, 8855, 11628, 18564, 65780, 1215450, 3838380, 64512240\}$. All 91 unordered pairs were checked; there are **zero violations**.
 
 3. **Seed uniqueness.** The single non-trivial input $n_s = 4$ is the unique positive integer solving $S(n_s, 4) = n_\mu$, i.e.\ $\binom{n_s+3}{4} = 35$. This has exactly one solution.
 
@@ -396,7 +402,7 @@ $$n_H = n_u + n_c + n_{\rm top} = 95$$
 
 - *Condition 1* then fixes every element of $\Sigma$ deterministically — the chain above is algebraically closed with no free choices. Exhaustive search over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$ confirms that only $(1,4)$ produces a set with Jaccard similarity $1.0$ against $\Sigma$; the next-closest pair gives $0.375$.
 
-- *Condition 2* is verified computationally (zero violations). The asymptotic argument is: $S(\tau) = 64{,}512{,}240$ and $\sum_{\rm other} S_i = 5{,}164{,}187$, with cross-sector gaps (e.g.\ max $d=3$ simplex value $= 1540$ vs.\ min $d=4$ simplex value $= 15$) growing combinatorially, making accidental sum-equalities impossible for larger seeds. $\square$
+- *Condition 2* is verified computationally (zero violations). The asymptotic argument is: $S(\tau) = 64{,}512{,}240$ and $\sum_{\rm other} S_i = 5{,}171{,}502$, with cross-sector gaps (e.g.\ max $d=3$ simplex value $= 20$ vs.\ min $d=4$ simplex value $= 15$) growing combinatorially, making accidental sum-equalities impossible for larger seeds. $\square$
 
 **Additional algebraic cross-checks** (all consequences of the chain above, each independently verified):
 
@@ -407,10 +413,6 @@ $$n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\math
 $$n_Z - n_W = \beta = S(n_u{-}1,4) = 5 \;\; \text{(same } \beta \text{ as in } g_{22} = \alpha^2\beta/2 \text{)}$$
 
 No mode index is chosen to match a mass. Each is the unique output of an algebraic rule applied to $n_s = 4$.
-
----
-
-
 
 ---
 

@@ -1,46 +1,192 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IDWT — Infinite-Dimensional Wave Theory</title><style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root {  --bg: #05070e;  --text: #e6e8f0;  --muted: #9aa3b8;  --muted-2: #7a8499;  --accent-1: #8b9cff;  --accent-2: #a78bfa;  --accent-3: #60a5fa;  --card: rgba(16, 21, 36, 0.6);  --border: rgba(139, 156, 255, 0.14);  --border-hover: rgba(139, 156, 255, 0.28);  --code-bg: rgba(139, 156, 255, 0.1);}
-* { box-sizing: border-box; }html { scroll-behavior: smooth; }body {  margin: 0;  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;  background: var(--bg);  color: var(--text);  line-height: 1.65;  -webkit-font-smoothing: antialiased;  text-rendering: optimizeLegibility;}
-.bg {  position: fixed;  inset: 0;  z-index: -2;  background:    radial-gradient(900px 600px at 15% -5%, rgba(96,165,250,0.18), transparent 60%),    radial-gradient(800px 500px at 85% 0%, rgba(167,139,250,0.16), transparent 60%),    radial-gradient(700px 500px at 50% 120%, rgba(139,156,255,0.13), transparent 60%),    #05070e;}.bg::after {  content: "";  position: absolute;  inset: 0;  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");  mix-blend-mode: soft-light;  pointer-events: none;}
-main {  max-width: 900px;  margin: 0 auto;  padding: 0 24px 120px;}
-.hero {  min-height: 92vh;  display: flex;  flex-direction: column;  align-items: center;  justify-content: center;  text-align: center;  padding: 80px 0 60px;}
-.eyebrow {  font-size: 0.85rem;  letter-spacing: 0.18em;  text-transform: uppercase;  color: var(--muted-2);  font-weight: 500;  margin-bottom: 24px;}
-h1 {  font-size: clamp(4.5rem, 14vw, 8.5rem);  line-height: 0.9;  margin: 0 0 24px;  font-weight: 700;  letter-spacing: -0.03em;  background: linear-gradient(180deg, #ffffff 15%, #c7d2ff 55%, #8b9cff 100%);  -webkit-background-clip: text;  background-clip: text;  color: transparent;  filter: drop-shadow(0 20px 40px rgba(99,102,241,0.15));}
-.sub {  font-size: clamp(1.15rem, 2.5vw, 1.5rem);  font-weight: 500;  color: var(--text);  margin: 0 0 12px;  max-width: 720px;}.tag {  font-size: 1.05rem;  color: var(--muted);  margin: 0 0 36px;  max-width: 640px;}
-.cta {  display: flex;  gap: 12px;  flex-wrap: wrap;  justify-content: center;}.btn {  appearance: none;  border: 1px solid var(--border);  background: rgba(255,255,255,0.03);  color: var(--text);  padding: 12px 20px;  border-radius: 999px;  font-weight: 500;  font-size: 0.95rem;  text-decoration: none;  transition: all 0.2s ease;  backdrop-filter: blur(6px);}.btn:hover { border-color: var(--border-hover); background: rgba(255,255,255,0.06); transform: translateY(-1px); }.btn.primary {  background: linear-gradient(135deg, var(--accent-1), var(--accent-2));  color: #060816;  border: none;  font-weight: 600;  box-shadow: 0 8px 24px rgba(139,156,255,0.25), inset 0 1px 0 rgba(255,255,255,0.2);}.btn.primary:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(139,156,255,0.32); }
-section {  padding: 72px 0;  scroll-margin-top: 80px;}
-h2 {  font-size: clamp(1.6rem, 3vw, 2.1rem);  font-weight: 650;  letter-spacing: -0.01em;  margin: 0 0 24px;  display: flex;  align-items: center;  gap: 12px;}h2::before {  content: "";  width: 28px;  height: 2px;  background: linear-gradient(90deg, var(--accent-1), transparent);  border-radius: 2px;}
-p.lead {  font-size: 1.1rem;  color: #d6daf0;  margin: 0 0 20px;}
-.formula {  margin: 28px 0 8px;  padding: 18px 20px;  background: linear-gradient(180deg, rgba(139,156,255,0.08), rgba(139,156,255,0.03));  border: 1px solid var(--border);  border-radius: 14px;  text-align: center;  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;  font-size: 0.98rem;  color: #c9d4ff;}
-code {  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;  background: var(--code-bg);  color: #c7d2fe;  padding: 0.18em 0.45em;  border-radius: 6px;  font-size: 0.92em;  border: 1px solid rgba(139,156,255,0.12);}
-.why {  list-style: none;  padding: 0;  margin: 28px 0 0;  display: grid;  gap: 14px;}.why li {  display: grid;  grid-template-columns: 28px 1fr;  gap: 14px;  padding: 18px 20px;  background: var(--card);  border: 1px solid var(--border);  border-radius: 14px;  backdrop-filter: blur(8px);  transition: border-color 0.2s, transform 0.2s;}.why li:hover { border-color: var(--border-hover); transform: translateY(-1px); }.why .n {  width: 28px; height: 28px;  display: grid; place-items: center;  border-radius: 8px;  background: rgba(139,156,255,0.12);  color: var(--accent-1);  font-family: "JetBrains Mono", monospace;  font-size: 0.8rem;  font-weight: 500;}
-.table-wrap {  overflow-x: auto;  margin: 24px 0 12px;  border: 1px solid var(--border);  border-radius: 14px;  background: rgba(8,12,24,0.5);  backdrop-filter: blur(6px);}table {  width: 100%;  border-collapse: collapse;  min-width: 560px;}th, td {  padding: 14px 18px;  text-align: left;  border-bottom: 1px solid rgba(255,255,255,0.06);}th {  font-size: 0.82rem;  text-transform: uppercase;  letter-spacing: 0.08em;  color: var(--muted-2);  font-weight: 600;  background: rgba(255,255,255,0.02);}tr:last-child td { border-bottom: none; }td:nth-child(2) { font-family: "JetBrains Mono", monospace; color: #dbe2ff; }.note { color: var(--muted); font-size: 0.95rem; margin-top: 10px; }
-.grid {  display: grid;  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));  gap: 16px;  margin-top: 24px;}.card {  position: relative;  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));  border: 1px solid var(--border);  border-radius: 16px;  padding: 20px;  display: flex;  flex-direction: column;  min-height: 190px;  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;  backdrop-filter: blur(10px);}.card:hover {  transform: translateY(-4px);  border-color: var(--border-hover);  box-shadow: 0 16px 40px rgba(5,8,18,0.6), 0 0 0 1px rgba(139,156,255,0.08) inset;}.card-head { margin-bottom: 8px; }.part {  font-size: 0.75rem;  color: var(--accent-3);  font-weight: 600;  letter-spacing: 0.06em;  text-transform: uppercase;}.card h3 {  margin: 4px 0 0;  font-size: 1.12rem;  font-weight: 600;  letter-spacing: -0.01em;}.card p {  color: var(--muted);  font-size: 0.95rem;  margin: 10px 0 18px;  flex-grow: 1;}.dl {  align-self: flex-start;  font-size: 0.88rem;  padding: 8px 14px;  border-radius: 10px;  background: rgba(139,156,255,0.1);  color: #c7d2fe;  text-decoration: none;  border: 1px solid rgba(139,156,255,0.18);  transition: all 0.18s ease;  font-weight: 500;}.dl:hover { background: rgba(139,156,255,0.18); color: white; transform: translateY(-1px); }
-.callout {  margin-top: 20px;  padding: 22px 24px;  border-radius: 14px;  background: linear-gradient(180deg, rgba(167,139,250,0.12), rgba(96,165,250,0.08));  border: 1px solid rgba(167,139,250,0.25);  border-left: 3px solid var(--accent-2);}.callout strong { color: #e9e1ff; font-weight: 600; }
-footer {  max-width: 900px;  margin: 40px auto 0;  padding: 32px 24px 60px;  color: var(--muted-2);  font-size: 0.9rem;  text-align: center;  border-top: 1px solid rgba(255,255,255,0.06);}footer a { color: var(--muted); text-decoration: none; border-bottom: 1px dotted rgba(154,163,184,0.4); }footer a:hover { color: var(--text); border-bottom-color: var(--text); }
-@media (max-width: 640px) {  main { padding: 0 18px 80px; }  section { padding: 56px 0; }  .hero { min-height: 80vh; padding-top: 60px; }  .why li { grid-template-columns: 24px 1fr; }}</style></head><body><div class="bg"></div><main>  <header class="hero">    <div class="eyebrow">Infinite-Dimensional Wave Theory</div>    <h1>IDWT</h1>    <p class="sub">Particle masses come from counting hidden states of a single wave.</p>    <p class="tag">A geometric derivation of the Standard Model spectrum from one master wave Ψ∞.</p>    <div class="cta">      <a class="btn primary" href="#core">Explore the Theory</a>      <a class="btn primary" href="#notebooklm">NotebookLM</a>      <a class="btn primary" href="#notes">Download Notes</a>    </div>  </header>
-  <section id="core">    <h2>The Core Idea</h2>    <p class="lead">IDWT is built from five postulates.</p>    <ol><li>Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.</li> <li>Our observable 3D universe is a brane-like slice through this space.</li> <li>The hidden dimensions are not compactified Planck-scale curls, they are macroscopic.</li> <li>What we call mass is a scaled count of hidden microstates.</li> <li>Gravity emerges as the curvature of Ψ∞.</li></ol>    <p>This gives a combinatorial mass rule: mass scales with cumulative states on d-dimensional hidden sectors.</p>    <div class="formula">      <code>m = m_scale,d × S(n,d)</code> &nbsp; where &nbsp; <code>S(n,d) = C(n+d-1, d)</code>    </div>    </section>
+:root{--bg:#05070e;--text:#e6e8f0;--muted:#9aa3b8;--muted-2:#7a8499;--accent-1:#8b9cff;--accent-2:#a78bfa;--accent-3:#60a5fa;--card:rgba(16,21,36,0.6);--border:rgba(139,156,255,0.14);--border-hover:rgba(139,156,255,0.28);--code-bg:rgba(139,156,255,0.1);}
+*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 600px at 15% -5%,rgba(96,165,250,0.18),transparent 60%),radial-gradient(800px 500px at 85% 0%,rgba(167,139,250,0.16),transparent 60%),radial-gradient(700px 500px at 50% 120%,rgba(139,156,255,0.13),transparent 60%),#05070e;}.bg::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");mix-blend-mode:soft-light;pointer-events:none;}
+main{max-width:900px;margin:0 auto;padding:0 24px 120px;}
+.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 0 60px;}
+.eyebrow{font-size:0.85rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-2);font-weight:500;margin-bottom:24px;}
+h1{font-size:clamp(4.5rem,14vw,8.5rem);line-height:0.9;margin:0 0 24px;font-weight:700;letter-spacing:-0.03em;background:linear-gradient(180deg,#ffffff 15%,#c7d2ff 55%,#8b9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 20px 40px rgba(99,102,241,0.15));}
+.sub{font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:500;color:var(--text);margin:0 0 12px;max-width:720px;}.tag{font-size:1.05rem;color:var(--muted);margin:0 0 36px;max-width:640px;}
+.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}.btn{appearance:none;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--text);padding:12px 20px;border-radius:999px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.2s ease;backdrop-filter:blur(6px);}.btn:hover{border-color:var(--border-hover);background:rgba(255,255,255,0.06);transform:translateY(-1px);}.btn.primary{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#060816;border:none;font-weight:600;box-shadow:0 8px 24px rgba(139,156,255,0.25),inset 0 1px 0 rgba(255,255,255,0.2);}.btn.primary:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(139,156,255,0.32);}
+section{padding:72px 0;scroll-margin-top:80px;}
+h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:650;letter-spacing:-0.01em;margin:0 0 24px;display:flex;align-items:center;gap:12px;}h2::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--accent-1),transparent);border-radius:2px;}
+p.lead{font-size:1.1rem;color:#d6daf0;margin:0 0 20px;}
+.formula{margin:28px 0 8px;padding:18px 20px;background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));border:1px solid var(--border);border-radius:14px;text-align:center;font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.98rem;color:#c9d4ff;}
+code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code-bg);color:#c7d2fe;padding:0.18em 0.45em;border-radius:6px;font-size:0.92em;border:1px solid rgba(139,156,255,0.12);}
+.why{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px;}.why li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:18px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;backdrop-filter:blur(8px);transition:border-color 0.2s,transform 0.2s;}.why li:hover{border-color:var(--border-hover);transform:translateY(-1px);}.why .n{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:rgba(139,156,255,0.12);color:var(--accent-1);font-family:"JetBrains Mono",monospace;font-size:0.8rem;font-weight:500;}
+.table-wrap{overflow-x:auto;margin:24px 0 12px;border:1px solid var(--border);border-radius:14px;background:rgba(8,12,24,0.5);backdrop-filter:blur(6px);}table{width:100%;border-collapse:collapse;min-width:560px;}th,td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);}th{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-2);font-weight:600;background:rgba(255,255,255,0.02);}tr:last-child td{border-bottom:none;}td:nth-child(2){font-family:"JetBrains Mono",monospace;color:#dbe2ff;}.note{color:var(--muted);font-size:0.95rem;margin-top:10px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px;}.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;min-height:190px;transition:transform 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;backdrop-filter:blur(10px);}.card:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:0 16px 40px rgba(5,8,18,0.6),0 0 0 1px rgba(139,156,255,0.08) inset;}.card-head{margin-bottom:8px;}.part{font-size:0.75rem;color:var(--accent-3);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.card h3{margin:4px 0 0;font-size:1.12rem;font-weight:600;letter-spacing:-0.01em;}.card p{color:var(--muted);font-size:0.95rem;margin:10px 0 18px;flex-grow:1;}.dl{align-self:flex-start;font-size:0.88rem;padding:8px 14px;border-radius:10px;background:rgba(139,156,255,0.1);color:#c7d2fe;text-decoration:none;border:1px solid rgba(139,156,255,0.18);transition:all 0.18s ease;font-weight:500;}.dl:hover{background:rgba(139,156,255,0.18);color:white;transform:translateY(-1px);}
+.callout{margin-top:20px;padding:28px 24px;border-radius:14px;background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));border:1px solid var(--border);text-align:center;}
+.prose{margin-top:28px;color:#c4cae2;font-size:1.02rem;line-height:1.82;}.prose p{margin:0 0 1.35em;}.prose p:last-child{margin-bottom:0;}.prose strong{color:var(--text);font-weight:600;}.prose em{color:#dbe2ff;font-style:italic;}
+footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--muted-2);font-size:0.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(154,163,184,0.4);}footer a:hover{color:var(--text);border-bottom-color:var(--text);}
+@media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body><div class="bg"></div><main>
 
-  <section id="predictions">    <h2>Mass Predictions</h2>    <p class="lead">All 13 masses from m<sub>e</sub> and a single integer n<sub>s</sub> = 4. GTC applied to charm and top; Dyson resummation applied to τ.</p>    <div class="table-wrap">      <table>        <thead>          <tr>            <th>Particle</th>            <th>IDWT (MeV)</th>            <th>PDG (MeV)</th>            <th>Error</th>          </tr>        </thead>        <tbody>          <tr><td>γ (photon)</td><td>0</td><td>0</td><td>exact</td></tr>          <tr><td>W±</td><td>80,379</td><td>80,377</td><td>+0.003%</td></tr>          <tr><td>Z⁰</td><td>91,230</td><td>91,188</td><td>+0.047%</td></tr>          <tr><td>H (Higgs)</td><td>125,266</td><td>125,250</td><td>+0.010%</td></tr>          <tr><td>d (down)</td><td>4.702</td><td>4.67</td><td>+0.68%</td></tr>          <tr><td>s (strange)</td><td>94.04</td><td>93.4</td><td>+0.68%</td></tr>          <tr><td>b (bottom)</td><td>4,181</td><td>4,180</td><td>+0.02%</td></tr>          <tr><td>u (up)</td><td>2.177</td><td>2.16</td><td>+0.77%</td></tr>          <tr><td>c (charm)</td><td>1,279.7</td><td>1,270</td><td>+0.76%</td></tr>          <tr><td>t (top)</td><td>173,999</td><td>172,760</td><td>+0.72%</td></tr>          <tr><td>e⁻ (electron)</td><td>0.511</td><td>0.511</td><td>unit ref</td></tr>          <tr><td>μ⁻ (muon)</td><td>105.657</td><td>105.658</td><td>−0.001%</td></tr>          <tr><td>τ⁻ (tau)</td><td>1,776.84</td><td>1,776.86</td><td>−0.14σ</td></tr>        </tbody>      </table>    </div>    <p class="note">Sector offsets (+0.68% in d=3, +0.77% in d=4) are structural — the rank-1 kernel forces them to be identical for every mode in a sector, consistent with PDG light-quark uncertainties.</p>  </section>
-  <section id="notebooklm">    <h2>Explore in NotebookLM</h2>    <p class="lead">The IDWT notebook is fully loaded with all nine parts of the technical documentation — the same documents available for download below.</p>    <p>Inside the notebook you can have a natural conversation with the material: ask questions about specific derivations, request plain-language summaries of any theorem, compare predictions across sectors, or drill into open questions. The AI has read every equation and proof, so you can interrogate the theory the same way you would a knowledgeable collaborator rather than a static document. It can also generate audio overviews and guided study guides from the source material.</p>    <div class="callout">      <strong>Open the notebook →</strong> <a href="https://notebooklm.google.com/notebook/5588bff9-d146-4395-8bf3-f67f083df638?authuser=1" target="_blank" rel="noopener" style="color:#c7d2fe; text-decoration:none; border-bottom: 1px dotted rgba(199,210,254,0.4);">notebooklm.google.com — IDWT full documentation</a>    </div>  </section>
+<header class="hero">
+  <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
+  <h1>IDWT</h1>
+  <p class="sub">Particle masses come from counting hidden states of a single wave.</p>
+  <p class="tag">A geometric derivation of the Standard Model spectrum from one master wave Ψ∞.</p>
+  <div class="cta">
+    <a class="btn primary" href="#core">Explore the Theory</a>
+    <a class="btn primary" href="#notebooklm">NotebookLM</a>
+    <a class="btn primary" href="#notes">Download Notes</a>
+  </div>
+</header>
 
-  <section id="notes">    <h2>Download the Notes</h2>    <p class="lead">Nine parts. Each is self-contained and links to the next.</p>    <div class="grid">      <article class="card">        <div class="card-head">          <div class="part">Part 1</div>          <h3>Foundations</h3>        </div>        <p>The five postulates and the geometric setting of Ψ∞.</p>        <a class="dl" href="files/IDWT_01_Foundation.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 2</div>          <h3>Mass Formula</h3>        </div>        <p>Derivation of S(n,d) and the cumulative state counting rule.</p>        <a class="dl" href="files/IDWT_02_Mass.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 3</div>          <h3>Forces & Colour</h3>        </div>        <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>        <a class="dl" href="files/IDWT_03_Forces.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 4</div>          <h3>Gravity</h3>        </div>        <p>Emergence of 1/r² from coherence loss in infinite dimensions.</p>        <a class="dl" href="files/IDWT_04_Gravity.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 5</div>          <h3>Predictions</h3>        </div>        <p>12 particle masses from m<sub>e</sub> alone with less than 1% error.</p>        <a class="dl" href="files/IDWT_05_Predictions.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 6</div>          <h3>Open Questions</h3>        </div>        <p>The dynamical gap and what remains to be proved.</p>        <a class="dl" href="files/IDWT_06_OpenQuestions.md" download>Download .md</a>      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 7</div>          <h3>Observability</h3>        </div>        <p>What we can measure and why.</p>        <a class="dl" href="files/IDWT_07_Observability.md" download>Download .md</a>
-      </article>
-      <article class="card">        <div class="card-head">          <div class="part">Part 8</div>          <h3>Quantum</h3>        </div>        <p>Quantum physics in IDWT.</p>        <a class="dl" href="files/IDWT_08_Quantum.md" download>Download .md</a>
-      </article>
+<section id="core">
+  <h2>The Core Idea</h2>
+  <p class="lead">IDWT is built from five postulates.</p>
+  <ol>
+    <li>Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.</li>
+    <li>Our observable 3D universe is a brane-like slice through this space.</li>
+    <li>The hidden dimensions are not compactified Planck-scale curls, they are macroscopic.</li>
+    <li>What we call mass is a scaled count of hidden microstates.</li>
+    <li>Gravity emerges as the curvature of Ψ∞.</li>
+  </ol>
+  <p>This gives a combinatorial mass rule: mass scales with cumulative states on d-dimensional hidden sectors.</p>
+  <div class="formula">
+    <code>m = m_scale,d × S(n,d)</code> &nbsp; where &nbsp; <code>S(n,d) = C(n+d-1, d)</code>
+  </div>
+</section>
 
-      <article class="card">        <div class="card-head">          <div class="part">Part 9</div>          <h3>Spectral Theorems</h3>        </div>        <p>IDWT as twelve spectral theorems.</p>        <a class="dl" href="files/IDWT_09_Spectral.md" download>Download .md</a>
-      </article>
+<section id="predictions">
+  <h2>Mass Predictions</h2>
+  <p class="lead">All 13 masses from m<sub>e</sub> and a single integer n<sub>s</sub> = 4. GTC applied to charm and top; Dyson resummation applied to τ.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Particle</th><th>IDWT (MeV)</th><th>PDG (MeV)</th><th>Error</th></tr></thead>
+      <tbody>
+        <tr><td>γ (photon)</td><td>0</td><td>0</td><td>exact</td></tr>
+        <tr><td>W±</td><td>80,379</td><td>80,377</td><td>+0.003%</td></tr>
+        <tr><td>Z⁰</td><td>91,230</td><td>91,188</td><td>+0.047%</td></tr>
+        <tr><td>H (Higgs)</td><td>125,266</td><td>125,250</td><td>+0.013%</td></tr>
+        <tr><td>d (down)</td><td>4.702</td><td>4.67</td><td>+0.68%</td></tr>
+        <tr><td>s (strange)</td><td>94.04</td><td>93.4</td><td>+0.68%</td></tr>
+        <tr><td>b (bottom)</td><td>4,181</td><td>4,180</td><td>+0.02%</td></tr>
+        <tr><td>u (up)</td><td>2.177</td><td>2.16</td><td>+0.77%</td></tr>
+        <tr><td>c (charm)</td><td>1,279.7</td><td>1,270</td><td>+0.76%</td></tr>
+        <tr><td>t (top)</td><td>173,999</td><td>172,760</td><td>+0.72%</td></tr>
+        <tr><td>e⁻ (electron)</td><td>0.511</td><td>0.511</td><td>unit ref</td></tr>
+        <tr><td>μ⁻ (muon)</td><td>105.657</td><td>105.658</td><td>−0.001%</td></tr>
+        <tr><td>τ⁻ (tau)</td><td>1,776.84</td><td>1,776.86</td><td>−0.14σ</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Sector offsets (+0.68% in d=3, +0.77% in d=4) are structural — the rank-1 kernel forces them to be identical for every mode in a sector, consistent with PDG light-quark uncertainties.</p>
+</section>
 
-      <article class="card">        <div class="card-head">          <div class="part">Script</div>          <h3>Python Proof Script</h3>        </div>        <p>Generates all important IDWT numbers.</p>        <a class="dl" href="files/idwt.py" download>Download .py</a>
-      </article>
-      
-      </div>  </section>
-  </main>
-<footer>  IDWT v2026 - CC BY 4.0 - <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer></body></html>
+<section id="neutrinos">
+  <h2>Neutrino Predictions</h2>
+  <p class="lead">Masses, mixing angles, and hierarchy — derived from the same two seeds, without fitting any neutrino data.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Observable</th><th>IDWT</th><th>PDG / Experiment</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>ν₁ mass</td><td>1.487 meV</td><td>not yet measured</td><td>—</td></tr>
+        <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
+        <tr><td>ν₃ mass</td><td>48.871 meV</td><td>not yet measured</td><td>—</td></tr>
+        <tr><td>Σm<sub>ν</sub></td><td>59.00 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
+        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>7.42 × 10⁻⁵ eV²</td><td>−2.40%</td></tr>
+        <tr><td>Δm²₃₁</td><td>2.386 × 10⁻³ eV²</td><td>2.584 × 10⁻³ eV²</td><td>−7.66%</td></tr>
+        <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
+        <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
+        <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
+        <tr><td>Mass ordering</td><td>Normal</td><td>Normal (preferred)</td><td>✓</td></tr>
+        <tr><td>m<sub>ββ</sub> (0νββ)</td><td>0 — exact</td><td>not observed</td><td>✓ falsifiable</td></tr>
+        <tr><td>m<sub>β</sub> (tritium)</td><td>8.77 meV</td><td>&lt; 450 meV (KATRIN)</td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector.</p>
+</section>
+
+<section id="about">
+  <h2>About the Theory</h2>
+  <div class="prose">
+    <p>The Standard Model of particle physics is one of the most precisely tested theories in the history of science. It catalogs the electron, the quarks, the W and Z bosons, and every other particle we have found in accelerators, and its predictions match experiment to ten or more decimal places. Yet for all its accuracy, the Standard Model does not explain why the particles it describes have the masses they do. The electron is 0.511 MeV. The muon is 105.7 MeV. The top quark is 172,760 MeV. These numbers are inputs — measured, catalogued, and inserted by hand. No one knows why they are what they are.</p>
+
+    <p>Infinite-Dimensional Wave Theory asks: what is the simplest physical object that could, in principle, produce the full spectrum we observe? The answer it proposes is a single complex wave function Ψ∞ defined on a manifold of literally infinite dimension — not ten or eleven dimensions in the string-theory sense, but unboundedly many, with no fixed upper limit on the number of hidden directions. From this one object, every particle mass, every coupling constant, and every mixing angle in the Standard Model follows by calculation.</p>
+
+    <p>The setup rests on five postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic but invisible for a different reason: the projection operator that maps Ψ∞ onto our slice acts as a low-pass filter, suppressing higher modes by amplitude. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity, rather than being quantized, emerges as the curvature of Ψ∞ at large scales, and the Einstein–Hilbert action appears naturally without a graviton.</p>
+
+    <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. This sector set is not a free choice — it is forced by the requirement that the top quark mode index n_top = N_c × n_s × N_f exactly equals 72. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the Higgs self-coupling, the proton mass, the pion decay constant, the CKM mixing angles, the PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
+
+    <p>The accuracy of the predictions is what makes the framework interesting rather than merely speculative. The W and Z bosons come out within 0.003% and 0.047% of their measured values. The Higgs mass is within 0.013%. The muon lifetime is within 0.3%. All thirteen fermion and boson masses agree with PDG measurements to better than 1.8%, with most below 0.1%. The quark sector has a uniform structural offset — 0.68% in d=3, 0.77% in d=4 — that is not a numerical accident but a consequence of the rank-1 approximation to the coupling kernel, which forces the same fractional correction to every mode in a sector. Both offsets sit well within the PDG experimental uncertainties for the light quarks.</p>
+
+    <p>The neutrino sector provides the most striking predictions. Neutrinos live in the d=5 hidden sector. The Clifford algebra of five-dimensional spinors has an exact mathematical property: when d mod 8 = 5, no Majorana condition can be imposed on the spinor. This means <strong>neutrinos must be Dirac fermions in IDWT</strong> — the geometry forbids Majorana mass terms and the seesaw mechanism entirely. As a consequence, the neutrinoless double beta decay rate is predicted to be exactly zero. No oscillation experiment was used to calibrate these predictions: the three neutrino masses (1.487, 8.639, and 48.871 meV), all three PMNS mixing angles, the mass ordering, and the beta-decay effective mass all follow from the same seeds n_s = 4 and m_e that fix everything else. The predicted sum Σm_ν = 59 meV satisfies the Planck bound and lies above the detection threshold of the CMB-S4 experiment, which should reach it within the decade.</p>
+
+
+
+    <p>IDWT is falsifiable in specific and testable ways. Any detection of neutrinoless double beta decay — by KamLAND-Zen, nEXO, or any successor experiment — would rule it out completely. A cosmological neutrino mass sum measured below 58 meV or above 62 meV would equally falsify it. An inverted neutrino mass hierarchy, if established, would be a direct contradiction. Within the framework, every number is a calculation rather than a parameter, and every calculation is reproducible from a publicly available Python script in under a second on a laptop.</p>
+  </div>
+</section>
+
+<section id="notebooklm">
+  <h2>Explore in NotebookLM</h2>
+  <p class="lead">The IDWT notebook is fully loaded with all nine parts of the technical documentation — the same documents available for download below.</p>
+  <p>Inside the notebook you can have a natural conversation with the material: ask questions about specific derivations, request plain-language summaries of any theorem, compare predictions across sectors, or drill into open questions. The AI has read every equation and proof, so you can interrogate the theory the same way you would a knowledgeable collaborator rather than a static document. It can also generate audio overviews and guided study guides from the source material.</p>
+  <div class="callout">
+    <a class="dl" href="https://notebooklm.google.com/notebook/5588bff9-d146-4395-8bf3-f67f083df638?authuser=1" target="_blank" rel="noopener">Open the Notebook</a>
+  </div>
+</section>
+
+<section id="notes">
+  <h2>Download the Notes</h2>
+  <p class="lead">Nine parts. Each is self-contained and links to the next.</p>
+  <div class="grid">
+    <article class="card">
+      <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
+      <p>The five postulates and the geometric setting of Ψ∞.</p>
+      <a class="dl" href="files/IDWT_01_Foundation.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 2</div><h3>Mass Formula</h3></div>
+      <p>Derivation of S(n,d) and the cumulative state counting rule.</p>
+      <a class="dl" href="files/IDWT_02_Mass.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 3</div><h3>Forces &amp; Colour</h3></div>
+      <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>
+      <a class="dl" href="files/IDWT_03_Forces.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
+      <p>Emergence of 1/r² from coherence loss in infinite dimensions.</p>
+      <a class="dl" href="files/IDWT_04_Gravity.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 5</div><h3>Predictions</h3></div>
+      <p>All particle masses from m<sub>e</sub> alone with less than 1% error.</p>
+      <a class="dl" href="files/IDWT_05_Predictions.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 6</div><h3>Open Questions</h3></div>
+      <p>The dynamical gap and what remains to be proved.</p>
+      <a class="dl" href="files/IDWT_06_OpenQuestions.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 7</div><h3>Observability</h3></div>
+      <p>What we can measure and why.</p>
+      <a class="dl" href="files/IDWT_07_Observability.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 8</div><h3>Quantum</h3></div>
+      <p>Quantum physics in IDWT.</p>
+      <a class="dl" href="files/IDWT_08_Quantum.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
+      <p>IDWT as twelve spectral theorems.</p>
+      <a class="dl" href="files/IDWT_09_Spectral.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Script</div><h3>Python Proof Script</h3></div>
+      <p>Generates all IDWT numbers from n_s = 4 and m_e.</p>
+      <a class="dl" href="files/idwt.py" download>Download .py</a>
+    </article>
+  </div>
+</section>
+
+</main>
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+</body></html>

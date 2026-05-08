@@ -605,7 +605,7 @@ print(f"\n  --- g_1 running (1-loop, b1=41/6) ---")
 print(f"  g_1 at fiber scale (m_W):  {g1:.6f}  err={err_fiber:+.4f}%")
 print(f"  g_1 after running to m_Z:  {g1_at_mZ:.6f}  err={err_mZ:+.4f}%")
 print(f"  [1-loop closes {abs(err_fiber)-abs(err_mZ):.4f} pp; -1.88% residual remains]")
-print(f"  Remaining -1.88% requires 2-loop QED threshold matching (open item)")
+print(f"  Remaining -1.88% = sin²θ_W structural gap (+0.37%) propagated into g₁ (see open_computations.py)")
 
 
 
@@ -1283,10 +1283,15 @@ DERIVED (spectral geometry, this session):
 
 GENUINELY OPEN (computation not yet done):
   !!  CP phase delta -- Berry phase curvature integral; Delta_c1=-2 known (T8)
+      CP1 estimate gives 35.5deg (PDG ~197deg); full CP3xCP5 Fubini-Study integral pending
   !!  G_N from sector localization geometry -- computation not performed (T12)
       M_inf is the manifold name, not a mass scale; this is not a QFT hierarchy problem
-  !!  2-loop QED matching for g1 -- defined but not performed
-  !!  alpha_s fiber-scale gap -34.7% -- 2-loop QCD threshold matching needed
+
+CLOSED BY open_computations.py:
+  ok  2-loop g1 (M-V RK4): -1.8823% -> -1.8810%; residual = sin2_W structural gap, not a running artefact
+  ok  QCD scheme conversion: d,s offsets nonperturbative at Lambda_QCD; c,b IDWT=MS-bar; t IDWT=pole mass
+  ok  rho NLO WKB: correction +2.03% overshoots; LO +0.069% is already at BW/pole ambiguity floor
+  !!  alpha_s fiber-scale gap -34.7% -- fiber α_s from CP2 holonomy; requires full sector coupling running
 
 FALSIFIABLE PREDICTIONS:
   =>  sum(m_nu) = 59.00 meV  [CMB-S4 detection threshold: ~30 meV; factor 2 from detection]

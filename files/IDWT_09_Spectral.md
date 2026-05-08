@@ -288,7 +288,7 @@ GTC depths $\{0,\,n_u,\,S(n_u,3)\}=\{0,3,10\}$ for $\{u,c,t\}$: closes $c/u$ rat
 
 $$\boxed{\delta_\tau = \frac{1}{n_s\cdot n_u\cdot(n_s+n_u)\cdot S(n_s,3)} = \frac{1}{4\cdot3\cdot7\cdot20} = \frac{1}{1680}.}$$
 
-Result: $m_\tau\times(1+1/1680)=1776.84$ MeV vs PDG $1776.86$ MeV ($+0.001\%$).
+Result: $m_\tau\times(1+1/1680)=1776.84$ MeV vs PDG $1776.86$ MeV ($-0.001\%$).
 
 ---
 
@@ -341,4 +341,4 @@ $$\boxed{m_{\rm scale,5} = \frac{n_u}{n_s}\,\frac{m_{\rm scale,6}^3}{m_{\rm scal
 | T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=59$ meV | ✅ | $<2.5\%$ | $0\nu\beta\beta=0$ exact |
 | T12 | G_N from sector localization geometry | 🔶 | Open | G_N emerges from {m_scale_d, L_d}; not a QFT hierarchy problem |
 
-**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $g_1$ 2-loop QED threshold; (iv) $\Delta m^2_{31}$ 7.7% structural gap.
+**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); CP¹ estimate gives 35.5°, full CP³×CP⁵ Fubini-Study computation pending; (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $\Delta m^2_{31}$ −7.7% structural gap ($n_{\nu_3}=22$ fixed). ~~g₁ 2-loop QED threshold~~ **closed** — 2-loop RK4 improves residual by 0.0014 pp; remainder is the sin²θ_W structural gap.

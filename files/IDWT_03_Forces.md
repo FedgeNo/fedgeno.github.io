@@ -466,7 +466,7 @@ With the d=2 sector scale m_scale_2 = 27.47 MeV:
 |---|---|---|---|
 | m_photon | 0 (exact) | 0 | — |
 | m_Z | 91,230 MeV | 91,188 MeV | +0.047% |
-| m_Higgs | 125,266 MeV | 125,250 MeV | +0.010% |
+| m_Higgs | 125,266 MeV | 125,250 MeV | +0.013% |
 | sin²θ_W | 0.2237 | 0.22290 (on-shell) | +0.37% |
 | ρ parameter | 1 (exact) | 1.002 | −0.2% |
 

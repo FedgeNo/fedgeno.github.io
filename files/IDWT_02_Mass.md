@@ -440,7 +440,7 @@ The Δm²₂₁ prediction is within 0.8σ of the PDG measurement. The Δm²₃�
 **Observable predictions:**
 
 - Σm_ν = 59.0 meV: detectable by Simons Observatory (CMB-S4 sensitivity ~30 meV — within a factor 2)
-- m_β ≈ 8.77 meV: below KATRIN's design sensitivity (~200 meV) and below Project 8's long-term goal (~40 meV) — not accessible in near-term beta-decay experiments
+- m_β ≈ 8.77 meV: below KATRIN bound (< 450 meV) and below Project 8's long-term goal (~40 meV) — not accessible in near-term beta-decay experiments
 - m_ββ = 0 exactly: 0νββ decay is forbidden (Majorana mass forbidden in d=5 by spin structure)
 - Normal hierarchy: m_ν₁ << m_ν₂ << m_ν₃ ✓
 
@@ -543,7 +543,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 |---|---|---|---|
 | m_W | m_scale_2 × S(76,2) = 80,379 MeV | 80,377 MeV | +0.003% |
 | m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
-| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.010% |
+| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.013% |
 
 **IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
 

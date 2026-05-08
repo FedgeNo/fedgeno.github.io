@@ -356,7 +356,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | photon | 0 | 2 | 0 | 0 | exact |
 | W | 76 | 2 | 80,379 | 80,377 | +0.003% |
 | Z | 81 | 2 | 91,230 | 91,188 | +0.047% |
-| Higgs | 95 | 2 | 125,266 | 125,250 | +0.010% |
+| Higgs | 95 | 2 | 125,266 | 125,250 | +0.013% |
 
 † The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 

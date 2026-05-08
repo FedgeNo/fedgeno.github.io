@@ -421,7 +421,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
            = 7.429 × 10⁻¹³ MeV
 ```
 
-**Physical interpretation.** The formula has the structure of a cross-sector seesaw: the neutrino scale is doubly suppressed by the quark confinement scale m_scale_4 ≈ 0.145 MeV. Unlike the SM seesaw (which requires a heavy Majorana mass), this suppression is geometric — it comes from the Hopf fibration S¹→S⁵→CP² which ties the d=5 neutrino modes to the d=4 quark sector through the S¹ fiber.
+**Physical interpretation.** The neutrino mass scale is suppressed by the sector hierarchy: m_scale_4² appears in the denominator because the d=5 sector is tied to the d=4 quark sector through the S¹ fiber of the Hopf fibration S¹→S⁵→CP². This is purely geometric suppression — no Majorana mass, no heavy right-handed partner, no seesaw of any kind. The small scale arises from the relative depths of the sector potential wells, which are fixed by the seed coupling constants.
 
 **Neutrino mass predictions (no empirical neutrino input):**
 

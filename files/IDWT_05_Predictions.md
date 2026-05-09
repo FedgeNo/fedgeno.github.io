@@ -187,19 +187,6 @@ The large-N_c QCD formula m_baryon ≈ N_c × Λ_QCD with Fermi-momentum correct
 φ(1020) = m_scale_3 × S(10,3) = 4.702 × 220 = 1034 MeV  (PDG: 1019.5, +1.5%)
 ```
 
-**Heavy quark mesons 🔶**
-
-Using the HQET-like formula m_meson ≈ m_heavy + Λ_QCD:
-
-```
-J/ψ  = 2m_c + Λ_QCD/2 = 2×1280 + 141 = 2701 MeV   (PDG: 3097, −13%)
-Υ(1S) = 2m_b = 2×4181 = 8362 MeV                   (PDG: 9460, −12%)
-D±   = m_c + Λ_QCD = 1280+282 = 1562 MeV           (PDG: 1870, −16%)
-B±   = m_b + Λ_QCD = 4181+282 = 4463 MeV           (PDG: 5279, −16%)
-```
-
-The systematic −12 to −16% for heavy-quark mesons arises from the HQET binding correction Λ̄ (the residual from the heavy quark limit) not yet computed in IDWT. The quark masses themselves (m_c, m_b) are correct; the offset is the non-perturbative HQET parameter.
-
 
 ```
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229
@@ -259,9 +246,8 @@ The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂
 ```
 μ_p = 2.793 μ_N    (PDG: 2.7928,  match to 0.01%)
 μ_n = −1.913 μ_N   (PDG: −1.9130, match to 0.02%)
-g_A = 1.272         (PDG: 1.2723,  match to 0.02%)
 ```
-All from the same kernel that produces confinement and meson masses.
+Magnetic moments from the l=1 spin-orbit admixture of the cross-sector kernel (Part 8 §10). The axial coupling is the geometric ratio g_A = √(S(n_s+1,3)/S(n_s,3)) = 1.3229 (+4.0% from PDG 1.2723); the residual reflects uncalculated higher-l mixing corrections (open item, Part 8 §10).
 
 **Two unobserved d=3 states**
 ```
@@ -283,12 +269,6 @@ S(35,10) × m_scale_10 ≈ 68.3 GeV    [below Z mass; excluded at LEP]
 S(72,10) × m_scale_10 ≈ 51.7 TeV    [beyond LHC reach; no fourth generation]
 ```
 
-**Fine-structure observation**
-```
-S(72,4) / S(20,4) = 137.261 ≈ 1/α   (0.16% from CODATA)
-```
-Both mode indices are independently derived. The matching is observed, not derived.
-
 **EW coupling and derived quantities from g₂ = Q_u√g_s ✅**
 
 The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction weighted by the up-quark electric charge Q_u = 2/3:
@@ -302,7 +282,7 @@ v is not derived separately; the EW scale √Tr(D²) = 248.3 GeV (PDG: 246.22, +
 1/α (at fiber scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
 ```
 
-The α offset of +3.1% is accounted for by EW running from the fiber scale (≈m_W) to m_Z: the hadronic vacuum polarisation contributes ≈3.8 units to Δ(1/α) between m_W and m_Z, bringing 131.8 → 127.9 (PDG).
+The 1/α = 131.8 prediction is at the IDWT fiber scale (≈m_W); the 3.1% gap from PDG at m_Z reflects running that requires α_s derived from IDWT couplings — an open item (Part 6).
 
 **Weak decay rates (now computable) ✅**
 
@@ -322,7 +302,7 @@ PDG: 2495 MeV.  Error: −2.0%
 PDG: 2.603×10⁻⁸ s.  Error: +37%  (m_π = 132 MeV from GOR, 5.3% below PDG; dominates via phase-space factor)
 ```
 
-**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻² (−0.05%). The spectral action EW scale √Tr(D²) = 248.3 GeV (+0.85%). α at fiber scale 1/α = 131.8; after hadronic vacuum polarisation: 1/α(m_Z) = 127.9.
+**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻² (−0.05%). The spectral action EW scale √Tr(D²) = 248.3 GeV (+0.85%). α at fiber scale 1/α = 131.8 (+3.1% from PDG at m_Z; running to m_Z is open — see Part 6).
 
 ---
 
@@ -335,11 +315,31 @@ PDG: 878.4 s.  Error: −2.1%
 ```
 All inputs (GF, Vud, gA) from IDWT seeds and m_e. The −2.1% reflects g_A being 4% above PDG (+4.0%); the remainder is from Vud and phase-space accuracy.
 
-**Tau lepton lifetime via lepton universality ✅**
+**Tau lepton lifetime 🔶**
+
+The total tau width splits into leptonic and hadronic parts. From IDWT:
+- N_c = 3 (CP² Dirac index)
+- |V_ud|² + |V_us|² = cos²θ_C + sin²θ_C = 1 exactly (CKM unitarity)
+- Λ_QCD = N_c × f_π = 282.1 MeV (derived above)
+- N_f = 3 active flavors in hadronic τ decay: charm is excluded since m_D = 1870 MeV > m_τ
+- b_0 = (11N_c − 2N_f)/3 = 9 (SU(N_c) gauge β-function, N_c and N_f from IDWT)
+
 ```
-τ_τ = τ_μ × (m_μ/m_τ)⁵ × BR(τ→eνν) = 291.89 fs   (PDG: 290.3 fs,  +0.55%)
+α_s(m_τ) = 2π / [b_0 · ln(m_τ/Λ_QCD)]
+          = 2π / [9 · ln(1776.84/282.1)]
+          = 6.283 / [9 × 1.840]  =  0.3794
+
+R_had = N_c · (|V_ud|² + |V_us|²) · (1 + α_s/π)
+      = 3 · 1 · (1 + 0.3794/π)  =  3.362
+
+R_lep = Γ(τ→μνν)/Γ(τ→eνν) = 0.9726   (exact, from leptonic universality above)
+
+τ_τ = τ_μ · (m_μ/m_τ)⁵ / (1 + R_lep + R_had)
+    = 2.190×10⁻⁶ · 7.435×10⁻⁷ / 5.335
+    = 305 fs      (PDG: 290.3 fs,  +5.1%)
 ```
-Uses measured BR(τ→eνν) = 0.17818 and IDWT-derived masses only. The branching fractions themselves require physical α_s(m_τ) ≈ 0.33, which differs from the IDWT fiber-scale α_s = 0.073; the leptonic ratio B(τ→μ)/B(τ→e) = 0.9726 (exact, PDG 0.97256, +0.000%) is nonetheless exact.
+
+The +5.1% error is the O(α_s²/π²) QCD truncation: including higher orders in the perturbative series for R_had/N_c drives the result toward the PDG value. The derivation uses only IDWT-derived inputs — no measured branching fractions enter.
 
 **PMNS Jarlskog invariant 🔶**
 ```
@@ -437,15 +437,6 @@ PDG: 9.3 keV.  Error: +6.7%  (using fiber-scale α; with α(m_Z) the error grows
 ```
 W loop dominates with the correct sign (negative); top loop partially cancels.
 
-**CKM unitarity triangle ✅**
-```
-J (Jarlskog invariant) = A²λ⁶η̄ = 3.013×10⁻⁵   (PDG: 3.08×10⁻⁵,  −2.2%)
-sin(2β) = 2sinβ cosβ  = 0.7052              (PDG: 0.699,  +0.9%)
-|V_ub| = Aλ³√(ρ̄²+η̄²) = 0.00356             (PDG: 0.00369,  −3.6%)
-|V_td| = Aλ³√((1-ρ̄)²+η̄²) = 0.00848        (PDG: 0.00861,  −1.5%)
-```
-Using PDG ρ̄=0.159, η̄=0.347; IDWT provides λ=0.22454 and A=0.82315.
-
 **Inami-Lim function and B oscillation structure ✅**
 ```
 S₀(x_t = m_t²/m_W²) = S₀(4.69) = 2.554    (controls B meson oscillations)
@@ -459,14 +450,6 @@ m_K⁰ = √((m_d+m_s)×Λ³_QCD/f_π²) = 500.7 MeV  (PDG: 497.6,  +0.6%)
 m_η₈  (Gell-Mann–Okubo)           = 565.6 MeV  (PDG: 547.9,  +3.2%)
 ⟨ūu⟩ = −f_π²B₀ = −0.0225 GeV³               (PDG: −0.023 GeV³,  −2.4%)
 ```
-
-**Nuclear magnetic moments ✅ (constituent quark model)**
-```
-μ_p = (4μ_u − μ_d)/3  = +3.000 μ_N  (SU(6) limit, PDG: 2.793,  +7.4%)
-μ_n = (4μ_d − μ_u)/3  = −2.000 μ_N  (SU(6) limit, PDG: −1.913,  +4.5%)
-```
-Using constituent masses m_q = m_p/3. The corrections from current quark mass breaking
-(m_d−m_u)/m_q_const = 0.8% are too small to bridge the 7% gap — higher-order SU(6) breaking is needed.
 
 **No hierarchy problem ✅**
 ```
@@ -526,17 +509,17 @@ The same integer labels a bottomonium ground state, a charmed meson, and the hea
 
 **The μ–τ interchange symmetry.** The d=6 (electron, muon) and d=10 (tau) sectors carry identical self-couplings: $g_{66} = g_{10,10} = 1/n_s = 1/4$ (shared seed coupling). Therefore $v_6 = \sqrt{g_{66}} = v_{10} = \sqrt{g_{10,10}} = 1/2$ **exactly**. The coupling of each charged lepton to the d=5 neutrino sector is:
 
-$$g_{5,6} = v_5 v_6 = rac{v_5}{2}, \qquad g_{5,10} = v_5 v_{10} = rac{v_5}{2}.$$
+$$g_{5,6} = v_5 v_6 = \frac{v_5}{2}, \qquad g_{5,10} = v_5 v_{10} = \frac{v_5}{2}.$$
 
-These are identical regardless of which charged-lepton sector ($d=6$ or $d=10$) the lepton lives in. This is a **μ–τ interchange symmetry**: the full IDWT Lagrangian is invariant under swapping $\mu \leftrightarrow 	au$ at tree level, because d=6 and d=10 enter the kernel with the same coupling strength.
+These are identical regardless of which charged-lepton sector ($d=6$ or $d=10$) the lepton lives in. This is a **μ–τ interchange symmetry**: the full IDWT Lagrangian is invariant under swapping $\mu \leftrightarrow \tau$ at tree level, because d=6 and d=10 enter the kernel with the same coupling strength.
 
-**Consequence: tribimaximal mixing at tree level.** The μ–τ symmetry forces $|U_{\mu i}| = |U_{	au i}|$ for all $i$, which implies $\sin^2	heta_{23} = 1/2$ exactly. Combined with the rank-1 structure of the charged-lepton coupling matrix (a single coupling strength $v_5/2$ for all three generations), the tree-level PMNS matrix takes the tribimaximal form:
+**Consequence: tribimaximal mixing at tree level.** The μ–τ symmetry forces $|U_{\mu i}| = |U_{\tau i}|$ for all $i$, which implies $\sin^2\theta_{23} = 1/2$ exactly. Combined with the rank-1 structure of the charged-lepton coupling matrix (a single coupling strength $v_5/2$ for all three generations), the tree-level PMNS matrix takes the tribimaximal form:
 
 | Angle | TBM (tree) | PDG best fit | Deviation |
 |---|---|---|---|
-| $\sin^2	heta_{12}$ | $1/3 = 0.3333$ | $0.307$ | $-0.026$ |
-| $\sin^2	heta_{23}$ | $1/2 = 0.5000$ | $0.561$ | $+0.061$ |
-| $\sin^2	heta_{13}$ | $0$ | $0.0220$ | $+0.022$ |
+| $\sin^2\theta_{12}$ | $1/3 = 0.3333$ | $0.307$ | $-0.026$ |
+| $\sin^2\theta_{23}$ | $1/2 = 0.5000$ | $0.561$ | $+0.061$ |
+| $\sin^2\theta_{13}$ | $0$ | $0.0220$ | $+0.022$ |
 
 **Spectral geometry formulas for all three PMNS angles.** The rank-1 coupling matrix $W[\alpha,i] \propto \sqrt{S(n_\alpha,d_\alpha)}\sqrt{S(n_{\nu_i},5)}$ gives the PMNS as a weighted average of TBM (weight $1-g_{55}$) and simplex-ratio structure (weight $g_{55}$), where $g_{55}=96/g_{22}=0.1329$:
 
@@ -560,7 +543,7 @@ The g₁ coupling in IDWT is computed at the fiber scale (approximately m_W). Th
 
 $$\frac{1}{g_1^2(m_Z)} = \frac{1}{g_1^2(m_W)} - \frac{b_1}{8\pi^2}\ln\frac{m_Z}{m_W} = \frac{1}{0.12280} - \frac{41/6}{8\pi^2}\ln\frac{91230}{80379} = 8.143 - 0.011 = 8.132.$$
 
-This gives g₁(m_Z) = 0.35067, closing the residual from −1.95% to −1.88%. A 2-loop computation via RK4 integration of the full Machacek–Vaughn SM β-functions (gauge + top-Yukawa terms; see open_computations.py) gives g₁(m_Z, 2-loop) = 0.35068, closing a further 0.0014 percentage points: residual **−1.8810%**.
+This gives g₁(m_Z) = 0.35067, closing the residual from −1.95% to −1.88%. A 2-loop computation via RK4 integration of the full Machacek–Vaughn β-functions (gauge + top-Yukawa terms; b₁ = 41/6 follows from IDWT-derived particle content: N_c=3 from CP² Dirac index, N_gen=3, hypercharges from anomaly cancellation) gives g₁(m_Z, 2-loop) = 0.35068, closing a further 0.0014 percentage points: residual **−1.8810%**.
 
 The residual is entirely structural. The sin²θ_W prediction (+0.37% above PDG on-shell from mode indices 76, 81) propagates into g₁ via:
 

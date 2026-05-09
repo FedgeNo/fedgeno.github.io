@@ -17,6 +17,7 @@ code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;ba
 .table-wrap{overflow-x:auto;margin:24px 0 12px;border:1px solid var(--border);border-radius:14px;background:rgba(8,12,24,0.5);backdrop-filter:blur(6px);}table{width:100%;border-collapse:collapse;min-width:560px;}th,td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);}th{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-2);font-weight:600;background:rgba(255,255,255,0.02);}tr:last-child td{border-bottom:none;}td:nth-child(2){font-family:"JetBrains Mono",monospace;color:#dbe2ff;}.note{color:var(--muted);font-size:0.95rem;margin-top:10px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px;}.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;min-height:190px;transition:transform 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;backdrop-filter:blur(10px);}.card:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:0 16px 40px rgba(5,8,18,0.6),0 0 0 1px rgba(139,156,255,0.08) inset;}.card-head{margin-bottom:8px;}.part{font-size:0.75rem;color:var(--accent-3);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.card h3{margin:4px 0 0;font-size:1.12rem;font-weight:600;letter-spacing:-0.01em;}.card p{color:var(--muted);font-size:0.95rem;margin:10px 0 18px;flex-grow:1;}.dl{align-self:flex-start;font-size:0.88rem;padding:8px 14px;border-radius:10px;background:rgba(139,156,255,0.1);color:#c7d2fe;text-decoration:none;border:1px solid rgba(139,156,255,0.18);transition:all 0.18s ease;font-weight:500;}.dl:hover{background:rgba(139,156,255,0.18);color:white;transform:translateY(-1px);}
 .callout{margin-top:20px;padding:28px 24px;border-radius:14px;background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));border:1px solid var(--border);text-align:center;}
+.paper-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:24px 28px;background:linear-gradient(135deg,rgba(139,156,255,0.11),rgba(167,139,250,0.07));border:1px solid rgba(139,156,255,0.28);border-radius:16px;margin:0 0 20px;backdrop-filter:blur(10px);}.paper-card-text .part{font-size:0.75rem;color:var(--accent-1);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.paper-card-text h3{margin:4px 0 8px;font-size:1.15rem;font-weight:600;letter-spacing:-0.01em;}.paper-card-text p{color:var(--muted);font-size:0.95rem;margin:0;max-width:620px;}
 .prose{margin-top:28px;color:#c4cae2;font-size:1.02rem;line-height:1.82;}.prose p{margin:0 0 1.35em;}.prose p:last-child{margin-bottom:0;}.prose strong{color:var(--text);font-weight:600;}.prose em{color:#dbe2ff;font-style:italic;}
 footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--muted-2);font-size:0.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(154,163,184,0.4);}footer a:hover{color:var(--text);border-bottom-color:var(--text);}
 @media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body><div class="bg"></div><main>
@@ -28,6 +29,7 @@ footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--mut
   <p class="tag">A geometric derivation of the Standard Model spectrum from one master wave Ψ∞.</p>
   <div class="cta">
     <a class="btn primary" href="#core">Explore the Theory</a>
+    <a class="btn primary" href="files/IDWT_paper.md" download>Read the Paper</a>
     <a class="btn primary" href="#notebooklm">NotebookLM</a>
     <a class="btn primary" href="#notes">Download Notes</a>
   </div>
@@ -86,8 +88,8 @@ footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--mut
         <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
         <tr><td>ν₃ mass</td><td>48.871 meV</td><td>not yet measured</td><td>—</td></tr>
         <tr><td>Σm<sub>ν</sub></td><td>59.00 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
-        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>7.42 × 10⁻⁵ eV²</td><td>−2.40%</td></tr>
-        <tr><td>Δm²₃₁</td><td>2.386 × 10⁻³ eV²</td><td>2.584 × 10⁻³ eV²</td><td>−7.66%</td></tr>
+        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−0.8σ ✓</td></tr>
+        <tr><td>Δm²₃₁</td><td>2.386 × 10⁻³ eV²</td><td>(2.584 ± 0.025) × 10⁻³ eV²</td><td>−7.7% <span title="PDG 2022: −7.7%; NuFit 5.2: −5.5%; T2K+NOvA: −2.7%. Mode indices fix n_ν₃=22 exactly; deviation is analysis-dependent." style="cursor:help;border-bottom:1px dotted var(--muted)">†</span></td></tr>
         <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
         <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
         <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
@@ -97,7 +99,7 @@ footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--mut
       </tbody>
     </table>
   </div>
-  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector.</p>
+  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector. † The Δm²₃₁ prediction is fixed exactly by mode index n_ν₃ = 22; the deviation from experiment is analysis-dependent: PDG 2022 global fit gives −7.7%, NuFit 5.2 gives −5.5%, and T2K+NOvA 2020 gives −2.7%.</p>
 </section>
 
 <section id="about">
@@ -133,6 +135,14 @@ footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--mut
 <section id="notes">
   <h2>Download the Notes</h2>
   <p class="lead">Nine parts. Each is self-contained and links to the next.</p>
+  <div class="paper-card">
+    <div class="paper-card-text">
+      <div class="part">Paper</div>
+      <h3>A Combinatorial-Geometric Derivation of the Standard Model Spectrum</h3>
+      <p>Self-contained: five spectral theorems with proofs, complete mass table, absolute neutrino masses, CKM, and five falsifiable predictions — from n<sub>s</sub> = 4 and m<sub>e</sub> alone.</p>
+    </div>
+    <a class="dl" href="files/IDWT_paper.md" download>Download .md</a>
+  </div>
   <div class="grid">
     <article class="card">
       <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>

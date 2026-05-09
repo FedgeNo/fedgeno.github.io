@@ -605,7 +605,7 @@ print(f"\n  --- g_1 running (1-loop, b1=41/6) ---")
 print(f"  g_1 at fiber scale (m_W):  {g1:.6f}  err={err_fiber:+.4f}%")
 print(f"  g_1 after running to m_Z:  {g1_at_mZ:.6f}  err={err_mZ:+.4f}%")
 print(f"  [1-loop closes {abs(err_fiber)-abs(err_mZ):.4f} pp; -1.88% residual remains]")
-print(f"  Remaining -1.88% = sin²θ_W structural gap (+0.37%) propagated into g₁ (see open_computations.py)")
+print(f"  Remaining -1.88% = sin²θ_W structural gap (+0.37%) propagated into g₁")
 
 
 
@@ -1109,7 +1109,8 @@ print(f"  ρ = m_W²/(m_Z²cos²θ_W) = {rho_ew:.6f}  (SM tree-level: 1.000000 �
 # =============================================================================
 # J_max = s12 c12 s23 c23 s13 c13² is the Jarlskog prefactor (without sin δ_CP).
 # J = J_max × sin(δ_CP).  We compare J_max to PDG 3.18×10^-2.
-# τ lifetime from lepton universality: τ_τ = τ_μ × (m_μ/m_τ)⁵ × BR(τ→eνν)
+# τ lifetime from IDWT-derived R_had (one-loop α_s) and phase-space R_lep.
+# τ_τ = τ_μ × (m_μ/m_τ)⁵ / (1 + R_lep + R_had) — no measured BR input.
 
 import math
 _c23=math.cos(math.asin(math.sqrt(sin2_23_pred)))
@@ -1121,17 +1122,24 @@ _s13=math.sqrt(sin2_13_pred)
 
 J_max = _s12*_c12*_s23*_c23*_s13*_c13**2
 tau_mu = 2.1970e-6     # s
-m_mu_m = m_scale6*S(n_mu,6); m_tau_m = m_scale10*S(n_tau,10)
-BR_te  = 0.17818       # PDG BR(τ→eνν)
-tau_tau_pred = tau_mu * (m_mu_m/m_tau_m)**5 * BR_te
+m_mu_m = m_scale6*S(n_mu,6); m_tau_m = m_scale10*S(n_tau,10)*dyson_factor
+# R_had: one-loop α_s with IDWT Λ_QCD = N_c×f_π; N_f=3 (d,u,s; charm excluded m_D>m_τ)
+_b0_tau      = (11*N_c - 2*3) // 3                                 # = 9
+_alpha_s_tau = 2*math.pi / (_b0_tau * math.log(m_tau_m / Lqcd))
+_R_had       = N_c * (1 + _alpha_s_tau / math.pi)                 # |V_ud|²+|V_us|²=1
+# R_lep: phase-space ratio Γ(τ→μνν)/Γ(τ→eνν) = f(m_μ²/m_τ²) / f(m_e²/m_τ²) ≈ f(r_μ)
+_f_ps        = lambda x: 1 - 8*x + 8*x**3 - x**4 - 12*x**2*math.log(x)
+_R_lep       = _f_ps((m_mu_m/m_tau_m)**2)
+tau_tau_pred = tau_mu * (m_mu_m/m_tau_m)**5 / (1 + _R_lep + _R_had)
 
 print("\n=== JARLSKOG INVARIANT AND τ LIFETIME (Part 5) ===")
 print(f"  J_max = s12 c12 s23 c23 s13 c13² = {J_max:.5f}"
       f"         PDG 0.03180   err {(J_max/0.0318-1)*100:+.1f}%")
 J_at195 = J_max*math.sin(195*math.pi/180)
 print(f"  J = J_max×sin(δ_CP); at PDG δ≈195°: J={J_at195:.5f}")
-print(f"  τ_τ = τ_μ×(m_μ/m_τ)⁵×BR(τ→eνν) = {tau_tau_pred*1e15:.2f} fs"
-      f"         PDG 290.3 fs   err {(tau_tau_pred*1e15/290.3-1)*100:+.2f}%")
+print(f"  α_s(m_τ) = {_alpha_s_tau:.4f}  R_lep = {_R_lep:.4f}  R_had = {_R_had:.4f}")
+print(f"  τ_τ = τ_μ×(m_μ/m_τ)⁵/(1+R_lep+R_had) = {tau_tau_pred*1e15:.0f} fs"
+      f"   PDG 290.3 fs   err {(tau_tau_pred*1e15/290.3-1)*100:+.1f}%  [+higher-order QCD]")
 
 # =============================================================================
 # STEP 23 -- HIGGS YUKAWA COUPLINGS
@@ -1231,7 +1239,296 @@ _mp = 3*_Lqcd*(1+1.0/3**2)  # N_c*Lqcd*(1+1/n_u^2) Fermi correction
 print(f"  m_p = N_c×Λ×(1+1/n_u²) = {_mp:.1f} MeV   PDG 938.3   err {(_mp/938.3-1)*100:+.1f}%")
 
 # =============================================================================
-# STEP 27 -- α_s: FIBER SCALE VS QCD RUNNING PREDICTION
+# STEP 27 -- AXIAL COUPLING g_A AND NEUTRON LIFETIME
+# =============================================================================
+# The nucleon axial vector coupling g_A is the spin-flip matrix element between
+# the d=3 sector ground state (the nucleon) and its first axial excitation.
+# In IDWT, the d=3 sector is spanned by standing-wave resonances at mode
+# indices n = 1, 2, ...; the amplitude for a spin-flip transition between
+# consecutive seed levels is:
+#
+#   g_A = sqrt(S(n_s+1, 3) / S(n_s, 3)) = sqrt(S(5,3) / S(4,3))
+#       = sqrt(35 / 20) = sqrt(7/4) = sqrt(7)/2 = 1.3229
+#
+# Physical reading: S(n_s,3) = 20 is the number of d=3 microstates at the
+# seed level (the nucleon ground state density); S(n_s+1,3) = 35 is the
+# count at the next level.  The spin-flip amplitude is the square root of
+# the density ratio, which is the standard Gamow-Teller matrix element in
+# IDWT's spectral formulation. (Part 5 §3b, Part 8 §10)
+#
+# The +4.0% error relative to PDG (1.2723) traces to uncalculated higher-l
+# partial-wave mixing in the d=3 sector kernel (Part 8 §10). Spin-orbit l=1
+# admixtures in the nucleon ground state would lower g_A toward the PDG value.
+_g_A = math.sqrt(float(S(n_strange + 1, 3)) / S(n_strange, 3))   # = sqrt(35/20) = 1.3229
+
+# Neutron lifetime from IDWT-derived G_F, |V_ud|, and g_A above.
+#
+# The neutron decay n → p e⁻ ν̄_e has rate (allowed approximation):
+#
+#   Γ_n = G_F² |V_ud|² (1 + 3g_A²) m_e⁵ f / (2π³)
+#   τ_n = ℏ / Γ_n
+#
+# (1 + 3g_A²) is the squared matrix element summed over spin: |g_V|²=1
+# (CVC, conserved vector current) plus 3|g_A|² from the three axial
+# spin-projection channels. G_F and |V_ud| are IDWT-derived (Steps 11, 16).
+#
+# The kinematic phase-space factor f is:
+#
+#   f = integral_{m_e}^{Q_n} p_e E_e (Q_n - E_e)² dE_e  /  m_e⁵
+#
+# where Q_n = m_n - m_p = 1.2933 MeV is the neutron-proton mass difference.
+# Setting ε = E_e / m_e (dimensionless total electron energy in units of m_e):
+#   - p_e = m_e sqrt(ε²-1),   dE_e = m_e dε
+#   - E_ν̄ = Q_n - E_e: in the heavy-proton limit the antineutrino carries
+#     the remaining energy; at ε=1 (electron at rest) E_ν̄ = Q_n - m_e;
+#     at ε = Q_n/m_e (electron at maximum) E_ν̄ = 0.
+#
+# Substituting:
+#   f = integral_1^{Q_n/m_e} sqrt(ε²-1) * ε * (Q_n/m_e - ε)² dε
+#
+# Upper limit ε_max = Q_n/m_e = 2.531.  Width of integration = ε_max - 1
+# = (Q_n - m_e)/m_e = Q_β/m_e = 1.531, where Q_β = 0.782 MeV is the
+# maximum electron kinetic energy.
+#
+# This bare integral (Coulomb function F_C = 1) gives f ≈ 1.60.
+# The Fermi function F_C(Z=1, ε) = 2πη/(1-e^{-2πη}), η = α/(β_e),
+# which enhances f by ≈ +5% for the n→p transition (proton Z=1).
+# Including F_C raises f to ≈ 1.69 and τ_n to ≈ 860 s (IDWT_05).
+# Here we compute the bare integral; the output notes the Coulomb shift.
+#
+# Input Q_n = m_n - m_p = 1.2933 MeV is kinematic (PDG). IDWT derives m_p
+# from the large-N_c formula (Step 13) but not m_n independently.
+_Q_n      = 1.2933        # MeV: m_n - m_p (kinematic; IDWT derives m_p only)
+_eps_max  = _Q_n / m_e   # = 2.531 = ε_max = upper integration limit
+_N_n, _f_n = 5000, 0.0
+for _i in range(_N_n):
+    # midpoint rule: ε from 1 (electron at rest) to ε_max (neutrino at rest)
+    _eps  = 1.0 + (_i + 0.5) * (_eps_max - 1.0) / _N_n
+    _f_n += _eps * math.sqrt(_eps**2 - 1.0) * (_eps_max - _eps)**2 * ((_eps_max - 1.0) / _N_n)
+_Gamma_n = GF_MeV2**2 * m_e**5 * Vud_m**2 * (1.0 + 3.0*_g_A**2) * _f_n / (2.0*math.pi**3)
+_tau_n   = hbar_MeV_s / _Gamma_n   # hbar_MeV_s defined in Step 21 (muon lifetime)
+
+print(f"\n=== AXIAL COUPLING AND NEUTRON LIFETIME (Part 5 §3b) ===")
+print(f"  g_A = sqrt(S(n_s+1,3)/S(n_s,3))"
+      f" = sqrt({S(n_strange+1,3)}/{S(n_strange,3)})"
+      f" = sqrt(7)/2 = {_g_A:.4f}"
+      f"   PDG 1.2723   err {(_g_A/1.2723-1)*100:+.1f}%")
+print(f"  phase-space f (bare, F_C=1) = {_f_n:.4f}"
+      f"   [+Coulomb F_C(Z=1) ≈ +5% → f ≈ 1.69, τ_n ≈ 860 s — see IDWT_05 §3b]")
+print(f"  τ_n = ℏ / [G_F²|V_ud|²(1+3g_A²) f m_e⁵/(2π³)] = {_tau_n:.0f} s"
+      f"   PDG 878.4 s   err {(_tau_n/878.4-1)*100:+.1f}%"
+      f"  [g_A +4.0% → (1+3g_A²) ×1.067; Coulomb F_C missing → f low;  combined ~{(_tau_n/878.4-1)*100:+.0f}%]")
+
+# =============================================================================
+# STEP 28 -- SPECTRAL SUM RULES AND EXACT MASS RATIOS
+# =============================================================================
+# The resonance spectrum in each sector d is {S(n,d) : n ≥ 1}.  Two purely
+# combinatorial identities follow from Pascal's triangle; they hold in all six
+# IDWT sectors and are not additional postulates — they are consequences of
+# the Hilbert-series formula m(n,d) = m_scale_d × S(n,d).
+#
+# IDENTITY 1: SPECTRAL SUM RULE      ζ_d(1) ≡ Σ_{n=1}^∞  1/S(n,d)  =  d/(d-1)
+# ---------------------------------------------------------------------------
+# Physical meaning: the reciprocal sum over the full resonance tower of a
+# sector is a fixed rational number set by dimensionality alone.  This
+# constrains the total spectral weight of each sector independently of m_scale.
+#
+# Proof (telescoping):
+#   The key identity — verifiable by direct expansion — is:
+#     1/C(n+d-1, d) = [d/(d-1)] × [1/C(n+d-2,d-1)  −  1/C(n+d-1,d-1)]
+#   Summing n = 1 to N:
+#     Σ_{n=1}^N 1/S(n,d) = [d/(d-1)] × [C(d-1,d-1)^{-1}  −  1/C(N+d-1,d-1)]
+#                        = [d/(d-1)] × [1  −  1/S(N,d-1)]
+#   since C(d-1,d-1) = 1 exactly (boundary term).  As N → ∞, S(N,d-1) → ∞,
+#   so ζ_d(1) = d/(d-1).  Q.E.D.
+#
+# IDENTITY 2: MODE SPACING (Pascal)   S(n+1,d) − S(n,d)  =  S(n+1,d-1)
+# ---------------------------------------------------------------------------
+# The gap between consecutive resonances in sector d equals the (n+1)-th
+# resonance of sector (d−1).  Proof: Pascal's identity gives
+#   C(n+d, d) − C(n+d-1, d) = C(n+d-1, d-1) = S(n+1, d-1).  Q.E.D.
+# Physical reading: the number of new standing-wave modes added when
+# ascending from level n to n+1 in sector d is counted exactly by sector
+# d-1 at the same level.  This underpins all mode-index derivation chains
+# (Part 2 sections 2–6): each n_particle = n_other + n_third comes directly
+# from this identity applied at the relevant sector boundary.
+#
+# EXACT MASS RATIOS
+# ---------------------------------------------------------------------------
+# Within a single sector, m_scale_d cancels, leaving exact rational ratios
+# of S values.  For d=4 up-type quarks, the GTC shift (1−ε)^k and the Dyson
+# resummation factor for τ are algebraic in n_s and ε, hence also exact.
+# All fractions below can be written as ratios of binomial coefficients.
+# (Part 5 §3, Part 8 §10; computed below and verified against PDG.)
+
+_sectors_d = [2, 3, 4, 5, 6, 10]
+_N_sum     = 2000   # partial-sum depth; error ∝ 1/S(N,d-1) < 10^{-4} at N=2000
+
+print("\n=== SPECTRAL SUM RULES  ζ_d(1) = d/(d-1) (Part 9 §1) ===")
+for _d in _sectors_d:
+    _zeta  = sum(1.0 / S(_n, _d) for _n in range(1, _N_sum + 1))
+    _exact = _d / (_d - 1.0)
+    print(f"  d={_d:2d}:  Σ_n 1/S(n,d) ≈ {_zeta:.6f}   exact = {_d}/({_d}-1) = {_exact:.6f}"
+          f"   residual {(_zeta/_exact - 1)*100:+.4f}%  [N={_N_sum}; → 0 as N→∞]")
+
+print("\n=== MODE SPACING  S(n+1,d) − S(n,d) = S(n+1,d-1)  (Pascal) ===")
+for _n_ms, _d_ms in [(1,3),(n_strange,3),(n_e,3),(1,4),(n_strange,4),(n_e,4),(1,6),(n_strange,6),(n_e,6)]:
+    _lhs = S(_n_ms+1, _d_ms) - S(_n_ms, _d_ms)
+    _rhs = S(_n_ms+1, _d_ms-1)
+    print(f"  n={_n_ms:2d} d={_d_ms}: S({_n_ms+1},{_d_ms}) − S({_n_ms},{_d_ms}) = {_lhs:<8d}"
+          f"S({_n_ms+1},{_d_ms-1}) = {_rhs:<8d} {'✓' if _lhs == _rhs else '✗'}")
+
+print("\n=== EXACT MASS RATIOS (m_scale cancels; corrections algebraic in n_s, ε) ===")
+# Each row: IDWT ratio = (binomial fraction) × (exact algebraic correction)
+_e   = epsilon       # = 1/(280√7); GTC shift per d=4 mode
+_dy  = dyson_factor  # = 1 + 1/(n_up × n_s² × S(n_s,4)); τ Dyson factor
+_Ss  = { "d":  S(n_down,3),    "s":  S(n_strange,3),
+         "u":  S(n_up,4),      "c":  S(n_charm,4),  "t": S(n_top,4),
+         "e":  S(n_e,6),       "mu": S(n_mu,6),      "tau": S(n_tau,10),
+         "n1": S(n_nu1,5),     "n2": S(n_nu2,5),     "n3": S(n_nu3,5),
+         "W":  S(n_W,2),       "Z":  S(n_Z,2) }
+_mass_ratios = [
+    # (label,                   IDWT value,                              PDG central,  formula string)
+    ("m_s / m_d",     _Ss["s"]/_Ss["d"],                                 20.0,   f"S(n_s,3)/S(n_d,3) = {_Ss['s']}/{_Ss['d']}"),
+    ("m_c / m_u",     _Ss["c"]/_Ss["u"]*(1-_e)**3,                      587.96, f"S(n_c,4)/S(n_u,4)×(1−ε)³ = {_Ss['c']}/{_Ss['u']}×..."),
+    ("m_t / m_u",     _Ss["t"]/_Ss["u"]*(1-_e)**10,                   79981.0,  f"S(n_t,4)/S(n_u,4)×(1−ε)¹⁰= {_Ss['t']}/{_Ss['u']}×..."),
+    ("m_μ / m_e",     _Ss["mu"]/_Ss["e"],                              206.7683, f"S(n_μ,6)/S(n_e,6) = {_Ss['mu']}/{_Ss['e']}"),
+    ("m_τ / m_μ",     _Ss["tau"]/_Ss["mu"]*_dy,                        16.8171, f"S(n_τ,10)/S(n_μ,6)×Dyson = {_Ss['tau']}/{_Ss['mu']}×Dyson"),
+    ("m_τ / m_e",     _Ss["tau"]/_Ss["e"]*_dy,                        3477.22,  f"S(n_τ,10)/S(n_e,6)×Dyson = {_Ss['tau']}/{_Ss['e']}×Dyson"),
+    ("m_ν₃ / m_ν₁",  _Ss["n3"]/_Ss["n1"],                              None,   f"S(n_ν3,5)/S(n_ν1,5) = {_Ss['n3']}/{_Ss['n1']}"),
+    ("m_ν₂ / m_ν₁",  _Ss["n2"]/_Ss["n1"],                              None,   f"S(n_ν2,5)/S(n_ν1,5) = {_Ss['n2']}/{_Ss['n1']}"),
+    ("m_ν₃ / m_ν₂",  _Ss["n3"]/_Ss["n2"],                              None,   f"S(n_ν3,5)/S(n_ν2,5) = {_Ss['n3']}/{_Ss['n2']}"),
+    ("m_Z  / m_W",    _Ss["Z"]/_Ss["W"],                               1.13450, f"S(n_Z,2)/S(n_W,2) = {_Ss['Z']}/{_Ss['W']}"),
+]
+for _rlabel, _rpred, _rpdg, _rfml in _mass_ratios:
+    _pred_s = f"{_rpred:.6g}"
+    _pdg_s  = f"{_rpdg:.6g}" if _rpdg is not None else "  —    "
+    _err_s  = f"{(_rpred/_rpdg-1)*100:+.3f}%" if _rpdg is not None else "  —  "
+    print(f"  {_rlabel:<15s}  IDWT={_pred_s:<11s}  PDG={_pdg_s:<11s}  err={_err_s:<10s}  [{_rfml}]")
+
+# =============================================================================
+# STEP 29 -- HEAT KERNEL K_d(t) AND SPECTRAL GEOMETRY
+# =============================================================================
+# The heat kernel of sector d is the trace of the heat semi-group:
+#
+#   K_d(t) = Tr(e^{-t|D_d|}) = Σ_{n=1}^∞  exp(-t · S(n,d))
+#
+# Physical readings:
+#   (a) Partition function of sector d at inverse temperature t/m_scale_d.
+#   (b) The Mellin transform Γ(s)·ζ_d(s) = ∫_0^∞ t^{s-1} K_d(t) dt connects
+#       K_d to the spectral zeta function ζ_d(s) = Σ S(n,d)^{-s} from Step 28.
+#   (c) The spectral action Tr(f(D/Λ)) for an exponential cutoff f(x)=e^{-x}
+#       is Σ_d K_d(m_scale_d/Λ); it encodes all gauge and Higgs couplings in a
+#       single geometric quantity (Connes-Chamseddine; Part 9 T7).
+#
+# SMALL-t ASYMPTOTICS (Weyl + Euler-Maclaurin):
+# -----------------------------------------------------------------------------
+#   K_d(t) = a0_d · t^{-1/d}  −  d/2  +  O(t^{1/d})   as t → 0+
+#
+# The two terms arise from distinct corrections:
+#
+#   (i)  WEYL TERM — leading integral approximation.
+#        S(n,d) ∼ n^d/d! for large n, so:
+#        Σ_{n=1}^∞ exp(-t·n^d/d!)  ≈  ∫_0^∞ exp(-t·n^d/d!) dn
+#          = (d!/t)^{1/d} ∫_0^∞ exp(-u^d) du       [sub: u=(t/d!)^{1/d}·n]
+#          = (d!/t)^{1/d} · (1/d) · Γ(1/d)
+#          = Γ(1+1/d) · (d!)^{1/d} · t^{-1/d}  ≡  a0_d · t^{-1/d}
+#
+#        a0_d is the sector's Weyl coefficient — the analog of the Riemannian
+#        volume factor in the standard heat-kernel expansion on a manifold.
+#        The power t^{-1/d} encodes the spectral dimension d of the sector:
+#        eigenvalues grow as n^d, so the counting function N(λ) ∝ λ^{1/d}.
+#
+#   (ii) SUBLEADING-IN-S CORRECTION — constant term.
+#        The subleading term in S(n,d) beyond n^d/d! is (d-1)/(2(d-1)!) · n^{d-1}.
+#        Expanding e^{-t·S(n,d)} ≈ e^{-tn^d/d!}(1 − t·δ_n + ⋯) and integrating:
+#          −t · [d-1/(2(d-1)!)] · ∫ e^{-tn^d/d!} n^{d-1} dn
+#          = −t · [d-1/(2(d-1)!)] · d!/(dt) = −(d-1)/2       [constant in t]
+#
+#   (iii) EULER-MACLAURIN BOUNDARY — the discrete sum differs from the integral
+#        by −f(0)/2 where f(0) = exp(-t·S(0,d)) = exp(0) = 1  →  −1/2.
+#
+#        Total constant: −(d-1)/2 − 1/2 = −d/2.
+#
+# SPECTRAL ZETA FROM MELLIN:
+# -----------------------------------------------------------------------------
+# By Mellin inversion the constant term −d/2 in K_d(t) maps to a pole of
+# Γ(s)·ζ_d(s) at s=0 with residue −d/2.  Since Γ(s) ∼ 1/s near s=0:
+#
+#   ζ_d(0)  =  −d/2       for every IDWT sector d.
+#
+# Combined with ζ_d(1) = d/(d-1) from Step 28, these are the two anchor values
+# of the spectral zeta function of each sector.  The functional determinant
+# of the sector operator is log det D_d = −ζ_d'(0) (zeta-regularized).
+#
+# LARGE-t BEHAVIOR:
+# -----------------------------------------------------------------------------
+# For t ≫ 1 the sum is dominated by the ground state S(1,d) = 1 for all d,
+# and the first excited state S(2,d) = d+1:
+#
+#   K_d(t) ≈ e^{-t}(1 + e^{-dt} + ...)    as t → ∞.
+#
+# So all sectors share the same ground-state energy S(1,d)=1 in dimensionless
+# units; the first excitation gap is exactly d, equal to the sector dimension.
+
+def _K_d(d, t, N=800):
+    """K_d(t) = Σ_{n=1}^N exp(-t·S(n,d)).  N=800 is sufficient for t≥0.001."""
+    return sum(math.exp(-t * S(n, d)) for n in range(1, N + 1)
+               if t * S(n, d) < 40)   # skip negligible terms (exp<e^{-40})
+
+def _K_d_asymp(d, t):
+    """Two-term small-t approximation: a0_d·t^{-1/d} − d/2."""
+    _a0 = math.gamma(1.0 + 1.0/d) * math.factorial(d)**(1.0/d)
+    return _a0 * t**(-1.0/d) - d/2.0
+
+_d_all = [2, 3, 4, 5, 6, 10]
+
+print("\n=== HEAT KERNEL  K_d(t) = Σ exp(−t·S(n,d))  (Part 9 §T14) ===")
+print("  K_d(t) = a0_d·t^{−1/d}  −  d/2  +  O(t^{1/d})   [Weyl + EM + subleading-S]")
+print()
+print(f"  {'d':>3}   {'a0_d = Γ(1+1/d)·(d!)^{1/d}':>28}   {'const = −d/2':>12}   {'1st-excit gap d':>16}")
+for _d in _d_all:
+    _a0 = math.gamma(1.0 + 1.0/_d) * math.factorial(_d)**(1.0/_d)
+    print(f"  {_d:>3}   {_a0:>28.6f}   {-_d/2:>12.1f}   {_d:>16}")
+
+print()
+print(f"  Numerical verification at t = 0.001 (K_exact vs 2-term asymptotic):")
+for _d in _d_all:
+    _t = 1e-3
+    _ex = _K_d(_d, _t)
+    _as = _K_d_asymp(_d, _t)
+    print(f"  d={_d:2d}:  K_exact = {_ex:10.4f}   K_asymp = {_as:10.4f}   err = {(_as/_ex-1)*100:+.3f}%")
+
+print()
+print("  Large-t ground-state check: K_d(t) ≈ e^{-t}(1 + e^{-dt}) for t=5:")
+for _d in _d_all:
+    _t = 5.0
+    _ex  = _K_d(_d, _t)
+    _gs  = math.exp(-_t) * (1 + math.exp(-_d*_t))
+    print(f"  d={_d:2d}:  K_exact = {_ex:.6f}   e^{{-t}}(1+e^{{-dt}}) = {_gs:.6f}   "
+          f"gap = S(2,{_d})-1 = {S(2,_d)-1}")
+
+print()
+print("  ζ_d(0) = −d/2  (regularised eigenvalue count via Mellin of constant term):")
+print("  ζ_d(1) = d/(d−1)  (from Step 28 spectral sum rule)")
+for _d in _d_all:
+    print(f"  d={_d:2d}:  ζ_d(0) = {-_d/2:.1f}   ζ_d(1) = {_d/(_d-1.0):.6f}"
+          f"   log det D_d = −ζ_d'(0)  [sector functional determinant]")
+
+print()
+print("  Spectral action Tr(e^{-|D|/Λ}) = Σ_d K_d(m_scale_d/Λ)  at Λ = m_e:")
+_scales_all = [(2,m_scale2),(3,m_scale3),(4,m_scale4),(5,m_scale5),(6,m_scale6),(10,m_scale10)]
+_S_total = 0.0
+for _d, _ms in _scales_all:
+    _tau = _ms / m_e
+    _Z   = _K_d(_d, _tau)
+    _S_total += _Z
+    _regime = "UV (asymp)" if _tau < 0.1 else ("ground-state" if _tau > 3 else "crossover")
+    print(f"  d={_d:2d}:  τ = m_scale_{_d}/m_e = {_tau:.4g}   K_d(τ) = {_Z:.4g}   [{_regime}]")
+print(f"  Total Tr(e^{{-|D|/m_e}}) = {_S_total:.4g}")
+
+# =============================================================================
+# STEP 30 -- α_s: FIBER SCALE VS QCD RUNNING PREDICTION
 # =============================================================================
 # IDWT g_s = √(2g44/π²) from the CP² Chern-Simons holonomy.
 # QCD runs α_s(m_Z)=0.118 up to v_H=248 GeV using 1-loop β-function.
@@ -1287,7 +1584,7 @@ GENUINELY OPEN (computation not yet done):
   !!  G_N from sector localization geometry -- computation not performed (T12)
       M_inf is the manifold name, not a mass scale; this is not a QFT hierarchy problem
 
-CLOSED BY open_computations.py:
+CLOSED:
   ok  2-loop g1 (M-V RK4): -1.8823% -> -1.8810%; residual = sin2_W structural gap, not a running artefact
   ok  QCD scheme conversion: d,s offsets nonperturbative at Lambda_QCD; c,b IDWT=MS-bar; t IDWT=pole mass
   ok  rho NLO WKB: correction +2.03% overshoots; LO +0.069% is already at BW/pole ambiguity floor

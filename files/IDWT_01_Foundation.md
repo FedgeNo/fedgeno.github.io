@@ -31,6 +31,8 @@ The Higgs VEV is a **spectral quantity** — the RMS eigenvalue of $D$ — not a
 
 The laser, quasicrystal, Aubry-André, and atomic analogies are all instances of the same mathematical fact: the spectrum of a self-adjoint operator with a filtering condition. IDWT names that operator: $D$ on $M_\infty$. The SM is its spectral data.
 
+**Analytic control from combinatorics.** The spectral zeta function of each sector $d$ has two exact anchor values derivable from $S(n,d)=\binom{n+d-1}{d}$ alone: $\zeta_d(1)=d/(d-1)$ (total inverse-mass weight, proved by a Pascal telescoping identity) and $\zeta_d(0)=-d/2$ (zeta-regularised eigenvalue count, from the constant term of the heat kernel $K_d(t)=\sum_n e^{-tS(n,d)}$). These confirm that each hidden sector behaves as a proper $d$-dimensional Riemannian space — spectral dimension matches fiber dimension, the functional determinant $\log\det D_d=-\zeta_d'(0)$ is finite without a UV cutoff, and the infinite tower is analytically controlled. Full derivations in Part 9 T13–T14.
+
 ---
 
 ## 1. Core Postulates

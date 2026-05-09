@@ -277,7 +277,7 @@ Three targeted spectral validations, each staying entirely in the eigenvalue dom
 Σ_{l=0}^{L} M_l  =  Σ_{l=0}^{L} (l+1)(l+2)  =  (L+1)(L+2)(L+3)/3  =  2 · S(L+1, 3)
 ```
 
-**Proof.** By the upper summation identity (hockey-stick), Σ_{l=0}^{L} C(l+2,2) = C(L+3,3). Since M_l = (l+1)(l+2) = 2·C(l+2,2), and C(L+3,3) = (L+1)(L+2)(L+3)/6 = S(L+2,3) — wait, we need 2·C(L+3,3)/2... More directly: S(L+1,3) = C(L+3,3) = (L+1)(L+2)(L+3)/6, so 2·S(L+1,3) = (L+1)(L+2)(L+3)/3. The identity Σ_{l=0}^{L}(l+1)(l+2) = (L+1)(L+2)(L+3)/3 follows by induction. □
+**Proof.** By the upper summation identity (hockey-stick), Σ_{l=0}^{L} C(l+2,2) = C(L+3,3). Since M_l = (l+1)(l+2) = 2·C(l+2,2), we have Σ_{l=0}^{L} M_l = 2·C(L+3,3). Now S(L+1,3) = C(L+3,3) = (L+1)(L+2)(L+3)/6, so 2·S(L+1,3) = (L+1)(L+2)(L+3)/3 = Σ_{l=0}^{L}(l+1)(l+2) (verified by induction). □
 
 **Numerical verification (all exact):**
 

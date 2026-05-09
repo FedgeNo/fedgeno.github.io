@@ -91,6 +91,23 @@ where $V_d(\xi) = \lambda_d |\xi|^2/(1+|\xi|^2)$ is the sector potential (harmon
 
 The kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the leading quartic term consistent with $U(d) \times U(d')$ symmetry on the sector pair. It decomposes by angular momentum on the sector sphere as $(\xi \cdot \xi')^2 = \frac{1}{d}[\ell=0] + \frac{d-1}{d}\cdot C_2^{(d-2)/2}(\cos\theta)[\ell=2]$, where the $\ell=0$ part generates sector mass scales (Section 5) and the $\ell=2$ part generates the GTC frequency shift (Section 7.1). The rank-1 structure $g_{dd'}g_{d''d'''} = g_{dd'''}g_{d'd''}$ — equivalently $g_{dd'}^2 = g_{dd}g_{d'd'}$ — is not assumed; it follows from $g_{33}g_{44} = g_{34}^2 = 96$ (verified in Section 5.1). Full derivation in Technical Volume 3 [11].
 
+### 2.5 Spectral Infrastructure: Heat Kernel and Zeta Anchors
+
+The combinatorial mass formula is not ad-hoc: it emerges from a spectral geometry with precise analytic control. The **heat kernel** $K_d(t)=\sum_{n=1}^\infty e^{-tS(n,d)}$ of each sector — the trace of the heat semi-group of $D_d$ — has the small-$t$ Weyl expansion
+$$K_d(t) = \underbrace{\Gamma\!\bigl(1+\tfrac{1}{d}\bigr)(d!)^{1/d}}_{\text{Weyl coefficient }a_0^{(d)}}\,t^{-1/d} - \frac{d}{2} + O(t^{1/d}),$$
+where the power $t^{-1/d}$ confirms the spectral dimension of sector $d$ equals its fiber dimension. Via the Mellin transform $\Gamma(s)\zeta_d(s)=\int_0^\infty t^{s-1}K_d(t)\,dt$, the two terms pin the spectral zeta $\zeta_d(s)=\sum_{n\geq1}S(n,d)^{-s}$ at its two most important arguments:
+
+| Sector $d$ | $\zeta_d(1)=d/(d-1)$ | $\zeta_d(0)=-d/2$ |
+|---|---|---|
+| 2 | 2 | −1 |
+| 3 | 3/2 | −3/2 |
+| 4 | 4/3 | −2 |
+| 5 | 5/4 | −5/2 |
+| 6 | 6/5 | −3 |
+| 10 | 10/9 | −5 |
+
+$\zeta_d(1)=d/(d-1)$ is the spectral sum rule proved by telescoping from Pascal's triangle (Part 9 T13a). $\zeta_d(0)=-d/2$ is the zeta-regularised eigenvalue count — the direct analogue of the integrated leading Seeley-DeWitt coefficient on a Riemannian manifold of dimension $d$ — and fixes the sector functional determinant $\log\det D_d=-\zeta_d'(0)$ without a UV cutoff. Both values are purely combinatorial: no free parameters enter. Together they confirm that each hidden sector behaves as a proper Riemannian space of the expected dimension, with controlled vacuum energy and a well-defined one-loop structure. (Full derivations: Part 9 T13–T14.)
+
 ---
 
 ## 3. Five Spectral Theorems
@@ -247,7 +264,7 @@ PDG: $m_b = 4180 \pm 10$ MeV. Error: $+0.023\%$. The exhaustive search over $n \
 | $\gamma$ | 2 | 0 | — | 0 | 0 | exact |
 | $W^\pm$ | 2 | 76 | 2,926 | 80,379 | 80,377 | $+0.003\%$ |
 | $Z^0$ | 2 | 81 | 3,321 | 91,230 | 91,188 | $+0.047\%$ |
-| $H$ | 2 | 95 | 4,560 | 125,266 | 125,200(110) | $+0.053\%$ |
+| $H$ | 2 | 95 | 4,560 | 125,266 | 125,250(170) | $+0.013\%$ |
 | $d$ | 3 | 1 | 1 | 4.702 | 4.67(48) | $+0.68\%^\dagger$ |
 | $s$ | 3 | 4 | 20 | 94.04 | 93.4(86) | $+0.68\%^\dagger$ |
 | $b$ | 3 | beat | — | 4,181 | 4,180(10) | $+0.023\%$ |

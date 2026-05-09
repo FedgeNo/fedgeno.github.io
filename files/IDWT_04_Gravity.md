@@ -180,7 +180,7 @@ This decay defines a natural length scale:
 L_d ≡ 1/κ_d = 1/√(λ_d − E_0(d))
 ```
 
-This is the IDWT analogue of the Bohr radius. The hydrogen atom provides the exact analogy: the potential −e²/r producess a bound state whose exponential decay defines a_0 = ℏ²/m_e e² — the Bohr radius is not a compactification radius, it is the localization length of the ground-state wave function in an infinite space. Exactly the same here.
+This is the IDWT analogue of the Bohr radius. The hydrogen atom provides the exact analogy: the potential −e²/r produces a bound state whose exponential decay defines a_0 = ℏ²/m_e e² — the Bohr radius is not a compactification radius, it is the localization length of the ground-state wave function in an infinite space. Exactly the same here.
 
 **The localization length in the harmonic approximation.** For the harmonic limit V_d ≈ λ_d r² near the origin, the d-dimensional isotropic harmonic oscillator has ground-state energy:
 

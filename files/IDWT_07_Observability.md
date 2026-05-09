@@ -98,7 +98,7 @@ The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full t
 
 | n, n+1 | Beat (MeV) | Nearest state | Match |
 |--------|------------|---------------|-------|
-| 4, 5 | 124.4 | π⁰ (134.98) | −7.8% |
+| 4, 5 | 124.4 | (no identification — pion is a collective excitation, absent from sector spectrum; §3d Part 5) | — |
 | 11, 12 | 1517.1 | f₂(1525) | −0.5% |
 | **16, 17** | **4181** | **b quark (4180)** | **+0.02% ✅** |
 

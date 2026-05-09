@@ -129,7 +129,7 @@ This is the hockey-stick identity at different (n, d) pairs — not a selection 
 **Mode indices from sector Euler characteristics (Part 1 §3b):**
 
 ```
-n_e = χ(CP²) × χ(CP³) − χ(CP³) = n_s² − n_u = 13    [= k₀ − n_u]
+n_e = (χ(CP³))² − χ(CP²) = n_s² − n_u = 13            [= k₀ − n_u]
 n_τ = n_c + n_u = S(n_s,3) + n_u = 20 + 3 = 23          [charm mode + derived n_u]
 n_ν₃ = n_τ − n_d = 23 − 1 = 22                           [one mode below tau]
 n_Z − n_W = β = S(n_u−1,4) = 5                           [= the β from g₂₂ = α²β/2 ✓]
@@ -718,3 +718,21 @@ For the six IDWT sectors: b_{k₀} takes values 0.51539 (d=2) down to **0.50000 
 | Hurwitz (geometry) | Division algebras | 𝕆 = last normed algebra; octonionic Hopf → d=10 |
 | **Gegenbauer (algebra)** | **Jacobi chain criticality** | **b_{k₀}=1/2 iff d=2(n_s+1)=10** |
 | Seed coupling | g₁₀,₁₀ = g₆₆ = 1/n_s = 1/4 from seed | Same coupling for both CP sectors |
+
+---
+
+## 14. Spectral Convergence and Analytic Control ✅
+
+The infinite resonance tower $\{S(n,d):n\geq1\}$ might appear to require a UV cutoff. In IDWT it does not: the combinatorial structure of $S(n,d)$ provides its own regularisation, confirmed by two exact anchor values of the sector spectral zeta function $\zeta_d(s)=\sum_{n=1}^\infty S(n,d)^{-s}$:
+
+$$\zeta_d(1) = \frac{d}{d-1} \quad\text{(total inverse-mass weight; Part 9 T13a)}, \qquad \zeta_d(0) = -\frac{d}{2} \quad\text{(regularised mode count; Part 9 T14b)}.$$
+
+**Three consequences for the mass formula:**
+
+1. **Total inverse-mass weight is finite.** $\zeta_d(1)=d/(d-1)<\infty$ means $\sum_n m_{\rm scale_d}/m(n,d)$ converges for every sector; contributions from the high-$n$ tail of the tower are suppressed exactly as needed.
+
+2. **Functional determinant is finite without a cutoff.** $\zeta_d(0)=-d/2$ is a finite, purely combinatorial number, so the sector functional determinant $\log\det D_d=-\zeta_d'(0)$ is well-defined by zeta regularisation alone. No tuning of a regulator scale is required.
+
+3. **Spectral dimension equals fiber dimension.** The heat kernel of sector $d$ satisfies $K_d(t)=\sum_{n\geq1}e^{-tS(n,d)}\sim\Gamma(1+1/d)(d!)^{1/d}\,t^{-1/d}$ as $t\to0^+$. The leading power $t^{-1/d}$ establishes spectral dimension $= d$, consistent with the identification of each sector as a resonance tower in a $d$-dimensional Hopf fiber (§§3, 9–10 above).
+
+These results follow from $S(n,d)=\binom{n+d-1}{d}$ by Pascal's identity and Euler-Maclaurin, with no free parameters. The mass formula is the spectrum of a well-defined spectral triple, not a phenomenological fit (Part 1 §0, Part 9 T0).

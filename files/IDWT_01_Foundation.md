@@ -1,8 +1,22 @@
-# IDWT — Part 1: Foundations
+# Infinite Dimensional Wave Theory — Part 1: Foundations
 
 ## Status Key
 - ✅ Derived or confirmed
 - 🔶 Consistent but not fully derived
+
+---
+
+## A Note on First Impressions
+
+The mass tables in this document invite an immediate reaction: this must be curve-fitting. The reaction is understandable and wrong, in ways that are not obvious on a first pass. Three specific misconceptions are worth addressing before proceeding.
+
+**The mode indices are not fitted.** Every mode index $n$ in the particle spectrum is generated algebraically by the Hockey-Stick identity $S(n,d) = \binom{n+d-1}{d}$ applied to the single seed $n_s = 4$. The full derivation chain is in §5 and Part 2 §6. As one example: $n_\mu = S(4,4) = 35$ because that is Pascal's recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ evaluated at $(n=4, d=4)$ — not because the muon happens to have that index. The seed $n_s = 4$ is itself topologically forced by the Dirac index of $\mathbb{CP}^3$ (§3b), independently of any mass data.
+
+**The sector assignments are not arbitrary.** Each sector imparts specific physical properties through its spinor geometry. $d=5$ ($S^5$, $d \bmod 8 = 5$) forbids Majorana spinors by Clifford algebra periodicity — Dirac neutrinos are not a choice, they are a geometric consequence. $d=4$ ($\mathbb{CP}^2$) generates colour charge from its $SU(3)$ isometry group via the Atiyah-Singer index. $d=6$ ($\mathbb{CP}^3$) produces colour-neutral chiral fermions through its Kähler structure. Moving a particle to a different sector does not produce a different prediction — it produces the wrong quantum numbers entirely. The assignments are locked by geometry.
+
+**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from $n_s = 4$ alone ($g_{33} = 8\sqrt{7}$) and from gauge anomaly cancellation ($g_{66} = 1/4$). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
+
+The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_s = 4$). Everything else — the sector set, all mode indices, all coupling constants, all sector scales, all particle masses — is derived. The structural evidence against numerology is the cross-referencing: the same numbers arriving independently from different directions. The quantity $\beta = S(n_u-1, 4) = 5$ appears in both the EW coupling derivation $g_{22} = \alpha^2\beta/2$ and the boson mass gap $n_Z - n_W = 5$. The resonance site $k_0 = 16$ satisfies three independent conditions simultaneously. The Higgs mode index $n_H = 95$ is reached by two separate cross-sector routes. Numerological schemes are flexible enough to always find a match. This framework is rigid enough that these convergences are non-trivial.
 
 ---
 

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>IDWT — Particle Spectrum Explorer</title>
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin:0; overflow:hidden; background:#000; font-family: system-ui, sans-serif; color:#ddd; }
+    canvas { display:block; }
+
+    /* home link */
+    #homelink {
+        position: absolute; top: 12px; left: 12px; z-index: 20;
+        font-size: 17px; font-weight: 700; letter-spacing: 0.06em;
+        color: #93c5fd; text-decoration: none;
+        background: rgba(0,0,0,0.65); padding: 6px 14px;
+        border-radius: 8px; border: 1px solid rgba(147,197,253,0.25);
+        transition: background 0.15s, border-color 0.15s;
+    }
+    #homelink:hover { background: rgba(59,130,246,0.22); border-color: rgba(147,197,253,0.55); }
+
+    /* legend */
+    #legend {
+        position: absolute; top: 56px; left: 12px;
+        background: rgba(0,0,0,0.75); padding: 10px 14px;
+        border-radius: 8px; z-index: 10;
+    }
+    #legend-title {
+        font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+        color: #555; margin-bottom: 7px;
+    }
+    .leg {
+        display: flex; align-items: center; margin: 5px 0;
+        font-size: 13px; cursor: pointer; border-radius: 5px;
+        padding: 3px 5px; transition: background 0.12s, opacity 0.2s;
+        user-select: none;
+    }
+    .leg:hover { background: rgba(255,255,255,0.07); }
+    .leg.dimmed { opacity: 0.28; }
+    .leg.active-filter { background: rgba(255,255,255,0.08); outline: 1px solid rgba(255,255,255,0.2); }
+    .dot { display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:8px; flex-shrink:0; }
+
+    /* info panel */
+    #info {
+        position: absolute; bottom: 20px; right: 20px; width: 370px;
+        background: rgba(5,5,15,0.92);
+        padding: 16px; border-radius: 10px; border: 1px solid #333;
+        max-height: 74vh; overflow-y: auto; z-index: 10;
+        scrollbar-width: thin; scrollbar-color: #333 transparent;
+    }
+    #info h2 { margin: 0 0 12px 0; font-size: 20px; display:flex; align-items:baseline; gap:8px; }
+    #info h2 .pname { font-size: 13px; color: #777; font-weight: 400; }
+    .pill {
+        padding: 2px 9px; border: 1px solid; border-radius: 999px;
+        font-size: 12.5px; white-space: nowrap; display:inline-block;
+    }
+    .row { display:flex; justify-content:space-between; align-items:center; margin: 6px 0; font-size: 13.5px; }
+    .row .label { color: #777; flex-shrink: 0; width: 130px; }
+    .mono { font-family: monospace; }
+    h3 { margin: 14px 0 7px 0; color: #888; border-bottom: 1px solid #222;
+         padding-bottom: 3px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .err-good { color: #4ade80; }
+    .err-ok   { color: #fbbf24; }
+    .err-warn { color: #f87171; }
+    .deriv-box {
+        margin: 6px 0 2px 0; background: rgba(255,255,255,0.03);
+        border-left: 2px solid #444; padding: 7px 10px;
+        border-radius: 0 6px 6px 0; font-size: 12px;
+        color: #aaa; line-height: 1.7; font-family: monospace;
+        white-space: pre-wrap;
+    }
+    .rel-row {
+        display: flex; justify-content: space-between; align-items: center;
+        margin: 4px 0; font-size: 12.5px; gap: 8px;
+    }
+    .rel-target {
+        font-family: monospace; cursor: pointer; color: #93c5fd;
+        white-space: nowrap;
+    }
+    .rel-target:hover { text-decoration: underline; }
+
+    /* controls */
+    .controls {
+        position: absolute; top: 12px; right: 12px;
+        background: rgba(0,0,0,0.7); padding: 6px; border-radius: 8px; z-index: 10;
+        display: flex; flex-wrap: wrap; gap: 4px; max-width: 340px; justify-content: flex-end;
+    }
+    button {
+        padding: 7px 13px; background: #1f2937; color: #ddd;
+        border: none; border-radius: 6px; cursor: pointer; font-size: 13px;
+        transition: background 0.12s;
+    }
+    button:hover { background: #374151; }
+    button.active { background: #2563eb; color: white; }
+
+    /* keyboard hint */
+    #kbd-hint {
+        position: absolute; bottom: 10px; left: 50%;
+        transform: translateX(-50%);
+        font-size: 11px; color: #383838; z-index: 10;
+        white-space: nowrap; pointer-events: none;
+    }
+
+    /* tooltip */
+    #tooltip {
+        position: absolute; pointer-events: none;
+        background: rgba(10,10,20,0.95); color: #eee;
+        padding: 6px 10px; border-radius: 6px; font-size: 12px;
+        font-family: monospace; border: 1px solid #444;
+        display: none; z-index: 20; white-space: nowrap;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        line-height: 1.6;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+<a id="homelink" href="/">IDWT</a>
+
+<div id="legend">
+    <div id="legend-title">Sector — click to isolate</div>
+</div>
+
+<div class="controls">
+    <button id="btnGen">Generation Law</button>
+    <button id="btnRec">Pascal Recursion</button>
+    <button id="btnHock">Hockey-stick</button>
+    <button id="btnDiag">Sector Lines</button>
+    <button id="btnReset" title="Reset camera to default view">&#8635; Reset view</button>
+</div>
+
+<div id="info"></div>
+<div id="tooltip"></div>
+<div id="kbd-hint">&#8592; &#8594; / Tab to cycle particles &nbsp;&middot;&nbsp; Esc to deselect</div>
+
+<script src="triangles_files/three.min.js"></script>
+<script src="triangles_files/OrbitControls.js"></script>
+
+<script>
+// ==================== MATH ====================
+const MAXN = 200;
+const log10Fact = new Float64Array(MAXN + 1);
+for (let i = 2; i <= MAXN; i++) log10Fact[i] = log10Fact[i-1] + Math.log10(i);
+
+const logBinom = (N, k) => {
+    if (k < 0 || k > N) return -Infinity;
+    k = Math.min(k, N - k);
+    return log10Fact[N] - log10Fact[k] - log10Fact[N - k];
+};
+const binomExact = (N, k) => {
+    if (k < 0 || k > N) return 0;
+    k = Math.min(k, N - k);
+    let r = 1;
+    for (let i = 1; i <= k; i++) r = r * (N - k + i) / i;
+    return Math.round(r);
+};
+function calcPos(row, col) {
+    const x = (col - row / 2) * 1.6;
+    const y = -row * 1.1;
+    const z = Math.log10(binomExact(row, col) + 1) * 0.35;
+    return new THREE.Vector3(x, y, z);
+}
+
+// ==================== SCENE ====================
+const BG = 0x05070f;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(BG);
+scene.fog = new THREE.FogExp2(BG, 0.0028);
+
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+
+const CAM_DEFAULT_POS    = new THREE.Vector3(110, -28, 240);
+const CAM_DEFAULT_TARGET = new THREE.Vector3(0, -52, 80);
+
+const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 3000);
+camera.position.copy(CAM_DEFAULT_POS);
+
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.target.copy(CAM_DEFAULT_TARGET);
+
+scene.add(new THREE.AmbientLight(0x9fb4ff, 0.55));
+const dir = new THREE.DirectionalLight(0xffffff, 1.1);
+dir.position.set(80, 120, 180);
+scene.add(dir);
+
+// ==================== CAMERA TWEEN ====================
+let camTween = 1;
+const camFrom = { pos: new THREE.Vector3(), tgt: new THREE.Vector3() };
+const camTo   = { pos: new THREE.Vector3(), tgt: new THREE.Vector3() };
+
+function startFly(toPos, toTgt) {
+    camFrom.pos.copy(camera.position);
+    camFrom.tgt.copy(controls.target);
+    camTo.pos.copy(toPos);
+    camTo.tgt.copy(toTgt);
+    camTween = 0;
+}
+
+function flyToParticle(mesh) {
+    const worldPos = mesh.position.clone().add(mesh.parent.position);
+    const offset   = camera.position.clone().sub(controls.target);
+    startFly(worldPos.clone().add(offset), worldPos);
+}
+
+// ==================== SECTORS ====================
+const sectors = [
+    { d:2,  name:'Bosons',        color:'#00aaff', nmax:96 },
+    { d:3,  name:'Down-type',     color:'#00ff44', nmax:20 },
+    { d:4,  name:'Up-type',       color:'#ff6600', nmax:80 },
+    { d:5,  name:'Neutrinos',     color:'#cc00ff', nmax:30 },
+    { d:6,  name:'Light leptons', color:'#ff0000', nmax:40 },
+    { d:10, name:'Tau sector',    color:'#ffdd00', nmax:35 },
+];
+const sectorByD = {};
+sectors.forEach(s => sectorByD[s.d] = s);
+
+const LAYER_Z = 32;
+const groups = sectors.map((s, i) => {
+    const g = new THREE.Group();
+    g.position.z = i * LAYER_Z;
+    g.userData = s;
+    scene.add(g);
+    return g;
+});
+
+// ---- Clickable legend ----
+let activeSectorFilter = null;
+const legItems = [];
+const legendEl = document.getElementById('legend');
+sectors.forEach(s => {
+    const div = document.createElement('div');
+    div.className = 'leg';
+    div.innerHTML = `<span class="dot" style="background:${s.color}"></span>d=${s.d} &mdash; ${s.name}`;
+    div.title = `Click to isolate d=${s.d}`;
+    div.addEventListener('click', () => {
+        activeSectorFilter = (activeSectorFilter === s.d) ? null : s.d;
+        applyFilter();
+    });
+    legendEl.appendChild(div);
+    legItems.push({ el: div, d: s.d });
+});
+
+function applyFilter() {
+    legItems.forEach(item => {
+        const inFilter = activeSectorFilter === null || item.d === activeSectorFilter;
+        item.el.classList.toggle('dimmed', !inFilter);
+        item.el.classList.toggle('active-filter', item.d === activeSectorFilter);
+    });
+    groups.forEach(g => {
+        const on = activeSectorFilter === null || g.userData.d === activeSectorFilter;
+        g.children.forEach(child => {
+            if (child.material) child.material.opacity = on ? 1 : 0.06;
+            if (child.material) child.material.transparent = !on;
+        });
+    });
+    particleMeshes.forEach(m => {
+        const on = activeSectorFilter === null || m.userData.d === activeSectorFilter;
+        m.material.opacity = on ? 1 : 0.06;
+        m.material.transparent = !on;
+    });
+}
+
+// ==================== PASCAL TRIANGLE DOTS ====================
+const allBinomDots  = [];
+const diagonalLines = [];
+const binomDotGeo   = new THREE.SphereGeometry(0.18, 8, 8);
+
+sectors.forEach((s, gi) => {
+    // Each sector is the same Pascal triangle, just at a different z depth.
+    // Dots cover all rows needed to show every particle in this sector.
+    // Largest particle n is s.nmax; it sits at row = n+d-1, col = d.
+    const maxRow = s.nmax + s.d - 1;
+    const dotMat = new THREE.MeshBasicMaterial({ color: s.color });
+    for (let row = 0; row <= maxRow; row++) {
+        for (let col = 0; col <= row; col++) {
+            const pos = calcPos(row, col);
+            const dot = new THREE.Mesh(binomDotGeo, dotMat.clone());
+            dot.position.copy(pos);
+            dot.position.z -= 0.5;
+            dot.userData = { type:'binom', row, col, value: binomExact(row, col), sector: s.d };
+            groups[gi].add(dot);
+            allBinomDots.push(dot);
+        }
+    }
+
+    // Sector diagonal: connects all cells where this sector's particles live.
+    // Particle with mode index n sits at row = n+d-1, col = d.
+    // Starting cell (n=1): row = d, col = d — that's C(d,d) = 1, the right outer edge. ✓
+    const pts = [];
+    let peakPos = new THREE.Vector3(0, -999, 0);
+    for (let n = 1; n <= s.nmax; n++) {
+        const row = n + s.d - 1;
+        if (row > MAXN) continue;
+        const p = calcPos(row, s.d);
+        pts.push(p);
+        if (p.y < peakPos.y) peakPos = p.clone();
+    }
+    const dline = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(pts),
+        new THREE.LineBasicMaterial({ color: s.color })
+    );
+    groups[gi].add(dline);
+    diagonalLines.push(dline);
+
+    const label = makeTextSprite(`d=${s.d} \u2014 ${s.name}`, s.color);
+    label.position.copy(peakPos).add(new THREE.Vector3(0, 18, 8));
+    groups[gi].add(label);
+});
+
+// ==================== PARTICLES ====================
+const particles = [
+    { symbol:'W',  name:'W boson',           d:2,  n:76, S:2926,     pred:'80,379', pdg:'80,377', err:'+0.00%', unit:'MeV',
+      deriv:'n_W = n_top + 4 = 72 + 4\n(Vandermonde coupling)' },
+    { symbol:'Z',  name:'Z boson',           d:2,  n:81, S:3321,     pred:'91,230', pdg:'91,188', err:'+0.05%', unit:'MeV',
+      deriv:'n_Z = n_W + \u03b2 = 76 + 5 = 81\n\u03b2 = S(n_u\u22121, 4) = S(2,4) = 5' },
+    { symbol:'H',  name:'Higgs boson',       d:2,  n:95, S:4560,     pred:'125,266', pdg:'125,250', err:'+0.01%', unit:'MeV',
+      deriv:'n_H = n_u + n_c + n_top = 3+20+72 = 95\n     = n_Z + n_\u03bd2 \u2212 1 = 81+15\u22121  (two independent routes)' },
+    { symbol:'d',  name:'down quark',        d:3,  n:1,  S:1,        pred:'4.70',  pdg:'4.67',   err:'+0.68%', unit:'MeV',
+      deriv:'n_d = 1  (universal base case: S(1,d)=1 for all d)' },
+    { symbol:'s',  name:'strange quark',     d:3,  n:4,  S:20,       pred:'94.0',  pdg:'93.4',   err:'+0.68%', unit:'MeV',
+      deriv:'n_s = 4  (seed integer, topologically forced\nby ind(D_CP3) = \u03c7(CP3) = 4)' },
+    { symbol:'u',  name:'up quark',          d:4,  n:3,  S:15,       pred:'2.18',  pdg:'2.16',   err:'+0.77%', unit:'MeV',
+      deriv:'n_u = n_s \u2212 1 = 3\nPascal: S(n,4)\u2212S(n,3)=S(n\u22121,4) at n=4' },
+    { symbol:'c',  name:'charm quark',       d:4,  n:20, S:8855,     pred:'1,280', pdg:'1,270',  err:'+0.76%', unit:'MeV',
+      deriv:'n_c = S(n_s, 3) = S(4,3) = 20\nhockey-stick in d=3: 1+3+6+10 = 20' },
+    { symbol:'t',  name:'top quark',         d:4,  n:72, S:1215450,  pred:'173,999', pdg:'172,760', err:'+0.72%', unit:'MeV',
+      deriv:'n_top = \u03c7(CP\u00b2)\u00b7\u03c7(CP\u00b3)\u00b7\u03c7(CP\u2075)\n     = N_c \u00b7 n_s \u00b7 N_f = 3\u00b74\u00b76 = 72' },
+    { symbol:'e',  name:'electron',          d:6,  n:13, S:18564,    pred:'0.511', pdg:'0.511',  err:'0%',     unit:'MeV',
+      deriv:'n_e = n_\u03bd1 + n_u = 10 + 3 = 13\n(Stage-1 filtration condition)' },
+    { symbol:'\u03bc',  name:'muon',         d:6,  n:35, S:3838380,  pred:'105.66', pdg:'105.66', err:'-0.00%', unit:'MeV',
+      deriv:'n_\u03bc = n_c + n_\u03bd2 = 20+15 = 35 = S(4,4)\nPascal: S(4,3)+S(3,4) = 20+15 = 35' },
+    { symbol:'\u03c4',  name:'tau lepton',   d:10, n:23, S:64512240, pred:'1,776.8', pdg:'1,776.9', err:'-0.00%', unit:'MeV',
+      deriv:'n_\u03c4 = n_\u03bd3 + n_d = 22 + 1 = 23\n(base case: S(1,d)=1)' },
+    { symbol:'\u03bd1', name:'electron neutrino', d:5, n:10, S:2002,  pred:'1.49', pdg:'\u2014', err:'', unit:'meV',
+      deriv:'n_\u03bd1 = S(n_u, 3) = S(3,3) = 10\nhockey-stick in d=3: 1+3+6 = 10' },
+    { symbol:'\u03bd2', name:'muon neutrino',     d:5, n:15, S:11628, pred:'8.64', pdg:'\u2014', err:'', unit:'meV',
+      deriv:'n_\u03bd2 = S(n_u, 4) = S(3,4) = 15\nhockey-stick in d=4: 1+4+10 = 15' },
+    { symbol:'\u03bd3', name:'tau neutrino',      d:5, n:22, S:65780, pred:'48.87', pdg:'\u2014', err:'', unit:'meV',
+      deriv:'n_\u03bd3 = n_\u03bd1 + n_\u03bd2 \u2212 n_u\n     = 10 + 15 \u2212 3 = 22  (eigenmode rule)' },
+];
+
+const particleMeshes = [];
+const particleMap    = {};
+const sphereGeo      = new THREE.SphereGeometry(0.85, 32, 20);
+
+particles.forEach(p => {
+    const s  = sectorByD[p.d];
+    const gi = sectors.findIndex(x => x.d === p.d);
+    const row = p.n + p.d - 1;
+    const col = p.d;
+    const pos = calcPos(row, col);
+    const color = new THREE.Color(s.color);
+
+    const mat = new THREE.MeshStandardMaterial({
+        color: color, emissive: color, emissiveIntensity: 0.85, roughness: 0.25, metalness: 0.15
+    });
+    const m = new THREE.Mesh(sphereGeo, mat);
+    m.position.copy(pos);
+    m.userData = p;
+    groups[gi].add(m);
+    particleMeshes.push(m);
+    particleMap[p.symbol] = m;
+
+    const spr = makeSprite(p.symbol, s.color);
+    spr.position.copy(pos).add(new THREE.Vector3(1.9, 1.6, 0.6));
+    groups[gi].add(spr);
+
+
+});
+
+// ==================== SPRITE HELPERS ====================
+function makeSprite(text, color) {
+    const c = document.createElement('canvas');
+    c.width = 256; c.height = 128;
+    const ctx = c.getContext('2d');
+    ctx.clearRect(0,0,256,128);
+    ctx.font = '700 84px Inter, system-ui, sans-serif';
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 14;
+    ctx.fillText(text, 128, 70);
+    const tex = new THREE.CanvasTexture(c);
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthWrite: false }));
+    s.scale.set(3.4, 1.7, 1);
+    return s;
+}
+function makeTextSprite(text, color) {
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 128;
+    const ctx = c.getContext('2d');
+    ctx.font = '600 42px Inter'; ctx.fillStyle = color;
+    ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+    ctx.fillText(text, 10, 64);
+    const tex = new THREE.CanvasTexture(c);
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
+    s.scale.set(26, 6.5, 1);
+    return s;
+}
+
+// ==================== RELATIONSHIPS ====================
+const recurGroup  = new THREE.Group(); scene.add(recurGroup);
+const hockeyGroup = new THREE.Group(); scene.add(hockeyGroup);
+const genGroup    = new THREE.Group(); scene.add(genGroup);
+
+const genPairs = [
+    ['s','u'], ['u','\u03bd1'], ['u','\u03bd2'], ['\u03bd1','\u03bd3'], ['\u03bd2','\u03bd3'],
+    ['\u03bd1','e'], ['u','e'], ['s','c'], ['c','\u03bc'], ['\u03bd2','\u03bc'],
+    ['\u03bd3','\u03c4'], ['d','\u03c4'], ['W','Z'], ['u','H'], ['c','H'], ['t','H'],
+    ['d','u'], ['\u03c4','e']
+];
+const recPairs = [
+    ['c','\u03bc'], ['\u03bd2','\u03bc'], ['\u03bd1','e'], ['u','e'], ['\u03bd3','\u03c4'],
+    ['d','\u03c4'], ['u','H'], ['c','H'], ['t','H'], ['s','d'], ['c','u'], ['t','c'],
+    ['\u03bc','e'], ['W','Z'], ['H','Z']
+];
+const hockPairs = [
+    ['u','\u03bd1'], ['u','\u03bd2'], ['s','c'], ['e','W'], ['e','t'],
+    ['\u03bd1','\u03bd3'], ['\u03bd2','\u03bd3']
+];
+
+const genLines  = [];
+const recLines  = [];
+const hockLines = [];
+
+function buildConnections(pairs, color, group, store) {
+    pairs.forEach(([a, b]) => {
+        const ma = particleMap[a], mb = particleMap[b];
+        if (!ma || !mb) return;
+        const pa = ma.position.clone().add(ma.parent.position);
+        const pb = mb.position.clone().add(mb.parent.position);
+        const line = new THREE.Line(
+            new THREE.BufferGeometry().setFromPoints([pa, pb]),
+            new THREE.LineBasicMaterial({ color })
+        );
+        line.userData = { a, b, baseColor: color };
+        group.add(line);
+        store.push(line);
+    });
+}
+buildConnections(genPairs,  0x22d3ee, genGroup,    genLines);
+buildConnections(recPairs,  0xf59e0b, recurGroup,  recLines);
+buildConnections(hockPairs, 0xa855f7, hockeyGroup, hockLines);
+
+function refreshLineHighlights(symbol) {
+    [
+        { lines: genLines,   group: genGroup },
+        { lines: recLines,   group: recurGroup },
+        { lines: hockLines,  group: hockeyGroup },
+    ].forEach(({ lines, group }) => {
+        if (!group.visible) return;
+        lines.forEach(line => {
+            const hit = line.userData.a === symbol || line.userData.b === symbol;
+            line.material.color.setHex(hit ? 0xffffff : line.userData.baseColor);
+        });
+    });
+}
+function resetLineColors() {
+    [genLines, recLines, hockLines].forEach(arr =>
+        arr.forEach(l => l.material.color.setHex(l.userData.baseColor))
+    );
+}
+
+// ==================== INFO PANEL ====================
+function errClass(e) {
+    if (!e) return '';
+    const v = Math.abs(parseFloat(e));
+    if (isNaN(v)) return '';
+    return v < 0.1 ? 'err-good' : v < 0.5 ? 'err-ok' : 'err-warn';
+}
+
+function showInstructions() {
+    document.getElementById('info').innerHTML = `
+        <h2>IDWT Spectrum Explorer</h2>
+        <p style="line-height:1.65;color:#777;margin:0 0 12px 0;font-size:13px">
+            All 14 Standard Model particles placed on Pascal&rsquo;s triangle layers &mdash;
+            one layer per sector <span class="mono">d&thinsp;&isin;&thinsp;{2,3,4,5,6,10}</span>.
+            Each particle sits at the coefficient
+            <span class="mono">S(n,d)&thinsp;=&thinsp;C(n+d&minus;1,&thinsp;d)</span>
+            that gives its mass via
+            <span class="mono">m&thinsp;=&thinsp;m<sub>scale,d</sub>&thinsp;&times;&thinsp;S(n,d)</span>.
+        </p>
+        <h3>Controls</h3>
+        <div class="row"><span class="label">Click particle</span><span>Show details &amp; index derivation</span></div>
+        <div class="row"><span class="label">&larr; &rarr; &nbsp;/&nbsp; Tab</span><span>Cycle through all particles</span></div>
+        <div class="row"><span class="label">Esc</span><span>Deselect &amp; return here</span></div>
+        <div class="row"><span class="label">Click legend row</span><span>Isolate a sector</span></div>
+        <div class="row"><span class="label">Drag / scroll</span><span>Orbit &amp; zoom</span></div>
+        <div class="row"><span class="label">Hover any dot</span><span>Show S(n,d) value</span></div>
+        <div class="row"><span class="label">&#8635; Reset view</span><span>Return camera to default</span></div>
+        <h3>Relationship overlays</h3>
+        <div class="row" style="margin-bottom:5px">
+            <span class="pill" style="border-color:#22d3ee">Generation Law</span>
+            <span style="color:#aaa;font-size:12px">n<sub>lepton</sub> = n<sub>&nu;</sub> + n<sub>quark</sub></span>
+        </div>
+        <div class="row" style="margin-bottom:5px">
+            <span class="pill" style="border-color:#f59e0b">Pascal Recursion</span>
+            <span style="color:#aaa;font-size:12px">S(n,d)&thinsp;=&thinsp;S(n,d&minus;1)&thinsp;+&thinsp;S(n&minus;1,d)</span>
+        </div>
+        <div class="row" style="margin-bottom:10px">
+            <span class="pill" style="border-color:#a855f7">Hockey-stick</span>
+            <span style="color:#aaa;font-size:12px">S(n,d)&thinsp;=&thinsp;&Sigma;<sub>k</sub>&thinsp;S(k,d&minus;1)</span>
+        </div>
+        <p style="font-size:11.5px;color:#444;margin:0">
+            Select a particle then toggle an overlay to highlight only its connections.
+        </p>`;
+}
+
+function updateInfo(p) {
+    const sec = sectorByD[p.d];
+
+    const allRel = [];
+    genPairs.forEach(([a,b]) => {
+        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'gen'});
+        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'gen'});
+    });
+    recPairs.forEach(([a,b]) => {
+        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'rec'});
+        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'rec'});
+    });
+    hockPairs.forEach(([a,b]) => {
+        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'hock'});
+        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'hock'});
+    });
+    const seen = new Set();
+    const rels = allRel.filter(r => {
+        const k = r.type+r.sym+r.rel;
+        return seen.has(k) ? false : seen.add(k);
+    });
+
+    const relColor = {gen:'#22d3ee', rec:'#f59e0b', hock:'#a855f7'};
+    const relLabel = {gen:'Generation Law', rec:'Pascal Recursion', hock:'Hockey-stick'};
+
+    let relHTML = '';
+    if (rels.length) {
+        relHTML = '<h3>Relationships</h3>';
+        rels.forEach(r => {
+            const pDat = particles.find(x => x.symbol === r.sym);
+            const arrow = r.type === 'parent' ? '&larr; from' : '&rarr; to';
+            relHTML += `
+                <div class="rel-row">
+                    <span class="pill" style="border-color:${relColor[r.rel]};font-size:11px">${relLabel[r.rel]}</span>
+                    <span class="rel-target" data-sym="${r.sym}">${arrow} <strong>${r.sym}</strong> &thinsp;<span style="color:#666">${pDat?pDat.name:''}</span></span>
+                </div>`;
+        });
+    }
+
+    const ec = errClass(p.err);
+    const errHTML = p.err
+        ? `<span class="${ec}">${p.err}</span>`
+        : `<span style="color:#444">&mdash;</span>`;
+    const pdgNote = p.pdg === '\u2014'
+        ? `<span style="color:#555">not yet measured</span>`
+        : `<span class="mono">${p.pdg} ${p.unit}</span>`;
+
+    document.getElementById('info').innerHTML = `
+        <h2 style="color:${sec.color}">${p.symbol}
+            <span class="pname">${p.name}</span>
+        </h2>
+        <div class="row">
+            <span class="label">Sector d</span>
+            <span class="mono pill" style="border-color:${sec.color}">${p.d} &mdash; ${sec.name}</span>
+        </div>
+        <div class="row"><span class="label">Mode index n</span><span class="mono">${p.n}</span></div>
+        <div class="row"><span class="label">S(n,d)</span><span class="mono">${p.S.toLocaleString()}</span></div>
+        <div class="row"><span class="label">Predicted mass</span><span class="mono">${p.pred} ${p.unit}</span></div>
+        <div class="row"><span class="label">PDG mass</span>${pdgNote}</div>
+        <div class="row"><span class="label">Error</span>${errHTML}</div>
+        <h3>Index derivation</h3>
+        <div class="deriv-box">${p.deriv}</div>
+        ${relHTML}
+    `;
+
+    // Wire clickable relation targets
+    document.querySelectorAll('.rel-target[data-sym]').forEach(el => {
+        el.addEventListener('click', () => {
+            const m = particleMap[el.dataset.sym];
+            if (m) selectParticle(m, true);
+        });
+    });
+}
+
+// ==================== SELECTION ====================
+let selected      = null;
+let selectedIndex = -1;
+
+function selectParticle(mesh, fly) {
+    if (selected && selected !== mesh) {
+        selected.material.emissiveIntensity = 0.85;
+        selected.scale.setScalar(1);
+    }
+    selected      = mesh;
+    selectedIndex = particleMeshes.indexOf(mesh);
+    selected.material.emissiveIntensity = 2.4;
+    selected.scale.setScalar(1.35);
+    updateInfo(mesh.userData);
+    refreshLineHighlights(mesh.userData.symbol);
+    if (fly) flyToParticle(mesh);
+}
+
+function deselectAll() {
+    if (selected) {
+        selected.material.emissiveIntensity = 0.85;
+        selected.scale.setScalar(1);
+        selected = null; selectedIndex = -1;
+    }
+    resetLineColors();
+    showInstructions();
+}
+
+// ==================== KEYBOARD ====================
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { deselectAll(); return; }
+    if (e.key === 'ArrowRight' || e.key === 'Tab') {
+        e.preventDefault();
+        const next = (selectedIndex + 1) % particleMeshes.length;
+        selectParticle(particleMeshes[next], true);
+    }
+    if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prev = (selectedIndex - 1 + particleMeshes.length) % particleMeshes.length;
+        selectParticle(particleMeshes[prev], true);
+    }
+});
+
+// ==================== POINTER ====================
+const ray   = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+renderer.domElement.addEventListener('pointerdown', e => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x =  ((e.clientX - rect.left) / rect.width)  * 2 - 1;
+    mouse.y = -((e.clientY - rect.top)  / rect.height) * 2 + 1;
+    ray.setFromCamera(mouse, camera);
+    const hits = ray.intersectObjects(particleMeshes, false);
+    if (hits.length) selectParticle(hits[0].object, false);
+});
+
+const tooltipEl = document.getElementById('tooltip');
+renderer.domElement.addEventListener('pointermove', e => {
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x =  ((e.clientX - rect.left) / rect.width)  * 2 - 1;
+    mouse.y = -((e.clientY - rect.top)  / rect.height) * 2 + 1;
+    ray.setFromCamera(mouse, camera);
+
+    const ph = ray.intersectObjects(particleMeshes, false);
+    if (ph.length) {
+        const p = ph[0].object.userData;
+        tooltipEl.style.display = 'block';
+        tooltipEl.style.left = (e.clientX + 14) + 'px';
+        tooltipEl.style.top  = (e.clientY + 14) + 'px';
+        tooltipEl.innerHTML =
+            `<strong>${p.symbol}</strong> &nbsp;${p.name}<br>` +
+            `d=${p.d} &nbsp; n=${p.n} &nbsp; S=${p.S.toLocaleString()} &nbsp; ${p.pred}\u202f${p.unit}`;
+        renderer.domElement.style.cursor = 'pointer';
+        return;
+    }
+
+    const bh = ray.intersectObjects(allBinomDots, false);
+    if (bh.length) {
+        const d = bh[0].object.userData;
+        tooltipEl.style.display = 'block';
+        tooltipEl.style.left = (e.clientX + 14) + 'px';
+        tooltipEl.style.top  = (e.clientY + 14) + 'px';
+        tooltipEl.innerHTML =
+            `n = ${d.value.toLocaleString()} &nbsp; C(${d.row},${d.col})`;
+        renderer.domElement.style.cursor = 'crosshair';
+        return;
+    }
+
+    tooltipEl.style.display = 'none';
+    renderer.domElement.style.cursor = 'default';
+});
+
+// ==================== OVERLAY BUTTONS ====================
+function wireOverlay(btnId, group, lineStore) {
+    document.getElementById(btnId).onclick = function() {
+        group.visible = !group.visible;
+        this.classList.toggle('active', group.visible);
+        if (group.visible && selected) refreshLineHighlights(selected.userData.symbol);
+    };
+}
+wireOverlay('btnGen',  genGroup,    genLines);
+wireOverlay('btnRec',  recurGroup,  recLines);
+wireOverlay('btnHock', hockeyGroup, hockLines);
+
+document.getElementById('btnDiag').onclick = function() {
+    const v = !diagonalLines[0].visible;
+    diagonalLines.forEach(l => l.visible = v);
+    this.classList.toggle('active', v);
+};
+
+document.getElementById('btnReset').onclick = function() {
+    startFly(CAM_DEFAULT_POS, CAM_DEFAULT_TARGET);
+};
+
+// ==================== INITIAL STATE ====================
+genGroup.visible = recurGroup.visible = hockeyGroup.visible = false;
+diagonalLines.forEach(l => l.visible = false);
+showInstructions();
+
+// ==================== RESIZE ====================
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+});
+
+// ==================== RENDER LOOP ====================
+function tick() {
+    controls.update();
+
+    // Smooth camera tween
+    if (camTween < 1) {
+        camTween = Math.min(1, camTween + 0.038);
+        const t = 1 - Math.pow(1 - camTween, 3); // ease-out cubic
+        camera.position.lerpVectors(camFrom.pos, camTo.pos, t);
+        controls.target.lerpVectors(camFrom.tgt, camTo.tgt, t);
+    }
+
+    const time = performance.now() * 0.001;
+    particleMeshes.forEach((m, i) => {
+        if (m !== selected) m.scale.setScalar(1 + Math.sin(time * 1.2 + i) * 0.03);
+    });
+
+    renderer.render(scene, camera);
+    requestAnimationFrame(tick);
+}
+tick();
+</script>
+</body></html>

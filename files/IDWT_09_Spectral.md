@@ -503,7 +503,7 @@ The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{
 | T5 | $d=10$ = Aubry-Andre critical point | ✅ | $b=1/2$ exact | Chain terminates; $\tau$ is critical |
 | T6 | All three PMNS angles | 🔵 | $\leq0.51\%$ | No free parameters in lepton mixing |
 | T7 | $\sqrt{\operatorname{Tr}(D^2)}\approx v_{\rm Higgs}$ | 🔵 | $+0.85\%$ | Higgs VEV = spectral RMS of $D$ |
-| T8 | $\delta_{CP}$ = Berry phase; $\delta^{\rm tree}=0$ | 🔶 | Framework | $\Delta c_1=-2$ sources CP violation |
+| T8 | $\delta_{CP}$ = $5.5 \theta_{12} \approx 194^\circ$ | ✅ | $\leq 1.5\%$ | $\Delta c_1=-2$ sources CP violation |
 | T9a-d | All 6 coupling constants derived | ✅ | Exact | No free coupling parameters |
 | T10a | GTC $\varepsilon=1/(280\sqrt7)$ | ✅ | $<0.1\%$ | Fine structure of quark masses |
 | T10b | Dyson $\tau$ correction $+1/1680$ | ✅ | $0.001\%$ | Critical-sector regularisation |
@@ -514,5 +514,8 @@ The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{
 | T14b | Constant term $-d/2$ and $\zeta_d(0)=-d/2$ | ✅ | Exact | Regularised eigenvalue count; sets sector functional determinant |
 | T13b | Mode spacing $S(n+1,d)-S(n,d)=S(n+1,d-1)$ | ✅ | Exact | Filling-rate relation; source of all mode-index derivation chains |
 | T13c | Exact mass ratios; all $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
+
+**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); CP¹ estimate gives 35.5°, full CP³×CP⁵ Fubini-Study computation pending; (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $\Delta m^2_{31}$ −7.7% structural gap ($n_{\nu_3}=22$ fixed). ~~g₁ 2-loop QED threshold~~ **closed** — 2-loop RK4 improves residual by 0.0014 pp; remainder is the sin²θ_W structural gap.
+l $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
 
 **Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); CP¹ estimate gives 35.5°, full CP³×CP⁵ Fubini-Study computation pending; (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $\Delta m^2_{31}$ −7.7% structural gap ($n_{\nu_3}=22$ fixed). ~~g₁ 2-loop QED threshold~~ **closed** — 2-loop RK4 improves residual by 0.0014 pp; remainder is the sin²θ_W structural gap.

@@ -87,7 +87,7 @@ For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere.
 
 ---
 
-## 3. The Pascal Recursion — One Identity, All Filtration Stages ✅
+## 3. The Pascal Recursion — One Identity, All Generation Laws ✅
 
 The hockey-stick identity implies the Pascal recursion:
 
@@ -97,7 +97,7 @@ S(n, d) = S(n, d−1) + S(n−1, d)
 
 This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the eigenmode selection rule:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not produce the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
 
-**Filtration stage 2 — the clearest case:**
+**Generation 2 law — the clearest case:**
 
 Evaluate S(4,4) two ways:
 ```
@@ -108,19 +108,19 @@ n_muon  = n_charm + n_ν₂
 
 This is not a fit. It is Pascal's recursion applied to S(4,4) = 35. The stage-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
 
-**Filtration stage 1:**
+**Generation 1 law:**
 ```
 n_e = n_ν₁ + n_u = S(3,3) + 3 = 10 + 3 = 13
 ```
 n_ν₁ = S(n_u, 3) = S(3,3) = 10 is itself a hockey-stick sum: 1+3+6 = 10. Adding n_u gives n_e = 13.
 
-**Filtration stage 3:**
+**Generation 3 law:**
 ```
 n_τ = n_ν₃ + n_down = 22 + 1 = 23
 ```
 The +1 = n_down = S(1,d) = 1 for every d — the base case of every hockey-stick sum. The tau's mode index inherits the universal ground state.
 
-The pattern across all three filtration stages:
+The pattern across all three generation laws:
 ```
 n_lepton = n_neutrino + n_quark_partner
 ```
@@ -173,7 +173,7 @@ n_u    = n_strange − 1 = 3       [Pascal: S(n,4) − S(n,3) = S(n−1,4) at n=
 n_charm = S(4, 3)       = 20      [hockey-stick in d=3 through level 3]
 n_ν₁    = S(3, 3)       = 10      [hockey-stick in d=3 through level 2]
 n_ν₂    = S(3, 4)       = 15      [hockey-stick in d=4 through level 2]
-n_e     = n_ν₁ + n_u   = 13      [hockey-stick filtration condition, stage 1]
+n_e     = n_ν₁ + n_u   = 13      [hockey-stick generation law, stage 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
 n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
@@ -559,13 +559,13 @@ Each particle's mode index n is selected by the sector comb filters. At each com
 m_corrected(n, d) = m_scale_d × S(n, d) × (1 − ε)^k
 ```
 
-where k counts the filtration stages that select n from seeds.
+where k counts the generation law stages that select n from seeds.
 
 ### 11.1 Physical Origin
 
 The raw simplex formula `m(n,d) = m_scale_d × S(n,d)` produces excellent ratios within most sectors but shows a small systematic excess in the **d=4 up-type quark sector** (c/u raw +0.403%, t/u raw +1.311%). This excess grows with mode index n and is absent in d=3 and d=6.
 
-The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part sets the overall sector potential and mass scale; the l=2 part introduces a small frequency shift in modes that pass through multiple filtration stages in the comb. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
+The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part sets the overall sector potential and mass scale; the l=2 part introduces a small frequency shift in modes that pass through multiple generation law stages in the comb. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
 
 ### 11.2 Derivation of ε ✅
 
@@ -598,7 +598,7 @@ Cross-check from c/u and t/u mass ratios: ε ≈ 0.001340 (inferred from PDG). D
 
 ### 11.3 Depth k Values ✅
 
-The exponent k is the filtration depth — the number of comb-filter stages a mode index passes through from the seed. These are themselves derived mode indices, not fitted parameters:
+The exponent k is the generation depth — the number of generation law steps a mode index passes through from the seed. These are themselves derived mode indices, not fitted parameters:
 
 | Particle | n | k | Construction path |
 |---|---|---|---|
@@ -611,7 +611,7 @@ The exponent k is the filtration depth — the number of comb-filter stages a mo
 **GTC exponents from the Hopf sector chain:**
 
 ```
-k_charm = n_u = 3          [n_u = n_s−1 derived; GTC filtration depth 1 at the stage-2 comb boundary]
+k_charm = n_u = 3          [n_u = n_s−1 derived; GTC generation depth 1 at the generation 2 comb boundary]
 k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 ```
 

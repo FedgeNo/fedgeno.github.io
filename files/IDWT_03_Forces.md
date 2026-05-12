@@ -496,7 +496,7 @@ All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + 
 | g(n_ν₂=15, n_Z=81) | 95 | n_H — ν₂ + Z → Higgs |
 | g(d=10, n_s=4) | 13 | n_e — tau sector + strange → electron |
 
-**Boson filtration chain:**
+**Boson generation chain:**
 ```
 g(d=5, n_top=72)    = 76 = n_W    [ν-sector + top → W]
 g(d=6, n_W=76)      = 81 = n_Z    [lepton + W → Z]

@@ -560,7 +560,7 @@ Three exact algebraic identities connect charged-lepton and neutrino mode indice
 
 $$|n_\tau - n_{\nu_3}| = 23-22 = 1 = n_d, \qquad |n_e - n_{\nu_1}| = 13-10 = 3 = n_u, \qquad |n_\tau - n_{\nu_1}| = 23-10 = 13 = n_e.$$
 
-These follow from the filtration chain — $n_\tau = n_c+n_u = 23$, $n_{\nu_3}=n_\tau-n_d=22$, $n_e=13$, $n_{\nu_1}=S(n_u,3)=10$.
+These follow from the generation law chain — $n_\tau = n_c+n_u = 23$, $n_{\nu_3}=n_\tau-n_d=22$, $n_e=13$, $n_{\nu_1}=S(n_u,3)=10$.
 
 In the Aubry-André tight-binding analogy (§3i), coupling between states at mode-index distance $|\Delta n|$ decays as $1/|\Delta n|$ at the critical point $d=10$. This predicts the PMNS hierarchy:
 $$\sin^2\theta_{23} : \sin^2\theta_{12} : \sin^2\theta_{13} \;=\; 1 : \tfrac{1}{n_u} : \tfrac{1}{n_e} \;=\; 1 : \tfrac{1}{3} : \tfrac{1}{13}.$$
@@ -594,7 +594,7 @@ This is the **unique** dimension satisfying $4k_0=(d-2)^2$. All $d\in D\setminus
 
 $S(n,d) = \binom{n+d-1}{d}$ is the **integrated density of states (IDOS)** of a $d$-dimensional harmonic oscillator at quantum level $n$: it counts the total number of eigenstates up to level $n$. In laser cavity physics, $S(n,d)$ is the cumulative count of transverse modes up to mode order $n$ in a $(d-1)$-dimensional cavity. The IDWT mass formula:
 $$m(n,d) = S(n,d) \times m_{\rm scale,d} = \text{(IDOS at level }n\text{)} \times \text{(sector energy scale)}$$
-is a **spectral counting theorem**: the mass equals the total spectral weight below level $n$ in the sector potential. The hockey-stick $S(n+1,d)=S(n,d)+S(n,d-1)$ is the $d$-dimensional generalisation of the Penrose quasicrystal inflation rule, making the IDWT filtration chain a $d$-dimensional quasicrystal inflation seeded at $n_s=4$.
+is a **spectral counting theorem**: the mass equals the total spectral weight below level $n$ in the sector potential. The hockey-stick $S(n+1,d)=S(n,d)+S(n,d-1)$ is the $d$-dimensional generalisation of the Penrose quasicrystal inflation rule, making the IDWT generation chain a $d$-dimensional quasicrystal inflation seeded at $n_s=4$.
 
 ---
 

@@ -516,6 +516,3 @@ The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{
 | T13c | Exact mass ratios; all $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
 
 **Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); CP¹ estimate gives 35.5°, full CP³×CP⁵ Fubini-Study computation pending; (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $\Delta m^2_{31}$ −7.7% structural gap ($n_{\nu_3}=22$ fixed). ~~g₁ 2-loop QED threshold~~ **closed** — 2-loop RK4 improves residual by 0.0014 pp; remainder is the sin²θ_W structural gap.
-l $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
-
-**Remaining open:** (i) CP phase exact value — curvature integral over sector bundle (T8); CP¹ estimate gives 35.5°, full CP³×CP⁵ Fubini-Study computation pending; (ii) G_N from sector localization geometry — computation not performed (T12); (iii) $\Delta m^2_{31}$ −7.7% structural gap ($n_{\nu_3}=22$ fixed). ~~g₁ 2-loop QED threshold~~ **closed** — 2-loop RK4 improves residual by 0.0014 pp; remainder is the sin²θ_W structural gap.

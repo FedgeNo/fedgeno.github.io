@@ -170,7 +170,7 @@ Every mode index is determined by the hockey-stick filtration chain — no index
 |---|---|---|---|
 | $d$ quark | 3 | 1 | $n_d=1$: universal ground state |
 | $s$ quark | 3 | 4 | seed $n_s$ |
-| $c$ quark | 3 | 20 | $S(n_s,3)$ |
+| $c$ quark | 4 | 20 | $S(n_s,3)$ |
 | $b$ quark | 3 | 16–17 | resonance at $k_0=n_s^2$ (Section 5.2) |
 | $u$ quark | 4 | 3 | $n_u = n_s-1$ |
 | $t$ quark | 4 | 72 | $S(n_e,2) - n_c + 1 = 91-20+1$ |
@@ -185,9 +185,9 @@ Every mode index is determined by the hockey-stick filtration chain — no index
 | $H$ | 2 | 95 | $n_u + n_c + n_t = 3+20+72$ |
 
 **Algebraic cross-checks** (exact consequences of the chain, independently verified):
-$n_e = k_0 - n_u = 13$; $\;\; n_\tau = n_c + n_u = 23$; $\;\; n_H = n_Z + 2(n_s+n_u) = 95$; $\;\; n_{\rm top} = \chi(\mathbb{CP}^1)\chi(\mathbb{CP}^2)\chi(\mathbb{CP}^4) = 72$; $\;\; n_Z - n_W = \beta = 5$ (same $\beta$ as in $g_{22}$).
+$n_e = k_0 - n_u = 13$; $\;\; n_\tau = n_c + n_u = 23$; $\;\; n_H = n_Z + 2(n_s+n_u) = 95$; $\;\; n_{\rm top} = \chi(\mathbb{CP}^2)\chi(\mathbb{CP}^3)\chi(\mathbb{CP}^5) = 72$; $\;\; n_Z - n_W = \beta = 5$ (same $\beta$ as in $g_{22}$).
 
-**Spectral independence:** The 14 occupied $S$-values $\{1, 15, 20, 1540, 2002, 2926, 3321, 4560, 11628, 18564, 65780, 1215450, 3838380, 64512240\}$ form a Sidon-like set: no three satisfy $S_i + S_j = S_k$ (all 91 pairs verified). Any perturbation of a mode index breaking this property would immediately produce an inconsistency.
+**Spectral independence:** The 14 occupied $S$-values $\{1, 15, 20, 8855, 2002, 2926, 3321, 4560, 11628, 18564, 65780, 1215450, 3838380, 64512240\}$ form a Sidon-like set: no three satisfy $S_i + S_j = S_k$ (all 91 pairs verified). Any perturbation of a mode index breaking this property would immediately produce an inconsistency.
 
 ---
 
@@ -415,7 +415,7 @@ The $m_{\beta\beta} = 0$ prediction is exact: $d = 5 \equiv 5 \pmod{8}$ does not
 
 ## 11. Dynamical Picture: How Sector Geometry Becomes 4D Physics
 
-The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $S^3 \cong \mathrm{SU}(2)$ and $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
+The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
 
 Colour confinement emerges from the two-stage observability filter. A mode $(n,d)$ is observable only if: (1) $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2)) \lesssim \ln 2$ (Stage-1 projection passes); and (2) the mode belongs to the co-fixed-point spectrum of the filtration chain (Stage-2 stability). The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) pass Stage 1 but fail Stage 2 — they are not stable particles, consistent with observation.
 
@@ -506,7 +506,7 @@ All results from $n_s = 4$ and $m_e$ alone.
 | $d$ quark | 3 | 1 | $\nu_1$ | 5 | 10 |
 | $u$ quark | 4 | 3 | $e^-$ | 6 | 13 |
 | $s$ quark | 3 | 4 | $\nu_2$ | 5 | 15 |
-| $c$ quark | 3 | 20 | $\nu_3$ | 5 | 22 |
+| $c$ quark | 4 | 20 | $\nu_3$ | 5 | 22 |
 | $t$ quark | 4 | 72 | $\tau^-$ | 10 | 23 |
 | $b$ quark | 3 | beat | $\mu^-$ | 6 | 35 |
 | $W^\pm$ | 2 | 76 | $Z^0$ | 2 | 81 |

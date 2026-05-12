@@ -20,19 +20,7 @@ code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;ba
 .paper-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:24px 28px;background:linear-gradient(135deg,rgba(139,156,255,0.11),rgba(167,139,250,0.07));border:1px solid rgba(139,156,255,0.28);border-radius:16px;margin:0 0 20px;backdrop-filter:blur(10px);}.paper-card-text .part{font-size:0.75rem;color:var(--accent-1);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.paper-card-text h3{margin:4px 0 8px;font-size:1.15rem;font-weight:600;letter-spacing:-0.01em;}.paper-card-text p{color:var(--muted);font-size:0.95rem;margin:0;max-width:620px;}
 .prose{margin-top:28px;color:#c4cae2;font-size:1.02rem;line-height:1.82;}.prose p{margin:0 0 1.35em;}.prose p:last-child{margin-bottom:0;}.prose strong{color:var(--text);font-weight:600;}.prose em{color:#dbe2ff;font-style:italic;}
 footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--muted-2);font-size:0.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(154,163,184,0.4);}footer a:hover{color:var(--text);border-bottom-color:var(--text);}
-@media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body>
-<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
-<style>
-.corner-orb{position:fixed;top:18px;width:210px;height:210px;z-index:2;pointer-events:none;background:transparent;filter:saturate(1.3) brightness(0.9);opacity:0.96}
-.corner-orb.left{left:18px}.corner-orb.right{right:18px}
-.corner-orb canvas{width:100%;height:100%;display:block}
-@media(max-width:720px){.corner-orb{width:140px;height:140px;top:12px}.corner-orb.left{left:12px}.corner-orb.right{right:12px}}
-main{position:relative;z-index:10}
-</style>
-<div class="corner-orb left"><canvas id="orbL"></canvas></div>
-<div class="corner-orb right"><canvas id="orbR"></canvas></div>
-<div class="bg"></div><main>
+@media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body><div class="bg"></div><main>
 
 <header class="hero">
   <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
@@ -43,7 +31,7 @@ main{position:relative;z-index:10}
     <a class="btn primary" href="#core">Explore the Theory</a>
     <a class="btn primary" href="#notebooklm">NotebookLM</a>
     <a class="btn primary" href="#notes">Download Notes and Proof Script</a>
-    <a class="btn primary" href="triangles.html">Interactive Visualization</a>
+    <a class="btn primary" href="#visualizations">Interactive Visualizations</a>
   </div>
 </header>
 
@@ -121,15 +109,13 @@ main{position:relative;z-index:10}
 
     <p>Infinite-Dimensional Wave Theory asks: what is the simplest physical object that could, in principle, produce the full spectrum we observe? The answer it proposes is a single complex wave function Ψ∞ defined on a manifold of literally infinite dimension — not ten or eleven dimensions in the string-theory sense, but unboundedly many, with no fixed upper limit on the number of hidden directions. From this one object, every particle mass, every coupling constant, and every mixing angle in the Standard Model follows by calculation.</p>
 
-    <p>The setup rests on five postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic but invisible for a different reason: the projection operator that maps Ψ∞ onto our slice acts as a low-pass filter, suppressing higher modes by amplitude. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity, rather than being quantized, emerges as the curvature of Ψ∞ at large scales, and the Einstein–Hilbert action appears naturally without a graviton.</p>
+    <p>The setup rests on five postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity, rather than being quantized, emerges as the curvature of our slice at large scales, and the Einstein–Hilbert action appears naturally without a graviton.</p>
 
     <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. This sector set is not a free choice — it is forced by the requirement that the top quark mode index n_top = N_c × n_s × N_f exactly equals 72. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the Higgs self-coupling, the proton mass, the pion decay constant, the CKM mixing angles, the PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
 
-    <p>The accuracy of the predictions is what makes the framework interesting rather than merely speculative. The W and Z bosons come out within 0.003% and 0.047% of their measured values. The Higgs mass is within 0.013%. The muon lifetime is within 0.3%. All thirteen fermion and boson masses agree with PDG measurements to better than 1.8%, with most below 0.1%. The quark sector has a uniform structural offset — 0.68% in d=3, 0.77% in d=4 — that is not a numerical accident but a consequence of the rank-1 approximation to the coupling kernel, which forces the same fractional correction to every mode in a sector. Both offsets sit well within the PDG experimental uncertainties for the light quarks.</p>
+    <p>The accuracy of the predictions is what makes the framework interesting rather than merely speculative. The W and Z bosons come out within 0.003% and 0.047% of their measured values. The Higgs mass is within 0.013%. The muon lifetime is within 0.3%. All thirteen fermion and boson masses agree with PDG measurements to better than 0.8%, with most below 0.1%. The quark sectors have a uniform structural offset — 0.68% in d=3, 0.77% in d=4 — that is not a numerical accident but a consequence of the rank-1 approximation to the coupling kernel, which forces the same fractional offset to every mode in a sector. Both offsets sit well within the PDG experimental uncertainties for the light quarks.</p>
 
     <p>The neutrino sector provides the most striking predictions. Neutrinos live in the d=5 hidden sector. The Clifford algebra of five-dimensional spinors has an exact mathematical property: when d mod 8 = 5, no Majorana condition can be imposed on the spinor. This means <strong>neutrinos must be Dirac fermions in IDWT</strong> — the geometry forbids Majorana mass terms and the seesaw mechanism entirely. As a consequence, the neutrinoless double beta decay rate is predicted to be exactly zero. No oscillation experiment was used to calibrate these predictions: the three neutrino masses (1.487, 8.639, and 48.871 meV), all three PMNS mixing angles, the mass ordering, and the beta-decay effective mass all follow from the same seeds n_s = 4 and m_e that fix everything else. The predicted sum Σm_ν = 59 meV satisfies the Planck bound and lies above the detection threshold of the CMB-S4 experiment, which should reach it within the decade.</p>
-
-
 
     <p>IDWT is falsifiable in specific and testable ways. Any detection of neutrinoless double beta decay — by KamLAND-Zen, nEXO, or any successor experiment — would rule it out completely. A cosmological neutrino mass sum measured below 58 meV or above 62 meV would equally falsify it. An inverted neutrino mass hierarchy, if established, would be a direct contradiction. Within the framework, every number is a calculation rather than a parameter, and every calculation is reproducible from a publicly available Python script in under a second on a laptop.</p>
   </div>
@@ -209,39 +195,71 @@ main{position:relative;z-index:10}
   </div>
 </section>
 
+<section id="visualizations">
+  <h2>Interactive Visualizations</h2>
+  <p class="lead">Learn about IDWT and physics in general with these dynamic learning tools.</p>
+  <div class="paper-card">
+    <div class="paper-card-text">
+      <div class="part">Simulation</div>
+      <h3>6D Orbits Projected to 3D</h3>
+      <p></p>
+    </div>
+    <a class="dl" href="files/IDWT_paper.md" download>Download .md</a>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
+      <p>The five postulates and the geometric setting of Ψ∞.</p>
+      <a class="dl" href="files/IDWT_01_Foundation.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 2</div><h3>Mass Formula</h3></div>
+      <p>Derivation of S(n,d) and the cumulative state counting rule.</p>
+      <a class="dl" href="files/IDWT_02_Mass.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 3</div><h3>Forces &amp; Colour</h3></div>
+      <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>
+      <a class="dl" href="files/IDWT_03_Forces.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
+      <p>Emergence of 1/r² from coherence loss in infinite dimensions.</p>
+      <a class="dl" href="files/IDWT_04_Gravity.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 5</div><h3>Predictions</h3></div>
+      <p>All particle masses from m<sub>e</sub> alone with less than 1% error.</p>
+      <a class="dl" href="files/IDWT_05_Predictions.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 6</div><h3>Open Questions</h3></div>
+      <p>The dynamical gap and what remains to be proved.</p>
+      <a class="dl" href="files/IDWT_06_OpenQuestions.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 7</div><h3>Observability</h3></div>
+      <p>What we can measure and why.</p>
+      <a class="dl" href="files/IDWT_07_Observability.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 8</div><h3>Quantum</h3></div>
+      <p>Quantum physics in IDWT.</p>
+      <a class="dl" href="files/IDWT_08_Quantum.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
+      <p>IDWT as twelve spectral theorems.</p>
+      <a class="dl" href="files/IDWT_09_Spectral.md" download>Download .md</a>
+    </article>
+    <article class="card">
+      <div class="card-head"><div class="part">Script</div><h3>Python Proof Script</h3></div>
+      <p>Generates all IDWT numbers from n_s = 4 and m_e.</p>
+      <a class="dl" href="files/idwt.py" download>Download .py</a>
+    </article>
+  </div>
+</section>
+
 </main>
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
-
-<script type="module">
-import * as THREE from 'three';
-function makeOrb(canvas){
-  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true, powerPreference:'high-performance'});
-  const size = canvas.parentElement.clientWidth;
-  renderer.setSize(size,size); renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
-  renderer.setClearColor(0x000000,0);
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(45,1,0.1,100); camera.position.z = 22;
-  const N=10000;
-  const dirs=new Float32Array(N*3), Y=new Float32Array(N*7);
-  const s32=1.22474487139, s152=1.9364916731, s15=3.87298334621, s58=0.79056941504;
-  for(let i=0;i<N;i++){const t=Math.acos(1-2*Math.random()),p=2*Math.PI*Math.random(),s=Math.sin(t),ux=s*Math.cos(p),uy=s*Math.sin(p),uz=Math.cos(t);dirs[i*3]=ux;dirs[i*3+1]=uy;dirs[i*3+2]=uz;const j=i*7;Y[j]=uz*(5*uz*uz-3)*0.5;Y[j+1]=ux*(5*uz*uz-1)*s32;Y[j+2]=uy*(5*uz*uz-1)*s32;Y[j+3]=uz*(ux*ux-uy*uy)*s152;Y[j+4]=ux*uy*uz*s15;Y[j+5]=ux*(ux*ux-3*uy*uy)*s58;Y[j+6]=uy*(3*ux*ux-uy*uy)*s58;}
-  const geo=new THREE.BufferGeometry(); geo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(N*3),3)); geo.setAttribute('color',new THREE.BufferAttribute(new Float32Array(N*3),3));
-  const mat=new THREE.PointsMaterial({size:0.11,vertexColors:true,transparent:true,opacity:0.82,blending:THREE.AdditiveBlending,depthWrite:false});
-  const points=new THREE.Points(geo,mat); scene.add(points);
-  const col=new THREE.Color(), pos=geo.attributes.position.array, cols=geo.attributes.color.array;
-  return function(t){const w=t*0.001*0.6;let a0=Math.cos(w),a1=Math.sin(w)*Math.cos(w*1.7)*0.7,a2=Math.sin(w)*Math.sin(w*1.7)*0.7,a3=Math.sin(w)*Math.cos(w*0.9)*0.5,a4=Math.sin(w)*Math.sin(w*0.9)*0.5,a5=Math.sin(w)*Math.cos(w*1.3)*0.4,a6=Math.sin(w)*Math.sin(w*1.3)*0.4;const n=Math.hypot(a0,a1,a2,a3,a4,a5,a6)||1;a0/=n;a1/=n;a2/=n;a3/=n;a4/=n;a5/=n;a6/=n;for(let i=0;i<N;i++){const j=i*3,k=i*7,ux=dirs[j],uy=dirs[j+1],uz=dirs[j+2];const psi=a0*Y[k]+a1*Y[k+1]+a2*Y[k+2]+a3*Y[k+3]+a4*Y[k+4]+a5*Y[k+5]+a6*Y[k+6];const d=psi*psi;if(d<0.02){pos[j]=pos[j+1]=pos[j+2]=0;cols[j]=cols[j+1]=cols[j+2]=0;continue;}const r=2.2+2.8*Math.pow(d,0.6);pos[j]=ux*r;pos[j+1]=uy*r;pos[j+2]=uz*r;const hue=(psi>0?0.58:0.06);col.setHSL(hue%1,1.0,0.55+0.25*Math.pow(d,0.2));cols[j]=col.r;cols[j+1]=col.g;cols[j+2]=col.b;}geo.attributes.position.needsUpdate=true;geo.attributes.color.needsUpdate=true;
-    // slow camera orbit to reveal 3D structure
-    const a = t*0.00012;
-    camera.position.x = Math.sin(a)*4;
-    camera.position.z = 22 + Math.cos(a)*1.5;
-    camera.position.y = Math.sin(a*0.7)*1.2;
-    camera.lookAt(0,0,0);
-    points.rotation.y = a*0.5;
-    renderer.render(scene,camera);}
-}
-const left=makeOrb(document.getElementById('orbL')); const right=makeOrb(document.getElementById('orbR'));
-function animate(t){requestAnimationFrame(animate);left(t);right(t);} animate(0);
-window.addEventListener('resize',()=>{document.querySelectorAll('.corner-orb canvas').forEach(c=>{const s=c.parentElement.clientWidth;c.width=s;c.height=s;});});
-</script>
-
 </body></html>

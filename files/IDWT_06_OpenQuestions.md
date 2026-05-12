@@ -34,8 +34,6 @@ What follows is an honest list of what the framework has not yet derived, with p
 
 ---
 
----
-
 ## Reframing: What Is Actually Open
 
 A systematic review of the labelled "open items" against PDG experimental uncertainties shows:

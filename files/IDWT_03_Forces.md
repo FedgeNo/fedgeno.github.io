@@ -721,7 +721,7 @@ The spinor structure governs quantum numbers — what attaches to each mode. The
 
 ## 16. Electromagnetism: Ward Identity and L-Parity Protection ✅
 
-### 15.1 The Ward Identity in IDWT
+### 16.1 The Ward Identity in IDWT
 
 The IDWT kinetic term contains the covariant derivative:
 
@@ -751,7 +751,7 @@ q_μ Γ^μ(p, p+q) = S^{-1}(p+q) − S^{-1}(p)
 
 holds automatically from gauge invariance.
 
-### 15.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
+### 16.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
 
 **Theorem.** The IDWT kernel cannot produce a photon mass at any order in perturbation theory.
 
@@ -777,9 +777,9 @@ The photon mass m_γ² = Π_kernel(0) = 0 exactly, to all orders in the kernel. 
 
 This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT produce a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
 
-### 15.3 The Running of α ✅
+### 16.3 The Running of α ✅
 
-The kernel does not contribute to the photon self-energy (§14.2). Therefore α runs only via standard fermion loops:
+The kernel does not contribute to the photon self-energy (§16.2). Therefore α runs only via standard fermion loops:
 
 ```
 1/α(q²) = 1/α(m_e²) + Σ_f (Q_f² N_f^c)/(3π) × ln(q²/m_f²)
@@ -800,7 +800,7 @@ PDG:     1/127.9   [includes hadronic vacuum polarisation + 2-loop]
 
 The gap of ~4 units between 1/131.8 and 1/127.9 is entirely accounted for by hadronic vacuum polarisation (~3.5 units) and two-loop QED corrections (~0.5 units), neither of which is specific to IDWT. The three-generation structure is exactly that needed.
 
-### 15.4 Status of α
+### 16.4 Status of α
 
 The Ward identity establishes:
 1. ∂^μ J_μ^{EM} = 0 exactly

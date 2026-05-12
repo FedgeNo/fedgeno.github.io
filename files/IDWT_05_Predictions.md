@@ -598,6 +598,7 @@ is a **spectral counting theorem**: the mass equals the total spectral weight be
 
 ---
 
+## 9. Falsification Criteria
 
 1. m_strange / m_down measured significantly different from 20
 2. μ/e ratio outside 206.7647 ± 0.005

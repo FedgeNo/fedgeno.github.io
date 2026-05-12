@@ -21,7 +21,19 @@ code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;ba
 .prose{margin-top:28px;color:#c4cae2;font-size:1.02rem;line-height:1.82;}.prose p{margin:0 0 1.35em;}.prose p:last-child{margin-bottom:0;}.prose strong{color:var(--text);font-weight:600;}.prose em{color:#dbe2ff;font-style:italic;}
 footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--muted-2);font-size:0.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(154,163,184,0.4);}footer a:hover{color:var(--text);border-bottom-color:var(--text);}
 @media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body><div class="bg"></div><main>
-
+<script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<style>
+.corner-orb{position:fixed;top:18px;width:210px;height:210px;z-index:2;pointer-events:none;background:transparent;filter:saturate(1.3) brightness(0.9);opacity:0.96}
+.corner-orb.left{left:18px}.corner-orb.right{right:18px}
+.corner-orb canvas{width:100%;height:100%;display:block}
+@media(max-width:720px){.corner-orb{width:140px;height:140px;top:12px}.corner-orb.left{left:12px}.corner-orb.right{right:12px}}
+main{position:relative;z-index:10}
+</style>
+<div class="corner-orb left"><canvas id="orbL" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
+<div class="bg"></div>
+<main>
 <header class="hero">
   <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
   <h1>IDWT</h1>
@@ -189,4 +201,27 @@ footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--mut
 
 </main>
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module">
+import * as THREE from 'three';
+function makeOrb(canvas){
+  const renderer = new THREE.WebGLRenderer({canvas, alpha:true, antialias:true, powerPreference:'high-performance'});
+  const size = canvas.parentElement.clientWidth;
+  renderer.setSize(size,size); renderer.setPixelRatio(Math.min(window.devicePixelRatio,1.5));
+  renderer.setClearColor(0x000000,0);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45,1,0.1,100); camera.position.z = 22;
+  const N=10000;
+  const dirs=new Float32Array(N*3), Y=new Float32Array(N*7);
+  const s32=1.22474487139, s152=1.9364916731, s15=3.87298334621, s58=0.79056941504;
+  for(let i=0;i<N;i++){const t=Math.acos(1-2*Math.random()),p=2*Math.PI*Math.random(),s=Math.sin(t),ux=s*Math.cos(p),uy=s*Math.sin(p),uz=Math.cos(t);dirs[i*3]=ux;dirs[i*3+1]=uy;dirs[i*3+2]=uz;const j=i*7;Y[j]=uz*(5*uz*uz-3)*0.5;Y[j+1]=ux*(5*uz*uz-1)*s32;Y[j+2]=uy*(5*uz*uz-1)*s32;Y[j+3]=uz*(ux*ux-uy*uy)*s152;Y[j+4]=ux*uy*uz*s15;Y[j+5]=ux*(ux*ux-3*uy*uy)*s58;Y[j+6]=uy*(3*ux*ux-uy*uy)*s58;}
+  const geo=new THREE.BufferGeometry(); geo.setAttribute('position',new THREE.BufferAttribute(new Float32Array(N*3),3)); geo.setAttribute('color',new THREE.BufferAttribute(new Float32Array(N*3),3));
+  const mat=new THREE.PointsMaterial({size:0.11,vertexColors:true,transparent:true,opacity:0.82,blending:THREE.AdditiveBlending,depthWrite:false});
+  const points=new THREE.Points(geo,mat); scene.add(points);
+  const col=new THREE.Color(), pos=geo.attributes.position.array, cols=geo.attributes.color.array;
+  return function(t){const w=t*0.001*0.6;let a0=Math.cos(w),a1=Math.sin(w)*Math.cos(w*1.7)*0.7,a2=Math.sin(w)*Math.sin(w*1.7)*0.7,a3=Math.sin(w)*Math.cos(w*0.9)*0.5,a4=Math.sin(w)*Math.sin(w*0.9)*0.5,a5=Math.sin(w)*Math.cos(w*1.3)*0.4,a6=Math.sin(w)*Math.sin(w*1.3)*0.4;const n=Math.hypot(a0,a1,a2,a3,a4,a5,a6)||1;a0/=n;a1/=n;a2/=n;a3/=n;a4/=n;a5/=n;a6/=n;for(let i=0;i<N;i++){const j=i*3,k=i*7,ux=dirs[j],uy=dirs[j+1],uz=dirs[j+2];const psi=a0*Y[k]+a1*Y[k+1]+a2*Y[k+2]+a3*Y[k+3]+a4*Y[k+4]+a5*Y[k+5]+a6*Y[k+6];const d=psi*psi;if(d<0.02){pos[j]=pos[j+1]=pos[j+2]=0;cols[j]=cols[j+1]=cols[j+2]=0;continue;}const r=2.2+2.8*Math.pow(d,0.6);pos[j]=ux*r;pos[j+1]=uy*r;pos[j+2]=uz*r;const hue=(psi>0?0.58:0.06)+0;col.setHSL(hue%1,1.0,0.55+0.25*Math.pow(d,0.2));cols[j]=col.r;cols[j+1]=col.g;cols[j+2]=col.b;}geo.attributes.position.needsUpdate=true;geo.attributes.color.needsUpdate=true;renderer.render(scene,camera);}
+}
+const left=makeOrb(document.getElementById('orbL')); const right=makeOrb(document.getElementById('orbR'));
+function animate(t){requestAnimationFrame(animate);left(t);right(t);} animate(0);
+window.addEventListener('resize',()=>{document.querySelectorAll('.corner-orb canvas').forEach(c=>{const s=c.parentElement.clientWidth;c.width=s;c.height=s;});});
+</script>
 </body></html>

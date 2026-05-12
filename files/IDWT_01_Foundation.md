@@ -382,7 +382,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 
 **Co-fixed-point uniqueness ✅**
 
-As a uniqueness verification, the filtration map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. This is a verification, not a parameter search — $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
+As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. This is a verification, not a parameter search — $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
 
 ---
 
@@ -390,7 +390,7 @@ As a uniqueness verification, the filtration map was run over all 1,600 pairs $(
 
 **Statement.** Let $\Sigma = \{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$ be the set of IDWT mode indices. $\Sigma$ is the unique set of positive integers satisfying all of the following simultaneously:
 
-1. **Filtration closure.** Every element of $\Sigma$ is the eigenfrequency selected by the following closed chain of sector comb conditions (all verified exactly):
+1. **Generation law closure.** Every element of $\Sigma$ is the eigenfrequency selected by the following closed chain of sector comb conditions (all verified exactly):
 
 $$n_u = n_s - 1 = 3$$
 

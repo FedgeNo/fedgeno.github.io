@@ -123,7 +123,7 @@ $\ell$-decomposition coefficients on $S^{d-1}$ for every sector:
 **Assembly.**
 $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs }n=1,2} \;\cup\; \underbrace{\{6\}}_{\substack{\text{base of }n=3\\\text{(Rule A)}}} \;\cup\; \underbrace{\{10\}}_{\substack{\text{base of }n=5\\\text{(Rule B)}}} = \{2,3,4,5,6,10\}. \quad\square$$
 
-**Index theorem cross-check.** $n_{\rm top}=\chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5)=3\times4\times6=72$. This is the Atiyah-Singer index of $D$ on the product of the three even-dimensional sectors and equals the top-quark mode index derived independently from the filtration chain.
+**Index theorem cross-check.** $n_{\rm top}=\chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5)=3\times4\times6=72$. This is the Atiyah-Singer index of $D$ on the product of the three even-dimensional sectors and equals the top-quark mode index derived independently from the generation law chain.
 
 Jacobi couplings at $k_0=16$ (all sectors in $D$ must have $b_{k_0}\geq1/2$, by T3 Rule B):
 
@@ -204,7 +204,7 @@ No free parameters. No loop integrals.
 
 *Step 4 ($\theta_{13}$ as second order).* $\sin^2\theta_{13}=g_{55}\cdot\delta_{23}\cdot r$ where $r=\ln(S(n_\tau,10)/S(n_\mu,6))=\ln(m_\tau/m_\mu)=2.822$ (exact because $m_{\rm scale,10}=m_{\rm scale,6}$). Since $\delta_{23}\propto g_{55}$, this correction is $O(g_{55}^2)$.
 
-**Mode-index proximity (by T5).** Three exact identities from the filtration chain:
+**Mode-index proximity (by T5).** Three exact identities from the generation law chain:
 
 $$|n_\tau - n_{\nu_3}| = 1 = n_d, \qquad |n_e - n_{\nu_1}| = 3 = n_u, \qquad |n_\tau - n_{\nu_1}| = 13 = n_e.$$
 

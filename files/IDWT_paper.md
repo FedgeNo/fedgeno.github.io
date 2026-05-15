@@ -419,7 +419,7 @@ The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell
 
 Colour confinement emerges from the two-stage observability filter. A mode $(n,d)$ is observable only if: (1) $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2)) \lesssim \ln 2$ (Stage-1 projection passes); and (2) the mode belongs to the co-fixed-point spectrum of the filtration chain (Stage-2 stability). The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) pass Stage 1 but fail Stage 2 — they are not stable particles, consistent with observation.
 
-Gravity: the projected 4D metric acquires curvature from the back-reaction of $|\Psi_\infty|^2$. Variation of the master action with respect to the visible metric components $g_{\mu\nu}$ yields effective Einstein equations with $G_{\rm eff} = 1/(8\pi M_\infty^2)$. The 26-order hierarchy $M_\infty \gg m_e$ is not yet derived from the sector geometry; it remains an open item. Full treatment in Technical Volume 4 [11].
+Gravity: variation of the master action with respect to $g_{\mu\nu}$ yields the standard 4D Einstein equations $G_{\mu\nu} = 8\pi G_N T_{\mu\nu}^{\rm eff}$, where $T_{\mu\nu}^{\rm eff} = \int_\Xi T_{\mu\nu}^{\rm Dirac}\,d\mu_\xi$ is the hidden-space integral of the matter stress-energy. $G_N$ is a measured constant of spacetime; the hidden geometry $\Xi$ is a fixed background and contributes no gravitational degrees of freedom. Full treatment in Technical Volume 4 [11].
 
 ---
 
@@ -466,7 +466,7 @@ IDWT is distinctive in providing: (a) parameter-free masses for all 13 particles
 4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.
 6. **Hierarchy $M_\infty \gg m_e$.** The 26-order ratio is not yet derived from the sector geometry.
-7. **Gravity coupling.** $G_{\rm eff}$ is derived in terms of $M_\infty$ but $M_\infty$ itself is not yet fixed from the sector structure. The spectral action gives $\sqrt{\operatorname{Tr}(D^2)}=248.3$ GeV $\approx v_{\rm Higgs}$ ($+0.85\%$), confirming the IDWT Dirac operator reproduces the SM electroweak scale.
+7. **Spectral action EW scale.** The spectral action gives $\sqrt{\operatorname{Tr}(D^2)}=248.3$ GeV $\approx v_{\rm Higgs}$ ($+0.85\%$), confirming the IDWT Dirac operator reproduces the SM electroweak scale. $G_N$ is a measured input to the Einstein-Hilbert term.
 
 ---
 

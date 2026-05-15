@@ -37,8 +37,8 @@ main{position:relative;z-index:10}
 <header class="hero">
   <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
   <h1>IDWT</h1>
-  <p class="sub">Particle masses come from counting hidden states of a single wave.</p>
-  <p class="tag">A geometric derivation of the Standard Model spectrum from one master wave Ψ∞.</p>
+  <p class="sub">Particle masses from counting hidden states of a single wave.</p>
+  <p class="tag">A geometric derivation of the Standard Model from one master wave Ψ∞.</p>
   <div class="cta">
     <a class="btn primary" href="#core">Explore the Theory</a>
     <a class="btn primary" href="#notebooklm">NotebookLM</a>
@@ -49,13 +49,12 @@ main{position:relative;z-index:10}
 
 <section id="core">
   <h2>The Core Idea</h2>
-  <p class="lead">IDWT is built from five postulates.</p>
+  <p class="lead">IDWT is built from four postulates.</p>
   <ol>
     <li>Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.</li>
     <li>Our observable 3D universe is a brane-like slice through this space.</li>
     <li>The hidden dimensions are not compactified Planck-scale curls, they are macroscopic.</li>
     <li>What we call mass is a scaled count of hidden microstates.</li>
-    <li>Gravity emerges as the curvature of Ψ∞.</li>
   </ol>
   <p>This gives a combinatorial mass rule: mass scales with cumulative states on d-dimensional hidden sectors.</p>
   <div class="formula">
@@ -121,7 +120,7 @@ main{position:relative;z-index:10}
 
     <p>Infinite-Dimensional Wave Theory asks: what is the simplest physical object that could, in principle, produce the full spectrum we observe? The answer it proposes is a single complex wave function Ψ∞ defined on a manifold of literally infinite dimension — not ten or eleven dimensions in the string-theory sense, but unboundedly many, with no fixed upper limit on the number of hidden directions. From this one object, every particle mass, every coupling constant, and every mixing angle in the Standard Model follows by calculation.</p>
 
-    <p>The setup rests on five postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity, rather than being quantized, emerges as the curvature of our slice at large scales, and the Einstein–Hilbert action appears naturally without a graviton.</p>
+    <p>The setup rests on four postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity is standard 4D general relativity — the curvature of our 3+1D slice sourced by the IDWT matter fields through the effective stress-energy tensor. There are no gravitons and no Kaluza-Klein tower; G_N is a measured constant of spacetime.</p>
 
     <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. This sector set is not a free choice — it is forced by the requirement that the top quark mode index n_top = N_c × n_s × N_f exactly equals 72. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the Higgs self-coupling, the proton mass, the pion decay constant, the CKM mixing angles, the PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
 
@@ -148,7 +147,7 @@ main{position:relative;z-index:10}
   <div class="grid">
     <article class="card">
       <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
-      <p>The five postulates and the geometric setting of Ψ∞.</p>
+      <p>The core postulates and the geometric setting of Ψ∞.</p>
       <a class="dl" href="files/IDWT_01_Foundation.md" download>Download .md</a>
     </article>
     <article class="card">
@@ -163,7 +162,7 @@ main{position:relative;z-index:10}
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
-      <p>Emergence of 1/r² from coherence loss in infinite dimensions.</p>
+      <p>Why macroscopic hidden dimensions are consistent with all gravitational experiments — no KK tower, no extra-dimensional gravitons.</p>
       <a class="dl" href="files/IDWT_04_Gravity.md" download>Download .md</a>
     </article>
     <article class="card">
@@ -188,7 +187,7 @@ main{position:relative;z-index:10}
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
-      <p>IDWT as twelve spectral theorems.</p>
+      <p>IDWT as a sequence of self-contained spectral theorems.</p>
       <a class="dl" href="files/IDWT_09_Spectral.md" download>Download .md</a>
     </article>
     <article class="card">
@@ -215,9 +214,14 @@ function makeOrb(canvas) {
     renderer.setSize(size, size);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.setClearColor(0x000000, 0);
+
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-    camera.position.z = 22;
+
+    // camera orbit state - independent of the animation time t
+    const radius = 22;
+    let camAngle = 0;
+    const camSpeed = 0.008; // change this to make the orbit faster/slower
 
     const N = 10000;
     const dirs = new Float32Array(N * 3),
@@ -273,10 +277,12 @@ function makeOrb(canvas) {
             a6 = Math.sin(w) * Math.sin(w * 1.3) * 0.4;
         const n = Math.hypot(a0, a1, a2, a3, a4, a5, a6) || 1;
         a0 /= n; a1 /= n; a2 /= n; a3 /= n; a4 /= n; a5 /= n; a6 /= n;
-
         for (let i = 0; i < N; i++) {
-            const j = i * 3, k = i * 7,
-                ux = dirs[j], uy = dirs[j + 1], uz = dirs[j + 2];
+            const j = i * 3,
+                k = i * 7,
+                ux = dirs[j],
+                uy = dirs[j + 1],
+                uz = dirs[j + 2];
             const psi = a0 * Y[k] + a1 * Y[k + 1] + a2 * Y[k + 2] + a3 * Y[k + 3] + a4 * Y[k + 4] + a5 * Y[k + 5] + a6 * Y[k + 6];
             const d = psi * psi;
             if (d < 0.02) {
@@ -285,21 +291,23 @@ function makeOrb(canvas) {
                 continue;
             }
             const r = 2.2 + 2.8 * Math.pow(d, 0.6);
-            pos[j] = ux * r; pos[j + 1] = uy * r; pos[j + 2] = uz * r;
+            pos[j] = ux * r;
+            pos[j + 1] = uy * r;
+            pos[j + 2] = uz * r;
             const hue = (psi > 0? 0.58 : 0.06);
             col.setHSL(hue, 1.0, 0.55 + 0.25 * Math.pow(d, 0.2));
-            cols[j] = col.r; cols[j + 1] = col.g; cols[j + 2] = col.b;
+            cols[j] = col.r;
+            cols[j + 1] = col.g;
+            cols[j + 2] = col.b;
         }
         geo.attributes.position.needsUpdate = true;
         geo.attributes.color.needsUpdate = true;
 
-        // --- CAMERA ORBIT ADDED ---
-        const radius = 22;
-        const speed = 0.0003; // lower = slower
-        camera.position.x = Math.cos(t * speed) * radius;
-        camera.position.z = Math.sin(t * speed) * radius;
+        // independent camera orbit
+        camAngle += camSpeed;
+        camera.position.x = Math.cos(camAngle) * radius;
+        camera.position.z = Math.sin(camAngle) * radius;
         camera.lookAt(0, 0, 0);
-        // --- END ---
 
         renderer.render(scene, camera);
     }
@@ -318,7 +326,8 @@ animate(0);
 window.addEventListener('resize', () => {
     document.querySelectorAll('.corner-orb canvas').forEach(c => {
         const s = c.parentElement.clientWidth;
-        c.width = s; c.height = s;
+        c.width = s;
+        c.height = s;
     });
 });
 </script>

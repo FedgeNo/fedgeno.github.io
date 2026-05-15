@@ -1,36 +1,6 @@
-# IDWT — Part 6: Open Questions
+# Infinite Dimensional Wave Theory — Part 6: Open Questions
 
 What follows is an honest list of what the framework has not yet derived, with precise statements of what is needed.
-
----
-
-## Closed
-
-| What | How |
-|---|---|
-| Seeds {1,4} uniqueness | S(n,4)=35 has unique solution n=4; n=1 forced by S(1,d)=1 for all d |
-| Eigenmode selection rule | n_lepton = n_neutrino + n_quark, all three generations exact |
-| Tau mode index | n_τ = n_ν₃ + n_down = 23; the eigenmode selection rule applied at d=10 (CP⁵), cross-coupled to d=3 via the Vandermonde rule g(d=10, n_s=4) = 13 = n_e |
-| Bottom quark mass | Quartic bifurcation at k₀ = n_strange² within d=3, +0.02% |
-| Coupling constants from seeds | g₃₃ = n_s²√(n_s+n_u)/2, g₄₄ = n_sn_u/√(n_s+n_u), g₃₄ = √(n_s³n_u/2) — all from seed n_s; n_u = n_s−1 derived. Universal coupling coefficient 2/√(n_s+n_u) applies to both sectors by binomial symmetry C(n,k)=C(n,n-k). g₃₃ and g₄₄ are symmetric derivations; neither is primary. g₃₃×g₄₄ = n_s³n_u/2 = 96 is a theorem of the seed structure. |
-| Sector scale hierarchy | m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV from the kernel vacuum fixed-point equation (l=0 scalar part of the cross-sector coupling). Requires only m_e and coupling constants derived from seeds and anomaly cancellation. All other sector scales follow from m_scale_3 or m_W. |
-| ρ meson from comb filter | Im[Γ₃₄₆] maximum at 775.794 MeV (+0.069% vs PDG 775.260 MeV). Inputs: g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, τ_d=1/(2√(k₀+d)) at k₀=16. Consistency check — the same coupling constants that fix m_scale_3 also determine this peak, so agreement is a self-consistency verification. The +0.069% is a consistency-level residual: WKB correction to τ_d for d=3 goes in the wrong direction, and is zero for d=10 by the Gegenbauer criticality theorem. |
-| Hilbert space rigour | Absolute convergence proved; operators self-adjoint |
-| Spectral independence | Occupied set is sum-free with no S-value degeneracy. Proved computationally for all 91 pairs; d=3 internal case proved analytically via non-tetrahedral-number argument; tau dominance algebraic; sector scale gaps structural from {1,4} seeds |
-| Spin-½ from KK Dirac | The 3+1D Dirac equation follows from the Kaluza-Klein Dirac operator on M_∞ = ℝ^{3,1} × Ξ_d. Spin-½ is derived from the spinor bundle of Ψ∞, not postulated per particle. |
-| S(n,d) geometric grounding | S(n,d) = dim Sym^{n-1}(ℝ^{d+1}) = IDOS_d(n): the cumulative count of harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions. Mass equals frequency equals microstate count. Mass = frequency = cumulative microstate count. All three are the same quantity. |
-| Top quark and W boson derivation | n_ν₂ = S(n_u,4) = C(6,4) = 15 = C(6,2) = S(n_s+1,2) by binomial symmetry C(n,k)=C(n,n-k), where n_u+3 = n_s+2 = 6 follows from n_u = n_s−1. Therefore n_W = S(n_e,2) − n_ν₂ = 76, and g(d=5, n_top) = 76 forces n_top = 72 uniquely. |
-| Three k₀ resonance conditions | k₀ = n_s² = n_e+n_u = S(n_s,3)−S(2,3) = 16. Three independent expressions equal k₀ simultaneously: (1) seed self-product, (2) cross-sector lepton+quark mode sum, (3) intra-d=3 gap identity from the g₃₃ derivation. All three add in phase at k₀, destabilising the single-mode solution and forcing the geometric-mean beat at m_b = √(S(16,3)×S(17,3)) × m_scale_3 = 4181 MeV (+0.02%). |
-| Generation Tower Correction (GTC) | ε = g_coeff/(k₀ × n_mu) = (2/√7)/(16×35) = 1/(280√7) = 0.001350. Derived from: g_coeff = 2/√(n_s+n_u) (universal Jacobi coefficient), k₀ = n_s² (vacuum stability gap), n_mu = S(n_s,4) (fixed-point mode scale). Corrects c/u to 0.000% and t/u to −0.048%. Note k_charm = k_g33 = n_s−1 = 3: the same comb generation law stages that select the charm mode index also determine the coupling gap k₀. |
-| d=5 coupling g₅₅ (algebraic structure) | Hopf fiber universality: both S¹→S³→CP¹ and S¹→S⁵→CP² share the electromagnetic U(1) fiber. Universality requires v₃/v₂ = v₅/v₄, giving g₂₅ = g₃₄ = 4√6 and g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂ = 0.1329. g₂₂ = (M₃^{S³}−n_u)²×β/2 = 722.5 is a Dirac multiplicity product (Theorem S3, Part 8 §60b). g₅₅ = 96/722.5 then follows with no new input. Complete coupling vector: {v₂=26.879, v₃=4.601, v₄=2.130, v₅=0.3645, v₆=v₁₀=0.500}. Neutrino mass scale derived (§9c). |
-| Tau mass residual — Dyson resummation | The d=6 and d=10 sectors are isotropically coupled: g_{6,6} = g_{6,10} = g_{10,10} = 1/n_s = 1/4 exactly (all equal: d=6 and d=10 share the seed coupling). The d=6→d=10 back-reaction correction feeds back on itself via g_{10,10}, giving a self-consistent equation: Δm = ε_{6→10}×m_τ + g_{10,10}×Δm → Δm = ε_{6→10}×m_τ/(1−g_{10,10}). Since g_{10,10} = 1/n_s, the resummation factor is 1/(1−1/n_s) = n_s/(n_s−1) = n_s/n_u (forced by n_u = n_s−1). Result: ε_total = 1/(n_u × n_s² × S(n_s,4)) = 1/1680. Correction +m_τ/1680 = +1.057 MeV. **m_τ = 1776.84 MeV (−0.14σ from PDG = 1776.86 ± 0.12 MeV). Inside 1σ.** No new inputs: m_e only. |
-| d=10 Gegenbauer uniqueness | The Gegenbauer coupling at the seed resonance site b_{k₀}(d) = √(k₀(k₀+d−1))/(2k₀+d−2) satisfies b_{k₀}=1/2 if and only if 4k₀=(d−2)², i.e. d=2+2√k₀=2(n_s+1)=10. This is a second independent algebraic derivation of d=10 (the first being Hurwitz; the third being hypercharge anomaly cancellation). d=10 is the last sector with b_{k₀}≥1/2; d>10 is evanescent. Proved: 4×16=64=(10−2)². As a WKB corollary: the next-order correction to τ_{d=10} vanishes identically (since it is proportional to b_{k₀}−1/2=0), making d=10 the only sector for which the leading-order WKB delay is exact. |
-| **Sector set D forced by seed** | n_top = 72 = N_c × n_s × N_f where N_c=3 (spin^c index), n_s=4 (seed), N_f=6 (= n_top/(N_c n_s)); the three CP sectors d=4,6,10 follow as d=2(N_c-1), 2(n_s-1), 2(N_f-1); d=2 is the Hopf base; d=3,5 are Hopf total spaces with derivable couplings. g₆₆=1/n_s=1/4 is from the seed, not from external hypercharge. (Part 1 §3a) |
-| **Particle spectrum complete** | Every potential new particle requires either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by §5c uniqueness). The only beat mode is at k₀=16 in d=3 — uniquely verified by exhaustive search. No additional stable states exist. (Part 1 §3b) |
-| **CKM unitarity exact at tree level** | |Vud|²+|Vus|²+|Vub|² = 1 exactly at tree level (since Vud=√(1−Vus²), Vub=0). The literature +5.5σ tension is in the nuclear-QED-corrected extracted value, not in the bare IDWT coupling. The nuclear β-decay QED correction δ_R ≈ 0.024 is external to IDWT. IDWT satisfies exact CKM unitarity. |
-| Dirac neutrino prediction | The Clifford algebra Cl(d) has Bott periodicity 8. For d=5, d mod 8 = 5, which is the unique residue class for which Majorana spinors do not exist. The d=5 hidden-space spinor cannot support a Majorana mass term — no seesaw mechanism is possible from the hidden-space geometry. IDWT therefore predicts: **neutrinos are Dirac fermions.** Falsifiable by neutrinoless double beta decay (0νββ); no signal is expected ever. |
-| Spin(10) weight lattice cross-check for d=10 | The d=10 sector admits a Majorana-Weyl spinor (d mod 8 = 2). Its 16-component Weyl spinor is exactly the **16** of SO(10) ≅ Spin(10), which under the SM subgroup decomposes as Q_L + u_R^c + e_R^c + d_R^c + L_L + ν_R^c — one complete SM generation including right-handed neutrino. The tau, ν_τ, b, and t all live in the same SO(10) multiplet. Their hypercharges Y = {−1, 0, −1/3, +2/3} follow from the SO(10) algebra, not from separate SM assignments. |
-| Chirality from Kähler γ₅ | The CP^m sectors (d=2m, so d=2,4,6) carry a Kähler form ω. The operator γ₅^Kähler = i^m (ω^m)_{a₁…a_{2m}} γ^{a₁}⋯γ^{a_{2m}} splits each sector spinor into LEFT (holomorphic) + RIGHT (anti-holomorphic). For d=4 (CP², m=2): 4-spinor = 2L + 2R → (u_L,d_L) + (u_R,d_R). For d=6 (CP³, m=3): 8-spinor = 4L + 4R → two lepton doublets + right-handed partners. The W boson couples only to the LEFT components. |
 
 ---
 
@@ -43,44 +13,39 @@ A systematic review of the labelled "open items" against PDG experimental uncert
 - **Λ_QCD "−9%":** IDWT defines Λ_IDWT = 3f_π = 282 MeV. The PDG "300–340 MeV" is a hadronic-scheme empirical range. IDWT's value matches 3f_π(PDG) = 276 MeV within +2.2% and m_ρ/2.74 = 283 MeV within −0.3%. The comparison label "−9%" was to an ill-defined target.
 
 **Reclassified as data-dependent, not definitively wrong:**
-- **Δm²₃₁ "−7.7%":** Different oscillation analyses give: PDG 2022: −7.7%; NuFit 5.2: −5.5%; T2K+NOvA 2020: −2.7%. IDWT sits at the low end of the experimental range. The mode indices fix this prediction exactly (n_ν₃=22); whether it is inside or outside the experimental range depends on which analysis is used.
+- **m_ν₃ ~4% shortfall:** Δm² is not a native IDWT quantity — it is oscillation-experiment language for a technique that cannot access absolute masses. Expressed in IDWT's own terms, m_ν₃ = 48.87 meV is ~4% below the value implied by oscillation data (~50.85 meV). This is a fractional gap in one absolute mass, structurally the same situation as the raw top quark (+1.3% before GTC) and tau before Dyson resummation. A Dyson correction with coefficient 1/n_μ = 1/35 (a Pascal quantity) is the candidate; deriving it from first principles is open. The primary falsifiable prediction remains Σm_ν = 59.0 meV, testable by CMB-S4.
 
 **Genuine small residuals:**
 - **sin²θ_W +0.37%:** The mode-index prediction is exact. The gap from PDG on-shell is 3.6σ by measurement precision alone, but ~0.8σ once theoretical loop-correction uncertainties are included. The tree-level EW prediction is at this precision inherently.
 - **g₁ −1.88% (after 1-loop running):** Derives from the sin²θ_W residual above.
 
 **Genuinely open (computation not done):**
-- ~~PMNS mixing angles~~ **CLOSED** — spectral geometry formulas derived:
+- PMNS mixing angles — spectral geometry formulas derived:
   sin²θ₂₃=0.5590 (PDG 0.561, -0.36%), sin²θ₁₂=0.3086 (PDG 0.307, +0.51%),
   sin²θ₁₃=0.02211 (PDG 0.022, +0.51%). From g₅₅=96/g₂₂ and mode indices.
   Still open: CP phase δ and Jarlskog invariant J
 - CP-violating phase δ (Hopf Chern-Simons integral)
-- G_N from sector localization geometry: the measured value of Newton's constant should emerge from the sector scales m_scale_d and localization lengths L_d — this computation has not been performed. This is not the QFT hierarchy problem; particle masses in IDWT are not sensitive to G_N.
-- ~~2-loop QED matching for g₁~~ **CLOSED** — 2-loop RK4 (Machacek–Vaughn) computed numerically: residual improves from −1.8823% to −1.8810%, closing 0.0014 pp. Entire residual is the sin²θ_W structural gap (+0.37% from mode indices 76,81); no running order closes a structural prediction offset.
+- 2-loop QED matching for g₁ — 2-loop RK4 (Machacek–Vaughn) computed numerically: residual improves from −1.8823% to −1.8810%, closing 0.0014 pp. Entire residual is the sin²θ_W structural gap (+0.37% from mode indices 76,81); no running order closes a structural prediction offset.
 
 ---
 
 ## Open
 
-**f_π and Λ_QCD ✅/🔶**
+**f_π and Λ_QCD**
 The IDWT β-function gives g_eff(n) = g₃₃/S(n,3), with confinement at g_eff = 1 → S(n_conf,3) = g₃₃ = 8√7 ≈ 21.17. The nearest integer solution is n_conf = n_s = 4 (the seed itself). The confinement mass scale is:
 
-f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1% ✅)
+f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1%)
 
-The pion decay constant is the mass at the seed level — the seed is the confinement mode. The QCD scale from the large-N_c relation Λ_QCD ≈ N_c × f_π = 3 × 94.04 = 282 MeV, matching 3×f_π(PDG) = 276 MeV within +2.1% ✅. The proton mass with Fermi-momentum correction: m_p = N_c × Λ_QCD × (1 + 1/n_up²) = 3 × 282.1 × (10/9) = 940.4 MeV (PDG: 938.3, +0.22% ✅). Both use N_c = 3 from the CP² Dirac index.
+The pion decay constant is the mass at the seed level — the seed is the confinement mode. The QCD scale from the large-N_c relation Λ_QCD ≈ N_c × f_π = 3 × 94.04 = 282 MeV, matching 3×f_π(PDG) = 276 MeV within +2.1%. The proton mass with Fermi-momentum correction: m_p = N_c × Λ_QCD × (1 + 1/n_up²) = 3 × 282.1 × (10/9) = 940.4 MeV (PDG: 938.3, +0.22%). Both use N_c = 3 from the CP² Dirac index.
 
 **Full CKM matrix and CP violation**
-The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase) and the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed). The |V_ud| tension is resolved: IDWT predicts the bare coupling |V_ud|_bare = √(1−sin²θ_C) = 0.97447, giving exact CKM unitarity. The nuclear β-decay extraction applies QED corrections δ_R ≈ 0.024 before reporting; that correction is external to IDWT, not a framework prediction. See Closed table.
+The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase) and the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed). Note: V_ud = √(1−sin²θ_C) = 0.97447 is not a separate prediction but the unitarity complement of sin θ_C. The apparent 5.5σ gap against the nuclear beta-decay value (0.97370 ± 0.00014) is the Cabibbo Angle Anomaly — a pre-existing ~3σ unitarity deficit between the independently measured PDG values of |V_ud| and |V_us|. IDWT enforces exact unitarity; √(1−|V_us|²_PDG) = 0.97447 matches IDWT exactly. The tension is internal to the PDG measurements, not a failure of IDWT.
 
-**Neutrino mass scale (resolved ✅)**
+**Neutrino mass scale**
 The d=5 mass scale follows from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, giving m_scale_5 = 7.429 × 10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. See Part 2 §9c. Absolute masses: m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.0 meV.
 
 **Lorentz completion 🔶**
-Scalar covariance, spin-½ from the KK Dirac operator, chirality from Kähler γ₅ on CP² and CP³, and particle/antiparticle from the complex spinor are all established. Remaining: full Spin(9) decomposition for d=10, and α_s running from the IDWT coupling structure. The main open item is the explicit D_Ξ spectrum matching m_scale_d × f(S(n,d)).
-
-**4D gravity from M_∞ action ✅ (complete)**
-The gravity programme is complete except for the derivation of G_N from sector geometry. Proved: 4D Einstein equations from the M_∞ action (§3.1–3.4), no hidden gravitational propagating modes (§3.4), equivalence principle m_grav = m_inertial (§3.6), L²(Ξ) normalisability (§3.8 Part I), Bianchi identity ∇^μ T_μν^{eff} = 0 (§3.8 Part II), spectral counting S(n,d) = N_d(n−1) (§60), sector localization lengths L_d from Agmon theory (§3.9), sector potential depth λ_d = (g_dd/2)^{2/3} from kernel self-consistency (§3.10), G_N sector-independent (§3.11.1), and G_N is loop-exact — hidden sector loops cannot renormalise the EH coefficient because O_Ξ is independent of g_μν by the product metric structure of M_∞ = M₄ × Ξ (§3.11.3). The derivation of the measured value of G_N from {m_scale_d, L_d} is the remaining open item. Note: M_∞ is the manifold name, not a numeric Planck mass. There is no hierarchy problem in IDWT because gravity is not quantized and particle masses are not sensitive to G_N.
-
+Scalar covariance, spin-½ from the KK Dirac operator, chirality from Kähler γ₅ on CP² and CP³, and particle/antiparticle from the complex spinor are all established. Remaining: full Spin(9) decomposition for d=10. The main open item is the explicit D_Ξ spectrum matching m_scale_d × f(S(n,d)).
 
 ---
 
@@ -88,14 +53,8 @@ The gravity programme is complete except for the derivation of G_N from sector g
 
 **PMNS angles — now derived from spectral geometry (T6, Part 9).** The charged-current coupling matrix between d=5 and d=6/10 is rank-1, giving tribimaximal mixing (TBM) at the coupling-symmetry level. The physical PMNS is a weighted average of TBM (weight 1−g₅₅) and the simplex-ratio structure (weight g₅₅=96/g₂₂=0.1329), with results: sin²θ₂₃=0.5590 (PDG 0.561, −0.36%), sin²θ₁₂=0.3086 (PDG 0.307, +0.51%), sin²θ₁₃=0.02211 (PDG 0.022, +0.51%). No loop integrals needed. Still open: the CP-violating phase δ.
 
-**δ_CP — derived from Hopf chain dimensions ✅.** T8 establishes the topological source: the CP-violating phase is a Berry phase $\delta = c_{eff} \cdot \theta_{12}$ where $c_{eff}$ is the average dimension of the Hopf total spaces involved in the generation loop. For the lepton sector ($d=5,6,10$), the relevant spaces are $S^5$ and $S^6$ (effectively $S^{11}$ in the $d=10$ limit), giving $c_{eff} = (5+6)/2 = 5.5$. For the quark sector ($d=3,4$), the spaces are $S^3$ and $S^5$, giving $c_{eff} = (3+5)/2 = 4$.
-
-Results:
-- **PMNS:** $\delta_{CP} = 5.5 \times \theta_{12} \approx 5.5 \times 35.26^\circ = 193.9^\circ$ (PDG NuFit 5.2: $\sim 197^\circ$).
-- **CKM:** $\gamma = 4 \times \theta_C \approx 4 \times 13.0^\circ = 52.0^\circ$ (PDG: $\sim 65^\circ$).
-
-The derivation identifies the CP phase not as a free parameter but as the geometric holonomy of the lepton and quark bundles. The factor 5.5 for neutrinos is uniquely forced by the dimensions of the sectors $\{5, 6, 10\}$ that define the lepton spectrum. The small residual in the CKM sector likely reflects the non-zero curvature of the $CP^2$ manifold at the $d=4$ boundary. Item closed.
+**δ_CP — topological source identified, value open 🔶.** The sector mixing amplitudes derived from S(n,d) ratios are real; a non-zero CP phase requires an imaginary contribution not present at tree level. The topological integer $\Delta c_1 = c_1(\mathbb{CP}^3) - c_1(\mathbb{CP}^5) = -2$ is identified as a candidate source: the two CP lepton sectors carry different first Chern classes because they sit at different levels of the Hopf chain (Rule B, §3a). Whether this produces a non-zero imaginary part in the mixing matrix requires computing the Fubini-Study curvature integral over sector coupling parameter space. This computation has not been performed. **Open.**
 
 **CKM and PMNS have different structural origins.** The CKM arises from tree-level intra-sector mixing in the d=3/4 quark sectors. The PMNS arises from the spectral geometry of the cross-sector coupling between d=5 (neutrinos) and d=6/10 (charged leptons) — specifically from the ratio of d=5 self-coupling to the EW self-coupling g₂₂, and from the mode-index hierarchy within each sector.
 
-**g₂, α, G_F — now derived ✅.** The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction: g₂ = Q_u √g_s = (2/3)√(2g₄₄/π²) = 0.65275 (PDG: 0.65270, +0.008%). The Fermi constant follows directly from the W propagator at q²≪mW²: G_F = g₂²/(4√2 mW²) = 1.1658×10⁻⁵ GeV⁻² (PDG: 1.1664×10⁻⁵, −0.05%). Both g₂ and mW are independently derived from IDWT — no Higgs VEV enters. The fiber-scale α gives 1/α = 131.8; running to m_Z requires α_s derived from IDWT couplings (open item — see §Open). W total width Γ_W = 2044 MeV (−2%), Z total width Γ_Z = 2444 MeV (−2.0%), muon lifetime τ_μ = 2.190×10⁻⁶ s (−0.3%). See Part 3 §0.7. g₁: 2-loop RK4 integration (Machacek–Vaughn β-functions; b₁=41/6 from IDWT particle content: N_c=3, N_gen=3, hypercharges from anomaly cancellation) gives g₁(m_Z) = 0.35068 (−1.8810%), closing 0.0014 pp beyond 1-loop. The entire residual is the sin²θ_W structural gap (+0.37% from mode indices 76,81) propagated via Δg₁/g₁ = Δ(sin²θ_W)/[2sin²θ_W(1−sin²θ_W)]. ✅ 2-loop item closed; residual is the sin²θ_W open item.
+**g₂, α, G_F — derived.** The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction: g₂ = Q_u √g_s = (2/3)√(2g₄₄/π²) = 0.65275 (PDG: 0.65270, +0.008%). The Fermi constant follows directly from the W propagator at q²≪mW²: G_F = g₂²/(4√2 mW²) = 1.1658×10⁻⁵ GeV⁻² (PDG: 1.1664×10⁻⁵, −0.05%). Both g₂ and mW are independently derived from IDWT — no Higgs VEV enters. The fiber-scale α gives 1/α = 131.8. W total width Γ_W = 2044 MeV (−2%), Z total width Γ_Z = 2444 MeV (−2.0%), muon lifetime τ_μ = 2.190×10⁻⁶ s (−0.3%). See Part 3 §0.7. g₁: 2-loop RK4 integration (Machacek–Vaughn β-functions; b₁=41/6 from IDWT particle content: N_c=3, N_gen=3, hypercharges from anomaly cancellation) gives g₁(m_Z) = 0.35068 (−1.8810%), closing 0.0014 pp beyond 1-loop. The entire residual is the sin²θ_W structural gap (+0.37% from mode indices 76,81) propagated via Δg₁/g₁ = Δ(sin²θ_W)/[2sin²θ_W(1−sin²θ_W)]. The 2-loop item is complete; the residual is the sin²θ_W open item.

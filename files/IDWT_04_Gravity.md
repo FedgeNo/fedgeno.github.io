@@ -1,8 +1,8 @@
-# IDWT — Part 4: Gravity
+# Infinite Dimensional Wave Theory — Part 4: Gravity
 
 ---
 
-## 1. Gravity is Emergent — and Purely Geometric ✅
+## 1. Gravity is Emergent — and Purely Geometric
 
 Gravity is not fundamental in IDWT. It is the large-scale consequence of Ψ∞ structure projecting into our 3D slice. When Ψ∞ has a stable concentrated feature (a massive particle), the surrounding manifold geometry is distorted. That distortion, projected to 3D, is gravitational attraction.
 
@@ -12,7 +12,7 @@ This is not a minor technical point. It is why IDWT's macroscopic hidden dimensi
 
 ---
 
-## 1b. Why Macroscopic Hidden Dimensions Are Consistent with All Experiment ✅
+## 1b. Why Macroscopic Hidden Dimensions Are Consistent with All Experiment
 
 Every experimental constraint on extra dimensions assumes a KK tower. IDWT has no KK tower. The constraint category does not exist in IDWT.
 
@@ -30,11 +30,10 @@ IDWT has none of this structure:
 
 **Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 projection and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
-**What remains open** is the derivation of the measured value of G_N from the sector localization geometry — specifically computing G_N from {m_scale_d, L_d} (§3.12.3). All aspects of the gravitational equations themselves are complete.
 
 ---
 
-## 2. Newtonian Limit ✅
+## 2. Newtonian Limit
 
 In the weak-field, static, non-relativistic limit:
 ```
@@ -156,13 +155,12 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The projection
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
 | G_N sector-independent, loop-exact | ✅ | §3.11–3.12.2 |
-| G_N from sector localization geometry | 🔶 open | §3.12.3 |
 
 In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the hidden coordinates. Information is preserved globally.
 
 ---
 
-## 3.9 The Sector Localization Length — No Compactification Needed ✅
+## 3.9 The Sector Localization Length — No Compactification Needed
 
 **L_d is the Agmon localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the e-folding length of the sector ground-state wavefunction in the hidden direction, derived from the Agmon decay theorem (§3.8).
 
@@ -223,11 +221,10 @@ For modes well below the continuum (E_0 << λ_d): λ̂_d → 1. Numerically:
 
 The hydrogen spectroscopy bound of 6 mm was computed assuming KK modes modify the hydrogen energy levels. With no KK modes, no such bound exists. The bound evaporates entirely.
 
-**What remains open.** The localization lengths L_d are fully determined from λ_d (§3.10). What has not been computed is the formula connecting G_N in physical units to {m_scale_d, L_d}. This is the remaining open item (§3.12.3).
 
 ---
 
-## 3.10 Derivation of λ_d from the Kernel Self-Consistency Equation ✅
+## 3.10 Derivation of λ_d from the Kernel Self-Consistency Equation
 
 ### 3.10.1 Structure of the Inter-Sector Kernel
 
@@ -306,7 +303,7 @@ This is the self-consistency condition: the sector potential depth is determined
 
 ---
 
-## 3.11 Newton's Constant from Sector Geometry ✅
+## 3.11 Newton's Constant: Sector-Independence
 
 ### 3.11.1 G_eff from Hidden Mode Normalisation
 
@@ -346,11 +343,11 @@ G_μν(x) = 8π G_N × T_μν^{4D}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source 4D curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**What determines G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is a geometric coupling constant that in principle emerges from the sector localization structure: the sector scales m_scale_d and localization lengths L_d carry the information needed to determine how concentrated hidden-sector energy couples to 4D curvature. The explicit computation connecting G_N to these sector quantities is the remaining open item in the gravity programme (§3.12).
+**Status of G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is the coupling constant of 3+1D general relativity, entered into the action by hand as 1/(16πG_N). It is a measured constant of spacetime, not a quantity derived from the matter sector. IDWT describes matter; GR with its measured G_N describes how that matter curves 3+1D spacetime.
 
 ---
 
-## 3.12 Newton's Constant — Derivability from Sector Geometry ✅
+## 3.12 Newton's Constant — Loop-Exactness
 
 ### 3.12.1 G_eff is Sector-Independent
 
@@ -422,16 +419,6 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 **Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 
-### 3.12.3 The Remaining Open Item: G_N from Sector Geometry
-
-The gravity programme is complete except for one computation: deriving the measured value of G_N from the sector localization structure.
-
-The sector localization lengths L_d and scales m_scale_d are fully determined (§3.9, §3.10). In physical units the localization length of sector d is L_d/m_scale_d. These quantities characterise how tightly each sector's bound-state modes are concentrated in the hidden space, and therefore how strongly they couple to 4D curvature. The functional form connecting {m_scale_d, L_d} to G_N has not been computed.
-
-This is not the hierarchy problem of quantum field theory. In QFT, the hierarchy M_Pl >> m_H is a fine-tuning problem because quantum corrections to the Higgs mass are quadratically sensitive to the UV cutoff. IDWT has no such corrections: particle masses arise from sector geometry S(n,d) × m_scale_d, not from Yukawa couplings. There is no mechanism that makes any IDWT mass sensitive to G_N. The smallness of G_N relative to other couplings is simply a property of the geometry of M_∞ — specifically, of how the sector modes couple to 4D curvature — and is not a tuning problem.
-
-**What the computation requires.** A formula expressing G_N in terms of the sector scales m_scale_d and localization lengths L_d^{phys} = L_d/m_scale_d. The sector data from §3.10.4 provides all input. The output should reproduce G_N = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻² (or equivalently G_N = 6.709 × 10⁻³⁹ GeV⁻² in natural units).
-
 **Summary of the gravity programme status:**
 
 | Result | Status |
@@ -446,11 +433,10 @@ This is not the hierarchy problem of quantum field theory. In QFT, the hierarchy
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_N sector-independent, loop-exact | ✅ §3.11–3.12.2 |
-| G_N from sector localization geometry | 🔶 open |
 
 ---
 
-## 3.13 Covariant Conservation of T_μν^{eff} ✅
+## 3.13 Covariant Conservation of T_μν^{eff}
 
 **Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 projection — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
 
@@ -462,7 +448,7 @@ The proof proceeds in two parts: first establishing that all physical modes are 
 
 ---
 
-### Part I — L²(Ξ) Normalisability of Physical Modes ✅
+### Part I — L²(Ξ) Normalisability of Physical Modes
 
 **Lemma (Weyl essential spectrum).** For the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with sector potential V_d(r) = λ_d r²/(1+r²):
 
@@ -501,7 +487,7 @@ for sufficiently large r.
 
 for all d ≥ 1, all κ > 0, and all macroscopic localization lengths L_d. Compactness of Ξ_d is not required. □
 
-Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)³ = √2/2 = 0.7071 ✓
+Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)³ = √2/2 = 0.7071
 
 **Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 projection (Ω_log < ln 2) if and only if χ ∈ L²(Ξ_d).
 
@@ -513,7 +499,7 @@ Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)�
 
 ---
 
-### Part II — The Bianchi Identity ✅
+### Part II — The Bianchi Identity
 
 With L² normalisability established, the Bianchi proof in §3.8 Part II holds unconditionally.
 
@@ -547,13 +533,13 @@ T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{4D}[ψ](x)
 
 ---
 
-## 4. Cosmological Constant ✅
+## 4. Cosmological Constant
 
 Λ_eff is naturally small because unoccupied modes — the main source of vacuum energy — have high projection mismatch Ω_log = ln(S(n,d)/S(n,2)), suppressing their contribution exponentially. The scale is tied to the same hidden radii and coupling strengths that fix particle masses. No fine-tuning is required.
 
 ---
 
-## 5. Two-Stage Observability ✅
+## 5. Two-Stage Observability
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞. Observable particles are those passing two filters:
 

@@ -1,10 +1,10 @@
-# IDWT — Part 3: Forces, Gauge Structure & Colour
+# Infinite Dimensional Wave Theory — Part 3: Forces, Gauge Structure & Colour
 
 All fundamental forces emerge from the geometry of Ψ∞ and the sector structure of M_∞.
 
 ---
 
-## 0. The Complete IDWT Action ✅
+## 0. The Complete IDWT Action
 
 Everything in IDWT — gravity, the mass spectrum, gauge fields, coupling constants, mixing angles — follows from a single action functional on M_∞ = ℝ^{3,1} × Ξ, varied with respect to two dynamical objects: the 4D metric g_μν(x) and the master spinor field Ψ∞(x,ξ).
 
@@ -173,7 +173,7 @@ The Cabibbo angle is the d=3 intra-sector mixing (down ↔ strange):
 ```
 sin²θ_C = S(n_d, 3) / S(n_s, 3) = 1/20    → sin θ_C = 1/√20 = 0.22361  [bare]
 ```
-Corrected by CP¹ curvature (Lichnerowicz, §12): sin θ_C = (1+1/240)/√20 = 0.22454 ✅
+Corrected by CP¹ curvature (Lichnerowicz, §12): sin θ_C = (1+1/240)/√20 = 0.22454
 
 The |V_cb| element is the d=4 intra-sector mixing (up ↔ charm):
 ```
@@ -194,7 +194,7 @@ PDG A = 0.8230 ± 0.0046. Tension: +0.03σ.
 
 **|V_ts| from unitarity:** The third row of the CKM matrix has |V_tb| ≈ 1, so |V_ts|² ≈ |V_cb|². IDWT predicts |V_ts| ≈ |V_cb| = 0.04116. PDG: 0.04183 ± 0.0007. Tension: −0.96σ.
 
-**|V_ub| lower bound:** Without the CP-violating phase (ρ, η — open in IDWT): |V_ub|_min = Aλ³ = 0.00920. PDG |V_ub| = 0.00382, which requires √(ρ²+η²) ≈ 0.41. The CP phase is not yet derived.
+**|V_ub| lower bound:** Without the CP-violating phase (ρ, η — open in IDWT): |V_ub|_min = A s_C³ = 0.00920. PDG |V_ub| = 0.00382, which requires √(ρ²+η²) ≈ 0.41. The CP phase is not yet derived.
 
 ### 0.9 Pure Sector Identities from the Lagrangian
 
@@ -202,7 +202,7 @@ PDG A = 0.8230 ± 0.0046. Tension: +0.03σ.
 
 ```
 sin²θ_W = 1 − (S(n_W,2)/S(n_Z,2))²  →  S(n_W,2)/S(n_Z,2) = cos θ_W
-= 2926/3321 = 0.88106    (PDG cos θ_W = 0.88108) ✓
+= 2926/3321 = 0.88106    (PDG cos θ_W = 0.88108)
 ```
 
 **Sector mass ratios:**
@@ -225,13 +225,13 @@ The correct order of magnitude emerges from pure sector masses with no parameter
 
 ---
 
-## 1. Electromagnetism ✅
+## 1. Electromagnetism
 
 Electromagnetism emerges from the U(1) Hopf fiber connecting the d=2 and d=3 sectors. Writing Ψ∞ = A·e^{iθ}, the phase gradient A_μ = ∂_μθ is the photon field; its curvature F_μν = ∂_μA_ν − ∂_νA_μ gives Maxwell's equations. The photon is massless because its mode index is n=0: S(0,2) = 0. Full derivation in §14.
 
 ---
 
-## 2. Colour Charge from CP² ✅
+## 2. Colour Charge from CP²
 
 The d=4 sector geometry is CP² = SU(3)/U(2). The full isometry group of CP² is SU(3). Therefore quarks in the d=4 sector naturally carry SU(3) quantum numbers — from the manifold's own geometry.
 
@@ -246,7 +246,7 @@ The three net left-chiral zero modes live in the fibre of O(1) over CP². This b
 
 ---
 
-## 3. Gauge Symmetry from Consistency ✅
+## 3. Gauge Symmetry from Consistency
 
 The gauge symmetry emerges from a well-defined principal bundle. The d=4 sector contributes a principal SU(3) bundle P_{SU(3)} → M₄ with connection 1-form A constructed from the Hopf fibration data of CP²: the gluon fields are the 8 independent components of A in the adjoint of SU(3). Similarly, the d=2 sector and d=6 lepton sector contribute the U(2) bundle P_{U(2)} → M₄ with connection B. The total gauge bundle is:
 
@@ -265,9 +265,54 @@ Given the colour space H_colour identified from the CP² Dirac zero modes:
 
 SU(3) gauge theory is not postulated. It follows from the CP² geometry combined with the consistency requirement that physics not depend on the local orientation of the colour frame. The gauge transformation A → gAg⁻¹ − (dg)g⁻¹ arises from local fibre rotations in P_{SU(3)}.
 
+### 3a. Explicit Berry Connection Construction 🔶
+
+The argument above establishes that a connection must exist. This subsection constructs it explicitly from the IDWT sector field.
+
+**The colour triplet state.** The Atiyah-Singer index on CP² (Part 8 §2) gives three left-chiral zero modes φ_a ∈ L²(CP²), a = 1, 2, 3. At spacetime point x, the d=4 sector component of Ψ_∞ decomposes as:
+
+```
+ψ_color(x) = (ψ¹(x), ψ²(x), ψ³(x)) ∈ ℂ³
+```
+
+where
+
+```
+ψ^a(x) = ∫_{CP²} φ_a*(ξ) Ψ_∞^{(d=4)}(x, ξ) dμ_{CP²}
+```
+
+This integral extracts the three colour amplitudes from the full hidden-space field at each 4D point x. It is the IDWT definition of the colour state at x.
+
+**Berry connection formula.** The colour frame can be chosen independently at each spacetime point. The unique torsion-free SU(3) connection preserving the L²(CP²) inner product on H_colour is:
+
+```
+A_μ(x) = i ψ_color†(x) ∂_μ ψ_color(x)   ∈ su(3)
+```
+
+This is the Berry connection on P_{SU(3)} → M₄.
+
+**Gauge transformation check.** Under U(x) ∈ SU(3): ψ_color(x) → U(x)ψ_color(x). Direct computation:
+
+```
+A_μ → i(Uψ)† ∂_μ(Uψ)
+     = iψ† U†[(∂_μU)ψ + U∂_μψ]
+     = U† (iψ†∂_μψ) U + U†(∂_μU)
+     = U† A_μ U + U† ∂_μU
+```
+
+This is the correct SU(3) gauge transformation law. The field strength
+
+```
+F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]   ∈ su(3)
+```
+
+is the gluon field strength. Combined with g²_YM = 2g₄₄/π² (§4), this gives the full SU(3) gauge theory from the sector geometry.
+
+**Status.** The Berry connection is defined and transforms correctly for the zero-mode sector. What remains is constructing ψ_color(x) explicitly for propagating quark modes — that is, extending the colour projection P_color: Ψ_∞^{(d=4)} → ψ_color beyond the three CP² zero modes to the full occupied spectrum (n=3 up, n=20 charm, n=72 top). The zero-mode construction is complete (Part 8 §2); the propagating-mode projection operator is the remaining step.
+
 ---
 
-## 4. Yang-Mills Action from the Kernel ✅
+## 4. Yang-Mills Action from the Kernel
 
 ### Dimensional Reduction of S_YM over CP²
 
@@ -304,14 +349,13 @@ g²_YM = 2g₄₄/π²
 
 ```
 g²_YM = 2 × (12/√7) / π² = 0.919
-α_s(fiber) = g²_YM/(4π) = 0.073 ≈ 1/(4π)
 ```
 
 The Yang-Mills coupling is derived from the kernel coupling g₄₄ and the volume of CP², neither of which is a free parameter. The formula 1/g²_YM = Vol(CP²)/g₆² arises from integrating the sector kinetic term over CP²; the IDWT contribution is identifying g₆² = g₄₄/m_scale₄² from the kernel structure. (This is not a Kaluza-Klein result: CP² is the configuration space of d=4 internal degrees of freedom, not a geometrically compact extra dimension.)
 
 ---
 
-## 5. Colour Confinement ✅
+## 5. Colour Confinement
 
 Assign each quark a colour expectation vector n⃗ ∈ ℝ⁸ (the 8 Gell-Mann matrix expectation values). For any single quark, |n⃗|² = 4/3. Antiquarks have n⃗(q̄) = −n⃗(q).
 
@@ -331,7 +375,7 @@ This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
 ---
 
-## 6. SU(3)_colour × U(2)_EW from One Manifold ✅
+## 6. SU(3)_colour × U(2)_EW from One Manifold
 
 CP² carries two independent gauge-algebraic structures:
 
@@ -358,10 +402,10 @@ The electric charges follow immediately from Q = T₃ + Y:
 
 | Field | T₃ | Y | Q |
 |---|---|---|---|
-| u_L | +1/2 | +1/6 | +2/3 ✓ |
-| d_L | −1/2 | +1/6 | −1/3 ✓ |
-| e_L | −1/2 | −1/2 | −1 ✓ |
-| ν_L | +1/2 | −1/2 | 0 ✓ |
+| u_L | +1/2 | +1/6 | +2/3 |
+| d_L | −1/2 | +1/6 | −1/3 |
+| e_L | −1/2 | −1/2 | −1 |
+| ν_L | +1/2 | −1/2 | 0 |
 
 The hypercharges are not assigned — they are eigenvalues of T₈ on the SU(3) representations, which are determined by the root lattice of SU(3) = Isom(CP²).
 
@@ -376,7 +420,7 @@ The weak isospin structure is entirely determined by the SU(2) factor of the U(2
 su(3) = u(2) ⊕ m
 ```
 
-where m ≅ T_{[e]}(CP²) is the 4-dimensional (real) tangent space at the base point. **Dimension check:** dim su(3) = 8, dim u(2) = 4, dim m = dim CP² = 4, and 4+4 = 8. ✓ This is an orthogonal decomposition under the Killing form of su(3): the u(2) generators are orthogonal to the m generators. Therefore:
+where m ≅ T_{[e]}(CP²) is the 4-dimensional (real) tangent space at the base point. **Dimension check:** dim su(3) = 8, dim u(2) = 4, dim m = dim CP² = 4, and 4+4 = 8. This is an orthogonal decomposition under the Killing form of su(3): the u(2) generators are orthogonal to the m generators. Therefore:
 
 - The **8 gluons** are the 8 generators of su(3). Of these, 4 live in u(2) (the holonomy generators) and 4 live in m (the tangent space generators). Only the 8 su(3) generators source colour — there are no extra massless vectors.
 - The **4 EW bosons** are the 4 generators of u(2) ⊂ su(3). They act on the tangent space of CP², not on the colour fibre. Since u(2) and m are orthogonal in su(3), the EW generators do not mix with the gluon generators that source the colour field.
@@ -385,7 +429,7 @@ The SM gauge algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry group
 
 ---
 
-## 7. Chirality from Kähler γ₅ ✅
+## 7. Chirality from Kähler γ₅
 
 The chiral weak force — the W boson couples to left-handed particles only — follows from the spinor structure of Ψ∞ on the sector manifolds. Three sectors are **Kähler manifolds**: d=2 (CP¹), d=4 (CP²), d=6 (CP³). Each carries a canonical Kähler form ω, which defines a chirality operator on the sector spinor:
 
@@ -431,11 +475,11 @@ For d=6 (CP³, m=3): S₊ = Λ^{0,0} ⊕ Λ^{0,2} (dim 1+3=4) and S₋ = Λ^{0,1
 
 ---
 
-## 8. Hypercharges from Anomaly Cancellation and SO(10) ✅
+## 8. Hypercharges from Anomaly Cancellation and SO(10)
 
-With N_c = 3 from the CP² Dirac index, all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours.
+With N_c = 3 from the CP² Dirac index, and g₆₆ = 1/4 established from CP³ quaternionic geometry (Part 2 §9c), all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
 
-**This is the primary derivation.** The anomaly cancellation route works from d=4 geometry upward: CP² gives N_c = 3, and N_c = 3 forces the hypercharge assignments via SU(2)²U(1) gauge anomaly cancellation.
+**Note on derivation order.** The anomaly cancellation route works from d=4 geometry upward: CP² gives N_c = 3, then CP³ quaternionic geometry gives g₆₆ = 1/4, and N_c = 3 together with Y_L = −√g₆₆ = −1/2 force the remaining hypercharge assignments via SU(2)²U(1) anomaly cancellation. Anomaly cancellation is the mechanism that propagates the geometric inputs into a complete hypercharge table — it is not the source of g₆₆.
 
 **Independent cross-check — SO(10) algebra:** Because Ψ∞ is a spinor and d=10 has d mod 8 = 2, the d=10 sector carries a Majorana-Weyl spinor whose 16-component Weyl part is the **16** of Spin(10) ≅ SO(10). The six distinct hypercharge values in that multiplet — Y = {+1/6, −2/3, +1, +1/3, −1/2, 0} — are determined entirely by the SO(10) weight lattice. For the tau generation specifically: Y(τ) = −1, Y(ν_τ) = 0, Y(t) = +2/3, Y(b) = −1/3 follow from the SO(10) root system without any SM hypercharge assignment.
 
@@ -443,7 +487,7 @@ Both routes agree. The SO(10) route provides a cross-check on the anomaly cancel
 
 ---
 
-## 9. QCD β-Function Coefficient ✅
+## 9. QCD β-Function Coefficient
 
 The one-loop QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) is completely fixed by the CP² sector assignment. The formula is the standard one-loop result for an SU(N_c) gauge theory with n_f Dirac fermions; the IDWT contribution is deriving N_c = 3 from the CP² Dirac index (§2) and identifying n_f = 6 from the occupied d=4 and d=3 modes (6 quark flavours).
 
@@ -458,7 +502,7 @@ b₀ > 0 → **asymptotic freedom is a derived result.** The β-function coeffic
 
 ---
 
-## 10. Electroweak Predictions ✅
+## 10. Electroweak Predictions
 
 With the d=2 sector scale m_scale_2 = 27.47 MeV:
 
@@ -473,17 +517,17 @@ With the d=2 sector scale m_scale_2 = 27.47 MeV:
 **sin²θ_W is parameter-free:**
 ```
 n_Z − n_W = n_s + n_d = 4 + 1 = 5   (seed index + down mode index)
-           = β = S(n_u,4)−S(n_u,3) = S(2,4) = 5   [same β as in Theorem S3]
+           = q = S(n_u,4)−S(n_u,3) = S(2,4) = 5   [same q as in Theorem S3]
 sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237
 ```
 
-The Z-W mode gap equals β — the same Dirac eigenstate increment that enters g₂₂ (Theorem S3, Part 8 §5). Both arise from the d=4 sector's eigenvalue count at the up-quark level. n_Z − n_W = β links the W-Z mass ratio to the EW coupling constant through a single spectral identity.
+The Z-W mode gap equals q — the same Dirac eigenstate increment that enters g₂₂ (Theorem S3, Part 8 §5). Both arise from the d=4 sector's eigenvalue count at the up-quark level. n_Z − n_W = q links the W-Z mass ratio to the EW coupling constant through a single spectral identity.
 
 **ρ = 1 is derived:** W and Z live in the same sector → custodial SU(2) is automatic.
 
 ---
 
-## 11. The Boson Eigenmode Selection and Sector Coupling Map ✅
+## 11. The Boson Eigenmode Selection and Sector Coupling Map
 
 All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + b − 1 applied to occupied mode indices and sector dimensions:
 
@@ -522,7 +566,7 @@ The coupling-conservation identity is equivalent to any of: g(d=5, n_top) = n_W;
 
 ---
 
-## 12. Cabibbo Angle ✅
+## 12. Cabibbo Angle
 
 The Cabibbo mixing angle arises from the d=3↔d=2 coupling structure. The bare IDWT prediction is 1/√20; the curvature of the mediating d=2 sector (CP¹) provides a computable correction.
 
@@ -542,7 +586,7 @@ sin²θ_C = S(2,3) / (S(2,3) + n_W) = 4/80 = 1/20
 
 This is a theorem of the seed n_s=4 and the Vandermonde structure, with no free parameters.
 
-### Curvature Correction from the Mediating Sector ✅
+### Curvature Correction from the Mediating Sector
 
 The Cabibbo mixing is mediated by the W boson, which lives in the d=2 sector (CP¹ = S²). The bare prediction uses a flat-space normalization of the mode functions on CP¹. The actual CP¹ geometry has curvature, which corrects the effective mode density through the Lichnerowicz formula.
 
@@ -611,19 +655,19 @@ sin θ_C = (1 + χ(CP¹)/(24 · S(n_s,3))) / √S(n_s,3)
 
 The correction closes the tension from −2.03σ to +0.09σ with no free parameters. The inputs are: χ(CP¹) = 2 (topology of the W boson sector), S(n_s,3) = 20 (seed structure), and the Lichnerowicz coefficient −R/12 (a theorem of spin geometry).
 
-**First-row unitarity.** IDWT's CKM matrix is unitary by construction. With sin θ_C = (1+1/240)/√20:
+**First-row unitarity.** IDWT's CKM matrix is unitary by construction. V_ud is not an independent prediction — it is the trigonometric complement of sin θ_C:
 
 ```
-|V_ud| = √(1 − sin²θ_C) = 0.97446
+|V_ud| = √(1 − sin²θ_C) = 0.97447
 ```
 
-PDG |V_ud| = 0.97370 ± 0.00014. Tension +5.5σ. This persistent tension with the nuclear beta decay measurement may involve the uncomputed QED radiative correction to |V_ud| in the IDWT framework.
+This value is not separately testable against the PDG nuclear beta-decay result of 0.97370 ± 0.00014, because the apparent 5.5σ discrepancy is not an IDWT-specific failure. It is the **Cabibbo Angle Anomaly**, a pre-existing tension within the Standard Model itself: the PDG values of |V_ud| (from nuclear beta decay) and |V_us| (from kaon decays) are independently measured, and they fail to satisfy |V_ud|² + |V_us|² + |V_ub|² = 1 by ~3σ (giving ≈0.9985 rather than 1.000). Computing √(1 − |V_us|²_PDG − |V_ub|²_PDG) = 0.97447 — precisely IDWT's value — demonstrates that this gap is entirely attributable to the known unitarity deficit in the SM measurement inputs, not to anything IDWT does differently. IDWT enforces exact CKM unitarity by construction; the tension is between the two independent PDG measurements, and IDWT agrees with |V_us| at +0.09σ. Reporting a 5.5σ V_ud discrepancy alongside the +0.09σ V_us agreement would double-count a single angular prediction.
 
 
 
 ---
 
-## 13. Spin^c Structure and Hypercharge Derivation ✅
+## 13. Spin^c Structure and Hypercharge Derivation
 
 CP² is spin^c (not spin). The spin^c structure requires an auxiliary U(1) bundle — geometrically forced, naturally identified with U(1)_Y (hypercharge).
 
@@ -632,7 +676,7 @@ CP² is spin^c (not spin). The spin^c structure requires an auxiliary U(1) bundl
 ```
 SU(2)²U(1) anomaly: N_c Y_Q + Y_L = 0  →  Y_Q = 1/(2N_c) = 1/6
 SU(3)²U(1) anomaly: 2Y_Q = Y_u + Y_d   →  Y_u + Y_d = 1/3
-Electric charge:    Q = T₃ + Y          →  Q_u = 2/3, Q_d = −1/3  ✓
+Electric charge:    Q = T₃ + Y          →  Q_u = 2/3, Q_d = −1/3
 ```
 
 All four independent anomaly conditions cancel exactly with SM values. Fractional hypercharges (1/6, 2/3, −1/3) are not inputs — they follow from N_c = 3 from CP² geometry.
@@ -649,7 +693,7 @@ IDWT d=4 sector: CP² = SU(3)/U(2)
 
 ---
 
-## 14. Electromagnetism from the Hopf Fiber ✅
+## 14. Electromagnetism from the Hopf Fiber
 
 ### Structure
 
@@ -663,7 +707,7 @@ S¹ → S³ → S² = CP¹
 - **d=3 (S³):** The total space — quarks live here and naturally carry U(1) charge from the fiber action
 - **S¹ fiber = U(1):** The electromagnetic gauge group, not postulated — it is the Hopf fiber
 
-### Photon Derivation ✅
+### Photon Derivation
 
 Write Ψ∞ = A·e^{iθ}. The phase gradient defines the gauge field:
 ```
@@ -680,7 +724,7 @@ F = q(E + v × B)
 ```
 Electromagnetism is not postulated — it emerges from the phase geometry of Ψ∞ via the Hopf fiber.
 
-### Massless Photon ✅
+### Massless Photon
 
 In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_photon = 0 exactly. The n=0 mode exists because the U(1) fiber has a trivial representation with zero occupation — no fiber excitation means massless gauge boson. The first d=2 sector excitation (n=1) has mass m_scale_2 × 1 = 27.47 MeV, safely above photon mass bounds.
 
@@ -699,7 +743,7 @@ The statement from P4 — all physics follows from the geometry of M_∞ — is 
 
 ---
 
-## 15. The Quantum Number Package ✅
+## 15. The Quantum Number Package
 
 The spinor structure of Ψ∞ means the quantum number structure of the SM emerges from geometry. The table below identifies what is derived and which route it comes from.
 
@@ -719,7 +763,7 @@ The spinor structure governs quantum numbers — what attaches to each mode. The
 
 ---
 
-## 16. Electromagnetism: Ward Identity and L-Parity Protection ✅
+## 16. Electromagnetism: Ward Identity and L-Parity Protection
 
 ### 16.1 The Ward Identity in IDWT
 
@@ -740,7 +784,7 @@ Under a local U(1) gauge transformation A_μ → A_μ + ∂_μα, Ψ∞ → e^{i
 Setting δS = 0 (invariance of the action) yields:
 
 ```
-∂^μ J_μ^{EM}(x) = 0    [Ward identity] ✅
+∂^μ J_μ^{EM}(x) = 0    [Ward identity]
 ```
 
 The Ward-Takahashi identity at all loop orders:
@@ -751,7 +795,7 @@ q_μ Γ^μ(p, p+q) = S^{-1}(p+q) − S^{-1}(p)
 
 holds automatically from gauge invariance.
 
-### 16.2 L-Parity Protection: Photon Mass = 0 to All Orders ✅
+### 16.2 L-Parity Protection: Photon Mass = 0 to All Orders
 
 **Theorem.** The IDWT kernel cannot produce a photon mass at any order in perturbation theory.
 
@@ -777,7 +821,7 @@ The photon mass m_γ² = Π_kernel(0) = 0 exactly, to all orders in the kernel. 
 
 This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT produce a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
 
-### 16.3 The Running of α ✅
+### 16.3 The Running of α
 
 The kernel does not contribute to the photon self-energy (§16.2). Therefore α runs only via standard fermion loops:
 

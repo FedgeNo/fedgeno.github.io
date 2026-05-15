@@ -1,10 +1,10 @@
-# IDWT — Part 7: Two-Stage Observability & Mode Selection
+# Infinite Dimensional Wave Theory — Part 7: Two-Stage Observability & Mode Selection
 
 *Sections 49–51: Projection Filter, Stage-1/Stage-2 Mechanism, Beat Tower, CP^d Heat Kernel*
 
 ---
 
-## 1. All Modes Exist — Two-Stage Observability ✅
+## 1. All Modes Exist — Two-Stage Observability
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
 
@@ -51,7 +51,7 @@ Stage 2 requires that the projected mode's colour vector sum satisfies the closu
 
 ---
 
-### 1.4 Quartic Bifurcation — The Bottom Quark ✅
+### 1.4 Quartic Bifurcation — The Bottom Quark
 
 The bottom quark survives as a geometric-mean beat between two virtual d=3 modes rather than as a single simplex mode. The bifurcation point:
 
@@ -87,7 +87,7 @@ The (d,d') sector pairs give additional predicted resonances:
 
 | Pair | Beat (MeV) | Identification | Error |
 |------|-----------|----------------|-------|
-| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07% consistency check) ✅ |
+| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07% consistency check) |
 | (4,6) | 1207.6 | a₁(1260) = 1230 MeV | −1.82% |
 
 The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.
@@ -100,11 +100,11 @@ The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full t
 |--------|------------|---------------|-------|
 | 4, 5 | 124.4 | (no identification — pion is a collective excitation, absent from sector spectrum; §3d Part 5) | — |
 | 11, 12 | 1517.1 | f₂(1525) | −0.5% |
-| **16, 17** | **4181** | **b quark (4180)** | **+0.02% ✅** |
+| **16, 17** | **4181** | **b quark (4180)** | **+0.02%** |
 
 ---
 
-## 2. Two-Stage Filter — Summary ✅
+## 2. Two-Stage Filter — Summary
 
 The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as a resonance. Observable particles satisfy both filters. The co-fixed-point uniqueness (Part 1 §5), spectral independence, and sideband mechanism (§1.4 above) are all consequences.
 
@@ -113,7 +113,7 @@ The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as
 | Laser | IDWT |
 |-------|------|
 | Cavity modes (all n) | Resonances of M_∞ at all (n,d) |
-| Gain medium bandwidth | Acceptance window: Ω_log < ~1.5 (Stage 1) |
+| Gain medium bandwidth | Acceptance window: Ω_log ≲ ln 2 ≈ 0.693 (Stage 1); quarks exempt by colour protection (λ_d = 0, A_rel = 1 regardless of Ω_log) |
 | Cavity loss | Colour non-closure instability (Stage 2) |
 | Lasing modes | Occupied spectrum {1,4,...} |
 | Gain saturation | Co-fixed-point self-consistency |
@@ -122,7 +122,7 @@ The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass
 
 ---
 
-## 2.5 Complete Low-n Observability Atlas ✅
+## 2.5 Complete Low-n Observability Atlas
 
 Full enumeration of all low-n modes, with Ω_log = ln(S(n,d)/S(n,2)) quantifying the Stage-1 projection suppression. Modes with Ω_log ≲ ln 2 ≈ 0.693 pass Stage 1; co-fixed-point membership (Stage 2) determines final occupancy.
 
@@ -183,7 +183,7 @@ The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable had
 2. The next d=3 mode above strange (n=5, 164.565 MeV) is suppressed at Stage 1 (Ω_log = 0.847 > ln 2 = 0.693) and absent entirely.
 3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §2.9).
 
-**Three Ω_log values verified:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693, placing them firmly above the Stage-1 threshold. All computed as ln(S(n,d)/S(n,2)) at the correct mode indices.
+**Ω_log values for heavy particles:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693. For the top (d=4 quark), this is irrelevant: colour protection sets λ_d = 0, so A_rel = 1 and Stage-1 passes unconditionally regardless of Ω_log. For the muon (d=6) and tau (d=10), these large Ω_log values confirm they are strongly Stage-1 suppressed — they survive as observable particles because they satisfy Stage-2 co-fixed-point selection, which operates independently of Stage-1. The ln 2 threshold governs which modes are geometrically accessible to the 4D slice; it does not override the co-fixed-point occupancy condition.
 
 ---
 

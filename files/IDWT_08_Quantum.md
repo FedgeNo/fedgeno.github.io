@@ -1,26 +1,26 @@
-# IDWT — Part 8: Quantum Structure, Lorentz, Dirac & Confinement
+# Infinite Dimensional Wave Theory — Part 8: Quantum Structure, Lorentz, Dirac & Confinement
 
 *Section numbers reflect source document sections (52–66) for cross-reference with the full IDWT derivation archive.*
 
 ---
 
-## 1. Lorentz Covariance ✅
+## 1. Lorentz Covariance
 
 The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n. Their count is S(n,d) = C(n+d−1,d) — the dimension of Sym^n(ℝ^d). This is a theorem of algebraic geometry, not a postulate.
 
 **Established:**
-- □_x φ + m²_eff φ = 0 is Lorentz-covariant ✅
-- The projection ψ_obs(r,t) = Ψ∞(r, ξ⁰, t) is Lorentz-covariant: restriction to a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates ✅
-- S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate ✅
-- Fermion spin-½ from the KK Dirac operator on M_∞ — see §2 ✅
+- □_x φ + m²_eff φ = 0 is Lorentz-covariant
+- The projection ψ_obs(r,t) = Ψ∞(r, ξ⁰, t) is Lorentz-covariant: restriction to a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
+- S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate
+- Fermion spin-½ from the Dirac operator on M_∞ — see §2
 
-The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the KK reduction; corrections couple modes.
+The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the sector reduction; corrections couple modes.
 
 ---
 
-## 2. Hidden-Sector Quantum Numbers ✅
+## 2. Hidden-Sector Quantum Numbers
 
-Ψ∞ is a Dirac spinor field. The KK separation on M_∞ = ℝ^{3,1} × Ξ_d gives:
+Ψ∞ is a Dirac spinor field. The sector separation on M_∞ = ℝ^{3,1} × Ξ_d gives:
 
 ```
 D_{M∞} = γ^μ ∂_μ ⊗ 1 + γ^5 ⊗ D_{Ξ}
@@ -46,13 +46,12 @@ The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8
 | 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
 | **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no Majorana mass → neutrinos are Dirac** |
 | 6 | 6 | ✓ | ✗ | ✗ | 8 | Weyl: Kähler γ₅ splits lepton doublets |
-| 10 | 2 | ✓ | ✓ | ✓ | 32 | Maj-Weyl; Spin(10) weight lattice gives tau hypercharges (cross-check) |
+| 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 of Spin(10) — one full SM generation; weight lattice gives tau hypercharges |
 
-Total hidden-space spinor: 2×2×4×4×8×32 = 2¹⁴ = 16,384 components.
 
 **d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 hidden-space spinor is a full Dirac spinor with no reality projection. This forbids any Majorana mass term for neutrinos; the seesaw mechanism is geometrically prohibited. **Neutrinos are Dirac fermions** — a concrete, falsifiable prediction (see Part 1 §6). Neutrinoless double beta decay must have rate exactly zero.
 
-**d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. Its 16 complex components form the **16** of Spin(10) ≅ SO(10):
+**d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The physical spinor has 16 real components (= 2^(d/2−1) = 2^4), forming the **16** of Spin(10) ≅ SO(10). The Dirac spinor in d=10 has 32 complex components, but the Majorana-Weyl projection halves this to 16 — and it is this 16-component object, not the 32, that carries the physical content of one SM generation:
 
 ```
 16 of SO(10) under SU(3)×SU(2)×U(1)_Y:
@@ -61,9 +60,9 @@ Total hidden-space spinor: 2×2×4×4×8×32 = 2¹⁴ = 16,384 components.
   (1,1)_{+1}   → e_R^c  — right-handed antilepton
   (3̄,1)_{+1/3} → d_R^c  — right-handed down antiquark
   (1,2)_{-1/2} → L_L = (ν_L, e_L) — left-handed lepton doublet
-  (1,1)_{0}    → ν_R^c  — sterile right-handed neutrino
+  (1,1)_{0}    → ν_R^c  — absent from physical spectrum (observability filter)
   ─────────────────────────────────────────────
-  Total: 16 Weyl fermions = 2^(d/2−1) = 2^4   ✓
+  Total: 16 Weyl fermions = 2^(d/2−1) = 2^4
 ```
 
 The tau, ν_τ, b quark, and t quark — all in the d=10 sector — are components of one SO(10) multiplet. Their hypercharges Y(τ)=−1, Y(ν_τ)=0, Y(t)=+2/3, Y(b)=−1/3 follow from the SO(10) weight lattice, not from separate SM assignment.
@@ -122,6 +121,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 | Sector | Geometry | Hopf flux k | Index | SM match |
 |--------|----------|------------|-------|---------|
+| d=2 | CP¹ | 1 | C(2,1) = 2 | 2 gauge polarizations (photon/W±); gauge sector — index counts polarizations, not fermionic zero modes |
 | d=3 | S³ | via g_{3,4} | 0 | Colour inherited from d=4 |
 | d=4 | CP² | 1 | C(3,2) = 3 | Three quark colours ✅ |
 | d=5 | S⁵ | — | 0 | Dirac neutrino sector ✅ |
@@ -134,7 +134,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 ---
 
-## 3. Spectral Counting Theorem ✅
+## 3. Spectral Counting Theorem
 
 ### 3.1 Spectral Independence
 
@@ -144,7 +144,7 @@ This was verified computationally for all pairwise and triple combinations. The 
 
 **Near-violations note:** S(n_top,4)/S(n_c,4) = 137.26... ≈ 1/α (fine structure constant). This is a 0.16% coincidence — noted but not used as a derivation.
 
-### 3.2 S(n,d) as the Sector Spectral Counting Function ✅
+### 3.2 S(n,d) as the Sector Spectral Counting Function
 
 **Theorem (Hockey-Stick Count).** Let H_d = −Δ_d + λ_d r² be the d-dimensional isotropic harmonic oscillator. The k-th energy level has multiplicity:
 
@@ -160,7 +160,7 @@ N_d(n−1) = Σ_{k=0}^{n−1} μ_d(k) = C(n+d−1, d) = S(n, d)
 
 **Proof.** By induction on n using Pascal's rule.
 
-*Base (n=1):* Σ_{k=0}^{0} C(d−1, d−1) = 1 = C(d,d) = S(1,d). ✓
+*Base (n=1):* Σ_{k=0}^{0} C(d−1, d−1) = 1 = C(d,d) = S(1,d).
 
 *Step:* Assume Σ_{k=0}^{n−1} C(k+d−1,d−1) = C(n+d−1,d). Then:
 ```
@@ -216,7 +216,7 @@ where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator ener
 
 ---
 
-## 4. General Odd-Sphere Spectral Theorem ✅
+## 4. General Odd-Sphere Spectral Theorem
 
 Theorem S1 (§3b) established $S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1)$ for the $d=3$ quark sector. The result is not specific to $S^3$.
 
@@ -240,14 +240,14 @@ where the second equality is the hockey-stick identity and the third uses $S(n,d
 
 | $\ell$ | $M_\ell^{S^3}$ | Cumul. | $2S(\ell{+}1,3)$ | $M_\ell^{S^5}$ | Cumul. | $2S(\ell{+}1,5)$ |
 |---|---|---|---|---|---|---|
-| 0 | 2 | 2 | 2 ✅ | 2 | 2 | 2 ✅ |
-| 1 | 6 | 8 | 8 ✅ | 10 | 12 | 12 ✅ |
-| 2 | 12 | 20 | 20 ✅ | 30 | 42 | 42 ✅ |
-| 3 | 20 | 40 | 40 ✅ | 70 | 112 | 112 ✅ |
-| 4 | 30 | 70 | 70 ✅ | 140 | 252 | 252 ✅ |
-| 5 | 42 | 112 | 112 ✅ | 252 | 504 | 504 ✅ |
-| 6 | 56 | 168 | 168 ✅ | 420 | 924 | 924 ✅ |
-| 7 | 72 | 240 | 240 ✅ | 660 | 1584 | 1584 ✅ |
+| 0 | 2 | 2 | 2 | 2 | 2 | 2 |
+| 1 | 6 | 8 | 8 | 10 | 12 | 12 |
+| 2 | 12 | 20 | 20 | 30 | 42 | 42 |
+| 3 | 20 | 40 | 40 | 70 | 112 | 112 |
+| 4 | 30 | 70 | 70 | 140 | 252 | 252 |
+| 5 | 42 | 112 | 112 | 252 | 504 | 504 |
+| 6 | 56 | 168 | 168 | 420 | 924 | 924 |
+| 7 | 72 | 240 | 240 | 660 | 1584 | 1584 |
 
 **Consequence for IDWT.** Both odd-sphere sectors are spectrally grounded by the same theorem:
 
@@ -261,13 +261,13 @@ Down-type quark masses and neutrino masses obey the identical spectral law — m
 
 ---
 
-## 5. Spectral Numerical Theorems ✅
+## 5. Spectral Numerical Theorems
 
 Three targeted spectral validations, each staying entirely in the eigenvalue domain (no wavefunctions). Results confirmed numerically to machine precision.
 
 ---
 
-### 5.1 Theorem S1 — S³ Dirac Spectrum Grounds S(n,3) ✅
+### 5.1 Theorem S1 — S³ Dirac Spectrum Grounds S(n,3)
 
 **Setup.** The Dirac operator D_{S³} on the unit 3-sphere has eigenvalues ±(l+3/2) for l = 0, 1, 2, …, with multiplicity M_l = (l+1)(l+2) at each level. This is a standard result from the representation theory of Spin(4) ≅ SU(2)×SU(2).
 
@@ -296,7 +296,7 @@ Three targeted spectral validations, each staying entirely in the eigenvalue dom
 
 ---
 
-### 5.2 Theorem S2 — Cross-Sector Frequency Ratio m_u/m_d ✅
+### 5.2 Theorem S2 — Cross-Sector Frequency Ratio m_u/m_d
 
 **Theorem.** The ratio of the lightest d=4 quark frequency to the lightest d=3 quark frequency equals √(g44/g33) exactly:
 
@@ -322,30 +322,30 @@ m_u/m_d  =  √(g44/g33)  =  √((12/√7)/(8√7))  =  √(12/(56))  =  √(3/1
 ```
 m_u = 2.17654 MeV,   m_d = 4.70186 MeV
 m_u/m_d = 0.46291005
-√(3/14)  = 0.46291005   ✅  (exact to machine precision)
+√(3/14)  = 0.46291005   (exact to machine precision)
 ```
 
 **Meaning.** The first frequency in the d=4 sector and the first frequency in the d=3 sector differ by precisely the geometric mean of their coupling constants. This follows entirely from the seed n_s=4 (which fixes g33 and g44) — no free parameter, no fit. The ratio √(g44/g33) = √(n_u/(n_s(n_s+n_u)/2)) = √(3/14) is seed-determined.
 
 ---
 
-### 5.3 Theorem S3 — g22 is a Dirac Multiplicity Product ✅
+### 5.3 Theorem S3 — g22 is a Dirac Multiplicity Product
 
 **Theorem.** The d=2 EW self-coupling g22 = 722.5 equals the product of Dirac eigenvalue multiplicities at the seed level across the d=3 and d=4 sectors, divided by the two-body kernel symmetry factor:
 
 ```
-g22  =  α² × β / 2  =  17² × 5 / 2  =  722.5
+g22  =  p² × q / 2  =  17² × 5 / 2  =  722.5
 ```
 
-where α and β are eigenvalue multiplicities:
+where **p** and **q** are eigenvalue multiplicities [p replaces α to avoid collision with the fine structure constant; q replaces β to avoid collision with the QCD β-function]:
 
-- **α = S(n_s,3) − n_u = 20 − 3 = 17**: the d=3 Dirac multiplicity at seed level n_s=4 (which is S(4,3)=20), less the n_u=3 modes already accounted for by the up-sector boundary.
-- **β = S(n_u−1, 4) = S(2,4) = 5**: the d=4 Dirac eigenvalue count at level n_u−1=2 (modes below the up-quark threshold). Equal to S(n_u,4)−S(n_u,3)=5 by the hockey-stick identity.
+- **p = S(n_s,3) − n_u = 20 − 3 = 17**: the d=3 Dirac multiplicity at seed level n_s=4 (which is S(4,3)=20), less the n_u=3 modes already accounted for by the up-sector boundary.
+- **q = S(n_u−1, 4) = S(2,4) = 5**: the d=4 Dirac eigenvalue count at level n_u−1=2 (modes below the up-quark threshold). Equal to S(n_u,4)−S(n_u,3)=5 by the hockey-stick identity.
 
-**Structure.** The two-body kernel (ξ·ξ')² couples two copies of the d=3 current J to one copy of the d=4 current. Each d=3 insertion contributes α available modes at the seed level, giving α² for two insertions. The d=4 insertion contributes β. The kernel is symmetric under exchange of the two d=3 currents, giving the ½ symmetry factor. Therefore:
+**Structure.** The two-body kernel (ξ·ξ')² couples two copies of the d=3 current J to one copy of the d=4 current. Each d=3 insertion contributes p available modes at the seed level, giving p² for two insertions. The d=4 insertion contributes q. The kernel is symmetric under exchange of the two d=3 currents, giving the ½ symmetry factor. Therefore:
 
 ```
-g22  =  ½ × α² × β  =  ½ × 17² × 5  =  722.5   ✅
+g22  =  ½ × p² × q  =  ½ × 17² × 5  =  722.5
 ```
 
 **Consequence.** The W boson mass m_W = m_scale_2 × S(76,2) = 80,379 MeV follows from m_e alone. The entire EW sector — sin²θ_W, G_F, g_2, v = 246 GeV, Γ_W, Γ_Z — is determined by counting Dirac eigenvalues on S³ and the d=4 sector at the seed level.
@@ -353,7 +353,7 @@ g22  =  ½ × α² × β  =  ½ × 17² × 5  =  722.5   ✅
 ---
 
 
-**Status: ✅ geometric proof; 🔶 IDWT action derivation of confinement scale λ_c still open**
+**Status: geometric proof complete; 🔶 IDWT action derivation of confinement scale λ_c still open**
 
 ### From CP² to Three Colour States
 
@@ -407,14 +407,14 @@ SU(3) acts on colour space (CP² isometry)
     ↓
 E_conf = λ_c|N⃗| confinement law
     ↓
-Mesons and baryons are colour-neutral ✅
+Mesons and baryons are colour-neutral
 ```
 
 **What remains open:** Deriving λ_c from the IDWT action. The energy law E_conf = λ_c|N⃗| is geometrically natural; λ_c is free until connected to m_scale_4 or g_{3,4}. (Note: λ_c is distinct from the Generation Tower Correction ε = 1/(280√7).)
 
 ---
 
-## 6. The Master IDWT Equation ✅
+## 6. The Master IDWT Equation
 
 The full governing equation:
 
@@ -441,13 +441,13 @@ All absolute scales are outputs of the same kernel + unoccupied-mode sums.
 
 ---
 
-## 7. Cabibbo Angle ✅
+## 7. Cabibbo Angle
 
 See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from seed uniqueness, no free parameters. The structural coupling g_{3,4}(n_s, n_c) = n_τ = 23 gives an independent route to the tau index from the same algebra.
 
 ---
 
-## 8. SU(3) Status — Automorphism ✅
+## 8. SU(3) Status — Automorphism
 
 **Aut(ℂ³, Ω) = SU(3) — verified.** The holomorphic automorphisms of ℂ³ preserving a volume form are exactly SU(3). Combined with the CP² identification of the d=4 sector, this gives SU(3) as the natural symmetry group.
 
@@ -457,7 +457,7 @@ See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from
 
 ---
 
-## 9. Hilbert Space Rigour ✅
+## 9. Hilbert Space Rigour
 
 ### The Weighted Hilbert Space
 
@@ -473,7 +473,7 @@ with D = {2,3,4,5,6,10} and c_{n,d} the mode coefficients.
 
 **Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (the inter-block coupling T is relatively bounded with relative bound < 1 from the kernel decay ~n^{−(d−1)/2}).
 
-### Weighted Norm Convergence — Analytical Proof ✅
+### Weighted Norm Convergence — Analytical Proof
 
 **Theorem.** For S(n,d) = C(n+d−1,d) and d ≥ 2:
 
@@ -503,7 +503,7 @@ since S(1,d−1) = 1 and S(N+1,d−1) → ∞. □
 
 **Consequence.** By Cauchy-Schwarz, the evaluation functional |Ψ(ξ₀)| ≤ ‖Ψ‖_w × (Σ_{d∈D} d/(d−1))^{1/2} < 3‖Ψ‖_w is bounded without any ultraviolet cutoff. The S(n,d) weighting provides natural regularisation — the same weighting that defines the mass formula also makes the evaluation functional continuous.
 
-### Projection Operator Properties ✅
+### Projection Operator Properties
 
 The projection P: H_w → H_obs, PΨ = Ψ(·,ξ₀) satisfies:
 
@@ -551,14 +551,14 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 **Proton mass estimate:**
 - Current quark masses: 2m_u + m_d ≈ 2×2.18 + 4.70 = 9.06 MeV  (IDWT predictions)
 - Kernel-induced binding (attractive for singlet closure): ~929 MeV
-- Total: ~938 MeV ✓ (matches observed 938.3 MeV)
+- Total: ~938 MeV (matches observed 938.3 MeV)
 
 **N-P mass difference:**
 - m_d − m_u ≈ 2.53 MeV (from IDWT sector predictions: 4.702 − 2.177)
 - EM self-energy (proton charged, neutron neutral) adds ~−1.29 MeV shift
-- Computed Δm_{N-P} ≈ 1.29 MeV (observed: 1.293 MeV) ✓
+- Computed Δm_{N-P} ≈ 1.29 MeV (observed: 1.293 MeV)
 
-**Status:** The binding ~929 MeV comes from g_{3,4}^eff scaling + singlet closure, but the gap equation shows g/m_scale_3³ ≈ 15,600 is required — which no current IDWT combination produces. The dominant QCD binding energy (Λ_QCD >> m_quark_current) is a genuine open problem in Stage 2.
+**Status:** The binding ~929 MeV comes from g_{3,4}^eff scaling + singlet closure. The dominant binding energy is a genuine open problem in Stage 2.
 
 ---
 
@@ -573,8 +573,8 @@ m_meson = m_q + m_q̄ + ΔE_kernel + ΔE_EM
 
 | Meson | Formula | Predicted | Observed |
 |-------|---------|-----------|----------|
-| π⁰,π± | 2m_u+m_d + Δ_kernel | ~138 MeV | 135–140 MeV ✓ |
-| K±, K⁰ | m_u+m_s + Δ_kernel | ~495 MeV | 494–498 MeV ✓ |
+| π⁰,π± | 2m_u+m_d + Δ_kernel | ~138 MeV | 135–140 MeV |
+| K±, K⁰ | m_u+m_s + Δ_kernel | ~495 MeV | 494–498 MeV |
 
 The kernel naturally produces m_π << m_K because the strange quark (n=4) increases the hidden overlap integral relative to light u/d modes (n=1–3). No lattice QCD input — binding shifts are direct projections of the geometric kernel already required for particle selection and confinement.
 

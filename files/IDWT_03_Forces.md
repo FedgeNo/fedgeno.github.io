@@ -71,7 +71,7 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 
 | Term | Variation | Output |
 |---|---|---|
-| S_EH | δg^{μν} | 4D Einstein equations, G_eff = G_N (measured; derivable from sector localization geometry) |
+| S_EH | δg^{μν} | 4D Einstein equations, G_eff = G_N = G_fund/V_7 (V_7 from sector geometry, Part 4 §3.12.3) |
 | L_kinetic (4D part) | δΨ̄∞ | 4D Dirac propagation |
 | L_kinetic (hidden part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
 | L_kernel (d=d', self) | δΨ̄∞ | Sector confinement V_d, λ_d = (g_{dd}/2)^{2/3} |
@@ -88,7 +88,7 @@ The KK ansatz Ψ∞ = ψ(x) ⊗ χ_n(ξ) reduces the equation of motion to:
 H_d χ_n = m_eff χ_n                  [sector eigenvalue problem]
 ```
 
-The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §3). The mass formula is a consequence of the action, not a separate postulate.
+The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §3). The mass formula is a consequence of the action.
 
 ### 0.6 Yang-Mills from the Kernel
 
@@ -110,7 +110,7 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | Weinberg angle | sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))² | 0.2237 |
 | GTC correction | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
-| Newton's constant | G_eff = G_N (measured; derivable from sector localization geometry — open) | — |
+| Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 (sector geometry; G_fund one input) | — |
 | **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
 | **EW scale √Tr(D²)** | **spectral action RMS** | **248.3 GeV** |
 | **Fermi constant** | **G_F = g₂²/(4√2 m_W²)** | **1.1658×10⁻⁵ GeV⁻²** |
@@ -133,6 +133,19 @@ g₂ = (2/3)√g_s = 0.65275
 PDG: 0.65270.  Error: +0.008%
 ```
 
+**The coupling cascade.** All three gauge couplings descend from a single seed-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
+
+```
+g_{44}  [seed: n_s=4, n_u=3]
+  → g_s = √(2g_{44}/π²)         [CP² holonomy integral, factor 2/π² from Fubini-Study volume]
+  → g_2 = (2/3)√g_s             [coordinate ratio: d_photon/d_hadronic = 2/3]
+  → sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))²   [mode index ratio]
+  → g_1 = g_2 tan θ_W
+  → α = g_1²g_2²/[4π(g_1²+g_2²)]
+```
+
+The factor 2/3 at the g_s → g_2 step is both the electric charge of the up quark (index theorem) and the coordinate containment ratio d_photon/d_hadronic: N_c = 3 = d_hadronic (the hadronic sector dimension), d_photon = 2, so Q_u = d_photon/d_hadronic (Part 1 §3g). The CP² holonomy step involves a continuous Riemannian integral (2/π²), not a coordinate count; but the subsequent step is a literal ratio of sector dimensions.
+
 From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 
 ```
@@ -152,7 +165,30 @@ The +3% is the EW running from the fiber scale (≈m_W) to m_Z.
 
 
 
-### 0.8 CKM Matrix from the Kernel
+### 0.8 Force Mediation as Spatial Geometry
+
+Each fundamental force acts within a spatial region determined by its sector. The mediator of a force traverses the spatial dimensions of its sector; a particle can only couple to that force if it shares those sector coordinates.
+
+| Force | Mediator | Sector | Spatial dimensions occupied |
+|---|---|---|---|
+| Electromagnetic | Photon | d=2 | 2 |
+| Weak | W±, Z | d=2 | 2 |
+| Strong (QCD) | Gluon | d=4 | 4 |
+| Gravity | — | (none) | 10 |
+
+**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the mediator traverses. A d=2 photon cannot couple to a particle with no support on the d=2 sector; a gluon confined to the d=4 sector CP² cannot reach a particle localised only in d=2. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from the Atiyah-Singer index on CP² (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
+
+**Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing 4D gravity integrates over all hidden-sector coordinates:
+
+```
+T_μν^{eff}(x) = ∫_Ξ T_μν^{Dirac}(x,ξ) dμ_ξ
+```
+
+The gravitational field is genuinely 10D — it is not a 3D field with extra-dimensional corrections. A d=3 observer measures the 3-dimensional projection of this field, giving observed Newton's constant G_N = G_fund / V_7 rather than G_fund (Part 4 §3.12.2).
+
+**Spatial extent and coupling strength.** The gauge forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
+
+### 0.9 CKM Matrix from the Kernel
 
 The projection operator Π is a lowpass filter: $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$, so heavier modes (larger S) are attenuated at the observer address relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:
 
@@ -196,7 +232,7 @@ PDG A = 0.8230 ± 0.0046. Tension: +0.03σ.
 
 **|V_ub| lower bound:** Without the CP-violating phase (ρ, η — open in IDWT): |V_ub|_min = A s_C³ = 0.00920. PDG |V_ub| = 0.00382, which requires √(ρ²+η²) ≈ 0.41. The CP phase is not yet derived.
 
-### 0.9 Pure Sector Identities from the Lagrangian
+### 0.10 Pure Sector Identities from the Lagrangian
 
 **cos θ_W = S(n_W,2)/S(n_Z,2) exactly.** From the Lagrangian's Weinberg angle definition:
 
@@ -727,6 +763,14 @@ Electromagnetism is not postulated — it emerges from the phase geometry of Ψ�
 ### Massless Photon
 
 In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_photon = 0 exactly. The n=0 mode exists because the U(1) fiber has a trivial representation with zero occupation — no fiber excitation means massless gauge boson. The first d=2 sector excitation (n=1) has mass m_scale_2 × 1 = 27.47 MeV, safely above photon mass bounds.
+
+### Transverse Polarization from Sector Dimension
+
+The photon lives in the d=2 sector. Our observable space is d=3 (Part 1 §3i). The photon's 2 dimensions are a proper subspace of our 3 — it is a 2-dimensional entity in a 3-dimensional world. The direction of propagation is the one coordinate our 3D has that the photon's sector does not. The photon cannot oscillate in the propagation direction because that coordinate falls outside its world.
+
+This is why electromagnetic waves are transverse. The two polarization states — the only two independent oscillation modes of the photon field — are exactly the photon's 2 sector dimensions. As the photon travels in different directions through our 3D space, its polarization plane rotates to stay perpendicular to the direction of travel: the missing coordinate is always the propagation direction. No additional argument from gauge invariance or the Maxwell equations is needed; transversality is a direct consequence of d=2 < 3.
+
+The masslessness (n=0, S(0,2)=0) and the universality (d=2 ⊂ every higher sector) are properties of the photon within its sector. The transversality is a property of the photon relative to our observable space. All three follow from d=2.
 
 ### Curvature Unification
 

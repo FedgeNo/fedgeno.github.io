@@ -123,7 +123,7 @@ n_nu3 = n_nu1 + n_nu2 - n_up   # = 22
 # --- Lepton mode indices (via the comb filtration rule) ----------------------
 # Eigenmode selection rule: n_lepton = n_neutrino + n_quark_partner.
 # This is the hockey-stick identity S(n,d) = S(n,d-1) + S(n-1,d) applied
-# at specific combinatorial fixed points. It is a theorem, not a postulate.
+# at specific combinatorial fixed points. It is a theorem.
 # (Part 2 section 4)
 
 # n_e = n_nu1 + n_up = 10 + 3 = 13
@@ -1536,7 +1536,7 @@ for name, tbm_val, pdg_val, note in TBM:
     print(f"  {name:>18}  {tbm_val:>8.4f}  {pdg_val:>8.4f}  {dev:>+8.4f}  {note}")
 print(f"\n  TBM tree-level deviations from PDG are derived in Step 19")
 print(f"  from spectral geometry (T6) with no loop integrals.")
-print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s (not fitted).")
+print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s.")
 
 
 # =============================================================================

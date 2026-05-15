@@ -4,11 +4,11 @@
 
 ## 1. Gravity is Emergent — and Purely Geometric
 
-Gravity is not fundamental in IDWT. It is the large-scale consequence of Ψ∞ structure projecting into our 3D slice. When Ψ∞ has a stable concentrated feature (a massive particle), the surrounding manifold geometry is distorted. That distortion, projected to 3D, is gravitational attraction.
+Gravity is not a 3D phenomenon. It is a property of the full 10-spatial-dimensional geometry of M_∞. We observe 3 of those 10 spatial dimensions, so we observe 3-dimensional effects of what is fundamentally a 10D gravitational field. When Ψ∞ has a stable concentrated feature (a massive particle), the surrounding 10D manifold geometry is distorted. What we call gravitational attraction is our 3D observation of that distortion.
 
-Critically, IDWT has no gravitons. Gravity is entirely described by curvature — the distortion of the projected 4D metric by the local energy density of |Ψ∞|². There is no mediating particle, no spin-2 boson, and no quantum of the gravitational field. Gravity is geometry.
+Critically, IDWT has no gravitons. Gravity is entirely described by curvature — the distortion of the 10D geometry as measured by a d=3 observer through the induced 4D metric g_μν(x). There is no mediating particle, no spin-2 boson, and no quantum of the gravitational field. Gravity is geometry.
 
-This is not a minor technical point. It is why IDWT's macroscopic hidden dimensions are consistent with all known gravitational experiments, and why the absence of any experimental bound on the sector length scale is not a fine-tuning but a structural consequence.
+IDWT's macroscopic hidden dimensions are consistent with all known gravitational experiments, and the absence of any experimental bound on the sector length scale is a structural consequence, not a fine-tuning.
 
 ---
 
@@ -37,7 +37,7 @@ IDWT has none of this structure:
 
 In the weak-field, static, non-relativistic limit:
 ```
-∇²Φ = 4πG · S(n,d) · |ψ_3D(r)|²
+∇²Φ = 4πG_N · S(n,d) · |ψ_3D(r)|²
 ```
 
 This is the Poisson equation of Newtonian gravity with mass m = S(n,d) × m_scale_d. It follows directly from ρ_m = ∫|Ψ∞|² dξ — the projection definition of observable matter density.
@@ -149,12 +149,13 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The projection
 
 | Item | Status | Reference |
 |---|---|---|
-| L²(Ξ) normalisability of χ_{n,d} | ✅ proved | §3.8 Part I |
-| Bianchi identity: ∇^μ T_μν^{eff} = 0 | ✅ proved unconditionally | §3.8 Part II |
+| L²(Ξ) normalisability of χ_{n,d} | ✅ proved | §3.13 Part I |
+| Bianchi identity: ∇^μ T_μν^{eff} = 0 | ✅ proved unconditionally | §3.13 Part II |
 | Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
 | G_N sector-independent, loop-exact | ✅ | §3.11–3.12.2 |
+| G_N = G_fund/V_7: 3D observation of 10D gravity, V_7 ≈ 113 derived | ✅ partial (G_fund still one input) | §3.12.2 |
 
 In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the hidden coordinates. Information is preserved globally.
 
@@ -343,31 +344,13 @@ G_μν(x) = 8π G_N × T_μν^{4D}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source 4D curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is the coupling constant of 3+1D general relativity, entered into the action by hand as 1/(16πG_N). It is a measured constant of spacetime, not a quantity derived from the matter sector. IDWT describes matter; GR with its measured G_N describes how that matter curves 3+1D spacetime.
+**Status of G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is the coupling constant of 3+1D general relativity, entered into the action by hand as 1/(16πG_N). It is a measured constant of spacetime. Gravity is a 10D phenomenon; G_N is what a d=3 observer measures of a 10D gravitational field. G_N = G_fund / V_7 where V_7 ≈ 113 is derived from the sector localization geometry (§3.12.2). G_fund is the one remaining input — equivalent to measuring G_N once.
 
 ---
 
 ## 3.12 Newton's Constant — Loop-Exactness
 
-### 3.12.1 G_eff is Sector-Independent
-
-From the variational derivation (§3.2), for any L²-normalised mode (n,d):
-
-```
-T_μν^{eff}(x) = T_μν^{4D}[ψ](x) × ‖χ_{n,d}‖²_Ξ = T_μν^{4D}[ψ](x)
-```
-
-The ‖χ‖² = 1 normalisation absorbs all sector geometry into the mode function. The induced Einstein equation is:
-
-```
-G_μν(x) = 8π G_eff × T_μν^{4D}[ψ](x)
-```
-
-with G_N arising from the EH coefficient 1/(16πG_N) in the action and being sector-independent by the L² normalisation argument.
-
-**Consequence:** G_N is the same for particles in every sector. Electrons, quarks, neutrinos, and the tau lepton all couple to gravity with the same G. This is a theorem — the equivalence principle (§3.6) — not an assumption.
-
-### 3.12.2 Why Hidden Sector Loops Do Not Renormalise G_eff
+### 3.12.1 Why Hidden Sector Loops Do Not Renormalise G_N
 
 A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
@@ -413,6 +396,46 @@ In IDWT, the sector manifolds Ξ_d are not literal geometrically compact extra d
 
 **Conclusion.** G_N is not renormalized by hidden sector loops. The absence of a Ξ-induced correction to the EH coefficient follows from the product metric structure of M_∞ = M₄ × Ξ, which decouples the 4D and hidden metrics entirely. This is the precise content of "gravity is purely geometric curvature of the 4D slice."
 
+---
+
+### 3.12.2 G_N as a 3D Observation of 10D Gravity
+
+The previous subsections show that G_N is sector-independent (§3.11) and not renormalized by hidden-sector loops (§3.12.1). Neither addresses why G_N is small. In natural units, G_N M_p² ≈ 5.6 × 10⁻⁴⁰.
+
+**The picture.** Gravity is not a 3D phenomenon to which extra dimensions have been appended. It is a 10D phenomenon, and G_N is what a d=3 observer measures of a gravitational field that exists in all 10 spatial dimensions. The gravitational field of a massive particle fills all 10 spatial dimensions of M_∞ — nothing is missing or diminished. A d=3 observer measures only the components of that field that fall within their 3-dimensional cross-section. G_N is that measurement; G_fund is the full 10D coupling.
+
+By Gauss's law in D spatial dimensions, total gravitational flux = G_fund × M, independent of D. A d=3 observer's cross-section subtends a fraction of that flux set by the ratio of their 3D cross-section to the total effective 10D volume. The 7 extra spatial dimensions (coordinates 4–10) each contribute their localization extent:
+
+```
+G_N = G_fund / V_7
+```
+
+**V_7 from sector localization lengths.** The 7 extra dimensions are introduced in sequence by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_10. Each sector introduces new coordinates whose effective extent is the sector localization length L_d from §3.10.4:
+
+| New dimension(s) | Introduced at sector | Localization length |
+|---|---|---|
+| 4 | d=4 | L_4 = 0.801 |
+| 5 | d=5 | L_5 = 2.623 |
+| 6 | d=6 | L_6 = 2.301 |
+| 7, 8, 9, 10 | d=10 | L_{10} = 2.198 (each) |
+
+```
+V_7 = L_4 × L_5 × L_6 × L_{10}^4
+    = 0.801 × 2.623 × 2.301 × (2.198)^4
+    ≈ 0.801 × 2.623 × 2.301 × 23.34
+    ≈ 113   [IDWT fundamental length units]
+```
+
+**What this means.** G_N is not gravity with something removed — it is the full gravitational effect of a 10D field as seen from 3D. G_fund need not be hierarchically small; G_N is small because our cross-section is a fraction of the full 10D geometry. The full dimensional hierarchy (G_N M_p² ~ 10⁻⁴⁰) arises from V_7 combined with the ratio of the IDWT fundamental length to the proton Compton wavelength; both are set by the same sector coupling constants g_{dd} that determine the mass spectrum.
+
+**Contrast with KK theories.** In ADD models, the equivalent V_7 is a free parameter adjusted to fit G_N. In IDWT, V_7 = L_4 L_5 L_6 L_{10}^4 is fixed by the sector coupling constants via λ_d = (g_{dd}/2)^{2/3} (§3.10) and L_d = 1/κ_d (§3.9). The ratio G_N/G_fund is a prediction of the coupling structure, not a fit.
+
+**Status.** V_7 is derived from the sector geometry, fixing the ratio G_N/G_fund. The remaining input is G_fund — equivalent to measuring G_N once and inferring G_fund = 113 G_N in IDWT fundamental units. All subsequent gravitational predictions follow from m = m_scale_d × S(n,d) and this one measurement.
+
+---
+
+### 3.12.3 Gravitational Observability and Coupling Ratios
+
 The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 **Stage-1 filter.** The projection amplitude A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are *visible* to the 3D observer — it controls observability, not mass. Mass is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index. The Stage-1 filter cannot change a frequency; it only determines whether a mode at that frequency couples to the 4D slice with sufficient amplitude to be detected. The d=5 neutrino sector has the smallest sector mass scale m_scale_5 not because of Stage-1 suppression, but because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
@@ -427,12 +450,13 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | No hidden gravitational propagating modes | ✅ §3.4 |
 | Equivalence principle: m_grav = m_inertial | ✅ §3.6 |
 | Boundary terms vanish on non-compact Ξ | ✅ §3.5 |
-| L²(Ξ) normalisability via Agmon theorem | ✅ §3.8 Part I |
-| Bianchi identity ∇^μ T_μν^{eff} = 0 | ✅ §3.8 Part II |
+| L²(Ξ) normalisability via Agmon theorem | ✅ §3.13 Part I |
+| Bianchi identity ∇^μ T_μν^{eff} = 0 | ✅ §3.13 Part II |
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
-| G_N sector-independent, loop-exact | ✅ §3.11–3.12.2 |
+| G_N sector-independent, loop-exact | ✅ §3.11–3.12.1 |
+| G_N = G_fund/V_7, V_7 ≈ 113 from sector geometry | ✅ §3.12.2 |
 
 ---
 

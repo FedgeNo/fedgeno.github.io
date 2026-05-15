@@ -290,7 +290,7 @@ Three targeted spectral validations, each staying entirely in the eigenvalue dom
 | 4 | 70 | 70 | ✅ |
 | 5 | 112 | 112 | ✅ |
 
-**Consequence.** S(n,3) = ½ × {positive Dirac eigenvalues on S³ at levels 0 through n-1}. The IDWT mass formula m = m_scale_3 × S(n,3) is not a postulate: it is a Weyl spectral law — **mass is half the cumulative number of fermionic eigenstates below the mode's Dirac level**. The factor of ½ is the spin degeneracy.
+**Consequence.** S(n,3) = ½ × {positive Dirac eigenvalues on S³ at levels 0 through n-1}. The IDWT mass formula m = m_scale_3 × S(n,3) is a Weyl spectral law — **mass is half the cumulative number of fermionic eigenstates below the mode's Dirac level**. The factor of ½ is the spin degeneracy.
 
 **Note on individual radial eigenvalues.** The reduced 1D eigenvalue problem H_3 = −Δ^{radial}_{S³} + V_3 (with the Gegenbauer substitution u = sinχ·f) gives individual eigenvalues growing as ~n², while S(n,3) grows as ~n³. A bounded potential cannot change the asymptotic power law. The spectral grounding of S(n,3) is therefore through **cumulative Dirac eigenvalue counting** (this theorem), not through individual 1D radial eigenvalues.
 

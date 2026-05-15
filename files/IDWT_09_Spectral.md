@@ -131,7 +131,7 @@ $\ell$-decomposition coefficients on $S^{d-1}$ for every sector:
 **Assembly.**
 $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs }n=1,2} \;\cup\; \underbrace{\{6\}}_{\substack{\text{base of }n=3\\\text{(Rule A)}}} \;\cup\; \underbrace{\{10\}}_{\substack{\text{base of }n=5\\\text{(Rule B)}}} = \{2,3,4,5,6,10\}. \quad\square$$
 
-**Index theorem cross-check (consistency, not derivation).** Once the sector set is established, one finds $n_{\rm top}=\chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5)=3\times4\times6=72$, matching the mode index derived independently from the eigenmode selection chain. This confirms internal consistency. It is not a derivation of the sectors: using $n_{\rm top}=72$ to infer $N_f=6$ and thence $d=10$ would be circular — the eigenmode chain must produce $n_{\rm top}=72$ first.
+**Index theorem cross-check.** Once the sector set is established, one finds $n_{\rm top}=\chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5)=3\times4\times6=72$, matching the mode index derived independently from the eigenmode selection chain. This confirms internal consistency.
 
 Jacobi couplings at $k_0=16$ (all sectors in $D$ must have $b_{k_0}\geq1/2$, by T3 Rule B):
 
@@ -444,7 +444,7 @@ Two exact results follow:
 
 ## T13. Spectral Sum Rules and Exact Mass Ratios
 
-**Two combinatorial identities** hold in every IDWT sector and follow from Pascal's triangle alone. They are not additional postulates; they are exact consequences of the Hilbert-series formula $m(n,d)=m_{\rm scale}\cdot S(n,d)$.
+**Two combinatorial identities** hold in every IDWT sector and follow from Pascal's triangle alone. They are exact consequences of the Hilbert-series formula $m(n,d)=m_{\rm scale}\cdot S(n,d)$.
 
 ### T13a. Spectral Sum Rule
 

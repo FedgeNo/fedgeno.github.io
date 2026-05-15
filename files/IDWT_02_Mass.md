@@ -14,7 +14,7 @@ S(n,d) is the cumulative count of harmonic oscillator eigenstates at levels 0 th
 
 ### S(n,d) as a Universal Combinatorial Measure Field
 
-S(n,d) appears in four distinct physical roles across IDWT. These are not inconsistent uses — they are four different functionals applied to the same underlying combinatorial object. The formal declaration:
+S(n,d) appears in four distinct physical roles across IDWT. They are four different functionals applied to the same underlying combinatorial object. The formal declaration:
 
 **S(n,d) is the cumulative spectral counting function of the d-dimensional sector harmonic oscillator:**
 
@@ -34,7 +34,7 @@ Given this single definition, the four applications are different functionals on
 
 These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — projection loss is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
 
-**S(n,d) is not postulated as a state count — it is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
+**S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
 **The hockey-stick identity is a proved theorem of combinatorics:**
 
@@ -42,7 +42,7 @@ These are mutually consistent because all four reduce to operations on N_d(n−1
 S(n, d) = Σ_{k=0}^{n-1} C(k+d−1, d−1)
 ```
 
-This is not decoration. It is the engine of the entire spectrum.
+It is the engine of the entire spectrum.
 
 **Physical meaning:** The resonant frequency S(n,d) equals the cumulative count of hidden quantum microstates below level n. These are the same thing. The frequency at which mode n resonates is precisely the total number of accessible hidden states up to that level. Heavier particles — higher frequencies — occupy higher-entropy configurations of the hidden geometry. The hockey-stick identity is the bridge between the spectral and the statistical descriptions.
 
@@ -65,7 +65,7 @@ where N_d is the continuous inverse of S(n,d): N_d(S(n,d)) = n, extended via the
 dΦ_d/dω = 2π / (m_scale_d × S(n(ω), d−1))
 ```
 
-The phase of sector d accumulates at a rate inversely proportional to the mode density of sector d−1. This is a recursive inter-sector relation requiring no knowledge of S(n,d) directly. The mass formula m = S(n,d) × m_scale_d is not a postulate — it is the resonance condition Im[H_d(ω)] = 0, derivable from the inter-sector mode density chain.
+The phase of sector d accumulates at a rate inversely proportional to the mode density of sector d−1. This is a recursive inter-sector relation requiring no knowledge of S(n,d) directly. The mass formula m = S(n,d) × m_scale_d is the resonance condition Im[H_d(ω)] = 0, derivable from the inter-sector mode density chain.
 
 ### Angular structure of the kernel
 
@@ -106,7 +106,7 @@ S(4,4) = S(4,3) + S(3,4)
 n_muon  = n_charm + n_ν₂
 ```
 
-This is not a fit. It is Pascal's recursion applied to S(4,4) = 35. The stage-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
+It is Pascal's recursion applied to S(4,4) = 35. The stage-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
 
 **Generation 1 law:**
 ```
@@ -124,7 +124,7 @@ The pattern across all three generation laws:
 ```
 n_lepton = n_neutrino + n_quark_partner
 ```
-This is the hockey-stick identity at different (n, d) pairs — not a selection rule added by hand.
+This is the hockey-stick identity at different (n, d) pairs.
 
 **Mode indices from sector Euler characteristics (Part 1 §3b):**
 
@@ -154,7 +154,7 @@ Verification (N=32): Σ_{k=0}^{32} C(k+2,2) × C(32−k+2,2) = 435,897 = C(37,5)
 
 ## 5. The seed n_s = 4 (with n_d = 1 trivially forced) — Hockey-Stick Forced
 
-The seed n_s = 4 and the trivially-forced ground state n_d = 1 are not chosen. They are algebraically forced.
+The seed n_s = 4 and the trivially-forced ground state n_d = 1 are algebraically forced.
 
 **n_down = 1** is forced because S(1,d) = 1 for every d. This is the base case of every hockey-stick sum — the first term in every cumulative count. It is simultaneously the ground state of every sector.
 
@@ -166,7 +166,7 @@ At the vacuum stability coupling g₃₃ = 8√7, the effective energy has local
 
 ## 6. The Complete Index Derivation — Hockey-Stick All the Way Down
 
-Every mode index is a hockey-stick evaluation or a difference between successive partial sums of the same identity. The operations that might appear to be "algebraic manipulations chosen to fit data" are in fact the only operations the identity permits:
+Every mode index is a hockey-stick evaluation or a difference between successive partial sums of the same identity. The operations are the only ones the identity permits:
 
 ```
 n_u    = n_s − 1 = 3         [follows from the two-seed hypothesis via the g-rule: g(d_u, n_ν₁) = n_e requires n_ν₁ = n_e − d_u + 1 = 13−4+1 = 10; since n_ν₁ = S(n_u,3), the equation S(n_u,3)=10 has the unique solution n_u=3 (S(3,3)=10). Pascal describes the resulting lattice position — S(3,4) sits one step back on the d=4 diagonal from S(4,3) — but the selection is made by the g-rule, not by Pascal or mass ordering alone. Note: "n_u < n_s because m_u < m_s" is insufficient — n_u=2,4,5 all give masses well below m_s=94 MeV.]
@@ -185,7 +185,7 @@ n_Z     = g(d_ℓ, n_W) = d_ℓ + n_W − 1 = 6 + 76 − 1 = 81       [g-rule: l
 n_Higgs = n_u   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
 ```
 
-The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the eigenmode selection rule must hold exactly.** It is not that the framework predicts these relations and then they happen to work — the hockey-stick identity leaves no room for them to fail.
+The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the eigenmode selection rule must hold exactly.** The hockey-stick identity leaves no room for them to fail.
 
 ---
 
@@ -231,7 +231,7 @@ m_b = √(S(16,3) × S(17,3)) × m_scale_3
     = √(816 × 969) × 4.7019 MeV = 4,181 MeV    (+0.023% vs PDG 4,180 ± 10 MeV)
 ```
 
-The geometric mean is not a fit. It is forced by the symmetry of the equal-weight condition and the quadratic kernel fixed-point equation. The arithmetic mean and harmonic mean are both inconsistent with the equal-weight constraint.
+The geometric mean is forced by the symmetry of the equal-weight condition and the quadratic kernel fixed-point equation. The arithmetic mean and harmonic mean are both inconsistent with the equal-weight constraint.
 
 ---
 
@@ -274,7 +274,7 @@ g₃₄ = √(g₃₃×g₄₄) = √(n_s³n_u/2) = √96 = 4√6
 g₃₃×g₄₄ = n_s³n_u/2 = 64×3/2 = 96
 ```
 
-The rank-1 identity g₃₃×g₄₄ = g₃₄² is not a separate assumption — it follows from the seed structure alone. g₃₃, g₄₄, and g₃₄ are all theorems of n_s=4 (with n_u=3 derived).
+The rank-1 identity g₃₃×g₄₄ = g₃₄² follows from the seed structure alone. g₃₃, g₄₄, and g₃₄ are all theorems of n_s=4 (with n_u=3 derived).
 
 **g₃₃ from g₄₄:** g₃₃/g₄₄ = n_s(n_s+n_u)/(2n_u) = 4×7/6 = 14/3. This ratio equals (m_d/m_u)² — the squared lightest-particle mass ratio between sectors — another consequence of the seed structure, not an independent assumption.
 
@@ -295,7 +295,7 @@ All three give g₆₆ = 1/n_s = 1/4, with no mass input and no hypercharge assu
 g₆₆ = 1/n_s = 1/4
 ```
 
-**Anomaly cancellation as cross-check (not derivation).** With g₆₆ established from geometry, the lepton hypercharge follows as Y_L = −√g₆₆ = −1/2. Inserting into the SU(2)²U(1) and SU(3)²U(1) anomaly conditions (with N_c = 3 from the CP² Dirac index, Part 8 §2) yields the full SM hypercharge table — Y_Q = 1/6, Q_u = 2/3, Q_d = −1/3 — without further input. The anomaly equations are satisfied exactly, confirming consistency. The old presentation routed through Y_L = −1/2 as an input to extract g₆₆; the correct direction is the reverse.
+**Anomaly cancellation as cross-check.** With g₆₆ established from geometry, the lepton hypercharge follows as Y_L = −√g₆₆ = −1/2. Inserting into the SU(2)²U(1) and SU(3)²U(1) anomaly conditions (with N_c = 3 from the CP² Dirac index, Part 8 §2) yields the full SM hypercharge table — Y_Q = 1/6, Q_u = 2/3, Q_d = −1/3 — without further input. The anomaly equations are satisfied exactly, confirming consistency.
 
 This is exact and requires no mass input.
 
@@ -488,17 +488,15 @@ m_scale_3 = m_e × √(g₃₃/g₆₆) / 1 = 0.511 × √(8√7/0.25) = 4.702 M
 ```
 The lightest occupied mode is the down quark: m_d = m_scale_3 × S(1,3) = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 
-S(1,3) = 1 made the normalization factor invisible for d=3. It is not absent — it is trivially 1.
+S(1,3) = 1 makes the normalization factor trivially 1 for d=3.
 
 **d=4 (up-type quarks):** n_min = n_u = 3 (postulate; see Part 2 §5 note), S(3,4) = 15.
 ```
 m_scale_4 = m_e × √(g₄₄/g₆₆) / S(3,4) = 0.511 × √(12/√7 / 0.25) / 15 = 0.1451 MeV
 ```
-The lightest occupied mode is the up quark: m_u = m_scale_4 × S(3,4) = m_e × √(g₄₄/g₆₆) = 2.177 MeV. The fixed-point requires m_u² = (g₄₄/g₆₆) × m_e² — i.e. the up quark mass satisfies the same fixed-point equation that the down quark satisfies, with g₄₄ in place of g₃₃. The factor /S(3,4) = /15 is not an ad hoc normalization; it is the fixed-point condition applied consistently to a sector whose lowest occupied mode is not n=1.
+The lightest occupied mode is the up quark: m_u = m_scale_4 × S(3,4) = m_e × √(g₄₄/g₆₆) = 2.177 MeV. The fixed-point requires m_u² = (g₄₄/g₆₆) × m_e² — i.e. the up quark mass satisfies the same fixed-point equation that the down quark satisfies, with g₄₄ in place of g₃₃. The factor /S(3,4) = /15 is the fixed-point condition applied consistently to a sector whose lowest occupied mode is not n=1.
 
 **Unified check:** m_u / m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(3/14) = 0.4629. PDG: 0.462 ± ~0.10. Error: +0.20%.
-
-The apparent asymmetry between the m_scale_3 and m_scale_4 formulas in earlier versions of these documents was an artifact of writing m_scale_4 in terms of m_scale_3 rather than directly from m_e. Both derive from the same fixed-point equation with the same physical content.
 
 **The down quark is a pure prediction:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
 

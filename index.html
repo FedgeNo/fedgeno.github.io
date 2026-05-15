@@ -1,34 +1,459 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>IDWT — Infinite-Dimensional Wave Theory</title><style>@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
-:root{--bg:#05070e;--text:#e6e8f0;--muted:#9aa3b8;--muted-2:#7a8499;--accent-1:#8b9cff;--accent-2:#a78bfa;--accent-3:#60a5fa;--card:rgba(16,21,36,0.6);--border:rgba(139,156,255,0.14);--border-hover:rgba(139,156,255,0.28);--code-bg:rgba(139,156,255,0.1);}
-*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
-.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(900px 600px at 15% -5%,rgba(96,165,250,0.18),transparent 60%),radial-gradient(800px 500px at 85% 0%,rgba(167,139,250,0.16),transparent 60%),radial-gradient(700px 500px at 50% 120%,rgba(139,156,255,0.13),transparent 60%),#05070e;}.bg::after{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");mix-blend-mode:soft-light;pointer-events:none;}
-main{max-width:900px;margin:0 auto;padding:0 24px 120px;}
-.hero{min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 0 60px;}
-.eyebrow{font-size:0.85rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-2);font-weight:500;margin-bottom:24px;}
-h1{font-size:clamp(4.5rem,14vw,8.5rem);line-height:0.9;margin:0 0 24px;font-weight:700;letter-spacing:-0.03em;background:linear-gradient(180deg,#ffffff 15%,#c7d2ff 55%,#8b9cff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 20px 40px rgba(99,102,241,0.15));}
-.sub{font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:500;color:var(--text);margin:0 0 12px;max-width:720px;}.tag{font-size:1.05rem;color:var(--muted);margin:0 0 36px;max-width:640px;}
-.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}.btn{appearance:none;border:1px solid var(--border);background:rgba(255,255,255,0.03);color:var(--text);padding:12px 20px;border-radius:999px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.2s ease;backdrop-filter:blur(6px);}.btn:hover{border-color:var(--border-hover);background:rgba(255,255,255,0.06);transform:translateY(-1px);}.btn.primary{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#060816;border:none;font-weight:600;box-shadow:0 8px 24px rgba(139,156,255,0.25),inset 0 1px 0 rgba(255,255,255,0.2);}.btn.primary:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(139,156,255,0.32);}
-section{padding:72px 0;scroll-margin-top:80px;}
-h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:650;letter-spacing:-0.01em;margin:0 0 24px;display:flex;align-items:center;gap:12px;}h2::before{content:"";width:28px;height:2px;background:linear-gradient(90deg,var(--accent-1),transparent);border-radius:2px;}
-p.lead{font-size:1.1rem;color:#d6daf0;margin:0 0 20px;}
-.formula{margin:28px 0 8px;padding:18px 20px;background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));border:1px solid var(--border);border-radius:14px;text-align:center;font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-size:0.98rem;color:#c9d4ff;}
-code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--code-bg);color:#c7d2fe;padding:0.18em 0.45em;border-radius:6px;font-size:0.92em;border:1px solid rgba(139,156,255,0.12);}
-.why{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px;}.why li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:18px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;backdrop-filter:blur(8px);transition:border-color 0.2s,transform 0.2s;}.why li:hover{border-color:var(--border-hover);transform:translateY(-1px);}.why .n{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:rgba(139,156,255,0.12);color:var(--accent-1);font-family:"JetBrains Mono",monospace;font-size:0.8rem;font-weight:500;}
-.table-wrap{overflow-x:auto;margin:24px 0 12px;border:1px solid var(--border);border-radius:14px;background:rgba(8,12,24,0.5);backdrop-filter:blur(6px);}table{width:100%;border-collapse:collapse;min-width:560px;}th,td{padding:14px 18px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.06);}th{font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted-2);font-weight:600;background:rgba(255,255,255,0.02);}tr:last-child td{border-bottom:none;}td:nth-child(2){font-family:"JetBrains Mono",monospace;color:#dbe2ff;}.note{color:var(--muted);font-size:0.95rem;margin-top:10px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:24px;}.card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));border:1px solid var(--border);border-radius:16px;padding:20px;display:flex;flex-direction:column;min-height:190px;transition:transform 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;backdrop-filter:blur(10px);}.card:hover{transform:translateY(-4px);border-color:var(--border-hover);box-shadow:0 16px 40px rgba(5,8,18,0.6),0 0 0 1px rgba(139,156,255,0.08) inset;}.card-head{margin-bottom:8px;}.part{font-size:0.75rem;color:var(--accent-3);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.card h3{margin:4px 0 0;font-size:1.12rem;font-weight:600;letter-spacing:-0.01em;}.card p{color:var(--muted);font-size:0.95rem;margin:10px 0 18px;flex-grow:1;}.dl{align-self:flex-start;font-size:0.88rem;padding:8px 14px;border-radius:10px;background:rgba(139,156,255,0.1);color:#c7d2fe;text-decoration:none;border:1px solid rgba(139,156,255,0.18);transition:all 0.18s ease;font-weight:500;}.dl:hover{background:rgba(139,156,255,0.18);color:white;transform:translateY(-1px);}
-.callout{margin-top:20px;padding:28px 24px;border-radius:14px;background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));border:1px solid var(--border);text-align:center;}
-.paper-card{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;padding:24px 28px;background:linear-gradient(135deg,rgba(139,156,255,0.11),rgba(167,139,250,0.07));border:1px solid rgba(139,156,255,0.28);border-radius:16px;margin:0 0 20px;backdrop-filter:blur(10px);}.paper-card-text .part{font-size:0.75rem;color:var(--accent-1);font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}.paper-card-text h3{margin:4px 0 8px;font-size:1.15rem;font-weight:600;letter-spacing:-0.01em;}.paper-card-text p{color:var(--muted);font-size:0.95rem;margin:0;max-width:620px;}
-.prose{margin-top:28px;color:#c4cae2;font-size:1.02rem;line-height:1.82;}.prose p{margin:0 0 1.35em;}.prose p:last-child{margin-bottom:0;}.prose strong{color:var(--text);font-weight:600;}.prose em{color:#dbe2ff;font-style:italic;}
-footer{max-width:900px;margin:40px auto 0;padding:32px 24px 60px;color:var(--muted-2);font-size:0.9rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted rgba(154,163,184,0.4);}footer a:hover{color:var(--text);border-bottom-color:var(--text);}
-@media(max-width:640px){main{padding:0 18px 80px;}section{padding:56px 0;}.hero{min-height:80vh;padding-top:60px;}.why li{grid-template-columns:24px 1fr;}}</style></head><body><div class="bg"></div><main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDWT — Infinite-Dimensional Wave Theory</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;
+400;
+500;
+600;
+700&family=JetBrains+Mono:wght@400;
+500&display=swap');
+ :root{
+	--bg:#05070e;
+	--text:#e6e8f0;
+	--muted:#9aa3b8;
+	--muted-2:#7a8499;
+	--accent-1:#8b9cff;
+	--accent-2:#a78bfa;
+	--accent-3:#60a5fa;
+	--card:rgba(16,21,36,0.6);
+	--border:rgba(139,156,255,0.14);
+	--border-hover:rgba(139,156,255,0.28);
+	--code-bg:rgba(139,156,255,0.1);
+}
+ *{
+	box-sizing:border-box;
+}
+html{
+	scroll-behavior:smooth;
+}
+body{
+	margin:0;
+	font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+	background:var(--bg);
+	color:var(--text);
+	line-height:1.65;
+	-webkit-font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+ .bg{
+	position:fixed;
+	inset:0;
+	z-index:-2;
+	background:radial-gradient(900px 600px at 15% -5%,rgba(96,165,250,0.18),transparent 60%),radial-gradient(800px 500px at 85% 0%,rgba(167,139,250,0.16),transparent 60%),radial-gradient(700px 500px at 50% 120%,rgba(139,156,255,0.13),transparent 60%),#05070e;
+}
+.bg::after{
+	content:"";
+	position:absolute;
+	inset:0;
+	background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+	mix-blend-mode:soft-light;
+	pointer-events:none;
+}
+ main{
+	max-width:900px;
+	margin:0 auto;
+	padding:0 24px 120px;
+}
+ .hero{
+	min-height:92vh;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+	text-align:center;
+	padding:80px 0 60px;
+}
+ .eyebrow{
+	font-size:0.85rem;
+	letter-spacing:0.18em;
+	text-transform:uppercase;
+	color:var(--muted-2);
+	font-weight:500;
+	margin-bottom:24px;
+}
+ h1{
+	font-size:clamp(4.5rem,14vw,8.5rem);
+	line-height:0.9;
+	margin:0 0 24px;
+	font-weight:700;
+	letter-spacing:-0.03em;
+	background:linear-gradient(180deg,#ffffff 15%,#c7d2ff 55%,#8b9cff 100%);
+	-webkit-background-clip:text;
+	background-clip:text;
+	color:transparent;
+	filter:drop-shadow(0 20px 40px rgba(99,102,241,0.15));
+}
+ .sub{
+	font-size:clamp(1.15rem,2.5vw,1.5rem);
+	font-weight:500;
+	color:var(--text);
+	margin:0 0 12px;
+	max-width:720px;
+}
+.tag{
+	font-size:1.05rem;
+	color:var(--muted);
+	margin:0 0 36px;
+	max-width:640px;
+}
+ .cta{
+	display:flex;
+	gap:12px;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+.btn{
+	appearance:none;
+	border:1px solid var(--border);
+	background:rgba(255,255,255,0.03);
+	color:var(--text);
+	padding:12px 20px;
+	border-radius:999px;
+	font-weight:500;
+	font-size:0.95rem;
+	text-decoration:none;
+	transition:all 0.2s ease;
+	backdrop-filter:blur(6px);
+}
+.btn:hover{
+	border-color:var(--border-hover);
+	background:rgba(255,255,255,0.06);
+	transform:translateY(-1px);
+}
+.btn.primary{
+	background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+	color:#060816;
+	border:none;
+	font-weight:600;
+	box-shadow:0 8px 24px rgba(139,156,255,0.25),inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.btn.primary:hover{
+	transform:translateY(-1px);
+	box-shadow:0 12px 32px rgba(139,156,255,0.32);
+}
+ section{
+	padding:72px 0;
+	scroll-margin-top:80px;
+}
+ h2{
+	font-size:clamp(1.6rem,3vw,2.1rem);
+	font-weight:650;
+	letter-spacing:-0.01em;
+	margin:0 0 24px;
+	display:flex;
+	align-items:center;
+	gap:12px;
+}
+h2::before{
+	content:"";
+	width:28px;
+	height:2px;
+	background:linear-gradient(90deg,var(--accent-1),transparent);
+	border-radius:2px;
+}
+ p.lead{
+	font-size:1.1rem;
+	color:#d6daf0;
+	margin:0 0 20px;
+}
+ .formula{
+	margin:28px 0 8px;
+	padding:18px 20px;
+	background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));
+	border:1px solid var(--border);
+	border-radius:14px;
+	text-align:center;
+	font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+	font-size:0.98rem;
+	color:#c9d4ff;
+}
+ code{
+	font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+	background:var(--code-bg);
+	color:#c7d2fe;
+	padding:0.18em 0.45em;
+	border-radius:6px;
+	font-size:0.92em;
+	border:1px solid rgba(139,156,255,0.12);
+}
+ .why{
+	list-style:none;
+	padding:0;
+	margin:28px 0 0;
+	display:grid;
+	gap:14px;
+}
+.why li{
+	display:grid;
+	grid-template-columns:28px 1fr;
+	gap:14px;
+	padding:18px 20px;
+	background:var(--card);
+	border:1px solid var(--border);
+	border-radius:14px;
+	backdrop-filter:blur(8px);
+	transition:border-color 0.2s,transform 0.2s;
+}
+.why li:hover{
+	border-color:var(--border-hover);
+	transform:translateY(-1px);
+}
+.why .n{
+	width:28px;
+	height:28px;
+	display:grid;
+	place-items:center;
+	border-radius:8px;
+	background:rgba(139,156,255,0.12);
+	color:var(--accent-1);
+	font-family:"JetBrains Mono",monospace;
+	font-size:0.8rem;
+	font-weight:500;
+}
+ .table-wrap{
+	overflow-x:auto;
+	margin:24px 0 12px;
+	border:1px solid var(--border);
+	border-radius:14px;
+	background:rgba(8,12,24,0.5);
+	backdrop-filter:blur(6px);
+}
+table{
+	width:100%;
+	border-collapse:collapse;
+	min-width:560px;
+}
+th,td{
+	padding:14px 18px;
+	text-align:left;
+	border-bottom:1px solid rgba(255,255,255,0.06);
+}
+th{
+	font-size:0.82rem;
+	text-transform:uppercase;
+	letter-spacing:0.08em;
+	color:var(--muted-2);
+	font-weight:600;
+	background:rgba(255,255,255,0.02);
+}
+tr:last-child td{
+	border-bottom:none;
+}
+td:nth-child(2){
+	font-family:"JetBrains Mono",monospace;
+	color:#dbe2ff;
+}
+.note{
+	color:var(--muted);
+	font-size:0.95rem;
+	margin-top:10px;
+}
+ .grid{
+	display:grid;
+	grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+	gap:16px;
+	margin-top:24px;
+}
+.card{
+	position:relative;
+	background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
+	border:1px solid var(--border);
+	border-radius:16px;
+	padding:20px;
+	display:flex;
+	flex-direction:column;
+	min-height:190px;
+	transition:transform 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;
+	backdrop-filter:blur(10px);
+}
+.card:hover{
+	transform:translateY(-4px);
+	border-color:var(--border-hover);
+	box-shadow:0 16px 40px rgba(5,8,18,0.6),0 0 0 1px rgba(139,156,255,0.08) inset;
+}
+.card-head{
+	margin-bottom:8px;
+}
+.part{
+	font-size:0.75rem;
+	color:var(--accent-3);
+	font-weight:600;
+	letter-spacing:0.06em;
+	text-transform:uppercase;
+}
+.card h3{
+	margin:4px 0 0;
+	font-size:1.12rem;
+	font-weight:600;
+	letter-spacing:-0.01em;
+}
+.card p{
+	color:var(--muted);
+	font-size:0.95rem;
+	margin:10px 0 18px;
+	flex-grow:1;
+}
+.dl{
+	align-self:flex-start;
+	font-size:0.88rem;
+	padding:8px 14px;
+	border-radius:10px;
+	background:rgba(139,156,255,0.1);
+	color:#c7d2fe;
+	text-decoration:none;
+	border:1px solid rgba(139,156,255,0.18);
+	transition:all 0.18s ease;
+	font-weight:500;
+}
+.dl:hover{
+	background:rgba(139,156,255,0.18);
+	color:white;
+	transform:translateY(-1px);
+}
+ .callout{
+	margin-top:20px;
+	padding:28px 24px;
+	border-radius:14px;
+	background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));
+	border:1px solid var(--border);
+	text-align:center;
+}
+ .paper-card{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	flex-wrap:wrap;
+	gap:20px;
+	padding:24px 28px;
+	background:linear-gradient(135deg,rgba(139,156,255,0.11),rgba(167,139,250,0.07));
+	border:1px solid rgba(139,156,255,0.28);
+	border-radius:16px;
+	margin:0 0 20px;
+	backdrop-filter:blur(10px);
+}
+.paper-card-text .part{
+	font-size:0.75rem;
+	color:var(--accent-1);
+	font-weight:600;
+	letter-spacing:0.06em;
+	text-transform:uppercase;
+}
+.paper-card-text h3{
+	margin:4px 0 8px;
+	font-size:1.15rem;
+	font-weight:600;
+	letter-spacing:-0.01em;
+}
+.paper-card-text p{
+	color:var(--muted);
+	font-size:0.95rem;
+	margin:0;
+	max-width:620px;
+}
+ .prose{
+	margin-top:28px;
+	color:#c4cae2;
+	font-size:1.02rem;
+	line-height:1.82;
+}
+.prose p{
+	margin:0 0 1.35em;
+}
+.prose p:last-child{
+	margin-bottom:0;
+}
+.prose strong{
+	color:var(--text);
+	font-weight:600;
+}
+.prose em{
+	color:#dbe2ff;
+	font-style:italic;
+}
+ footer{
+	max-width:900px;
+	margin:40px auto 0;
+	padding:32px 24px 60px;
+	color:var(--muted-2);
+	font-size:0.9rem;
+	text-align:center;
+	border-top:1px solid rgba(255,255,255,0.06);
+}
+footer a{
+	color:var(--muted);
+	text-decoration:none;
+	border-bottom:1px dotted rgba(154,163,184,0.4);
+}
+footer a:hover{
+	color:var(--text);
+	border-bottom-color:var(--text);
+}
+ @media(max-width:640px){
+	main{
+		padding:0 18px 80px;
+	}
+	section{
+		padding:56px 0;
+	}
+	.hero{
+		min-height:80vh;
+		padding-top:60px;
+	}
+	.why li{
+		grid-template-columns:24px 1fr;
+	}
+}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<main>
 <script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 <style>
-.corner-orb{position:fixed;top:18px;width:210px;height:210px;z-index:2;pointer-events:none;background:transparent;filter:saturate(1.3) brightness(0.9);opacity:0.96}
-.corner-orb.left{left:18px}.corner-orb.right{right:18px}
-.corner-orb canvas{width:100%;height:100%;display:block}
-@media(max-width:720px){.corner-orb{width:140px;height:140px;top:12px}.corner-orb.left{left:12px}.corner-orb.right{right:12px}}
-main{position:relative;z-index:10}
+.corner-orb{
+	position:fixed;
+	top:18px;
+	width:210px;
+	height:210px;
+	z-index:2;
+	pointer-events:none;
+	background:transparent;
+	filter:saturate(1.3) brightness(0.9);
+	opacity:0.96
+}
+ .corner-orb.left{
+	left:18px
+}
+.corner-orb.right{
+	right:18px
+}
+ .corner-orb canvas{
+	width:100%;
+	height:100%;
+	display:block
+}
+ @media(max-width:720px){
+	.corner-orb{
+		width:140px;
+		height:140px;
+		top:12px
+	}
+	.corner-orb.left{
+		left:12px
+	}
+	.corner-orb.right{
+		right:12px
+	}
+}
+ main{
+	position:relative;
+	z-index:10
+}
 </style>
 <div class="corner-orb left"><canvas id="orbL" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
 <div class="corner-orb right"><canvas id="orbR" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
@@ -49,14 +474,14 @@ main{position:relative;z-index:10}
 
 <section id="core">
   <h2>The Core Idea</h2>
-  <p class="lead">IDWT is built from four postulates.</p>
+  <p class="lead">A single spinor field on an infinite-dimensional manifold. Everything else is derived.</p>
   <ol>
-    <li>Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.</li>
-    <li>Our observable 3D universe is a brane-like slice through this space.</li>
-    <li>The hidden dimensions are not compactified Planck-scale curls, they are macroscopic.</li>
-    <li>What we call mass is a scaled count of hidden microstates.</li>
+    <li>The fundamental object is a Dirac spinor field Ψ∞ on an infinite-dimensional manifold M∞. Particles are its resonant modes.</li>
+    <li>Our observable 3D universe is the projection of Ψ∞ through the full space at a fixed hidden-sector address.</li>
+    <li>The hidden dimensions are macroscopic, with particles bound by sector potential wells rather than compactified into Planck-scale geometry.</li>
+    <li>Mass equals the cumulative count of hidden microstates accessible to a mode: m = m_scale,d × S(n,d).</li>
   </ol>
-  <p>This gives a combinatorial mass rule: mass scales with cumulative states on d-dimensional hidden sectors.</p>
+  <p>M∞ has six stable sectors at dimensions d ∈ {2, 3, 4, 5, 6, 10} — the levels at which the coordinate extension locks into self-consistent eigenstates. Each sector's particles couple to particles in other sectors because the sectors share coordinates: d=2 photon coordinates are literally inside every higher sector.</p>
   <div class="formula">
     <code>m = m_scale,d × S(n,d)</code> &nbsp; where &nbsp; <code>S(n,d) = C(n+d-1, d)</code>
   </div>
@@ -120,7 +545,7 @@ main{position:relative;z-index:10}
 
     <p>Infinite-Dimensional Wave Theory asks: what is the simplest physical object that could, in principle, produce the full spectrum we observe? The answer it proposes is a single complex wave function Ψ∞ defined on a manifold of literally infinite dimension — not ten or eleven dimensions in the string-theory sense, but unboundedly many, with no fixed upper limit on the number of hidden directions. From this one object, every particle mass, every coupling constant, and every mixing angle in the Standard Model follows by calculation.</p>
 
-    <p>The setup rests on four postulates. Our observable universe is a brane-like projection through this infinite space — a slice that can access only modes up to a certain complexity. The hidden dimensions are not compactified into Planck-scale curls; they are macroscopic. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity is standard 4D general relativity — the curvature of our 3+1D slice sourced by the IDWT matter fields through the effective stress-energy tensor. There are no gravitons and no Kaluza-Klein tower; G_N is a measured constant of spacetime.</p>
+    <p>The setup rests on four postulates. Our observable universe is the projection of Ψ∞ through the full space at a fixed hidden-sector address — we access only modes that are resonant at our coordinate level. The hidden dimensions are macroscopic, with particles bound by sector potential wells. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity is standard 4D general relativity — the curvature of our 3+1D slice sourced by the IDWT matter fields through the effective stress-energy tensor. There are no gravitons and no Kaluza-Klein tower; G_N is a measured constant of spacetime.</p>
 
     <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. This sector set is not a free choice — it is forced by the requirement that the top quark mode index n_top = N_c × n_s × N_f exactly equals 72. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the Higgs self-coupling, the proton mass, the pion decay constant, the CKM mixing angles, the PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
 

@@ -76,7 +76,7 @@ The governing equation is a Dirac wave equation on the curved manifold $M_\infty
 
 ### 2.1 Observable Reality as a Cross-Section
 
-Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of a 3D sphere. The circle is unaware it is a cross-section. Our entire observable universe is one such slice — its contents (matter, energy, space) are determined by the global structure of Ψ∞ evaluated at ξ⁰.
+Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of a 3D sphere. The circle is unaware it is a cross-section. Our entire observable universe is one such slice — its contents (matter, energy, space) are determined by the global structure of Ψ∞ evaluated at ξ⁰. The slice is at the d=3 coordinate level: our three spatial dimensions are the d=3 coordinates of M∞, and every particle with d > 3 occupies our three spatial dimensions (§3i).
 
 ### 2.2 The Projection Operator
 
@@ -98,7 +98,7 @@ from the L² normalisation of the sector mode functions. Higher mode indices (he
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
 ```
 
-Standard quantum mechanics assigns probability density |ψ|² to any quantum field. IDWT applies this to Ψ∞ directly. The observable density ρ(r,t) is the hidden-space integral of |Ψ∞|², which marginalises over the hidden coordinates and recovers the 3D probability density. This is not a new postulate — it is the Born rule of quantum mechanics applied to the field Ψ∞ on M_∞, with the hidden-sector dimensions integrated out.
+Standard quantum mechanics assigns probability density |ψ|² to any quantum field. IDWT applies this to Ψ∞ directly. The observable density ρ(r,t) is the hidden-space integral of |Ψ∞|², which marginalises over the hidden coordinates and recovers the 3D probability density. It is the Born rule of quantum mechanics applied to the field Ψ∞ on M_∞, with the hidden-sector dimensions integrated out.
 
 The physical interpretation: an electron is not a cloud in 3D — it is a structured object in M_∞ whose 3D shadow (the projection) appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the hidden-sector coordinates even when their 3D projections are far apart.
 
@@ -159,7 +159,7 @@ $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs } n=1,2} \cup \underbrace{\{6\}
 
 **Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the seed alone — no hypercharge assignment enters.
 
-**Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain. This is a consistency check, not a derivation of the sectors: $n_{\rm top} = 72$ must be reached from the eigenmode chain first, and the factorisation then confirms the sector assignments. Using the factorisation to derive $N_f = 6$ and thence $d=10$ would be circular.
+**Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
 
 ---
 
@@ -491,6 +491,80 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 
 ---
 
+### 3f. The Coordinate Extension Picture
+
+M∞ is one coordinate system extended step by step: the two coordinates of d=2 are contained in d=3, the three of d=3 are contained in d=4, and so on without bound. The sectors D = {2, 3, 4, 5, 6, 10} are the stable levels at which this extension produces observable eigenstates.
+
+At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, the Atiyah-Singer index is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
+
+M∞ is genuinely infinite-dimensional. Beyond d=10 the Atiyah-Singer index vanishes, the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenstates closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
+
+The containment chain Ξ₂ ⊂ Ξ₃ ⊂ Ξ₄ ⊂ Ξ₅ ⊂ Ξ₆ ⊂ Ξ₁₀ and the isomorphism chain M∞ ≅ Ξ₂ ≅ Ξ₃ ≅ Ξ₄ ≅ Ξ₅ ≅ Ξ₆ ≅ Ξ₁₀ hold for all six sectors: each Ξ_d is M∞ perceived from coordinate level d, and each level's coordinates are a literal subset of the next level's coordinates.
+
+---
+
+### 3g. Interaction as Coordinate Containment
+
+Particles in different sectors couple because their sectors share coordinate subspaces. The two coordinates of the photon's d=2 sector are literally two of the three coordinates of d=3, two of the four of d=4, two of the five of d=5, two of the six of d=6, two of the ten of d=10. Dynamics in any shared subspace are dynamics in every sector that owns those coordinates, symmetrically in both directions. A photon perturbs an electron because those two coordinates belong to the electron as well. An electron moving in its six dimensions necessarily moves in the two-dimensional subspace that photons live in — and so affects them.
+
+This is why electromagnetism is universal. Every sector d ≥ 2 contains d=2 as its lowest coordinate subspace, so every charged particle couples to the photon. The coupling constant reflects the coordinate overlap — the ratio of shared dimensions to total dimensions of the higher sector.
+
+The gluon lives in d=3 (S³, the hadronic sector). Its three coordinates are inside d=4 (CP², the up-type quark sector). Down-type quarks (d=3) couple to gluons because they share the full d=3 coordinate set. Up-type quarks (d=4) couple to gluons because d=3 ⊂ d=4: the gluon's three coordinates are three of the four coordinates the up-type quarks live in. The strong force spans d ∈ {3,4} — those are the sectors that contain d=3 as a coordinate subspace.
+
+The electron (d=6, mode n=13) couples to the photon (d=2) via the two coordinates they share. The coupling strength derives from a cascade: g_{44} → g_s → g_2 → sin²θ_W → g_1 → α (Part 3 §0.7). Coordinate containment determines that the coupling exists and which sectors are linked; coupling magnitudes are set by the spectral geometry of each sector manifold — integrals over S^{d−1} and CP^m, not bare dimension counts. There is one step in the cascade where the coordinate ratio does appear literally: g_2 = (2/3)√g_s, where 2/3 = d_photon/d_hadronic. The factor 2/3 is the electric charge of the up quark and the ratio of photon sector dimension to hadronic sector dimension N_c = 3, and those are the same number because N_c = d_hadronic.
+
+---
+
+### 3h. Sector Autonomy and Nested Dynamical Invariance
+
+Each sector Ξ_d is a self-contained dynamical system. Its Hamiltonian H_d = −Δ_{Ξ_d} + V_d(|ξ_d|) is invariant under the isometry group G_d of the sector manifold, and its eigenvalue problem H_d χ = m_eff χ can be solved sector by sector without reference to any other sector. The mass formula m = m_scale_d × S(n,d) is sector-separable: the d=6 lepton spectrum is determined entirely by H_6; the d=4 quark spectrum by H_4.
+
+This autonomy survives the nesting Ξ_2 ⊂ Ξ_3 ⊂ ··· ⊂ Ξ_{10}. At the level of coordinate algebras, the inclusion of coordinate subspaces induces a nested chain of observable algebras — the shared coordinate algebra of M∞:
+
+```
+C∞(Ξ_2) ⊂ C∞(Ξ_3) ⊂ C∞(Ξ_4) ⊂ C∞(Ξ_5) ⊂ C∞(Ξ_6) ⊂ C∞(Ξ_{10}) ⊂ C∞(M∞)
+```
+
+A function of only the d=2 coordinates is simultaneously a valid function on every sector — it belongs to every algebra in the chain. The differential operators built from those coordinates — the d=2 Laplacian, the U(1) rotation generators — appear in every larger sector's operator algebra, acting on the shared coordinate subspace and commuting with any operator that acts only on the additional coordinates. The symmetry generators of a smaller sector are literal elements of the operator algebra of every larger sector.
+
+This is the precise sense in which each dynamical system is nested inside, and invariant within, the shared coordinate algebra: the G_d-invariant structure of H_d is preserved in every H_{d'} for d' > d, restricted to the G_d-invariant subspace of C∞(Ξ_{d'}). The sector potential wells localize each particle type to its own sector, ensuring this restriction is physically realized rather than merely formal. A mode that does not excite the additional coordinates of Ξ_{d'} is dynamically a mode of Ξ_d, and the symmetry generators that label it are present in both algebras — so its quantum numbers are unambiguous in either context.
+
+§3g and §3h are complementary. §3g: shared coordinates produce coupling — perturbations in one sector propagate to every sector that shares those coordinates, bidirectionally. §3h: that coupling operates at the shared subspace and leaves each sector's bulk eigenvalue structure intact. The inter-sector coupling terms g_{d,d'} in the kernel (§4) are cross-sector boundary terms, not deformations of the individual sector Hamiltonians H_d. Each sector remains exactly as self-consistent in isolation as it is in the full system — the nesting is lossless.
+
+---
+
+### 3i. The d=3 Threshold: Sector Dimension as Physical Dimensionality
+
+The coordinate extension picture (§3f) assigns a concrete meaning to the phrase "our three observable spatial dimensions": they are the d=3 level of the coordinate hierarchy. The three coordinates at which the extension first produces a full self-consistent sector are the same three coordinates that constitute our observable space. The sector dimension d therefore measures where each particle stands relative to our observable space.
+
+| d relative to 3 | Physical meaning | Example |
+|---|---|---|
+| d < 3 | Particle orbit is a proper subspace of our 3D | Photon (d=2): 2D entity within our 3D world |
+| d = 3 | Particle orbit coincides with our 3D | Down-type quarks: fully at home in observable space |
+| d > 3 | Particle orbit contains our 3D plus (d−3) hidden dimensions | Electron (d=6): 3 observable + 3 hidden dimensions |
+
+**Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic hidden dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We observe the 3D projection of its full 6-dimensional motion. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those hidden dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we observe only the d=3 projection of a mode structure that lives in d=6.
+
+**Particles with d < 3 — sub-dimensional embedding.** The photon (d=2) is the opposite case. Its orbit spans 2 dimensions — a proper subspace of our 3D. Those 2 dimensions lie entirely within our observable space. From the photon's perspective, reality is 2-dimensional: the third spatial dimension of our world does not exist in its coordinate system. From our perspective, the photon is a 2D entity moving within our 3D world. Its 2D polarization plane can be oriented in any direction within our 3D — the photon is not fixed to one plane in space — but in whichever direction it travels, it is always a 2D object.
+
+**The direct consequence: electromagnetic waves must be transverse.** The photon oscillates in its 2 dimensions. The direction of propagation is the one coordinate our 3D has that the photon's world does not. The photon cannot oscillate in that direction because that direction does not exist from its perspective. As the photon travels in different directions through our 3D space, its 2D polarization plane rotates to remain perpendicular to the direction of travel — the missing dimension is always the one the photon is moving through. Electromagnetic waves are transverse because the photon is a d=2 entity propagating through a d=3 observable space: it oscillates in the 2 dimensions it possesses and propagates through the 1 dimension it doesn't. The two polarization states are the photon's 2 dimensions, made directly observable. This is derived in Part 3 §14.
+
+**Mass as hidden-dimensional momentum.** The governing equation on M_∞ separates into observable and hidden parts. For a mode with hidden wavefunction χ_{n,d}:
+
+```
+∂_t² Ψ = c²(Δ_3 + Δ_hidden) Ψ
+```
+
+The hidden Laplacian acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve the hidden motion, sees:
+
+```
+∂_t² ψ = c²(Δ_3 − m²) ψ
+```
+
+This is the Klein-Gordon equation. The mass term is not a separate input — it is the hidden-dimensional kinetic energy of the mode, appearing to a d=3 observer as a scalar constant because the hidden degrees of freedom are inaccessible. Mass is hidden momentum. The photon (n=0, d=2) has S(0,2) = 0, so m = 0: no hidden kinetic energy, no mass. Every other particle has n > 0 and non-zero hidden momentum, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden momentum.
+
+---
+
 ## 4. The Unified Kernel
 
 The cross-sector interaction is the unique leading term compatible with U(d) × U(d') symmetries. Sectors d and d' may couple only when d + d' is itself a sector dimension (Vandermonde rule):
@@ -559,7 +633,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 
 **Co-fixed-point uniqueness**
 
-As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. This is a verification, not a parameter search — $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
+As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
 
 ---
 

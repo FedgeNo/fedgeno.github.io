@@ -4,7 +4,7 @@
 
 ## 1. Gravity is Curvature of M_∞ Caused by Mass
 
-Gravity is not a 3D phenomenon, and not a 10D phenomenon. It is a property of the full infinite-dimensional geometry of M_∞. When Ψ∞ has a stable concentrated feature — a massive particle — the surrounding M_∞ geometry is distorted. That distortion is gravity. What a 3D observer calls gravitational attraction is their restricted view of that ∞D curvature, filtered through the 3+1D slice they can access.
+Gravity is not a 3D phenomenon, and not a 10D phenomenon. It is a property of the full infinite-dimensional geometry of M_∞. When Ψ∞ has a stable concentrated feature — a massive particle — the surrounding M_∞ geometry is distorted. That distortion is gravity. What a 3D observer calls gravitational attraction is their restricted view of that ∞D curvature, measured at their d=3 coordinate level.
 
 Gravity is not a field. There are no gravitons, no spin-2 boson, no propagating gravitational degree of freedom, and no gravitational action separate from the geometry of M_∞. Gravity is geometry responding to mass.
 
@@ -28,7 +28,7 @@ IDWT has none of this structure:
 
 **The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the standard 4D stress-energy of the particles it hosts.
 
-**Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 projection and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
+**Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 dimensional visibility and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
 
 ---
@@ -40,13 +40,13 @@ In the weak-field, static, non-relativistic limit:
 ∇²Φ = 4πG_N · S(n,d) · |ψ_3D(r)|²
 ```
 
-This is the Poisson equation of Newtonian gravity with mass m = S(n,d) × m_scale_d. It follows directly from ρ_m = ∫|Ψ∞|² dξ — the projection definition of observable matter density.
+This is the Poisson equation of Newtonian gravity with mass m = S(n,d) × m_scale_d. It follows directly from ρ_m = ∫|Ψ∞|² dξ — the Born-rule definition of observable matter density.
 
 ---
 
 ## 3. Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement 🔶
 
-This section establishes what gravity is in IDWT and describes the effective gravitational equation that a 3D observer confined to a 3+1D slice of M_∞ would measure.
+This section establishes what gravity is in IDWT and describes the effective gravitational equation that a 3D observer at fixed ξ⁰ in M_∞ would measure.
 
 ### 3.1 Gravity as Curvature of M_∞ Sourced by Mass
 
@@ -62,11 +62,11 @@ The gravitational term on M_∞ — the ∞D analogue of the Einstein-Hilbert ac
 
 The hidden geometry h_ab(ξ) is a fixed background — not a dynamical field. There is nothing gravitational to vary in Ξ, so no wave equation exists in the hidden directions and no KK graviton tower appears.
 
-**What a 3D observer perceives.** A 3D observer at fixed ξ⁰ cannot access the full M_∞ geometry. They measure the effect of ∞D curvature on their 3+1D slice. That measurement takes the effective form of a gravitational equation — something that looks like Newton's law at low energies or Einstein's field equation more generally. This effective description is valid for the observer's practical purposes but is not the underlying phenomenon. The phenomenon is ∞D curvature sourced by mass.
+**What a 3D observer perceives.** A 3D observer at fixed ξ⁰ cannot access the full M_∞ geometry. They measure the effect of ∞D curvature at their d=3 coordinates. That measurement takes the effective form of a gravitational equation — something that looks like Newton's law at low energies or Einstein's field equation more generally. This effective description is valid for the observer's practical purposes but is not the underlying phenomenon. The phenomenon is ∞D curvature sourced by mass.
 
 ### 3.2 The Observer's Effective Gravitational Equation
 
-A 3D observer who constructs a gravitational equation from their measurements finds it sourced by T_μν^{eff} — the full hidden-space integral of the matter stress-energy. Varying S_matter with respect to the 4D metric g_μν(x) that the observer uses to describe their 3+1D slice:
+A 3D observer who constructs a gravitational equation from their measurements finds it sourced by T_μν^{eff} — the full hidden-space integral of the matter stress-energy. Varying S_matter with respect to the 4D metric g_μν(x) that the observer uses to describe their d=3 spacetime:
 
 ```
 δS_matter/δg^μν = √(−g) × ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
@@ -113,7 +113,7 @@ Gravity is geometry, not a field. Geometry does not have quanta. There are no gr
 
 More specifically: the hidden geometry h_ab(ξ) is a fixed classical background. It is not dynamical, has no equation of motion, and does not vary. There are therefore no fluctuations δh_ab, no wave equation in Ξ, and no KK graviton tower. The hidden sector enters the observer's gravitational measurement exactly once — through T_μν^{eff}(x), the integrated matter stress-energy, which encodes the mass of each particle and nothing else.
 
-The question of cross-terms between different hidden addresses — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: the 3D observer constructs a single metric g_μν(x) on their 3+1D slice, not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
+The question of cross-terms between different hidden addresses — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: the 3D observer constructs a single metric g_μν(x) on their d=3 spacetime, not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
 
 ### 3.5 Boundary Terms on Non-Compact Ξ
 
@@ -121,7 +121,7 @@ For macroscopic (non-compact) Ξ, the variation of ∫_Ξ ... dμ_ξ by parts re
 
 Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 7 §2.9). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
 
-Non-normalizable (scattering) modes do not satisfy this condition — they fail Stage-1 projection (Ω_log > ln 2) and are absent from the physical spectrum. The two-stage observability filter automatically selects precisely the modes for which the hidden-space integrals converge.
+Non-normalizable (scattering) modes do not satisfy this condition — they fail Stage-1 dimensional visibility (Ω_log > ln 2) and are absent from the physical spectrum. The two-stage observability filter automatically selects precisely the modes for which the hidden-space integrals converge.
 
 ### 3.6 The Equivalence Principle
 
@@ -134,7 +134,7 @@ Both carry the same hidden normalisation factor ‖χ‖²_Ξ. For normalised mo
 m_inertial = m_grav = m_scale_d × S(n,d)
 ```
 
-This holds for all modes with the same (n,d) regardless of ξ⁰. The projection weight W_S = |χ(ξ⁰)|²/‖χ‖²_Ξ cancels from the inertial-to-gravitational mass ratio. All particle species have m_grav/m_inertial = 1. No fifth force. No composition-dependent gravitational coupling.
+This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility weight W_S = |χ(ξ⁰)|²/‖χ‖²_Ξ cancels from the inertial-to-gravitational mass ratio. All particle species have m_grav/m_inertial = 1. No fifth force. No composition-dependent gravitational coupling.
 
 ### 3.7 Status of Formal Items
 
@@ -383,7 +383,7 @@ In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_�
 
 ---
 
-### 3.12.2 G_N as the 3D Projection of Infinite-Dimensional Gravity
+### 3.12.2 G_N as the 3D Measurement of Infinite-Dimensional Gravity
 
 The previous subsections show that G_N is sector-independent (§3.11) and not renormalized by hidden-sector loops (§3.12.1). Neither addresses the causal origin of G_N. This section establishes the correct logical direction: gravity is a phenomenon of the full $M_\infty$, not a 3D or 10D field appended to the particle physics. G_N is what a 3D observer at $\xi^0$ measures of it.
 
@@ -432,7 +432,7 @@ $$G_N = G_\infty / V_7, \qquad V_7 \approx 113$$
 
 The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
-**Stage-1 filter.** The projection amplitude A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are *visible* to the 3D observer — it controls observability, not mass. Mass is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index. The Stage-1 filter cannot change a frequency; it only determines whether a mode at that frequency couples to the 4D slice with sufficient amplitude to be detected. The d=5 neutrino sector has the smallest sector mass scale m_scale_5 not because of Stage-1 suppression, but because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
+**Stage-1 filter.** The dimensional visibility A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are *visible* to the 3D observer — it controls observability, not mass. Mass is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index. The Stage-1 filter cannot change a frequency; it only determines whether a mode at that frequency has sufficient activity in our d=3 dimensions to be detected. The d=5 neutrino sector has the smallest sector mass scale m_scale_5 not because of Stage-1 suppression, but because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
 
 **Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 
@@ -456,7 +456,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 ## 3.13 Covariant Conservation of T_μν^{eff}
 
-**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 projection — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
+**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 dimensional visibility — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
 
 ```
 ∇^μ T_μν^{eff}(x) = 0
@@ -507,11 +507,11 @@ for all d ≥ 1, all κ > 0, and all macroscopic localization lengths L_d. Compa
 
 Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)³ = √2/2 = 0.7071
 
-**Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 projection (Ω_log < ln 2) if and only if χ ∈ L²(Ξ_d).
+**Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 dimensional visibility (Ω_log < ln 2) if and only if χ ∈ L²(Ξ_d).
 
 **Proof.**
 
-*(→) Scattering states fail Stage-1.* For E ≥ λ_d = inf σ_ess(H_d), the eigenfunction χ_E oscillates at large r: χ_E(r) ~ r^{−(d−1)/2} sin(kr + δ) with k = √(E − λ_d) ≥ 0. The squared amplitude decays only as r^{−(d−1)}, so ∫|χ_E|² dμ_ξ diverges for macroscopic Ξ_d. The projection weight A_rel = |χ_E(ξ⁰)|² / ∫|χ_E|² dμ_ξ → 0, giving Ω_log → ∞. Stage-1 condition Ω_log < ln 2 fails.
+*(→) Scattering states fail Stage-1.* For E ≥ λ_d = inf σ_ess(H_d), the eigenfunction χ_E oscillates at large r: χ_E(r) ~ r^{−(d−1)/2} sin(kr + δ) with k = √(E − λ_d) ≥ 0. The squared amplitude decays only as r^{−(d−1)}, so ∫|χ_E|² dμ_ξ diverges for macroscopic Ξ_d. The dimensional visibility A_rel = |χ_E(ξ⁰)|² / ∫|χ_E|² dμ_ξ → 0, giving Ω_log → ∞. Stage-1 condition Ω_log < ln 2 fails.
 
 *(←) Bound states pass Stage-1.* For E < λ_d, |χ(r)| ≤ C exp(−κr). Then |χ(ξ⁰)|² > 0 (χ is continuous and non-zero at ξ⁰ by standard ODE theory for bound states), and ‖χ‖²_{Ξ_d} < ∞. Therefore A_rel > 0 and Ω_log is finite. Whether Ω_log < ln 2 depends on λ_d — Stage-2 further selects among bound states. But all Stage-1-passing modes are among the L² bound states. □
 
@@ -553,7 +553,7 @@ T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{4D}[ψ](x)
 
 ## 4. Cosmological Constant
 
-Λ_eff is naturally small because unoccupied modes — the main source of vacuum energy — have high projection mismatch Ω_log = ln(S(n,d)/S(n,2)), suppressing their contribution exponentially. The scale is tied to the same hidden radii and coupling strengths that fix particle masses. No fine-tuning is required.
+Λ_eff is naturally small because unoccupied modes — the main source of vacuum energy — have high dimensional depth Ω_log = ln(S(n,d)/S(n,2)), suppressing their contribution exponentially. The scale is tied to the same hidden radii and coupling strengths that fix particle masses. No fine-tuning is required.
 
 ---
 
@@ -561,9 +561,9 @@ T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{4D}[ψ](x)
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞. Observable particles are those passing two filters:
 
-**Stage 1 — Projection:** The mode projects with sufficient amplitude into the 3+1D slice. High projection mismatch Ω_log suppresses modes exponentially. For quarks (d=3,4), the U(1) breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c → quarks project at full strength automatically. Leptons and neutrinos carry no colour charge, so suppression is allowed.
+**Stage 1 — Dimensional Visibility:** The mode must have sufficient activity in our d=3 dimensions. High dimensional depth Ω_log suppresses modes exponentially. For quarks (d=3,4), the U(1) breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c → quarks are fully visible automatically. Leptons and neutrinos carry no colour charge, so partial obscuring is allowed.
 
-**Stage 2 — Stability:** The projected mode must survive 3D QCD dynamics. Colour-non-singlet configurations carry positive kernel energy and decohere.
+**Stage 2 — Stability:** The mode must survive 3D QCD dynamics. Colour-non-singlet configurations carry positive kernel energy and decohere.
 
 The Stage-1 filter has an exact occupation criterion from the Ω_log suppression factor exp(−Ω_log) = S(n,2)/S(n,3) for d=3:
 
@@ -575,4 +575,4 @@ The Stage-1 filter has an exact occupation criterion from the Ω_log suppression
 | 4 | 0.693 | ✅ strange quark |
 | 5+ | >0.85 | no |
 
-Both occupied modes (n=1,4) are exactly those selected by the co-fixed-point spectrum {1,4}. Modes n=2,3 also pass Stage 1 (Ω_log = 0.288, 0.511 < ln 2) but are absent from the co-fixed-point spectrum — they are unoccupied resonances of M_∞, not suppressed by projection. Modes n≥5 (Ω_log > ln 2) fail Stage 1 and are additionally suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.
+Both occupied modes (n=1,4) are exactly those selected by the co-fixed-point spectrum {1,4}. Modes n=2,3 also pass Stage 1 (Ω_log = 0.288, 0.511 < ln 2) but are absent from the co-fixed-point spectrum — they are unoccupied resonances of M_∞, not absent due to extra-dimensional obscuring. Modes n≥5 (Ω_log > ln 2) fail Stage 1 and are additionally suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.

@@ -10,7 +10,7 @@ The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a
 
 **Established:**
 - □_x φ + m²_eff φ = 0 is Lorentz-covariant
-- The projection ψ_obs(r,t) = Ψ∞(r, ξ⁰, t) is Lorentz-covariant: restriction to a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
+- Ψ∞(r, ξ⁰, t) is Lorentz-covariant: evaluation at a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
 - S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate
 - Fermion spin-½ from the Dirac operator on M_∞ — see §2
 
@@ -469,7 +469,7 @@ The IDWT state space is the weighted Hilbert space:
 
 with D = {2,3,4,5,6,10} and c_{n,d} the mode coefficients.
 
-**Kernel-induced convergence:** The projection weight exp(−Ω_log(n,d)) = S(n,2)/S(n,d) ensures that modes at high n are exponentially suppressed. For d ≥ 3 and large n, S(n,d)/S(n,2) ~ n^{d−2}, giving absolute convergence of all physical sums.
+**Kernel-induced convergence:** The dimensional visibility weight exp(−Ω_log(n,d)) = S(n,2)/S(n,d) ensures that modes at high n are exponentially suppressed. For d ≥ 3 and large n, S(n,d)/S(n,2) ~ n^{d−2}, giving absolute convergence of all physical sums.
 
 **Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (the inter-block coupling T is relatively bounded with relative bound < 1 from the kernel decay ~n^{−(d−1)/2}).
 
@@ -503,9 +503,9 @@ since S(1,d−1) = 1 and S(N+1,d−1) → ∞. □
 
 **Consequence.** By Cauchy-Schwarz, the evaluation functional |Ψ(ξ₀)| ≤ ‖Ψ‖_w × (Σ_{d∈D} d/(d−1))^{1/2} < 3‖Ψ‖_w is bounded without any ultraviolet cutoff. The S(n,d) weighting provides natural regularisation — the same weighting that defines the mass formula also makes the evaluation functional continuous.
 
-### Projection Operator Properties
+### Observable Coordinate Operator Properties
 
-The projection P: H_w → H_obs, PΨ = Ψ(·,ξ₀) satisfies:
+The evaluation operator P: H_w → H_obs, PΨ = Ψ(·,ξ₀) satisfies:
 
 - **Bounded:** from the evaluation functional bound above
 - **Idempotent (P² = P):** evaluation at a fixed point is idempotent
@@ -519,7 +519,7 @@ Physical meaning: physical states remain physical under time evolution.
 
 All three nucleon static properties follow from the same kernel that produces confinement, vector mesons, and mass scales — no additional inputs.
 
-The proton/neutron wavefunction in hidden space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes hidden orbital angular momentum into the projected magnetic moment. The effective hidden coupling at the baryon scale is g_{3,4}^eff = 125 (renormalized from g_{3,4} = 4√6 ≈ 9.80) with centrifugal overlap factor f_overlap = 0.72.
+The proton/neutron wavefunction in hidden space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes hidden orbital angular momentum into the observable magnetic moment. The effective hidden coupling at the baryon scale is g_{3,4}^eff = 125 (renormalized from g_{3,4} = 4√6 ≈ 9.80) with centrifugal overlap factor f_overlap = 0.72.
 
 **Proton magnetic moment:**
 ```
@@ -584,7 +584,7 @@ The kernel naturally produces m_π << m_K because the strange quark (n=4) increa
 
 **Mechanism:** Dominant vacuum energy comes from unoccupied low-n modes across all sectors. These have:
 - Low S(n,d) values (n=2,3,5,... gaps in d=3 and analogous gaps elsewhere)
-- High projection mismatch Ω_log > 1.5 → exponential Stage-1 suppression
+- High dimensional depth Ω_log > 1.5 → exponential Stage-1 suppression
 
 ```
 ρ_vac^obs ≈ N_unocc × ⟨S_unocc⟩ × m_scale_3⁴ × exp(−Ω_typ) × f_overlap
@@ -592,6 +592,6 @@ The kernel naturally produces m_π << m_K because the strange quark (n=4) increa
 
 With N_unocc ≈ 15, ⟨S_unocc⟩ ≈ 500, Ω_typ ≈ 1.8, the suppression factor exp(−Ω_typ) ≈ 0.17 brings the vacuum contribution well below the naive UV estimate.
 
-Λ_eff is parametrically small without fine-tuning because most unoccupied modes are suppressed by the two-stage filter. The "why so small" problem is addressed geometrically: occupied modes contribute negligibly (localized, high projection efficiency but tiny volume); unoccupied modes dominate the fluctuation but are exponentially suppressed at Stage 1.
+Λ_eff is parametrically small without fine-tuning because most unoccupied modes are suppressed by the two-stage filter. The "why so small" problem is addressed geometrically: occupied modes contribute negligibly (localized, fully visible but tiny volume); unoccupied modes dominate the fluctuation but are exponentially suppressed at Stage 1.
 
 The same kernel that selects {1,4}, locks the bottom beat, confines colour, and binds pions also sets the vacuum energy — no additional terms.

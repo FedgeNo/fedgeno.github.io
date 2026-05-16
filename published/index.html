@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Published — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/" aria-current="page">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
+  <h1>Published</h1>
+  <p class="sub">Works uploaded to Zenodo. Some formal, some notes — all open access.</p>
+</header>
+
+<main>
+<section>
+  <div class="grid">
+
+    <a class="card" href="https://doi.org/10.5281/zenodo.20195678" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="part">Technical Note · 2026-05-15</div>
+        <h3>Photon vs Electron in IDWT: A Dimensional Comparison</h3>
+      </div>
+      <p>The photon in a d=2 sector, the electron in d=6. A short note working through what the dimensional difference implies for masslessness, polarization, and spin structure.</p>
+    </a>
+
+    <a class="card" href="https://doi.org/10.5281/zenodo.20133722" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="part">Working Paper · 2026-05-12</div>
+        <h3>Atomic Orbital Structure as d=6 Sector Projection in IDWT</h3>
+      </div>
+      <p>The electron's angular momentum eigenmodes in hydrogen are representations of SU(4). Projecting along SU(4) ⊃ SU(3) ⊃ SO(3) recovers the s, p, d, f families with exact degeneracies — as a theorem of the sector geometry, with no free parameters.</p>
+    </a>
+
+    <a class="card" href="https://doi.org/10.5281/zenodo.20129388" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="part">Model · 2026-05-11</div>
+        <h3>A Spectral Derivation of the Standard Model</h3>
+      </div>
+      <p>IDWT as a spectral triple. The Standard Model is identified as the spectral data of a single self-adjoint operator, requiring one mass unit and one seed integer to fix all particle masses, coupling constants, and mixing angles.</p>
+    </a>
+
+    <a class="card" href="https://doi.org/10.5281/zenodo.19767493" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="part">Model · 2026-05-08</div>
+        <h3>Infinite Dimensional Wave Theory</h3>
+      </div>
+      <p>Full documentation of IDWT: the complete Standard Model particle spectrum — 15 masses across twelve orders of magnitude — derived from n<sub>s</sub> = 4 and m<sub>e</sub> alone, with falsifiable neutrino predictions and an open-source proof script.</p>
+    </a>
+
+    <a class="card" href="https://doi.org/10.5281/zenodo.20032249" target="_blank" rel="noopener">
+      <div class="card-head">
+        <div class="part">Model · 2026-05-05</div>
+        <h3>A Combinatorial-Geometric Derivation of the Standard Model Spectrum from a Single Integer</h3>
+      </div>
+      <p>The mass formula m(n,d) = m_scale,d × S(n,d) derived from first principles in five theorems, including a Completeness Theorem showing no additional stable particles are possible within the framework.</p>
+    </a>
+
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

@@ -29,10 +29,10 @@ Given this single definition, the four applications are different functionals on
 |---|---|---|
 | **Mass eigenvalue** | F_mass = m_scale_d × S(n,d) | Mass = sector scale × cumulative microstate count |
 | **Hilbert space weight** | F_norm = S(n,d) (weight in ‖Ψ‖_w²) | Energy-weighted norm: ‖Ψ‖_w² = Σ m(n,d)|c_{n,d}|²/m_scale_d |
-| **Projection amplitude** | F_proj = S(n,2)/S(n,d) (ratio) | Projection loss = ratio of d=2 to d-sector state counts |
+| **Dimensional visibility** | F_proj = S(n,2)/S(n,d) (ratio) | Dimensional depth = ratio of d=2 to d-sector state counts |
 | **Convergence bound** | F_conv = Σ_n 1/S(n,d) = d/(d-1) | Reciprocal sum bounds the evaluation functional |
 
-These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — projection loss is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
+These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — dimensional depth is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
 
 **S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
@@ -208,7 +208,7 @@ n_ν₃ − n_ν₂ = 7 = n_u + n_strange
 
 **Spectral grounding (General Weyl Law, Part 8 §3.5):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same Weyl spectral law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
 
-From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.
+From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 50.27 meV (corrected; bare 48.87 meV), Σm_ν = 60.39 meV (bare 59.00 meV; δ_ν₃ = 1/35, §9d).
 
 ---
 
@@ -443,7 +443,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 | m_ν₁ | n_ν₁ = S(n_u,3) = 10 | 1.487 meV | — | Absolute mass; testable by CMB-S4 + Project 8 |
 | m_ν₂ | n_ν₂ = S(n_u,4) = 15 | 8.639 meV | — | Absolute mass |
 | m_ν₃ | n_ν₃ = n_τ − n_d = 22 | 48.87 meV → 50.26 meV | — | Absolute mass; 2.5–2.9% below oscillation inference; corrected by δ_ν₃ = 1/35 (§9d) |
-| Σm_ν | — | 59.00 meV | < 120 meV | ✅ within Planck bound; CMB-S4 target ~30 meV |
+| Σm_ν | — | 60.39 meV (corrected; bare 59.00 meV) | < 120 meV | ✅ within Planck bound; CMB-S4 target ~30 meV |
 | m_ν₂/m_ν₁ | — | 5.808 | — | Pure ratio: S(15,5)/S(10,5); exact from mode indices |
 | m_ν₃/m_ν₁ | — | 32.86 | — | Pure ratio: S(22,5)/S(10,5); exact from mode indices |
 | m_ββ | — | 0 (exact) | unobserved | Majorana forbidden in d=5 |
@@ -454,11 +454,11 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 
 **Structural source.** n_ν₁ = S(n_u,3) = 10 and n_ν₂ = S(n_u,4) = 15 are primary Pascal evaluations at the seed. n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22 is derived by inclusion-exclusion from two primary modes — the only neutrino mode requiring information from both the d=3 and d=4 Hopf images. This cross-sector entanglement makes n_ν₃ susceptible to a correction at the seed level: the leading d=4 evaluation above n_u is S(n_s,4) = 35 (a hockey-stick identity consequence: S(n_s+1,3) = S(n_s,4) = 35), which appears as the natural denominator. This is structurally analogous to the τ Dyson correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) — the same S(n_s,4) = 35 appears — but without the AA criticality factor n_s² = 16 (d=5 is not at the critical point) and without the Dyson resummation factor n_u (g_{55} ≠ 1/n_s). The first-principles derivation of this coefficient is given in §9d.
 
-If the correction is established, Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV (vs the uncorrected 59.00 meV). Both are within current cosmological bounds; CMB-S4 will distinguish them.
+The corrected Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV; bare 59.00 meV. Both are within current cosmological bounds; CMB-S4 will distinguish them.
 
 **Observable predictions:**
 
-- Σm_ν = 59.0 meV: detectable by Simons Observatory (CMB-S4 sensitivity ~30 meV — within a factor 2)
+- Σm_ν = 60.39 meV: detectable by Simons Observatory (CMB-S4 sensitivity ~30 meV — within a factor 2)
 - m_β ≈ 8.77 meV: below KATRIN bound (< 450 meV) and below Project 8's long-term goal (~40 meV) — not accessible in near-term beta-decay experiments
 - m_ββ = 0 exactly: 0νββ decay is forbidden (Majorana mass forbidden in d=5 by spin structure)
 - Normal hierarchy: m_ν₁ << m_ν₂ << m_ν₃

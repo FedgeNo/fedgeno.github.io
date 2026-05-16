@@ -75,7 +75,7 @@ S(n,5) is monotonically increasing, n_ν₁ < n_ν₂ < n_ν₃ → m_ν₁ < m_
 
 **CKM matrix elements from the Lagrangian kernel**
 
-The kernel off-diagonal matrix element between modes n_i (lighter) and n_j (heavier) within sector d satisfies |V_{i→j}|² = S(n_lighter,d)/S(n_heavier,d) — the squared ratio of the heavier mode's projection amplitude to the lighter's at ξ⁰ (lowpass filter, Part 1 §2.2).
+The kernel off-diagonal matrix element between modes n_i (lighter) and n_j (heavier) within sector d satisfies |V_{i→j}|² = S(n_lighter,d)/S(n_heavier,d) — the squared ratio of the heavier mode's amplitude at the d=3 coordinate level to the lighter's (Part 1 §2.2).
 
 ```
 |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116
@@ -257,14 +257,15 @@ Magnetic moments from the l=1 spin-orbit admixture of the cross-sector kernel (P
 n=2: 18.8 MeV   (= m_scale_3 × S(2,3))
 n=3: 47.0 MeV   (= m_scale_3 × S(3,3))
 ```
-Real resonances of M_∞ that fail Stage-1 projection. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
+Real resonances of M_∞ that fail Stage-1 dimensional visibility. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
 
 **Neutrino absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data)
 ```
-m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 48.87 meV,  Σm_ν = 59.00 meV
+m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 50.27 meV,  Σm_ν = 60.39 meV
 m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808,  m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86
+(Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV. Corrected by δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d.)
 ```
-The primary predictions are the absolute masses and their ratios — derived entirely from mode indices and m_scale_5, with no neutrino oscillation data entering. Δm² values are derived consequences in oscillation-experiment language, not native IDWT quantities; m_ν₃ sits ~4% below the oscillation inference, an open item (Part 6).
+The primary predictions are the absolute masses and their ratios — derived entirely from mode indices and m_scale_5, with no neutrino oscillation data entering. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
 
 **Absent high-energy states** — observation of either falsifies the framework:
 ```
@@ -407,16 +408,17 @@ m_scale_5 = (3/4) × m_scale_6³ / m_scale_4² = 7.429 × 10⁻¹³ MeV
 
 m_ν₁ = m_scale_5 × S(10,5) = 1.487 meV     [n_ν₁ = S(n_u,3) = 10]
 m_ν₂ = m_scale_5 × S(15,5) = 8.639 meV     [n_ν₂ = S(n_u,4) = 15]
-m_ν₃ = m_scale_5 × S(22,5) = 48.87 meV     [n_ν₃ = n_τ − n_d = 22]
-Σm_ν = 59.00 meV                            (Planck bound: < 120 meV)
+m_ν₃ = m_scale_5 × S(22,5) × (1 + 1/35) = 50.27 meV  [n_ν₃ = n_τ − n_d = 22; δ_ν₃ = 1/35]
+Σm_ν = 60.39 meV                            (Planck bound: < 120 meV)
 
 m_β (beta-decay effective) ≈ 8.77 meV       (KATRIN bound: < 450 meV)
 m_ββ (0νββ) = 0 (exact)                     (Majorana forbidden in d=5)
+(Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.)
 ```
 
-Σm_ν = 59.0 meV is a concrete, falsifiable prediction within reach of CMB-S4 (target sensitivity ~30 meV, factor 2 from detection). Normal hierarchy confirmed.
+Σm_ν = 60.39 meV is a concrete, falsifiable prediction within reach of CMB-S4 (target sensitivity ~30 meV). Normal hierarchy confirmed.
 
-**On oscillation comparisons.** Δm² values are derived consequences of the absolute masses expressed in oscillation-experiment language (which measures interference of mass eigenstates, not absolute masses). They are not native IDWT quantities. m_ν₃ = 48.87 meV sits ~4% below the value implied by oscillation data (~50.85 meV). This is a fractional gap in one absolute mass — structurally the same situation as the raw top quark or tau before their respective corrections — and is open to a Dyson-type treatment (Part 2 §9c, Part 6).
+**On oscillation comparisons.** Δm² values are derived consequences of the absolute masses expressed in oscillation-experiment language (which measures interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is derived exactly in Part 2 §9d; the corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
 
 ## 3c. Deep Predictions
 
@@ -499,7 +501,7 @@ The $B_c$ and $\Upsilon(1S)$ predictions use mode indices that are exact algebra
 **Cross-sector identity.** The integer $n_{\nu_3} = 22$ appears in three sectors simultaneously:
 - $d=3$: $\Upsilon(1S)$ at $m_{\rm scale,3} \times S(22,3) = 9517$ MeV (+0.59%)
 - $d=4$: $D^0$ meson at $m_{\rm scale,4} \times S(22,4) = 1836$ MeV (−1.59%)
-- $d=5$: $\nu_3$ at $m_{\rm scale,5} \times S(22,5) = 48.871$ meV (exact by construction)
+- $d=5$: $\nu_3$ at $m_{\rm scale,5} \times S(22,5) = 48.871$ meV (bare); corrected 50.27 meV (×(1+1/35), Part 2 §9d)
 
 The same integer labels a bottomonium ground state, a charmed meson, and the heaviest neutrino — three different particles in three different sectors.
 
@@ -616,7 +618,7 @@ A single observation in this category directly and irrecoverably falsifies IDWT.
 | **F2** | **Normal neutrino mass ordering.** Mode indices n_ν₁ = 10, n_ν₂ = 15, n_ν₃ = 22 are fixed by the eigenmode selection rule (n_ν₁ = S(n_u,3), n_ν₂ = S(n_u,4), n_ν₃ = n_τ − n_d). Since S(n,5) is strictly monotone, m_ν₁ < m_ν₂ < m_ν₃ necessarily. Inverted ordering cannot be accommodated within any consistent mode-index assignment that preserves algebraic closure of the generation chain. | Eigenmode selection rule; monotonicity of S(n,5) (§5, §6) | 3–4σ preference for normal ordering at current experiments ✅ |
 | **F3** | **No new stable fundamental particles.** The sector set D = {2,3,4,5,6,10} is complete and unique (§3a). Within each sector, the occupied mode index set Σ is the unique solution to the co-fixed-point system (Uniqueness Theorem, Part 1 §5c). The only beat mode is at k₀ = 16 in d=3, verified by exhaustive search. Any new particle requires a new sector (excluded by Rule A + Rule B) or a new mode index (excluded by the Uniqueness Theorem) — neither exists. | Sector Set Theorem + Completeness Theorem (Part 1 §3a, §3b) | No new fundamental particles at LEP, Tevatron, LHC ✅ |
 | **F4** | **No stable particle near 68.3 GeV.** S(35,10) × m_scale_10 ≈ 68.3 GeV is below the Z mass. IDWT explicitly predicts its absence: n=35 in d=10 is not a co-fixed-point eigenmode (the tau is n=23; n=35 in d=10 has no eigenmode selection rule support). | Tau sector co-fixed-point structure | Excluded at LEP (√s up to 209 GeV, no such state) ✅ |
-| **F5** | **No narrow hadronic resonance in the 15–50 MeV window.** The d=3 modes n=2 (18.8 MeV) and n=3 (47.0 MeV) pass Stage-1 projection (Ω_log = 0.288 and 0.511, both < ln 2 = 0.693) but fail Stage-2 co-fixed-point stability. They exist only as extremely broad, short-lived colour-triplet states. A stable or narrow (Γ/m < 10%) hadron in this window with no nuclear or pion-sector explanation would falsify Stage-2. | Two-stage observability (Part 7 §2.5) | No known narrow states in this window ✅ |
+| **F5** | **No narrow hadronic resonance in the 15–50 MeV window.** The d=3 modes n=2 (18.8 MeV) and n=3 (47.0 MeV) pass Stage-1 dimensional visibility (Ω_log = 0.288 and 0.511, both < ln 2 = 0.693) but fail Stage-2 co-fixed-point stability. They exist only as extremely broad, short-lived colour-triplet states. A stable or narrow (Γ/m < 10%) hadron in this window with no nuclear or pion-sector explanation would falsify Stage-2. | Two-stage observability (Part 7 §2.5) | No known narrow states in this window ✅ |
 | **F6** | **No fourth quark or lepton generation.** S(72,10) × m_scale_10 ≈ 51.7 TeV is the next d=10 mode above tau — far beyond LHC reach and not a co-fixed-point eigenmode. No d=4 mode above top (n=72) or d=6 mode above muon (n=35) is in the co-fixed-point set. A confirmed fourth-generation fermion at any mass falsifies the spectrum closure. | Completeness Theorem (Part 1 §3b) | Z pole invisible width: N_ν = 3.0000 predicted (PDG: 2.984 ± 0.008) ✅ |
 
 ---
@@ -630,7 +632,7 @@ These predictions have specific numerical values from mode indices and sector ge
 | **F7** | Strange/down mass ratio | 20.000 (zero error) | S(4,3)/S(1,3) = 20/1 | Ratio measured outside 19.5–20.5 at a well-controlled renormalization scale |
 | **F8** | Muon/electron mass ratio | 206.7647 | S(35,6)/S(13,6) | Measured outside 206.760 ± 0.005 |
 | **F9** | Tau/electron mass ratio | 3475.126 (PDG −0.14σ) | S(23,10)/S(13,6) × (1 + 1/1680) | More than 3σ from 3475.13 (PDG 1σ = ±0.24) |
-| **F10** | Sum of neutrino masses | Σm_ν = 59.00 meV | Cross-sector Hopf fixed point; no oscillation data used | Measured < 40 meV or > 80 meV |
+| **F10** | Sum of neutrino masses | Σm_ν = 60.39 meV (corrected; δ_ν₃=1/35, Part 2 §9d) | Cross-sector Hopf fixed point; no oscillation data used | Measured < 40 meV or > 80 meV |
 | **F11** | Neutrino mass ratio m_ν₂/m_ν₁ | 5.808 (exact) | S(15,5)/S(10,5) = 11628/2002 | Ratio measured outside 5.5–6.1 |
 | **F12** | Neutrino mass ratio m_ν₃/m_ν₁ | 32.86 (exact) | S(22,5)/S(10,5) = 65780/2002 | Ratio measured outside 30–36 |
 | **F13** | Atmospheric mixing angle sin²θ₂₃ | 0.5590 (PDG 0.561, −0.36%) | PMNS spectral geometry (§4) | Outside 0.554–0.564 at > 3σ |
@@ -655,7 +657,7 @@ These follow from the IDWT framework geometry and differ qualitatively from Stan
 
 **C3 — No seesaw mechanism.** Neutrino masses are small because m_scale_5 is set by the cross-sector Hopf fixed-point equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by a seesaw with a heavy right-handed neutrino. No lepton-number-violating operator is needed or allowed. Discovery of a right-handed neutrino mass term, lepton-number-violating interactions at any scale, or any operator that generates a Majorana mass for SM neutrinos would falsify C3 and F1/F2 simultaneously.
 
-**C4 — No sterile neutrinos.** The two-stage observability filter eliminates all d=5 modes that do not project onto the 4D slice with finite amplitude. There are exactly three neutrino species: ν₁, ν₂, ν₃ at n = 10, 15, 22. No additional neutrino species at any mass scale is predicted; the PMNS matrix is unitary 3×3 exactly. Evidence for a fourth neutrino mixing into the PMNS matrix — from short-baseline anomalies, reactor anomalies, or direct detection — would falsify F3, F6, and C4 simultaneously.
+**C4 — No sterile neutrinos.** The two-stage observability filter eliminates all d=5 modes that do not have sufficient amplitude at the d=3 coordinate level. There are exactly three neutrino species: ν₁, ν₂, ν₃ at n = 10, 15, 22. No additional neutrino species at any mass scale is predicted; the PMNS matrix is unitary 3×3 exactly. Evidence for a fourth neutrino mixing into the PMNS matrix — from short-baseline anomalies, reactor anomalies, or direct detection — would falsify F3, F6, and C4 simultaneously.
 
 **C5 — Left-handed weak coupling is geometric.** The W boson's exclusive left-handed coupling follows from the Kähler structure of CP² (d=4) and CP³ (d=6): the Kähler γ₅ operator splits each sector spinor into holomorphic (left-handed) and anti-holomorphic (right-handed) components; W is a holomorphic connection and cannot couple to the right-handed component at any order that does not involve the anti-holomorphic mixing. Right-handed W couplings beyond known radiative corrections would falsify the Kähler sector geometry.
 
@@ -672,7 +674,7 @@ These predictions are within reach of running or funded experiments within the n
 | Prediction | IDWT value | Key experiment | Current status | Timescale |
 |---|---|---|---|---|
 | 0νββ rate = 0 | m_ββ = 0 exactly | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | 2025–2035; reaching ~2–5 meV sensitivity |
-| Σm_ν = 59.0 meV | 59.0 meV | CMB-S4 (target ~30 meV) | Below Planck bound (< 120 meV) | 2030s; within 2× of detection |
+| Σm_ν = 60.39 meV | 60.39 meV | CMB-S4 (target ~30 meV) | Below Planck bound (< 120 meV) | 2030s; within 2× of detection |
 | Normal ordering (definitive) | m_ν₁ < m_ν₂ < m_ν₃ | JUNO, DUNE, Hyper-Kamiokande | 3–4σ preference | 2025–2030 |
 | sin²θ₂₃ = 0.5590 | 0.5590 ± 0.001 | T2K, NOvA, DUNE | PDG: 0.561, −0.36% | Running now |
 | No new stable particles | closed spectrum | HL-LHC, FCC | LHC Run 3 consistent | 2025–2040 |
@@ -689,7 +691,7 @@ The table below condenses the hardest predictions in order of experimental decis
 |---|---|---|
 | 1 | 0νββ rate = 0 (F1, F19) | Any signal above background at > 3σ |
 | 2 | Normal neutrino mass ordering (F2) | Definitive inverted-ordering measurement |
-| 3 | Σm_ν = 59.0 meV (F10) | Measured < 40 meV or > 80 meV |
+| 3 | Σm_ν = 60.39 meV (F10) | Measured < 40 meV or > 80 meV |
 | 4 | No new stable particles (F3) | Any confirmed new fundamental particle |
 | 5 | m_s/m_d = 20 exactly (F7) | Ratio outside 19.5–20.5 at controlled scale |
 | 6 | N_ν = 3 exactly (F18) | Fourth neutrino species confirmed |

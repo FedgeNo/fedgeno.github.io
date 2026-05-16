@@ -348,6 +348,15 @@ k_vals = {"up": 0, "charm": 3, "top": 10}
 # PDG: 1776.86 +/- 0.12 MeV. Error: -0.14 sigma. (Part 2 section 9)
 dyson_factor = 1.0 + 1.0 / (n_up * n_strange**2 * S(n_strange, 4))
 
+# --- ν₃ cross-sector constructive interference correction --------------------
+# The d=5/d=3 cross-sector kernel at mode n_nu3=22 receives a single-order
+# constructive interference from the two sector images of n_up (into d=3 and d=4).
+# The correction is:
+#   δ_ν₃ = ε × g_{33} = [1/(280√7)] × [8√7] = 8/280 = 1/35   (exact)
+# Applied multiplicatively to m_nu3 only. (Part 2 §9d, T11d)
+delta_nu3  = epsilon * g33     # = 1/35 exactly; epsilon * 8*sqrt(7) / sqrt(7) = 8/280
+nu3_factor = 1.0 + delta_nu3  # = 36/35
+
 
 # =============================================================================
 # STEP 5 -- ELECTROWEAK SECTOR: WEINBERG ANGLE, GAUGE COUPLINGS, FERMI CONSTANT
@@ -650,7 +659,12 @@ m_nu3_MeV = m_scale5 * S(n_nu3, 5)
 m_nu1_meV = m_nu1_MeV * 1.0e9    # 1 MeV = 10⁹ meV
 m_nu2_meV = m_nu2_MeV * 1.0e9
 m_nu3_meV = m_nu3_MeV * 1.0e9
-sum_mnu   = m_nu1_meV + m_nu2_meV + m_nu3_meV
+sum_mnu   = m_nu1_meV + m_nu2_meV + m_nu3_meV  # uncorrected
+
+# ν₃ correction applied (δ_ν₃ = 1/35 from STEP 4)
+m_nu3_MeV_corr = m_nu3_MeV * nu3_factor
+m_nu3_meV_corr = m_nu3_meV * nu3_factor
+sum_mnu_corr   = m_nu1_meV + m_nu2_meV + m_nu3_meV_corr  # corrected: 60.39 meV
 
 # Δm²₂₁ = [S(n_ν₂,5)² - S(n_ν₁,5)²] × m_scale_5²   (eV²)
 # Δm²₃₁ = [S(n_ν₃,5)² - S(n_ν₁,5)²] × m_scale_5²   (eV²)
@@ -1572,13 +1586,16 @@ print("\n=== NEUTRINO MASSES (derived from m_e and seeds — no neutrino data) =
 print(f"  Formula: m_scale_5 = (n_up/n_s) x m_scale_6^3 / m_scale_4^2")
 print(f"  m_scale_5 = {m_scale5:.6e} MeV")
 print()
+print(f"  ν₃ correction: δ_ν₃ = ε×g_{{33}} = [1/(280√7)]×[8√7] = 1/35 = {delta_nu3:.6f}  (exact)")
 nu_vals = [
-    ("m_nu1 (meV)",     m_nu1_meV,  0,       "lightest; not yet measured"),
-    ("m_nu2 (meV)",     m_nu2_meV,  0,       "middle; not yet measured"),
-    ("m_nu3 (meV)",     m_nu3_meV,  0,       "heaviest; not yet measured"),
-    ("Sum m_nu (meV)",  sum_mnu,    0,       "Planck 2023 bound: < 120 meV"),
-    ("Delta_m21 (eV2)", dm2_21,     7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
-    ("Delta_m31 (eV2)", dm2_31,     2.584e-3,
+    ("m_nu1 (meV)",     m_nu1_meV,       0,       "lightest; not yet measured"),
+    ("m_nu2 (meV)",     m_nu2_meV,       0,       "middle; not yet measured"),
+    ("m_nu3 (meV)",     m_nu3_meV,       0,       "bare (uncorrected)"),
+    ("m_nu3 corr (meV)",m_nu3_meV_corr,  0,       "×(1+1/35); corrected (T11d)"),
+    ("Sum bare (meV)",  sum_mnu,         0,       "uncorrected Σmν"),
+    ("Sum corr (meV)",  sum_mnu_corr,    0,       "corrected Σmν; Planck 2023 bound: < 120 meV"),
+    ("Delta_m21 (eV2)", dm2_21,          7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
+    ("Delta_m31 (eV2)", dm2_31,          2.584e-3,
      "PDG: (2.584+-0.025)e-3; -7.7% structural (S(22,5)/S(10,5) fixed)"),  # noqa
 ]
 for label, pred, pdg, note in nu_vals:
@@ -1590,7 +1607,7 @@ for label, pred, pdg, note in nu_vals:
 
 print()
 print(f"  m_beta_beta = 0 (exact): Majorana mass forbidden in d=5 by spin structure")
-print(f"  Sum m_nu = {sum_mnu:.2f} meV is within reach of CMB-S4 (target sensitivity ~30 meV)")
+print(f"  Sum m_nu (corrected) = {sum_mnu_corr:.2f} meV is within reach of CMB-S4 (target sensitivity ~30 meV)")
 
 # =============================================================================
 # STEP 19 -- PMNS ANGLES FROM SPECTRAL GEOMETRY  (Part 5 §4–6)
@@ -1658,8 +1675,9 @@ print(f"  λ_H = (m_H/v_EW)²/2 = {lam_H_val:.5f}   PDG 0.12910   err"
 # =============================================================================
 
 print("\n=== NEUTRINO MASSES AND OSCILLATIONS (Part 5) ===")
-print(f"  m_ν₁={_mnu[0]:.3f} m_ν₂={_mnu[1]:.3f} m_ν₃={_mnu[2]:.3f} meV (normal ordering)")
-print(f"  Σmν = {_Smnu:.3f} meV   [CMB-S4 reach ~30 meV; Planck <120 meV ✓]")
+print(f"  m_ν₁={_mnu[0]:.3f} m_ν₂={_mnu[1]:.3f} m_ν₃={_mnu[2]:.3f} meV (bare; normal ordering)")
+print(f"  m_ν₃ corrected = {m_nu3_meV_corr:.3f} meV  (×(1+1/35); δ_ν₃=ε×g_33=1/35)")
+print(f"  Σmν (corrected) = {sum_mnu_corr:.3f} meV   [CMB-S4 reach ~30 meV; Planck <120 meV ✓]")
 print(f"  m_ββ = 0 (exact) — Majorana forbidden by Bott d mod 8=5; 0νββ rate=0")
 print(f"  m_β (beta decay) ≈ {m_beta_meV:.2f} meV   [KATRIN bound < 450 meV ✓; below Project 8 goal ~40 meV]")
 _baselines=[("Atmospheric (SK, 500km 1.0GeV)",  500, 1.0),

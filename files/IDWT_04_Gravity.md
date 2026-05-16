@@ -2,11 +2,11 @@
 
 ---
 
-## 1. Gravity is Emergent — and Purely Geometric
+## 1. Gravity is Curvature of M_∞ Caused by Mass
 
-Gravity is not a 3D phenomenon. It is a property of the full 10-spatial-dimensional geometry of M_∞. We observe 3 of those 10 spatial dimensions, so we observe 3-dimensional effects of what is fundamentally a 10D gravitational field. When Ψ∞ has a stable concentrated feature (a massive particle), the surrounding 10D manifold geometry is distorted. What we call gravitational attraction is our 3D observation of that distortion.
+Gravity is not a 3D phenomenon, and not a 10D phenomenon. It is a property of the full infinite-dimensional geometry of M_∞. When Ψ∞ has a stable concentrated feature — a massive particle — the surrounding M_∞ geometry is distorted. That distortion is gravity. What a 3D observer calls gravitational attraction is their restricted view of that ∞D curvature, filtered through the 3+1D slice they can access.
 
-Critically, IDWT has no gravitons. Gravity is entirely described by curvature — the distortion of the 10D geometry as measured by a d=3 observer through the induced 4D metric g_μν(x). There is no mediating particle, no spin-2 boson, and no quantum of the gravitational field. Gravity is geometry.
+Gravity is not a field. There are no gravitons, no spin-2 boson, no propagating gravitational degree of freedom, and no gravitational action separate from the geometry of M_∞. Gravity is geometry responding to mass.
 
 IDWT's macroscopic hidden dimensions are consistent with all known gravitational experiments, and the absence of any experimental bound on the sector length scale is a structural consequence, not a fine-tuning.
 
@@ -21,10 +21,10 @@ Every experimental constraint on extra dimensions assumes a KK tower. IDWT has n
 Every one of these exclusions has the same hidden assumption: gravitons can propagate into the extra dimensions, producing a KK tower of massive graviton modes with masses m_n = n/R. At distances r < R, Newton's law changes from 1/r² to 1/r^{2+d}. At colliders, KK gravitons are produced and escape.
 
 IDWT has none of this structure:
-- There are no gravitons — gravity is pure 4D curvature (§1)
+- There are no gravitons — gravity is curvature of M_∞ caused by mass, not a field with quanta (§1)
 - There is no KK tower — hidden modes are exponentially localised bound states, not plane waves (§3.9)
 - At any macroscopic distance from the source, the hidden mode is already suppressed as exp(−r/L_d), where L_d is the mode localization length
-- The gravitational interaction at all distances is standard 4D: G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a 4D point mass (proved in §3.2–3.6)
+- The gravitational effect measured by a 3D observer is G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a point mass (§3.2–3.6)
 
 **The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the standard 4D stress-energy of the particles it hosts.
 
@@ -44,42 +44,36 @@ This is the Poisson equation of Newtonian gravity with mass m = S(n,d) × m_scal
 
 ---
 
-## 3. The IDWT Action and Induced 4D Einstein Equations 🔶
+## 3. Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement 🔶
 
-This section derives the 4D Einstein equation from the M_∞ action, showing formally why macroscopic hidden dimensions do not produce additional gravitational degrees of freedom.
+This section establishes what gravity is in IDWT and describes the effective gravitational equation that a 3D observer confined to a 3+1D slice of M_∞ would measure.
 
-### 3.1 The Action
+### 3.1 Gravity as Curvature of M_∞ Sourced by Mass
 
-The IDWT action on M_∞ = ℝ^{3,1} × Ξ takes the form:
+Gravity in IDWT is curvature of M_∞ caused by mass. The mass of a mode (n,d) is m(n,d) = S(n,d) × m_scale_d — a count of hidden microstates, the mode's dimensional complexity (hidden inertia). A concentration of that hidden inertia distorts the geometry of M_∞, and that distortion is what gravity is.
 
-```
-S = S_EH + S_matter
-
-S_EH     = (1/16πG_N) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
-
-S_matter = ∫_{M_∞} Ψ̄∞ (iΓ^μ ∇_μ^{(4D)} + iΓ^a ∂_a) Ψ∞ dμ_4 dμ_ξ
-```
-
-**Critical structural choice:** S_EH involves only the 4D metric g_μν(x). There is no Einstein-Hilbert term for the hidden metric h_ab(ξ). The hidden geometry Ξ is a fixed background manifold — not a dynamical field. This is the precise and complete sense in which IDWT has no gravitons in Ξ: there is nothing to vary, so no gravitational wave equation exists in the hidden directions.
-
-In S_matter, the 4D metric g_μν(x) enters through three channels:
-- the 4D Dirac matrices Γ^μ = e^μ_a(x) γ^a via the vierbein
-- the covariant derivative ∇_μ^{(4D)} via the 4D spin connection ω_μ^{ab}(x)
-- the volume element √(−g) d⁴x
-
-The hidden derivatives ∂_a involve only h_ab(ξ), which does not vary.
-
-### 3.2 The Variation and Induced Einstein Equation
-
-Taking δS/δg^μν = 0:
+There is no postulated gravitational field, no graviton, and no separate gravitational action written by hand. The M_∞ action contains the matter term:
 
 ```
-δS_EH/δg^μν      = −(1/16πG_N) G_μν √(−g)
-
-δS_matter/δg^μν  = √(−g) × ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
+S_matter = ∫_{M_∞} Ψ̄∞ (iΓ^μ ∇_μ + iΓ^a ∂_a) Ψ∞ dμ_{M_∞}
 ```
 
-where T_μν^{Dirac}(x,ξ) is the standard Dirac stress-energy at each hidden point ξ. Setting the sum to zero gives the induced 4D Einstein equation:
+The gravitational term on M_∞ — the ∞D analogue of the Einstein-Hilbert action — is the spectral action Tr(f(D/Λ)), whose leading coefficient f_2Λ² encodes G_N^{-1}. This term is open (Part 6, §3.12.2); fixing it requires computing the spectral action on M_∞.
+
+The hidden geometry h_ab(ξ) is a fixed background — not a dynamical field. There is nothing gravitational to vary in Ξ, so no wave equation exists in the hidden directions and no KK graviton tower appears.
+
+**What a 3D observer perceives.** A 3D observer at fixed ξ⁰ cannot access the full M_∞ geometry. They measure the effect of ∞D curvature on their 3+1D slice. That measurement takes the effective form of a gravitational equation — something that looks like Newton's law at low energies or Einstein's field equation more generally. This effective description is valid for the observer's practical purposes but is not the underlying phenomenon. The phenomenon is ∞D curvature sourced by mass.
+
+### 3.2 The Observer's Effective Gravitational Equation
+
+A 3D observer who constructs a gravitational equation from their measurements finds it sourced by T_μν^{eff} — the full hidden-space integral of the matter stress-energy. Varying S_matter with respect to the 4D metric g_μν(x) that the observer uses to describe their 3+1D slice:
+
+```
+δS_matter/δg^μν = √(−g) × ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
+                = √(−g) × T_μν^{eff}(x)
+```
+
+where T_μν^{Dirac}(x,ξ) is the standard Dirac stress-energy at each hidden point ξ. The observer's effective gravitational equation is:
 
 ```
 G_μν(x) = 8πG_N × T_μν^{eff}(x)
@@ -87,7 +81,9 @@ G_μν(x) = 8πG_N × T_μν^{eff}(x)
 T_μν^{eff}(x) ≡ ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
 ```
 
-The gravitational source is the full hidden-space integral of the matter energy density — not the value at the observer address ξ⁰, and not any hidden geometric term. No R^{(Ξ)} curvature enters the right-hand side because h_ab was not varied.
+where G_N = G_∞/V_∞ is the ∞D coupling diluted by the full hidden volume (§3.12.2). This equation correctly describes the observer's measurements. It is the 3D observer's read of ∞D curvature sourced by mass — not a fundamental equation of IDWT.
+
+The gravitational source is the full hidden-space integral of the matter energy density. No R^{(Ξ)} curvature enters the right-hand side: the hidden geometry is a fixed background, not an independent gravitational source.
 
 The effective stress-energy has three contributions:
 1. **Occupied modes** (particles): T_μν^{matter} = Σᵢ mᵢ uμuν δ³(x−xᵢ)/√(−g)
@@ -103,26 +99,21 @@ T_μν^{eff}(x) = T_μν^{4D}[ψ](x) × ∫_Ξ |χ_{n,d}(ξ)|² dμ_ξ
               = T_μν^{4D}[ψ](x) × ‖χ‖²_Ξ
 ```
 
-For L²-normalised modes (‖χ‖²_Ξ = 1), the induced Einstein equation becomes standard 4D GR:
+For L²-normalised modes (‖χ‖²_Ξ = 1), the observer's effective gravitational equation sources by a massive Dirac field with mass m_eff = m_scale_d × S(n,d):
 
 ```
 G_μν(x) = 8πG_N × T_μν^{4D}[ψ](x)
 ```
 
-sourced by a massive Dirac field with mass m_eff = m_scale_d × S(n,d). The hidden dimensions have contributed their mass and do not appear as an independent gravitational source.
+The hidden dimensions have contributed their mass to this source and do not appear as an independent gravitational term. Mass is the only channel through which the hidden geometry enters the observer's gravitational measurement.
 
 ### 3.4 Why There Are No Hidden Gravitational Degrees of Freedom
 
-The variation δS/δh^ab(ξ) is not included in the action principle. Therefore:
+Gravity is geometry, not a field. Geometry does not have quanta. There are no gravitons because there is no gravitational field to quantize — there is only M_∞ curvature caused by mass. This is not an additional assumption; it follows from what gravity is in IDWT.
 
-- h_ab(ξ) has no equation of motion
-- No wave equation exists for fluctuations δh_ab
-- No propagating modes exist in Ξ
-- There are no KK gravitons
+More specifically: the hidden geometry h_ab(ξ) is a fixed classical background. It is not dynamical, has no equation of motion, and does not vary. There are therefore no fluctuations δh_ab, no wave equation in Ξ, and no KK graviton tower. The hidden sector enters the observer's gravitational measurement exactly once — through T_μν^{eff}(x), the integrated matter stress-energy, which encodes the mass of each particle and nothing else.
 
-The hidden sector contributes to 4D gravity exactly once: through T_μν^{eff}(x), the integrated matter density, which sources the 4D curvature as a standard stress-energy. It is not a mediator of any force. This is a theorem of the action principle, not an additional postulate.
-
-The question of cross-terms between different hidden addresses — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: IDWT has a single 4D field g_μν(x), not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
+The question of cross-terms between different hidden addresses — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: the 3D observer constructs a single metric g_μν(x) on their 3+1D slice, not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
 
 ### 3.5 Boundary Terms on Non-Compact Ξ
 
@@ -155,7 +146,7 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The projection
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
 | G_N sector-independent, loop-exact | ✅ | §3.11–3.12.2 |
-| G_N = G_fund/V_7: 3D observation of 10D gravity, V_7 ≈ 113 derived | ✅ partial (G_fund still one input) | §3.12.2 |
+| G_N = G_∞/V_7: V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
 In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the hidden coordinates. Information is preserved globally.
 
@@ -330,21 +321,15 @@ This is exact for the Gaussian ground state; corrections for the actual sector p
 
 ### 3.11.2 The Effective Newton's Constant
 
-The EH action is written with coefficient 1/(16πG_N) where G_N is Newton's constant — a measurable coupling between energy density and 4D spacetime curvature:
-
-```
-S_EH = (1/16πG_N) ∫_{ℝ^{3,1}} R^{(4)} √(−g) d⁴x
-```
-
-After sector mode normalisation (‖χ_{n,d}‖²_Ξ = 1), the effective stress-energy reduces to the standard 4D form (§3.3), and the induced Einstein equation is:
+After sector mode normalisation (‖χ_{n,d}‖²_Ξ = 1), the effective stress-energy reduces to the standard 4D form (§3.3). A 3D observer who constructs a gravitational equation from their measurements obtains:
 
 ```
 G_μν(x) = 8π G_N × T_μν^{4D}[ψ](x)
 ```
 
-G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source 4D curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
+G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** In IDWT, gravity is not quantized and there are no gravitons. G_N is not a "Planck mass squared" in any quantum gravity sense — the concept of a Planck mass as a threshold for quantum gravitational corrections does not apply. G_N is the coupling constant of 3+1D general relativity, entered into the action by hand as 1/(16πG_N). It is a measured constant of spacetime. Gravity is a 10D phenomenon; G_N is what a d=3 observer measures of a 10D gravitational field. G_N = G_fund / V_7 where V_7 ≈ 113 is derived from the sector localization geometry (§3.12.2). G_fund is the one remaining input — equivalent to measuring G_N once.
+**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_∞, the ∞D gravitational coupling diluted by the full hidden volume. Gravity is not quantized; there are no gravitons; the concept of a Planck mass as a quantum gravitational threshold does not apply. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
 
 ---
 
@@ -388,49 +373,58 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 δ(Tr_Ξ log O_Ξ) / δg_μν = 0   [exactly]
 ```
 
-Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to the EH coefficient 1/(16πG_N).
+Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to G_N.
 
 **Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its 4D and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the hidden dimensions. Integrating out these fluctuations produces the 4D Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
 
-In IDWT, the sector manifolds Ξ_d are not literal geometrically compact extra dimensions through which gravitons propagate. They are the configuration spaces of the internal degrees of freedom of Ψ∞ — analogous to spin (an internal degree of freedom, not a spatial dimension). The background metric h_ab(ξ) is fixed and classical, not varied, not dynamical, and does not couple to g_μν. There are no moduli, no metric fluctuations in Ξ_d, and therefore no KK graviton tower. All KK-exclusion bounds (graviton propagation, Eöt-Wash torsion balance, collider searches for KK modes) presuppose graviton propagation into the hidden dimensions; they do not apply to IDWT.
+In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are configuration spaces of the internal degrees of freedom of Ψ∞; h_ab(ξ) is fixed and classical, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into hidden dimensions; they do not apply to IDWT.
 
-**Conclusion.** G_N is not renormalized by hidden sector loops. The absence of a Ξ-induced correction to the EH coefficient follows from the product metric structure of M_∞ = M₄ × Ξ, which decouples the 4D and hidden metrics entirely. This is the precise content of "gravity is purely geometric curvature of the 4D slice."
+**Conclusion.** G_N as measured by a 3D observer is not renormalized by hidden sector loops. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
 
 ---
 
-### 3.12.2 G_N as a 3D Observation of 10D Gravity
+### 3.12.2 G_N as the 3D Projection of Infinite-Dimensional Gravity
 
-The previous subsections show that G_N is sector-independent (§3.11) and not renormalized by hidden-sector loops (§3.12.1). Neither addresses why G_N is small. In natural units, G_N M_p² ≈ 5.6 × 10⁻⁴⁰.
+The previous subsections show that G_N is sector-independent (§3.11) and not renormalized by hidden-sector loops (§3.12.1). Neither addresses the causal origin of G_N. This section establishes the correct logical direction: gravity is a phenomenon of the full $M_\infty$, not a 3D or 10D field appended to the particle physics. G_N is what a 3D observer at $\xi^0$ measures of it.
 
-**The picture.** Gravity is not a 3D phenomenon to which extra dimensions have been appended. It is a 10D phenomenon, and G_N is what a d=3 observer measures of a gravitational field that exists in all 10 spatial dimensions. The gravitational field of a massive particle fills all 10 spatial dimensions of M_∞ — nothing is missing or diminished. A d=3 observer measures only the components of that field that fall within their 3-dimensional cross-section. G_N is that measurement; G_fund is the full 10D coupling.
+**Gravity has no sector boundary.** Every other force mediates within a specific sector (EM and weak in d=2, strong in d=4). Gravity is the unique exception — it has no sector confinement because it is curvature of $M_\infty$ itself, the space in which all sectors live. A force confined to d=4 cannot reach a d=2 particle. Gravity reaches everything because everything lives in $M_\infty$.
 
-By Gauss's law in D spatial dimensions, total gravitational flux = G_fund × M, independent of D. A d=3 observer's cross-section subtends a fraction of that flux set by the ratio of their 3D cross-section to the total effective 10D volume. The 7 extra spatial dimensions (coordinates 4–10) each contribute their localization extent:
+**Mass encodes dimensional complexity; gravity couples through it.** The mass formula $m(n,d)=S(n,d)\times m_{\rm scale,d}$ assigns mass proportional to the count of hidden microstates in sector $d$. More dimensions means exponentially more microstates: the photon (d=2, ground-state massless — two transverse polarisations, no room for hidden structure) barely couples to gravity; the tau (d=10, $S(23,10)=64\,512\,240$) couples strongly. Gravity couples to each particle through that particle's dimensional complexity, which is encoded in its mass. There is no separate gravitational rule per sector — the mass formula already carries the dimensional structure, and gravity couples to mass.
 
-```
-G_N = G_fund / V_7
-```
+**G_N as a measurement.** The M_∞ curvature sourced by mass has a fundamental strength $G_\infty$. A 3D observer integrates out all hidden dimensions — both the occupied sectors (d=4,5,6,10, with localised modes) and the vacuum sectors (d>10, with no stable bound states). The occupied-sector contribution to this integration is $V_7$, fully derived from the sector coupling constants:
 
-**V_7 from sector localization lengths.** The 7 extra dimensions are introduced in sequence by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_10. Each sector introduces new coordinates whose effective extent is the sector localization length L_d from §3.10.4:
-
-| New dimension(s) | Introduced at sector | Localization length |
+| New coordinate(s) | Sector | $L_d = 1/\kappa_d$ |
 |---|---|---|
-| 4 | d=4 | L_4 = 0.801 |
-| 5 | d=5 | L_5 = 2.623 |
-| 6 | d=6 | L_6 = 2.301 |
-| 7, 8, 9, 10 | d=10 | L_{10} = 2.198 (each) |
+| 4th | d=4 | 0.801 |
+| 5th | d=5 | 2.623 |
+| 6th | d=6 | 2.301 |
+| 7th–10th | d=10 | 2.198 each |
 
-```
-V_7 = L_4 × L_5 × L_6 × L_{10}^4
-    = 0.801 × 2.623 × 2.301 × (2.198)^4
-    ≈ 0.801 × 2.623 × 2.301 × 23.34
-    ≈ 113   [IDWT fundamental length units]
-```
+$$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.801\times2.623\times2.301\times(2.198)^4 \approx 113$$
 
-**What this means.** G_N is not gravity with something removed — it is the full gravitational effect of a 10D field as seen from 3D. G_fund need not be hierarchically small; G_N is small because our cross-section is a fraction of the full 10D geometry. The full dimensional hierarchy (G_N M_p² ~ 10⁻⁴⁰) arises from V_7 combined with the ratio of the IDWT fundamental length to the proton Compton wavelength; both are set by the same sector coupling constants g_{dd} that determine the mass spectrum.
+The vacuum sectors (d>10) are subcritical — their modes are extended, not localised (T5). Schematically:
 
-**Contrast with KK theories.** In ADD models, the equivalent V_7 is a free parameter adjusted to fit G_N. In IDWT, V_7 = L_4 L_5 L_6 L_{10}^4 is fixed by the sector coupling constants via λ_d = (g_{dd}/2)^{2/3} (§3.10) and L_d = 1/κ_d (§3.9). The ratio G_N/G_fund is a prediction of the coupling structure, not a fit.
+$$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
-**Status.** V_7 is derived from the sector geometry, fixing the ratio G_N/G_fund. The remaining input is G_fund — equivalent to measuring G_N once and inferring G_fund = 113 G_N in IDWT fundamental units. All subsequent gravitational predictions follow from m = m_scale_d × S(n,d) and this one measurement.
+**Why the localization formula fails for d>10.** The Agmon theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For vacuum sectors (d>10), T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The Agmon decay theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum sector.
+
+**Numerical check.** Extrapolating the d=6 and d=10 data ($\kappa_d \to \sqrt{\lambda}=0.5$, $L_d \to 2$ as $d\to\infty$ with $g_{dd}=1/4$) gives a cumulative $\ln V_{\rm vacuum}$ that grows linearly with the number of vacuum dimensions. The product diverges: $V_{\rm vacuum} = \infty$ with the localization formula, giving $G_N = 0$. This confirms the formula cannot be extended naively.
+
+**Does curvature from the occupied sectors propagate into d>10?** Yes — there is no hard wall at d=10. In any connected geometry, curvature sourced by mass propagates as vacuum curvature (Weyl tensor) into regions with no sources. The absence of particle sources in d>10 does not by itself mean the geometry there is flat.
+
+**What T5 says about that curvature.** T5 establishes that d>10 modes are in the essential spectrum — scattering states, not bound states. Any gravitational disturbance entering d>10 disperses: it spreads outward without localizing, accumulating, or returning. This is the conducting side of the Aubry-André transition.
+
+**Why $V_{\rm vacuum}$ does not enter $G_N$.** Two complementary arguments converge on the same conclusion:
+
+*From the field equation.* In d>10 there are no particle sources, so the ∞D gravitational equation gives a vacuum condition: $R_{ab}=0$ (Ricci-flat). Vacuum curvature (Weyl tensor) exists — it carries the dispersed disturbance from d≤10 — but it is trace-free and does not contribute to $R=g^{ab}R_{ab}$. The spectral action coefficient $a_2=\int_{M_\infty} R\,{\rm dvol}$ therefore receives contributions only from d≤10, where $R\neq0$.
+
+*From the spectral action trace.* ${\rm Tr}(f(D/\Lambda))$ sums over modes of the Dirac operator. Scattering states — modes in the essential spectrum (T5: all d>10 modes) — are not L²-normalizable and do not contribute discrete eigenvalues to the sum. Whether curvature reaches d>10 is irrelevant: those modes cannot appear in ${\rm Tr}(f(D/\Lambda))$.
+
+Both arguments give the same result: $V_{\rm vacuum}$ does not appear as a dilution factor. The correct structure is:
+
+$$G_N = G_\infty / V_7, \qquad V_7 \approx 113$$
+
+**Status.** $V_7\approx113$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
 
 ---
 
@@ -456,7 +450,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_N sector-independent, loop-exact | ✅ §3.11–3.12.1 |
-| G_N = G_fund/V_7, V_7 ≈ 113 from sector geometry | ✅ §3.12.2 |
+| G_N = G_∞/V_7; V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
 
 ---
 

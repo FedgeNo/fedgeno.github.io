@@ -165,7 +165,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - §1: Gravity is Curvature of M_∞ Caused by Mass
 - §1b: Why Macroscopic Hidden Dimensions Are Consistent with All Experiment
 - §2: Newtonian Limit
-- §3: Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement (§3.1 Gravity as ∞D curvature sourced by mass; §3.2 Observer's effective gravitational equation; §3.3–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 Loop-Exactness and G_N as 3D measurement of ∞D curvature; §3.12.4 G_∞ numerically + spectral action closure condition — G_∞ = 7.57×10^{-43} MeV^{-2}; a_4 Λ-independent via T9; genuine closure path: compute a_2(M_∞) from T14 heat kernels to eliminate Λ; KK M_∗ formula rejected; §3.13 Covariant Conservation of T_{μν}^eff)
+- §3: Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement (§3.1 Gravity as ∞D curvature sourced by mass; §3.2 Observer's effective gravitational equation; §3.3–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 No Hidden-Sector Correction and G_N as 3D measurement of ∞D curvature; §3.12.4 G_∞ numerically + spectral action closure condition — G_∞ = 7.57×10^{-43} MeV^{-2}; a_4 Λ-independent via T9; genuine closure path: compute a_2(M_∞) from T14 heat kernels to eliminate Λ; KK M_∗ formula rejected; §3.13 Covariant Conservation of T_{μν}^eff)
 - §4: Cosmological Constant
 - §5: Two-Stage Observability
 

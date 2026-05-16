@@ -8,20 +8,35 @@
     body { margin:0; overflow:hidden; background:#000; font-family: system-ui, sans-serif; color:#ddd; }
     canvas { display:block; }
 
-    /* home link */
-    #homelink {
-        position: absolute; top: 12px; left: 12px; z-index: 20;
-        font-size: 17px; font-weight: 700; letter-spacing: 0.06em;
-        color: #93c5fd; text-decoration: none;
-        background: rgba(0,0,0,0.65); padding: 6px 14px;
-        border-radius: 8px; border: 1px solid rgba(147,197,253,0.25);
-        transition: background 0.15s, border-color 0.15s;
+    /* site nav */
+    .site-nav {
+        position: fixed; top: 0; left: 0; right: 0;
+        height: 56px; display: flex; align-items: center;
+        justify-content: space-between; padding: 0 28px;
+        backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+        background: rgba(0,7,15,0.75);
+        border-bottom: 1px solid rgba(139,156,255,0.12);
+        z-index: 200;
     }
-    #homelink:hover { background: rgba(59,130,246,0.22); border-color: rgba(147,197,253,0.55); }
+    .nav-logo {
+        font-size: 1.1rem; font-weight: 700; letter-spacing: 0.06em;
+        text-decoration: none;
+        background: linear-gradient(90deg, #60a5fa 0%, #8b9cff 50%, #a78bfa 100%);
+        -webkit-background-clip: text; background-clip: text;
+        -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .nav-links { display: flex; gap: 8px; }
+    .nav-links a {
+        color: #94a3b8; text-decoration: none;
+        font-size: 0.875rem; padding: 6px 12px; border-radius: 6px;
+        transition: color 0.15s, background 0.15s;
+    }
+    .nav-links a:hover { color: #e2e8f0; background: rgba(139,156,255,0.08); }
+    .nav-links a[aria-current="page"] { color: #8b9cff; background: rgba(139,156,255,0.08); }
 
     /* legend */
     #legend {
-        position: absolute; top: 56px; left: 12px;
+        position: absolute; top: 64px; left: 12px;
         background: rgba(0,0,0,0.75); padding: 10px 14px;
         border-radius: 8px; z-index: 10;
     }
@@ -115,8 +130,15 @@
 </head>
 <body>
 
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/" aria-current="page">Visualizations</a>
+  </div>
+</nav>
+
 <canvas id="c"></canvas>
-<a id="homelink" href="/">IDWT</a>
 
 <div id="legend">
     <div id="legend-title">Sector — click to isolate</div>

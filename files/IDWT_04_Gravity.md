@@ -454,6 +454,50 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 ---
 
+### 3.12.4 G_∞ Numerically and the Spectral Action Closure Condition
+
+**The numerical value of G_∞.** The relation G_N = G_∞/V_7 immediately gives G_∞ once G_N and V_7 are known. Using the measured Newton's constant G_N = 6.674 × 10^{−11} m³ kg^{−1} s^{−2} and V_7 = 112.8 (fully derived in §3.12.2):
+
+$$G_\infty = G_N \times V_7 = 7.57 \times 10^{-43}\ \mathrm{MeV}^{-2}$$
+
+This is not a prediction — it is what G_∞ must equal, given the current input of one measured gravitational coupling. It becomes a prediction when G_∞ is derived independently.
+
+**The undiluted ∞D Planck scale.** The reduced Planck mass in the observer's 3D space is M_Pl^{red} = (8πG_N)^{−1/2} = 2.435 × 10^{21} MeV. The corresponding ∞D quantity is:
+
+$$M_{\rm Pl}^{(\infty),{\rm red}} = \frac{M_{\rm Pl}^{\rm red}}{\sqrt{V_7}} = \frac{2.435 \times 10^{21}}{\sqrt{112.8}}\ \mathrm{MeV} \approx 2.29 \times 10^{20}\ \mathrm{MeV}$$
+
+This is not a new scale. It is G_∞ restated as a mass: M_Pl^{(∞),red} = (8πG_∞)^{−1/2}. There are no additional physical scales beyond G_N and the sector mass scales (all set by m_e and N_c).
+
+**The spectral action condition — and why it is currently circular.** In the Connes-Marcolli spectral action, the Einstein-Hilbert term arises from the Seeley-DeWitt coefficient a_2:
+
+$$G_N^{-1} \sim \frac{f_2 \Lambda^2 N_{\rm eff}}{12\pi^2}$$
+
+where Λ is the spectral cutoff, f_2 is a moment of the cutoff function, and N_eff is the number of Dirac degrees of freedom in the spectral triple. For the IDWT spectrum (15 particles with appropriate spinor degrees of freedom, N_eff ≈ 96), this gives:
+
+$$\Lambda \approx \sqrt{\frac{12\pi^2 G_N^{-1}}{f_2 N_{\rm eff}}} \approx 3.9\ M_{\rm Pl}^{\rm red} \qquad (f_2 = 1)$$
+
+This is circular: Λ ~ M_Pl because G_N^{−1} ~ M_Pl^2 by definition. Setting Λ from the spectral action condition and then predicting G_N reproduces the input. No sector mass scale approaches M_Pl — the top quark at ~173 GeV sits 1.4 × 10^{16} below it — so no natural cutoff emerges from the IDWT sector structure at the Planck scale.
+
+**Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the gauge kinetic terms, which control the Yang-Mills couplings). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
+
+In IDWT, the gauge couplings g_{dd} are fully derived from N_c alone (T9) — they are not inputs. This means a_4 is already fixed, independently of Λ and independently of G_N. If a_2 can be computed from the sector geometry (heat kernel coefficients from T14 plus the Ricci scalar on each sector manifold), then the ratio:
+
+$$\frac{a_2(M_\infty)}{a_4(M_\infty)} = \frac{G_N^{-1}}{\text{(T9 gauge couplings)}}$$
+
+determines G_N without any free parameter. The left side is a pure geometric quantity; the right side is the measurement. When they agree, G_N is a prediction.
+
+**The genuine open computation.** Computing a_2 requires the integral of the Ricci scalar over M_∞:
+
+$$a_2(M_\infty) = \frac{1}{12\pi^2} \int_{M_\infty} R_\infty\, d{\rm vol}_{M_\infty}$$
+
+Each sector contributes R_{Ξ_d} = d(d−1)/(L_d^2) (the Ricci scalar of the round sphere or Fubini-Study metric of radius L_d on Ξ_d). The T14 heat kernel coefficients give the Weyl coefficient a_0^{(d)} = Γ(1+1/d)(d!)^{1/d}, which controls the volume element. The integral is finite because L²-normalizable modes (T5, §3.13 Part I) produce a convergent sector-by-sector sum, while d>10 sectors contribute R_{ab}=0 in vacuum (Ricci-flat) and vanish.
+
+This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d values of §3.10 — is the single remaining open item in the gravity sector. Once complete, G_N = G_∞/V_7 is a parameter-free prediction from the same geometry that determines all particle masses.
+
+**What does not belong here.** The Kaluza-Klein formula M_Pl^2 = M_∗^9 V_7^{\rm phys} (which would define an "11D fundamental scale" M_∗) is not IDWT. It requires compact extra dimensions, graviton propagation through those dimensions, and a Kaluza-Klein tower of massive graviton modes — all of which are explicitly excluded by Part 4 §1b. IDWT has no compact dimensions (Ξ is non-compact), no graviton quanta (gravity is geometry, not a field), and no KK tower. The formula does not apply, and M_∗ is not a quantity that appears in this framework.
+
+---
+
 ## 3.13 Covariant Conservation of T_μν^{eff}
 
 **Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 dimensional visibility — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:

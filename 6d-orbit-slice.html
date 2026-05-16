@@ -14,9 +14,35 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
   canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+  /* site nav */
+  .site-nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    height: 56px; display: flex; align-items: center;
+    justify-content: space-between; padding: 0 28px;
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    background: rgba(5,7,15,0.75);
+    border-bottom: 1px solid rgba(139,156,255,0.12);
+    z-index: 200;
+  }
+  .nav-logo {
+    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.06em;
+    text-decoration: none;
+    background: linear-gradient(90deg, #60a5fa 0%, #8b9cff 50%, #a78bfa 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+  }
+  .nav-links { display: flex; gap: 8px; }
+  .nav-links a {
+    color: #94a3b8; text-decoration: none;
+    font-size: 0.875rem; padding: 6px 12px; border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .nav-links a:hover { color: #e2e8f0; background: rgba(139,156,255,0.08); }
+  .nav-links a[aria-current="page"] { color: #8b9cff; background: rgba(139,156,255,0.08); }
+
   .overlay {
     position: absolute;
-    top: 64px;
+    top: 68px;
     left: 24px;
     padding: 14px 18px;
     background: linear-gradient(180deg, rgba(12,16,28,0.85), rgba(8,10,18,0.75));
@@ -60,32 +86,8 @@
     font-size: 11px;
     color: #b8c9ff;
   }
-  .idwt-link {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    z-index: 100;
-    color: #d6e2ff;
-    font-size: 13px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 6px 10px;
-    background: rgba(12,16,28,0.7);
-    border: 1px solid rgba(140,170,255,0.18);
-    border-radius: 8px;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    letter-spacing: 0.3px;
-    transition: all 0.2s ease;
-  }
-  .idwt-link:hover {
-    color: #ffffff;
-    background: rgba(20,26,48,0.85);
-    border-color: rgba(140,170,255,0.35);
-  }
   @media (max-width: 600px) {
-    .overlay { top: 56px; left: 12px; right: 12px; font-size: 12px; padding: 12px 14px; }
-    .idwt-link { top: 12px; left: 12px; }
+    .overlay { top: 68px; left: 12px; right: 12px; font-size: 12px; padding: 12px 14px; }
   }
 </style>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
@@ -99,7 +101,13 @@
 </script>
 </head>
 <body>
-<a href="/" class="idwt-link">IDWT</a>
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/" aria-current="page">Visualizations</a>
+  </div>
+</nav>
 <div class="overlay">
   <div class="title">6D Orbit → 3D Projection</div>
   <div class="hint"><b>Drag</b> to rotate 6D slice</div>

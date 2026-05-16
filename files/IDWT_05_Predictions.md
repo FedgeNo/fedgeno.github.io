@@ -245,7 +245,7 @@ The GTC closes the within-sector ratio errors exactly. The uniform +0.77% offset
 
 The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂(n) functional form of the within-sector correction — confirming that the GTC's growing correction with k is geometrically natural. The coefficient is derived (ε = 1/(280√7)), not fitted.
 
-**Nucleon static properties** (from hidden l=1 admixture, Part 8 §66)
+**Nucleon static properties** (from sector l=1 admixture, Part 8 §66)
 ```
 μ_p = 2.793 μ_N    (PDG: 2.7928,  match to 0.01%)
 μ_n = −1.913 μ_N   (PDG: −1.9130, match to 0.02%)

@@ -4,7 +4,7 @@
 #
 # The single empirical framework: a Dirac spinor field Psi_inf lives on an
 # infinite-dimensional manifold M_inf = R^{3,1} x (sector manifolds). Particles
-# are standing-wave resonances in the hidden sectors. Their masses are:
+# are standing-wave resonances in the sector space. Their masses are:
 #
 #     m(n, d) = m_scale(d) x S(n, d)
 #

@@ -16,7 +16,7 @@ The single fundamental field is Ψ∞(x,ξ), a Dirac spinor on M_∞. The manifo
 ds²_{M_∞} = g_μν(x) dx^μ dx^ν  +  h_ab(ξ) dξ^a dξ^b
 ```
 
-g_μν(x) is the dynamical spacetime metric (3 spatial + 1 time). h_ab(ξ) is the fixed background metric on the hidden sector Ξ = ⊕_{d∈D} Ξ_d, D = {2,3,4,5,6,10}. The Dirac matrices on M_∞ decompose as:
+g_μν(x) is the dynamical spacetime metric (3 spatial + 1 time). h_ab(ξ) is the fixed background metric on the sector space Ξ = ⊕_{d∈D} Ξ_d, D = {2,3,4,5,6,10}. The Dirac matrices on M_∞ decompose as:
 
 ```
 {Γ^M, Γ^N} = 2 G^{MN},    G^{MN} = diag(g^{μν}, h^{ab})
@@ -41,7 +41,7 @@ S_IDWT[Ψ∞, g_μν]
 
 where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed n_s=4 (with n_u = n_s−1 derived).
 
-The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector. Its quartic-in-Ψ form is the hidden-sector analogue of the Nambu–Jona-Lasinio interaction.
+The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector. Its quartic-in-Ψ form is the sector-space analogue of the Nambu–Jona-Lasinio interaction.
 
 ### 0.3 Equations of Motion
 
@@ -51,7 +51,7 @@ The kernel term is the unique leading interaction invariant under U(d) × U(d') 
 G_μν(x) = 8π G_N T_μν^{eff}(x),    G_N = measured Newton's constant
 ```
 
-The hidden sector contributes only through T_μν^{eff} = ∫_Ξ T_μν^{Dirac} dμ_ξ — a source term, never a propagating gravitational degree of freedom (Part 4 §3.1–3.4).
+The sector space contributes only through T_μν^{eff} = ∫_Ξ T_μν^{Dirac} dμ_ξ — a source term, never a propagating gravitational degree of freedom (Part 4 §3.1–3.4).
 
 **Varying Ψ̄∞:**
 
@@ -73,7 +73,7 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 |---|---|---|
 | S_EH | δg^{μν} | Spacetime Einstein equations, G_eff = G_N = G_fund/V_7 (V_7 from sector geometry, Part 4 §3.12.3) |
 | L_kinetic (spacetime part) | δΨ̄∞ | Dirac propagation in 3D space |
-| L_kinetic (hidden part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
+| L_kinetic (sector part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
 | L_kernel (d=d', self) | δΨ̄∞ | Sector confinement V_d, λ_d = (g_{dd}/2)^{2/3} |
 | L_kernel (d=4, gauge) | consistency | SU(3) colour gauge field, g²_YM = 2g_{44}/π² |
 | L_kernel (d=4↔d=2) | consistency | U(2) electroweak gauge fields, W±, Z, γ |
@@ -178,7 +178,7 @@ Each fundamental force acts within a spatial region determined by its sector. Th
 
 **Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the mediator traverses. A d=2 photon cannot couple to a particle with no support on the d=2 sector; a gluon confined to the d=4 sector CP² cannot reach a particle localised only in d=2. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from the Atiyah-Singer index on CP² (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
 
-**Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all hidden-sector coordinates:
+**Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
 ```
 T_μν^{eff}(x) = ∫_Ξ T_μν^{Dirac}(x,ξ) dμ_ξ
@@ -319,7 +319,7 @@ where
 ψ^a(x) = ∫_{CP²} φ_a*(ξ) Ψ_∞^{(d=4)}(x, ξ) dμ_{CP²}
 ```
 
-This integral extracts the three colour amplitudes from the full hidden-space field at each spacetime point x. It is the IDWT definition of the colour state at x.
+This integral extracts the three colour amplitudes from the full sector-space field at each spacetime point x. It is the IDWT definition of the colour state at x.
 
 **Berry connection formula.** The colour frame can be chosen independently at each spacetime point. The unique torsion-free SU(3) connection preserving the L²(CP²) inner product on H_colour is:
 
@@ -475,7 +475,7 @@ The chiral weak force — the W boson couples to left-handed particles only — 
 γ₅^Kähler = i^m × ω_{a₁a₂} ... ω_{a_{2m-1}a_{2m}} γ^{a₁}⋯γ^{a_{2m}}
 ```
 
-where m is the complex dimension of the sector (m=1,2,3 for d=2,4,6 respectively). This operator anticommutes with all hidden-space gamma matrices γ^a, splitting the sector spinor into **holomorphic** (positive chirality = LEFT) and **anti-holomorphic** (negative chirality = RIGHT) components.
+where m is the complex dimension of the sector (m=1,2,3 for d=2,4,6 respectively). This operator anticommutes with all sector gamma matrices γ^a, splitting the sector spinor into **holomorphic** (positive chirality = LEFT) and **anti-holomorphic** (negative chirality = RIGHT) components.
 
 **Why the W couples only to the holomorphic half — the Kähler spinor argument:**
 

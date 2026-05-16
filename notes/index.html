@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/" aria-current="page">Notes</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
+  <h1>Notes &amp; Script</h1>
+  <p class="sub">Nine parts and a proof script that calculates every important value in IDWT from n<sub>s</sub> = 4 and m<sub>e</sub>.</p>
+</header>
+
+<main>
+<section>
+  <div class="grid">
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
+      <p>The core postulates and the geometric setting of Ψ∞.</p>
+      <a class="dl" href="/files/IDWT_01_Foundation.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 2</div><h3>Mass Formula</h3></div>
+      <p>Derivation of S(n,d) and the cumulative state counting rule.</p>
+      <a class="dl" href="/files/IDWT_02_Mass.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 3</div><h3>Forces &amp; Colour</h3></div>
+      <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>
+      <a class="dl" href="/files/IDWT_03_Forces.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
+      <p>Why macroscopic hidden dimensions are consistent with all gravitational experiments — no KK tower, no extra-dimensional gravitons.</p>
+      <a class="dl" href="/files/IDWT_04_Gravity.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 5</div><h3>Predictions</h3></div>
+      <p>All particle masses from m<sub>e</sub> alone with less than 1% error.</p>
+      <a class="dl" href="/files/IDWT_05_Predictions.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 6</div><h3>Open Questions</h3></div>
+      <p>The dynamical gap and what remains to be proved.</p>
+      <a class="dl" href="/files/IDWT_06_OpenQuestions.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 7</div><h3>Observability</h3></div>
+      <p>What we can measure and why.</p>
+      <a class="dl" href="/files/IDWT_07_Observability.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 8</div><h3>Quantum</h3></div>
+      <p>Quantum physics in IDWT.</p>
+      <a class="dl" href="/files/IDWT_08_Quantum.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
+      <p>IDWT as a sequence of self-contained spectral theorems.</p>
+      <a class="dl" href="/files/IDWT_09_Spectral.md" download>Download .md</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head"><div class="part">Script</div><h3>Python Proof Script</h3></div>
+      <p>Generates all IDWT numbers from n<sub>s</sub> = 4 and m<sub>e</sub>.</p>
+      <a class="dl" href="/files/idwt.py" download>Download .py</a>
+    </article>
+
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

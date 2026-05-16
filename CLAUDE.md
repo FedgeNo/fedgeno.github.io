@@ -241,9 +241,6 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - 10 numbered documents (Parts 1–10 as listed above)
 - A Python proof script (idwt.py)
 
-## Conventions
-- The script does all calculations first, then output. This is to make it easy for a referee to read the source.
-
 ## Constraints
 - **Read the relevant documents before making claims about what the theory contains or lacks.**
 - When changing a document, do not "argue" against the now non-existent previous version of the document.

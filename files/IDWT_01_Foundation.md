@@ -543,7 +543,7 @@ The hidden Laplacian acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{
 ∂_t² ψ = c²(Δ_3 − m²) ψ
 ```
 
-This is the Klein-Gordon equation. The mass term is not a separate input — it is the hidden-dimensional kinetic energy of the mode, appearing to a d=3 observer as a scalar constant because the hidden degrees of freedom are inaccessible. Mass is hidden momentum. The photon (n=0, d=2) has S(0,2) = 0, so m = 0: no hidden kinetic energy, no mass. Every other particle has n > 0 and non-zero hidden momentum, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden momentum.
+This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the hidden degrees of freedom are inaccessible. Mass is a count of hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n quanta across d hidden dimensions, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — the U(1) fiber of the d=2 sector carries no excited microstates in the vacuum, and no mass term appears. Every other particle has n ≥ 1 and a non-zero microstate count, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
 
 ---
 

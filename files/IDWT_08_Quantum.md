@@ -10,7 +10,7 @@ The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a
 
 **Established:**
 - □_x φ + m²_eff φ = 0 is Lorentz-covariant
-- Ψ∞(r, ξ⁰, t) is Lorentz-covariant: evaluation at a fixed hidden-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
+- Ψ∞(r, ξ⁰, t) is Lorentz-covariant: evaluation at a fixed sector-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
 - S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate
 - Fermion spin-½ from the Dirac operator on M_∞ — see §2
 
@@ -26,7 +26,7 @@ The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the sector reduction; correc
 D_{M∞} = γ^μ ∂_μ ⊗ 1 + γ^5 ⊗ D_{Ξ}
 ```
 
-Under Ψ∞(x,ξ) = ψ(x) ⊗ χ(ξ), this separates into the massive Dirac equation in 3D space and an eigenvalue problem on the hidden sector:
+Under Ψ∞(x,ξ) = ψ(x) ⊗ χ(ξ), this separates into the massive Dirac equation in 3D space and an eigenvalue problem on the sector manifold:
 
 ```
 (iγ^μ ∂_μ − m_eff) ψ(x) = 0   [Dirac equation in 3+1D]
@@ -49,7 +49,7 @@ The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8
 | 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 of Spin(10) — one full SM generation; weight lattice gives tau hypercharges |
 
 
-**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 hidden-space spinor is a full Dirac spinor with no reality projection. This forbids any Majorana mass term for neutrinos; the seesaw mechanism is geometrically prohibited. **Neutrinos are Dirac fermions** — a concrete, falsifiable prediction (see Part 1 §6). Neutrinoless double beta decay must have rate exactly zero.
+**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. This forbids any Majorana mass term for neutrinos; the seesaw mechanism is geometrically prohibited. **Neutrinos are Dirac fermions** — a concrete, falsifiable prediction (see Part 1 §6). Neutrinoless double beta decay must have rate exactly zero.
 
 **d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The physical spinor has 16 real components (= 2^(d/2−1) = 2^4), forming the **16** of Spin(10) ≅ SO(10). The Dirac spinor in d=10 has 32 complex components, but the Majorana-Weyl projection halves this to 16 — and it is this 16-component object, not the 32, that carries the physical content of one SM generation:
 
@@ -192,7 +192,7 @@ S(n,d) is the total number of quantum states of the d-dimensional sector harmoni
 m(n,d) = m_scale_d × S(n,d) = m_scale_d × N_d(n−1)
 ```
 
-states that the mass of a particle equals m_scale_d times the cumulative count of hidden sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of hidden microstates" is exactly this: m/m_scale_d = N_d(n−1).
+states that the mass of a particle equals m_scale_d times the cumulative count of sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of hidden microstates" is exactly this: m/m_scale_d = N_d(n−1).
 
 ### 3.4 Connection to the Dirac Operator D_Ξ
 
@@ -397,7 +397,7 @@ This is the unique SU(3)-invariant linear energy functional, where λ_c is the c
 ```
 IDWT M_∞ geometry
     ↓
-CP² = SU(3)/U(2) as d=4 sector hidden manifold
+CP² = SU(3)/U(2) as d=4 sector manifold
     ↓
 Hopf flux k=1 → Dirac index = 3
     ↓
@@ -434,7 +434,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)
 - **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
 - **Meson masses:** Binding shifts from kernel overlap integrals (§12)
-- **Nucleon properties:** μ_p, μ_n, g_A from hidden l=1 spin-orbit admixture (§10 below)
+- **Nucleon properties:** μ_p, μ_n, g_A from sector l=1 spin-orbit admixture (§10 below)
 - **QCD running:** β(α_s) from vacuum polarization of unoccupied modes
 - **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§13)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
@@ -521,7 +521,7 @@ Physical meaning: physical states remain physical under time evolution.
 
 All three nucleon static properties follow from the same kernel that produces confinement, vector mesons, and mass scales — no additional inputs.
 
-The proton/neutron wavefunction in hidden space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes hidden orbital angular momentum into the observable magnetic moment. The effective hidden coupling at the baryon scale is g_{3,4}^eff = 125 (renormalized from g_{3,4} = 4√6 ≈ 9.80) with centrifugal overlap factor f_overlap = 0.72.
+The proton/neutron wavefunction in sector space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes sector orbital angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (renormalized from g_{3,4} = 4√6 ≈ 9.80) with centrifugal overlap factor f_overlap = 0.72.
 
 **Proton magnetic moment:**
 ```
@@ -548,7 +548,7 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 ## 11. Proton Binding and N-P Mass Difference 🔶
 
-**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§8) — the kernel contributes zero extra hidden energy at leading order.
+**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§8) — the kernel contributes zero extra sector energy at leading order.
 
 **Proton mass estimate:**
 - Current quark masses: 2m_u + m_d ≈ 2×2.18 + 4.70 = 9.06 MeV  (IDWT predictions)
@@ -578,7 +578,7 @@ m_meson = m_q + m_q̄ + ΔE_kernel + ΔE_EM
 | π⁰,π± | 2m_u+m_d + Δ_kernel | ~138 MeV | 135–140 MeV |
 | K±, K⁰ | m_u+m_s + Δ_kernel | ~495 MeV | 494–498 MeV |
 
-The kernel naturally produces m_π << m_K because the strange quark (n=4) increases the hidden overlap integral relative to light u/d modes (n=1–3). No lattice QCD input — binding shifts are direct projections of the geometric kernel already required for particle selection and confinement.
+The kernel naturally produces m_π << m_K because the strange quark (n=4) increases the sector overlap integral relative to light u/d modes (n=1–3). No lattice QCD input — binding shifts are direct projections of the geometric kernel already required for particle selection and confinement.
 
 ---
 

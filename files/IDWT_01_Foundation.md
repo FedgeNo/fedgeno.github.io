@@ -28,7 +28,7 @@ The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_
 Ψ∞ is a **Dirac spinor field** defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure. The quantum number structure of matter (spin, chirality, statistics, hypercharges) follows from the spinor geometry of M_∞; the mass spectrum follows from the combinatorial mode structure S(n,d).
 
 **P2 — The Observable Slice**
-Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidden-sector coordinates:
+Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the sector-space coordinates:
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
@@ -37,7 +37,7 @@ The observer's location ξ⁰ sets the dimensional visibility for each mode (Sta
 **P3 — Hidden-Sector Spaces are Infinite and Non-Compact**
 The sector spaces $\Xi_d$ are infinite Riemannian spaces — full-size sector spaces, not rolled up or compactified in any sense. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). These bound states are the particles. The symmetry labels $\mathbb{CP}^n$ and $S^n$ in the sector table describe the local geometry at the bottom of the potential well — the symmetry of the mode wavefunctions near $r=0$ — not the global topology of $\Xi_d$. This is exactly analogous to a hydrogen atom: the electron lives in infinite $\mathbb{R}^3$ but the ground state has $S^2$ symmetry from the spherically symmetric potential. No sector space is curled up; the modes bind themselves through the potential. The standard KK exclusions (Eöt-Wash, collider searches) presuppose graviton propagation into small compact dimensions; they do not apply here. See Part 4 §1b and §3.9.
 
-Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the hidden space) are eliminated by the Stage-1 observability filter: they have negligible activity at the d=3 coordinate level (Ω_log → ∞) and are not detectable. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
+Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the sector space) are eliminated by the Stage-1 observability filter: they have negligible activity at the d=3 coordinate level (Ω_log → ∞) and are not detectable. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
 
 **P4 — Geometry First**
 The governing equation is a Dirac wave equation on the curved manifold $M_\infty$. The sector potentials $V_d(r)$ arise from the intrinsic curvature of $M_\infty$ evaluated at the vacuum $\xi^0_d$ — they are not independent inputs but consequences of the geometry.
@@ -50,13 +50,13 @@ The governing equation is a Dirac wave equation on the curved manifold $M_\infty
 
 There is no projection happening in IDWT. We are not external observers mapping M∞ onto a separate 3D screen. We are at d=3 — inside M∞, at the coordinate level where the first stable sector constitutes space. Our observable universe is M∞ at the d=3 coordinate level, not a shadow of something else.
 
-Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 hidden coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
+Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 sector coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
 
 ### 2.2 Dimensional Visibility
 
 For particles with d ≤ 3, all vibrational activity is in our dimensions. The photon's 2 dimensions lie within our 3; down-type quarks' 3 dimensions exactly match ours. These particles are fully visible — there is no component of their vibration that eludes our measurement.
 
-For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 in which its vibration is hidden from us. The tau (d=10) has 3 visible and 7 hidden. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
+For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 visible and 7 hidden sector dimensions. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
 
 The fraction of a sector-d mode's activity in our d=3 coordinates is set by the L² normalisation of the mode functions:
 
@@ -70,16 +70,16 @@ Higher sectors and higher mode indices give larger S(n,d), meaning more of the m
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
 ```
 
-The observable probability density at position r is the marginal of |Ψ∞|² over the hidden coordinates. Since our measurements are mediated by d=3 interactions and we cannot independently access the hidden-sector coordinates, the density we measure is the integral of |Ψ∞|² over ξ — the hidden-space marginal, not the full function.
+The observable probability density at position r is the marginal of |Ψ∞|² over the sector coordinates. Since our measurements are mediated by d=3 interactions and we cannot independently access the sector-space coordinates, the density we measure is the integral of |Ψ∞|² over ξ — the sector-space marginal, not the full function.
 
-This is the Born rule applied to Ψ∞. It is not a separate postulate; it follows from the fact that our measurements access only the d=3 coordinate marginal. An electron is not a cloud in 3D — it is a structured mode in M∞ whose d=3 marginal appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the hidden-sector coordinates even when their d=3 marginals are far apart.
+This is the Born rule applied to Ψ∞. It is not a separate postulate; it follows from the fact that our measurements access only the d=3 coordinate marginal. An electron is not a cloud in 3D — it is a structured mode in M∞ whose d=3 marginal appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the sector-space coordinates even when their d=3 marginals are far apart.
 
 ### 2.4 Connection to Cut-and-Project Construction
 
 The mode-selection structure of IDWT is analogous to the cut-and-project method for constructing quasicrystals. The analogy is structural, not mechanistic — there is no external projection operator.
 
 1. **Full space:** M∞ (infinite-dimensional manifold supporting Ψ∞)
-2. **Coordinate level:** d=3, where we exist; the field value Ψ∞(r, ξ⁰, t) at fixed hidden address ξ⁰
+2. **Coordinate level:** d=3, where we exist; the field value Ψ∞(r, ξ⁰, t) at fixed sector-space address ξ⁰
 3. **Acceptance window:** Two-stage filter (Stage-1 amplitude criterion Ω_log ≤ ln 2 + Stage-2 co-fixed-point of the sector comb filtration from n_s). In quasicrystal theory the acceptance window is a geometric region; in IDWT it is a spectral criterion. The analogy captures the structure of selection — an underlying high-dimensional space, a coordinate level, and a filter — rather than the mechanism.
 
 The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the geometry and the seed n_s = 4.
@@ -90,7 +90,7 @@ Key difference from quasicrystals: IDWT involves continuous amplitude weighting 
 
 ## 3. The Sector Structure of M_∞
 
-The hidden space decomposes into sectors with distinct potential well symmetries. Each $\Xi_d$ is an infinite macroscopic space; the geometry labels ($S^3$, $\mathbb{CP}^2$, etc.) describe the local symmetry of the potential minimum $V_d(r)$ near $r=0$, not the global topology:
+The sector space decomposes into sectors with distinct potential well symmetries. Each $\Xi_d$ is an infinite macroscopic space; the geometry labels ($S^3$, $\mathbb{CP}^2$, etc.) describe the local symmetry of the potential minimum $V_d(r)$ near $r=0$, not the global topology:
 
 | d | Geometry | Symmetry | Spinor type | Spinor dim | Physical content |
 |---|---|---|---|---|---|
@@ -216,7 +216,7 @@ The two uniqueness results are parallel:
 
 **Convergence on d=10.** Four independent routes — Hopf/octonionic chain (approximate), Gegenbauer criticality (exact), Spin(10) spinor weight lattice (cross-check), and Hurwitz termination (exact) — all give d=10.
 
-The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The sectors are independent in the sense that each carries a distinct Clifford algebra Cl(d) with no shared generators; their spinor spaces therefore combine as a tensor product. The d=10 sector carries a Majorana-Weyl spinor (16 real components, the **16** of Spin(10)); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by d mod 8 (Part 8 §2.1). The total hidden-space spinor component count is 2×2×4×4×8×16 = 2¹³ = 8,192 [tensor product over all six sectors].
+The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The sectors are independent in the sense that each carries a distinct Clifford algebra Cl(d) with no shared generators; their spinor spaces therefore combine as a tensor product. The d=10 sector carries a Majorana-Weyl spinor (16 real components, the **16** of Spin(10)); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by d mod 8 (Part 8 §2.1). The total sector-space spinor component count is 2×2×4×4×8×16 = 2¹³ = 8,192 [tensor product over all six sectors].
 
 These sector dimensions are not chosen. They are the unique sequence produced by the Hopf fibration chain over the normed division algebras (ℝ, ℂ, ℍ, 𝕆):
 
@@ -523,27 +523,27 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 |---|---|---|
 | d < 3 | Particle orbit is a proper subspace of our 3D | Photon (d=2): 2D entity within our 3D world |
 | d = 3 | Particle orbit coincides with our 3D | Down-type quarks: fully at home in observable space |
-| d > 3 | Particle orbit contains our 3D plus (d−3) hidden dimensions | Electron (d=6): 3 observable + 3 hidden dimensions |
+| d > 3 | Particle orbit contains our 3D plus (d−3) hidden sector dimensions | Electron (d=6): 3 observable + 3 hidden sector dimensions |
 
-**Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic hidden dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We observe the 3D projection of its full 6-dimensional motion. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those hidden dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we observe only the d=3 projection of a mode structure that lives in d=6.
+**Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic sector dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We observe the 3D projection of its full 6-dimensional motion. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those sector dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we observe only the d=3 projection of a mode structure that lives in d=6.
 
 **Particles with d < 3 — sub-dimensional embedding.** The photon (d=2) is the opposite case. Its orbit spans 2 dimensions — a proper subspace of our 3D. Those 2 dimensions lie entirely within our observable space. From the photon's perspective, reality is 2-dimensional: the third spatial dimension of our world does not exist in its coordinate system. From our perspective, the photon is a 2D entity moving within our 3D world. Its 2D polarization plane can be oriented in any direction within our 3D — the photon is not fixed to one plane in space — but in whichever direction it travels, it is always a 2D object.
 
 **The direct consequence: electromagnetic waves must be transverse.** The photon oscillates in its 2 dimensions. The direction of propagation is the one coordinate our 3D has that the photon's world does not. The photon cannot oscillate in that direction because that direction does not exist from its perspective. As the photon travels in different directions through our 3D space, its 2D polarization plane rotates to remain perpendicular to the direction of travel — the missing dimension is always the one the photon is moving through. Electromagnetic waves are transverse because the photon is a d=2 entity propagating through a d=3 observable space: it oscillates in the 2 dimensions it possesses and propagates through the 1 dimension it doesn't. The two polarization states are the photon's 2 dimensions, made directly observable. This is derived in Part 3 §14.
 
-**Mass as hidden-dimensional momentum.** The governing equation on M_∞ separates into observable and hidden parts. For a mode with hidden wavefunction χ_{n,d}:
+**Mass as the sector eigenvalue.** The governing equation on M_∞ separates into observable and sector parts. For a mode with sector wavefunction χ_{n,d}:
 
 ```
 ∂_t² Ψ = c²(Δ_3 + Δ_hidden) Ψ
 ```
 
-The hidden Laplacian acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve the hidden motion, sees:
+The sector Laplacian acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve the sector motion, sees:
 
 ```
 ∂_t² ψ = c²(Δ_3 − m²) ψ
 ```
 
-This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the hidden degrees of freedom are inaccessible. Mass is a count of excited hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d hidden dimensions, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations in the hidden dimensions means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
+This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the sector degrees of freedom are inaccessible. Mass is a count of excited hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d sector dimensions, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations in the sector dimensions means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
 
 ---
 
@@ -682,7 +682,7 @@ d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→
 
 **Neutrinos are Dirac fermions — a prediction from the spinor structure**
 
-The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the hidden-space spinor in sector d=5. Therefore no Majorana mass term is geometrically allowed for neutrinos, and the seesaw mechanism is forbidden by the sector structure. Neutrinos must be **Dirac fermions**.
+The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the sector spinor in sector d=5. Therefore no Majorana mass term is geometrically allowed for neutrinos, and the seesaw mechanism is forbidden by the sector structure. Neutrinos must be **Dirac fermions**.
 
 This is a concrete, falsifiable prediction: neutrinoless double beta decay (0νββ) must have rate exactly zero. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
 
@@ -712,7 +712,7 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
-| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on the observer's 3D spacetime geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden-sector spaces are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; G_N from sector localization geometry is the remaining open item (Part 4 §3.12) | 🔶 |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on the observer's 3D spacetime geometry. No gravitons — gravity is purely geometric curvature. Macroscopic sector spaces are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; G_N from sector localization geometry is the remaining open item (Part 4 §3.12) | 🔶 |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |

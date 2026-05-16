@@ -77,7 +77,7 @@ The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S
 
 For general d, the l=0 coefficient is 1/d and the l=2 coefficient involves the Gegenbauer polynomial C₂^{(d-2)/2}. The d=3 formula is given because the d=3 quark sector is the primary source of the corrections discussed here.
 
-The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the hidden l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
+The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the sector l=1 orbital admixture that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
 
 For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere. The Gegenbauer l=2 component is present but averages to zero over the rotationally symmetric vacuum (Gegenbauer orthogonality): only the l=0 piece contributes to the sector self-energy after vacuum averaging. Cross-sector angular mixing is absent in the vacuum expectation value of the self-coupling.
 

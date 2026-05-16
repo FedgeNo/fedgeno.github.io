@@ -69,7 +69,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T7 — EW Scale Self-Consistency.** √Tr(D²) = 248.3 GeV from the 15 IDWT masses. The G_F-derived EW scale is 246.3 GeV. The 0.85% gap is a spectral normalisation artefact — Tr(D²) sums raw eigenvalues without GTC corrections while G_F is derived from the W mode index and g_2 coupling. The gap is not f_2-dependent. This is a self-consistency check, not an independent prediction.
 
-**T8 — CP Violation Source Identification (pending).** At tree level δ_CP = 0. The topological source is Δc_1 = c_1(CP³) − c_1(CP⁵) = 4 − 6 = −2 (Chern class difference between d=6 and d=10 sectors). Whether this produces a non-zero imaginary mixing matrix element requires integrating the Fubini-Study curvature over coupling moduli space — computation not yet performed.
+**T8 — CP Phase from Spectral Flow.** 🔶 δ_CP^{(tree)} = 0 (product state, Part 9). Topological source: Δc_1 = c_1(CP³) − c_1(CP⁵) = 4 − 6 = −2. Spectral flow approach (Part 10): parameterize entanglement via θ_{13}; sf(D_{CP^n}; 0→θ_{13}) = c_1(CP^n)·θ_{13}/π; relative Δη = 2θ_{13}/π; φ_Berry = −2θ_{13}; TBM boundary δ_{TBM} = π. Formula: δ_CP = π + (N_c−1)θ_{13} = π + 2θ_{13} = 197.11° (PDG NH ≈197°, +0.05°); J = −0.00981 (PDG ≈−0.0098, +0.1%). Three derivation gaps remain: (i) spectral flow coefficient needs rigorous derivation from rank-1 perturbation; (ii) sign of U_{e3} at TBM needs explicit T6 coupling matrix computation; (iii) equivalence of spectral flow path and Part 9 Berry coupling-space integral not formally proved. Falsifiable by DUNE/Hyper-K 2028–2030.
 
 **T9 — Coupling Constant Theorems.** All six sector self-couplings derived from n_s=4 alone:
 - g_{22} = (S(n_s,3)−n_u)²(S(n_u,4)−S(n_u,3))/2 = 722.5
@@ -212,13 +212,24 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - T5: Aubry-André Criticality Theorem
 - T6: PMNS Theorem 🔵
 - T7: Spectral Self-Consistency of EW Scale 🔵
-- T8: CP Violation — Topological Source Identification 🔶
+- T8: CP Phase from Spectral Flow 🔶 — formula δ_CP = π + 2θ₁₃ = 197.11°; derivation continued in Part 10
 - T9: Coupling Constant Theorems (T9a–T9d)
 - T10: Perturbative Correction Theorems (T10a GTC, T10b Dyson/τ)
 - T11: Neutrino Spectral Theorems (T11a–T11d)
 - T13: Spectral Sum Rules and Exact Mass Ratios (T13a sum rule, T13b mode spacing, T13c mass ratios)
 - T14: Heat Kernel and Spectral Geometry (T14a Weyl term, T14b ζ_d(0), T14c large-t asymptotics)
 - T15: Euler Characteristic Unification (N_c = χ(CP²) = n_u; all couplings from one Euler characteristic; S2 as corollary)
+
+**Part 10 — CP Phase Completion and Framework Synthesis**
+- §1: Spectral Flow from T2 Kernel (sf(D_{CP^n}; 0→θ₁₃) = c₁(CP^n)·θ₁₃/π; Δη = 2θ₁₃/π from Δc₁ = −2); §1.0 bridges to Part 9 Berry computation (γ=0 for product state; Part 10 uses entangled θ₁₃ path)
+- §2: Sign of U_{e3} at TBM from T6 formula (δ_{TBM} = π from inclusion-exclusion sign of n_{ν₃}; asserted, not yet explicitly computed from coupling matrix)
+- §3: Factor-of-2 normalization (Dirac spectral period = π in θ₁₃; φ_Berry = −2θ₁₃)
+- §4: T8 formula — δ_CP = π + 2θ₁₃ = 197.11°; J = −0.00981 (PDG +0.05°, +0.1%) — 🔶
+- §5: Updated master status table (18✅, 3🔵, 2🔶, 0□)
+- §6: Mass–Coupling–Quantum Number–CP Phase quadrilateral (item 4 established by T8; items 1–3 need verification against Part 3/8)
+- §7: Falsification predictions (δ, J, δ–θ₁₃ correlation, mass ordering, 0νββ)
+- §8: Updated Part 6 open questions status
+- §9: Complete derivation chain from N_c = 3
 
 ## Architecture
 - The script does all computation first, then prints output. This is for ease of reading by referees.
@@ -227,7 +238,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 ## Key Modules / Components
 - A website
-- 9 numbered documents (Parts 1–9 as listed above)
+- 10 numbered documents (Parts 1–10 as listed above)
 - A Python proof script (idwt.py)
 
 ## Conventions

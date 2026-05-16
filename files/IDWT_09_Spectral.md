@@ -625,9 +625,10 @@ The common value $N_c(N_c+1)^3/2$ is the Hopf constraint expressed in terms of $
 | $n_s$ | $N_c+1$ | 4 |
 | $n_e$ | $(N_c+1)^2 - N_c = N_c^2+N_c+1$ | 13 |
 | $n_{\nu_1}$ | $n_e - n_u = N_c^2+1$ | 10 |
+| $n_{\nu_2}$ | $S(N_c,4) = C(N_c{+}3,4)$ | 15 |
 | $n_{\rm top}$ | $N_c(N_c+1)(N_c+3) = \chi(\mathbb{CP}^2)\chi(\mathbb{CP}^3)\chi(\mathbb{CP}^5)$ | 72 |
 
-Every particle's mode index traces back to $N_c = \chi(\mathbb{CP}^2)$.
+Every particle's mode index traces back to $N_c = \chi(\mathbb{CP}^2)$. Note: $n_{\nu_1} = N_c^2+1$ and $S(N_c,3) = C(N_c{+}2,3)$ both equal 10 at $N_c=3$ but are different functions; the primary derivation of $n_{\nu_1}$ is from the gap $n_e - n_u$ (Part 9 T6), not from $S(N_c,3)$.
 
 **Corollary T15e (Neutrino mass scale and the lepton coupling complement).** T11a states $m_{{\rm scale},5} = (n_u/n_s)\times m_{{\rm scale},6}^3/m_{{\rm scale},4}^2$. Since $n_u/n_s = N_c/(N_c+1)$ and $g_{66} = 1/(N_c+1)$:
 $$\boxed{m_{{\rm scale},5} = (1-g_{66})\times\frac{m_{{\rm scale},6}^3}{m_{{\rm scale},4}^2}.}$$

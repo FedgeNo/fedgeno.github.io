@@ -131,6 +131,8 @@ Each quantum number is a theorem of the sector geometry, derived from the Atiyah
 
 The filters become structurally more drastic as one moves across the spectrum. The photon's filter (polarization) is directional — it blocks one orientation. The quark's filter (color) is representational — it requires conservation in all processes and forbids isolated states. The neutrino's filter (Dirac condition) is algebraic — it eliminates an entire spinor type from the theory. The lepton's filter (color silence) is complete for an entire force. The tau's filter (AA criticality) is fractal — coupling exists everywhere but with measure-zero weight at every specific channel.
 
+A deeper structural result, proved in [1] (T15 and corollaries T15a–f), shows that the coupling filter geometry and the particle mass hierarchy are not merely correlated but share a single geometric root. The number of quark colors $N_c = \chi(\mathbb{CP}^2) = 3$ is the Euler characteristic of the color sector. That single integer determines all six sector self-couplings, all occupied mode indices, the termination of the sector chain at $d = 2(N_c+2) = 10$, and via these, all inter-sector mass ratios. Equivalently: the self-coupling $g_{dd}$ of each sector anti-correlates with the dimension of its isometry group — a larger symmetry group imposes more geometric constraints on interactions, producing a weaker self-coupling and lighter particle masses. The coupling filter principle (what interactions are possible, in what structure) and the mass scale structure (how heavy the particles are) are one quantity read in two different units.
+
 ---
 
 ## References

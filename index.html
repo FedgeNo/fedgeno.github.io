@@ -4,469 +4,38 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDWT — Infinite-Dimensional Wave Theory</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
- :root{
-	--bg:#05070e;
-	--text:#e6e8f0;
-	--muted:#9aa3b8;
-	--muted-2:#7a8499;
-	--accent-1:#8b9cff;
-	--accent-2:#a78bfa;
-	--accent-3:#60a5fa;
-	--card:rgba(16,21,36,0.6);
-	--border:rgba(139,156,255,0.14);
-	--border-hover:rgba(139,156,255,0.28);
-	--code-bg:rgba(139,156,255,0.1);
-}
- *{
-	box-sizing:border-box;
-}
-html{
-	scroll-behavior:smooth;
-}
-body{
-	margin:0;
-	font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-	background:var(--bg);
-	color:var(--text);
-	line-height:1.65;
-	-webkit-font-smoothing:antialiased;
-	text-rendering:optimizeLegibility;
-}
- .bg{
-	position:fixed;
-	inset:0;
-	z-index:-2;
-	background:radial-gradient(900px 600px at 15% -5%,rgba(96,165,250,0.18),transparent 60%),radial-gradient(800px 500px at 85% 0%,rgba(167,139,250,0.16),transparent 60%),radial-gradient(700px 500px at 50% 120%,rgba(139,156,255,0.13),transparent 60%),#05070e;
-}
-.bg::after{
-	content:"";
-	position:absolute;
-	inset:0;
-	background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-	mix-blend-mode:soft-light;
-	pointer-events:none;
-}
- main{
-	max-width:900px;
-	margin:0 auto;
-	padding:0 24px 120px;
-}
- .hero{
-	min-height:92vh;
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	justify-content:center;
-	text-align:center;
-	padding:80px 0 60px;
-}
- .eyebrow{
-	font-size:0.85rem;
-	letter-spacing:0.18em;
-	text-transform:uppercase;
-	color:var(--muted-2);
-	font-weight:500;
-	margin-bottom:24px;
-}
- h1{
-	font-size:clamp(4.5rem,14vw,8.5rem);
-	line-height:0.9;
-	margin:0 0 24px;
-	font-weight:700;
-	letter-spacing:-0.03em;
-	background:linear-gradient(180deg,#ffffff 15%,#c7d2ff 55%,#8b9cff 100%);
-	-webkit-background-clip:text;
-	background-clip:text;
-	color:transparent;
-	filter:drop-shadow(0 20px 40px rgba(99,102,241,0.15));
-}
- .sub{
-	font-size:clamp(1.15rem,2.5vw,1.5rem);
-	font-weight:500;
-	color:var(--text);
-	margin:0 0 12px;
-	max-width:720px;
-}
-.tag{
-	font-size:1.05rem;
-	color:var(--muted);
-	margin:0 0 36px;
-	max-width:640px;
-}
- .cta{
-	display:flex;
-	gap:12px;
-	flex-wrap:wrap;
-	justify-content:center;
-}
-.btn{
-	appearance:none;
-	border:1px solid var(--border);
-	background:rgba(255,255,255,0.03);
-	color:var(--text);
-	padding:12px 20px;
-	border-radius:999px;
-	font-weight:500;
-	font-size:0.95rem;
-	text-decoration:none;
-	transition:all 0.2s ease;
-	backdrop-filter:blur(6px);
-}
-.btn:hover{
-	border-color:var(--border-hover);
-	background:rgba(255,255,255,0.06);
-	transform:translateY(-1px);
-}
-.btn.primary{
-	background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
-	color:#060816;
-	border:none;
-	font-weight:600;
-	box-shadow:0 8px 24px rgba(139,156,255,0.25),inset 0 1px 0 rgba(255,255,255,0.2);
-}
-.btn.primary:hover{
-	transform:translateY(-1px);
-	box-shadow:0 12px 32px rgba(139,156,255,0.32);
-}
- section{
-	padding:72px 0;
-	scroll-margin-top:80px;
-}
- h2{
-	font-size:clamp(1.6rem,3vw,2.1rem);
-	font-weight:650;
-	letter-spacing:-0.01em;
-	margin:0 0 24px;
-	display:flex;
-	align-items:center;
-	gap:12px;
-}
-h2::before{
-	content:"";
-	width:28px;
-	height:2px;
-	background:linear-gradient(90deg,var(--accent-1),transparent);
-	border-radius:2px;
-}
- p.lead{
-	font-size:1.1rem;
-	color:#d6daf0;
-	margin:0 0 20px;
-}
- .formula{
-	margin:28px 0 8px;
-	padding:18px 20px;
-	background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));
-	border:1px solid var(--border);
-	border-radius:14px;
-	text-align:center;
-	font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-	font-size:0.98rem;
-	color:#c9d4ff;
-}
- code{
-	font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-	background:var(--code-bg);
-	color:#c7d2fe;
-	padding:0.18em 0.45em;
-	border-radius:6px;
-	font-size:0.92em;
-	border:1px solid rgba(139,156,255,0.12);
-}
- .why{
-	list-style:none;
-	padding:0;
-	margin:28px 0 0;
-	display:grid;
-	gap:14px;
-}
-.why li{
-	display:grid;
-	grid-template-columns:28px 1fr;
-	gap:14px;
-	padding:18px 20px;
-	background:var(--card);
-	border:1px solid var(--border);
-	border-radius:14px;
-	backdrop-filter:blur(8px);
-	transition:border-color 0.2s,transform 0.2s;
-}
-.why li:hover{
-	border-color:var(--border-hover);
-	transform:translateY(-1px);
-}
-.why .n{
-	width:28px;
-	height:28px;
-	display:grid;
-	place-items:center;
-	border-radius:8px;
-	background:rgba(139,156,255,0.12);
-	color:var(--accent-1);
-	font-family:"JetBrains Mono",monospace;
-	font-size:0.8rem;
-	font-weight:500;
-}
- .table-wrap{
-	overflow-x:auto;
-	margin:24px 0 12px;
-	border:1px solid var(--border);
-	border-radius:14px;
-	background:rgba(8,12,24,0.5);
-	backdrop-filter:blur(6px);
-}
-table{
-	width:100%;
-	border-collapse:collapse;
-	min-width:560px;
-}
-th,td{
-	padding:14px 18px;
-	text-align:left;
-	border-bottom:1px solid rgba(255,255,255,0.06);
-}
-th{
-	font-size:0.82rem;
-	text-transform:uppercase;
-	letter-spacing:0.08em;
-	color:var(--muted-2);
-	font-weight:600;
-	background:rgba(255,255,255,0.02);
-}
-tr:last-child td{
-	border-bottom:none;
-}
-td:nth-child(2){
-	font-family:"JetBrains Mono",monospace;
-	color:#dbe2ff;
-}
-.note{
-	color:var(--muted);
-	font-size:0.95rem;
-	margin-top:10px;
-}
- .grid{
-	display:grid;
-	grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-	gap:16px;
-	margin-top:24px;
-}
-.card{
-	position:relative;
-	background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));
-	border:1px solid var(--border);
-	border-radius:16px;
-	padding:20px;
-	display:flex;
-	flex-direction:column;
-	min-height:190px;
-	transition:transform 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;
-	backdrop-filter:blur(10px);
-}
-.card:hover{
-	transform:translateY(-4px);
-	border-color:var(--border-hover);
-	box-shadow:0 16px 40px rgba(5,8,18,0.6),0 0 0 1px rgba(139,156,255,0.08) inset;
-}
-.card-head{
-	margin-bottom:8px;
-}
-.part{
-	font-size:0.75rem;
-	color:var(--accent-3);
-	font-weight:600;
-	letter-spacing:0.06em;
-	text-transform:uppercase;
-}
-.card h3{
-	margin:4px 0 0;
-	font-size:1.12rem;
-	font-weight:600;
-	letter-spacing:-0.01em;
-}
-.card p{
-	color:var(--muted);
-	font-size:0.95rem;
-	margin:10px 0 18px;
-	flex-grow:1;
-}
-.dl{
-	align-self:flex-start;
-	font-size:0.88rem;
-	padding:8px 14px;
-	border-radius:10px;
-	background:rgba(139,156,255,0.1);
-	color:#c7d2fe;
-	text-decoration:none;
-	border:1px solid rgba(139,156,255,0.18);
-	transition:all 0.18s ease;
-	font-weight:500;
-}
-.dl:hover{
-	background:rgba(139,156,255,0.18);
-	color:white;
-	transform:translateY(-1px);
-}
- .callout{
-	margin-top:20px;
-	padding:28px 24px;
-	border-radius:14px;
-	background:linear-gradient(180deg,rgba(139,156,255,0.08),rgba(139,156,255,0.03));
-	border:1px solid var(--border);
-	text-align:center;
-}
- .paper-card{
-	display:flex;
-	align-items:center;
-	justify-content:space-between;
-	flex-wrap:wrap;
-	gap:20px;
-	padding:24px 28px;
-	background:linear-gradient(135deg,rgba(139,156,255,0.11),rgba(167,139,250,0.07));
-	border:1px solid rgba(139,156,255,0.28);
-	border-radius:16px;
-	margin:0 0 20px;
-	backdrop-filter:blur(10px);
-}
-.paper-card-text .part{
-	font-size:0.75rem;
-	color:var(--accent-1);
-	font-weight:600;
-	letter-spacing:0.06em;
-	text-transform:uppercase;
-}
-.paper-card-text h3{
-	margin:4px 0 8px;
-	font-size:1.15rem;
-	font-weight:600;
-	letter-spacing:-0.01em;
-}
-.paper-card-text p{
-	color:var(--muted);
-	font-size:0.95rem;
-	margin:0;
-	max-width:620px;
-}
- .prose{
-	margin-top:28px;
-	color:#c4cae2;
-	font-size:1.02rem;
-	line-height:1.82;
-}
-.prose p{
-	margin:0 0 1.35em;
-}
-.prose p:last-child{
-	margin-bottom:0;
-}
-.prose strong{
-	color:var(--text);
-	font-weight:600;
-}
-.prose em{
-	color:#dbe2ff;
-	font-style:italic;
-}
- footer{
-	max-width:900px;
-	margin:40px auto 0;
-	padding:32px 24px 60px;
-	color:var(--muted-2);
-	font-size:0.9rem;
-	text-align:center;
-	border-top:1px solid rgba(255,255,255,0.06);
-}
-footer a{
-	color:var(--muted);
-	text-decoration:none;
-	border-bottom:1px dotted rgba(154,163,184,0.4);
-}
-footer a:hover{
-	color:var(--text);
-	border-bottom-color:var(--text);
-}
- @media(max-width:640px){
-	main{
-		padding:0 18px 80px;
-	}
-	section{
-		padding:56px 0;
-	}
-	.hero{
-		min-height:80vh;
-		padding-top:60px;
-	}
-	.why li{
-		grid-template-columns:24px 1fr;
-	}
-}
-</style>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
 <body>
 <div class="bg"></div>
-<main>
-<script async="" src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
-<style>
-.corner-orb{
-	position:fixed;
-	top:18px;
-	width:210px;
-	height:210px;
-	z-index:2;
-	pointer-events:none;
-	background:transparent;
-	filter:saturate(1.3) brightness(0.9);
-	opacity:0.96
-}
- .corner-orb.left{
-	left:18px
-}
-.corner-orb.right{
-	right:18px
-}
- .corner-orb canvas{
-	width:100%;
-	height:100%;
-	display:block
-}
- @media(max-width:720px){
-	.corner-orb{
-		width:140px;
-		height:140px;
-		top:12px
-	}
-	.corner-orb.left{
-		left:12px
-	}
-	.corner-orb.right{
-		right:12px
-	}
-}
- main{
-	position:relative;
-	z-index:10
-}
-</style>
-<div class="corner-orb left"><canvas id="orbL" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
-<div class="corner-orb right"><canvas id="orbR" data-engine="three.js r160" width="210" height="210" style="width: 210px; height: 210px;"></canvas></div>
-<div class="bg"></div>
-<main>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
 <header class="hero">
   <div class="eyebrow">Infinite-Dimensional Wave Theory</div>
-  <h1>IDWT</h1>
+  <h1><a href="/">IDWT</a></h1>
   <p class="sub">Particle masses from counting hidden states of a single wave.</p>
   <p class="tag">A geometric derivation of the Standard Model from one master wave Ψ∞.</p>
   <div class="cta">
     <a class="btn primary" href="#core">Explore the Theory</a>
     <a class="btn primary" href="#notebooklm">NotebookLM</a>
     <a class="btn primary" href="#notes">Download Notes and Proof Script</a>
-    <a class="btn primary" href="triangles.html">Interactive Visualization</a>
+    <a class="btn primary" href="/visualizations/">Visualizations</a>
   </div>
 </header>
 
+<main>
 <section id="core">
   <h2>The Core Idea</h2>
   <p class="lead">A single spinor field on an infinite-dimensional manifold. Everything else is derived.</p>
@@ -517,10 +86,10 @@ footer a:hover{
       <tbody>
         <tr><td>ν₁ mass</td><td>1.487 meV</td><td>not yet measured</td><td>—</td></tr>
         <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
-        <tr><td>ν₃ mass</td><td>48.871 meV</td><td>not yet measured</td><td>—</td></tr>
-        <tr><td>Σm<sub>ν</sub></td><td>59.00 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
-        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−0.8σ ✓</td></tr>
-        <tr><td>Δm²₃₁</td><td>2.386 × 10⁻³ eV²</td><td>(2.584 ± 0.025) × 10⁻³ eV²</td><td>−7.7% <span title="PDG 2022: −7.7%; NuFit 5.2: −5.5%; T2K+NOvA: −2.7%. Mode indices fix n_ν₃=22 exactly; deviation is analysis-dependent." style="cursor:help;border-bottom:1px dotted var(--muted)">†</span></td></tr>
+        <tr><td>ν₃ mass</td><td>50.26 meV</td><td>~50.1–50.3 meV (from Δm²₃₁)</td><td>+0.05% ✓</td></tr>
+        <tr><td>Σm<sub>ν</sub></td><td>60.39 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
+        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−2.4% ✓</td></tr>
+        <tr><td>Δm²₃₁</td><td>2.524 × 10⁻³ eV²</td><td>(2.51–2.53) × 10⁻³ eV²</td><td>+0.05% ✓</td></tr>
         <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
         <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
         <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
@@ -530,7 +99,7 @@ footer a:hover{
       </tbody>
     </table>
   </div>
-  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector. † The Δm²₃₁ prediction is fixed exactly by mode index n_ν₃ = 22; the deviation from experiment is analysis-dependent: PDG 2022 global fit gives −7.7%, NuFit 5.2 gives −5.5%, and T2K+NOvA 2020 gives −2.7%.</p>
+  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector. The ν₃ mass includes a cross-sector correction δ_ν₃ = ε × g₃₃ = 1/35, derived exactly from the GTC coefficient and d=3 coupling (Part 2 §9d).</p>
 </section>
 
 <section id="about">
@@ -542,11 +111,11 @@ footer a:hover{
 
     <p>The setup rests on four postulates. Our observable universe is the projection of Ψ∞ through the full space at a fixed hidden-sector address — we access only modes that are resonant at our coordinate level. The hidden dimensions are macroscopic, with particles bound by sector potential wells. <strong>What we call mass is the count of hidden microstates associated with each mode</strong> — specifically, the number of ways to distribute n quanta across d hidden dimensions. This count is the combinatorial function S(n,d) = C(n+d-1, d), a simplex number. Gravity is standard 4D general relativity — the curvature of our 3+1D slice sourced by the IDWT matter fields through the effective stress-energy tensor. There are no gravitons and no Kaluza-Klein tower; G_N is a measured constant of spacetime.</p>
 
-    <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. This sector set is not a free choice — it is forced by the requirement that the top quark mode index n_top = N_c × n_s × N_f exactly equals 72. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the Higgs self-coupling, the proton mass, the pion decay constant, the CKM mixing angles, the PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
+    <p>The mass formula is then <strong>m = m_scale,d × S(n,d)</strong>, where m_scale,d is a sector energy scale fixed by coupling self-consistency equations, and n is a mode index selecting which particle within a sector we are computing. Every particle in the Standard Model lives in one of six hidden sectors indexed by the dimension d ∈ {2, 3, 4, 5, 6, 10}. These sectors are nested: the d=2 photon coordinates are literally inside every higher-sector wavefunction, and each sector adds directions that persist upward through every sector above it. This nesting is what determines which particles feel which forces. The only free inputs are the single integer n_s = 4 and the measured electron mass m_e. Everything else — all thirteen particle masses, the three gauge coupling strengths, the Weinberg angle, the Fermi constant, the CKM and PMNS mixing angles, and the complete neutrino mass spectrum — follows by calculation.</p>
 
-    <p>The accuracy of the predictions is what makes the framework interesting rather than merely speculative. The W and Z bosons come out within 0.003% and 0.047% of their measured values. The Higgs mass is within 0.013%. The muon lifetime is within 0.3%. All thirteen fermion and boson masses agree with PDG measurements to better than 0.8%, with most below 0.1%. The quark sectors have a uniform structural offset — 0.68% in d=3, 0.77% in d=4 — that is not a numerical accident but a consequence of the rank-1 approximation to the coupling kernel, which forces the same fractional offset to every mode in a sector. Both offsets sit well within the PDG experimental uncertainties for the light quarks.</p>
+    <p>The accuracy of the predictions is what makes the framework interesting rather than merely speculative. The W and Z bosons come out within 0.003% and 0.047% of their measured values. The Higgs mass is within 0.013%. The muon lifetime is within 0.3%. All thirteen fermion and boson masses agree with PDG measurements to better than 0.8%, with most below 0.1%. The quark sectors have a uniform structural offset that is not a numerical accident but a consequence of the rank-1 approximation to the coupling kernel, which forces the same fractional offset to every mode in a sector.</p>
 
-    <p>The neutrino sector provides the most striking predictions. Neutrinos live in the d=5 hidden sector. The Clifford algebra of five-dimensional spinors has an exact mathematical property: when d mod 8 = 5, no Majorana condition can be imposed on the spinor. This means <strong>neutrinos must be Dirac fermions in IDWT</strong> — the geometry forbids Majorana mass terms and the seesaw mechanism entirely. As a consequence, the neutrinoless double beta decay rate is predicted to be exactly zero. No oscillation experiment was used to calibrate these predictions: the three neutrino masses (1.487, 8.639, and 48.871 meV), all three PMNS mixing angles, the mass ordering, and the beta-decay effective mass all follow from the same seeds n_s = 4 and m_e that fix everything else. The predicted sum Σm_ν = 59 meV satisfies the Planck bound and lies above the detection threshold of the CMB-S4 experiment, which should reach it within the decade.</p>
+    <p>The neutrino sector provides the most striking predictions. Neutrinos live in the d=5 hidden sector. The Clifford algebra of five-dimensional spinors has an exact mathematical property: when d mod 8 = 5, no Majorana condition can be imposed on the spinor. This means <strong>neutrinos must be Dirac fermions in IDWT</strong> — the geometry forbids Majorana mass terms and the seesaw mechanism entirely. As a consequence, the neutrinoless double beta decay rate is predicted to be exactly zero. No oscillation experiment was used to calibrate these predictions: the three neutrino masses, all three PMNS mixing angles, the mass ordering, and the beta-decay effective mass all follow from the same seeds n_s = 4 and m_e that fix everything else. The predicted sum Σm_ν = 60.39 meV satisfies the Planck bound and lies above the detection threshold of the CMB-S4 experiment.</p>
 
     <p>IDWT is falsifiable in specific and testable ways. Any detection of neutrinoless double beta decay — by KamLAND-Zen, nEXO, or any successor experiment — would rule it out completely. A cosmological neutrino mass sum measured below 58 meV or above 62 meV would equally falsify it. An inverted neutrino mass hierarchy, if established, would be a direct contradiction. Within the framework, every number is a calculation rather than a parameter, and every calculation is reproducible from a publicly available Python script in under a second on a laptop.</p>
   </div>
@@ -568,187 +137,58 @@ footer a:hover{
     <article class="card">
       <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
       <p>The core postulates and the geometric setting of Ψ∞.</p>
-      <a class="dl" href="files/IDWT_01_Foundation.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_01_Foundation.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 2</div><h3>Mass Formula</h3></div>
       <p>Derivation of S(n,d) and the cumulative state counting rule.</p>
-      <a class="dl" href="files/IDWT_02_Mass.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_02_Mass.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 3</div><h3>Forces &amp; Colour</h3></div>
       <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>
-      <a class="dl" href="files/IDWT_03_Forces.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_03_Forces.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
       <p>Why macroscopic hidden dimensions are consistent with all gravitational experiments — no KK tower, no extra-dimensional gravitons.</p>
-      <a class="dl" href="files/IDWT_04_Gravity.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_04_Gravity.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 5</div><h3>Predictions</h3></div>
       <p>All particle masses from m<sub>e</sub> alone with less than 1% error.</p>
-      <a class="dl" href="files/IDWT_05_Predictions.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_05_Predictions.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 6</div><h3>Open Questions</h3></div>
       <p>The dynamical gap and what remains to be proved.</p>
-      <a class="dl" href="files/IDWT_06_OpenQuestions.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_06_OpenQuestions.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 7</div><h3>Observability</h3></div>
       <p>What we can measure and why.</p>
-      <a class="dl" href="files/IDWT_07_Observability.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_07_Observability.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 8</div><h3>Quantum</h3></div>
       <p>Quantum physics in IDWT.</p>
-      <a class="dl" href="files/IDWT_08_Quantum.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_08_Quantum.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
       <p>IDWT as a sequence of self-contained spectral theorems.</p>
-      <a class="dl" href="files/IDWT_09_Spectral.md" download>Download .md</a>
+      <a class="dl" href="/files/IDWT_09_Spectral.md" download>Download .md</a>
     </article>
     <article class="card">
       <div class="card-head"><div class="part">Script</div><h3>Python Proof Script</h3></div>
       <p>Generates all IDWT numbers from n_s = 4 and m_e.</p>
-      <a class="dl" href="files/idwt.py" download>Download .py</a>
+      <a class="dl" href="/files/idwt.py" download>Download .py</a>
     </article>
   </div>
 </section>
-
 </main>
+
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
-<script type="module">
-import * as THREE from 'three';
-
-function makeOrb(canvas) {
-    const renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: true,
-        antialias: true,
-        powerPreference: 'high-performance'
-    });
-    const size = canvas.parentElement.clientWidth;
-    renderer.setSize(size, size);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    renderer.setClearColor(0x000000, 0);
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
-
-    // camera orbit state - independent of the animation time t
-    const radius = 22;
-    let camAngle = 0;
-    const camSpeed = 0.008; // change this to make the orbit faster/slower
-
-    const N = 10000;
-    const dirs = new Float32Array(N * 3),
-        Y = new Float32Array(N * 7);
-    const s32 = 1.22474487139,
-        s152 = 1.9364916731,
-        s15 = 3.87298334621,
-        s58 = 0.79056941504;
-    for (let i = 0; i < N; i++) {
-        const t = Math.acos(1 - 2 * Math.random()),
-            p = 2 * Math.PI * Math.random(),
-            s = Math.sin(t),
-            ux = s * Math.cos(p),
-            uy = s * Math.sin(p),
-            uz = Math.cos(t);
-        dirs[i * 3] = ux;
-        dirs[i * 3 + 1] = uy;
-        dirs[i * 3 + 2] = uz;
-        const j = i * 7;
-        Y[j] = uz * (5 * uz * uz - 3) * 0.5;
-        Y[j + 1] = ux * (5 * uz * uz - 1) * s32;
-        Y[j + 2] = uy * (5 * uz * uz - 1) * s32;
-        Y[j + 3] = uz * (ux * ux - uy * uy) * s152;
-        Y[j + 4] = ux * uy * uz * s15;
-        Y[j + 5] = ux * (ux * ux - 3 * uy * uy) * s58;
-        Y[j + 6] = uy * (3 * ux * ux - uy * uy) * s58;
-    }
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
-    geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
-    const mat = new THREE.PointsMaterial({
-        size: 0.11,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.82,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-    });
-    const points = new THREE.Points(geo, mat);
-    scene.add(points);
-    const col = new THREE.Color(),
-        pos = geo.attributes.position.array,
-        cols = geo.attributes.color.array;
-
-    return function(t) {
-        const w = t * 0.001 * 0.6;
-        let a0 = Math.cos(w),
-            a1 = Math.sin(w) * Math.cos(w * 1.7) * 0.7,
-            a2 = Math.sin(w) * Math.sin(w * 1.7) * 0.7,
-            a3 = Math.sin(w) * Math.cos(w * 0.9) * 0.5,
-            a4 = Math.sin(w) * Math.sin(w * 0.9) * 0.5,
-            a5 = Math.sin(w) * Math.cos(w * 1.3) * 0.4,
-            a6 = Math.sin(w) * Math.sin(w * 1.3) * 0.4;
-        const n = Math.hypot(a0, a1, a2, a3, a4, a5, a6) || 1;
-        a0 /= n; a1 /= n; a2 /= n; a3 /= n; a4 /= n; a5 /= n; a6 /= n;
-        for (let i = 0; i < N; i++) {
-            const j = i * 3,
-                k = i * 7,
-                ux = dirs[j],
-                uy = dirs[j + 1],
-                uz = dirs[j + 2];
-            const psi = a0 * Y[k] + a1 * Y[k + 1] + a2 * Y[k + 2] + a3 * Y[k + 3] + a4 * Y[k + 4] + a5 * Y[k + 5] + a6 * Y[k + 6];
-            const d = psi * psi;
-            if (d < 0.02) {
-                pos[j] = pos[j + 1] = pos[j + 2] = 0;
-                cols[j] = cols[j + 1] = cols[j + 2] = 0;
-                continue;
-            }
-            const r = 2.2 + 2.8 * Math.pow(d, 0.6);
-            pos[j] = ux * r;
-            pos[j + 1] = uy * r;
-            pos[j + 2] = uz * r;
-            const hue = (psi > 0? 0.58 : 0.06);
-            col.setHSL(hue, 1.0, 0.55 + 0.25 * Math.pow(d, 0.2));
-            cols[j] = col.r;
-            cols[j + 1] = col.g;
-            cols[j + 2] = col.b;
-        }
-        geo.attributes.position.needsUpdate = true;
-        geo.attributes.color.needsUpdate = true;
-
-        // independent camera orbit
-        camAngle += camSpeed;
-        camera.position.x = Math.cos(camAngle) * radius;
-        camera.position.z = Math.sin(camAngle) * radius;
-        camera.lookAt(0, 0, 0);
-
-        renderer.render(scene, camera);
-    }
-}
-
-const left = makeOrb(document.getElementById('orbL'));
-const right = makeOrb(document.getElementById('orbR'));
-
-function animate(t) {
-    requestAnimationFrame(animate);
-    left(t);
-    right(t);
-}
-animate(0);
-
-window.addEventListener('resize', () => {
-    document.querySelectorAll('.corner-orb canvas').forEach(c => {
-        const s = c.parentElement.clientWidth;
-        c.width = s;
-        c.height = s;
-    });
-});
-</script>
-</body></html>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

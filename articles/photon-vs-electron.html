@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photon vs Electron — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Comparison</div>
+  <h1>Photon vs Electron</h1>
+  <p class="sub">Two particles, two geometries, one framework.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>In Infinite-Dimensional Wave Theory, the photon and the electron are not just different particles — they are resonances in fundamentally different hidden-sector geometries. This dimensional distinction elegantly explains many of their contrasting properties.</p>
+
+  <h2>Core Comparison</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Property</th><th>Photon</th><th>Electron</th><th>IDWT explanation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sector</td><td>d=2 (CP¹)</td><td>d=6 (CP³)</td><td>Different hidden manifolds</td></tr>
+        <tr><td>Hidden directions</td><td>2</td><td>6</td><td>Direct from sector assignment</td></tr>
+        <tr><td>Mode index</td><td>n=0</td><td>n=13 (ground state)</td><td>S(0,2)=0 → massless</td></tr>
+        <tr><td>Mass</td><td>Exactly 0</td><td>0.511 MeV</td><td>S(0,2)=0 vs S(13,6)=18,564</td></tr>
+        <tr><td>Internal degrees of freedom</td><td>2 polarization states</td><td>Spin-½ + orbital structure</td><td>Full geometry of the sector</td></tr>
+        <tr><td>Appearance in 3D</td><td>Clean transverse wave</td><td>Fuzzy probability clouds</td><td>Projection from hidden space</td></tr>
+        <tr><td>Force range</td><td>Long-range (1/r²)</td><td>Short-range (confined in atoms)</td><td>Gauge mode vs massive resonance</td></tr>
+        <tr><td>Statistics</td><td>Bosonic</td><td>Fermionic</td><td>Integer vs half-integer spin</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The Photon — d=2</h2>
+  <div class="prose">
+    <p>The photon lives in the simplest non-trivial hidden sector: CP¹ (the complex projective line, topologically S²). Its two polarization states are the <strong>complete internal geometry</strong> of this 2D space — there is nothing "hidden" beyond the two transverse directions. The n=0 mode with S(0,2) = 0 makes it exactly massless.</p>
+    <p>Because it is a pure gauge mode on the U(1) Hopf fiber, the photon projects extremely cleanly into 3D as a transverse wave. This is why light behaves so classically and propagates freely over cosmological distances. The two polarizations of light are not an arbitrary choice — they are the full set of degrees of freedom of the d=2 sector, giving a geometric origin for helicity and why photons have exactly two polarization states and no others.</p>
+  </div>
+
+  <h2>The Electron — d=6</h2>
+  <div class="prose">
+    <p>The electron lives in a much richer 6-dimensional hidden sector (CP³ geometry). Its wavefunction is a genuine standing-wave resonance in all 6 dimensions, confined by the sector potential. What we observe in 3D is only a <strong>projection</strong> of this 6D object at a fixed hidden-sector address. The familiar s, p, d, f orbitals are low-dimensional shadows of the full 6D geometry.</p>
+    <p>The richness of 6D — higher multiplicity in S(n,6), Kähler chirality for spin, complex topology — produces the complex, probabilistic appearance of electron orbitals and the richness of chemistry. The electron looks fuzzy and probabilistic in 3D precisely because we are seeing a 3D slice of a 6D deterministic wave. The Born rule emerges from the projection: |ψ_obs|² is the marginal probability density after integrating out the hidden coordinates.</p>
+  </div>
+
+  <h2>Why It Matters</h2>
+  <div class="prose">
+    <p><strong>Dimensional hierarchy.</strong> Photons are "simple" because they live in the lowest-dimensional sector. Electrons are "complicated" because they live in a higher-dimensional one. The electromagnetic interaction couples them via the shared U(1) Hopf fiber — the d=2 photon coordinates are literally inside the d=6 electron wavefunction, which is why charge coupling exists at all.</p>
+    <p><strong>Chemistry as 6D projection.</strong> Atomic orbitals, chemical bonding, and molecular shapes are the 3D shadows of 6D resonances. This explains why orbitals have nodes and lobes, why hybridization works, and why heavy elements show increasingly complex behavior — their higher-n mode indices project onto increasingly intricate 3D patterns.</p>
+    <p><strong>No fine-tuning.</strong> The electron mass (0.511 MeV) and the photon mass (0) are not inputs. The photon's zero mass follows from S(0,2) = 0 — the mode index n=0 means there are zero hidden microstates, and zero microstates means zero mass. The electron's mass follows from S(13,6) = 18,564 times the d=6 scale, which is itself fixed by a self-consistency equation. Both are calculations, not parameters.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dimensions Accumulate — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Geometry</div>
+  <h1>Dimensions Accumulate</h1>
+  <p class="sub">Each sector of the hidden space inherits all the coordinates of every sector below it. This single fact determines which particles feel which forces.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The Photon's Two Directions</h2>
+  <div class="prose">
+    <p>A photon has exactly two polarizations. Horizontal and vertical, left-circular and right-circular — always exactly two, no more. In ordinary treatments this is derived from Maxwell's equations: a transverse wave in 3D has two independent transverse directions. But in IDWT it comes from somewhere more fundamental.</p>
+    <p>The photon lives in the d=2 hidden sector, whose geometry is CP¹ — the complex projective line, topologically a sphere. That sector has <strong>two spatial degrees of freedom</strong>. Two degrees of freedom means two polarization states. Not as a consequence of some equation, but as the geometry of the space the photon inhabits.</p>
+    <p>This is only interesting if you ask: what about the other particles?</p>
+  </div>
+
+  <h2>Each Sector Adds Directions</h2>
+  <div class="prose">
+    <p>IDWT has six stable hidden sectors, one for each class of particles. Their dimensions are d ∈ {2, 3, 4, 5, 6, 10}. What makes them a hierarchy rather than a list is that <strong>the directions of each sector are literally contained in every sector above it</strong>.</p>
+    <p>The d=2 sector has 2 spatial directions. The d=3 sector has those same 2, plus 1 new one — 3 total. The d=4 sector has those same 3, plus 1 more — 4 total. And so on. Each new sector adds directions that then persist in every sector above it. By d=10, the tau lepton's sector, all ten directions are present.</p>
+  </div>
+
+  <!-- Sector stack visual -->
+  <div class="sector-stack">
+    <div class="sector-row">
+      <span class="sector-label">d = 2</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:20%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(96,165,250,0.4))">
+          2 dirs
+        </div>
+      </div>
+      <span class="sector-particles">γ &nbsp; W &nbsp; Z &nbsp; H</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 3</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:30%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(139,156,255,0.5))">
+          3 dirs
+        </div>
+      </div>
+      <span class="sector-particles">d &nbsp; s &nbsp; b</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 4</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:40%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(167,139,250,0.5))">
+          4 dirs
+        </div>
+      </div>
+      <span class="sector-particles">u &nbsp; c &nbsp; t</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 5</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:50%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(167,139,250,0.6))">
+          5 dirs
+        </div>
+      </div>
+      <span class="sector-particles">ν₁ &nbsp; ν₂ &nbsp; ν₃</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 6</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:60%; background:linear-gradient(90deg,rgba(96,165,250,0.6),rgba(167,139,250,0.7))">
+          6 dirs
+        </div>
+      </div>
+      <span class="sector-particles">e &nbsp; μ</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 10</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:100%; background:linear-gradient(90deg,rgba(96,165,250,0.5),rgba(167,139,250,0.9))">
+          10 dirs &nbsp;·&nbsp; <span style="opacity:0.7;font-weight:400">jump of +4 from d=6</span>
+        </div>
+      </div>
+      <span class="sector-particles">τ</span>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>Notice what the bars are showing: not independent sectors, but the same shared space with more and more directions activated. Every bar begins at the left edge — because the directions from d=2 are still there at d=10, still identical, still in use.</p>
+    <p>The jump from d=6 to d=10 is not arbitrary. It is forced by a mathematical condition called the Aubry-André criticality threshold: d=10 is the unique sector where the Gegenbauer polynomial coupling coefficient equals exactly 1/2, the critical value separating extended (conducting) from localised (insulating) modes. That criticality is why the tau lepton has a qualitatively different correction to its mass than the electron and muon — a Dyson resummation rather than a simple perturbative correction.</p>
+  </div>
+
+  <h2>A Sector Is Not a Location</h2>
+  <div class="prose">
+    <p>This is the twist that makes IDWT different from Kaluza-Klein theory or string theory. In those frameworks, extra dimensions are typically separate geometric locations — a higher-dimensional space that extends beyond the 3D we observe, with particles living at particular positions within it. IDWT is not that.</p>
+    <p>At any given point in the observable 3D universe, all six sector potentials exist simultaneously. A photon is an excitation that uses two of the available hidden directions. A top quark uses four. A tau lepton uses ten. The distinction between particle types is not <em>where</em> an excitation sits but <em>how many independent directions</em> its wavefunction spans.</p>
+    <p>A sector is a <strong>dimensionality class</strong>, not a spatial location.</p>
+  </div>
+
+  <h2>Why Forces Couple the Way They Do</h2>
+  <div class="prose">
+    <p>Forces in IDWT are mediated by gauge fields that live in specific sectors. The electromagnetic field lives in d=2. The W and Z bosons also live in d=2 (they are excitations of the same Hopf fiber as the photon, at different mode indices). The gluons live in d=4, specifically in the topology of CP² = SU(3)/U(2).</p>
+    <p>A particle couples to a force only if it has wavefunction support in the force's sector coordinates. Since d=2 is contained in every higher sector, <strong>every particle with d ≥ 2 couples to electromagnetism</strong> — which is all of them. The photon's two directions are literally inside every other particle's wavefunction. This is the geometric reason behind the universality of electric charge.</p>
+    <p>The weak force (W and Z) also lives at d=2. Neutrinos live at d=5, which contains d=2, so neutrinos couple to W and Z. This is why neutrinos feel the weak force despite having no colour charge and no electric charge in the observable sense — they couple through the shared d=2 coordinates.</p>
+    <p>Gravity has no sector at all. It is curvature of the full infinite-dimensional manifold M∞, sourced by whatever mass is present. Every particle has mass, and every mass curves M∞. This is why gravity is universal — not because it is a special force, but because it is not a sector force at all.</p>
+  </div>
+
+  <h2>The Mass Formula Reflects the Geometry</h2>
+  <div class="prose">
+    <p>The mass formula is <code>m = m_scale,d × S(n,d)</code>, where <code>S(n,d) = C(n+d-1, d)</code> is the number of ways to distribute n quanta across d hidden directions. This is directly counting how many hidden microstates the mode has access to. A particle in a higher-dimensional sector has access to more hidden configurations at the same mode level — which is why heavier particles tend to live in higher sectors.</p>
+    <p>The d=10 tau lepton (1776 MeV) is not heavier than the d=6 electron (0.511 MeV) just because d=10 > d=6. It is heavier because at any fixed mode level n, S(n,10) counts many more configurations than S(n,6) — the extra four directions give exponentially more microstates. More microstates means more mass.</p>
+    <p>This connects two things that seemed unrelated: the number of hidden spatial directions a particle occupies, and how heavy that particle is. In IDWT they are the same thing.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

@@ -35,12 +35,20 @@ The theory exhibits extreme overdetermination: only n_s = 4 (equivalently N_c = 
 
 Falsifiable Predictions:
 
-1. Sum m_nu = 60.4 meV (testable by CMB-S4)
-2. No neutrinoless double beta decay (any signal falsifies IDWT)
-3. No stable particles at 18.8 MeV or 47.0 MeV
-4. Normal neutrino hierarchy
-5. No additional stable particles beyond the SM
-6. CP-violating phase delta_CP = 197.1 deg (DUNE/Hyper-K 2028-2030)
+Positive measurements:
+1. Sum m_nu = 60.4 meV (CMB-S4)
+2. Normal neutrino hierarchy
+3. CP-violating phase delta_CP = 197.1 deg (DUNE/Hyper-K 2028-2030)
+
+Null results — any positive detection falsifies IDWT:
+4. No neutrinoless double beta decay (d=5 Clifford algebra forbids Majorana masses exactly, not dynamically)
+5. No gravitons — gravity is curvature of M_infinity, not a quantum field. There is no spin-2 massless boson to detect. Any graviton candidate signal (direct or indirect) falsifies IDWT.
+6. No Kaluza-Klein gravitons or KK excitations of any SM particle at any mass scale — the hidden dimensions are non-compact with exponentially localised bound-state modes, not compact periodic spaces. There is no standing-wave structure to produce a KK tower. This rules out both the ADD (large extra dimensions) missing-energy signature at colliders and Randall-Sundrum KK graviton resonances at the LHC.
+7. No deviation from Newton's inverse-square law at any tested distance — the exponential localisation of hidden-sector modes (Agmon decay, Part 4) produces no KK-type modification to G_N at short range. The Eot-Wash torsion-balance and similar sub-mm gravity tests find nothing; IDWT predicts they never will.
+8. No composition-dependent gravitational anomaly (no fifth force) — the equivalence principle holds as a strict theorem in IDWT: the gravitational and inertial mass of every mode (n,d) are both S(n,d) x m_scale_d, ratio exactly 1 for all sectors and all particle types. Any Eotvos-type violation falsifies IDWT.
+9. No supersymmetric particles — the particle spectrum is closed at exactly 15 states (T3 excludes new sectors; Stage-2 filter exhausts all valid mode indices). No neutralino, chargino, squark, slepton, or gravitino exists. Any LHC or direct-detection SUSY signal falsifies IDWT.
+10. No WIMP or other beyond-SM dark matter particle — same closure argument. Any direct or indirect detection of a new stable particle not already in the 15-state spectrum falsifies IDWT.
+11. No stable particles at 18.8 MeV or 47.0 MeV
 
 A single open-source Python script reproduces every numeric result from n_s=4 and m_e alone. Full technical documentation (10 parts, 15+ theorems, complete derivations) is available.
 

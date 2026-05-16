@@ -423,7 +423,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Electric charge −1:** From Kähler index of CP³ (Part 3 §5).
 - **Chirality:** CP³ Kähler γ₅ → left-handed W coupling (same mechanism as d=4).
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
-- **Coupling filter:** Total QCD silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; color index contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat four-dimensional spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+- **Coupling filter:** Total QCD silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; color index contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -712,7 +712,7 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
 | Electromagnetism | U(1) Hopf fiber phase: A_μ = ∂_μθ, F_μν = ∂_μA_ν−∂_νA_μ | ✅ |
-| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on 4D geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden-sector spaces are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; G_N from sector localization geometry is the remaining open item (Part 4 §3.12) | 🔶 |
+| General relativity | Effective Einstein equations from |Ψ∞|² back-reaction on the observer's 3D spacetime geometry. No gravitons — gravity is purely geometric curvature. Macroscopic hidden-sector spaces are consistent because graviton propagation exclusions do not apply (Part 4 §1b). Bianchi identity and spectral theorem proved; G_N from sector localization geometry is the remaining open item (Part 4 §3.12) | 🔶 |
 | Standard Model quarks | d=3 (down-type), d=4 (up-type) — masses from simplex formula | ✅ |
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |

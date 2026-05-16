@@ -26,7 +26,7 @@ The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the sector reduction; correc
 D_{M∞} = γ^μ ∂_μ ⊗ 1 + γ^5 ⊗ D_{Ξ}
 ```
 
-Under Ψ∞(x,ξ) = ψ(x) ⊗ χ(ξ), this separates into the 4D massive Dirac equation and an eigenvalue problem on the hidden sector:
+Under Ψ∞(x,ξ) = ψ(x) ⊗ χ(ξ), this separates into the massive Dirac equation in 3D space and an eigenvalue problem on the hidden sector:
 
 ```
 (iγ^μ ∂_μ − m_eff) ψ(x) = 0   [Dirac equation in 3+1D]

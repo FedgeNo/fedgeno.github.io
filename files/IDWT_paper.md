@@ -2,7 +2,7 @@
 
 **Author:** Fedge No  
 **Contact:** fedge-no@hotmail.com  
-**Preprint DOI:** https://doi.org/10.5281/zenodo.20032250  
+**Preprint DOI:** https://doi.org/10.5281/zenodo.20032249  
 **Technical documentation (9 volumes):** [doi:10.5281/zenodo.19767493](https://doi.org/10.5281/zenodo.19767493)  
 **Code:** `idwt.py` (archived at Zenodo; reproduces every number in this paper from two inputs)
 
@@ -26,7 +26,7 @@ We show this interpretation exists, is unique, and is grounded in the Dirac spec
 
 ### 1.1 What IDWT Is and Is Not
 
-IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The sector manifolds $\Xi_d$ are infinite Riemannian spaces — not compact extra dimensions, not accessible to gravitons or KK excitations. They are the configuration spaces of the hidden internal degrees of freedom of the master wavefunction $\Psi_\infty$ — analogous to the way spin is an internal degree of freedom of the Dirac spinor, not a geometrically compact extra dimension. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the 4D metric — purely geometric, with no graviton propagation into the hidden sectors. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
+IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The sector manifolds $\Xi_d$ are infinite Riemannian spaces — not compact extra dimensions, not accessible to gravitons or KK excitations. They are the configuration spaces of the hidden internal degrees of freedom of the master wavefunction $\Psi_\infty$ — analogous to the way spin is an internal degree of freedom of the Dirac spinor, not a geometrically compact extra dimension. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric — purely geometric, with no graviton propagation into the hidden sectors. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
 
 This framework does not employ Higgs fields, Yukawa couplings, or spontaneous symmetry breaking to generate masses. The $W$ and $Z$ masses are confinement masses of the $d=2$ sector — analogous to the $\rho$ meson mass in QCD — not consequences of a Higgs mechanism. The mass formula $m \propto S(n,d)$ holds for all particles simultaneously.
 
@@ -42,7 +42,7 @@ The master wavefunction $\Psi_\infty$ is a Dirac spinor field on a product manif
 
 The sector manifolds $\Xi_d$ are the complex projective spaces $\mathbb{CP}^{(d/2)-1}$ for even $d$ and the odd spheres $S^d$ for odd $d$, organised by the Hopf fibration chain $S^1 \to S^{2k-1} \to \mathbb{CP}^{k-1}$. Their role is spectral: they determine, through the Dirac eigenvalue spectra of the Hopf fibration chain, which mode frequencies are accessible to $\Psi_\infty$. A particle of type $(n,d)$ is a mode of $\Psi_\infty$ whose internal frequency in sector $\Xi_d$ is $S(n,d) \times m_{\mathrm{scale},d}$.
 
-The mode spectrum is discrete because the bound states of $V_d$ are discrete — just as bound states of the hydrogen potential are discrete even though $\mathbb{R}^3$ is infinite. The sectors are not compactified extra dimensions in any sense. The observable 3D universe does not couple to gravitational modes propagating through $\Xi_d$; the back-reaction of $|\Psi_\infty|^2$ on the 4D metric enters only through the projected energy-momentum tensor $T_{\mu\nu}^{\rm obs} = \int |\Psi_\infty|^2 d\xi$.
+The mode spectrum is discrete because the bound states of $V_d$ are discrete — just as bound states of the hydrogen potential are discrete even though $\mathbb{R}^3$ is infinite. The sectors are not compactified extra dimensions in any sense. The observable 3D universe does not couple to gravitational modes propagating through $\Xi_d$; the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric enters only through the projected energy-momentum tensor $T_{\mu\nu}^{\rm obs} = \int |\Psi_\infty|^2 d\xi$.
 
 **How $\xi^0$ selects the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by the seed $n_s = 4$ independently of $\xi^0$. What $\xi^0$ determines is the projection amplitude with which each mode $(n,d)$ appears to an observer at that address: modes with large $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2))$ are suppressed exponentially in the Stage-1 filter (Section 11). The SM spectrum is the set of modes that survive both Stage-1 projection (small $\Omega_{\log}$) and Stage-2 co-fixed-point stability for all $\xi^0$ simultaneously — it is the spectrum common to every observer address in $\mathcal{M}_\infty$. The choice of $\xi^0$ therefore affects only the relative intensities of already-existing modes, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
 
@@ -413,13 +413,13 @@ The $m_{\beta\beta} = 0$ prediction is exact: $d = 5 \equiv 5 \pmod{8}$ does not
 
 ---
 
-## 11. Dynamical Picture: How Sector Geometry Becomes 4D Physics
+## 11. Dynamical Picture: How Sector Geometry Determines Observable Physics
 
 The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
 
 Colour confinement emerges from the two-stage observability filter. A mode $(n,d)$ is observable only if: (1) $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2)) \lesssim \ln 2$ (Stage-1 dimensional visibility passes); and (2) the mode belongs to the co-fixed-point spectrum of the filtration chain (Stage-2 co-fixed-point condition). The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) pass Stage 1 but fail Stage 2 — they are not stable particles, consistent with observation.
 
-Gravity: variation of the master action with respect to $g_{\mu\nu}$ yields the standard 4D Einstein equations $G_{\mu\nu} = 8\pi G_N T_{\mu\nu}^{\rm eff}$, where $T_{\mu\nu}^{\rm eff} = \int_\Xi T_{\mu\nu}^{\rm Dirac}\,d\mu_\xi$ is the hidden-space integral of the matter stress-energy. $G_N$ is a measured constant of spacetime; the hidden geometry $\Xi$ is a fixed background and contributes no gravitational degrees of freedom. Full treatment in Technical Volume 4 [11].
+Gravity: variation of the master action with respect to $g_{\mu\nu}$ yields the observer's Einstein equations $G_{\mu\nu} = 8\pi G_N T_{\mu\nu}^{\rm eff}$, where $T_{\mu\nu}^{\rm eff} = \int_\Xi T_{\mu\nu}^{\rm Dirac}\,d\mu_\xi$ is the hidden-space integral of the matter stress-energy. $G_N$ is a measured constant of spacetime; the hidden geometry $\Xi$ is a fixed background and contributes no gravitational degrees of freedom. Full treatment in Technical Volume 4 [11].
 
 ---
 
@@ -435,7 +435,7 @@ The coordinate containment principle (Section 11) answers which forces can reach
 
 **d=5 (S⁵, SO(6)) — Majorana/LNV filter.** The Clifford algebra on S⁵ ($d \bmod 8 = 5$) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. This is why $m_{\beta\beta} = 0$ exactly (Section 10): not a fine-tuning but a geometric impossibility. The S⁵ Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$ additionally projects the CP² color representation onto its singlet, giving color-neutral neutrinos despite their coordinate support inside $\Xi_4$. Positively, the SO(6) $\cong$ SU(4) structure gives neutrinos their $B-L$ charge.
 
-**d=6 (CP³, SU(4)/U(3)) — QCD silence filter.** The Atiyah-Singer index on CP³ gives $\chi(\mathbb{CP}^3) = 4$, not 3; color contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — geometrically absent, not suppressed. CP³ is the twistor space of flat four-dimensional spacetime; the electron-photon vertex has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector.
+**d=6 (CP³, SU(4)/U(3)) — QCD silence filter.** The Atiyah-Singer index on CP³ gives $\chi(\mathbb{CP}^3) = 4$, not 3; color contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — geometrically absent, not suppressed. CP³ is the twistor space of flat 3+1 Minkowski spacetime; the electron-photon vertex has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector.
 
 **d=10 (CP⁵, SU(6)/U(5)) — fractal marginal coupling.** At the Aubry-André critical point, the tau's spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the short lifetime); each specific channel carries measure-zero weight (explaining why the lifetime is finite). The Dyson resummation $\delta_\tau = 1/1680$ (Section 7.2) is the mathematical signature of this fractal coupling structure — an all-orders resummation is required only at the critical point.
 

@@ -145,7 +145,7 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility
 | Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
-| G_N sector-independent, loop-exact | ✅ | §3.11–3.12.2 |
+| G_N sector-independent; no hidden-sector correction | ✅ | §3.11–3.12.2 |
 | G_N = G_∞/V_7: V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
 In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the hidden coordinates. Information is preserved globally.
@@ -333,9 +333,9 @@ G_N is the same for all sectors — sector-independent by the L² normalisation 
 
 ---
 
-## 3.12 Newton's Constant — Loop-Exactness
+## 3.12 Newton's Constant — No Hidden-Sector Correction
 
-### 3.12.1 Why Hidden Sector Loops Do Not Renormalise G_N
+### 3.12.1 Why Hidden Sector Fluctuations Do Not Correct G_N
 
 A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
@@ -345,7 +345,7 @@ M_Pl^{obs,eff} = M_Pl^{6D} × √Vol(compact space)
 
 **IDWT has a different structure that forbids this correction.**
 
-The one-loop effective action from Ξ sector fluctuations is:
+The functional determinant of the hidden sector operator O_Ξ contributes a term:
 
 ```
 Γ_Ξ = (1/2) Tr_Ξ[log O_Ξ]    where O_Ξ = −D_Ξ² + V_d(ξ)
@@ -379,7 +379,7 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 
 In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are configuration spaces of the internal degrees of freedom of Ψ∞; h_ab(ξ) is fixed and classical, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into hidden dimensions; they do not apply to IDWT.
 
-**Conclusion.** G_N as measured by a 3D observer is not renormalized by hidden sector loops. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
+**Conclusion.** G_N as measured by a 3D observer receives no correction from hidden sector fluctuations. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
 
 ---
 
@@ -449,7 +449,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
-| G_N sector-independent, loop-exact | ✅ §3.11–3.12.1 |
+| G_N sector-independent; no hidden-sector correction | ✅ §3.11–3.12.1 |
 | G_N = G_∞/V_7; V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
 
 ---

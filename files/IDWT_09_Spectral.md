@@ -42,7 +42,7 @@ The IDWT sector heat kernel $K_d(t) = \sum_n e^{-tS(n,d)}$ has been computed exa
 
 **Corollary (Spectral independence).** No element of $\sigma_{\rm phys}(|D|)$ is an integer linear combination of other elements from a different sector. This follows from the algebraic independence of the sector scales $m_{\mathrm{scale},d}$.
 
-**Corollary (Bianchi identity).** The spectral action is diffeomorphism-invariant, so $\nabla_\mu T^{\mu\nu}_{\rm eff} = 0$ holds identically for the effective stress-energy derived from $D$. Gravity is internally self-consistent at tree level.
+**Corollary (Bianchi identity).** The spectral action is diffeomorphism-invariant, so $\nabla_\mu T^{\mu\nu}_{\rm eff} = 0$ holds identically for the effective stress-energy derived from $D$. Gravity is internally self-consistent — the Bianchi identity holds exactly.
 
 ---
 
@@ -536,7 +536,7 @@ These are the **two leading Seeley-DeWitt coefficients** of the sector, in preci
 
 - **$\zeta_d(1)=d/(d-1)$** — total inverse-spectral-weight. Its reciprocal $(d-1)/d$ is the fraction of spectral weight outside the ground state. It governs how the tower fills its Hilbert space from below and constrains any observable built from inverse-mass sums.
 
-- **$\zeta_d(0)=-d/2$** — zeta-regularised mode count. The sector contributes exactly $d/2$ to the regularised "number of modes" — the same value a $d$-dimensional Riemannian manifold produces through its Seeley-DeWitt expansion. This sets the sector functional determinant $\log\det D_d = -\zeta_d'(0)$ and ensures the one-loop vacuum energy is finite without an ad-hoc cutoff.
+- **$\zeta_d(0)=-d/2$** — zeta-regularised mode count. The sector contributes exactly $d/2$ to the regularised "number of modes" — the same value a $d$-dimensional Riemannian manifold produces through its Seeley-DeWitt expansion. This sets the sector functional determinant $\log\det D_d = -\zeta_d'(0)$ and ensures the sector vacuum energy is finite without an ad-hoc cutoff.
 
 The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{-1/d}$ in the UV ($t\to 0^+$), and $K_d(t)\sim e^{-t}(1+e^{-dt}+\cdots)$ in the IR ($t\to\infty$), with Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ confirming spectral dimension $= d$. All of this follows from $S(n,d)=\binom{n+d-1}{d}$ alone, with no free parameters — the same formula that gives every particle mass.
 

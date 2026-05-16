@@ -190,7 +190,7 @@ The gravitational field is genuinely 10D — it is not a 3D field with extra-dim
 
 ### 0.9 CKM Matrix from the Kernel
 
-The projection operator Π is a lowpass filter: $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$, so heavier modes (larger S) are attenuated at the observer address relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:
+The mode amplitude at the d=3 coordinate level scales as $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$ from L² normalisation (Part 1 §2.2), so heavier modes (larger S) carry less weight at our coordinate level relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:
 
 ```
 |⟨χ_{n_lighter}|K_{dd}|χ_{n_heavier}⟩| ∝ |χ_{n_heavier}(ξ₀)| / |χ_{n_lighter}(ξ₀)|

@@ -32,37 +32,37 @@ Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the hidd
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
-The observer's location ξ⁰ weights the projection amplitude for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and eigenmode selection rule (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in the amplitude with which each mode projects onto their slice.
+The observer's location ξ⁰ sets the dimensional visibility for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and eigenmode selection rule (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in how much of each mode's activity is in their d=3 coordinates.
 
 **P3 — Hidden-Sector Spaces are Infinite and Non-Compact**
 The sector spaces $\Xi_d$ are infinite Riemannian spaces — full-size sector spaces, not rolled up or compactified in any sense. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). These bound states are the particles. The symmetry labels $\mathbb{CP}^n$ and $S^n$ in the sector table describe the local geometry at the bottom of the potential well — the symmetry of the mode wavefunctions near $r=0$ — not the global topology of $\Xi_d$. This is exactly analogous to a hydrogen atom: the electron lives in infinite $\mathbb{R}^3$ but the ground state has $S^2$ symmetry from the spherically symmetric potential. No sector space is curled up; the modes bind themselves through the potential. The standard KK exclusions (Eöt-Wash, collider searches) presuppose graviton propagation into small compact dimensions; they do not apply here. See Part 4 §1b and §3.9.
 
-Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the hidden space) are eliminated by the Stage-1 observability filter: they fail to project onto the 4D slice with finite amplitude. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
+Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the hidden space) are eliminated by the Stage-1 observability filter: they have negligible activity at the d=3 coordinate level (Ω_log → ∞) and are not detectable. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
 
 **P4 — Geometry First**
 The governing equation is a Dirac wave equation on the curved manifold $M_\infty$. The sector potentials $V_d(r)$ arise from the intrinsic curvature of $M_\infty$ evaluated at the vacuum $\xi^0_d$ — they are not independent inputs but consequences of the geometry.
 
 ---
 
-## 2. Projection and the Born Rule
+## 2. Observable Coordinates and the Born Rule
 
-### 2.1 Observable Reality as a Cross-Section
+### 2.1 We Are Inside M∞
 
-Our 3D universe is one slice through Ψ∞, as a 2D circle is a cross-section of a 3D sphere. The circle is unaware it is a cross-section. Our entire observable universe is one such slice — its contents (matter, energy, space) are determined by the global structure of Ψ∞ evaluated at ξ⁰. The slice is at the d=3 coordinate level: our three spatial dimensions are the d=3 coordinates of M∞, and every particle with d > 3 occupies our three spatial dimensions (§3i).
+There is no projection happening in IDWT. We are not external observers mapping M∞ onto a separate 3D screen. We are at d=3 — inside M∞, at the coordinate level where the first stable sector constitutes space. Our observable universe is M∞ at the d=3 coordinate level, not a shadow of something else.
 
-### 2.2 The Projection Operator
+Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 hidden coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
 
-```
-Π: Ψ∞(r, ξ, t)  →  ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
-```
+### 2.2 Dimensional Visibility
 
-This is a restriction map — it picks out one hypersurface from the full infinite-dimensional field at fixed ξ⁰. **The projection is the one place in IDWT where amplitude computation occurs.** Evaluating Ψ∞ at a specific address ξ⁰ gives a definite amplitude for each mode at that point.
+For particles with d ≤ 3, all vibrational activity is in our dimensions. The photon's 2 dimensions lie within our 3; down-type quarks' 3 dimensions exactly match ours. These particles are fully visible — there is no component of their vibration that eludes our measurement.
 
-In mode space, Π acts as a **lowpass filter**: the amplitude of sector-d mode n at the observer address scales as
+For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 in which its vibration is hidden from us. The tau (d=10) has 3 visible and 7 hidden. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
+
+The fraction of a sector-d mode's activity in our d=3 coordinates is set by the L² normalisation of the mode functions:
 
 $$|\chi_n(\xi^0)| \propto \frac{1}{\sqrt{S(n,d)}}$$
 
-from the L² normalisation of the sector mode functions. Higher mode indices (heavier particles) are progressively suppressed at ξ⁰. This is the physical mechanism behind the Stage-1 observability filter (Part 7) and the intra-sector mixing ratios (Part 3 §11). Every other IDWT prediction — masses, coupling constants, PMNS angles, the CP phase — involves ratios or eigenvalues of the sector geometry and does not require knowing the global normalisation of Ψ∞.
+Higher sectors and higher mode indices give larger S(n,d), meaning more of the mode's activity is distributed across dimensions beyond our 3. This is the basis of the Stage-1 observability criterion (Part 7): mode (n,d) has sufficient activity in our d=3 dimensions when Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 — the d=3 visible fraction is at least 1/√2 of the d=2 baseline. Mass and coupling predictions do not depend on this fraction — they are eigenvalues of the sector geometry (T0, Part 9). Dimensional visibility governs observability, not what the particle is.
 
 ### 2.3 The Born Rule Applied to Ψ∞
 
@@ -70,21 +70,21 @@ from the L² normalisation of the sector mode functions. Higher mode indices (he
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
 ```
 
-Standard quantum mechanics assigns probability density |ψ|² to any quantum field. IDWT applies this to Ψ∞ directly. The observable density ρ(r,t) is the hidden-space integral of |Ψ∞|², which marginalises over the hidden coordinates and recovers the 3D probability density. It is the Born rule of quantum mechanics applied to the field Ψ∞ on M_∞, with the hidden-sector dimensions integrated out.
+The observable probability density at position r is the marginal of |Ψ∞|² over the hidden coordinates. Since our measurements are mediated by d=3 interactions and we cannot independently access the hidden-sector coordinates, the density we measure is the integral of |Ψ∞|² over ξ — the hidden-space marginal, not the full function.
 
-The physical interpretation: an electron is not a cloud in 3D — it is a structured object in M_∞ whose 3D shadow (the projection) appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the hidden-sector coordinates even when their 3D projections are far apart.
+This is the Born rule applied to Ψ∞. It is not a separate postulate; it follows from the fact that our measurements access only the d=3 coordinate marginal. An electron is not a cloud in 3D — it is a structured mode in M∞ whose d=3 marginal appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the hidden-sector coordinates even when their d=3 marginals are far apart.
 
 ### 2.4 Connection to Cut-and-Project Construction
 
-The IDWT projection mechanism is structurally identical to the cut-and-project method used to construct quasicrystals. The three-step architecture:
+The mode-selection structure of IDWT is analogous to the cut-and-project method for constructing quasicrystals. The analogy is structural, not mechanistic — there is no external projection operator.
 
-1. **Full space:** M_∞ (infinite-dimensional manifold supporting Ψ∞)
-2. **Slice:** ψ_obs = Ψ∞(r, ξ⁰, t) at fixed ξ⁰
-3. **Acceptance window:** Two-stage filter (Stage-1 projection mismatch Ω_log + Stage-2 colour closure). In quasicrystal theory the acceptance window is a geometric region; in IDWT it is a spectral criterion. The analogy captures the structure of selection — an underlying high-dimensional structure M_∞, a slice, and a filter — rather than the mechanism.
+1. **Full space:** M∞ (infinite-dimensional manifold supporting Ψ∞)
+2. **Coordinate level:** d=3, where we exist; the field value Ψ∞(r, ξ⁰, t) at fixed hidden address ξ⁰
+3. **Acceptance window:** Two-stage filter (Stage-1 amplitude criterion Ω_log ≤ ln 2 + Stage-2 co-fixed-point of the sector comb filtration from n_s). In quasicrystal theory the acceptance window is a geometric region; in IDWT it is a spectral criterion. The analogy captures the structure of selection — an underlying high-dimensional space, a coordinate level, and a filter — rather than the mechanism.
 
-The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the projection geometry.
+The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the geometry and the seed n_s = 4.
 
-Key difference from quasicrystals: IDWT projects a continuous wave equation — modes have continuous suppression exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, mass gaps between successive occupied modes approach the ratio S(n+1,d)/S(n,d) = (n+d)/n → d in the large-n limit: the spectrum within each sector is asymptotically geometric.
+Key difference from quasicrystals: IDWT involves continuous amplitude weighting — modes have continuous suppression factor exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, mass gaps between successive occupied modes approach the ratio S(n+1,d)/S(n,d) = (n+d)/n → d in the large-n limit: the spectrum within each sector is asymptotically geometric.
 
 ---
 
@@ -381,9 +381,9 @@ m_scale_5 is fully derived from the cross-sector constraint m_scale_5 × m_scale
 |---|---|---|---|---|
 | ν₁ | 10 | 2002 | 1.487 meV | < 450 meV ✅ |
 | ν₂ | 15 | 11628 | 8.639 meV | < 450 meV ✅ |
-| ν₃ | 22 | 65780 | 48.87 meV | < 450 meV ✅ |
+| ν₃ | 22 | 65780 | 50.27 meV (bare: 48.87 meV) | < 450 meV ✅ |
 
-Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 59.00 meV. Δm²₃₁/Δm²₂₁ = 32.949 (PDG: 34.825, −5.4%).
+Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d); bare 59.00 meV. Δm²₃₁/Δm²₂₁ = 32.949 (PDG: 34.825, −5.4%).
 
 **Quantum properties.**
 - **Dirac (not Majorana):** d mod 8 = 5 → no real spinor → Majorana forbidden → **0νββ rate = 0** (hard prediction).
@@ -465,11 +465,11 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 
 ### 3f. The Coordinate Extension Picture
 
-M∞ is one coordinate system extended step by step: the two coordinates of d=2 are contained in d=3, the three of d=3 are contained in d=4, and so on without bound. The sectors D = {2, 3, 4, 5, 6, 10} are the stable levels at which this extension produces observable eigenstates.
+M∞ is one coordinate system extended step by step: the two coordinates of d=2 are contained in d=3, the three of d=3 are contained in d=4, and so on without bound. The sectors D = {2, 3, 4, 5, 6, 10} are the stable levels at which this extension produces observable eigenmodes.
 
 At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, the Atiyah-Singer index is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
 
-M∞ is genuinely infinite-dimensional. Beyond d=10 the Atiyah-Singer index vanishes, the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenstates closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
+M∞ is genuinely infinite-dimensional. Beyond d=10 the Atiyah-Singer index vanishes, the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenmodes closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
 
 The containment chain Ξ₂ ⊂ Ξ₃ ⊂ Ξ₄ ⊂ Ξ₅ ⊂ Ξ₆ ⊂ Ξ₁₀ and the isomorphism chain M∞ ≅ Ξ₂ ≅ Ξ₃ ≅ Ξ₄ ≅ Ξ₅ ≅ Ξ₆ ≅ Ξ₁₀ hold for all six sectors: each Ξ_d is M∞ perceived from coordinate level d, and each level's coordinates are a literal subset of the next level's coordinates.
 
@@ -680,11 +680,12 @@ The d=5 sector mass scale is derived from the cross-sector fixed point m_scale_5
 
 **Absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data):
 ```
-m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 48.87 meV,  Σm_ν = 59.00 meV
+m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 50.27 meV,  Σm_ν = 60.39 meV
 ```
-All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from m_e and seeds (Part 2 §9c). The primary testable quantities are the absolute masses themselves: Σm_ν = 59.0 meV (within reach of CMB-S4) and the mass ratios m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808, m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86.
+(Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV. Corrected by δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d.)
+All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from m_e and seeds (Part 2 §9c). The primary testable quantities are the absolute masses themselves: Σm_ν = 60.39 meV (within reach of CMB-S4) and the mass ratios m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808, m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86.
 
-**Note on oscillation comparisons.** Δm² values are derived consequences of the absolute masses, expressed in the language of oscillation experiments (which measure interference, not absolute masses). They are not native IDWT quantities. m_ν₃ = 48.87 meV is about 4% below what oscillation data imply (~50.85 meV), a gap of the same structural kind as the raw top quark (+1.3%) and tau (−0.06%) discrepancies that the GTC and Dyson resummation respectively address. The Dyson correction coefficient 1/n_μ = 1/S(n_s,4) = 1/35 is a Pascal quantity; the machinery for deriving it from first principles remains open (Part 6).
+**Note on oscillation comparisons.** Δm² values are derived consequences of the absolute masses, expressed in the language of oscillation experiments (which measure interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is derived exactly in Part 2 §9d (the √7 factors cancel: g_coeff × g_{33} = n_s² = k₀, so ε×g_{33} = k₀/(k₀×n_mu) = 1/35). The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
 
 **Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the eigenmode selection rule; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
 
@@ -694,9 +695,9 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 
 | Framework | IDWT equivalent | Derivation status |
 |-----------|----------------|------------------|
-| Quantum mechanics | Projection of Ψ∞ to 3D slice; Born rule from ∫|Ψ∞|²dξ | ✅ |
-| Wave-particle duality | Ψ∞ is a wave; its 3D projection appears particle-like when localised | ✅ |
-| Uncertainty principle | Projection loss prevents simultaneous position+momentum specification | ✅ |
+| Quantum mechanics | Ψ∞ evaluated at ξ⁰; Born rule from ∫|Ψ∞|²dξ gives d=3 probabilities | ✅ |
+| Wave-particle duality | Ψ∞ is a wave; its d=3 activity appears particle-like when localised | ✅ |
+| Uncertainty principle | Dimensional depth prevents simultaneous position+momentum specification | ✅ |
 | Special relativity | □_x component of □_{M∞}; inherited Lorentz covariance from product structure | ✅ |
 | Fermi statistics | Spinor Ψ∞ anticommutes: {Ψ∞(ξ),Ψ†∞(ξ')}=δ(ξ−ξ') — Pauli exclusion derived | ✅ |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ is distinct; antiparticles are automatic | ✅ |
@@ -736,7 +737,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 |---|---|---|
 | m_s/m_d | 20.000 exactly | Outside 19.5–20.5 at controlled scale |
 | m_μ/m_e | 206.7647 | Outside 206.760 ± 0.005 |
-| Σm_ν | 59.00 meV | Measured < 40 meV or > 80 meV |
+| Σm_ν | 60.39 meV | Measured < 40 meV or > 80 meV |
 | sin²θ₂₃ | 0.5590 | > 3σ from 0.5590 |
 | sin²θ₁₂ | 0.3086 | > 3σ from 0.3086 |
 | sin²θ₁₃ | 0.02211 | > 3σ from 0.02211 |
@@ -757,7 +758,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 | Prediction | Experiment | Timescale |
 |---|---|---|
 | 0νββ = 0 (m_ββ = 0) | nEXO, LEGEND-1000, KamLAND-Zen 800 | 2025–2035 |
-| Σm_ν = 59.0 meV | CMB-S4 (target ~30 meV) | 2030s |
+| Σm_ν = 60.39 meV | CMB-S4 (target ~30 meV) | 2030s |
 | Normal ordering (definitive) | JUNO, DUNE, Hyper-Kamiokande | 2025–2030 |
 | sin²θ₂₃ = 0.5590 | T2K, NOvA, DUNE | Running |
 | No new stable particles | HL-LHC, FCC | 2025–2040 |

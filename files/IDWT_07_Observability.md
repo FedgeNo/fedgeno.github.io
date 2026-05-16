@@ -1,6 +1,6 @@
 # Infinite Dimensional Wave Theory — Part 7: Two-Stage Observability & Mode Selection
 
-*Sections 49–51: Projection Filter, Stage-1/Stage-2 Mechanism, Beat Tower, CP^d Heat Kernel*
+*Sections 49–51: Dimensional Visibility, Stage-1/Stage-2 Mechanism, Beat Tower, CP^d Heat Kernel*
 
 ---
 
@@ -8,46 +8,46 @@
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
 
-- **Stage 1 (Projection):** The mode must project with sufficient amplitude and simplex alignment into the 3+1D slice at ξ⁰. Modes with high projection mismatch Ω_log(n,d) = ln(S(n,d)/S(n,2)) are suppressed by exp(−Ω_log).
-- **Stage 2 (Stability):** The projected mode must remain stable against 3D QCD dynamics, decoherence, and colour-closure requirements.
+- **Stage 1 (Dimensional Visibility):** Enough of the mode's vibrational activity must be in our d=3 dimensions. Modes with high dimensional depth Ω_log(n,d) = ln(S(n,d)/S(n,2)) have most of their activity in extra dimensions and are observationally obscured by exp(−Ω_log).
+- **Stage 2 (Stability):** The mode must remain stable against 3D QCD dynamics, decoherence, and colour-closure requirements.
 
 This reframes mode selection from a dynamical problem inside M_∞ to a geometric filtering problem at the boundary.
 
 ---
 
-### 1.1 Projection Amplitude (Stage 1)
+### 1.1 Dimensional Visibility (Stage 1)
 
-The projection amplitude for sector d relative to the quark sector (d=3) scales roughly as:
+The d=3 visible fraction for sector d relative to the quark sector (d=3) scales roughly as:
 ```
 A_rel(d) ~ (m_scale_d / m_scale_3)^{1/3}
 ```
 This is a heuristic estimate. The rigorous derivation from the sector heat kernel is in §2.9, which gives A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)² and λ̂_d ≈ 1.
 
-The projection mismatch for mode (n,d):
+The dimensional depth for mode (n,d):
 ```
 Ω_log(n,d) = ln(S(n,d) / S(n,2))
 ```
 
-Ω_log measures how much larger the hidden-sector mode count is relative to the d=2 gauge sector baseline. Stage-1 suppresses each mode by exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ and are fully projected out. Bound states have finite Ω_log; the co-fixed-point structure of the eigenmode selection rule selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
+Ω_log measures how much of the mode's activity is distributed across extra dimensions relative to the d=2 gauge sector baseline. Modes with high Ω_log have most of their vibration in dimensions beyond our 3; their d=3 visible fraction is exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ — their activity is spread across the full infinite-dimensional space and they have negligible presence in our d=3 dimensions. Bound states have finite Ω_log; the co-fixed-point structure of the eigenmode selection rule selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
 
-**Partition function interpretation:** The Stage-1 suppression factor exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The projection-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the projected count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of the projection geometry itself.
+**Partition function interpretation:** The dimensional visibility weight exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The visibility-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the d=3-visible count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of dimensional structure itself.
 
-### 1.2 Projection Amplitude Table
+### 1.2 Dimensional Visibility Table
 
-| Sector | Geometry | Physical role | Projection strength |
-|--------|----------|---------------|---------------------|
-| d=2 | CP¹ | Gauge bosons | full (gauge) |
-| d=3 | S³ | Down-type quarks | full (colour-protected) |
-| d=4 | CP² | Up-type quarks | full (colour-protected) |
-| d=5 | S⁵ | Neutrinos | suppressed |
-| d=6 | CP³ | Charged leptons | suppressed |
-| d=10 | CP⁵ | Tau | most suppressed |
+| Sector | Geometry | Physical role | Dimensional visibility |
+|--------|----------|---------------|------------------------|
+| d=2 | CP¹ | Gauge bosons | fully visible (all activity in d≤3) |
+| d=3 | S³ | Down-type quarks | fully visible (colour-protected) |
+| d=4 | CP² | Up-type quarks | fully visible (colour-protected) |
+| d=5 | S⁵ | Neutrinos | partially obscured in extra dimensions |
+| d=6 | CP³ | Charged leptons | partially obscured in extra dimensions |
+| d=10 | CP⁵ | Tau | most activity in extra dimensions |
 
-Quarks (d=3,4) project at full strength because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c. The suppression hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§2.9).
+Quarks (d=3,4) are fully visible because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c, forcing all their activity into d≤3. The visibility hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§2.9).
 
 ### 1.3 Stage-2 Stability
 
-Stage 2 requires that the projected mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (Part 7 §1.4).
+Stage 2 requires that the mode's colour vector sum satisfies the closure condition |Σ n⃗| ≈ 0. Non-singlet configurations carry positive kernel energy and decohere rapidly. The inter-sector coupling g_{3,4} provides additional locking for interference modes (Part 7 §1.4).
 
 ---
 
@@ -124,7 +124,7 @@ The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass
 
 ## 2.5 Complete Low-n Observability Atlas
 
-Full enumeration of all low-n modes, with Ω_log = ln(S(n,d)/S(n,2)) quantifying the Stage-1 projection suppression. Modes with Ω_log ≲ ln 2 ≈ 0.693 pass Stage 1; co-fixed-point membership (Stage 2) determines final occupancy.
+Full enumeration of all low-n modes, with Ω_log = ln(S(n,d)/S(n,2)) quantifying the Stage-1 dimensional depth. Modes with Ω_log ≲ ln 2 ≈ 0.693 pass Stage 1; co-fixed-point membership (Stage 2) determines final occupancy.
 
 **d=2 (Gauge bosons)** — all have Ω_log = 0 by convention (d=2 is the reference sector):
 
@@ -162,7 +162,7 @@ The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable had
 |---|--------|------------|-------|--------|
 | 10 | 2,002 | 1.487 | 3.595 | **Occupied (ν₁)** |
 | 15 | 11,628 | 8.639 | 4.574 | **Occupied (ν₂)** |
-| 22 | 65,780 | 48.871 | 5.561 | **Occupied (ν₃)** |
+| 22 | 65,780 | 50.27 (bare: 48.871) | 5.561 | **Occupied (ν₃)** |
 
 **d=6 (Charged leptons)** — m_scale_6 = 2.753 × 10⁻⁵ MeV:
 
@@ -181,14 +181,14 @@ The n=2 and n=3 d=3 modes pass Stage 1 but fail Stage 2. They are not stable had
 
 1. Two light colour-triplet d=3 resonances at **18.807 MeV** (n=2) and **47.019 MeV** (n=3) should exist as short-lived states but are absent as stable particles (pass Stage 1, fail Stage 2). No stable hadrons or narrow resonances are predicted in the 15–50 MeV window beyond the known pion sector.
 2. The next d=3 mode above strange (n=5, 164.565 MeV) is suppressed at Stage 1 (Ω_log = 0.847 > ln 2 = 0.693) and absent entirely.
-3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the projection kernel (Part 7 §2.9).
+3. The Ω_log threshold ln 2 ≈ 0.693 is not adjusted to fit these predictions; it is the spectral half-power point of the visibility kernel (Part 7 §2.9).
 
-**Ω_log values for heavy particles:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693. For the top (d=4 quark), this is irrelevant: colour protection sets λ_d = 0, so A_rel = 1 and Stage-1 passes unconditionally regardless of Ω_log. For the muon (d=6) and tau (d=10), these large Ω_log values confirm they are strongly Stage-1 suppressed — they survive as observable particles because they satisfy Stage-2 co-fixed-point selection, which operates independently of Stage-1. The ln 2 threshold governs which modes are geometrically accessible to the 4D slice; it does not override the co-fixed-point occupancy condition.
+**Ω_log values for heavy particles:** The top quark (Ω_log = 6.137), muon (8.715), and tau (12.362) all exceed ln 2 = 0.693. For the top (d=4 quark), this is irrelevant: colour protection sets λ_d = 0, so A_rel = 1 and Stage-1 passes unconditionally regardless of Ω_log. For the muon (d=6) and tau (d=10), these large Ω_log values confirm that most of their vibrational activity is in extra dimensions — they survive as observable particles because they satisfy Stage-2 co-fixed-point selection, which operates independently of Stage-1. The ln 2 threshold governs dimensional visibility; it does not override the co-fixed-point occupancy condition.
 
 ---
 
 
-The sector projection amplitude is given by the first-principles heat-kernel derivation below (§2.9): A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
+The sector dimensional visibility is given by the first-principles heat-kernel derivation below (§2.9): A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
 
 **Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = 1/κ_d is the sector localization length (the Agmon decay length of the ground-state mode, proved to be the natural sector length scale in Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d².
 
@@ -198,7 +198,7 @@ V_kernel(z) = λ_d (1 − |⟨e₁|z⟩|² / ⟨z|z⟩) = λ_d r²/(1+r²)
 ```
 Gauge-invariant, unique lowest-rank perturbation coupling only n=0 and n=1 sectors.
 
-**Projection weight:**
+**Dimensional visibility:**
 ```
 A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d L_d²  ≈ 1
 
@@ -214,18 +214,18 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 | Leptons | 6 | 0.122 |
 | Tau | 10 | 0.083 |
 
-**Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — they project at full strength. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This explains why quarks project strongly while leptons and neutrinos are suppressed.
+**Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — all their activity is in our d=3 dimensions. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This is why quarks are fully visible while leptons and neutrinos have activity in extra dimensions.
 
-**KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 projection for the same reason scattering states do: insufficient projection amplitude at ξ⁰.
+**KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 for the same reason scattering states do: their activity is spread too far into extra dimensions to be detectable at d=3.
 
 **Caveats:**
 1. **Symbol disambiguation:** In the heat-kernel derivation below, the Laplacian eigenvalue at level n in sector d is n(n+d−1) — a different quantity from the IDWT simplex count S(n,d) = C(n+d−1,d). To prevent confusion, the heat-kernel eigenvalue is written as E_n = n(n+d−1) throughout §2.9; S(n,d) always denotes the IDWT simplex count.
-2. A_rel controls **observability** — whether a mode at a given frequency couples to the 4D slice. It does not affect the mode frequency itself. The d=5 sector mass scale m_scale_5 is suppressed because χ(S⁵)=0 forces its frequency scale to be determined by the cross-sector Hopf equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by any projection amplitude. Mass is a frequency. Stage-1 does not set frequencies.
+2. A_rel controls **observability** — what fraction of a mode's vibrational activity is in our d=3 dimensions. It does not affect the mode frequency itself. The d=5 sector mass scale m_scale_5 is suppressed because χ(S⁵)=0 forces its frequency scale to be determined by the cross-sector Hopf equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by dimensional visibility. Mass is a frequency. Stage-1 does not set frequencies.
 3. λ̂_d values are not yet derived from the IDWT action; they should emerge from vacuum dynamics.
 
 ---
 
-## 3. CP^d Projection Geometry 🔶
+## 3. CP^d Coordinate Geometry 🔶
 
 **What is established:**
 - Exponential hierarchy A_rel = exp(−c_d λ̂_d) with geometrically fixed c_d = d/(d+1)²
@@ -240,7 +240,7 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|
-| m_scale_d hierarchy | Set by vacuum stability fixed-point and cross-sector Hopf coupling equations — a **frequency-domain** property. A_rel controls observability only (whether a mode couples to the 4D slice), not the mode frequency. The d=5 neutrino mass scale is suppressed because its sector has no self-confinement (χ(S⁵)=0), fixed by m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³. Stage-1 plays no role in setting mass. |
-| Quarks project strongly | Colour protection forces λ_d = 0 for triplets |
+| m_scale_d hierarchy | Set by vacuum stability fixed-point and cross-sector Hopf coupling equations — a **frequency-domain** property. A_rel controls observability only (how much of a mode's vibrational activity is in our d=3 dimensions), not the mode frequency. The d=5 neutrino mass scale is suppressed because its sector has no self-confinement (χ(S⁵)=0), fixed by m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³. Stage-1 plays no role in setting mass. |
+| Quarks fully visible | Colour protection forces λ_d = 0 for triplets |
 | Stage-1 heuristic A_rel | Replaced by exp(−c_d λ̂_d) with geometrically fixed c_d |
 | Vacuum stability fixes g₃₃ | Analogous: vacuum stability should fix λ̂_d |

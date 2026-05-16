@@ -563,7 +563,7 @@ Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ�
 
 **Stage 1 — Dimensional Visibility:** The mode must have sufficient activity in our d=3 dimensions. High dimensional depth Ω_log suppresses modes exponentially. For quarks (d=3,4), the U(1) breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c → quarks are fully visible automatically. Leptons and neutrinos carry no colour charge, so partial obscuring is allowed.
 
-**Stage 2 — Stability:** The mode must survive 3D QCD dynamics. Colour-non-singlet configurations carry positive kernel energy and decohere.
+**Stage 2 — Co-fixed-point:** The mode index n must be a co-fixed-point of the sector comb filtration from n_s=4. Modes not in the co-fixed-point set are not stable resonances of M_∞, regardless of sector.
 
 The Stage-1 filter has an exact occupation criterion from the Ω_log suppression factor exp(−Ω_log) = S(n,2)/S(n,3) for d=3:
 

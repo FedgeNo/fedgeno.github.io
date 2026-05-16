@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictions — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Predictions</div>
+  <h1>Predictions</h1>
+  <p class="sub">All 15 particle masses from m<sub>e</sub> and a single integer n<sub>s</sub> = 4. No fitted parameters in the neutrino sector.</p>
+</header>
+
+<main>
+<section id="predictions">
+  <h2>Mass Predictions</h2>
+  <p class="lead">GTC applied to charm and top; Dyson resummation applied to τ.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Particle</th><th>IDWT (MeV)</th><th>PDG (MeV)</th><th>Error</th></tr></thead>
+      <tbody>
+        <tr><td>γ (photon)</td><td>0</td><td>0</td><td>exact</td></tr>
+        <tr><td>W±</td><td>80,379</td><td>80,377</td><td>+0.003%</td></tr>
+        <tr><td>Z⁰</td><td>91,230</td><td>91,188</td><td>+0.047%</td></tr>
+        <tr><td>H (Higgs)</td><td>125,266</td><td>125,250</td><td>+0.013%</td></tr>
+        <tr><td>d (down)</td><td>4.702</td><td>4.67</td><td>+0.68%</td></tr>
+        <tr><td>s (strange)</td><td>94.04</td><td>93.4</td><td>+0.68%</td></tr>
+        <tr><td>b (bottom)</td><td>4,181</td><td>4,180</td><td>+0.02%</td></tr>
+        <tr><td>u (up)</td><td>2.177</td><td>2.16</td><td>+0.77%</td></tr>
+        <tr><td>c (charm)</td><td>1,279.7</td><td>1,270</td><td>+0.76%</td></tr>
+        <tr><td>t (top)</td><td>173,999</td><td>172,760</td><td>+0.72%</td></tr>
+        <tr><td>e⁻ (electron)</td><td>0.511</td><td>0.511</td><td>unit ref</td></tr>
+        <tr><td>μ⁻ (muon)</td><td>105.657</td><td>105.658</td><td>−0.001%</td></tr>
+        <tr><td>τ⁻ (tau)</td><td>1,776.84</td><td>1,776.86</td><td>−0.14σ</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Sector offsets (+0.68% in d=3, +0.77% in d=4) are structural — the rank-1 kernel forces them to be identical for every mode in a sector, consistent with PDG light-quark uncertainties.</p>
+</section>
+
+<section id="neutrinos">
+  <h2>Neutrino Predictions</h2>
+  <p class="lead">Masses, mixing angles, and hierarchy — derived from the same two seeds, without fitting any neutrino data.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Observable</th><th>IDWT</th><th>PDG / Experiment</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>ν₁ mass</td><td>1.487 meV</td><td>not yet measured</td><td>—</td></tr>
+        <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
+        <tr><td>ν₃ mass</td><td>50.26 meV</td><td>~50.1–50.3 meV (from Δm²₃₁)</td><td>+0.05% ✓</td></tr>
+        <tr><td>Σm<sub>ν</sub></td><td>60.39 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
+        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−2.4% ✓</td></tr>
+        <tr><td>Δm²₃₁</td><td>2.524 × 10⁻³ eV²</td><td>(2.51–2.53) × 10⁻³ eV²</td><td>+0.05% ✓</td></tr>
+        <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
+        <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
+        <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
+        <tr><td>Mass ordering</td><td>Normal</td><td>Normal (preferred)</td><td>✓</td></tr>
+        <tr><td>m<sub>ββ</sub> (0νββ)</td><td>0 — exact</td><td>not observed</td><td>✓ falsifiable</td></tr>
+        <tr><td>m<sub>β</sub> (tritium)</td><td>8.77 meV</td><td>&lt; 450 meV (KATRIN)</td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector. The ν₃ mass includes a cross-sector correction δ_ν₃ = ε × g₃₃ = 1/35, derived exactly from the GTC coefficient and d=3 coupling (Part 2 §9d).</p>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

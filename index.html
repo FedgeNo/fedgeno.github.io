@@ -16,6 +16,7 @@
   <div class="nav-links">
     <a href="/articles/">Articles</a>
     <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
   </div>
 </nav>
 
@@ -30,8 +31,6 @@
   <div class="cta">
     <a class="btn primary" href="#core">Explore the Theory</a>
     <a class="btn primary" href="#notebooklm">NotebookLM</a>
-    <a class="btn primary" href="#notes">Download Notes and Proof Script</a>
-    <a class="btn primary" href="/visualizations/">Visualizations</a>
   </div>
 </header>
 
@@ -49,57 +48,6 @@
   <div class="formula">
     <code>m = m_scale,d × S(n,d)</code> &nbsp; where &nbsp; <code>S(n,d) = C(n+d-1, d)</code>
   </div>
-</section>
-
-<section id="predictions">
-  <h2>Mass Predictions</h2>
-  <p class="lead">All 13 masses from m<sub>e</sub> and a single integer n<sub>s</sub> = 4. GTC applied to charm and top; Dyson resummation applied to τ.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Particle</th><th>IDWT (MeV)</th><th>PDG (MeV)</th><th>Error</th></tr></thead>
-      <tbody>
-        <tr><td>γ (photon)</td><td>0</td><td>0</td><td>exact</td></tr>
-        <tr><td>W±</td><td>80,379</td><td>80,377</td><td>+0.003%</td></tr>
-        <tr><td>Z⁰</td><td>91,230</td><td>91,188</td><td>+0.047%</td></tr>
-        <tr><td>H (Higgs)</td><td>125,266</td><td>125,250</td><td>+0.013%</td></tr>
-        <tr><td>d (down)</td><td>4.702</td><td>4.67</td><td>+0.68%</td></tr>
-        <tr><td>s (strange)</td><td>94.04</td><td>93.4</td><td>+0.68%</td></tr>
-        <tr><td>b (bottom)</td><td>4,181</td><td>4,180</td><td>+0.02%</td></tr>
-        <tr><td>u (up)</td><td>2.177</td><td>2.16</td><td>+0.77%</td></tr>
-        <tr><td>c (charm)</td><td>1,279.7</td><td>1,270</td><td>+0.76%</td></tr>
-        <tr><td>t (top)</td><td>173,999</td><td>172,760</td><td>+0.72%</td></tr>
-        <tr><td>e⁻ (electron)</td><td>0.511</td><td>0.511</td><td>unit ref</td></tr>
-        <tr><td>μ⁻ (muon)</td><td>105.657</td><td>105.658</td><td>−0.001%</td></tr>
-        <tr><td>τ⁻ (tau)</td><td>1,776.84</td><td>1,776.86</td><td>−0.14σ</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Sector offsets (+0.68% in d=3, +0.77% in d=4) are structural — the rank-1 kernel forces them to be identical for every mode in a sector, consistent with PDG light-quark uncertainties.</p>
-</section>
-
-<section id="neutrinos">
-  <h2>Neutrino Predictions</h2>
-  <p class="lead">Masses, mixing angles, and hierarchy — derived from the same two seeds, without fitting any neutrino data.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Observable</th><th>IDWT</th><th>PDG / Experiment</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>ν₁ mass</td><td>1.487 meV</td><td>not yet measured</td><td>—</td></tr>
-        <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
-        <tr><td>ν₃ mass</td><td>50.26 meV</td><td>~50.1–50.3 meV (from Δm²₃₁)</td><td>+0.05% ✓</td></tr>
-        <tr><td>Σm<sub>ν</sub></td><td>60.39 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
-        <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−2.4% ✓</td></tr>
-        <tr><td>Δm²₃₁</td><td>2.524 × 10⁻³ eV²</td><td>(2.51–2.53) × 10⁻³ eV²</td><td>+0.05% ✓</td></tr>
-        <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
-        <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
-        <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
-        <tr><td>Mass ordering</td><td>Normal</td><td>Normal (preferred)</td><td>✓</td></tr>
-        <tr><td>m<sub>ββ</sub> (0νββ)</td><td>0 — exact</td><td>not observed</td><td>✓ falsifiable</td></tr>
-        <tr><td>m<sub>β</sub> (tritium)</td><td>8.77 meV</td><td>&lt; 450 meV (KATRIN)</td><td>✓</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 hidden sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The neutrinoless double beta decay rate is therefore exactly zero: a clean, falsifiable prediction. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios, with no free parameters in the neutrino sector. The ν₃ mass includes a cross-sector correction δ_ν₃ = ε × g₃₃ = 1/35, derived exactly from the GTC coefficient and d=3 coupling (Part 2 §9d).</p>
 </section>
 
 <section id="about">
@@ -130,62 +78,6 @@
   </div>
 </section>
 
-<section id="notes">
-  <h2>Download the Notes</h2>
-  <p class="lead">Nine parts and a script that calculates every important value in IDWT.</p>
-  <div class="grid">
-    <article class="card">
-      <div class="card-head"><div class="part">Part 1</div><h3>Foundations</h3></div>
-      <p>The core postulates and the geometric setting of Ψ∞.</p>
-      <a class="dl" href="/files/IDWT_01_Foundation.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 2</div><h3>Mass Formula</h3></div>
-      <p>Derivation of S(n,d) and the cumulative state counting rule.</p>
-      <a class="dl" href="/files/IDWT_02_Mass.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 3</div><h3>Forces &amp; Colour</h3></div>
-      <p>How Hopf sectors generate SU(3), SU(2), U(1) structure.</p>
-      <a class="dl" href="/files/IDWT_03_Forces.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 4</div><h3>Gravity</h3></div>
-      <p>Why macroscopic hidden dimensions are consistent with all gravitational experiments — no KK tower, no extra-dimensional gravitons.</p>
-      <a class="dl" href="/files/IDWT_04_Gravity.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 5</div><h3>Predictions</h3></div>
-      <p>All particle masses from m<sub>e</sub> alone with less than 1% error.</p>
-      <a class="dl" href="/files/IDWT_05_Predictions.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 6</div><h3>Open Questions</h3></div>
-      <p>The dynamical gap and what remains to be proved.</p>
-      <a class="dl" href="/files/IDWT_06_OpenQuestions.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 7</div><h3>Observability</h3></div>
-      <p>What we can measure and why.</p>
-      <a class="dl" href="/files/IDWT_07_Observability.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 8</div><h3>Quantum</h3></div>
-      <p>Quantum physics in IDWT.</p>
-      <a class="dl" href="/files/IDWT_08_Quantum.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Part 9</div><h3>Spectral Theorems</h3></div>
-      <p>IDWT as a sequence of self-contained spectral theorems.</p>
-      <a class="dl" href="/files/IDWT_09_Spectral.md" download>Download .md</a>
-    </article>
-    <article class="card">
-      <div class="card-head"><div class="part">Script</div><h3>Python Proof Script</h3></div>
-      <p>Generates all IDWT numbers from n_s = 4 and m_e.</p>
-      <a class="dl" href="/files/idwt.py" download>Download .py</a>
-    </article>
-  </div>
-</section>
 </main>
 
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>

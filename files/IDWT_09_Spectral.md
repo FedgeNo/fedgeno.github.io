@@ -596,7 +596,7 @@ a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3$. It is $N_c$-determined,
 $$4(N_c+1)^2 = (d-2)^2 \;\Longrightarrow\; d = 2 + 2(N_c+1) = 2(N_c+2).$$
 At $N_c = 3$: $d = 2\times 5 = 10$. $\square$
 
-The number of quark colors determines not only the physics within each sector but the point at which the sector geometry terminates.
+The number of quark colors determines not only the physics within each sector but the point at which the sector-space geometry terminates.
 
 **Corollary T15b ($\chi$ sequence and the Rule A gap).** The Euler characteristics of the $\mathbb{CP}^k$ sectors in $D$ form a nearly consecutive sequence with one gap:
 

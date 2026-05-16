@@ -26,7 +26,7 @@ IDWT has none of this structure:
 - At any macroscopic distance from the source, the sector mode is already suppressed as exp(−r/L_d), where L_d is the mode localization length
 - The gravitational effect measured by a 3D observer is G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a point mass (§3.2–3.6)
 
-**The sector dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the sector geometry contributes to gravity only through the observer's stress-energy of the particles it hosts.
+**The sector dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the sector-space geometry contributes to gravity only through the observer's stress-energy of the particles it hosts.
 
 **Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 dimensional visibility and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
@@ -50,7 +50,7 @@ This section establishes what gravity is in IDWT and describes the effective gra
 
 ### 3.1 Gravity as Curvature of M_∞ Sourced by Mass
 
-Gravity in IDWT is curvature of M_∞ caused by mass. The mass of a mode (n,d) is m(n,d) = S(n,d) × m_scale_d — a count of hidden microstates, the mode's dimensional complexity (sector inertia). A concentration of that sector inertia distorts the geometry of M_∞, and that distortion is what gravity is.
+Gravity in IDWT is curvature of M_∞ caused by mass. The mass of a mode (n,d) is m(n,d) = S(n,d) × m_scale_d — a count of hidden microstates, the mode's dimensional complexity (dimensional inertia). A concentration of that dimensional inertia distorts the geometry of M_∞, and that distortion is what gravity is.
 
 There is no postulated gravitational field, no graviton, and no separate gravitational action written by hand. The M_∞ action contains the matter term:
 
@@ -60,7 +60,7 @@ S_matter = ∫_{M_∞} Ψ̄∞ (iΓ^μ ∇_μ + iΓ^a ∂_a) Ψ∞ dμ_{M_∞}
 
 The gravitational term on M_∞ — the ∞D analogue of the Einstein-Hilbert action — is the spectral action Tr(f(D/Λ)), whose leading coefficient f_2Λ² encodes G_N^{-1}. This term is open (Part 6, §3.12.2); fixing it requires computing the spectral action on M_∞.
 
-The sector geometry h_ab(ξ) is a fixed background — not a dynamical field. There is nothing gravitational to vary in Ξ, so no wave equation exists in the sector directions and no KK graviton tower appears.
+The sector-space geometry h_ab(ξ) is a fixed background — not a dynamical field. There is nothing gravitational to vary in Ξ, so no wave equation exists in the sector directions and no KK graviton tower appears.
 
 **What a 3D observer perceives.** A 3D observer at fixed ξ⁰ cannot access the full M_∞ geometry. They measure the effect of ∞D curvature at their d=3 coordinates. That measurement takes the effective form of a gravitational equation — something that looks like Newton's law at low energies or Einstein's field equation more generally. This effective description is valid for the observer's practical purposes but is not the underlying phenomenon. The phenomenon is ∞D curvature sourced by mass.
 
@@ -105,15 +105,15 @@ For L²-normalised modes (‖χ‖²_Ξ = 1), the observer's effective gravitati
 G_μν(x) = 8πG_N × T_μν^{obs}[ψ](x)
 ```
 
-The sector dimensions have contributed their mass to this source and do not appear as an independent gravitational term. Mass is the only channel through which the sector geometry enters the observer's gravitational measurement.
+The sector dimensions have contributed their mass to this source and do not appear as an independent gravitational term. Mass is the only channel through which the sector-space geometry enters the observer's gravitational measurement.
 
 ### 3.4 Why There Are No Hidden Gravitational Degrees of Freedom
 
 Gravity is geometry, not a field. Geometry does not have quanta. There are no gravitons because there is no gravitational field to quantize — there is only M_∞ curvature caused by mass. This is not an additional assumption; it follows from what gravity is in IDWT.
 
-More specifically: the sector geometry h_ab(ξ) is a fixed classical background. It is not dynamical, has no equation of motion, and does not vary. There are therefore no fluctuations δh_ab, no wave equation in Ξ, and no KK graviton tower. The sector space enters the observer's gravitational measurement exactly once — through T_μν^{eff}(x), the integrated matter stress-energy, which encodes the mass of each particle and nothing else.
+More specifically: the sector-space geometry h_ab(ξ) is a fixed classical background. It is not dynamical, has no equation of motion, and does not vary. There are therefore no fluctuations δh_ab, no wave equation in Ξ, and no KK graviton tower. The sector space enters the observer's gravitational measurement exactly once — through T_μν^{eff}(x), the integrated matter stress-energy, which encodes the mass of each particle and nothing else.
 
-The question of cross-terms between different sector coordinates — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: the 3D observer constructs a single metric g_μν(x) on their d=3 spacetime, not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
+The question of cross-terms between different sector-space coordinates — δ²S/δg_μν(ξ_a) δg_ρσ(ξ_b) for a≠b — does not arise: the 3D observer constructs a single metric g_μν(x) on their d=3 spacetime, not a family parameterised by ξ. The coupling ∫_Ξ T_μν dμ_ξ is already the ξ-integrated source; there is no per-leaf metric.
 
 ### 3.5 Boundary Terms on Non-Compact Ξ
 
@@ -148,7 +148,7 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility
 | G_N sector-independent; no hidden-sector correction | ✅ | §3.11–3.12.2 |
 | G_N = G_∞/V_7: V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
-In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector coordinates. Information is preserved globally.
+In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector-space coordinates. Information is preserved globally.
 
 ---
 
@@ -337,7 +337,7 @@ G_N is the same for all sectors — sector-independent by the L² normalisation 
 
 ### 3.12.1 Why Hidden Sector Fluctuations Do Not Correct G_N
 
-A legitimate concern with any multi-sector theory is whether integrating out sector degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
+A legitimate concern with any multi-sector theory is whether integrating out sector-space degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
 ```
 M_Pl^{obs,eff} = M_Pl^{6D} × √Vol(compact space)
@@ -389,7 +389,7 @@ The previous subsections show that G_N is sector-independent (§3.11) and not co
 
 **Gravity has no sector boundary.** Every other force mediates within a specific sector (EM and weak in d=2, strong in d=4). Gravity is the unique exception — it has no sector confinement because it is curvature of $M_\infty$ itself, the space in which all sectors live. A force confined to d=4 cannot reach a d=2 particle. Gravity reaches everything because everything lives in $M_\infty$.
 
-**Mass encodes dimensional complexity; gravity couples through it.** The mass formula $m(n,d)=S(n,d)\times m_{\rm scale,d}$ assigns mass proportional to the count of hidden microstates in sector $d$. More dimensions means exponentially more microstates: the photon (d=2, ground-state massless — two transverse polarisations, no room for sector excitations) barely couples to gravity; the tau (d=10, $S(23,10)=64\,512\,240$) couples strongly. Gravity couples to each particle through that particle's dimensional complexity, which is encoded in its mass. There is no separate gravitational rule per sector — the mass formula already carries the dimensional structure, and gravity couples to mass.
+**Mass encodes dimensional complexity; gravity couples through it.** The mass formula $m(n,d)=S(n,d)\times m_{\rm scale,d}$ assigns mass proportional to the count of hidden microstates in sector $d$. More dimensions means exponentially more microstates: the photon (d=2, ground-state massless — two transverse polarisations, no excited microstates) barely couples to gravity; the tau (d=10, $S(23,10)=64\,512\,240$) couples strongly. Gravity couples to each particle through that particle's dimensional complexity, which is encoded in its mass. There is no separate gravitational rule per sector — the mass formula already carries the dimensional structure, and gravity couples to mass.
 
 **G_N as a measurement.** The M_∞ curvature sourced by mass has a fundamental strength $G_\infty$. A 3D observer integrates out all dimensions beyond observer space — both the sector space (d=4,5,6,10, with localised modes) and the vacuum dimensions (d>10, with no stable bound states). The occupied-sector contribution to this integration is $V_7$, fully derived from the sector coupling constants:
 
@@ -480,7 +480,7 @@ This is circular: Λ ~ M_Pl because G_N^{−1} ~ M_Pl^2 by definition. Setting �
 
 **Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the gauge kinetic terms, which control the Yang-Mills couplings). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
 
-In IDWT, the gauge couplings g_{dd} are fully derived from N_c alone (T9) — they are not inputs. This means a_4 is already fixed, independently of Λ and independently of G_N. If a_2 can be computed from the sector geometry (heat kernel coefficients from T14 plus the Ricci scalar on each sector manifold), then the ratio:
+In IDWT, the gauge couplings g_{dd} are fully derived from N_c alone (T9) — they are not inputs. This means a_4 is already fixed, independently of Λ and independently of G_N. If a_2 can be computed from the sector-space geometry (heat kernel coefficients from T14 plus the Ricci scalar on each sector manifold), then the ratio:
 
 $$\frac{a_2(M_\infty)}{a_4(M_\infty)} = \frac{G_N^{-1}}{\text{(T9 gauge couplings)}}$$
 

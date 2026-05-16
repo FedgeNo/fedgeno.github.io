@@ -71,7 +71,7 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 
 | Term | Variation | Output |
 |---|---|---|
-| S_EH | δg^{μν} | Spacetime Einstein equations, G_eff = G_N = G_fund/V_7 (V_7 from sector geometry, Part 4 §3.12.3) |
+| S_EH | δg^{μν} | Spacetime Einstein equations, G_eff = G_N = G_fund/V_7 (V_7 from all six sector manifold geometries, Part 4 §3.12.3) |
 | L_kinetic (spacetime part) | δΨ̄∞ | Dirac propagation in 3D space |
 | L_kinetic (sector part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
 | L_kernel (d=d', self) | δΨ̄∞ | Sector confinement V_d, λ_d = (g_{dd}/2)^{2/3} |
@@ -110,7 +110,7 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | Weinberg angle | sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))² | 0.2237 |
 | GTC correction | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
-| Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 (sector geometry; G_fund one input) | — |
+| Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 (all six sector manifold geometries; G_fund one input) | — |
 | **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
 | **EW scale √Tr(D²)** | **spectral action RMS** | **248.3 GeV** |
 | **Fermi constant** | **G_F = g₂²/(4√2 m_W²)** | **1.1658×10⁻⁵ GeV⁻²** |

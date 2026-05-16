@@ -50,7 +50,7 @@ The governing equation is a Dirac wave equation on the curved manifold $M_\infty
 
 There is no projection happening in IDWT. We are not external observers mapping M∞ onto a separate 3D screen. We are at d=3 — inside M∞, at the coordinate level where the first stable sector constitutes space. Our observable universe is M∞ at the d=3 coordinate level, not a shadow of something else.
 
-Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 sector coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
+Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 sector-space coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
 
 ### 2.2 Dimensional Visibility
 
@@ -62,7 +62,7 @@ The fraction of a sector-d mode's activity in our d=3 coordinates is set by the 
 
 $$|\chi_n(\xi^0)| \propto \frac{1}{\sqrt{S(n,d)}}$$
 
-Higher sectors and higher mode indices give larger S(n,d), meaning more of the mode's activity is distributed across dimensions beyond our 3. This is the basis of the Stage-1 observability criterion (Part 7): mode (n,d) has sufficient activity in our d=3 dimensions when Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 — the d=3 visible fraction is at least 1/√2 of the d=2 baseline. Mass and coupling predictions do not depend on this fraction — they are eigenvalues of the sector geometry (T0, Part 9). Dimensional visibility governs observability, not what the particle is.
+Higher sectors and higher mode indices give larger S(n,d), meaning more of the mode's activity is distributed across dimensions beyond our 3. This is the basis of the Stage-1 observability criterion (Part 7): mode (n,d) has sufficient activity in our d=3 dimensions when Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 — the d=3 visible fraction is at least 1/√2 of the d=2 baseline. Mass and coupling predictions do not depend on this fraction — they are eigenvalues of each particle's sector manifold (T0, Part 9). Dimensional visibility governs observability, not what the particle is.
 
 ### 2.3 The Born Rule Applied to Ψ∞
 
@@ -537,13 +537,13 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 ∂_t² Ψ = c²(Δ_3 + Δ_hidden) Ψ
 ```
 
-The sector Laplacian acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve the sector motion, sees:
+The Laplacian on Ξ_d acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve motion in Ξ_d, sees:
 
 ```
 ∂_t² ψ = c²(Δ_3 − m²) ψ
 ```
 
-This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the sector degrees of freedom are inaccessible. Mass is a count of excited hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d sector dimensions, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations in the sector dimensions means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
+This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the Ξ_d degrees of freedom are inaccessible. Mass is a count of excited hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d dimensions of Ξ_d, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
 
 ---
 

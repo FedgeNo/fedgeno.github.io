@@ -441,7 +441,7 @@ The coordinate containment principle (Section 11) answers which forces can reach
 
 **Relationship to coordinate containment.** Coordinate containment is necessary but not sufficient. A particle may have coordinate support in a force's sector and still have zero coupling if its own sector geometry projects the relevant representation to zero. The S⁵ Hopf structure projects the CP² color representation onto the singlet; the CP³ index cancellation gives zero gluon coupling despite the lepton's coordinates containing $\Xi_4$. Both principles together determine the full coupling structure of any particle.
 
-**Significance.** The Standard Model takes quantum numbers as axioms: quarks have three colors by measurement; neutrinos are (possibly) Dirac by measurement; leptons are color-neutral by measurement. IDWT derives each from Atiyah-Singer, Bott periodicity, or Clifford algebra on the respective sector manifold. The coupling structure of every particle in the Standard Model is a theorem of the sector geometry, not a postulate.
+**Significance.** The Standard Model takes quantum numbers as axioms: quarks have three colors by measurement; neutrinos are (possibly) Dirac by measurement; leptons are color-neutral by measurement. IDWT derives each from Atiyah-Singer, Bott periodicity, or Clifford algebra on the respective sector manifold. The coupling structure of every particle in the Standard Model is a theorem of each particle's sector manifold geometry, not a postulate.
 
 ---
 
@@ -487,7 +487,7 @@ IDWT is distinctive in providing: (a) parameter-free masses for all 13 particles
 3. **$\Delta m^2_{31}$ discrepancy.** ~~$-7.7\%$ open.~~ Closed by $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ (cross-sector constructive interference, exact). Corrected $\Delta m^2_{31} = 2.525\times10^{-3}$ eV$^2$ (PDG: $2.584\times10^{-3}$, $-2.3\%$).
 4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.
-6. **Hierarchy $M_\infty \gg m_e$.** The 26-order ratio is not yet derived from the sector geometry.
+6. **Hierarchy $M_\infty \gg m_e$.** The 26-order ratio is not yet derived from the sector-space geometry.
 7. **Spectral action EW scale.** The spectral action gives $\sqrt{\operatorname{Tr}(D^2)}=248.3$ GeV $\approx v_{\rm Higgs}$ ($+0.85\%$), confirming the IDWT Dirac operator reproduces the SM electroweak scale. $G_N$ is a measured input to the Einstein-Hilbert term.
 
 ---

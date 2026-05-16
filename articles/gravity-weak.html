@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Is Gravity So Weak? — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Gravity</div>
+  <h1>Why Is Gravity So Weak?</h1>
+  <p class="sub">Every other force is at least 10<sup>32</sup> times stronger. IDWT gives the geometric reason — and it reduces to a single number derivable from the theory.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The Problem</h2>
+  <div class="prose">
+    <p>Gravity is absurdly weak. The electromagnetic force between an electron and a proton is about 10<sup>39</sup> times stronger than the gravitational force between them. The strong force is stronger still. Even the weak force, named for its feebleness, beats gravity by a factor of 10<sup>32</sup> at particle physics energies. Every other force in nature dwarfs gravity by tens of orders of magnitude.</p>
+    <p>This is one of the oldest open questions in physics. It goes by various names — the hierarchy problem, the naturalness problem, the Planck scale puzzle — but they all ask the same thing: <strong>why is gravity so extraordinarily weak compared to everything else?</strong></p>
+    <p>In most frameworks this is treated as a numerical coincidence to be explained by some new mechanism: supersymmetry, large extra dimensions, warped geometry, technicolour. IDWT does not introduce a mechanism. It gives a geometric reason, and the answer is a number that the theory derives from first principles.</p>
+  </div>
+
+  <h2>The Key Distinction: Sector Forces vs Gravity</h2>
+  <div class="prose">
+    <p>IDWT has six stable hidden sectors — geometric spaces that particles inhabit according to their dimensionality. The photon lives in the d=2 sector, quarks in d=3 and d=4, neutrinos in d=5, electrons and muons in d=6, the tau in d=10. All the non-gravitational forces are mediated by fields that live in specific sectors. Electromagnetism is a d=2 field. Colour is a d=4 field. The weak force lives at d=2 as well.</p>
+    <p>A particle only couples to a force if its wavefunction has support in that force's sector coordinates. This is the <strong>coordinate containment</strong> principle. It is why neutrinos have no colour charge — the neutrino lives in d=5, and colour lives in d=4, and the S⁵ geometry projects the colour representation down to zero. The coupling is geometrically absent, not dynamically suppressed.</p>
+    <p><strong>Gravity is different from all of this.</strong> Gravity has no sector. It is not a field living in d=2 or d=4 or any specific sector. It is the curvature of the full infinite-dimensional manifold M_∞, sourced by whatever mass is present anywhere in M_∞. There is no gravitational sector to be confined to. Gravity propagates everywhere — including into every hidden dimension — simply because it is geometry, and geometry has no walls.</p>
+  </div>
+
+  <!-- Force confinement visual -->
+  <div class="sector-stack" style="margin: 2rem 0;">
+    <div class="sector-row">
+      <span class="sector-label" style="font-size:0.85rem">EM</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:20%; background:linear-gradient(90deg,rgba(96,165,250,0.8),rgba(96,165,250,0.5))">
+          confined to d=2
+        </div>
+      </div>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label" style="font-size:0.85rem">Colour</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:40%; background:linear-gradient(90deg,rgba(167,139,250,0.8),rgba(167,139,250,0.5))">
+          confined to d=4
+        </div>
+      </div>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label" style="font-size:0.85rem">Gravity</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:100%; background:linear-gradient(90deg,rgba(251,191,36,0.6),rgba(251,191,36,0.2))">
+          no sector boundary — spreads into all hidden dimensions
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>When you measure the electromagnetic force between two electrons, you are measuring a field that lives entirely in your d=3 world (and its d=2 sector). It has not spread anywhere else. Its full strength is available to you.</p>
+    <p>When you measure the gravitational force between two masses, you are measuring a cross-section of an infinite-dimensional curvature that has spread into seven hidden sector dimensions. You are seeing only the fraction of that curvature that intersects your d=3 coordinates. The rest has dispersed into directions you cannot observe.</p>
+    <p>That geometric dilution is why gravity is weak.</p>
+  </div>
+
+  <h2>The Formula: G<sub>N</sub> = G<sub>∞</sub> / V<sub>7</sub></h2>
+  <div class="prose">
+    <p>The relation between what a 3D observer measures (G<sub>N</sub>) and the actual infinite-dimensional gravitational coupling (G<sub>∞</sub>) is:</p>
+  </div>
+  <div class="callout" style="text-align:center; font-size:1.25rem; letter-spacing:0.02em;">
+    G<sub>N</sub> = G<sub>∞</sub> / V<sub>7</sub>
+  </div>
+  <div class="prose">
+    <p>V<sub>7</sub> is the product of the seven hidden sector localization lengths — the physical size of the hidden geometry through which gravitational curvature spreads before a 3D observer measures what remains:</p>
+    <p style="text-align:center; font-family:monospace; font-size:1rem;">V<sub>7</sub> = L<sub>4</sub> × L<sub>5</sub> × L<sub>6</sub> × L<sub>10</sub><sup>4</sup> ≈ 113</p>
+    <p>Here L<sub>d</sub> is the localization length of the sector d ground state — the e-folding length of the wavefunction in the hidden direction, analogous to the Bohr radius for a hydrogen atom. The four powers of L<sub>10</sub> appear because the d=10 sector contributes four independent hidden directions to the seven (the jump from d=6 to d=10 adds four dimensions, not one).</p>
+    <p><strong>Crucially, V<sub>7</sub> ≈ 113 is not a free parameter.</strong> Each localization length L<sub>d</sub> is derived from the sector coupling constant g<sub>dd</sub> through the relation λ<sub>d</sub> = (g<sub>dd</sub>/2)<sup>2/3</sup>, and the coupling constants are all determined by the single integer N<sub>c</sub> = 3 (the number of quark colours). The dilution factor that makes gravity weak is computable from the same geometry that determines particle masses.</p>
+    <p>The numerical value comes out to approximately 113. The measured Newton's constant is G<sub>N</sub> ≈ 6.67 × 10<sup>−11</sup> m³ kg<sup>−1</sup> s<sup>−2</sup>. IDWT says this equals G<sub>∞</sub>/113, where G<sub>∞</sub> is the fundamental ∞D gravitational coupling — the one quantity still open, requiring the spectral action scale Λ to fix.</p>
+  </div>
+
+  <h2>Why the Hidden Dimensions Don't Show Up Elsewhere</h2>
+  <div class="prose">
+    <p>A common objection: if there are seven hidden dimensions, why don't we see them in other experiments? The standard argument for large extra dimensions says they would produce a Kaluza-Klein tower of massive graviton modes with masses of order 1/R, visible at colliders or modifying Newton's law at distances below R.</p>
+    <p>That argument assumes the extra dimensions are compact — periodic, like a circle of radius R — which produces a tower of standing waves. IDWT has no compact dimensions and no standing waves. The hidden geometry is an infinite space, and the particles that live in it are <strong>exponentially localized bound states</strong>, not plane waves. The localization is the same mechanism as the hydrogen atom: the Coulomb potential produces a bound state whose wavefunction decays as e<sup>−r/a₀</sup>, even though the space extends to infinity.</p>
+    <p>In IDWT, each sector has a potential V<sub>d</sub>(r) = λ<sub>d</sub> r²/(1+r²) that confines particle modes as bound states with exponential tails. At any laboratory distance r ≫ L<sub>d</sub> from the source, the hidden wavefunction is already suppressed by a factor of e<sup>−r/L<sub>d</sub></sup>. For macroscopic L<sub>d</sub>, this is e<sup>−10<sup>30</sup></sup> — absolutely zero for any experimental purpose. The hidden dimensions are present and producing particle masses, but they leave no additional laboratory signature.</p>
+    <p>There is no Kaluza-Klein tower because there is no periodic structure to produce one. Every experimental bound on large extra dimensions — Eöt-Wash torsion balance tests, hydrogen spectroscopy, collider missing-energy searches — assumes a KK tower. With no KK tower, those bounds do not apply. The constraints evaporate at their own premise.</p>
+  </div>
+
+  <h2>Gravity Is Not Quantized in IDWT</h2>
+  <div class="prose">
+    <p>A further consequence of gravity being geometry rather than a field: there are no gravitons. Geometry does not have quanta. The concept of a Planck mass as a quantum gravitational threshold does not appear — G<sub>N</sub> is not a coupling constant in a fundamental gravitational action written by hand, it is what a 3D observer measures of ∞D curvature. There is no action to quantize.</p>
+    <p>This resolves the ultraviolet divergence problem of quantum gravity: the divergences arise from treating gravity as a field with propagating quanta in 4D. IDWT has no such field. The gravitational effect is smooth geometry responding to mass, sector by sector, and the 3D observer reads a cross-section of that response.</p>
+    <p>The equivalence principle — that all particles fall at the same rate regardless of their composition — holds exactly in IDWT, as a theorem. The gravitational and inertial mass of any mode (n,d) are both equal to S(n,d) × m_scale,d, and the ratio is 1 for all sectors, all mode indices, all particle types. No fifth force. No composition-dependent anomaly.</p>
+  </div>
+
+  <h2>What Remains Open</h2>
+  <div class="prose">
+    <p>IDWT derives the dilution factor V<sub>7</sub> ≈ 113 from the sector coupling constants. It does not yet fix G<sub>∞</sub>, the infinite-dimensional gravitational coupling. Fixing G<sub>∞</sub> requires computing the spectral action scale Λ on M<sub>∞</sub> — the coefficient of the Einstein-Hilbert term in the asymptotic expansion of Tr(f(D/Λ)). That calculation is the single remaining open item in the gravity sector.</p>
+    <p>Once G<sub>∞</sub> is fixed, the prediction G<sub>N</sub> = G<sub>∞</sub>/V<sub>7</sub> becomes a complete derivation of Newton's constant from the same geometry that produces the particle mass spectrum. At that point, all the fundamental constants of the Standard Model — all particle masses, all coupling constants, and G<sub>N</sub> — will be determined by a single integer (N<sub>c</sub> = 3) and a single unit of mass (m<sub>e</sub>).</p>
+    <p>Gravity is weak because it has no walls. Every other force stays confined to its sector. Gravity spreads into all seven hidden dimensions and you measure what's left. The factor by which it's diluted is 113, derived from the same geometry that determines why there are three quark colours and six particle sectors in the first place.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

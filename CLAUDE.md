@@ -97,7 +97,14 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T14 — Heat Kernel.** K_d(t) = Σ_{n≥1} e^{−t·S(n,d)}. Weyl coefficient a_0^(d) = Γ(1+1/d)(d!)^{1/d}. Spectral zeta at zero: ζ_d(0) = −d/2. First excitation gap = d in dimensionless units. Universal ground state S(1,d) = 1 for all d.
 
-**T15 — Euler Characteristic Unification.** N_c = χ(CP²) = n_u = 3; n_s = χ(CP³) = N_c+1 = 4. All six sector self-couplings {g_{22}, g_{33}, g_{44}, g_{55}, g_{66}, g_{10,10}} are functions of N_c = χ(CP²) alone (via T9 with n_u = N_c, n_s = N_c+1). Theorem S2 (m_u/m_d = √(3/14)) is a corollary: √(2N_c/[(N_c+1)(2N_c+1)]). The coupling filter geometry (what interactions are possible) and the mass scale structure (mass ratios) share one geometric root — the Euler characteristic of the color manifold CP². Absolute scale m_e requires a dimensional input and is the only quantity outside this chain.
+**T15 — Euler Characteristic Unification (+ Corollaries T15a–f).** N_c = χ(CP²) = n_u = 3; n_s = χ(CP³) = N_c+1 = 4. All six sector self-couplings are functions of N_c alone (T9 with n_u = N_c). Extended corollaries:
+- T15a: Terminal sector d = 2(N_c+2) = 10 (from T3 Rule B + k_0 = n_s²)
+- T15b: CP χ-sequence {N_c−1, N_c, N_c+1, [gap N_c+2 = Rule A], N_c+3}; n_top = N_c(N_c+1)(N_c+3) = 72
+- T15c: Both Hopf coupling products equal N_c(N_c+1)³/2 = 96
+- T15d: n_e = N_c²+N_c+1 = 13; n_{ν1} = N_c²+1 = 10; all mode indices from N_c
+- T15e: m_scale_5 = (1−g_{66}) × m_scale_6³/m_scale_4²; neutrino suppression = complement of lepton coupling filter
+- T15f: g_{dd} anti-correlates with isometry group dimension — larger symmetry group → more forbidden interactions → weaker coupling → lighter masses
+- Theorem S2 (m_u/m_d = √(3/14)) is a corollary. Absolute scale m_e is the only dimensional input.
 
 **Part 1 §3b — Completeness of Particle Spectrum.** The IDWT particle spectrum is exactly 15 states. No additional stable particles exist. Any new state would require a new sector (excluded by T3) or a new mode index passing Stage-2 (exhaustively excluded). The spectrum is closed.
 

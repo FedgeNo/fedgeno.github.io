@@ -26,7 +26,7 @@ IDWT has none of this structure:
 - At any macroscopic distance from the source, the hidden mode is already suppressed as exp(−r/L_d), where L_d is the mode localization length
 - The gravitational effect measured by a 3D observer is G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a point mass (§3.2–3.6)
 
-**The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the standard 4D stress-energy of the particles it hosts.
+**The hidden dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the hidden geometry contributes to gravity only through the observer's stress-energy of the particles it hosts.
 
 **Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 dimensional visibility and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
@@ -66,7 +66,7 @@ The hidden geometry h_ab(ξ) is a fixed background — not a dynamical field. Th
 
 ### 3.2 The Observer's Effective Gravitational Equation
 
-A 3D observer who constructs a gravitational equation from their measurements finds it sourced by T_μν^{eff} — the full hidden-space integral of the matter stress-energy. Varying S_matter with respect to the 4D metric g_μν(x) that the observer uses to describe their d=3 spacetime:
+A 3D observer who constructs a gravitational equation from their measurements finds it sourced by T_μν^{eff} — the full hidden-space integral of the matter stress-energy. Varying S_matter with respect to the spacetime metric g_μν(x) that the observer uses to describe their d=3 spacetime:
 
 ```
 δS_matter/δg^μν = √(−g) × ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
@@ -95,14 +95,14 @@ The effective stress-energy has three contributions:
 For mode (n,d), the KK ansatz Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ) with D_Ξ χ_{n,d} = m_eff χ_{n,d} gives mass m_eff = m_scale_d × S(n,d). The effective stress-energy factorises:
 
 ```
-T_μν^{eff}(x) = T_μν^{4D}[ψ](x) × ∫_Ξ |χ_{n,d}(ξ)|² dμ_ξ
-              = T_μν^{4D}[ψ](x) × ‖χ‖²_Ξ
+T_μν^{eff}(x) = T_μν^{obs}[ψ](x) × ∫_Ξ |χ_{n,d}(ξ)|² dμ_ξ
+              = T_μν^{obs}[ψ](x) × ‖χ‖²_Ξ
 ```
 
 For L²-normalised modes (‖χ‖²_Ξ = 1), the observer's effective gravitational equation sources by a massive Dirac field with mass m_eff = m_scale_d × S(n,d):
 
 ```
-G_μν(x) = 8πG_N × T_μν^{4D}[ψ](x)
+G_μν(x) = 8πG_N × T_μν^{obs}[ψ](x)
 ```
 
 The hidden dimensions have contributed their mass to this source and do not appear as an independent gravitational term. Mass is the only channel through which the hidden geometry enters the observer's gravitational measurement.
@@ -126,7 +126,7 @@ Non-normalizable (scattering) modes do not satisfy this condition — they fail 
 ### 3.6 The Equivalence Principle
 
 Inertial mass enters through the KK eigenvalue: m_inertial = m_scale_d × S(n,d).
-Gravitational mass enters through T_μν^{eff}(x) = T_μν^{4D}[ψ] × ‖χ‖²_Ξ.
+Gravitational mass enters through T_μν^{eff}(x) = T_μν^{obs}[ψ] × ‖χ‖²_Ξ.
 
 Both carry the same hidden normalisation factor ‖χ‖²_Ξ. For normalised modes:
 
@@ -209,7 +209,7 @@ For modes well below the continuum (E_0 << λ_d): λ̂_d → 1. Numerically:
 - The hidden modes are exponentially localized bound states, not plane waves
 - At any laboratory distance r >> L_d, the mode is already suppressed as exp(−r/L_d) ≈ exp(−10^{30}) for macroscopic L_d
 - No deviation from 1/r² gravity occurs at any accessible scale
-- The gravitational interaction is standard 4D: G_μν = 8πG T_μν^{eff} with T_μν^{eff} indistinguishable from a standard point mass
+- The gravitational interaction appears standard to the observer: G_μν = 8πG T_μν^{eff} with T_μν^{eff} indistinguishable from a standard point mass
 
 The hydrogen spectroscopy bound of 6 mm was computed assuming KK modes modify the hydrogen energy levels. With no KK modes, no such bound exists. The bound evaporates entirely.
 
@@ -302,7 +302,7 @@ This is the self-consistency condition: the sector potential depth is determined
 From the variational derivation (§3.2), the effective stress-energy factorises as:
 
 ```
-T_μν^{eff}(x) = T_μν^{4D}[ψ](x) × ‖χ_d‖²_{Ξ_d} = T_μν^{4D}[ψ](x)
+T_μν^{eff}(x) = T_μν^{obs}[ψ](x) × ‖χ_d‖²_{Ξ_d} = T_μν^{obs}[ψ](x)
 ```
 
 for L²-normalised modes. The normalisation condition ‖χ_d‖² = 1 absorbs the hidden volume into the mode function. The value of the mode at the observer address ξ⁰ is:
@@ -321,10 +321,10 @@ This is exact for the Gaussian ground state; corrections for the actual sector p
 
 ### 3.11.2 The Effective Newton's Constant
 
-After sector mode normalisation (‖χ_{n,d}‖²_Ξ = 1), the effective stress-energy reduces to the standard 4D form (§3.3). A 3D observer who constructs a gravitational equation from their measurements obtains:
+After sector mode normalisation (‖χ_{n,d}‖²_Ξ = 1), the effective stress-energy reduces to the standard observer form (§3.3). A 3D observer who constructs a gravitational equation from their measurements obtains:
 
 ```
-G_μν(x) = 8π G_N × T_μν^{4D}[ψ](x)
+G_μν(x) = 8π G_N × T_μν^{obs}[ψ](x)
 ```
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
@@ -340,7 +340,7 @@ G_N is the same for all sectors — sector-independent by the L² normalisation 
 A legitimate concern with any multi-sector theory is whether integrating out hidden degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
 ```
-M_Pl^{4D,eff} = M_Pl^{6D} × √Vol(compact space)
+M_Pl^{obs,eff} = M_Pl^{6D} × √Vol(compact space)
 ```
 
 **IDWT has a different structure that forbids this correction.**
@@ -357,11 +357,11 @@ Via the Seeley-DeWitt heat kernel expansion, this yields terms of the form:
 Γ_Ξ ~ ∫_Ξ [a_0 + a_2 R_Ξ + a_4 R_Ξ² + ...] dμ_ξ
 ```
 
-The a_2 term, proportional to the Ricci scalar R_Ξ of the hidden manifold, is the one that would correct the 4D Planck mass in a KK theory.
+The a_2 term, proportional to the Ricci scalar R_Ξ of the hidden manifold, is the one that would correct the observed Planck mass in a KK theory.
 
 **The key: O_Ξ is independent of g_μν.**
 
-O_Ξ = −D_Ξ² + V_d(ξ) acts on functions of ξ only. It depends on the hidden metric h_ab(ξ) and the sector potential V_d, but has no dependence on the 4D metric g_μν(x). This is enforced by the product metric structure of M_∞ = M₄ × Ξ:
+O_Ξ = −D_Ξ² + V_d(ξ) acts on functions of ξ only. It depends on the hidden metric h_ab(ξ) and the sector potential V_d, but has no dependence on the spacetime metric g_μν(x). This is enforced by the product metric structure of M_∞ = M₄ × Ξ:
 
 ```
 ds²_{M_∞} = g_μν(x) dx^μ dx^ν + h_ab(ξ) dξ^a dξ^b
@@ -375,7 +375,7 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 
 Γ_Ξ is a constant with respect to g_μν — it contributes a fixed cosmological term (already absorbed into Λ_eff) but no correction to G_N.
 
-**Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its 4D and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the hidden dimensions. Integrating out these fluctuations produces the 4D Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
+**Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its spacetime and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the hidden dimensions. Integrating out these fluctuations produces the observed Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
 
 In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are configuration spaces of the internal degrees of freedom of Ψ∞; h_ab(ξ) is fixed and classical, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into hidden dimensions; they do not apply to IDWT.
 
@@ -440,7 +440,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 | Result | Status |
 |---|---|
-| 4D Einstein equations from M_∞ action | ✅ §3.1–3.4 |
+| Spacetime Einstein equations from M_∞ action | ✅ §3.1–3.4 |
 | No hidden gravitational propagating modes | ✅ §3.4 |
 | Equivalence principle: m_grav = m_inertial | ✅ §3.6 |
 | Boundary terms vanish on non-compact Ξ | ✅ §3.5 |
@@ -524,19 +524,19 @@ With L² normalisability established, the Bianchi proof in §3.8 Part II holds u
 **Step 1 — Factorisation.**
 
 ```
-T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{4D}[ψ](x)
+T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{obs}[ψ](x)
 ```
 
-**Step 2 — 4D conservation.** From the KK Dirac equation (iγ^μ ∇_μ − m_eff)ψ = 0:
+**Step 2 — Spacetime conservation.** From the KK Dirac equation (iγ^μ ∇_μ − m_eff)ψ = 0:
 
 ```
-∇^μ T_μν^{4D}[ψ](x) = 0
+∇^μ T_μν^{obs}[ψ](x) = 0
 ```
 
 **Step 3 — Commutation.** Since (a) ∇^μ acts on x only, (b) ∂_μ(dμ_ξ) = 0, and (c) |χ|² ∈ L²(Ξ_d) by Part I, the dominated convergence theorem applies:
 
 ```
-∇^μ ∫_Ξ |χ(ξ)|² T_μν^{4D}[ψ](x) dμ_ξ = ∫_Ξ |χ(ξ)|² ∇^μ T_μν^{4D}[ψ](x) dμ_ξ
+∇^μ ∫_Ξ |χ(ξ)|² T_μν^{obs}[ψ](x) dμ_ξ = ∫_Ξ |χ(ξ)|² ∇^μ T_μν^{obs}[ψ](x) dμ_ξ
 ```
 
 **Step 4.**

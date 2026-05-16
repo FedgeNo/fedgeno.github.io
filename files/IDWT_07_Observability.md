@@ -236,7 +236,7 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 - Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; this would also determine L_d = 1/√(λ_d − E_0) and hence G_eff)
 - Deriving the 3D gauge group from U(d) subgroups
 
-**Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only whether the neutrino modes are visible to a 4D observer; it plays no role in determining their mass.
+**Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only whether the neutrino modes are visible to a 3D observer; it plays no role in determining their mass.
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|

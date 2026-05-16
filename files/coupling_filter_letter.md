@@ -84,7 +84,7 @@ Positively, the SO(6) $\cong$ SU(4) Pati-Salam structure of the sector gives neu
 
 The Atiyah-Singer index on CP³ gives $\chi(\mathbb{CP}^3) = 4$, not 3. The color index contributions in the SU(4)/U(3) representation cancel — the index counts color handles, and CP³ produces none. The result: zero gluon coupling at any energy. Not suppressed at low energy, not dynamically forbidden, not a higher-order effect — geometrically absent.
 
-CP³ is the twistor space of flat four-dimensional spacetime [3]. This connection is not incidental. The electron-photon vertex — the fundamental interaction of QED — has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector. The coupling between them inherits the twistor structure. The clean electromagnetic behavior of the electron is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+CP³ is the twistor space of flat 3+1 Minkowski spacetime [3]. This connection is not incidental. The electron-photon vertex — the fundamental interaction of QED — has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector. The coupling between them inherits the twistor structure. The clean electromagnetic behavior of the electron is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
 The $d=6$ coupling filter: all QCD interactions geometrically absent; electromagnetic and weak couplings on with twistor-structured vertex form.
 

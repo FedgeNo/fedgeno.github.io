@@ -442,7 +442,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 |---|---|---|---|---|
 | m_ν₁ | n_ν₁ = S(n_u,3) = 10 | 1.487 meV | — | Absolute mass; testable by CMB-S4 + Project 8 |
 | m_ν₂ | n_ν₂ = S(n_u,4) = 15 | 8.639 meV | — | Absolute mass |
-| m_ν₃ | n_ν₃ = n_τ − n_d = 22 | 48.87 meV | — | Absolute mass; ~4% below oscillation inference (see below) |
+| m_ν₃ | n_ν₃ = n_τ − n_d = 22 | 48.87 meV → 50.26 meV | — | Absolute mass; 2.5–2.9% below oscillation inference; corrected by δ_ν₃ = 1/35 (§9d) |
 | Σm_ν | — | 59.00 meV | < 120 meV | ✅ within Planck bound; CMB-S4 target ~30 meV |
 | m_ν₂/m_ν₁ | — | 5.808 | — | Pure ratio: S(15,5)/S(10,5); exact from mode indices |
 | m_ν₃/m_ν₁ | — | 32.86 | — | Pure ratio: S(22,5)/S(10,5); exact from mode indices |
@@ -450,7 +450,11 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-**On m_ν₃ and oscillation data.** Oscillation experiments measure Δm² (interference of mass eigenstates in flight) because they cannot access absolute masses. IDWT predicts absolute masses directly, so Δm² values are derived consequences, not primary quantities. Expressed natively: m_ν₃ = 48.87 meV is about 4% below the value implied by oscillation data (~50.85 meV from Δm²₃₁). This is the same structural situation as the raw top quark (+1.3% before GTC) and tau (−0.06% before Dyson resummation) — a fractional gap in one mass that is open to a Dyson-type correction with coefficient 1/n_μ = 1/S(n_s,4) = 1/35, itself a Pascal quantity. The first-principles derivation of this correction is an open item (Part 6).
+**On m_ν₃ and oscillation data.** Oscillation experiments measure Δm² (interference of mass eigenstates in flight) because they cannot access absolute masses. IDWT predicts absolute masses directly, so Δm² values are derived consequences, not primary quantities. Expressed natively: m_ν₃ = 48.87 meV is 2.5–2.9% below the value implied by current oscillation data (PDG 2023–2024: Δm²₃₁ = (2.51–2.53)×10⁻³ eV², giving m_ν₃^{osc} ≈ 50.1–50.3 meV). The correction δ_ν₃ = 1/35 (derived in §9d from ε × g_{33} = 1/35 exactly) gives m_ν₃^{corr} = 48.87 × 36/35 = 50.26 meV, implying Δm²₃₁ = 2.524×10⁻³ eV² — matching PDG 2023 within 0.05% and within the ±0.025×10⁻³ experimental uncertainty of PDG 2024.
+
+**Structural source.** n_ν₁ = S(n_u,3) = 10 and n_ν₂ = S(n_u,4) = 15 are primary Pascal evaluations at the seed. n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22 is derived by inclusion-exclusion from two primary modes — the only neutrino mode requiring information from both the d=3 and d=4 Hopf images. This cross-sector entanglement makes n_ν₃ susceptible to a correction at the seed level: the leading d=4 evaluation above n_u is S(n_s,4) = 35 (a hockey-stick identity consequence: S(n_s+1,3) = S(n_s,4) = 35), which appears as the natural denominator. This is structurally analogous to the τ Dyson correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) — the same S(n_s,4) = 35 appears — but without the AA criticality factor n_s² = 16 (d=5 is not at the critical point) and without the Dyson resummation factor n_u (g_{55} ≠ 1/n_s). The first-principles derivation of this coefficient is given in §9d.
+
+If the correction is established, Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV (vs the uncorrected 59.00 meV). Both are within current cosmological bounds; CMB-S4 will distinguish them.
 
 **Observable predictions:**
 
@@ -462,6 +466,63 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 
 
 **Prediction from the derived set:** m_u/m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(12/56) = √(3/14) = 0.4629. PDG: 0.462 ± ~0.10 (the ratio carries ±25% uncertainty from lattice QCD). Error relative to central value: +0.20%.
+
+---
+
+## 9d. The ν₃ Correction — Exact Derivation
+
+The correction δ_ν₃ = 1/35 (§9c) is derived from two quantities fixed elsewhere in the framework: the GTC coefficient ε (§11) and the d=3 self-coupling g_{33} (T9).
+
+**Setup.** Let k₀ = n_s² = 16 (the quartic bifurcation index). From §11, the GTC coefficient is:
+
+```
+ε = g_coeff / (k₀ × n_mu)
+```
+
+where g_coeff = 2/√(n_s + n_u) = 2/√7 is the self-consistency eigenvalue from the seed equations (§11.2), and n_mu = S(n_s,4) = 35. From T9, the d=3 sector self-coupling is:
+
+```
+g_{33} = n_s² × √(n_s + n_u) / 2 = 8√7
+```
+
+**Identity.** Computing the product:
+
+```
+g_coeff × g_{33} = [2/√(n_s+n_u)] × [n_s² × √(n_s+n_u)/2]
+                 = n_s²  =  k₀                               [√7 cancels exactly]
+```
+
+Therefore:
+
+```
+ε × g_{33} = [g_coeff / (k₀ × n_mu)] × g_{33}
+            = (g_coeff × g_{33}) / (k₀ × n_mu)
+            = k₀ / (k₀ × n_mu)
+            = 1/n_mu  =  1/S(n_s,4)  =  1/35                 [exact]
+```
+
+The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_mu alone — the same three quantities that determine k₀ and the GTC structure. No additional input enters.
+
+**Why ν₃ and not ν₁ or ν₂.** The GTC l=2 cross-term (T2) generates corrections at inclusion-exclusion mode indices — modes that receive simultaneous contributions from two distinct sector images:
+
+- n_ν₁ = S(n_u,3) = 10: primary Pascal evaluation in d=3 alone. No cross-sector l=2 mixing; no correction.
+- n_ν₂ = S(n_u,4) = 15: primary Pascal evaluation in d=4 alone. No cross-sector l=2 mixing; no correction.
+- n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22: the unique inclusion-exclusion mode, combining the d=3 image (n_ν₁) and the d=4 image (n_ν₂) of the same seed n_u. The l=2 cross-term of the kernel (T2) then operates on the product of the two sector amplitudes: ε from the d=4 coupling geometry, g_{33} from the d=3 back-reaction. Their product is 1/35 by the identity above.
+
+**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both projections of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 Dyson correction (T10b), which is a geometric-series resummation at the Aubry-André critical point. The ν₃ correction is a single-order cross-sector constructive interference.
+
+**Numerical check:**
+
+```
+ε × g_{33} = (1/(280√7)) × 8√7 = 8/280 = 1/35   [exact]
+
+m_ν₃^{corr}       = 48.868 × 36/35 = 50.264 meV
+Δm²₃₁             = (50.264)² − (1.487)² [meV²] = 2.5243 × 10⁻³ eV²
+PDG 2023 central:    2.523 × 10⁻³ eV²              (+0.05%)
+PDG 2024 range:      (2.51–2.53) × 10⁻³ eV²        (within uncertainty)
+
+Σm_ν (corrected) = 1.487 + 8.639 + 50.264 = 60.390 meV
+```
 
 ---
 

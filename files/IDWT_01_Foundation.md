@@ -20,35 +20,7 @@ The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_
 
 ---
 
-## 0. The Actual Structure: A Spectral Triple
-
-**IDWT identifies the Standard Model as the spectral data of one operator $D$ on one space $M_\infty$.** It is the spectral action programme of Connes' noncommutative geometry, applied to the unique self-consistent Dirac-Harmonic operator on $M_\infty$. The mathematical object is a spectral triple $(\mathcal{A},\,\mathcal{H},\,D)$:
-
-$$\mathcal{A} = C(M_\infty)\otimes\bigoplus_{d\in D}\mathcal{M}_{n_d}(\mathbb{C}), \quad \mathcal{H} = L^2(M_\infty, \mathcal{S}_\infty), \quad D = -i\gamma^\mu\partial_\mu + \sum_{d\in D} D_d$$
-
-where $D_d$ is the Dirac-Harmonic operator in sector $d$ with potential $V_d(r) = \lambda_d r^2/(1+r^2)$. The stable spectrum of $|D|$ is exactly $\{S(n,d)\times m_{\text{scale},d}\}$. The spectral action $\text{Tr}(f(D/\Lambda))$ has the Seeley-DeWitt asymptotic expansion:
-$$\text{Tr}(f(D/\Lambda)) \sim f_4\Lambda^4\,a_0 + f_2\Lambda^2\,a_2 + f_0\,a_4 + O(\Lambda^{-2}),$$
-where $a_0 \propto \text{Vol}(M_\infty)$ (cosmological constant term), $a_2 \propto \int R\,\text{dvol}$ (Einstein-Hilbert term, giving $G_N^{-1} \propto f_2\Lambda^2$), and $a_4$ contains the gauge kinetic and Yukawa terms of $S_{\text{SM}}$. The IDWT sector heat-kernel coefficients $a_0^{(d)} = \Gamma(1+1/d)(d!)^{1/d}$ and $\zeta_d(0) = -d/2$ are computed exactly from $S(n,d)$ alone (Part 9 T14). The cutoff $\Lambda$ and spectral function coefficients $f_k$ are open (Part 6; related to the unevaluated $f_2$ offset in $\sin^2\theta_W$, $g_1$, and $\sqrt{\text{Tr}(D^2)}$).
-
-**Internal consistency check.** Computing $\text{Tr}(D^2) = \sum_i m_i^2$ from the 15 IDWT particles (top quark 50.5%, Higgs 25.5%, $Z$ 13.5%, $W$ 10.5%):
-$$\sqrt{\text{Tr}(D^2)} = 248.3\text{ GeV}.$$
-
-IDWT derives $G_F = g_2^2/(4\sqrt{2}\,m_W^2)$ directly from seeds, which gives the EW scale $({\sqrt{2}\,G_F})^{-1/2} = 246.3$ GeV. The 0.85% gap between $\sqrt{\text{Tr}(D^2)}$ and this scale is a consistency check on the derived mass spectrum against the derived $G_F$ — both quantities come from the same seed structure, so agreement is expected and the residual traces to the same spectral normalisation offset as the $\sin^2\theta_W$ and $g_1$ residuals. Note: IDWT does not use spontaneous symmetry breaking, so the concept of a Higgs VEV does not apply within the framework (Part 5 §3c). The EW scale here is $(\sqrt{2}\,G_F)^{-1/2}$, not a vacuum expectation value.
-
-**Open computations reframed as spectral geometry:**
-
-| Item | Status | Spectral geometry statement |
-|---|---|---|
-| PMNS mixing | ✅ | Weighted average of TBM and simplex-ratio limits with weight $g_{55}=96/g_{22}$; all three angles within 0.51% of PDG with no free parameters (Part 9 T6) |
-| $\sin^2\theta_W$ residual | ✅ | $S(76,2)/S(81,2)=0.2237$ exactly; +0.37% from PDG on-shell value is within known 1-loop EW radiative corrections — not an open computation |
-| CP phase | 🔶 | $\Delta c_1 = c_1(\mathbb{CP}^3) - c_1(\mathbb{CP}^5) = -2$ identified as candidate source; curvature integral over sector coupling parameter space not performed (T8) |
-| G_N derivation | 🔶 | G_N from sector localization geometry — how concentrated sector energy couples to 4D curvature (Part 4 §3.12) |
-
-The laser, quasicrystal, Aubry-André, and atomic analogies are all instances of the same mathematical fact: the spectrum of a self-adjoint operator with a filtering condition. IDWT names that operator: $D$ on $M_\infty$. The SM is its spectral data.
-
-**Analytic control from combinatorics.** The spectral zeta function of each sector $d$ has two exact anchor values derivable from $S(n,d)=\binom{n+d-1}{d}$ alone: $\zeta_d(1)=d/(d-1)$ (total inverse-mass weight, proved by a Pascal telescoping identity) and $\zeta_d(0)=-d/2$ (zeta-regularised eigenvalue count, from the constant term of the heat kernel $K_d(t)=\sum_n e^{-tS(n,d)}$). These confirm that each hidden sector behaves as a proper $d$-dimensional Riemannian space — spectral dimension matches fiber dimension, the functional determinant $\log\det D_d=-\zeta_d'(0)$ is finite without a UV cutoff, and the infinite tower is analytically controlled. Full derivations in Part 9 T13–T14.
-
----
+**Note on EW symmetry breaking.** IDWT does not use spontaneous symmetry breaking, so the concept of a Higgs VEV does not apply within the framework (Part 5 §3c). The EW scale is $(\sqrt{2}\,G_F)^{-1/2}$ — not a vacuum expectation value.
 
 ## 1. Core Postulates
 

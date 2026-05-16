@@ -8,7 +8,7 @@ A physics framework under construction. Reality is a single complex wave Ψ∞ o
 - Our observable 3D universe is a projection (not a brane) through this space — a d=3 slice of a 10D structure.
 - The hidden dimensions are not compactified Planck-scale curls; they are macroscopic.
 - What we call mass is a scaled count of hidden microstates.
-- Gravity is a 10D phenomenon. G_N is what a d=3 observer measures of a gravitational field that exists in all 10 spatial dimensions.
+- Gravity is a phenomenon of M_∞ — it has no sector boundary. G_N = G_∞/V_7; V_7 ≈ 113 is fully derived from sector couplings. V_vacuum (d>10) does not enter: curvature from d≤10 propagates into d>10 but disperses (T5: scattering states, not L²-normalizable); d>10 is Ricci-flat in vacuum (R_ab=0, no contribution to a_2 = ∫R dvol). G_∞ requires the spectral action scale Λ (single remaining open item). Gravity couples to each particle through that particle's dimensional complexity, encoded in mass m(n,d) = S(n,d) × m_scale_d.
 - Forces mediate via coordinate containment: a particle couples to a force only if it has wavefunction support in the force's sector coordinates.
 - Extra dimensions are purely spatial. Time is 1D and universal.
 
@@ -24,7 +24,7 @@ S(n,d) = C(n+d-1, d)   [binomial coefficient — simplex number]
 
 **Seed:** n_s = 4 (topologically forced by χ(CP³) = 4)
 
-**Newton's constant:** G_N = G_fund / V_7, where V_7 = L_4 × L_5 × L_6 × L_10^4 ≈ 113
+**Newton's constant:** G_N = G_∞ / V_7; V_7 = L_4 × L_5 × L_6 × L_10^4 ≈ 113 (fully derived from sector couplings); V_vacuum does not enter (d>10 Ricci-flat in vacuum + T5 scattering states not L²-normalizable); G_∞ requires spectral action scale Λ (open)
 
 **Two-stage filter:**
 - Stage 1: Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2
@@ -66,7 +66,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T6 — PMNS Theorem.** All three PMNS mixing angles are determined by g_{55} = 96/g_{22} and four mode indices (n_e, n_μ, n_τ, n_{ν}), with no free parameters. Predictions: sin²θ_{23} = 0.55897 (PDG: 0.561, −0.36%), sin²θ_{12} = 0.30856 (PDG: 0.307, +0.51%), sin²θ_{13} = 0.02211 (PDG: 0.0220, +0.51%).
 
-**T7 — EW Scale Self-Consistency.** √Tr(D²) = 248.3 GeV from the 15 IDWT masses. The G_F-derived EW scale is 246.3 GeV. The 0.85% gap is a common spectral normalisation offset tracing to the unevaluated f_2 coefficient. This is a self-consistency check, not an independent prediction.
+**T7 — EW Scale Self-Consistency.** √Tr(D²) = 248.3 GeV from the 15 IDWT masses. The G_F-derived EW scale is 246.3 GeV. The 0.85% gap is a spectral normalisation artefact — Tr(D²) sums raw eigenvalues without GTC corrections while G_F is derived from the W mode index and g_2 coupling. The gap is not f_2-dependent. This is a self-consistency check, not an independent prediction.
 
 **T8 — CP Violation Source Identification (pending).** At tree level δ_CP = 0. The topological source is Δc_1 = c_1(CP³) − c_1(CP⁵) = 4 − 6 = −2 (Chern class difference between d=6 and d=10 sectors). Whether this produces a non-zero imaginary mixing matrix element requires integrating the Fubini-Study curvature over coupling moduli space — computation not yet performed.
 
@@ -86,7 +86,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - T11a: m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² = 7.429×10⁻¹³ MeV
 - T11b: m_{ν2}/m_{ν1} = S(15,5)/S(10,5) = 5.808; Δm²_{21} = 7.242×10⁻⁵ eV² (PDG: 7.42×10⁻⁵, −2.4%)
 - T11c: Neutrinos are strictly Dirac (d mod 8 = 5 forbids Majorana). 0νββ rate = 0 exactly.
-- T11d: Σm_ν = 59.00 meV (normal ordering, no free parameters). Within CMB-S4 reach.
+- T11d: Σm_ν = 60.39 meV (corrected: δ_ν₃ = ε × g_{33} = 1/35 derived in §9d; uncorrected: 59.00 meV). Normal ordering, no free parameters. Within CMB-S4 reach.
 
 **T13a — Spectral Sum Rule.** ζ_d(1) = Σ_{n=1}^∞ 1/S(n,d) = d/(d−1) for every IDWT sector. Exact, parameter-free.
 
@@ -152,10 +152,10 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - §16: Electromagnetism: Ward Identity and L-Parity Protection (§16.1–16.4)
 
 **Part 4 — Gravity**
-- §1: Gravity is Emergent — and Purely Geometric
+- §1: Gravity is Curvature of M_∞ Caused by Mass
 - §1b: Why Macroscopic Hidden Dimensions Are Consistent with All Experiment
 - §2: Newtonian Limit
-- §3: The IDWT Action and Induced 4D Einstein Equations (§3.1–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 Loop-Exactness and G_N as 3D Observation of 10D Gravity; §3.13 Covariant Conservation of T_{μν}^eff)
+- §3: Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement (§3.1 Gravity as ∞D curvature sourced by mass; §3.2 Observer's effective gravitational equation; §3.3–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 Loop-Exactness and G_N as 3D measurement of ∞D curvature; §3.13 Covariant Conservation of T_{μν}^eff)
 - §4: Cosmological Constant
 - §5: Two-Stage Observability
 

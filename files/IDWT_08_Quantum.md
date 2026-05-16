@@ -325,7 +325,9 @@ m_u/m_d = 0.46291005
 √(3/14)  = 0.46291005   (exact to machine precision)
 ```
 
-**Meaning.** The first frequency in the d=4 sector and the first frequency in the d=3 sector differ by precisely the geometric mean of their coupling constants. This follows entirely from the seed n_s=4 (which fixes g33 and g44) — no free parameter, no fit. The ratio √(g44/g33) = √(n_u/(n_s(n_s+n_u)/2)) = √(3/14) is seed-determined.
+**Meaning.** The first frequency in the d=4 sector and the first frequency in the d=3 sector differ by precisely the geometric mean of their coupling constants. The ratio
+$$\sqrt{g_{44}/g_{33}} = \sqrt{\frac{2N_c}{(N_c+1)(2N_c+1)}} = \sqrt{\frac{3}{14}}$$
+is $N_c$-determined: it is a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3$, the Euler characteristic of the color sector (T15). The seed $n_s = \chi(\mathbb{CP}^3) = N_c+1 = 4$ is the next Euler characteristic in the chain. No free parameter, no fit.
 
 ---
 

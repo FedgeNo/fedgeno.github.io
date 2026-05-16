@@ -22,7 +22,7 @@ S(n,d) = C(n+d-1, d)   [binomial coefficient — simplex number]
 
 **Sector set:** D = {2, 3, 4, 5, 6, 10}
 
-**Seed:** n_s = 4 (topologically forced by χ(CP³) = 4)
+**Seed:** n_s = 4 = χ(CP³) = N_c+1; n_u = 3 = χ(CP²) = N_c (T15)
 
 **Newton's constant:** G_N = G_∞ / V_7; V_7 = L_4 × L_5 × L_6 × L_10^4 ≈ 113 (fully derived from sector couplings); V_vacuum does not enter (d>10 Ricci-flat in vacuum + T5 scattering states not L²-normalizable); G_∞ requires spectral action scale Λ (open)
 
@@ -97,11 +97,13 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T14 — Heat Kernel.** K_d(t) = Σ_{n≥1} e^{−t·S(n,d)}. Weyl coefficient a_0^(d) = Γ(1+1/d)(d!)^{1/d}. Spectral zeta at zero: ζ_d(0) = −d/2. First excitation gap = d in dimensionless units. Universal ground state S(1,d) = 1 for all d.
 
+**T15 — Euler Characteristic Unification.** N_c = χ(CP²) = n_u = 3; n_s = χ(CP³) = N_c+1 = 4. All six sector self-couplings {g_{22}, g_{33}, g_{44}, g_{55}, g_{66}, g_{10,10}} are functions of N_c = χ(CP²) alone (via T9 with n_u = N_c, n_s = N_c+1). Theorem S2 (m_u/m_d = √(3/14)) is a corollary: √(2N_c/[(N_c+1)(2N_c+1)]). The coupling filter geometry (what interactions are possible) and the mass scale structure (mass ratios) share one geometric root — the Euler characteristic of the color manifold CP². Absolute scale m_e requires a dimensional input and is the only quantity outside this chain.
+
 **Part 1 §3b — Completeness of Particle Spectrum.** The IDWT particle spectrum is exactly 15 states. No additional stable particles exist. Any new state would require a new sector (excluded by T3) or a new mode index passing Stage-2 (exhaustively excluded). The spectrum is closed.
 
 **Part 8 — Spectral Numerical Theorems.**
 - S1: S³ Dirac spectrum grounds S(n,3) — the eigenvalues of D_{S³} are exactly S(n,3).
-- S2: Cross-sector frequency ratio m_u/m_d derived from sector geometry.
+- S2: Cross-sector frequency ratio m_u/m_d = √(3/14); N_c-determined (T15 corollary).
 - S3: g_{22} is a Dirac multiplicity product; ind(D^c_{CP²} ⊗ O(1)) = 3 = N_c colours.
 
 ## Document Map
@@ -209,6 +211,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - T11: Neutrino Spectral Theorems (T11a–T11d)
 - T13: Spectral Sum Rules and Exact Mass Ratios (T13a sum rule, T13b mode spacing, T13c mass ratios)
 - T14: Heat Kernel and Spectral Geometry (T14a Weyl term, T14b ζ_d(0), T14c large-t asymptotics)
+- T15: Euler Characteristic Unification (N_c = χ(CP²) = n_u; all couplings from one Euler characteristic; S2 as corollary)
 
 ## Architecture
 - The script does all computation first, then prints output. This is for ease of reading by referees.

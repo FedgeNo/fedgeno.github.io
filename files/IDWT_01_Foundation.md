@@ -131,6 +131,8 @@ $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs } n=1,2} \cup \underbrace{\{6\}
 
 **Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the seed alone — no hypercharge assignment enters.
 
+**Remark — two qualitatively distinct types of excluded dimension.** $d\geq11$ and $d\in\{7,8,9\}$ are excluded for different reasons. Sectors $d\geq11$ are subcritical (T5): localization is geometrically impossible, modes cannot bind, they disperse into the infinite-dimensional bulk — the most fundamental exclusion. Sectors $d\in\{7,8,9\}$ are supercritical (localization in principle possible) but are excluded by coupling structure: the Hopf universality condition has no fixed-point formula at $d=7$, so no valid sector potential forms (Rule A). These dimensions are absent not just from $D$ but from the coordinate nesting — there is no $\Xi_7$, $\Xi_8$, or $\Xi_9$. The nesting jumps directly: $\Xi_6\subset\Xi_{10}$.
+
 **Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
 
 ---
@@ -304,6 +306,7 @@ Note: S(n,2) = n(n+1)/2. The photon zero mode is exactly massless — the mode e
 - **Weak isospin:** SU(2)_L acts only on holomorphic half of d=2 spinor → left-handedness of W coupling.
 - **sin²θ_W = S(76,2)/S(81,2) = 0.2237** (PDG: 0.2229, +0.37% — within 1-loop EW corrections).
 - **EW scale:** √Tr(D²) ≈ 248.3 GeV is the spectral RMS of |D| across all sectors. IDWT does not use spontaneous symmetry breaking; the Higgs is mode n=95, not a condensate. The EW scale is (√2 G_F)^{-1/2} = 246.3 GeV from the IDWT-derived G_F (§0, Part 5 §3c).
+- **Coupling filter:** Orientation/phase alignment. The photon couples only to currents aligned with its polarization vector ε_μ; perpendicular currents receive zero coupling, not suppression. This is the U(1) geometry of CP¹ expressing itself as a coupling structure — polarization is not a label on the photon but the geometry's stamp on what the photon can do.
 
 **Spectral.** ζ₂(1) = 2, ζ₂(0) = −1, a₀₂ ≈ 1.253.
 
@@ -332,6 +335,7 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 - **Confinement:** No scattering states survive the observability filter in d=3; all modes are confined.
 - **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22500, −0.2%). The 1/240 is the Lichnerowicz S³ curvature correction.
 - **Baryon number:** Topological winding number of the S³ mode.
+- **Coupling filter:** Left-handed weak isospin. The SO(4) = SU(2)_L × SU(2)_R isometry of S³ gives left-handed W coupling and leaves the right-handed component decoupled from the weak interaction. Color coupling is inherited derivatively via coordinate containment inside Ξ_4, not from S³ itself.
 
 **Spectral.** ζ₃(1) = 3/2, ζ₃(0) = −3/2, a₀₃ ≈ 1.623.
 
@@ -360,6 +364,7 @@ Note: S(n,4) = n(n+1)(n+2)(n+3)/24. ε = 1/(280√7) ≈ 0.001348.
 - **Electric charge +2/3:** From Kähler index and U(2) representation theory (Part 3 §4).
 - **Chirality:** CP² Kähler γ₅ → W couples to left-handed component only.
 - **GTC:** The topological correction (1−ε)^k accounts for the compression of up-type masses relative to naive mode scaling; without it the top is overestimated by ~1.35%.
+- **Coupling filter:** Color conservation. The Atiyah-Singer index on CP² gives N_c = 3 — the number of independent color coupling handles. All processes must conserve color; isolated color-nonsinglet states are geometrically forbidden. Confinement is this filter operating at the level of which asymptotic states can be constructed, not a dynamical suppression.
 
 **Spectral.** ζ₄(1) = 4/3, ζ₄(0) = −2, a₀₄ ≈ 2.006.
 
@@ -390,6 +395,7 @@ Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν�
 - **Normal ordering:** n₁ < n₂ < n₃ and S(n,5) monotone → m_ν₁ < m_ν₂ < m_ν₃ necessarily. Experiments prefer normal ordering at 3–4σ.
 - **PMNS angles:** θ₁₂, θ₂₃, θ₁₃ determined by holonomy of the lepton bundle over d=5→6→10→5 (Part 6); g₅₅ and mode indices fix all three with no free parameters.
 - **No sterile neutrinos:** Observability filter eliminates all bulk-propagating modes.
+- **Coupling filter:** Dirac condition — geometric prohibition of an entire class of interactions. The Clifford algebra of S⁵ (d mod 8 = 5) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. The S⁵ Hopf fibration (S¹ → S⁵ → CP²) additionally projects the color representation from CP² onto its singlet component, giving color-neutral neutrinos despite their coordinate support inside Ξ_4. Positively, the SO(6) ≅ SU(4) sector gives neutrinos their B−L charge.
 
 **Spectral.** ζ₅(1) = 5/4, ζ₅(0) = −5/2, a₀₅ ≈ 2.392.
 
@@ -417,6 +423,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Electric charge −1:** From Kähler index of CP³ (Part 3 §5).
 - **Chirality:** CP³ Kähler γ₅ → left-handed W coupling (same mechanism as d=4).
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
+- **Coupling filter:** Total QCD silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; color index contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat four-dimensional spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -443,6 +450,7 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 - **Aubry-André criticality:** At the self-dual point, the WKB approximation is exact — no higher-order corrections to the tau mass. Unique among all sectors.
 - **Spin(10) spinor weight lattice (d mod 8 = 2):** The 16-component Majorana-Weyl spinor of SO(10) has weight lattice cross-checking tau hypercharges against anomaly cancellation (Part 8).
 - **Lepton universality:** m_scale_{10} = m_scale_6 enforces identical mass unit for the heavy lepton family; mass splitting comes entirely from different mode indices (23 vs 13, 35).
+- **Coupling filter:** Fractal marginal coupling. At the AA critical point, the tau's resonance spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the tau's short lifetime), but each specific channel carries measure-zero weight (explaining why the lifetime is finite rather than zero). The tau's coordinate space Ξ_{10} contains all other sectors; in principle it couples to everything, but at every channel the coupling is marginal. The Dyson resummation correction δ_τ = 1/1680 (required only at the critical point) is the mathematical signature of this fractal coupling structure.
 
 **Spectral.** ζ_{10}(1) = 10/9, ζ_{10}(0) = −5, a₀_{10} ≈ 4.308.
 
@@ -484,6 +492,8 @@ This is why electromagnetism is universal. Every sector d ≥ 2 contains d=2 as 
 The gluon lives in d=3 (S³, the hadronic sector). Its three coordinates are inside d=4 (CP², the up-type quark sector). Down-type quarks (d=3) couple to gluons because they share the full d=3 coordinate set. Up-type quarks (d=4) couple to gluons because d=3 ⊂ d=4: the gluon's three coordinates are three of the four coordinates the up-type quarks live in. The strong force spans d ∈ {3,4} — those are the sectors that contain d=3 as a coordinate subspace.
 
 The electron (d=6, mode n=13) couples to the photon (d=2) via the two coordinates they share. The coupling strength derives from a cascade: g_{44} → g_s → g_2 → sin²θ_W → g_1 → α (Part 3 §0.7). Coordinate containment determines that the coupling exists and which sectors are linked; coupling magnitudes are set by the spectral geometry of each sector manifold — integrals over S^{d−1} and CP^m, not bare dimension counts. There is one step in the cascade where the coordinate ratio does appear literally: g_2 = (2/3)√g_s, where 2/3 = d_photon/d_hadronic. The factor 2/3 is the electric charge of the up quark and the ratio of photon sector dimension to hadronic sector dimension N_c = 3, and those are the same number because N_c = d_hadronic.
+
+**Complementary principle — sector geometry as coupling filter.** Coordinate containment is the necessary condition for coupling: it answers whether coupling between a particle and a force is possible at all. Complementary to this is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. The sector quantum number — polarization, color, the Dirac condition — is not a label attached to the particle after the fact. It is the geometry of the particle's sector expressing itself as a coupling structure, determining both what coupling handles the particle presents to the world and what entire classes of interaction are geometrically forbidden to it. Coordinate containment answers "which forces can couple to this particle?"; the coupling filter answers "how does it couple, and what is structurally impossible?" These two principles are independent. A particle can have coordinate support in a force's sector (satisfying containment) while its own sector geometry projects that support onto the singlet representation — as neutrinos do with color via the S⁵ Hopf structure. The full coupling structure of any particle requires both principles applied together. See §3d for the coupling filter characterization of each sector.
 
 ---
 

@@ -143,6 +143,8 @@ Jacobi couplings at $k_0=16$ (all sectors in $D$ must have $b_{k_0}\geq1/2$, by 
 | **10** | **0.500000** | **AA critical endpoint** | **✓** |
 | 11, 12, … | $0.497,\;0.495,\ldots$ | subcritical | ✗ |
 
+**Two qualitatively distinct types of excluded dimension.** The table makes visible a distinction that matters for the top-down picture of M_∞. Sectors $d\geq11$ are excluded at the most fundamental level: they are subcritical, meaning localization is geometrically impossible — modes cannot bind, they propagate and disperse into the infinite-dimensional bulk. Sectors $d\in\{7,8,9\}$ are supercritical (localization is in principle possible) but are excluded by coupling structure: no valid sector potential exists because the Hopf universality condition has no fixed-point formula at $d=7$ (Rule A). These are qualitatively different failures. $d\geq11$ cannot host bound states at all. $d\in\{7,8,9\}$ could in principle support localized modes, but there is no mechanism in M_∞ to form the sector potential that would trap them. Consequently they are absent not just from the sector set $D$ but from the coordinate nesting — there is no $\Xi_7$, $\Xi_8$, or $\Xi_9$. The nesting jumps: $\Xi_6\subset\Xi_{10}$.
+
 ---
 
 ## T4. The Seed Uniqueness Theorem

@@ -111,11 +111,12 @@
   </div>
 </nav>
 <div class="overlay">
-  <div class="title">6D Orbit → 3D Projection</div>
-  <div class="hint"><b>Drag</b> to rotate 6D slice</div>
-  <div class="row">
+  <div class="title">6D Orbit — 3D Shadow</div>
+  <div class="hint">This orbit moves in 6 dimensions simultaneously. Three are hidden. What you see is the shadow cast into your 3D space.</div>
+  <div class="hint" style="margin-top:8px"><b>Drag</b> to rotate the hidden dimensions — the shadow changes shape, revealing what the missing axes contain.</div>
+  <div class="row" style="margin-top:8px">
     <span class="key">Shift + Drag</span>
-    <span>3rd plane</span>
+    <span>3rd hidden plane</span>
   </div>
   <div class="row">
     <span class="key">Wheel</span>
@@ -133,7 +134,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x05070f);
-scene.fog = new THREE.FogExp2(0x05070f, 0.025);
+scene.fog = new THREE.FogExp2(0x05070f, 0.012);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
 const cameraTarget = new THREE.Vector3(0, 0, 0);
@@ -189,17 +190,23 @@ const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
 scene.add(stars);
 
 // 6D orbit data
-const N = 8000;
+// Three circles with golden-ratio frequency ratios: 1, φ, φ².
+// Irrational ratios → orbit never closes → fills the 3-torus surface densely.
+// With rational ratios (e.g. 1, 1.7, 2.3 = 10:17:23) the orbit closes after
+// 10 windings and looks like a wire knot — nothing 6D about it.
+const phi = (1 + Math.sqrt(5)) / 2; // ≈ 1.618, the golden ratio
+const N = 18000;
+const WINDINGS = 160;
 const points6D = new Float32Array(N * 6);
 for (let i = 0; i < N; i++) {
-  const t = (i / (N - 1)) * Math.PI * 2 * 12;
+  const t = (i / (N - 1)) * Math.PI * 2 * WINDINGS;
   const i6 = i * 6;
-  points6D[i6] = Math.cos(1.0 * t);
-  points6D[i6 + 1] = Math.sin(1.0 * t);
-  points6D[i6 + 2] = Math.cos(1.7 * t);
-  points6D[i6 + 3] = Math.sin(1.7 * t);
-  points6D[i6 + 4] = Math.cos(2.3 * t);
-  points6D[i6 + 5] = Math.sin(2.3 * t);
+  points6D[i6]     = Math.cos(t);
+  points6D[i6 + 1] = Math.sin(t);
+  points6D[i6 + 2] = Math.cos(phi * t);
+  points6D[i6 + 3] = Math.sin(phi * t);
+  points6D[i6 + 4] = Math.cos(phi * phi * t);
+  points6D[i6 + 5] = Math.sin(phi * phi * t);
 }
 
 // 6x6 rotation matrix R
@@ -257,8 +264,8 @@ const tubeMat = new THREE.LineBasicMaterial({
 const orbitGlow = new THREE.Line(lineGeo.clone(), tubeMat);
 scene.add(orbitGlow);
 
-// Emphasis spheres every 100
-const sphereCount = Math.floor(N / 1000);
+// Emphasis spheres — fewer, evenly spaced along the dense orbit
+const sphereCount = 12;
 const sphereGeo = new THREE.SphereGeometry(0.1, 12, 12);
 const sphereMat = new THREE.MeshBasicMaterial({
   color: 0xffffff,

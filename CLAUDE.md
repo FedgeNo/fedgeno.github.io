@@ -1,15 +1,15 @@
 # Infinite Dimensional Wave Theory
 
 ## Overview
-A physics framework under construction. Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. The hidden space Ξ decomposes into six sectors d ∈ D = {2, 3, 4, 5, 6, 10}, each a distinct geometric manifold. The observable 3D universe is a projection of Ψ∞ at fixed hidden coordinate ξ⁰.
+A physics framework under construction. Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. The hidden space Ξ decomposes into six sectors d ∈ D = {2, 3, 4, 5, 6, 10}, each a distinct geometric manifold. We are inside M_∞ at the d=3 coordinate level; the observable universe is Ψ∞ evaluated at fixed hidden coordinate ξ⁰.
 
 ## Core Principles
 - Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.
-- Our observable 3D universe is a projection (not a brane) through this space — a d=3 slice of a 10D structure.
+- We are inside M_∞ at the d=3 coordinate level, not external observers projecting onto a screen. Particles with d > 3 vibrate across dimensions we do not occupy; we measure only their d=3 activity.
 - The hidden dimensions are not compactified Planck-scale curls; they are macroscopic.
 - What we call mass is a scaled count of hidden microstates.
 - Gravity is a phenomenon of M_∞ — it has no sector boundary. G_N = G_∞/V_7; V_7 ≈ 113 is fully derived from sector couplings. V_vacuum (d>10) does not enter: curvature from d≤10 propagates into d>10 but disperses (T5: scattering states, not L²-normalizable); d>10 is Ricci-flat in vacuum (R_ab=0, no contribution to a_2 = ∫R dvol). G_∞ requires the spectral action scale Λ (single remaining open item). Gravity couples to each particle through that particle's dimensional complexity, encoded in mass m(n,d) = S(n,d) × m_scale_d.
-- Forces mediate via coordinate containment: a particle couples to a force only if it has wavefunction support in the force's sector coordinates.
+- Forces mediate via coordinate containment: a particle couples to a force only if it has wavefunction support in the force's sector coordinates. Complementary principle — coupling filter: the particle's own sector geometry determines the structure of that coupling. The sector quantum number (polarization, color, Dirac condition, color silence, AA Cantor-set) is not a label; it is the geometry expressing itself as a coupling structure, specifying both what interactions are available and what is geometrically forbidden. Both principles together determine the full interaction structure of any particle (Part 1 §3d, §3g; Part 3 §0.8).
 - Extra dimensions are purely spatial. Time is 1D and universal.
 
 ## Key Formulas
@@ -49,7 +49,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T0 — Physical Spectrum.** The physical masses are eigenvalues of the projected Dirac operator P_{ξ⁰} D P_{ξ⁰}. The filtered spectrum is σ_phys = {S(n,d) × m_scale_d | (n,d) passes Stage 1 and Stage 2}. The 15 elements are exactly the SM particle masses, determined by n_s=4 and m_e alone.
 
-**T0.5 — Two-Stage Observability Filter.** A mode (n,d) is physical iff it passes both stages. Stage 1 is the projection amplitude (gain window: Ω_log ≤ ln 2). Stage 2 is co-fixed-point stability (longitudinal mode condition). Stage 1 selects sectors; Stage 2 selects stable resonances within each sector.
+**T0.5 — Two-Stage Observability Filter.** A mode (n,d) is physical iff it passes both stages. Stage 1 is dimensional visibility (Ω_log ≤ ln 2 — sufficient vibrational activity in our d=3 dimensions). Stage 2 is the co-fixed-point condition (n must be a co-fixed-point of the sector comb filtration from n_s; purely algebraic, applies uniformly across all sectors). Stage 1 governs observability; Stage 2 selects stable resonances of M_∞.
 
 **T1 — Hilbert Series.** m(n,d)/m_scale_d is the coefficient of t^n in the Poincaré-Hilbert series of ℝ[x_1,...,x_d]. Equivalently, S(n,d) = IDOS_d(n) = dim Sym^{n-1}(ℝ^{d+1}). Hockey-stick identity S(n+1,d) = S(n,d) + S(n,d-1) is the d-dimensional quasicrystal inflation rule.
 
@@ -59,6 +59,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - Rule A (coupling termination): g_{66} = 1/n_s is a seed ratio, not a kernel fixed-point. Hopf universality cannot extend to d=7. Excludes d=7,8,9.
 - Rule B (Gegenbauer criticality): b_{k0}(d) = √(k_0(k_0+d-1))/(2k_0+d-2) ≥ 1/2 required; saturates uniquely at d=10. Excludes d≥11.
 - Assembly: {2,3,4,5} from Hopf pairs n=1,2 ∪ {6} from n=3 base (Rule A) ∪ {10} from n=5 base (Rule B).
+- Two qualitatively distinct exclusion types: d≥11 are subcritical — localization is geometrically impossible (most fundamental exclusion). d=7,8,9 are supercritical (localization possible in principle) but no valid sector potential forms — absent from the coordinate nesting; the nesting jumps Ξ_6 ⊂ Ξ_{10} with nothing between.
 
 **T4 — Seed Uniqueness.** n_s=4 is the unique positive integer for which n_s(n_s+1)/S(n_s,4) = n_u(n_u+1)/S(n_u,5) = 4/7, with n_u = n_s−1 = 3. This is the RG fixed-point of the cross-sector kernel at k_0 = n_s² = 16.
 
@@ -108,7 +109,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 **Part 1 — Foundations**
 - §0: The Actual Structure: A Spectral Triple
 - §1: Core Postulates
-- §2: Projection and the Born Rule (§2.1–2.4, including cut-and-project analogy)
+- §2: Observable Coordinates and the Born Rule (§2.1–2.4, including cut-and-project analogy)
 - §3: Sector Structure of M_∞ (§3a Sector Set Theorem, §3b Spectrum Completeness, §3c Gegenbauer Criticality, §3d Per-Sector Profiles, §3e Summary Table, §3f Coordinate Extension, §3g Interaction as Coordinate Containment, §3h Sector Autonomy, §3i d=3 Threshold)
 - §4: The Unified Kernel
 - §5: Canonical Particle Assignments (incl. Uniqueness of Occupied Mode Index Set)
@@ -178,7 +179,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 **Part 7 — Two-Stage Observability & Mode Selection**
 - §1: All Modes Exist — Two-Stage Observability (§1.1–§1.6 incl. quartic bifurcation, sideband beats)
 - §2: Two-Stage Filter Summary (§2.5 Complete Low-n Observability Atlas)
-- §3: CP^d Projection Geometry
+- §3: CP^d Coordinate Geometry
 
 **Part 8 — Quantum Structure, Lorentz, Dirac & Confinement**
 - §1: Lorentz Covariance
@@ -226,8 +227,9 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - **Read the relevant documents before making claims about what the theory contains or lacks.**
 - When changing a document, do not "argue" against the now non-existent previous version of the document.
 - Do not introduce concepts or variables from other frameworks without explicit confirmation.
-- Leave git alone. Do not touch the .git directory or run any git commands. The user manages git.
+- Git is available. After completing work, stage with `git add -A`, write a short descriptive commit message summarising what changed (e.g. "Add sector-filters article", "Fix neutrino mass values in paper"), then `git push origin master`. Do not rebase, force-push, or alter history.
 
 ## Workflow
 - Your role is to verify and gatekeep what goes into the documents, script and website.
 - You are to verify all math before putting it into the project.
+- **Keep this file in sync.** Whenever a theorem statement, framing convention, section title, or key concept changes in the documents, update the corresponding entry in CLAUDE.md in the same session. This file is the authoritative quick-reference; stale entries mislead future sessions.

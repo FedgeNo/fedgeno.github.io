@@ -220,7 +220,7 @@ g66 = 0.25
 # =============================================================================
 # All sector scales are derived algebraically from m_e (the unit reference)
 # and the seed-derived coupling constants. m_e sets the MeV scale; the
-# dimensionless mass ratios are fixed entirely by sector geometry.
+# dimensionless mass ratios are fixed entirely by each sector's manifold geometry.
 # (Part 1 section 5, Part 2 sections 9c and 10)
 
 m_e = 0.51099895    # MeV -- unit reference: converts dimensionless mass ratios to MeV
@@ -466,7 +466,7 @@ err_g1_mZ      = (g1_at_mZ / pdg_g1_mZ - 1.0) * 100
 sin_C  = (1.0 + 1.0/240.0) / math.sqrt(S(n_strange, 3))
 
 # |V_cb| = √(S(n_up,4) / S(n_charm,4))
-# The b-quark mixing amplitude from the d=4 sector overlap integral between
+# The b-quark mixing amplitude from the d=4 kernel overlap integral between
 # the up-quark ground mode (n_up=3) and the charm mode (n_charm=20).
 # The ratio S(n_up,4)/S(n_charm,4) = 15/8855 gives |V_cb| = 0.04116.
 # PDG: 0.041 ± 0.0014 (within 0.1σ). (Part 3 section 0.8)

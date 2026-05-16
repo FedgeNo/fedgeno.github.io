@@ -434,7 +434,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)
 - **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
 - **Meson masses:** Binding shifts from kernel overlap integrals (§12)
-- **Nucleon properties:** μ_p, μ_n, g_A from sector l=1 spin-orbit admixture (§10 below)
+- **Nucleon properties:** μ_p, μ_n, g_A from l=1 spin-orbit admixture in the d=3 sector (§10 below)
 - **QCD running:** β(α_s) from vacuum polarization of unoccupied modes
 - **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§13)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
@@ -548,7 +548,7 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 ## 11. Proton Binding and N-P Mass Difference 🔶
 
-**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§8) — the kernel contributes zero extra sector energy at leading order.
+**Setup:** Proton (uud) and neutron (udd) are colour-singlet baryons. For a colour-singlet RGB baryon, Σn⃗ = 0 exactly (§8) — the kernel contributes zero extra energy at leading order.
 
 **Proton mass estimate:**
 - Current quark masses: 2m_u + m_d ≈ 2×2.18 + 4.70 = 9.06 MeV  (IDWT predictions)
@@ -578,7 +578,7 @@ m_meson = m_q + m_q̄ + ΔE_kernel + ΔE_EM
 | π⁰,π± | 2m_u+m_d + Δ_kernel | ~138 MeV | 135–140 MeV |
 | K±, K⁰ | m_u+m_s + Δ_kernel | ~495 MeV | 494–498 MeV |
 
-The kernel naturally produces m_π << m_K because the strange quark (n=4) increases the sector overlap integral relative to light u/d modes (n=1–3). No lattice QCD input — binding shifts are direct projections of the geometric kernel already required for particle selection and confinement.
+The kernel naturally produces m_π << m_K because the strange quark (n=4) increases the kernel overlap integral relative to light u/d modes (n=1–3). No lattice QCD input — binding shifts are direct projections of the geometric kernel already required for particle selection and confinement.
 
 ---
 

@@ -66,9 +66,9 @@ The **determinant line bundle** of U_PMNS is the complex line bundle L^{det} →
 
 **Derivation.** The sector Hilbert space for CP^n is H_d = L²(CP^n, S_d), where S_d is the spinor bundle. The perturbation δD_{CP^n} at first order in sin θ₁₃ is:
 
-$$\delta D_{CP^n} = v_5 v_n \sin\theta_{13} \cdot \Pi_n$$
+$$\delta D_{CP^n} = v_5 v_{d'} \sin\theta_{13} \cdot \Pi_n$$
 
-where Π_n is the projection onto the n_τ (or n_μ) mode in sector d, entering through the ℓ=0 kernel component (coefficient 1/d from T2). This is a rank-1 perturbation.
+where v_{d'} = v_{10} for the d=10 perturbation and v_{d'} = v_6 for the d=6 perturbation, Π_n is the projection onto the n_τ (or n_μ) mode in sector d', entering through the ℓ=0 kernel component (coefficient 1/d from T2). This is a rank-1 perturbation.
 
 For a rank-1 perturbation of a Dirac operator on CP^n, the spectral flow is determined by the index of the unperturbed operator twisted by the line bundle of the perturbation. The perturbation Π_n is a section of the line bundle O(n-1) on CP^n (since the mode χ_{n,d} is a degree-(n-1) section of the tautological bundle). By the Atiyah-Singer index theorem for the twisted operator:
 
@@ -95,7 +95,7 @@ For CP⁵ (d=10): c₁(CP⁵) = 6, so sf₁₀ = 6θ₁₃/π.
 
 $$\Delta\eta = \mathrm{sf}_{10} - \mathrm{sf}_{6} = (6-4)\frac{\theta_{13}}{\pi} = \frac{2\theta_{13}}{\pi}.$$
 
-The Δη formula follows from the Chern class difference Δc₁ = -2, expressed via the IDWT mode structure of the T2 kernel. The coefficient 2 is c₁(CP⁵) - c₁(CP³) = (d/2) - ((d-4)/2) at d=10, d-4=6 — entirely determined by the sector chain endpoint (T15a) and the step in the Hopf chain (T3 Rule B). ✅
+The Δη formula follows from the Chern class difference Δc₁ = -2, expressed via the IDWT mode structure of the T2 kernel. The coefficient 2 is c₁(CP⁵) − c₁(CP³) = 6 − 4 = 2, where c₁(CP^n) = n+1 gives c₁(CP⁵) = 6 and c₁(CP³) = 4 — entirely determined by the sector chain endpoint (T15a) and the step in the Hopf chain (T3 Rule B). ✅
 
 ---
 
@@ -232,7 +232,7 @@ where θ₁₃ is the reactor angle, N_c = χ(CP²) = 3 is the number of quark c
 
 $$\delta_{CP} = \pi - (-2\theta_{13}) = \pi + 2\theta_{13}.$$
 
-The d=5 sector (S⁵) contributes zero spectral flow because S⁵ has no holomorphic structure (c₁(S⁵) = 0), and the d=3 and d=4 quark sectors enter only through N_c via T15. □
+The d=5 sector (S⁵) contributes zero spectral flow because S⁵ has no complex structure and hence no Chern classes — there is no holomorphic line bundle over S⁵ to generate spectral flow. The d=3 and d=4 quark sectors enter only through N_c via T15. □
 
 **Numerical prediction:**
 
@@ -283,7 +283,7 @@ The following table consolidates the full theorem status after the T8 completion
 
 **Count:**
 - ✅ Proved: 18 items
-- 🔵 Numerically verified (derivation complete): 3 items (T6, T7, and mass predictions)
+- 🔵 Numerically verified (derivation complete): 2 items (T6 and T7)
 - 🔶 Structural derivation complete, technical gaps open: 2 items (T8: δ_CP formula with three derivation gaps; G_N: G_∞ from spectral action scale Λ)
 - □ Open: 0 items
 
@@ -297,7 +297,7 @@ The mass–coupling–quantum number triangle established in the pasted document
 
 ```
               Mass
-           m = √g_dd × S(n,d) × const
+           m = S(n,d) × m_scale_d
               /         \
              /           \
    Quantum Number    Coupling
@@ -341,10 +341,10 @@ Since δ = π + 2θ₁₃ and both are determined by the same sector structure, 
 
 | sin²θ₁₃ (measured) | θ₁₃ | IDWT predicts δ |
 |---|---|---|
-| 0.0218 | 8.51° | 197.02° |
+| 0.0218 | 8.49° | 196.98° |
 | 0.0220 | 8.53° | 197.06° |
 | **0.02211** | **8.555°** | **197.11°** |
-| 0.0222 | 8.58° | 197.16° |
+| 0.0222 | 8.57° | 197.14° |
 | 0.0225 | 8.63° | 197.26° |
 
 If future experiments find the (θ₁₃, δ) values to be decorrelated — i.e., δ tracks a different line in this plane — T8 is falsified. This is a one-parameter prediction curve in the experimental (θ₁₃, δ) plane with no adjustable parameter.
@@ -369,7 +369,7 @@ If future experiments find the (θ₁₃, δ) values to be decorrelated — i.e.
 
 **Outstanding secondary computations (not blocking the theoretical structure):**
 - Explicit D_Ξ spectrum on Sym^n(ℝ^d): spectral counting correct; explicit Dirac eigenvalue function on M_∞ not written in closed form.
-- Promoting spin^c U(1) at d=4 to full SU(3) gauge symmetry (color promotion as a local gauge symmetry): color charges and index theorem correct; local gauge invariance of the QCD action not derived from the IDWT action (§3.7 of Part 3).
+- SU(3) colour symmetry of the d=4 quark contact coupling: colour charges from the CP² Dirac index are correct; the explicit form of the SU(3)-invariant kernel in terms of the CP² isometry generators has not been written in closed form (Part 3 §3.7).
 - Baryon magnetic moments (g_A at +4.0%): correct mechanism; renormalized effective coupling g_{3,4}^{eff} = 125 not derived from first principles.
 
 These are secondary Stage-2 computations that do not affect the primary spectral predictions.
@@ -385,7 +385,7 @@ The entire observable content of IDWT — every particle mass, every coupling co
 | Seed n_s | n_s = N_c + 1 = 4 (T4) | Unique fixed point of 4/7 equation |
 | Sector chain endpoint | d_max = 2(N_c+2) = 10 (T15a) | 6 sectors {2,3,4,5,6,10} |
 | All couplings | g_{dd} = f(n_s, n_u) (T9) | {722.5, 8√7, 12/√7, 0.133, 0.25, 0.25} |
-| All mode indices | n_e, n_{ν}, n_q from T15d | {1,4,13,10,15,22,18,23,35,72,...} |
+| All mode indices | n_e, n_{ν}, n_q from T15d | {1,4,13,10,15,22,23,35,72,...} |
 | All masses | m = S(n,d)·m_scale (T1) | 15 SM masses from m_e |
 | All PMNS angles | T6 formulas from g_{55}, mode indices | {0.559, 0.309, 0.0221} |
 | CP phase | δ = π + (N_c−1)θ₁₃ (T8) | 197.11° |
@@ -408,8 +408,8 @@ Part 10 closes the T8 derivation of the CP-violating phase:
 
 - **§3** confirmed the factor-of-2 normalization: the T2 kernel perturbs D_{CP^n} with amplitude sin θ₁₃, the Dirac spectral period in this parameter is π, and mode function norms are 1 for zero-crossing counts (topological). The Berry phase is φ_Berry^{det} = −2θ₁₃, giving δ_CP = π + 2θ₁₃.
 
-- **§4** states T8 as a closed theorem (status 🔵): δ_CP = π + 2θ₁₃ = 197.11°, J = −0.00981, both matching PDG NH best fit to <1%.
+- **§4** states T8 as a structural derivation (status 🔶): δ_CP = π + 2θ₁₃ = 197.11°, J = −0.00981, both matching PDG NH best fit to <1%.
 
-- **§5** updates the master status table: 22 items ✅/🔵, 1 item 🔶 (G_N), 0 items open.
+- **§5** updates the master status table: 20 items ✅/🔵, 2 items 🔶 (T8 and G_N), 0 items open.
 
 The IDWT lepton sector — three masses, three mixing angles, one CP phase, one Jarlskog invariant — is fully determined by the single seed n_s = 4 and the single mass unit m_e.

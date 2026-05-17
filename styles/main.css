@@ -258,6 +258,7 @@ section {
   padding: 72px 0;
   scroll-margin-top: calc(var(--nav-h) + 24px);
 }
+section + section { padding-top: 0; }
 
 h2 {
   font-size: clamp(1.6rem, 3vw, 2.1rem);

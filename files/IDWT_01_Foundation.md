@@ -423,7 +423,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Electric charge −1:** From Kähler index of CP³ (Part 3 §5).
 - **Chirality:** CP³ Kähler γ₅ → left-handed W coupling (same mechanism as d=4).
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
-- **Coupling filter:** Total QCD silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; color index contributions cancel in the SU(4)/U(3) representation. Zero gluon coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+- **Coupling filter:** Total colour silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; colour index contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -489,7 +489,7 @@ Particles in different sectors couple because their sectors share coordinate sub
 
 This is why electromagnetism is universal. Every sector d ≥ 2 contains d=2 as its lowest coordinate subspace, so every charged particle couples to the photon. The coupling constant reflects the coordinate overlap — the ratio of shared dimensions to total dimensions of the higher sector.
 
-The gluon lives in d=3 (S³, the hadronic sector). Its three coordinates are inside d=4 (CP², the up-type quark sector). Down-type quarks (d=3) couple to gluons because they share the full d=3 coordinate set. Up-type quarks (d=4) couple to gluons because d=3 ⊂ d=4: the gluon's three coordinates are three of the four coordinates the up-type quarks live in. The strong force spans d ∈ {3,4} — those are the sectors that contain d=3 as a coordinate subspace.
+The strong force spans d ∈ {3,4}. Down-type quarks (d=3) and up-type quarks (d=4) interact through the d=4 kernel self-coupling g_{44}, which is SU(3)-invariant by the CP² isometry. Down-type quarks couple because d=3 ⊂ d=4 — they share the full d=3 coordinate subspace with the d=4 quark sector. Up-type quarks couple because they occupy d=4 directly. No exchange boson mediates this interaction; the coupling is a direct contact term in the kernel.
 
 The electron (d=6, mode n=13) couples to the photon (d=2) via the two coordinates they share. The coupling strength derives from a cascade: g_{44} → g_s → g_2 → sin²θ_W → g_1 → α (Part 3 §0.7). Coordinate containment determines that the coupling exists and which sectors are linked; coupling magnitudes are set by the spectral geometry of each sector manifold — integrals over S^{d−1} and CP^m, not bare dimension counts. There is one step in the cascade where the coordinate ratio does appear literally: g_2 = (2/3)√g_s, where 2/3 = d_photon/d_hadronic. The factor 2/3 is the electric charge of the up quark and the ratio of photon sector dimension to hadronic sector dimension N_c = 3, and those are the same number because N_c = d_hadronic.
 

@@ -201,7 +201,7 @@ The ratio of successive d=3 mode counts at the seed level — the geometric mean
 The d=5 sector has d mod 8 = 5, the unique Clifford class for which Majorana spinors are geometrically forbidden. No Majorana mass is allowed; no seesaw mechanism is possible. Prediction: the neutrinoless double beta decay rate is exactly zero. Current experiments (KamLAND-Zen 2023: m_ββ < 36 meV) have seen no signal, consistent with the prediction. This is a qualitative, falsifiable prediction independent of the mass spectrum.
 
 **Left-handed weak coupling is geometric**
-The W boson couples only to the left-handed (holomorphic) half of each Kähler sector spinor. The Kähler γ₅ operator on CP² (d=4) and CP³ (d=6) splits each sector spinor into holomorphic left-handed and anti-holomorphic right-handed components; the W is a holomorphic KK gauge field and therefore couples exclusively to the left-handed half.
+The W boson couples only to the left-handed (holomorphic) half of each Kähler sector spinor. The Kähler γ₅ operator on CP² (d=4) and CP³ (d=6) splits each sector spinor into holomorphic left-handed and anti-holomorphic right-handed components; the W is a holomorphic sector-eigenmode and therefore couples exclusively to the left-handed half.
 
 ---
 

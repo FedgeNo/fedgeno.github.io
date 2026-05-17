@@ -375,11 +375,11 @@ sin2_W = 1.0 - (S(n_W, 2) / S(n_Z, 2))**2   # = 1 - (2926/3321)^2
 cos_W  = S(n_W, 2) / S(n_Z, 2)               # exact: cos theta_W = S_W / S_Z
 
 # g_s = sqrt(2 g44 / pi²)
-# The QCD coupling from the Wilson loop holonomy of the Fubini-Study gauge
-# connection integrated over CP². The volume of CP² in the Fubini-Study metric
-# is pi²/2; integrating over the fundamental 2-cycle gives factor 2/pi².
-# CP² is not a literal extra dimension — it is the configuration space of the
-# d=4 sector's internal degrees of freedom. (Part 3 section 4)
+# The QCD coupling from the CP² kernel volume integral. The volume of CP² in
+# the Fubini-Study metric is pi²/2; integrating the kernel current J^4 over
+# CP² gives the effective coupling factor 2/pi².
+# CP² is the d=4 sector space — macroscopic, non-compact, and localization-
+# length-bounded; not a compact KK extra dimension. (Part 3 section 4)
 g_s = math.sqrt(2.0 * g44 / math.pi**2)
 
 # g_2 = (2/3) sqrt(g_s)
@@ -398,7 +398,7 @@ g1 = g2 * math.sqrt(sin2_W / (1.0 - sin2_W))
 
 # G_F = g_2² / [4√2 m_W²]   (GeV⁻²)
 # Fermi constant from the W propagator at q² ≪ m_W².  Both g_2 (from CP²
-# holonomy) and m_W (from mode index n_W = 76) are independently derived.
+# kernel volume integral) and m_W (from mode index n_W = 76) are independently derived.
 # No Higgs VEV or Higgs mechanism is invoked. (Part 3 section 0.7)
 GF_pred = g2**2 / (4*math.sqrt(2)*(m_scale2*S(n_W,2)/1000)**2)   # GeV^{-2}
 GF_MeV2 = GF_pred * 1.0e-6                                        # MeV^{-2}
@@ -604,7 +604,7 @@ Gamma_top   = (GF_MeV2_top * m_top_MeV**3 / (8.0*math.pi*math.sqrt(2.0))
 # =============================================================================
 
 # e = g_2 sin(θ_W):  electric charge from the EW unification formula.
-# Both g_2 (from CP² holonomy) and sin(θ_W) (from mode indices) are derived;
+# Both g_2 (from CP² kernel volume integral) and sin(θ_W) (from mode indices) are derived;
 # no empirical charge is input. (Part 3 section 0.7)
 e_charge  = g2 * math.sqrt(sin2_W)
 alpha_em  = e_charge**2 / (4.0 * math.pi)

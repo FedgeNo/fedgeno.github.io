@@ -178,7 +178,7 @@ The Euler characteristics of the IDWT sectors are:
 | d=3 | S³ | 0 | Odd sphere — vector-like QCD (correct: no γ₅) |
 | d=4 | CP² | 3 | **N_c = 3 colours** (index = number of zero modes = colours) |
 | d=5 | S⁵ | 0 | Odd sphere — no Majorana (Dirac neutrinos forced) |
-| d=6 | CP³ | 4 | **n_s = 4 = seed** (index = strange quark seed) |
+| d=6 | CP³ | 4 | **n_s = 4 = seed** (index = n_s, the filtration seed) |
 | d=10 | CP⁵ | 6 | **N_f = 6 flavours** (index = quark family count) |
 
 **The seed n_s = 4 is topologically forced.** The d=6 lepton sector lives on CP³. The Dirac index ind(D_{CP³}) = χ(CP³) = 4. The seed n_s must equal this index for the d=6 spectrum to be self-consistent — it counts the zero modes available before gauge fixing removes one, leaving three generations (e, μ, τ). Therefore n_s = 4 is not chosen: it equals the topological invariant of the lepton sector.
@@ -291,7 +291,7 @@ Every particle is a bound eigenmode of V_d(r) = λ_d r²/(1+r²) with mass m(n,d
 
 #### d = 2 — Electroweak Sector
 
-**Geometry.** CP¹ ≅ S² locally; global S³ Hopf fibration over S² with U(1) fiber. Hopf fiber phase → electromagnetic potential A_μ = ∂_μθ, curvature → F_μν. SU(2)_L acts on the base CP¹.
+**Geometry.** CP¹ = S² (globally); S³ Hopf fibration over S² with U(1) fiber. Hopf fiber phase → electromagnetic potential A_μ = ∂_μθ, curvature → F_μν. SU(2)_L acts on the base CP¹.
 
 | Parameter | Value |
 |---|---|
@@ -311,7 +311,7 @@ Note: S(n,2) = n(n+1)/2. The photon zero mode is exactly massless — the mode e
 **Quantum properties.**
 - **Electromagnetism:** U(1) Hopf fiber holonomy → gauge field A_μ; photon is the connection 1-form.
 - **Weak isospin:** SU(2)_L acts only on holomorphic half of d=2 spinor → left-handedness of W coupling.
-- **sin²θ_W = S(76,2)/S(81,2) = 0.2237** (PDG: 0.2229, +0.37% — within 1-loop EW corrections).
+- **sin²θ_W = 1 − (S(76,2)/S(81,2))² = 0.2237** (PDG: 0.2229, +0.37% — within 1-loop EW corrections).
 - **EW scale:** √Tr(D²) ≈ 248.3 GeV is the spectral RMS of |D| across all sectors. IDWT does not use spontaneous symmetry breaking; the Higgs is mode n=95, not a condensate. The EW scale is (√2 G_F)^{-1/2} = 246.3 GeV from the IDWT-derived G_F (§0, Part 5 §3c).
 - **Coupling filter:** Orientation/phase alignment. The photon couples only to currents aligned with its polarization vector ε_μ; perpendicular currents receive zero coupling, not suppression. This is the U(1) geometry of CP¹ expressing itself as a coupling structure — polarization is not a label on the photon but the geometry's stamp on what the photon can do.
 
@@ -321,7 +321,7 @@ Note: S(n,2) = n(n+1)/2. The photon zero mode is exactly massless — the mode e
 
 #### d = 3 — Hadronic Sector (Down-Type Quarks)
 
-**Geometry.** S³ (round); isometry SU(2)×SU(2) ≅ SO(4). SU(3) color from triple monopole charges on S³ (Part 3 §2). Confinement: E_conf = λ_c|N⃗|.
+**Geometry.** S³ (round); isometry SU(2)×SU(2) ≅ SO(4). Color charge by coordinate containment inside Ξ₄ (Part 3 §2). Confinement: E_conf = λ_c|N⃗|.
 
 | Parameter | Value |
 |---|---|
@@ -338,7 +338,7 @@ Note: S(n,2) = n(n+1)/2. The photon zero mode is exactly massless — the mode e
 Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the unique triple-coincidence site k₀ = n_s² = 16.
 
 **Quantum properties.**
-- **SU(3) color:** Three degenerate color charges from S³ topology; quarks transform in the fundamental.
+- **SU(3) color:** Down-type quarks carry color via coordinate containment inside Ξ₄; the SU(3) symmetry arises from the CP² (d=4) isometry. They transform in the fundamental representation.
 - **Confinement:** No scattering states survive the observability filter in d=3; all modes are confined.
 - **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22500, −0.2%). The 1/240 is the Lichnerowicz S³ curvature correction.
 - **Baryon number:** Topological winding number of the S³ mode.
@@ -400,7 +400,7 @@ Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν�
 **Quantum properties.**
 - **Dirac (not Majorana):** d mod 8 = 5 → no real spinor → Majorana forbidden → **0νββ rate = 0** (hard prediction).
 - **Normal ordering:** n₁ < n₂ < n₃ and S(n,5) monotone → m_ν₁ < m_ν₂ < m_ν₃ necessarily. Experiments prefer normal ordering at 3–4σ.
-- **PMNS angles:** θ₁₂, θ₂₃, θ₁₃ determined by holonomy of the lepton bundle over d=5→6→10→5 (Part 6); g₅₅ and mode indices fix all three with no free parameters.
+- **PMNS angles:** θ₁₂, θ₂₃, θ₁₃ determined by g₅₅ = 96/g₂₂ and the four mode indices (n_e, n_μ, n_τ, n_ν); all three angles fixed with no free parameters (Part 9 T6).
 - **No sterile neutrinos:** Observability filter eliminates all bulk-propagating modes.
 - **Coupling filter:** Dirac condition — geometric prohibition of an entire class of interactions. The Clifford algebra of S⁵ (d mod 8 = 5) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. The S⁵ Hopf fibration (S¹ → S⁵ → CP²) additionally projects the color representation from CP² onto its singlet component, giving color-neutral neutrinos despite their coordinate support inside Ξ_4. Positively, the SO(6) ≅ SU(4) sector gives neutrinos their B−L charge.
 
@@ -410,7 +410,7 @@ Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν�
 
 #### d = 6 — Charged Lepton Sector (e, μ)
 
-**Geometry.** CP³ (quaternionic projective line 𝕳P¹); local symmetry U(3). CP³ Kähler form → hypercharge assignment. Lepton number = U(1) centre of U(3).
+**Geometry.** CP³; local symmetry U(3). CP³ Kähler form → hypercharge assignment. Lepton number = U(1) centre of U(3).
 
 | Parameter | Value |
 |---|---|
@@ -486,7 +486,7 @@ At each new dimension d, the stability condition is whether the self-coupling eq
 
 M∞ is genuinely infinite-dimensional. Beyond d=10 the Atiyah-Singer index vanishes, the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenmodes closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
 
-The containment chain Ξ₂ ⊂ Ξ₃ ⊂ Ξ₄ ⊂ Ξ₅ ⊂ Ξ₆ ⊂ Ξ₁₀ and the isomorphism chain M∞ ≅ Ξ₂ ≅ Ξ₃ ≅ Ξ₄ ≅ Ξ₅ ≅ Ξ₆ ≅ Ξ₁₀ hold for all six sectors: each Ξ_d is M∞ perceived from coordinate level d, and each level's coordinates are a literal subset of the next level's coordinates.
+The containment chain Ξ₂ ⊂ Ξ₃ ⊂ Ξ₄ ⊂ Ξ₅ ⊂ Ξ₆ ⊂ Ξ₁₀ holds for all six sectors: each Ξ_d is M∞ evaluated at coordinate level d, and each level's coordinates are a literal subset of the next level's coordinates.
 
 ---
 

@@ -41,7 +41,7 @@ S_IDWT[Ψ∞, g_μν]
 
 where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed n_s=4 (with n_u = n_s−1 derived).
 
-The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector. Its quartic-in-Ψ form is the sector-space analogue of the Nambu–Jona-Lasinio interaction.
+The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector (T2). Its quartic-in-Ψ form gives confinement, mass, and inter-sector coupling from a single geometric term.
 
 ### 0.3 Equations of Motion
 
@@ -81,7 +81,7 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 
 ### 0.5 Mass Spectrum from the Action
 
-The KK ansatz Ψ∞ = ψ(x) ⊗ χ_n(ξ) reduces the equation of motion to:
+Separating the sector eigenmode χ_n(ξ) from the spacetime part ψ(x) via Ψ∞ = ψ(x) ⊗ χ_n(ξ) reduces the equation of motion to:
 
 ```
 (iγ^μ ∇_μ − m_eff) ψ = 0           [massive Dirac in 3D space]
@@ -92,7 +92,7 @@ The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d
 
 ### 0.6 Effective Colour Coupling from the Kernel
 
-The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') dμ_{ξ'} is the direct quark contact interaction. When parameterized in Yang-Mills language for correspondence with QCD, integrating J^4 over CP² (volume π²/(2m_scale_4⁴)) gives the effective coupling:
+The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') dμ_{ξ'} is the direct quark contact interaction. Integrating the kernel current J^4 over the CP² manifold (volume π²/(2m_scale_4⁴)) yields the effective coupling strength:
 
 ```
 g²_eff = 2g_{44}/π²
@@ -116,16 +116,16 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | **Fermi constant** | **G_F = g₂²/(4√2 m_W²)** | **1.1658×10⁻⁵ GeV⁻²** |
 
 
-**Derivation of g₂.** The QCD coupling g_s arises from the Wilson loop holonomy of the Fubini-Study gauge connection over the d=4 sector manifold CP². The Fubini-Study metric has fundamental 2-cycle area π; integrating the Yang-Mills action density over CP² introduces the volume factor 2/π² (ratio of the sphere volumes at successive Hopf levels), giving:
+**Derivation of g₂.** The effective colour coupling g_s is obtained by integrating the kernel coupling density g_{44} over the CP² manifold. The Fubini-Study metric gives CP² a volume π²/2 in units of the sector length scale, introducing the factor 2/π² (ratio of successive Hopf-level sphere volumes):
 
 ```
-g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [holonomy integral over CP²]
+g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [CP² volume integral of kernel coupling]
 ```
 
 The up-quark charge Q_u = 2/3 follows from the spin^c index on CP²: ind(D^c_{CP²} ⊗ O(1)) = 3 = N_c colours (Theorem S3, Part 8 §2.2), so each colour carries charge 1/N_c = 1/3 and the doublet carries 2Q_u = 2 × 2/3. The SU(2)_L coupling is therefore:
 
 ```
-g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [QCD coupling, from CP² holonomy]
+g_s = √(2g₄₄/π²) = (2g₄₄/π²)^(1/2)   [colour coupling, from CP² kernel integral]
 g₂  = (2/3)√g_s  = (2/3)(2g₄₄/π²)^(1/4)
 g₂² = (4/9) × g_s = (4/9)(2g₄₄/π²)^(1/2)
 
@@ -137,14 +137,14 @@ PDG: 0.65270.  Error: +0.008%
 
 ```
 g_{44}  [seed: n_s=4, n_u=3]
-  → g_s = √(2g_{44}/π²)         [CP² holonomy integral, factor 2/π² from Fubini-Study volume]
+  → g_s = √(2g_{44}/π²)         [CP² kernel volume integral, factor 2/π² from Fubini-Study volume]
   → g_2 = (2/3)√g_s             [coordinate ratio: d_photon/d_hadronic = 2/3]
   → sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))²   [mode index ratio]
   → g_1 = g_2 tan θ_W
   → α = g_1²g_2²/[4π(g_1²+g_2²)]
 ```
 
-The factor 2/3 at the g_s → g_2 step is both the electric charge of the up quark (index theorem) and the coordinate containment ratio d_photon/d_hadronic: N_c = 3 = d_hadronic (the hadronic sector dimension), d_photon = 2, so Q_u = d_photon/d_hadronic (Part 1 §3g). The CP² holonomy step involves a continuous Riemannian integral (2/π²), not a coordinate count; but the subsequent step is a literal ratio of sector dimensions.
+The factor 2/3 at the g_s → g_2 step is both the electric charge of the up quark (index theorem) and the coordinate containment ratio d_photon/d_hadronic: N_c = 3 = d_hadronic (the hadronic sector dimension), d_photon = 2, so Q_u = d_photon/d_hadronic (Part 1 §3g). The CP² kernel integral step involves a continuous Riemannian integral (2/π²), not a coordinate count; but the subsequent step is a literal ratio of sector dimensions.
 
 From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 
@@ -296,7 +296,7 @@ Given the colour space H_colour identified from the CP² Dirac zero modes:
 
 1. Physical observables depend on |Ψ∞|² — invariance under local colour rotations U(x) ∈ U(H_colour) is a **consistency requirement**, not a postulate
 2. Local invariance forces a connection: D_μΘ = ∂_μΘ + i[A_μ, Θ]
-3. The commutator [D_μ, D_ν]Θ = i[F_μν, Θ] gives the Yang-Mills field strength:
+3. The commutator [D_μ, D_ν]Θ = i[F_μν, Θ] gives the colour connection curvature:
    ```
    F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]
    ```
@@ -396,7 +396,7 @@ This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
 **Only colour-matched configurations are stable.** It is a necessary consequence of the CP² isometry group acting on the colour vector space.
 
-**Status note:** This colour-vector model is a *selection rule* — it correctly identifies which states are colour-neutral and therefore stable. It does not derive the confinement *mechanism* (linear potential, flux-tube formation, Wilson loop area law) from the M_∞ kernel. The derivation of λ_c from the inter-sector coupling structure, and the equivalence to the QCD area law, are open items addressed further in §8 and Part 8 §11.
+**Status note:** This colour-vector model is a *selection rule* — it correctly identifies which states are colour-neutral and therefore stable. It does not yet derive the full confinement mechanism (linear potential, flux-tube formation) from the M_∞ kernel. The derivation of λ_c from the inter-sector coupling structure is an open item addressed further in §8 and Part 8 §11.
 
 ---
 
@@ -516,7 +516,7 @@ Both routes agree. The SO(10) route provides a cross-check on the anomaly cancel
 
 The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) contains two contributions: −2n_f/(48π²) from fermion loops and 11N_c/(48π²) from gauge-boson (gluon) loops. IDWT derives N_c = 3 from the CP² Dirac index (§2) and n_f = 6 from the six occupied quark modes. However, because the IDWT action has no propagating colour gauge quanta (§0.2, §0.6), the 11N_c gauge-boson loop term does not automatically follow. The running of the effective colour coupling g²_eff = 2g_{44}/π² from the kernel in a theory with only quark loops would give b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
 
-**Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running that reproduces QCD asymptotic freedom — possibly through resummation of quark loop insertions in the kernel, analogous to how NJL models exhibit a form of running at finite cutoff.
+**Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running at all — and if so, whether resummation of quark loop insertions in the kernel produces a positive b₀ and asymptotic freedom.
 
 ---
 
@@ -765,7 +765,7 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
-**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² holonomy integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the fiber scale is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
+**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the fiber scale is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
 
 ---
 

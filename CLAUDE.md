@@ -146,8 +146,8 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - §0: The Complete IDWT Action (§0.1–§0.7 field content, action, EOM, couplings; §0.8 Force Mediation as Spatial Geometry; §0.9 CKM Matrix from the Kernel; §0.10 Pure Sector Identities)
 - §1: Electromagnetism
 - §2: Colour Charge from CP²
-- §3: Gauge Symmetry from Consistency (§3a Berry Connection)
-- §4: Yang-Mills Action from the Kernel
+- §3: Colour Symmetry from Consistency (§3a Colour Connection)
+- §4: Effective Colour Coupling from the Kernel
 - §5: Colour Confinement
 - §6: SU(3)_colour × U(2)_EW from One Manifold
 - §7: Chirality from Kähler γ₅

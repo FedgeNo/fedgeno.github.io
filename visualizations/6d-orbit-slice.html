@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>6D Orbit — 3-Torus Projection</title>
+<title>6D Orbit — CP³ Electron Sector</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
   html, body {
@@ -111,9 +111,10 @@
   </div>
 </nav>
 <div class="overlay">
-  <div class="title">6D Orbit — 3D Shadow</div>
-  <div class="hint">This orbit moves in 6 dimensions simultaneously. Three are hidden. What you see is the shadow cast into your 3D space.</div>
-  <div class="hint" style="margin-top:8px"><b>Drag</b> to rotate the hidden dimensions — the shadow changes shape, revealing what the missing axes contain.</div>
+  <div class="title">CP³ Mode (3,2,1) — Electron Sector Orbit</div>
+  <div class="hint">The electron lives in a 6D sector (CP³). This is its actual orbit — three complex coordinate pairs weighted by occupation numbers √(3/6), √(2/6), √(1/6). What you see is its 3D shadow.</div>
+  <div class="hint" style="margin-top:8px">The orbit rotates through three independent hidden-sector planes at φ-ratio rates, so the projected shape continuously morphs through the orbital family — s, p, d cross-sections emerging and dissolving.</div>
+  <div class="hint" style="margin-top:8px"><b>Drag</b> to manually rotate the hidden dimensions.</div>
   <div class="row" style="margin-top:8px">
     <span class="key">Shift + Drag</span>
     <span>3rd hidden plane</span>
@@ -189,24 +190,32 @@ const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
 }));
 scene.add(stars);
 
-// 6D orbit data
-// Three circles with golden-ratio frequency ratios: 1, φ, φ².
-// Irrational ratios → orbit never closes → fills the 3-torus surface densely.
-// With rational ratios (e.g. 1, 1.7, 2.3 = 10:17:23) the orbit closes after
-// 10 windings and looks like a wire knot — nothing 6D about it.
-const phi = (1 + Math.sqrt(5)) / 2; // ≈ 1.618, the golden ratio
+// IDWT CP³ mode (n1=3, n2=2, n3=1) orbit — the real 6D trajectory of the d=6 electron sector.
+// Amplitudes A_k = sqrt(n_k / n_total) weight each complex pair by occupation number.
+// Base frequencies match mode indices; small phi-scaled drift breaks exact periodicity
+// so the orbit ergodically fills the orbital probability density rather than closing.
+const phi = (1 + Math.sqrt(5)) / 2;
+const n1 = 3, n2 = 2, n3 = 1;
+const nTot = n1 + n2 + n3;
+const A0 = Math.sqrt(n1 / nTot);  // 0.7071
+const A1 = Math.sqrt(n2 / nTot);  // 0.5774
+const A2 = Math.sqrt(n3 / nTot);  // 0.4082
+const eps = 0.005;
+const f0 = n1 + eps * phi;
+const f1 = n2 + eps;
+const f2 = n3 + eps * phi * phi;
 const N = 18000;
-const WINDINGS = 160;
+const WINDINGS = 180;
 const points6D = new Float32Array(N * 6);
 for (let i = 0; i < N; i++) {
   const t = (i / (N - 1)) * Math.PI * 2 * WINDINGS;
   const i6 = i * 6;
-  points6D[i6]     = Math.cos(t);
-  points6D[i6 + 1] = Math.sin(t);
-  points6D[i6 + 2] = Math.cos(phi * t);
-  points6D[i6 + 3] = Math.sin(phi * t);
-  points6D[i6 + 4] = Math.cos(phi * phi * t);
-  points6D[i6 + 5] = Math.sin(phi * phi * t);
+  points6D[i6]     = A0 * Math.cos(f0 * t);
+  points6D[i6 + 1] = A0 * Math.sin(f0 * t);
+  points6D[i6 + 2] = A1 * Math.cos(f1 * t);
+  points6D[i6 + 3] = A1 * Math.sin(f1 * t);
+  points6D[i6 + 4] = A2 * Math.cos(f2 * t);
+  points6D[i6 + 5] = A2 * Math.sin(f2 * t);
 }
 
 // 6x6 rotation matrix R
@@ -388,10 +397,11 @@ function animate() {
   requestAnimationFrame(animate);
   time += 0.016;
 
-  // Auto-rotate 6D
-  rotatePlane(0, 3, 0.0050);
-  rotatePlane(1, 4, -0.00220);
-  rotatePlane(2, 5, 0.00130);
+  // Auto-rotate 6D — phi-ratio rates so the three planes never synchronize,
+  // continuously morphing the projected orbital shape through its full family.
+  rotatePlane(0, 3,  0.0016);
+  rotatePlane(1, 4, -0.0016 * phi);
+  rotatePlane(2, 5,  0.0016 * phi * phi);
 
   projectPoints();
 

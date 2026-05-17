@@ -376,7 +376,7 @@ g²_eff = 2g₄₄/π²
 g²_eff = 2 × (12/√7) / π² = 0.919
 ```
 
-This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s → g₂ → sin²θ_W → g₁ (§0.7). The formula derives from the kernel coupling g₄₄ and the CP² volume, with no free parameters. (This is not a Kaluza-Klein result: CP² is the configuration space of d=4 internal degrees of freedom, not a geometrically compact extra dimension.)
+This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s → g₂ → sin²θ_W → g₁ (§0.7). The formula derives from the kernel coupling g₄₄ and the CP² volume, with no free parameters. (This is not a Kaluza-Klein result: CP² is the macroscopic d=4 sector space — non-compact, with localized bound-state modes rather than KK plane waves.)
 
 ---
 
@@ -732,7 +732,7 @@ Write Ψ∞ = A·e^{iθ}. The phase gradient defines the gauge field:
 A_μ = ∂_μθ
 ```
 
-This is the KK zero mode of the U(1) Hopf fiber. The field tensor:
+This is the n=0 zero mode of the U(1) Hopf fiber. The field tensor:
 ```
 F_μν = ∂_μA_ν − ∂_νA_μ
 ```
@@ -775,7 +775,7 @@ The spinor structure of Ψ∞ means the quantum number structure of the SM emerg
 
 | SM feature | IDWT derivation | Route |
 |---|---|---|
-| Spin-½ for quarks and leptons | KK Dirac operator on M_∞ | Spinor bundle §59 |
+| Spin-½ for quarks and leptons | Dirac operator on M_∞ | Part 8 §2 |
 | Fermi statistics | Spinor anticommutation relations | Clifford algebra |
 | Particle/antiparticle | Conjugate spinor Ψ̄∞ | Complex spinor field |
 | Left-handed weak coupling | Kähler γ₅ selects holomorphic half of each sector spinor | §7 above |

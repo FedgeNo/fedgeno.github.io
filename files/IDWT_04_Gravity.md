@@ -125,7 +125,7 @@ Non-normalizable (scattering) modes do not satisfy this condition — they fail 
 
 ### 3.6 The Equivalence Principle
 
-Inertial mass enters through the KK eigenvalue: m_inertial = m_scale_d × S(n,d).
+Inertial mass enters through the sector eigenvalue: m_inertial = m_scale_d × S(n,d).
 Gravitational mass enters through T_μν^{eff}(x) = T_μν^{obs}[ψ] × ‖χ‖²_Ξ.
 
 Both carry the same sector normalisation factor ‖χ‖²_Ξ. For normalised modes:
@@ -377,7 +377,7 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 
 **Why IDWT differs from Kaluza-Klein.** In KK theories, the higher-dimensional metric G_{MN} is a single dynamical object. Its spacetime and extra-dimensional components mix through moduli fields — the compact space fluctuates and gravitons propagate into the sector space. Integrating out these fluctuations produces the observed Planck mass, and the resulting KK excitation tower is excluded by Eöt-Wash and LHC searches.
 
-In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are configuration spaces of the internal degrees of freedom of Ψ∞; h_ab(ξ) is fixed and classical, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into the sector space; they do not apply to IDWT.
+In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are macroscopic spatial dimensions in which Ψ∞ vibrates; h_ab(ξ) is a fixed classical background metric, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into the sector space; they do not apply to IDWT.
 
 **Conclusion.** G_N as measured by a 3D observer receives no correction from hidden sector fluctuations. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
 
@@ -500,7 +500,7 @@ This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d val
 
 ## 3.13 Covariant Conservation of T_μν^{eff}
 
-**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 dimensional visibility — with KK form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
+**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 dimensional visibility — with sector-factorized form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
 
 ```
 ∇^μ T_μν^{eff}(x) = 0
@@ -571,7 +571,7 @@ With L² normalisability established, the Bianchi proof in §3.8 Part II holds u
 T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{obs}[ψ](x)
 ```
 
-**Step 2 — Spacetime conservation.** From the KK Dirac equation (iγ^μ ∇_μ − m_eff)ψ = 0:
+**Step 2 — Spacetime conservation.** From the spacetime Dirac equation (iγ^μ ∇_μ − m_eff)ψ = 0:
 
 ```
 ∇^μ T_μν^{obs}[ψ](x) = 0

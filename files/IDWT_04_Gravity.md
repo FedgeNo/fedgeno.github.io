@@ -92,7 +92,7 @@ The effective stress-energy has three contributions:
 
 ### 3.3 Connecting to the Mass Spectrum
 
-For mode (n,d), the KK ansatz Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ) with D_Ξ χ_{n,d} = m_eff χ_{n,d} gives mass m_eff = m_scale_d × S(n,d). The effective stress-energy factorises:
+For mode (n,d), separating the sector eigenmode χ_{n,d}(ξ) from the spacetime field ψ(x) via Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ) with D_Ξ χ_{n,d} = m_eff χ_{n,d} gives mass m_eff = m_scale_d × S(n,d). The effective stress-energy factorises:
 
 ```
 T_μν^{eff}(x) = T_μν^{obs}[ψ](x) × ∫_Ξ |χ_{n,d}(ξ)|² dμ_ξ
@@ -478,7 +478,7 @@ $$\Lambda \approx \sqrt{\frac{12\pi^2 G_N^{-1}}{f_2 N_{\rm eff}}} \approx 3.9\ M
 
 This is circular: Λ ~ M_Pl because G_N^{−1} ~ M_Pl^2 by definition. Setting Λ from the spectral action condition and then predicting G_N reproduces the input. No sector mass scale approaches M_Pl — the top quark at ~173 GeV sits 1.4 × 10^{16} below it — so no natural cutoff emerges from the IDWT sector structure at the Planck scale.
 
-**Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the gauge kinetic terms, which control the Yang-Mills couplings). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
+**Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the coupling term, which controls the sector couplings g_{dd}). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
 
 In IDWT, the gauge couplings g_{dd} are fully derived from N_c alone (T9) — they are not inputs. This means a_4 is already fixed, independently of Λ and independently of G_N. If a_2 can be computed from the sector-space geometry (heat kernel coefficients from T14 plus the Ricci scalar on each sector manifold), then the ratio:
 

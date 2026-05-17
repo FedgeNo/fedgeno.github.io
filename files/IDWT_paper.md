@@ -225,7 +225,7 @@ $$m_{\mathrm{scale},4} = m_{\mathrm{scale},3}\frac{\sqrt{g_{44}/g_{33}}}{S(n_u,4
 
 $$m_{\mathrm{scale},2} = m_e\sqrt{g_{22}/g_{66}} = 0.51100\sqrt{722.5/0.25} = 27.471 \text{ MeV}.$$
 
-**Derivation of $g_2$ from CP² integration.** The SU(2)$_L$ coupling emerges from the holonomy of the Fubini-Study gauge connection integrated over $\mathbb{CP}^2$. The Wilson loop integral over the fundamental class gives:
+**Derivation of $g_2$ from CP² integration.** The SU(2)$_L$ coupling emerges from integrating the kernel coupling density $g_{44}$ over the CP² manifold with the Fubini-Study metric. The CP² volume integral over the fundamental class gives:
 
 $$g_s = \sqrt{\frac{2g_{44}}{\pi^2}} = \sqrt{\frac{2 \times 12/\sqrt{7}}{\pi^2}} = 0.9587.$$
 

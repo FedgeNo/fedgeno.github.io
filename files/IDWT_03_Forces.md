@@ -303,7 +303,7 @@ Given the colour space H_colour identified from the CP² Dirac zero modes:
 
 SU(3) gauge theory is not postulated. It follows from the CP² geometry combined with the consistency requirement that physics not depend on the local orientation of the colour frame. The gauge transformation A → gAg⁻¹ − (dg)g⁻¹ arises from local fibre rotations in P_{SU(3)}.
 
-### 3a. Explicit Berry Connection Construction 🔶
+### 3a. Explicit Colour Connection Construction 🔶
 
 The argument above establishes that a connection must exist. This subsection constructs it explicitly from the IDWT sector field.
 
@@ -321,7 +321,7 @@ where
 
 This integral extracts the three colour amplitudes from the full sector-space field at each spacetime point x. It is the IDWT definition of the colour state at x.
 
-**Berry connection formula.** The colour frame can be chosen independently at each spacetime point. The unique torsion-free SU(3) connection preserving the L²(CP²) inner product on H_colour is:
+**Colour connection formula.** The colour frame can be chosen independently at each spacetime point. The unique torsion-free SU(3) connection preserving the L²(CP²) inner product on H_colour is:
 
 ```
 A_μ(x) = i ψ_color†(x) ∂_μ ψ_color(x)   ∈ su(3)
@@ -346,7 +346,7 @@ F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]   ∈ su(3)
 
 is the colour curvature 2-form. This is a mathematical object encoding the SU(3) holonomy of the colour frame; it is not a propagating field. The IDWT action (§0.2) contains no kinetic term F_{μν}F^{μν} for this connection — the colour interaction is entirely in the kernel contact term.
 
-**Status.** The Berry connection is defined and transforms correctly for the zero-mode sector. What remains is constructing ψ_color(x) explicitly for propagating quark modes — that is, extending the colour projection P_color: Ψ_∞^{(d=4)} → ψ_color beyond the three CP² zero modes to the full occupied spectrum (n=3 up, n=20 charm, n=72 top). The zero-mode construction is complete (Part 8 §2); the propagating-mode projection operator is the remaining step.
+**Status.** The colour connection is defined and transforms correctly for the zero-mode sector. What remains is constructing ψ_color(x) explicitly for propagating quark modes — that is, extending the colour projection P_color: Ψ_∞^{(d=4)} → ψ_color beyond the three CP² zero modes to the full occupied spectrum (n=3 up, n=20 charm, n=72 top). The zero-mode construction is complete (Part 8 §2); the propagating-mode projection operator is the remaining step.
 
 ---
 

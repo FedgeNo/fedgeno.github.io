@@ -304,7 +304,7 @@ function projectPoints() {
 
   for (let s = 0; s < sphereCount; s++) {
     // make spheres travel along the orbit
-    const speed = 0.05; // orbits per second, tweak this
+    const speed = 0.006; // orbits per second, tweak this
     const base = s * 100;
     const offset = Math.floor((performance.now() * 0.001 * speed * N) + s * 137) % N;
     const idx = ((base + offset) % N) * 3;

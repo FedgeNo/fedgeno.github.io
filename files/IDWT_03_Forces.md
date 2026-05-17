@@ -75,7 +75,7 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 | L_kinetic (spacetime part) | δΨ̄∞ | Dirac propagation in 3D space |
 | L_kinetic (sector part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
 | L_kernel (d=d', self) | δΨ̄∞ | Sector confinement V_d, λ_d = (g_{dd}/2)^{2/3} |
-| L_kernel (d=4, gauge) | consistency | SU(3) colour gauge field, g²_YM = 2g_{44}/π² |
+| L_kernel (d=4, colour) | δΨ̄∞ | SU(3)-symmetric quark contact coupling; effective coupling g²_eff = 2g_{44}/π² (§4) |
 | L_kernel (d=4↔d=2) | consistency | U(2) electroweak gauge fields, W±, Z, γ |
 | L_kernel (d=3↔d=4) | eigenvalue + Lichnerowicz | Cabibbo angle sin θ_C |
 
@@ -90,15 +90,15 @@ H_d χ_n = m_eff χ_n                  [sector eigenvalue problem]
 
 The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §3). The mass formula is a consequence of the action.
 
-### 0.6 Yang-Mills from the Kernel
+### 0.6 Effective Colour Coupling from the Kernel
 
-The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') dμ_{ξ'}, when reduced over CP² (volume π²/(2m_scale_4⁴)), gives:
+The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') dμ_{ξ'} is the direct quark contact interaction. When parameterized in Yang-Mills language for correspondence with QCD, integrating J^4 over CP² (volume π²/(2m_scale_4⁴)) gives the effective coupling:
 
 ```
-L_YM^{obs} = (1/4g²_YM) Tr(F_{μν} F^{μν})    with g²_YM = 2g_{44}/π²
+g²_eff = 2g_{44}/π²
 ```
 
-The SU(3) gauge symmetry follows from the CP² isometry group (Part 3 §3–4).
+The SU(3) invariance of this coupling follows from the CP² isometry group acting on the quark colour states. No propagating SU(3) gauge quanta (gluons) appear in the IDWT action — the colour interaction is a contact term, not an exchange interaction.
 
 ### 0.7 Coupling Constants from the Action
 
@@ -106,7 +106,7 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 
 | Physical quantity | Formula | Value |
 |---|---|---|
-| Yang-Mills coupling | g²_YM = 2g_{44}/π² | 0.919 |
+| Effective colour coupling | g²_eff = 2g_{44}/π² | 0.919 |
 | Weinberg angle | sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))² | 0.2237 |
 | GTC correction | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
@@ -173,10 +173,10 @@ Each fundamental force acts within a spatial region determined by its sector. Th
 |---|---|---|---|
 | Electromagnetic | Photon | d=2 | 2 |
 | Weak | W±, Z | d=2 | 2 |
-| Strong (QCD) | Gluon | d=4 | 4 |
+| Strong (QCD) | — (kernel contact) | d=3, d=4 | — |
 | Gravity | — | (none) | 10 |
 
-**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the mediator traverses. A d=2 photon cannot couple to a particle with no support on the d=2 sector; a gluon confined to the d=4 sector CP² cannot reach a particle localised only in d=2. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from the Atiyah-Singer index on CP² (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
+**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the force acts in. A d=2 photon cannot couple to a particle with no support on the d=2 sector. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 sector support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from the Atiyah-Singer index on CP² (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
@@ -188,7 +188,7 @@ The gravitational field is genuinely 10D — it is not a 3D field with extra-dim
 
 **Spatial extent and coupling strength.** The gauge forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
 
-**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force mediator occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are color-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² color representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; the CP² Atiyah-Singer index constitutes color with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total QCD silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
+**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force mediator occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; the CP² Atiyah-Singer index constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
 ### 0.9 CKM Matrix from the Kernel
 
@@ -284,9 +284,9 @@ The three net left-chiral zero modes live in the fibre of O(1) over CP². This b
 
 ---
 
-## 3. Gauge Symmetry from Consistency
+## 3. Colour Symmetry from Consistency
 
-The gauge symmetry emerges from a well-defined principal bundle. The d=4 sector contributes a principal SU(3) bundle P_{SU(3)} → M₄ with connection 1-form A constructed from the Hopf fibration data of CP²: the gluon fields are the 8 independent components of A in the adjoint of SU(3). Similarly, the d=2 sector and d=6 lepton sector contribute the U(2) bundle P_{U(2)} → M₄ with connection B. The total gauge bundle is:
+The SU(3) colour symmetry emerges from a well-defined principal bundle. The d=4 sector contributes a principal SU(3) bundle P_{SU(3)} → M₄ with connection 1-form A constructed from the Hopf fibration data of CP². This connection is a mathematical consequence of local phase-frame freedom in ψ_colour(x); it is non-propagating in the IDWT action (no Yang-Mills kinetic term — see §0.2). Similarly, the d=2 sector and d=6 lepton sector contribute the U(2) bundle P_{U(2)} → M₄ with connection B. The total colour-plus-EW bundle is:
 
 ```
 P → M₄,    structure group G = SU(3) × U(2)
@@ -327,7 +327,7 @@ This integral extracts the three colour amplitudes from the full sector-space fi
 A_μ(x) = i ψ_color†(x) ∂_μ ψ_color(x)   ∈ su(3)
 ```
 
-This is the Berry connection on P_{SU(3)} → M₄.
+This is the colour connection on P_{SU(3)} → M₄.
 
 **Gauge transformation check.** Under U(x) ∈ SU(3): ψ_color(x) → U(x)ψ_color(x). Direct computation:
 
@@ -338,58 +338,45 @@ A_μ → i(Uψ)† ∂_μ(Uψ)
      = U† A_μ U + U† ∂_μU
 ```
 
-This is the correct SU(3) gauge transformation law. The field strength
+This is the correct SU(3) transformation law. The curvature
 
 ```
 F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]   ∈ su(3)
 ```
 
-is the gluon field strength. Combined with g²_YM = 2g₄₄/π² (§4), this gives the full SU(3) gauge theory from the sector geometry.
+is the colour curvature 2-form. This is a mathematical object encoding the SU(3) holonomy of the colour frame; it is not a propagating field. The IDWT action (§0.2) contains no kinetic term F_{μν}F^{μν} for this connection — the colour interaction is entirely in the kernel contact term.
 
 **Status.** The Berry connection is defined and transforms correctly for the zero-mode sector. What remains is constructing ψ_color(x) explicitly for propagating quark modes — that is, extending the colour projection P_color: Ψ_∞^{(d=4)} → ψ_color beyond the three CP² zero modes to the full occupied spectrum (n=3 up, n=20 charm, n=72 top). The zero-mode construction is complete (Part 8 §2); the propagating-mode projection operator is the remaining step.
 
 ---
 
-## 4. Yang-Mills Action from the Kernel
+## 4. Effective Colour Coupling from the Kernel
 
-### Dimensional Reduction of S_YM over CP²
+### Derivation of g²_eff from the d=4 Kernel
 
-The M_∞ gauge action on the full product space M₄ × CP² is:
+The IDWT action has no Yang-Mills kinetic term. The colour interaction is entirely the d=4 self-coupling contact term. To connect with the QCD coupling g_s used in the cascade of §0.7, we derive the effective coupling by integrating the kernel current J^4 over CP²:
 
-```
-S_YM^{6D} = (1/4g₆²) ∫_{M₄ × CP²} Tr(F_{MN} F^{MN}) √g d⁴x d⁴ξ
-```
-
-where M,N run over all 8 index directions: time and 3 spatial from the observer's space, plus 4 from CP². The field strength splits into F_{μν} (Yang-Mills in the observer's 3D space), F_{μa} (KK cross terms, massive and non-propagating in the IDWT background), and F_{ab} (CP² background flux, fixed by the Hopf quantum number k=1).
-
-Integrating over CP² with the Fubini-Study metric at radius parameter a = 1/m_scale₄:
+The d=4 kernel current density, when integrated over CP² with the Fubini-Study metric at radius parameter a = 1/m_scale₄:
 
 ```
 Vol(CP²) = π² a⁴ / 2 = π² / (2 m_scale₄⁴)
 ```
 
-The F_{μν} term after CP² integration:
+The kernel coupling g₄₄ = 12/√7 is dimensionless (ξ measured in units of 1/m_scale₄). The effective coupling strength extracted by matching the integrated kernel amplitude to the standard QCD form is:
 
 ```
-S_YM^{obs} = (Vol(CP²) / 4g₆²) ∫_{M₄} Tr(F_{μν} F^{μν}) √g₄ d⁴x
-           = (1/4g₄²) ∫_{M₄} Tr(F_{μν} F^{μν}) √g₄ d⁴x
-```
+1/g²_eff = Vol(CP²) × m_scale₄²/g₄₄ = (π²/2) × (1/g₄₄)
 
-Identifying the 6D coupling with the IDWT kernel coupling: with ξ measured in units of 1/m_scale₄ (the sector length unit set by the harmonic oscillator localization length L_d), the kernel coupling g₄₄ = 12/√7 is dimensionless and the identification g₆² = g₄₄/m_scale₄² gives the correct dimension [mass]^{−2} for a 6D Yang-Mills coupling. The effective Yang-Mills coupling is then:
-
-```
-1/g²_YM = Vol(CP²) × m_scale₄²/g₄₄ = (π²/2) × (1/g₄₄)
-
-g²_YM = 2g₄₄/π²
+g²_eff = 2g₄₄/π²
 ```
 
 **Numerically:**
 
 ```
-g²_YM = 2 × (12/√7) / π² = 0.919
+g²_eff = 2 × (12/√7) / π² = 0.919
 ```
 
-The Yang-Mills coupling is derived from the kernel coupling g₄₄ and the volume of CP², neither of which is a free parameter. The formula 1/g²_YM = Vol(CP²)/g₆² arises from integrating the sector kinetic term over CP²; the IDWT contribution is identifying g₆² = g₄₄/m_scale₄² from the kernel structure. (This is not a Kaluza-Klein result: CP² is the configuration space of d=4 internal degrees of freedom, not a geometrically compact extra dimension.)
+This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s → g₂ → sin²θ_W → g₁ (§0.7). The formula derives from the kernel coupling g₄₄ and the CP² volume, with no free parameters. (This is not a Kaluza-Klein result: CP² is the configuration space of d=4 internal degrees of freedom, not a geometrically compact extra dimension.)
 
 ---
 
@@ -417,9 +404,9 @@ This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
 CP² carries two independent gauge-algebraic structures:
 
-| Structure | Source | Group | Generators | SM role |
+| Structure | Source | Group | Generators | Physical role |
 |---|---|---|---|---|
-| Isometry | SU(3) acts on fibre ℂ³ | SU(3) | 8 | Gluons |
+| Isometry | SU(3) acts on fibre ℂ³ | SU(3) | 8 | Colour symmetry of quark contact coupling |
 | Holonomy | Fubini-Study metric | U(2) = SU(2)×U(1) | 4 | Electroweak |
 
 ### Why U(1)_Y is the U(1) in U(2), and SU(2)_L is the SU(2) in U(2)
@@ -460,10 +447,10 @@ su(3) = u(2) ⊕ m
 
 where m ≅ T_{[e]}(CP²) is the 4-dimensional (real) tangent space at the base point. **Dimension check:** dim su(3) = 8, dim u(2) = 4, dim m = dim CP² = 4, and 4+4 = 8. This is an orthogonal decomposition under the Killing form of su(3): the u(2) generators are orthogonal to the m generators. Therefore:
 
-- The **8 gluons** are the 8 generators of su(3). Of these, 4 live in u(2) (the holonomy generators) and 4 live in m (the tangent space generators). Only the 8 su(3) generators source colour — there are no extra massless vectors.
-- The **4 EW bosons** are the 4 generators of u(2) ⊂ su(3). They act on the tangent space of CP², not on the colour fibre. Since u(2) and m are orthogonal in su(3), the EW generators do not mix with the gluon generators that source the colour field.
+- The **8 colour generators** are the 8 generators of su(3). Of these, 4 live in u(2) (the holonomy generators) and 4 live in m (the tangent space generators). These generators act on the colour states of quarks through the SU(3)-invariant kernel — they are symmetry generators of the contact coupling, not propagating quanta.
+- The **4 EW bosons** are the 4 generators of u(2) ⊂ su(3). They act on the tangent space of CP², not on the colour fibre. Since u(2) and m are orthogonal in su(3), the EW generators do not mix with the colour generators.
 
-The SM gauge algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry group SU(3), decomposed according to the homogeneous space structure. No extra gauge bosons appear because the decomposition su(3) = u(2) ⊕ m is complete and exhausts all generators.
+The colour-plus-EW algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry group SU(3), decomposed according to the homogeneous space structure. No extra gauge bosons appear because the decomposition su(3) = u(2) ⊕ m is complete and exhausts all generators.
 
 ---
 
@@ -525,18 +512,11 @@ Both routes agree. The SO(10) route provides a cross-check on the anomaly cancel
 
 ---
 
-## 9. QCD β-Function Coefficient
+## 9. Colour Coupling Running 🔶
 
-The one-loop QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) is completely fixed by the CP² sector assignment. The formula is the standard one-loop result for an SU(N_c) gauge theory with n_f Dirac fermions; the IDWT contribution is deriving N_c = 3 from the CP² Dirac index (§2) and identifying n_f = 6 from the occupied d=4 and d=3 modes (6 quark flavours).
+The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) contains two contributions: −2n_f/(48π²) from fermion loops and 11N_c/(48π²) from gauge-boson (gluon) loops. IDWT derives N_c = 3 from the CP² Dirac index (§2) and n_f = 6 from the six occupied quark modes. However, because the IDWT action has no propagating colour gauge quanta (§0.2, §0.6), the 11N_c gauge-boson loop term does not automatically follow. The running of the effective colour coupling g²_eff = 2g_{44}/π² from the kernel in a theory with only quark loops would give b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
 
-- N_c = 3 from CP² geometry
-- n_f = 6 from the six occupied quark mode indices
-
-```
-b₀ = (33 − 12)/(48π²) = 21/(48π²) ≈ 0.0443
-```
-
-b₀ > 0 → **asymptotic freedom is a derived result.** The β-function coefficient matches QCD exactly.
+**Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running that reproduces QCD asymptotic freedom — possibly through resummation of quark loop insertions in the kernel, analogous to how NJL models exhibit a form of running at finite cutoff.
 
 ---
 

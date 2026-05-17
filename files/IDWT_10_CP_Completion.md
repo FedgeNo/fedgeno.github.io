@@ -124,7 +124,7 @@ $$\sin^2\theta_{13} = g_{55} \cdot \delta_{23} \cdot \ln\frac{S(n_\tau,10)}{S(n_
 where:
 - g₅₅ = 96/g₂₂ = 0.13287 > 0
 - δ₂₃ = sin²θ₂₃ − 1/2 > 0 (since θ₂₃ > π/4 by T6; this follows from S(n_τ,10) > S(n_μ,6))
-- ln(S(n_τ,10)/S(n_μ,6)) = ln(S(23,10)/S(18,6)) > 0
+- ln(S(n_τ,10)/S(n_μ,6)) = ln(S(23,10)/S(35,6)) > 0
 
 Therefore sin²θ₁₃ > 0, which is tautological. What matters is the sign of U_{e3} itself, not sin²θ₁₃.
 

@@ -18,7 +18,7 @@ Infinite-Dimensional Wave Theory (IDWT) [1] describes the Standard Model as the 
 
 $$\Xi_2 \subset \Xi_3 \subset \Xi_4 \subset \Xi_5 \subset \Xi_6 \subset \Xi_{10}.$$
 
-The coordinate nesting produces an already-established principle — **coordinate containment**: a particle couples to a force only if it has wavefunction support in that force's sector coordinates [1, §3g]. A particle in $\Xi_2$ (photon) cannot couple to gluons because $\Xi_2 \not\supset \Xi_4$ (the color sector). A particle in $\Xi_6$ (electron) has support throughout $\Xi_2 \subset \cdots \subset \Xi_6$ and so couples to all forces whose sector coordinates are contained within $\Xi_6$.
+The coordinate nesting produces an already-established principle — **coordinate containment**: a particle couples to a force only if it has wavefunction support in that force's sector coordinates [1, §3g]. A particle in $\Xi_2$ (photon) has no strong coupling because $\Xi_2 \not\supset \Xi_4$ (the d=4 colour sector). A particle in $\Xi_6$ (electron) has support throughout $\Xi_2 \subset \cdots \subset \Xi_6$ and so couples to all forces whose sector coordinates are contained within $\Xi_6$.
 
 Coordinate containment answers a binary question: does coupling exist at all? It does not answer what structure that coupling has, or what entire classes of interaction are geometrically impossible. That is the question this paper addresses.
 
@@ -80,13 +80,13 @@ Separately, the S⁵ Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$ means that t
 
 Positively, the SO(6) $\cong$ SU(4) Pati-Salam structure of the sector gives neutrinos their $B-L$ charge.
 
-### d=6 — CP³, SU(4)/U(3) — Electron, Muon — Total QCD silence
+### d=6 — CP³, SU(4)/U(3) — Electron, Muon — Total colour silence
 
-The Atiyah-Singer index on CP³ gives $\chi(\mathbb{CP}^3) = 4$, not 3. The color index contributions in the SU(4)/U(3) representation cancel — the index counts color handles, and CP³ produces none. The result: zero gluon coupling at any energy. Not suppressed at low energy, not dynamically forbidden, not a higher-order effect — geometrically absent.
+The Atiyah-Singer index on CP³ gives $\chi(\mathbb{CP}^3) = 4$, not 3. The colour index contributions in the SU(4)/U(3) representation cancel — the index counts colour handles, and CP³ produces none. The result: zero strong coupling at any energy. Not suppressed at low energy, not dynamically forbidden, not a higher-order effect — geometrically absent.
 
 CP³ is the twistor space of flat 3+1 Minkowski spacetime [3]. This connection is not incidental. The electron-photon vertex — the fundamental interaction of QED — has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector. The coupling between them inherits the twistor structure. The clean electromagnetic behavior of the electron is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
-The $d=6$ coupling filter: all QCD interactions geometrically absent; electromagnetic and weak couplings on with twistor-structured vertex form.
+The $d=6$ coupling filter: all strong interactions geometrically absent; electromagnetic and weak couplings on with twistor-structured vertex form.
 
 ### d=10 — CP⁵, SU(6)/U(5) — Tau — Fractal marginal coupling
 
@@ -123,7 +123,7 @@ The two principles are logically independent. Coordinate containment is a necess
 
 ## 6. What This Means
 
-The Standard Model takes quantum numbers as primitive: quarks have three colors because experiment says so; neutrinos are Dirac (probably) because no Majorana mass has been observed; leptons are color-neutral because they have never coupled to gluons. The quantum numbers are inputs.
+The Standard Model takes quantum numbers as primitive: quarks have three colors because experiment says so; neutrinos are Dirac (probably) because no Majorana mass has been observed; leptons are colour-neutral because they have never shown strong coupling. The quantum numbers are inputs.
 
 The sector geometry picture inverts the causation. CP² is not a space that happens to produce color — CP² is what color *is*, expressed as the coupling structure of a mode on a Kähler manifold with SU(3)/U(2) symmetry. The electron is not a particle that happens to be color-neutral — CP³ twistor geometry is what color-neutrality *is*, for a particle at that sector. The neutrino is not Dirac because no Majorana mass has been measured — the Clifford algebra at $d \bmod 8 = 5$ *is* the Dirac condition, geometrically constituted.
 

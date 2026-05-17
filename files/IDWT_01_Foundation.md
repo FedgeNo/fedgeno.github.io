@@ -24,23 +24,30 @@ The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_
 
 ## 1. Core Postulates
 
-**P1 — The Master Wave**
-Ψ∞ is a **Dirac spinor field** defined on an infinite-dimensional manifold. It is the only fundamental object. Everything observable — particles, fields, forces — is a derived consequence of its structure. The quantum number structure of matter (spin, chirality, statistics, hypercharges) follows from the spinor geometry of M_∞; the mass spectrum follows from the combinatorial mode structure S(n,d).
+**P1 — The Master Field**
+Ψ∞ is a **Dirac spinor field** on the infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. It is the only fundamental object. Everything observable — particles, fields, forces, quantum numbers — is a derived consequence of its geometry. The mass spectrum follows from the mode counting function S(n,d) = C(n+d−1, d). The coupling structure of each particle — what interactions are available to it and what is geometrically forbidden — follows from the Riemannian and spinor geometry of its sector manifold. Quantum number labels are not inputs; they are outputs of the geometry.
 
-**P2 — The Observable Slice**
-Our 3D universe is the restriction of Ψ∞ to a fixed address ξ⁰ in the sector-space coordinates:
+**P2 — The Observer's Position**
+We are at d=3 — inside M_∞, at the coordinate level where the first stable hadronic sector constitutes space. The observable universe is Ψ∞ evaluated at a fixed sector-space address ξ⁰:
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
-The observer's location ξ⁰ sets the dimensional visibility for each mode (Stage-1 filter, Part 7) but does not determine which modes exist. The spectrum of occupied modes — which particles exist — is determined entirely by the seed structure and eigenmode selection rule (Part 2 §2-4), independent of ξ⁰. All observers at any ξ⁰ see the same particle spectrum; they differ only in how much of each mode's activity is in their d=3 coordinates.
+The observer's position determines dimensional visibility but not which modes exist. The physical spectrum is closed at exactly 15 states: those mode-sector pairs (n,d) satisfying both the Stage-1 criterion (Ω_log ≤ ln 2 — sufficient d=3 activity) and the Stage-2 co-fixed-point condition (n is a co-fixed-point of the sector comb filtration from n_s = 4). All observers at any ξ⁰ see the same 15-particle spectrum.
 
-**P3 — Hidden-Sector Spaces are Infinite and Non-Compact**
-The sector spaces $\Xi_d$ are infinite Riemannian spaces — full-size sector spaces, not rolled up or compactified in any sense. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). These bound states are the particles. The symmetry labels $\mathbb{CP}^n$ and $S^n$ in the sector table describe the local geometry at the bottom of the potential well — the symmetry of the mode wavefunctions near $r=0$ — not the global topology of $\Xi_d$. This is exactly analogous to a hydrogen atom: the electron lives in infinite $\mathbb{R}^3$ but the ground state has $S^2$ symmetry from the spherically symmetric potential. No sector space is curled up; the modes bind themselves through the potential. The standard KK exclusions (Eöt-Wash, collider searches) presuppose graviton propagation into small compact dimensions; they do not apply here. See Part 4 §1b and §3.9.
+**P3 — Non-Compact Sector Spaces**
+The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of mode wavefunctions near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are eliminated by the Stage-1 filter (Ω_log → ∞); they are not detectable. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
 
-Every SM particle is a bound state of a sector potential — not a bulk propagator. Scattering states (modes that propagate freely through the sector space) are eliminated by the Stage-1 observability filter: they have negligible activity at the d=3 coordinate level (Ω_log → ∞) and are not detectable. There are no KK excitations of SM fields accessible to experiment; the SM spectrum is precisely the set of sector resonances that survive both observability filters.
+**P4 — Two Force Principles**
+Forces mediate through two complementary geometric principles. Both are required; neither alone is sufficient.
 
-**P4 — Geometry First**
-The governing equation is a Dirac wave equation on the curved manifold $M_\infty$. The sector potentials $V_d(r)$ arise from the intrinsic curvature of $M_\infty$ evaluated at the vacuum $\xi^0_d$ — they are not independent inputs but consequences of the geometry.
+*(a) Coordinate containment — necessary condition.* A particle couples to a force only if its wavefunction has support in the force's sector coordinates. The sectors nest as Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}. Coupling is possible only when the force's sector is contained in the particle's sector.
+
+*(b) Coupling filter — structural condition.* The particle's own sector geometry determines the structure of whatever coupling it has. The sector quantum number is not a label — it is the geometry expressing itself as a coupling structure: polarization (U(1) of CP¹), color (SU(3)/U(2) of CP²), the Dirac condition (Clifford algebra of S⁵), color silence (index cancellation on CP³), fractal marginal coupling (Aubry-André criticality of CP⁵). Each is the natural generalization of polarization to a higher-dimensional geometry. The geometry specifies not only what interaction handles exist but what entire classes of interaction are geometrically forbidden — not suppressed, unavailable.
+
+A particle with coordinate support in a force sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero (as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4).
+
+**P5 — Gravity as Curvature of M_∞**
+Gravity is not a gauge force and has no mediating quantum. It is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants (Part 4 §3.12).
 
 ---
 

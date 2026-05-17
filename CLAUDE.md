@@ -117,7 +117,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **Part 1 — Foundations**
 - §0: The Actual Structure: A Spectral Triple
-- §1: Core Postulates
+- §1: Core Postulates (P1 Master Field, P2 Observer's Position, P3 Non-Compact Sectors, P4 Two Force Principles, P5 Gravity as M_∞ Curvature)
 - §2: Observable Coordinates and the Born Rule (§2.1–2.4, including cut-and-project analogy)
 - §3: Sector Structure of M_∞ (§3a Sector Set Theorem, §3b Spectrum Completeness, §3c Gegenbauer Criticality, §3d Per-Sector Profiles, §3e Summary Table, §3f Coordinate Extension, §3g Interaction as Coordinate Containment, §3h Sector Autonomy, §3i d=3 Threshold)
 - §4: The Unified Kernel

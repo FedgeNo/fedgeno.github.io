@@ -762,6 +762,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 - **No seesaw:** neutrino mass scale set by cross-sector Hopf fixed point, not by a heavy right-handed neutrino mass term.
 - **No sterile neutrinos:** Stage-1 filter eliminates all non-projecting d=5 modes; exactly three neutrino species.
 - **Left-handed W coupling is geometric:** Kähler γ₅ on CP² and CP³ selects holomorphic (left-handed) components; not imposed as a postulate.
+- **No glueballs:** The IDWT action has no propagating colour quanta; the strong force is a quark contact coupling symmetric under the CP² isometry. Without gluons as physical particles, gluon-gluon bound states cannot form. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
 
 ### Near-future windows
 

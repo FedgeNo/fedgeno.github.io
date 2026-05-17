@@ -665,6 +665,8 @@ These follow from the IDWT framework geometry and differ qualitatively from Stan
 
 **C7 — Exact CKM unitarity.** The CKM matrix is exactly unitary at tree level: |V_ud|² + |V_us|² + |V_ub|² = 1. IDWT gives V_us = sin θ_C = 0.22454 and V_ud = √(1 − sin²θ_C) = 0.97447. The apparent 5.5σ Cabibbo Angle Anomaly (nuclear beta-decay |V_ud| = 0.97370 vs kaon |V_us|) is a tension between two independent PDG measurements. IDWT's exact-unitarity value 0.97447 matches the kaon-derived determination. If the Cabibbo Angle Anomaly is confirmed to require genuinely non-unitary CKM physics, that would falsify C7.
 
+**C8 — No glueballs.** The IDWT action contains no propagating colour quanta (Part 3 §0.2, §0.6). The strong interaction is a direct quark contact coupling — SU(3)-symmetric by the CP² isometry, but not mediated by exchange of colour quanta. A glueball is a bound state of gluons; without propagating gluons, no such state can form. IDWT therefore predicts that no glueball will ever be definitively identified as a particle species distinct from quark-sector states. Claimed evidence from radiative J/ψ decays (e.g. f₀(1710), f₀(1500) candidates) is reinterpreted within IDWT as ordinary d=3 or d=4 hadronic resonances misidentified as pure-glue states — gluon-rich production channels do not require a glueball in the final state when the underlying interaction is a quark contact term. A confirmed glueball with quantum numbers incompatible with any quark-model assignment, established at > 5σ significance with independent production and decay mode consistency, would falsify the IDWT colour sector.
+
 ---
 
 ### Category D — Near-Future Experimental Windows
@@ -699,3 +701,4 @@ The table below condenses the hardest predictions in order of experimental decis
 | 8 | sin²θ₁₂ = 0.3086 (F14) | > 3σ departure from 0.3086 |
 | 9 | sin²θ₁₃ = 0.02211 (F15) | > 3σ departure from 0.02211 |
 | 10 | ρ = 1 at tree level (F17) | ρ ≠ 1 beyond radiative corrections |
+| 11 | No glueballs (C8) | Confirmed glueball state at > 5σ with quantum numbers incompatible with all quark-model assignments |

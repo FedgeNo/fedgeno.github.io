@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is IDWT? — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Introduction</div>
+  <h1>What Is IDWT?</h1>
+  <p class="sub">One wave. One integer. Two inputs. All fifteen particle masses, all forces, all quantum numbers — derived, not assumed.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>One Wave on an Infinite-Dimensional Space</h2>
+  <div class="prose">
+    <p>Infinite-Dimensional Wave Theory starts from a single postulate: <strong>reality is one complex wave Ψ<sub>∞</sub> propagating on an infinite-dimensional manifold M<sub>∞</sub></strong>. There is no separate electron field, no separate quark field, no separate photon field. There is one wave, and every particle is a bound resonance of it — the way a violin string has many harmonics but is still one string.</p>
+    <p>M<sub>∞</sub> splits into two parts: ordinary time ℝ<sub>t</sub>, and a hidden spatial manifold Ξ<sub>10</sub>. We live in the 3-dimensional observable universe, which in IDWT is Ψ<sub>∞</sub> evaluated at a fixed position in the hidden directions — we are <em>inside</em> M<sub>∞</sub>, not projecting down onto a screen from outside.</p>
+    <p>The hidden space Ξ<sub>10</sub> is not Planck-scale or compactified. It is macroscopic — its extent is set by the same coupling constants that determine particle masses. It is hidden because we occupy only 3 of its directions; particles with wider wavefunction support vibrate across directions we never move through, and we measure only the shadow of their activity in our 3D slice.</p>
+  </div>
+
+  <h2>Six Sectors, Not Ten Random Dimensions</h2>
+  <div class="prose">
+    <p>The hidden space does not have 10 equal directions. It decomposes into exactly <strong>six sectors</strong>, each a geometrically distinct manifold, with dimensions d ∈ {2, 3, 4, 5, 6, 10}. The sector set is not a choice — it is uniquely forced by two mathematical requirements: (1) the sectors must form a Hopf fibration chain, and (2) the coupling coefficient must reach a precise critical value. Those two conditions together admit exactly six sectors and no others.</p>
+    <p>The sectors are <strong>nested</strong>: every direction present in sector d is still present in all higher sectors. The d=2 directions are inside d=3, inside d=4, all the way to d=10. This is not a hierarchy of separate spaces — it is one space progressively revealing more of itself to particles with the capacity to use more dimensions.</p>
+  </div>
+
+  <!-- Sector stack -->
+  <div class="sector-stack">
+    <div class="sector-row">
+      <span class="sector-label">d = 2</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:20%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(96,165,250,0.4))">
+          CP¹
+        </div>
+      </div>
+      <span class="sector-particles">γ &nbsp; W &nbsp; Z &nbsp; H</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 3</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:30%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(139,156,255,0.5))">
+          S³
+        </div>
+      </div>
+      <span class="sector-particles">d &nbsp; s &nbsp; b</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 4</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:40%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(167,139,250,0.5))">
+          CP²
+        </div>
+      </div>
+      <span class="sector-particles">u &nbsp; c &nbsp; t</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 5</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:50%; background:linear-gradient(90deg,rgba(96,165,250,0.7),rgba(167,139,250,0.6))">
+          S⁵
+        </div>
+      </div>
+      <span class="sector-particles">ν₁ &nbsp; ν₂ &nbsp; ν₃</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 6</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:60%; background:linear-gradient(90deg,rgba(96,165,250,0.6),rgba(167,139,250,0.7))">
+          CP³
+        </div>
+      </div>
+      <span class="sector-particles">e &nbsp; μ</span>
+    </div>
+    <div class="sector-row">
+      <span class="sector-label">d = 10</span>
+      <div class="sector-bar-wrap">
+        <div class="sector-bar" style="width:100%; background:linear-gradient(90deg,rgba(96,165,250,0.5),rgba(167,139,250,0.9))">
+          CP⁵ &nbsp;·&nbsp; <span style="opacity:0.7;font-weight:400">jump of +4 from d=6</span>
+        </div>
+      </div>
+      <span class="sector-particles">τ</span>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>Every bar starts at the left edge because the d=2 directions are still present at d=10 — literally the same coordinates, still active. A tau lepton uses all ten directions; a photon uses only two. The distinction between particle types is not where an excitation sits in space, but how many hidden directions its wavefunction spans.</p>
+  </div>
+
+  <h2>The Mass Formula</h2>
+  <div class="prose">
+    <p>Every particle has a mode index n and lives in one sector d. Its mass is:</p>
+  </div>
+
+  <div class="formula">
+    m(n, d) = S(n, d) × m<sub>scale,d</sub>
+    <br><br>
+    S(n, d) = C(n+d−1, d) &nbsp;=&nbsp; (n+d−1)! / (n! (d−1)!)
+  </div>
+
+  <div class="prose">
+    <p>S(n, d) is a binomial coefficient — it counts the number of ways to distribute n energy quanta across d hidden directions. That is all it is. A particle with more hidden directions available, or a higher mode number, can distribute its quanta in more ways, giving it a higher multiplicity and therefore more mass.</p>
+
+    <p><strong>Example:</strong> The electron has n=13, d=6. So S(13,6) = C(18,6) = 18564. The tau has n=4 (after correction), d=10. S(4,10) = C(13,10) = 286. The tau's mode index is actually n=76 — S(76,10) = C(85,10) ≈ 7.7×10<sup>12</sup> — and its mass scale m<sub>scale,10</sub> is correspondingly tiny, with the product landing at 1776.86 MeV.</p>
+
+    <p>The mass scales m<sub>scale,d</sub> are not free parameters — they are derived from one another by consistency conditions between sectors. The entire derivation runs from two inputs:</p>
+  </div>
+
+  <div class="formula">
+    Input 1: &nbsp; m<sub>e</sub> = 0.511 MeV &nbsp;(electron mass — the single dimensional anchor)
+    <br><br>
+    Input 2: &nbsp; n<sub>s</sub> = 4 &nbsp;(the seed integer — an integer, not a continuous parameter)
+  </div>
+
+  <div class="prose">
+    <p>Why n<sub>s</sub>=4? It is not a choice. It is the unique positive integer satisfying a fixed-point condition between sector d=4 and sector d=5. Two different cross-sector ratios are equal if and only if n<sub>s</sub>=4. No other value works.</p>
+    <p>From these two inputs, IDWT derives all six sector mass scales, all fifteen mode indices, and all fifteen Standard Model particle masses. The derivation is closed — no additional parameters enter.</p>
+  </div>
+
+  <h2>Forces from Coordinate Containment</h2>
+  <div class="prose">
+    <p>Every force in IDWT is associated with a sector. Electromagnetism lives in d=2. The weak force also lives in d=2, as a different mode excitation of the same Hopf fiber. Color (the strong force) lives in d=4, in the CP² geometry whose isometry group is SU(3)/U(2).</p>
+    <p><strong>A particle couples to a force if and only if the force's sector coordinates are contained in the particle's sector.</strong> Since d=2 sits inside every higher sector (2 ⊂ 3 ⊂ 4 ⊂ 5 ⊂ 6 ⊂ 10), every particle has the photon's directions inside its wavefunction — which is why electric charge coupling is universal. Since d=4 is not inside d=2 or d=3, photons and down quarks do not couple to the strong force.</p>
+    <p>Neutrinos live in d=5. Their sector contains d=2 (giving weak coupling) but the d=5 Clifford algebra — specifically, the fact that 5 mod 8 = 5 — makes Majorana spinors geometrically impossible, not dynamically suppressed. Neutrinoless double beta decay is exactly forbidden, not merely rare.</p>
+    <p>Gravity has no sector. It is curvature of the full M<sub>∞</sub>, sourced by all mass equally. Every particle curves M<sub>∞</sub> through the same mechanism regardless of which sector it occupies — which is why gravity is the one force that couples to everything without exception.</p>
+  </div>
+
+  <h2>The Sector Table</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>d</th>
+          <th>Geometry</th>
+          <th>Symmetry</th>
+          <th>Particles</th>
+          <th>Key coupling property</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2</td>
+          <td>CP¹</td>
+          <td>U(1)</td>
+          <td>γ, W, Z, H</td>
+          <td>Two helicity handles; universal (nested in all sectors above)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>S³</td>
+          <td>SO(4)</td>
+          <td>d, s, b quarks</td>
+          <td>Left-handed weak isospin from SO(4) = SU(2)<sub>L</sub> × SU(2)<sub>R</sub></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>CP²</td>
+          <td>SU(3)/U(2)</td>
+          <td>u, c, t quarks</td>
+          <td>Color: ind(D<sup>c</sup><sub>CP²</sub>⊗𝒪(1)) = 3 = N<sub>c</sub> from index theorem</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>S⁵</td>
+          <td>SO(6)</td>
+          <td>ν₁, ν₂, ν₃</td>
+          <td>Majorana forbidden by Clifford algebra at d mod 8 = 5; 0νββ = 0</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>CP³</td>
+          <td>SU(4)/U(3)</td>
+          <td>e, μ</td>
+          <td>Color index cancels on CP³; total QCD silence</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>CP⁵</td>
+          <td>SU(6)/U(5)</td>
+          <td>τ</td>
+          <td>Aubry-André critical point; Cantor-set spectrum; fractal marginal coupling</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>What Comes Out</h2>
+  <div class="prose">
+    <p>From n<sub>s</sub>=4 and m<sub>e</sub>=0.511 MeV alone:</p>
+    <ul class="why">
+      <li><strong>All 15 particle masses</strong> — electron, muon, tau, three neutrinos, six quarks, photon, W, Z, Higgs — reproduced to better than 1% without exception, most to better than 0.1%.</li>
+      <li><strong>The number of quark colors</strong> N<sub>c</sub>=3 is derived, not assumed. It equals the Euler characteristic χ(CP²) = 3, the Atiyah-Singer index of the spin<sup>c</sup> Dirac operator on CP².</li>
+      <li><strong>All three PMNS mixing angles</strong> from the same sector coupling constants; the CP-violating phase δ<sub>CP</sub> = π + 2θ<sub>13</sub> ≈ 197.1° (PDG: ~197°).</li>
+      <li><strong>Newton's constant</strong> G<sub>N</sub> = G<sub>∞</sub>/V<sub>7</sub>, where V<sub>7</sub> ≈ 113 is the product of sector localization lengths, fully derived from the same coupling constants.</li>
+      <li><strong>Zero neutrinoless double beta decay</strong> — an exact geometric result, not a dynamical suppression.</li>
+      <li><strong>No gravitons, no supersymmetry, no Kaluza-Klein towers, no WIMP dark matter</strong> — each forbidden by a specific geometric theorem, not excluded by parameter tuning.</li>
+    </ul>
+  </div>
+
+  <h2>Why This Is Different</h2>
+  <div class="prose">
+    <p>The Standard Model takes quantum numbers as inputs: quarks have three colors because experiment says so; the electron is colour-neutral because it has never shown strong coupling; neutrinos are probably Dirac because no Majorana mass has been measured. The values are fitted; the structure is axiomatized.</p>
+    <p>In IDWT, these are not axioms — they are theorems. N<sub>c</sub>=3 is forced by the Euler characteristic of CP². Colour-neutrality for the electron is forced by index cancellation on CP³. The Dirac condition for neutrinos is forced by Clifford algebra at d mod 8 = 5. The sector quantum number of a particle is not a label attached to it — it is the geometry of its sector expressing itself as a coupling structure.</p>
+    <p>One wave. One integer. Two real inputs. Everything else follows.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

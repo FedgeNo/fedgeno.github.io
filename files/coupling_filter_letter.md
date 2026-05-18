@@ -80,9 +80,9 @@ Positively, the SO(6) $\cong$ SU(4) Pati-Salam structure of the sector gives neu
 
 $\chi(\mathbb{CP}^3) = 4$, not 3. The colour contributions in the SU(4)/U(3) representation cancel — CP³ produces no colour handles. The result: zero strong coupling at any energy. Not suppressed at low energy, not dynamically forbidden, not a higher-order effect — geometrically absent.
 
-CP³ is the twistor space of flat 3+1 Minkowski spacetime [3]. This connection is not incidental. The electron-photon vertex — the fundamental interaction of QED — has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector. The coupling between them inherits the twistor structure. The clean electromagnetic behavior of the electron is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+The d=2 photon sector (CP¹) is a coordinate subspace of d=6 (CP³) via the Hopf chain nesting Ξ_2 ⊂ Ξ_6. The electron-photon coupling follows directly from coordinate containment: the electron has coordinate support in the photon's sector, and the rank-1 kernel gives a pure U(1) coupling with structure fixed by the CP³ isometry.
 
-The $d=6$ coupling filter: all strong interactions geometrically absent; electromagnetic and weak couplings on with twistor-structured vertex form.
+The $d=6$ coupling filter: all strong interactions geometrically absent; pure U(1) electromagnetic coupling from coordinate containment with d=2.
 
 ### d=10 — CP⁵, SU(6)/U(5) — Tau — Fractal marginal coupling
 
@@ -104,7 +104,7 @@ The $d=10$ filter: nothing specifically blocked; everything barely available, vi
 | $d=3$ | S³, SO(4) | Down quarks | Left-handed weak isospin | Right-handed weak coupling |
 | $d=4$ | CP², SU(3)/U(2) | Up quarks | Color ($N_c=3$ from χ(CP²)=3); chirality | Color-nonsinglet asymptotic states |
 | $d=5$ | S⁵, SO(6) | Neutrinos | $B-L$ charge; Dirac structure | All Majorana/LNV interactions — geometrically, not dynamically |
-| $d=6$ | CP³, SU(4)/U(3) | $e^-$, $\mu^-$ | EW coupling; twistor-structured EM vertex | All QCD — total color silence |
+| $d=6$ | CP³, SU(4)/U(3) | $e^-$, $\mu^-$ | EW coupling; U(1) EM via Ξ_2 ⊂ Ξ_6 containment | All QCD — total color silence |
 | $d=10$ | CP⁵, SU(6)/U(5) | $\tau^-$ | Universal marginal coupling | Nothing blocked; all channels measure-zero suppressed |
 
 ---
@@ -121,7 +121,7 @@ The two principles are logically independent. Coordinate containment is a necess
 
 The Standard Model takes quantum numbers as primitive: quarks have three colors because experiment says so; neutrinos are Dirac (probably) because no Majorana mass has been observed; leptons are colour-neutral because they have never shown strong coupling. The quantum numbers are inputs.
 
-The sector geometry picture inverts the causation. CP² is not a space that happens to produce color — CP² is what color *is*, expressed as the coupling structure of a mode on a Kähler manifold with SU(3)/U(2) symmetry. The electron is not a particle that happens to be color-neutral — CP³ twistor geometry is what color-neutrality *is*, for a particle at that sector. The neutrino is not Dirac because no Majorana mass has been measured — the Clifford algebra at $d \bmod 8 = 5$ *is* the Dirac condition, geometrically constituted.
+The sector geometry picture inverts the causation. CP² is not a space that happens to produce color — CP² is what color *is*, expressed as the coupling structure of a mode on a Kähler manifold with SU(3)/U(2) symmetry. The electron is not a particle that happens to be color-neutral — the SU(4)/U(3) isometry of CP³ is what color-neutrality *is*, for a particle at that sector. The neutrino is not Dirac because no Majorana mass has been measured — the Clifford algebra at $d \bmod 8 = 5$ *is* the Dirac condition, geometrically constituted.
 
 Each quantum number is a theorem of the sector geometry, derived from the Euler characteristic, Clifford algebra, Bott periodicity, or the sector isometry group. None is a postulate.
 

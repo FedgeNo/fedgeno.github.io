@@ -38,7 +38,7 @@ The observer's position determines dimensional visibility but not which modes ex
 The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of mode wavefunctions near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are eliminated by the Stage-1 filter (Ω_log → ∞); they are not detectable. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
 
 **P4 — Two Force Principles**
-Forces mediate through two complementary geometric principles. Both are required; neither alone is sufficient.
+Forces couple through two complementary geometric principles. Both are required; neither alone is sufficient.
 
 *(a) Coordinate containment — necessary condition.* A particle couples to a force only if its wavefunction has support in the force's sector coordinates. The sectors nest as Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}. Coupling is possible only when the force's sector is contained in the particle's sector.
 
@@ -47,7 +47,7 @@ Forces mediate through two complementary geometric principles. Both are required
 A particle with coordinate support in a force sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero (as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4).
 
 **P5 — Gravity as Curvature of M_∞**
-Gravity is not a gauge force and has no mediating quantum. It is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants (Part 4 §3.12).
+Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants (Part 4 §3.12).
 
 ---
 
@@ -233,7 +233,7 @@ S¹ → S⁵  → CP²   complex Hopf     →  d=4 (base CP²), d=5 (total S⁵)
 S³ → S⁷  → S⁴    quaternionic     →  d=4 also as S⁴≅HP¹ (consistent)
 ```
 
-d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6 and serves as the twistor space of S⁴ ≅ HP¹. d=7 (the total space S⁷) is excluded from the IDWT sector set for two consistent reasons: (i) geometrically, S⁷ is the total space of the quaternionic Hopf fibration S³→S⁷→S⁴ and is fully accounted for by the d=4 and d=3 sectors already present; (ii) algebraically, g_{66} = 1/n_s is a seed ratio rather than a kernel fixed-point coupling, so Hopf universality cannot determine a coupling formula for a hypothetical d=7 sector over d=6. Both routes reach the same conclusion.
+d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6. d=7 (the total space S⁷) is excluded from the IDWT sector set for two consistent reasons: (i) geometrically, S⁷ is the total space of the quaternionic Hopf fibration S³→S⁷→S⁴ and is fully accounted for by the d=4 and d=3 sectors already present; (ii) algebraically, g_{66} = 1/n_s is a seed ratio rather than a kernel fixed-point coupling, so Hopf universality cannot determine a coupling formula for a hypothetical d=7 sector over d=6. Both routes reach the same conclusion.
 
 d=10 arises as CP⁵ = SU(6)/U(5), the next step in the complex projective chain beyond CP³. Its sector dimension d=10 is fixed by the Sector Set Theorem (§3a) — $d=10 = 2(N_f-1)$ where $N_f = n_{\rm top}/(N_c \times n_s) = 6$ — and confirmed independently by the Gegenbauer criticality condition (§3b), which shows that $b_{k_0}(d) = 1/2$ is achieved uniquely at d=10.
 
@@ -429,7 +429,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Electric charge −1:** From Kähler index of CP³ (Part 3 §5).
 - **Chirality:** CP³ Kähler γ₅ → left-handed W coupling (same mechanism as d=4).
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
-- **Coupling filter:** Total colour silence. χ(CP³) = 4, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+- **Coupling filter:** Total colour silence. χ(CP³) = 4, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. The d=2 photon sector (CP¹) is a coordinate subspace of d=6 (CP³); the electron-photon coupling follows from coordinate containment and the rank-1 kernel, giving pure U(1) EM coupling with the structure fixed by the CP³ isometry.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -494,7 +494,7 @@ Particles in different sectors couple because their sectors share coordinate sub
 
 This is why electromagnetism is universal. Every sector d ≥ 2 contains d=2 as its lowest coordinate subspace, so every charged particle couples to the photon. The coupling constant reflects the coordinate overlap — the ratio of shared dimensions to total dimensions of the higher sector.
 
-The strong force spans d ∈ {3,4}. Down-type quarks (d=3) and up-type quarks (d=4) interact through the d=4 kernel self-coupling g_{44}, which is SU(3)-invariant by the CP² isometry. Down-type quarks couple because d=3 ⊂ d=4 — they share the full d=3 coordinate subspace with the d=4 quark sector. Up-type quarks couple because they occupy d=4 directly. No exchange boson mediates this interaction; the coupling is a direct contact term in the kernel.
+The strong force spans d ∈ {3,4}. Down-type quarks (d=3) and up-type quarks (d=4) interact through the d=4 kernel self-coupling g_{44}, which is SU(3)-invariant by the CP² isometry. Down-type quarks couple because d=3 ⊂ d=4 — they share the full d=3 coordinate subspace with the d=4 quark sector. Up-type quarks couple because they occupy d=4 directly. The coupling is a direct contact term in the kernel.
 
 The electron (d=6, mode n=13) couples to the photon (d=2) via the two coordinates they share. The coupling strength derives from a cascade: g_{44} → g_s → g_2 → sin²θ_W → g_1 → α (Part 3 §0.7). Coordinate containment determines that the coupling exists and which sectors are linked; coupling magnitudes are set by the spectral geometry of each sector manifold — integrals over S^{d−1} and CP^m, not bare dimension counts. There is one step in the cascade where the coordinate ratio does appear literally: g_2 = (2/3)√g_s, where 2/3 = d_photon/d_hadronic. The factor 2/3 is the electric charge of the up quark and the ratio of photon sector dimension to hadronic sector dimension N_c = 3, and those are the same number because N_c = d_hadronic.
 
@@ -526,13 +526,13 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 
 | d relative to 3 | Physical meaning | Example |
 |---|---|---|
-| d < 3 | Particle orbit is a proper subspace of our 3D | Photon (d=2): 2D entity within our 3D world |
-| d = 3 | Particle orbit coincides with our 3D | Down-type quarks: fully at home in observable space |
-| d > 3 | Particle orbit contains our 3D plus (d−3) hidden sector dimensions | Electron (d=6): 3 observable + 3 hidden sector dimensions |
+| d < 3 | Particle's sector is a proper subspace of our d=3 | Photon (d=2): 2D sector is a subspace of our d=3 |
+| d = 3 | Particle's sector coincides with our d=3 | Down-type quarks: sector is exactly our d=3 |
+| d > 3 | Our d=3 is a subspace of the particle's sector | Electron (d=6): 6D sector; our d=3 is a subspace of it |
 
 **Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic sector dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We measure the d=3 component of its full 6-dimensional activity. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those sector dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we can only resolve the d=3 component of a mode structure that lives in d=6.
 
-**Particles with d < 3 — sub-dimensional embedding.** The photon (d=2) is the opposite case. Its orbit spans 2 dimensions — a proper subspace of our 3D. Those 2 dimensions lie entirely within our observable space. From the photon's perspective, reality is 2-dimensional: the third spatial dimension of our world does not exist in its coordinate system. From our perspective, the photon is a 2D entity moving within our 3D world. Its 2D polarization plane can be oriented in any direction within our 3D — the photon is not fixed to one plane in space — but in whichever direction it travels, it is always a 2D object.
+**Particles with d < 3 — sub-dimensional embedding.** The photon (d=2) is the opposite case. Its sector spans 2 dimensions — a proper subspace of our d=3. Those 2 dimensions lie entirely within our observable space. From the photon's perspective, reality is 2-dimensional: the third spatial dimension of our world does not exist in its coordinate system. From our perspective, the photon is a 2D entity whose sector is a subspace of our d=3 coordinate space. Its 2D polarization plane can be oriented in any direction within our d=3 — the photon is not fixed to one plane in space — but in whichever direction it travels, it is always a 2D object.
 
 **The direct consequence: electromagnetic waves must be transverse.** The photon oscillates in its 2 dimensions. The direction of propagation is the one coordinate our 3D has that the photon's world does not. The photon cannot oscillate in that direction because that direction does not exist from its perspective. As the photon travels in different directions through our 3D space, its 2D polarization plane rotates to remain perpendicular to the direction of travel — the missing dimension is always the one the photon is moving through. Electromagnetic waves are transverse because the photon is a d=2 entity propagating through a d=3 observable space: it oscillates in the 2 dimensions it possesses and propagates through the 1 dimension it doesn't. The two polarization states are the photon's 2 dimensions, made directly observable. This is derived in Part 3 §14.
 
@@ -771,7 +771,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 - **No seesaw:** neutrino mass scale set by cross-sector Hopf fixed point, not by a heavy right-handed neutrino mass term.
 - **No sterile neutrinos:** Stage-1 filter eliminates all non-projecting d=5 modes; exactly three neutrino species.
 - **Left-handed W coupling is geometric:** Kähler γ₅ on CP² and CP³ selects holomorphic (left-handed) components; not imposed as a postulate.
-- **No glueballs:** The IDWT action has no propagating colour quanta; the strong force is a quark contact coupling symmetric under the CP² isometry. Without gluons as physical particles, gluon-gluon bound states cannot form. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
+- **No glueballs:** The strong force is a direct quark contact coupling symmetric under the CP² isometry, with no colour-exchange field. There is no colour-exchange field to bind into a glueball; any state that QCD would classify as a glueball must in IDWT be a misidentified quark-sector resonance. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
 
 ### Near-future windows
 

@@ -255,7 +255,7 @@ lineGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 const lineMat = new THREE.LineBasicMaterial({
   vertexColors: true,
   transparent: true,
-  opacity: 0.1,
+  opacity: 0.04,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });
@@ -274,8 +274,8 @@ const orbitGlow = new THREE.Line(lineGeo.clone(), tubeMat);
 //scene.add(orbitGlow);
 
 // Emphasis spheres — fewer, evenly spaced along the dense orbit
-const sphereCount = 3;
-const sphereGeo = new THREE.SphereGeometry(0.1, 12, 12);
+const sphereCount = 12;
+const sphereGeo = new THREE.SphereGeometry(0.028, 12, 12);
 const sphereMat = new THREE.MeshBasicMaterial({
   color: 0xffffff,
   transparent: true,
@@ -318,7 +318,7 @@ function projectPoints() {
     const offset = Math.floor((performance.now() * 0.001 * speed * N) + s * 137) % N;
     const idx = ((base + offset) % N) * 3;
     spheres[s].position.set(positions[idx], positions[idx+1], positions[idx+2]);
-    const scale = 0.8 + 0.3 * Math.sin(performance.now()*0.001 + s*0.2);
+    const scale = 0.7 + 0.2 * Math.sin(performance.now()*0.001 + s*0.2);
     spheres[s].scale.setScalar(scale);
   }
 }

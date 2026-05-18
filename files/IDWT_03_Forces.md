@@ -98,7 +98,7 @@ The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') d
 g²_eff = 2g_{44}/π²
 ```
 
-The SU(3) invariance of this coupling follows from the CP² isometry group acting on the quark colour states. No propagating SU(3) gauge quanta (gluons) appear in the IDWT action — the colour interaction is a contact term, not an exchange interaction.
+The SU(3) invariance of this coupling follows from the CP² isometry group acting on the quark colour states. The colour interaction is a direct contact term in the kernel — the CP² isometry acts on quark colour states through g_{44} with no intermediate colour-exchange field.
 
 ### 0.7 Coupling Constants from the Action
 
@@ -150,33 +150,33 @@ From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 
 ```
 G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵,  −0.05%)
-g₁ = g₂ × tan θ_W = 0.35044         (PDG: 0.35740,  −1.95% at fiber scale)
+g₁ = g₂ × tan θ_W = 0.35044         (PDG: 0.35740,  −1.95% at d=2 sector scale)
 g₁(m_Z) after 1-loop U(1)_Y running = 0.35067  (PDG: 0.35740,  −1.88%)
 sin²θ_eff(m_Z) from running g₁ = 0.22397        (PDG: 0.23153,  −3.3%)
 ```
 
-The g₁ error of −2% reflects the difference between the fiber-scale U(1)_Y coupling and its value at m_Z after EW running. The α prediction from g₁,g₂:
+The g₁ error of −2% reflects the difference between the d=2-sector-scale U(1)_Y coupling and its value at m_Z after EW running. The α prediction from g₁,g₂:
 
 ```
 α = g₁²g₂²/(4π(g₁²+g₂²)) = 1/131.8   (PDG α(m_Z)=1/127.9, +3.1%)
 ```
 
-The +3% is the EW running from the fiber scale (≈m_W) to m_Z.
+The +3% is the EW running from the d=2 sector scale (≈m_W) to m_Z.
 
 
 
-### 0.8 Force Mediation as Spatial Geometry
+### 0.8 Force Coupling as Spatial Geometry
 
-Each fundamental force acts within a spatial region determined by its sector. The mediator of a force traverses the spatial dimensions of its sector; a particle can only couple to that force if it shares those sector coordinates.
+Each force couples to a particle through the sector coordinates the particle occupies. A particle couples to a force only if its wavefunction has support in that force's sector — the coupling geometry lives in that sector, and the particle is either in that space or it isn't.
 
-| Force | Mediator | Sector | Spatial dimensions occupied |
+| Force | Sector | Dimensions | Coupling structure |
 |---|---|---|---|
-| Electromagnetic | Photon | d=2 | 2 |
-| Weak | W±, Z | d=2 | 2 |
-| Strong (QCD) | — (kernel contact) | d=3, d=4 | — |
-| Gravity | — | (none) | 10 |
+| Electromagnetic | d=2 | 2 | U(1) phase from shared d=2 coordinates |
+| Weak | d=2 | 2 | SU(2)_L from Kähler chirality on d=2 |
+| Strong | d=3, d=4 | 3–4 | SU(3) contact coupling via CP² isometry |
+| Gravity | all | 10 | Curvature of M_∞; no sector boundary |
 
-**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the force acts in. A d=2 photon cannot couple to a particle with no support on the d=2 sector. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 sector support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
+**Coordinate containment.** A particle couples to a force only when it has wavefunction support in the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on d=2.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
@@ -184,11 +184,11 @@ Each fundamental force acts within a spatial region determined by its sector. Th
 T_μν^{eff}(x) = ∫_Ξ T_μν^{Dirac}(x,ξ) dμ_ξ
 ```
 
-The gravitational field is genuinely 10D — it is not a 3D field with extra-dimensional corrections. A d=3 observer measures the 3-dimensional projection of this field, giving observed Newton's constant G_N = G_fund / V_7 rather than G_fund (Part 4 §3.12.2).
+The gravitational field is genuinely 10D — it is not a 3D field with extra-dimensional corrections. A d=3 observer is a subspace of M_∞ and experiences the field only within their d=3 coordinate subspace, giving G_N = G_fund / V_7 rather than G_fund (Part 4 §3.12.2).
 
 **Spatial extent and coupling strength.** The gauge forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
 
-**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force mediator occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
+**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force's coupling geometry occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
 ### 0.9 CKM Matrix from the Kernel
 
@@ -273,35 +273,30 @@ Electromagnetism emerges from the U(1) Hopf fiber connecting the d=2 and d=3 sec
 
 The d=4 sector geometry is CP² = SU(3)/U(2). The full isometry group of CP² is SU(3). Therefore quarks in the d=4 sector naturally carry SU(3) quantum numbers — from the manifold's own geometry.
 
-The spin^c Dirac operator on CP² twisted by the fundamental colour bundle O(1) with Hopf flux k=1 gives:
-```
-index(D^c_{CP²} ⊗ O(1)) = C(3,2) = 3
-```
+χ(CP²) = 3 gives exactly three independent colour modes per quark. The representation is fixed by the sector geometry: the isometry group is SU(3), so the three modes necessarily transform in the fundamental representation **3** — not by postulate, but because SU(3) is the symmetry group of the space they inhabit. Three colour states per quark is a theorem of the d=4 sector geometry.
 
-The three net left-chiral zero modes live in the fibre of O(1) over CP². This bundle transforms under SU(3) = Isom(CP²) in the fundamental representation **3** — the standard 3-dimensional representation. Therefore the three zero modes are not merely three distinct objects; they transform into each other under SU(3) gauge rotations exactly as the three colour states of a quark do. Colour charge is the SU(3) representation label of the zero-mode fibre.
-
-**Three net left-chiral zero modes = three colour states per quark.** This is the geometric origin of colour charge, with the representation content explicit.
+**N_c = χ(CP²) = 3.** This is the geometric origin of colour charge (Part 1 §3d, Part 9 T15, S3).
 
 ---
 
 ## 3. Colour Symmetry from Consistency
 
-The SU(3) colour symmetry emerges from a well-defined principal bundle. The d=4 sector contributes a principal SU(3) bundle P_{SU(3)} → M₄ with connection 1-form A constructed from the Hopf fibration data of CP². This connection is a mathematical consequence of local phase-frame freedom in ψ_colour(x); it is non-propagating in the IDWT action (no Yang-Mills kinetic term — see §0.2). Similarly, the d=2 sector and d=6 lepton sector contribute the U(2) bundle P_{U(2)} → M₄ with connection B. The total colour-plus-EW bundle is:
+The SU(3) colour symmetry follows from consistency. The d=4 sector field at spacetime point x decomposes into three colour amplitudes (§3a); this decomposition is arbitrary up to local SU(3) rotations — different orientations of the three colour directions within the CP² sector space are physically equivalent. The total colour-plus-EW structure group is:
 
 ```
-P → M₄,    structure group G = SU(3) × U(2)
+G = SU(3) × U(2)
 ```
 
-Given the colour space H_colour identified from the CP² Dirac zero modes:
+Given the three-dimensional colour space identified from χ(CP²) = 3 (§2):
 
-1. Physical observables depend on |Ψ∞|² — invariance under local colour rotations U(x) ∈ U(H_colour) is a **consistency requirement**, not a postulate
+1. Physical observables depend on |Ψ∞|² — invariance under local colour rotations U(x) ∈ SU(3) is a **consistency requirement**, not a postulate
 2. Local invariance forces a connection: D_μΘ = ∂_μΘ + i[A_μ, Θ]
 3. The commutator [D_μ, D_ν]Θ = i[F_μν, Θ] gives the colour connection curvature:
    ```
    F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]
    ```
 
-SU(3) gauge theory is not postulated. It follows from the CP² geometry combined with the consistency requirement that physics not depend on the local orientation of the colour frame. The gauge transformation A → gAg⁻¹ − (dg)g⁻¹ arises from local fibre rotations in P_{SU(3)}.
+SU(3) gauge theory is not postulated. It follows from the CP² sector geometry and the requirement that physics not depend on the local orientation of the colour frame.
 
 ### 3a. Explicit Colour Connection Construction 🔶
 
@@ -327,7 +322,7 @@ This integral extracts the three colour amplitudes from the full sector-space fi
 A_μ(x) = i ψ_color†(x) ∂_μ ψ_color(x)   ∈ su(3)
 ```
 
-This is the colour connection on P_{SU(3)} → M₄.
+This is the colour connection — the SU(3)-valued gauge field encoding local colour frame freedom in the d=4 sector.
 
 **Gauge transformation check.** Under U(x) ∈ SU(3): ψ_color(x) → U(x)ψ_color(x). Direct computation:
 
@@ -510,7 +505,7 @@ With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geom
 
 ## 9. Colour Coupling Running 🔶
 
-The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) contains two contributions: −2n_f/(48π²) from fermion loops and 11N_c/(48π²) from gauge-boson (gluon) loops. IDWT derives N_c = 3 from χ(CP²) (§2) and n_f = 6 from the six occupied quark modes. However, because the IDWT action has no propagating colour gauge quanta (§0.2, §0.6), the 11N_c gauge-boson loop term does not automatically follow. The running of the effective colour coupling g²_eff = 2g_{44}/π² from the kernel in a theory with only quark loops would give b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
+The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) has two structural contributions. IDWT derives N_c = 3 from χ(CP²) (§2) and n_f = 6 from the six occupied quark modes — both solid. However, the 11N_c term originates in the kinetic structure of the QCD gauge field, which IDWT does not have: the IDWT colour coupling is a contact term in the kernel with no quadratic colour-field term (§0.2, §0.6). With only quark sector contributions, b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
 
 **Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running at all — and if so, whether resummation of quark loop insertions in the kernel produces a positive b₀ and asymptotic freedom.
 
@@ -761,7 +756,7 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
-**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the fiber scale is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
+**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the d=2 sector scale — the natural coupling scale of the d=2 sector, ≈m_W, where IDWT couplings are defined before QED/QCD running — is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
 
 ---
 
@@ -874,5 +869,5 @@ The Ward identity establishes:
 3. α is not renormalized by the kernel
 4. The running α(q²) is correctly reproduced at 1-loop
 
-The fiber-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. The hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α, and leptonic running adds 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent unit reference — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
+The d=2-sector-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. The hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α, and leptonic running adds 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent unit reference — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
 

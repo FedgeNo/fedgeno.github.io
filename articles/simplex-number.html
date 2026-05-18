@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Simplex Number — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Math</div>
+  <h1>The Simplex Number</h1>
+  <p class="sub">Why particle mass is a count of hidden microstate configurations, and how a single binomial coefficient generates the entire particle spectrum.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Mass as a microstate count</h2>
+  <div class="prose">
+    <p>The IDWT mass formula is:</p>
+  </div>
+
+  <div class="formula">
+    m(n, d) = S(n, d) × m<sub>scale,d</sub>
+    <br><br>
+    S(n, d) = C(n+d−1, d) = (n+d−1)! / (n! (d−1)!)
+  </div>
+
+  <div class="prose">
+    <p>S(n, d) is a binomial coefficient. It counts the number of ways to distribute n energy quanta across d hidden directions. That is its entire physical meaning: <strong>mass equals the sector energy scale times the number of configurations in which a mode can arrange its quanta</strong>. More hidden dimensions means more configurations. A higher mode index means more quanta to distribute, giving more configurations still. Both increase S and therefore increase mass.</p>
+    <p>This is not an analogy or a heuristic. S(n,d) is the dimension of the space of degree-(n−1) monomials in d sector coordinates — it is the number of independent polynomial modes that the sector geometry permits at that excitation level. The mass formula is the statement that each particle's mass equals the total number of such modes up to its level, times the sector energy scale. Mass is entropy, accumulated up to the particle's excitation level.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Stars and bars</h2>
+  <div class="prose">
+    <p>The simplest way to understand S(n,d) is the stars-and-bars combinatorial argument. How many ways can you place n identical objects into d labelled boxes? The answer is C(n+d−1, d), also written C(n+d−1, n−1). This is a standard result from combinatorics: represent the objects as stars (★) and the divisions between boxes as bars (|). A configuration of 3 quanta in 4 directions might look like ★★ | | ★ |, meaning 2 quanta in direction 1, 0 in direction 2, 1 in direction 3, 0 in direction 4. The total configurations of stars and bars across all boxes is C(n+d−1, d).</p>
+    <p>For the up quark (n=3, d=4): S(3,4) = C(6,4) = 15. There are 15 ways to arrange 3 energy quanta across 4 hidden directions. The up quark has 15 microstate configurations, so its mass is 15 × m<sub>scale,4</sub>.</p>
+    <p>For the electron (n=13, d=6): S(13,6) = C(18,6) = 18,564. There are 18,564 ways to arrange 13 quanta across 6 directions. The electron has 18,564 microstate configurations, giving m<sub>e</sub> = 18,564 × m<sub>scale,6</sub> = 0.511 MeV.</p>
+    <p>For the tau lepton (n=23, d=10): S(23,10) = C(32,10) = 64,512,240. The tau spans ten hidden directions and can arrange its quanta in over 64 million ways. Before the Dyson correction: m<sub>τ</sub> ≈ S(23,10) × m<sub>scale,10</sub>. The Dyson correction from the d=10 Aubry-André critical point brings this to 1776.84 MeV, within 0.001% of the PDG value.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>n</th>
+          <th>d</th>
+          <th>S(n, d)</th>
+          <th>Mass</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="/articles/down-quark.html">down quark</a></td><td>1</td><td>3</td><td>1</td><td>4.702 MeV</td></tr>
+        <tr><td>up quark</td><td>3</td><td>4</td><td>15</td><td>2.163 MeV</td></tr>
+        <tr><td>strange quark</td><td>4</td><td>3</td><td>20</td><td>94.04 MeV</td></tr>
+        <tr><td>ν₁</td><td>10</td><td>5</td><td>2,002</td><td>1.487 meV</td></tr>
+        <tr><td>ν₂</td><td>15</td><td>5</td><td>11,628</td><td>8.639 meV</td></tr>
+        <tr><td>electron</td><td>13</td><td>6</td><td>18,564</td><td>0.511 MeV</td></tr>
+        <tr><td>muon</td><td>35</td><td>6</td><td>1,344,904</td><td>105.66 MeV</td></tr>
+        <tr><td>tau lepton</td><td>23</td><td>10</td><td>64,512,240</td><td>1,776.84 MeV</td></tr>
+        <tr><td>top quark</td><td>72</td><td>4</td><td>82,251</td><td>172,760 MeV</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+<section>
+
+  <h2>The hockey-stick identity</h2>
+  <div class="prose">
+    <p>S(n,d) is not just a single binomial coefficient — it is a cumulative sum. The hockey-stick identity says:</p>
+  </div>
+
+  <div class="formula">
+    S(n, d) = Σ<sub>k=0</sub><sup>n−1</sup> C(k+d−1, d−1)
+  </div>
+
+  <div class="prose">
+    <p>This is the sum of the first n terms of Pascal's triangle along a diagonal of fixed d. The name "hockey stick" comes from the shape this tracing makes on Pascal's triangle: a straight shaft going down and left on a diagonal, with the sum appearing one step down and to the right — like a hockey stick. The identity is a theorem of combinatorics, provable from the Pascal recursion C(n,k) = C(n−1,k−1) + C(n−1,k).</p>
+    <p>The physical meaning: S(n,d) counts the total number of independent oscillator eigenstates at energy levels 0 through n−1 in d dimensions. Each term in the sum is the number of new states added at one energy level. The particle's mass is this total — the cumulative count from the ground state up to level n.</p>
+    <p>The hockey-stick identity has an equivalent recursive form:</p>
+  </div>
+
+  <div class="formula">
+    S(n, d) = S(n, d−1) + S(n−1, d)
+  </div>
+
+  <div class="prose">
+    <p>This Pascal recursion is the sector generation law. It says: the microstate count at (n, d) equals the microstate count at (n, d−1) plus the count at (n−1, d). In other words, adding one hidden dimension adds exactly as many states as the sector just below has at the same mode index. The recursion applied at specific (n,d) pairs is what forces the <a href="/articles/three-generations.html">three-generation structure</a> of the particle spectrum.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The universal ground state</h2>
+  <div class="prose">
+    <p>The most important property of S is:</p>
+  </div>
+
+  <div class="formula">
+    S(1, d) = C(d, d) = 1 &nbsp; for every sector d
+  </div>
+
+  <div class="prose">
+    <p>There is exactly one way to distribute 1 quantum across any number of directions — put it in one direction. This is the unique ground state of every sector. It is why <a href="/articles/down-quark.html">the down quark</a>, at n=1 in d=3, has S = 1 and its mass equals the bare d=3 scale. It is also why n<sub>down</sub> = 1 is forced with no freedom: any other starting index would imply states below it, which would themselves be particles — and they are not observed. The ground state is unique, and it is 1.</p>
+    <p>The converse is also worth noting. For large d at fixed n, S(n,d) grows rapidly with d. The same mode index n gives vastly different masses in different sectors, purely because of how many hidden directions are available. The electron (n=13, d=6) with S = 18,564 is far heavier than the lightest neutrino (n=10, d=5) with S = 2,002, even though the neutrino has a slightly lower mode index — because the electron has six hidden directions available versus five for the neutrino.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The spectral grounding</h2>
+  <div class="prose">
+    <p>S(n,d) has a precise spectral interpretation, not just a combinatorial one. For the d=3 sector (geometry S³):</p>
+  </div>
+
+  <div class="formula">
+    S(n, 3) = ½ N<sub>D<sub>S³</sub></sub>(n−1)
+  </div>
+
+  <div class="prose">
+    <p>N<sub>D<sub>S³</sub></sub>(n−1) is the cumulative count of positive eigenvalues of the Dirac operator on S³ up to level n−1. The mass formula for down-type quarks is therefore the statement that mass equals half the cumulative Dirac eigenvalue count on S³. This is not a consequence of fitting — it is what it means for the sector geometry to be S³. The same grounding holds for other sectors: the spectral counting function of the sector's harmonic oscillator gives the microstate count, and that count equals S(n,d) by the Weyl law for the sector geometry.</p>
+    <p>This is the sense in which IDWT mass predictions are theorems rather than fits: the Dirac eigenvalue spectrum of a geometric space is a mathematical fact, not adjustable by parameter choice. S(n,d) for the spectrum of S³ is determined by the geometry of S³, not by particle physics. That this geometric fact equals the observed particle mass ratios — to better than 1% across fifteen particles — is the core empirical claim of the theory.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>See also: <a href="/articles/down-quark.html">The Down Quark</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why n<sub>s</sub> = 4</a> &nbsp;·&nbsp; <a href="/articles/three-generations.html">Three Generations</a> &nbsp;·&nbsp; <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a></p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

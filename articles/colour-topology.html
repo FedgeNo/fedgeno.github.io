@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colour from Topology — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Geometry</div>
+  <h1>Colour from Topology</h1>
+  <p class="sub">The Standard Model has three quark colours because the Euler characteristic of CP² is 3. Topology determines the rank of the colour gauge group.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The question the Standard Model doesn't answer</h2>
+  <div class="prose">
+    <p>Quarks come in three colours — red, green, blue — and the symmetry group that rotates between them is SU(3). This is as well-established as anything in particle physics: the number of colours N<sub>c</sub> = 3 is confirmed by measurements of the hadronic cross-section in electron-positron collisions, by the pion decay rate, by the anomaly cancellation conditions, and by many other independent measurements. There is no doubt that N<sub>c</sub> = 3.</p>
+    <p>But the Standard Model takes this as an input. N<sub>c</sub> = 3 is assumed because experiment shows it; the theory offers no reason why it could not be 2 or 4 or 7. A more fundamental theory should explain why.</p>
+    <p>In IDWT, N<sub>c</sub> = 3 is a theorem.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>CP² and the Euler characteristic</h2>
+  <div class="prose">
+    <p>The <a href="/articles/sector-4.html">d=4 sector</a> has geometry CP² — the complex projective plane. CP² is the space of complex lines through the origin in ℂ³, equivalently the space of directions in three complex dimensions. Its topology is characterized by the Euler characteristic χ(CP²) = 3.</p>
+    <p>The Euler characteristic is a topological invariant — a number that depends only on the shape of a space, not on how it is embedded or parameterized. For CP^n it is always n+1:</p>
+  </div>
+
+  <div class="formula">
+    χ(CP^n) = n + 1
+    <br><br>
+    χ(CP¹) = 2 &nbsp;&nbsp; χ(CP²) = 3 &nbsp;&nbsp; χ(CP³) = 4 &nbsp;&nbsp; χ(CP⁵) = 6
+  </div>
+
+  <div class="prose">
+    <p>The Euler characteristic counts the number of independent cohomology classes of a space — the number of topologically distinct ways to wrap a surface around it. For CP², this count is 3. There are three independent such handles on the geometry of the colour sector manifold. Three handles means three independent coupling directions. Three coupling directions means three colours.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The Dirac index and colour counting</h2>
+  <div class="prose">
+    <p>The precise statement is Theorem S3 (Part 8): the analytic index of the chiral Dirac operator on CP², twisted by the tautological line bundle O(1), equals 3:</p>
+  </div>
+
+  <div class="formula">
+    ind(D<sup>c</sup><sub>CP²</sub> ⊗ O(1)) = 3 = N<sub>c</sub>
+  </div>
+
+  <div class="prose">
+    <p>The analytic index counts the difference between the number of zero modes and their conjugates for the Dirac operator. On CP², this count equals χ(CP²) = 3 for the tautological bundle. This index is a topological invariant — it cannot be continuously deformed away. It is exactly the number of independent colour modes the sector geometry can support.</p>
+    <p>The SU(3) colour symmetry group follows: a sector with exactly 3 independent colour modes has the gauge symmetry group that acts on a 3-dimensional colour space, which is SU(3). The symmetry is not assumed; it is the isometry group of the space with 3 independent coupling handles.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why CP², not some other space</h2>
+  <div class="prose">
+    <p>The d=4 sector has geometry CP² because of the complex Hopf fibration chain that determines the full sector set. The <a href="/articles/sectors.html">six sectors</a> form a nested sequence of Hopf fibrations: S¹ wraps around odd spheres and complex projective spaces in sequence. The d=4 sector is the second step in the even-dimensional part of this chain: d=2 gives CP¹, d=4 gives CP², d=6 gives CP³. These are the natural extensions of the Hopf fibration S¹ → S³ → CP¹ (Hopf fibration) and S¹ → S⁵ → CP² (the second Hopf fibration).</p>
+    <p>There is no freedom to choose a different space at d=4. The sector set theorem (T3) shows that D = {2, 3, 4, 5, 6, 10} is uniquely determined by two conditions: sectors must form a Hopf fibration chain, and the terminal sector must reach the Aubry-André critical point b = 1/2. These two conditions together force CP² at d=4, and therefore force χ(CP²) = 3 = N<sub>c</sub>.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The full Euler characteristic chain</h2>
+  <div class="prose">
+    <p>The pattern extends across the sector set. Each complex projective sector has an Euler characteristic that directly encodes a physical quantity:</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>Geometry</th>
+          <th>χ</th>
+          <th>Physical meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="/articles/sector-2.html">d=2</a></td>
+          <td>CP¹</td>
+          <td>2</td>
+          <td>Two photon polarization states; U(1) coupling handles</td>
+        </tr>
+        <tr>
+          <td><a href="/articles/sector-4.html">d=4</a></td>
+          <td>CP²</td>
+          <td>3 = N<sub>c</sub></td>
+          <td>Three quark colours; SU(3) symmetry group</td>
+        </tr>
+        <tr>
+          <td><a href="/articles/sector-6.html">d=6</a></td>
+          <td>CP³</td>
+          <td>4 = n<sub>s</sub></td>
+          <td>The seed integer; all particle masses depend on this</td>
+        </tr>
+        <tr>
+          <td><a href="/articles/sector-10.html">d=10</a></td>
+          <td>CP⁵</td>
+          <td>6</td>
+          <td>Terminal sector; Aubry-André critical coupling</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>The Euler characteristic of CP³ is 4 = n<sub>s</sub> — the <a href="/articles/seed.html">seed integer</a> that determines all particle masses. The Euler characteristic of CP² is 3 = N<sub>c</sub> = n<sub>u</sub>, the derived quark-sector integer. These two facts together constitute Theorem T15 (Euler Characteristic Unification): all six sector self-coupling constants, all fifteen mode indices, and all fifteen particle masses are functions of N<sub>c</sub> alone. The number of quark colours is the generator of all of particle physics.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why the electron has zero colour</h2>
+  <div class="prose">
+    <p>The <a href="/articles/sector-6.html">d=6 sector</a> has geometry CP³. Its Euler characteristic is 4 = n<sub>s</sub>. The key topological fact is that CP³ is the total space of a fibration over CP², and the Chern class structure of CP³ is exactly such that the colour index cancels when summed over the full CP³ geometry. In technical terms: the Dirac index of D<sup>c</sup><sub>CP³</sub> ⊗ O(k) vanishes for the colour representations — the twisted index is zero.</p>
+    <p>This is the geometric origin of the electron's total colour silence. The electron does not have a suppressed QCD coupling at high energies; it has an exactly zero QCD coupling at all energies, because the CP³ sector geometry does not support any colour index. The colour quantum number is not a label that was assigned to particles and happens to be zero for leptons — it is what CP² geometry produces as a coupling structure, and CP³ geometry produces none of it.</p>
+    <p>The lepton/quark distinction is topology. Quarks live in CP² (colour present) and its subbundle S³ (colour inherited). Leptons live in CP³ (colour cancelled). The Vandermonde-Chu identity shows that d=6 = d=3 ⊗ d=3 as oscillator spaces — the lepton sector is the tensor product of two quark sectors, not embedded within one. Products of colour spaces cancel colour; embeddings in colour spaces inherit it. One identity, all of lepton physics.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>See also: <a href="/articles/sector-4.html">Sector 4 — Up-type Quarks</a> &nbsp;·&nbsp; <a href="/articles/sector-filters.html">Quantum Numbers Are Coupling Filters</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why n<sub>s</sub> = 4</a> &nbsp;·&nbsp; <a href="/articles/sectors.html">The Six Sectors</a></p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

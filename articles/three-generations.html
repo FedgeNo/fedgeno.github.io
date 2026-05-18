@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Generations — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Structure</div>
+  <h1>Three Generations</h1>
+  <p class="sub">Why particles come in three families — and why each generation law is the same Pascal identity applied at a different point in the combinatorial structure.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The puzzle of repetition</h2>
+  <div class="prose">
+    <p>The Standard Model contains three generations of fermions. The electron, muon, and tau are identical in every quantum number except mass. Their neutrinos differ in mass but not in other properties. The quarks pair into three generations: (up, down), (charm, strange), (top, bottom). Experimentally this is a firmly established fact. Theoretically it has no explanation. The Standard Model takes three generations as an input and does not say why there are not two or four.</p>
+    <p>In IDWT the number of generations is not an assumption. It follows from the structure of the <a href="/articles/simplex-number.html">simplex number</a> S(n,d) and the two seeds n<sub>s</sub> = 4 and n<sub>down</sub> = 1. Each generation corresponds to a specific (n,d) pair at which the Pascal recursion closes — and there are exactly three such closure points in the sector set D = {2, 3, 4, 5, 6, 10}.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The generation law</h2>
+  <div class="prose">
+    <p>The Pascal recursion for the <a href="/articles/simplex-number.html">simplex number</a> is:</p>
+  </div>
+
+  <div class="formula">
+    S(n, d) = S(n, d−1) + S(n−1, d)
+  </div>
+
+  <div class="prose">
+    <p>This is a proved theorem of combinatorics. Applied to mode indices, it reads: <strong>the lepton mode index equals the corresponding neutrino mode index plus the quark partner mode index</strong>. Each generation law is exactly this identity, evaluated at a different (n, d) pair.</p>
+    <p>The pattern is:</p>
+  </div>
+
+  <div class="formula">
+    n<sub>lepton</sub> = n<sub>neutrino</sub> + n<sub>quark partner</sub>
+  </div>
+
+  <div class="prose">
+    <p>This is not a pattern observed empirically and then named — it is a consequence of requiring the mode index assignments to be consistent with S(n,d). The assignments cannot be altered without breaking the identity.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Generation 1: electron family</h2>
+  <div class="prose">
+    <p>The first generation involves the electron (n=13, d=6), the electron neutrino (n=10, d=5), and the up quark (n=3, d=4):</p>
+  </div>
+
+  <div class="formula">
+    n<sub>e</sub> = n<sub>ν₁</sub> + n<sub>u</sub> = 10 + 3 = 13
+  </div>
+
+  <div class="prose">
+    <p>Here n<sub>ν₁</sub> = S(n<sub>u</sub>, 3) = S(3, 3) = C(5, 3) = 10 is the image of the up quark seed under the d=3 simplex map, and n<sub>u</sub> = 3 is the up quark mode index. The electron's mode index is forced by the hockey-stick evaluation of the up quark seed into d=3, plus the up quark index itself. The electron is entirely determined by the up quark seed n<sub>u</sub> = 3.</p>
+    <p>Why n<sub>u</sub> = 3? Because n<sub>u</sub> = n<sub>s</sub> − 1 = 4 − 1 = 3, where <a href="/articles/seed.html">n<sub>s</sub> = 4</a> is the strange quark seed forced by the cross-sector fixed-point condition. Everything traces back to n<sub>s</sub>.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Generation 2: muon family</h2>
+  <div class="prose">
+    <p>The second generation involves the muon (n=35, d=6), the second neutrino (n=15, d=5), and the charm quark (n=20, d=4):</p>
+  </div>
+
+  <div class="formula">
+    n<sub>μ</sub> = n<sub>charm</sub> + n<sub>ν₂</sub> = 20 + 15 = 35
+  </div>
+
+  <div class="prose">
+    <p>This is the Pascal recursion S(4, 4) = S(4, 3) + S(3, 4) = 20 + 15 = 35 applied directly. The muon mode index is S(4, 4) = C(7, 4) = 35. The charm mode index is S(4, 3) = C(6, 3) = 20. The second neutrino mode index is S(3, 4) = C(6, 4) = 15. All three are simplex numbers, and their relation is a theorem.</p>
+    <p>This is also the equation that forced n<sub>s</sub> = 4: requiring S(n<sub>strange</sub>, 4) = n<sub>muon</sub> uniquely selects n<sub>strange</sub> = 4, because S(4, 4) = 35 = n<sub>muon</sub>. The generation 2 law and the seed uniqueness are the same equation viewed from two directions.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Generation 3: tau family</h2>
+  <div class="prose">
+    <p>The third generation involves the tau lepton (n=23, d=10), the third neutrino (n=22, d=5), and the down quark (n=1, d=3):</p>
+  </div>
+
+  <div class="formula">
+    n<sub>τ</sub> = n<sub>ν₃</sub> + n<sub>down</sub> = 22 + 1 = 23
+  </div>
+
+  <div class="prose">
+    <p>The closing term is n<sub>down</sub> = 1 — the universal ground state. Since S(1, d) = 1 for every sector d, the "+1" at the end of the third generation law is the base case of every hockey-stick sum. The tau's mode index is one above the third neutrino's. The third generation closes by adding the minimum possible increment — the ground state of the entire spectrum.</p>
+    <p>The third neutrino's mode index n<sub>ν₃</sub> = 22 comes from an inclusion-exclusion identity:</p>
+  </div>
+
+  <div class="formula">
+    n<sub>ν₃</sub> = n<sub>ν₁</sub> + n<sub>ν₂</sub> − n<sub>u</sub> = 10 + 15 − 3 = 22
+  </div>
+
+  <div class="prose">
+    <p>Both n<sub>ν₁</sub> = S(n<sub>u</sub>, 3) and n<sub>ν₂</sub> = S(n<sub>u</sub>, 4) are simplex images of the same up-quark seed n<sub>u</sub> = 3, one into d=3 and one into d=4. Adding them counts the shared seed n<sub>u</sub> once too many, so subtracting n<sub>u</sub> removes the overlap. The third neutrino is the inclusion-exclusion combination of the first two.</p>
+    <p>Cross-check: n<sub>ν₃</sub> = n<sub>τ</sub> − n<sub>down</sub> = 23 − 1 = 22 ✓. The same number from two different paths through the hockey-stick identities.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>All three laws as one table</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Generation</th>
+          <th>Lepton</th>
+          <th>=</th>
+          <th>Neutrino</th>
+          <th>+</th>
+          <th>Quark partner</th>
+          <th>Identity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1st</td>
+          <td>n<sub>e</sub> = 13</td>
+          <td>=</td>
+          <td>n<sub>ν₁</sub> = 10</td>
+          <td>+</td>
+          <td>n<sub>u</sub> = 3</td>
+          <td>hockey-stick at (n=3, d=3)</td>
+        </tr>
+        <tr>
+          <td>2nd</td>
+          <td>n<sub>μ</sub> = 35</td>
+          <td>=</td>
+          <td>n<sub>ν₂</sub> = 15</td>
+          <td>+</td>
+          <td>n<sub>charm</sub> = 20</td>
+          <td>Pascal recursion at (n=4, d=4)</td>
+        </tr>
+        <tr>
+          <td>3rd</td>
+          <td>n<sub>τ</sub> = 23</td>
+          <td>=</td>
+          <td>n<sub>ν₃</sub> = 22</td>
+          <td>+</td>
+          <td>n<sub>down</sub> = 1</td>
+          <td>base case S(1,d) = 1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why exactly three</h2>
+  <div class="prose">
+    <p>The six sectors are D = {2, 3, 4, 5, 6, 10}. The lepton modes live in d=6 and d=10. The neutrino modes in d=5. The quark modes in d=3 and d=4. The generation laws close when the Pascal recursion connects a mode in the lepton sectors to one in the neutrino and quark sectors simultaneously.</p>
+    <p>Three such closures exist in the sector set. A fourth would require a lepton mode beyond n<sub>τ</sub> = 23 in d=6, or a new mode in d=10 above the tau. By the <a href="/articles/two-stage-filter.html">two-stage filter</a>, mode indices above the tau's in those sectors do not pass both observability conditions — the dimensional visibility filter eliminates them. A fourth generation of leptons and quarks therefore does not exist in IDWT, and no fourth generation-law closure is possible.</p>
+    <p>The Standard Model observation of exactly three light neutrinos (from Z-boson decay width measurements at LEP) is consistent with this. IDWT predicts three neutrino species and no others — not as an assumption, but as the complete closure of the hockey-stick generation tower.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The quark sector mirrors</h2>
+  <div class="prose">
+    <p>The quark sector follows the same pattern. For down-type quarks (<a href="/articles/sector-3.html">d=3 sector</a>), the mode indices 1 and 4 are the seeds. For up-type quarks (<a href="/articles/sector-4.html">d=4 sector</a>), the mode indices 3 and 20 (charm) and 72 (top) follow from the same hockey-stick tower. The top quark mode index n<sub>top</sub> = 72 satisfies n<sub>top</sub> = S(n<sub>e</sub>, 2) − n<sub>charm</sub> + 1 = 91 − 20 + 1 — an eigenmode selection chain rather than a direct hockey-stick sum, but built from the same combinatorial ingredients.</p>
+    <p>The <a href="/articles/down-quark.html">down quark's role</a> in the third generation law is the clearest instance of this: n<sub>down</sub> = 1 is both the ground state of d=3 and the "+1" that closes the tau mode. One particle, two functions in the generation structure, both following from S(1, d) = 1.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>See also: <a href="/articles/simplex-number.html">The Simplex Number</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why n<sub>s</sub> = 4</a> &nbsp;·&nbsp; <a href="/articles/down-quark.html">The Down Quark</a> &nbsp;·&nbsp; <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a></p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

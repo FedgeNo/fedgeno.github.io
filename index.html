@@ -83,5 +83,23 @@
 
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
 <script type="module" src="/scripts/orbs.js"></script>
+<script>
+// Strip any hash from the URL immediately on load — prevents shared hash links
+// from dropping new visitors mid-page without context.
+if (window.location.hash) {
+  history.replaceState(null, '', window.location.pathname + window.location.search);
+  window.scrollTo(0, 0);
+}
+// Make internal anchor clicks scroll smoothly without writing the hash to the URL.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var t = document.querySelector(a.getAttribute('href'));
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+});
+</script>
 </body>
 </html>

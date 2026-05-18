@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sector 6 — Charged Leptons — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Sector</div>
+  <h1>Sector 6 — Charged Leptons</h1>
+  <p class="sub">CP³ geometry, total colour silence, and the sector whose Euler characteristic is the seed that determines everything else.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Geometry</h2>
+  <div class="prose">
+    <p>The d=6 sector has geometry CP³ — the complex projective 3-space — with isometry group SU(4)/U(3). CP³ is a Kähler manifold with six real dimensions. Its Euler characteristic χ(CP³) = 4, which in IDWT is the seed integer n<sub>s</sub> = 4. This connection — the lepton sector's topology directly setting the seed for the entire mass spectrum — means that all fifteen particle masses trace ultimately back to the geometry of CP³.</p>
+    <p>CP³ sits at the top of the complex Hopf chain up to d=6. The nesting Ξ<sub>2</sub> ⊂ Ξ<sub>3</sub> ⊂ Ξ<sub>4</sub> ⊂ Ξ<sub>5</sub> ⊂ Ξ<sub>6</sub> means that the d=6 sector contains all five lower sectors inside it. An electron's wavefunction spans all six of those dimensions — it is not confined to d=6 alone but uses all the directions that have been accumulated from d=2 upward.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Particles</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>Mode index n</th>
+          <th>Mass (IDWT)</th>
+          <th>Mass (PDG)</th>
+          <th>Error</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>e⁻ (electron)</td>
+          <td>n = 13</td>
+          <td>0.511 MeV</td>
+          <td>0.511 MeV</td>
+          <td>unit reference</td>
+        </tr>
+        <tr>
+          <td>μ⁻ (muon)</td>
+          <td>n = 35</td>
+          <td>105.657 MeV</td>
+          <td>105.658 MeV</td>
+          <td>−0.001%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>The electron is the single dimensional anchor of the entire theory — its mass m<sub>e</sub> = 0.511 MeV is the sole dimensional input from which all sector mass scales are derived. The electron's mode index n<sub>e</sub> = N<sub>c</sub>² + N<sub>c</sub> + 1 = 13 follows from the number of quark colours N<sub>c</sub> = 3.</p>
+    <p>The muon's mode index n<sub>μ</sub> = 35 = S(4,4) — the 4th simplex number in d=4 — connecting the muon's position in the charged lepton tower to the quark sector indexing via Pascal's recursion. The mass ratio m<sub>μ</sub>/m<sub>e</sub> = S(35,6)/S(13,6) = 3,838,380/18,564 ≈ 206.8 matches the observed ratio precisely.</p>
+    <p>The tau lepton, despite being a charged lepton, lives in the d=10 sector, not d=6. See <a href="/articles/sector-10.html">Sector 10 — The Tau</a>.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Total colour silence</h2>
+  <div class="prose">
+    <p>The defining property of the d=6 sector as a coupling filter is complete, permanent, energy-independent absence of colour charge. This is not a suppression — it is geometric impossibility.</p>
+    <p>χ(CP³) = 4, not 3. The SU(4)/U(3) isometry of CP³ contains SU(3) as a subgroup, but the four colour modes of CP³ do not transform in the SU(3) fundamental representation — the SU(4)/U(3) structure places them in a representation where the SU(3) colour contributions cancel exactly. No colour index survives after the geometric projection. The electron has zero colour charge at every energy scale, not because it is a colour singlet that happens to be lighter than the confinement scale, but because the CP³ geometry makes colour-non-singlet states structurally unavailable.</p>
+    <p>The coupling filter for d=6: all QCD interactions are geometrically absent. The electron's electromagnetic coupling acts through coordinate containment — the d=2 photon coordinates are inside the d=6 electron sector (Ξ<sub>2</sub> ⊂ Ξ<sub>6</sub>) — with coupling structure determined by the T2 rank-1 kernel and the SU(4)/U(3) isometry restricted to its U(1) component.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The seed connection</h2>
+  <div class="prose">
+    <p>χ(CP³) = 4 = n<sub>s</sub>. This equality is not a coincidence — it is a theorem. The seed n<sub>s</sub> must equal χ(CP³) for the d=6 spectrum to be internally self-consistent: it counts the topological modes available in the lepton sector before gauge fixing removes one, leaving three lepton generations. Because n<sub>s</sub> is the seed for all sector coupling constants and all mode indices, and because n<sub>s</sub> = χ(CP³), the entire mass spectrum of the Standard Model traces back to the Euler characteristic of the electron's sector.</p>
+    <p>Similarly, N<sub>c</sub> = χ(CP²) = 3 = n<sub>u</sub> = n<sub>s</sub> − 1. The number of quark colours and the number of lepton generations are related by a single integer step, both determined by the geometry of their respective sector manifolds.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Coupling constant</h2>
+  <div class="prose">
+    <p>The d=6 sector self-coupling g<sub>66</sub> = 1/n<sub>s</sub> = 1/4 = 0.25. This is a seed ratio — it equals the reciprocal of the Euler characteristic of the sector itself. It does not arise from a kernel fixed-point calculation (which is how g<sub>33</sub> and g<sub>44</sub> are derived) but directly from the topology of CP³. The d=10 sector shares this value: g<sub>10,10</sub> = g<sub>66</sub> = 1/4, reflecting the μ-τ mass-scale symmetry between the two charged lepton sectors.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>← <a href="/articles/sector-5.html">Sector 5 — Neutrinos</a> &nbsp;·&nbsp; <a href="/articles/sectors.html">All Sectors</a> &nbsp;·&nbsp; Next: <a href="/articles/sector-10.html">Sector 10 — The Tau</a> →</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

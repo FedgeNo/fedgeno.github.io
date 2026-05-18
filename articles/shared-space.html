@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Space, Six Depths — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Geometry</div>
+  <h1>One Space, Six Depths</h1>
+  <p class="sub">The six sector manifolds do not occupy separate spaces. They are different depths into the same space.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Not six separate spaces</h2>
+  <div class="prose">
+    <p>It is tempting to picture the six IDWT sectors as six different spaces stacked alongside each other — a separate arena for each particle type. That picture is wrong, and the wrong picture causes confusion almost immediately when you try to understand how particles interact.</p>
+    <p>The six sectors are not six spaces. They are six ways of looking at one space, using progressively more of its available directions. At any point in the observable universe, all six sector potentials exist simultaneously. A photon is not in one compartment while an electron is in another. They are both excitations of the same underlying space — they just occupy different numbers of its directions.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Directions that accumulate</h2>
+  <div class="prose">
+    <p>The hidden space has ten spatial directions. They are not ten equal directions that particles share out among themselves. They form a strict hierarchy: each sector introduces new directions that then persist in every sector above it.</p>
+    <p>The d=2 sector has two directions. These are the photon's directions — the two transverse polarizations of light are not an arbitrary fact about photons, they are the complete geometry of these two directions. Every higher sector contains those same two directions plus additional ones orthogonal to them.</p>
+    <p>The d=3 sector adds one direction for a total of three. That third direction carries through identically into d=4, d=5, d=6, and d=10. The fourth direction, introduced at d=4, persists in every sector above it. Each new direction, once introduced, is present in all subsequent sectors.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Sector</th>
+          <th>Geometry</th>
+          <th>Directions</th>
+          <th>Particles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>d=2</td>
+          <td>CP¹</td>
+          <td>2</td>
+          <td>γ, W, Z, H</td>
+        </tr>
+        <tr>
+          <td>d=3</td>
+          <td>S³</td>
+          <td>2 + 1</td>
+          <td>d, s, b quarks</td>
+        </tr>
+        <tr>
+          <td>d=4</td>
+          <td>CP²</td>
+          <td>2 + 1 + 1</td>
+          <td>u, c, t quarks</td>
+        </tr>
+        <tr>
+          <td>d=5</td>
+          <td>S⁵</td>
+          <td>2 + 1 + 1 + 1</td>
+          <td>ν₁, ν₂, ν₃</td>
+        </tr>
+        <tr>
+          <td>d=6</td>
+          <td>CP³</td>
+          <td>2 + 1 + 1 + 1 + 1</td>
+          <td>e, μ</td>
+        </tr>
+        <tr>
+          <td>d=10</td>
+          <td>CP⁵</td>
+          <td>2 + 1 + 1 + 1 + 1 + 4</td>
+          <td>τ</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>The d=10 jump of +4 is not arbitrary. It is forced by the Aubry-André criticality condition: d=10 is the unique sector where the Gegenbauer coupling coefficient reaches exactly 1/2, the critical value that separates extended modes from localised ones. That mathematical condition fixes d=10 as the terminal sector, and the +4 gap from d=6 is a consequence.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>A sector is not a location</h2>
+  <div class="prose">
+    <p>This accumulation structure means that "sector" does not mean "place." A photon and an electron at the same point in the room you are sitting in are both excitations of the same hidden space at that point. The photon uses two of the available directions. The electron uses six. They are not in different locations — they are in the same location, using different numbers of its directions.</p>
+    <p>What the Standard Model calls particle type — photon, electron, up quark — is in IDWT a statement about how many hidden spatial directions a mode's wavefunction occupies, and which ones.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why this is the coupling rule</h2>
+  <div class="prose">
+    <p>The accumulation structure is exactly what determines which particles interact with which forces. A force associated with d=4 — the strong force — acts through directions 1 through 4. A particle can only couple to that force if its wavefunction has support in those directions. Since a photon's wavefunction only spans directions 1 and 2, it has no support in direction 3 or 4: it cannot couple to the strong force. Since an up quark spans all four directions, it can. Since a down quark spans directions 1 through 3, it can couple to the strong force through the shared d=3 directions it has inside the d=4 sector.</p>
+    <p>This is the coordinate containment principle — and it falls out automatically once you understand that sectors are depths into one space rather than separate spaces. There is no additional rule needed. A particle either has the directions or it doesn't.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why gravity is different</h2>
+  <div class="prose">
+    <p>Every non-gravitational force is confined to specific directions in the hidden space. Electromagnetism acts through directions 1–2. Colour acts through directions 1–4. Each has a sector boundary it does not cross.</p>
+    <p>Gravity has no sector boundary. It is the curvature of the full hidden space — all ten directions at once — sourced by whatever mass is present. A d=3 observer is inside the full ten-dimensional space and measures only the component of that curvature that lies in their three directions. The rest has spread into the other seven hidden directions and is not recoverable from a 3D measurement. This is the geometric origin of G<sub>N</sub> = G<sub>∞</sub> / V<sub>7</sub>: the factor V<sub>7</sub> is the volume of those seven hidden directions, fully derived from the same coupling constants that determine particle masses.</p>
+    <p>Sector forces are confined. Gravity is not. That single asymmetry — one space, different depths of access — is why gravity is weak.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

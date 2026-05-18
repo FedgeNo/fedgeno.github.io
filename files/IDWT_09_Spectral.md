@@ -560,8 +560,7 @@ In particular: $\chi(\mathbb{CP}^1)=2$, $\chi(\mathbb{CP}^2)=3$, $\chi(\mathbb{C
 
 *Step 2 ($n_u = \chi(\mathbb{CP}^2)$).* T4 defines $n_u = n_s - 1 = 3$. The lemma gives $\chi(\mathbb{CP}^2) = 3$. Therefore $n_u = \chi(\mathbb{CP}^2)$.
 
-*Step 3 ($N_c = \chi(\mathbb{CP}^2)$).* The Atiyah-Singer index theorem applied to $\mathbb{CP}^2$ with spin$^c$ structure $\mathcal{O}(1)$ gives (Part 3 §2):
-$$N_c = \mathrm{ind}(D^c_{\mathbb{CP}^2}\otimes\mathcal{O}(1)) = \chi(\mathbb{CP}^2,\mathcal{O}(1)) = \binom{1+2}{2} = 3 = \chi(\mathbb{CP}^2).$$
+*Step 3 ($N_c = \chi(\mathbb{CP}^2)$).* CP² has a CW structure with exactly one cell in each of dimensions 0, 2, 4, giving $\chi(\mathbb{CP}^2) = 1 - 0 + 1 - 0 + 1 = 3$. Therefore $N_c = \chi(\mathbb{CP}^2) = 3$.
 
 *Step 4 ($n_u = N_c$).* From Steps 2 and 3: $n_u = 3 = N_c = \chi(\mathbb{CP}^2)$. The up-quark mode index equals the number of quark colors — both are the Euler characteristic of the $d=4$ sector manifold.
 

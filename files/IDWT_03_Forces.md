@@ -176,7 +176,7 @@ Each fundamental force acts within a spatial region determined by its sector. Th
 | Strong (QCD) | — (kernel contact) | d=3, d=4 | — |
 | Gravity | — | (none) | 10 |
 
-**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the force acts in. A d=2 photon cannot couple to a particle with no support on the d=2 sector. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 sector support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from the Atiyah-Singer index on CP² (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
+**Coordinate containment.** For a force to couple two particles, both must have wavefunction support on the spatial coordinates the force acts in. A d=2 photon cannot couple to a particle with no support on the d=2 sector. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 sector support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological charge — electric charge from the Hopf fiber winding number on S³ (the d=3 sector boundary), colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on the d=2 sector.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
@@ -188,7 +188,7 @@ The gravitational field is genuinely 10D — it is not a 3D field with extra-dim
 
 **Spatial extent and coupling strength.** The gauge forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
 
-**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force mediator occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; the CP² Atiyah-Singer index constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
+**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force mediator occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
 ### 0.9 CKM Matrix from the Kernel
 
@@ -307,7 +307,7 @@ SU(3) gauge theory is not postulated. It follows from the CP² geometry combined
 
 The argument above establishes that a connection must exist. This subsection constructs it explicitly from the IDWT sector field.
 
-**The colour triplet state.** The Atiyah-Singer index on CP² (Part 8 §2) gives three left-chiral zero modes φ_a ∈ L²(CP²), a = 1, 2, 3. At spacetime point x, the d=4 sector component of Ψ_∞ decomposes as:
+**The colour triplet state.** χ(CP²) = 3 (see Part 8 §2 for explicit construction) gives three left-chiral modes φ_a ∈ L²(CP²), a = 1, 2, 3. At spacetime point x, the d=4 sector component of Ψ_∞ decomposes as:
 
 ```
 ψ_color(x) = (ψ¹(x), ψ²(x), ψ³(x)) ∈ ℂ³
@@ -496,25 +496,21 @@ For d=6 (CP³, m=3): S₊ = Λ^{0,0} ⊕ Λ^{0,2} (dim 1+3=4) and S₋ = Λ^{0,1
 | d=4 (CP²) | ✓ (spin^c) | exists | 2L + 2R | u_L,d_L vs u_R,d_R |
 | d=5 (S⁵) | ✗ | none | Dirac only | ν_L + ν_R (Dirac neutrinos) |
 | d=6 (CP³) | ✓ | exists | 4L + 4R | ν_L,e_L,ν_μL,μ_L vs right-handed |
-| d=10 (CP⁵) | ✓ | exists | 16L + 16R | SO(10) Weyl splitting |
+| d=10 (CP⁵) | ✓ | exists | 16L + 16R | d mod 8=2 Maj-Weyl |
 
 ---
 
-## 8. Hypercharges from Anomaly Cancellation and SO(10)
+## 8. Hypercharges from Anomaly Cancellation
 
-With N_c = 3 from the CP² Dirac index, and g₆₆ = 1/4 established from CP³ quaternionic geometry (Part 2 §9c), all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
+With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geometry (Part 2 §9c), all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
 
-**Note on derivation order.** The anomaly cancellation route works from d=4 geometry upward: CP² gives N_c = 3, then CP³ quaternionic geometry gives g₆₆ = 1/4, and N_c = 3 together with Y_L = −√g₆₆ = −1/2 force the remaining hypercharge assignments via SU(2)²U(1) anomaly cancellation. Anomaly cancellation is the mechanism that propagates the geometric inputs into a complete hypercharge table — it is not the source of g₆₆.
-
-**Independent cross-check — SO(10) algebra:** Because Ψ∞ is a spinor and d=10 has d mod 8 = 2, the d=10 sector carries a Majorana-Weyl spinor whose 16-component Weyl part is the **16** of Spin(10) ≅ SO(10). The six distinct hypercharge values in that multiplet — Y = {+1/6, −2/3, +1, +1/3, −1/2, 0} — are determined entirely by the SO(10) weight lattice. For the tau generation specifically: Y(τ) = −1, Y(ν_τ) = 0, Y(t) = +2/3, Y(b) = −1/3 follow from the SO(10) root system without any SM hypercharge assignment.
-
-Both routes agree. The SO(10) route provides a cross-check on the anomaly cancellation result: the same hypercharges that cancel anomalies with N_c=3 are precisely those predicted by the SO(10) weight lattice. The redundancy is structural consistency, not circular reasoning — the two routes start from different sectors (d=4 and d=10) and converge on the same hypercharges.
+**Note on derivation order.** The anomaly cancellation route works from d=4 geometry upward: χ(CP²) = 3 gives N_c = 3, then CP³ complex geometry (χ(CP³) = n_s) gives g₆₆ = 1/4, and N_c = 3 together with Y_L = −√g₆₆ = −1/2 force the remaining hypercharge assignments via SU(2)²U(1) anomaly cancellation. Anomaly cancellation is the mechanism that propagates the geometric inputs into a complete hypercharge table — it is not the source of g₆₆.
 
 ---
 
 ## 9. Colour Coupling Running 🔶
 
-The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) contains two contributions: −2n_f/(48π²) from fermion loops and 11N_c/(48π²) from gauge-boson (gluon) loops. IDWT derives N_c = 3 from the CP² Dirac index (§2) and n_f = 6 from the six occupied quark modes. However, because the IDWT action has no propagating colour gauge quanta (§0.2, §0.6), the 11N_c gauge-boson loop term does not automatically follow. The running of the effective colour coupling g²_eff = 2g_{44}/π² from the kernel in a theory with only quark loops would give b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
+The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) contains two contributions: −2n_f/(48π²) from fermion loops and 11N_c/(48π²) from gauge-boson (gluon) loops. IDWT derives N_c = 3 from χ(CP²) (§2) and n_f = 6 from the six occupied quark modes. However, because the IDWT action has no propagating colour gauge quanta (§0.2, §0.6), the 11N_c gauge-boson loop term does not automatically follow. The running of the effective colour coupling g²_eff = 2g_{44}/π² from the kernel in a theory with only quark loops would give b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
 
 **Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running at all — and if so, whether resummation of quark loop insertions in the kernel produces a positive b₀ and asymptotic freedom.
 
@@ -782,7 +778,7 @@ The spinor structure of Ψ∞ means the quantum number structure of the SM emerg
 | Quark chirality (u_L ≠ u_R) | CP² Kähler chirality splits 4-spinor into 2L + 2R | §7 above |
 | Lepton chirality (e_L ≠ e_R) | CP³ Kähler chirality splits 8-spinor into 4L + 4R | §7 above |
 | Neutrinos are Dirac | d=5 has d mod 8 = 5; Majorana spinors forbidden | Clifford periodicity |
-| Tau-sector hypercharges | SO(10) spinor weight lattice (16 of Spin(10)) | 16 of Spin(10) |
+| Tau hypercharges | Y(τ)=−1 from anomaly cancellation with N_c=3 and g_{66}=1/n_s (§8, §13) | ✅ |
 | 0νββ rate = 0 | Follows from Dirac neutrino prediction | Falsifiable |
 
 The spinor structure governs quantum numbers — what attaches to each mode. The mass formula m = m_scale_d × S(n,d), all coupling constants, the sector structure {2,3,4,5,6,10}, and the sole unit reference m_e are determined by the geometric and combinatorial structure of M_∞ independently of spin. m_W is derived.

@@ -257,7 +257,7 @@ Magnetic moments from the l=1 spin-orbit admixture of the cross-sector kernel (P
 n=2: 18.8 MeV   (= m_scale_3 × S(2,3))
 n=3: 47.0 MeV   (= m_scale_3 × S(3,3))
 ```
-Real resonances of M_∞ that fail Stage-1 dimensional visibility. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
+Real resonances of M_∞ that fail Stage-2 co-fixed-point stability. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
 
 **Neutrino absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data)
 ```

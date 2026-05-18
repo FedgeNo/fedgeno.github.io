@@ -51,7 +51,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **T0.5 — Two-Stage Observability Filter.** A mode (n,d) is physical iff it passes both stages. Stage 1 is dimensional visibility (Ω_log ≤ ln 2 — sufficient vibrational activity in our d=3 dimensions). Stage 2 is the co-fixed-point condition (n must be a co-fixed-point of the sector comb filtration from n_s; purely algebraic, applies uniformly across all sectors). Stage 1 governs observability; Stage 2 selects stable resonances of M_∞.
 
-**T1 — Hilbert Series.** m(n,d)/m_scale_d is the coefficient of t^n in the Poincaré-Hilbert series of ℝ[x_1,...,x_d]. Equivalently, S(n,d) = IDOS_d(n) = dim Sym^{n-1}(ℝ^{d+1}). Hockey-stick identity S(n+1,d) = S(n,d) + S(n,d-1) is the d-dimensional quasicrystal inflation rule.
+**T1 — Hilbert Series.** m(n,d)/m_scale_d is the coefficient of t^n in the Poincaré-Hilbert series of ℝ[x_1,...,x_d]. Equivalently, S(n,d) = IDOS_d(n) = dim Sym^{n-1}(ℝ^{d+1}). Pascal recursion S(n,d) = S(n,d-1) + S(n-1,d) is the sector generation law (Part 2 §3).
 
 **T2 — Kernel Uniqueness.** Among all U(d)×U(d')-invariant degree-4 polynomials on Ξ_d × Ξ_{d'}, the interaction (ξ_d·ξ_{d'})² is the unique one satisfying: (1) non-trivial sector mixing, (2) ℓ=0⊕ℓ=2 decomposition (ℓ=0 gives mass scale, ℓ=2 gives GTC correction ε), (3) rank-1 factorisation g_{dd'} = v_d v_{d'}.
 
@@ -245,7 +245,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - **Read the relevant documents before making claims about what the theory contains or lacks.**
 - When changing a document, do not "argue" against the now non-existent previous version of the document.
 - Do not introduce concepts or variables from other frameworks without explicit confirmation.
-- Git is available. After completing work, stage with `git add -A`, write a short descriptive commit message summarising what changed (e.g. "Add sector-filters article", "Fix neutrino mass values in paper"), then `git push origin master`. Do not rebase, force-push, or alter history.
+- Do not touch git in any way. No commits, no staging, no pushing, no branching, no git commands of any kind. Git is the user's responsibility entirely.
 
 ## Workflow
 - Your role is to verify and gatekeep what goes into the documents, script and website.

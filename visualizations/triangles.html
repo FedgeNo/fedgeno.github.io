@@ -57,10 +57,10 @@
 
     /* info panel */
     #info {
-        position: absolute; bottom: 20px; right: 20px; width: 370px;
+        position: absolute; bottom: 20px; left: 12px; width: 370px;
         background: rgba(5,5,15,0.92);
         padding: 16px; border-radius: 10px; border: 1px solid #333;
-        max-height: calc(100vh - 200px); overflow-y: auto; z-index: 10;
+        max-height: calc(100vh - 290px); overflow-y: auto; z-index: 10;
         scrollbar-width: thin; scrollbar-color: #333 transparent;
     }
     #info h2 { margin: 0 0 12px 0; font-size: 20px; display:flex; align-items:baseline; gap:8px; }
@@ -150,6 +150,7 @@
     <button id="btnGen">Generation Law</button>
     <button id="btnRec">Pascal Recursion</button>
     <button id="btnHock">Hockey-stick</button>
+    <button id="btnGens">Generations</button>
     <button id="btnDiag">Sector Lines</button>
     <button id="btnReset" title="Reset camera to default view">&#8635; Reset view</button>
 </div>
@@ -285,8 +286,13 @@ function applyFilter() {
     });
     particleMeshes.forEach(m => {
         const on = activeSectorFilter === null || m.userData.d === activeSectorFilter;
-        m.material.opacity = on ? 1 : 0.06;
-        m.material.transparent = !on;
+        if (m.userData.special === 'beat') {
+            m.material.opacity = on ? 0.75 : 0.06;
+            m.material.transparent = true;
+        } else {
+            m.material.opacity = on ? 1 : 0.06;
+            m.material.transparent = !on;
+        }
     });
 }
 
@@ -339,7 +345,7 @@ sectors.forEach((s, gi) => {
 
 // ==================== PARTICLES ====================
 const particles = [
-    { symbol:'W',  name:'W boson',           d:2,  n:76, S:2926,     pred:'80,379', pdg:'80,377', err:'+0.00%', unit:'MeV',
+    { symbol:'W',  name:'W boson',           d:2,  n:76, S:2926,     pred:'80,379', pdg:'80,377', err:'+0.003%', unit:'MeV',
       deriv:'n_W = n_top + 4 = 72 + 4\n(Vandermonde coupling)' },
     { symbol:'Z',  name:'Z boson',           d:2,  n:81, S:3321,     pred:'91,230', pdg:'91,188', err:'+0.05%', unit:'MeV',
       deriv:'n_Z = n_W + \u03b2 = 76 + 5 = 81\n\u03b2 = S(n_u\u22121, 4) = S(2,4) = 5' },
@@ -348,7 +354,7 @@ const particles = [
     { symbol:'d',  name:'down quark',        d:3,  n:1,  S:1,        pred:'4.70',  pdg:'4.67',   err:'+0.68%', unit:'MeV',
       deriv:'n_d = 1  (universal base case: S(1,d)=1 for all d)' },
     { symbol:'s',  name:'strange quark',     d:3,  n:4,  S:20,       pred:'94.0',  pdg:'93.4',   err:'+0.68%', unit:'MeV',
-      deriv:'n_s = 4  (seed integer, topologically forced\nby ind(D_CP3) = \u03c7(CP3) = 4)' },
+      deriv:'n_s = 4  (seed integer, topologically forced\nby \u03c7(CP\u00b3) = 4)' },
     { symbol:'u',  name:'up quark',          d:4,  n:3,  S:15,       pred:'2.18',  pdg:'2.16',   err:'+0.77%', unit:'MeV',
       deriv:'n_u = n_s \u2212 1 = 3\nPascal: S(n,4)\u2212S(n,3)=S(n\u22121,4) at n=4' },
     { symbol:'c',  name:'charm quark',       d:4,  n:20, S:8855,     pred:'1,280', pdg:'1,270',  err:'+0.76%', unit:'MeV',
@@ -365,8 +371,12 @@ const particles = [
       deriv:'n_\u03bd1 = S(n_u, 3) = S(3,3) = 10\nhockey-stick in d=3: 1+3+6 = 10' },
     { symbol:'\u03bd2', name:'muon neutrino',     d:5, n:15, S:11628, pred:'8.64', pdg:'\u2014', err:'', unit:'meV',
       deriv:'n_\u03bd2 = S(n_u, 4) = S(3,4) = 15\nhockey-stick in d=4: 1+4+10 = 15' },
-    { symbol:'\u03bd3', name:'tau neutrino',      d:5, n:22, S:65780, pred:'48.87', pdg:'\u2014', err:'', unit:'meV',
+    { symbol:'\u03bd3', name:'tau neutrino',      d:5, n:22, S:65780, pred:'50.26', pdg:'\u2014', err:'', unit:'meV',
       deriv:'n_\u03bd3 = n_\u03bd1 + n_\u03bd2 \u2212 n_u\n     = 10 + 15 \u2212 3 = 22  (eigenmode rule)' },
+    { symbol:'\u03b3',  name:'photon',            d:2, n:0,  S:0,     pred:'0',     pdg:'0',              err:'0%',     unit:'MeV',
+      deriv:'n_\u03b3 = 0  (massless ground state; S(0,d) = 0 for all d)\nOff the edge of Pascal\'s triangle \u2014 no mass eigenvalue', special:'massless' },
+    { symbol:'b',       name:'bottom quark',       d:3, n:16, S:816,   pred:'4,181', pdg:'4,180 \u00b1 10', err:'+0.02%', unit:'MeV',
+      deriv:'n_b = k_0 = n_s\u00b2 = 16  (quartic bifurcation beat)\nm_b = \u221a(S(16,3)\u00d7S(17,3)) \u00d7 m_scale_3\n    = \u221a(816\u00d7969) \u00d7 4.702 = 4181 MeV', special:'beat' },
 ];
 
 const particleMeshes = [];
@@ -381,9 +391,19 @@ particles.forEach(p => {
     const pos = calcPos(row, col);
     const color = new THREE.Color(s.color);
 
-    const mat = new THREE.MeshStandardMaterial({
-        color: color, emissive: color, emissiveIntensity: 0.85, roughness: 0.25, metalness: 0.15
-    });
+    let mat;
+    if (p.special === 'massless') {
+        mat = new THREE.MeshBasicMaterial({ color, wireframe: true });
+    } else if (p.special === 'beat') {
+        mat = new THREE.MeshStandardMaterial({
+            color, emissive: color, emissiveIntensity: 0.5, roughness: 0.25, metalness: 0.15,
+            transparent: true, opacity: 0.75
+        });
+    } else {
+        mat = new THREE.MeshStandardMaterial({
+            color, emissive: color, emissiveIntensity: 0.85, roughness: 0.25, metalness: 0.15
+        });
+    }
     const m = new THREE.Mesh(sphereGeo, mat);
     m.position.copy(pos);
     m.userData = p;
@@ -427,29 +447,29 @@ function makeTextSprite(text, color) {
 }
 
 // ==================== RELATIONSHIPS ====================
-const recurGroup  = new THREE.Group(); scene.add(recurGroup);
-const hockeyGroup = new THREE.Group(); scene.add(hockeyGroup);
-const genGroup    = new THREE.Group(); scene.add(genGroup);
+const recurGroup    = new THREE.Group(); scene.add(recurGroup);
+const hockeyGroup   = new THREE.Group(); scene.add(hockeyGroup);
+const genGroup      = new THREE.Group(); scene.add(genGroup);
+const gensGroup     = new THREE.Group(); scene.add(gensGroup);
 
 const genPairs = [
-    ['s','u'], ['u','\u03bd1'], ['u','\u03bd2'], ['\u03bd1','\u03bd3'], ['\u03bd2','\u03bd3'],
-    ['\u03bd1','e'], ['u','e'], ['s','c'], ['c','\u03bc'], ['\u03bd2','\u03bc'],
-    ['\u03bd3','\u03c4'], ['d','\u03c4'], ['W','Z'], ['u','H'], ['c','H'], ['t','H'],
-    ['d','u'], ['\u03c4','e']
+    ['\u03bd1','\u03bd3'], ['\u03bd2','\u03bd3'],
+    ['\u03bd1','e'], ['u','e'], ['c','\u03bc'], ['\u03bd2','\u03bc'],
+    ['\u03bd3','\u03c4'], ['d','\u03c4']
 ];
 const recPairs = [
     ['c','\u03bc'], ['\u03bd2','\u03bc'], ['\u03bd1','e'], ['u','e'], ['\u03bd3','\u03c4'],
     ['d','\u03c4'], ['u','H'], ['c','H'], ['t','H'], ['s','d'], ['c','u'], ['t','c'],
-    ['\u03bc','e'], ['W','Z'], ['H','Z']
+    ['\u03bc','e'], ['W','Z'], ['H','Z'], ['b','d'], ['b','s']
 ];
 const hockPairs = [
-    ['u','\u03bd1'], ['u','\u03bd2'], ['s','c'], ['e','W'], ['e','t'],
-    ['\u03bd1','\u03bd3'], ['\u03bd2','\u03bd3']
+    ['u','\u03bd1'], ['u','\u03bd2'], ['s','c']
 ];
 
-const genLines  = [];
-const recLines  = [];
-const hockLines = [];
+const genLines      = [];
+const recLines      = [];
+const hockLines     = [];
+const gensLines     = [];
 
 function buildConnections(pairs, color, group, store) {
     pairs.forEach(([a, b]) => {
@@ -470,11 +490,52 @@ buildConnections(genPairs,  0x22d3ee, genGroup,    genLines);
 buildConnections(recPairs,  0xf59e0b, recurGroup,  recLines);
 buildConnections(hockPairs, 0xa855f7, hockeyGroup, hockLines);
 
+function buildConnectionsMulti(entries, group, store) {
+    entries.forEach(({a, b, color, label}) => {
+        const ma = particleMap[a], mb = particleMap[b];
+        if (!ma || !mb) return;
+        const pa = ma.position.clone().add(ma.parent.position);
+        const pb = mb.position.clone().add(mb.parent.position);
+        const line = new THREE.Line(
+            new THREE.BufferGeometry().setFromPoints([pa, pb]),
+            new THREE.LineBasicMaterial({ color })
+        );
+        line.userData = { a, b, baseColor: color, label };
+        group.add(line);
+        store.push(line);
+    });
+}
+
+// ---- SM generation groups (all pairwise within each generation) ----
+const G1 = 0x4ade80, G2 = 0xfbbf24, G3 = 0xf87171;
+const gensEntries = [
+    {a:'u', b:'d',           color:G1, label:'Gen 1'},
+    {a:'u', b:'e',           color:G1, label:'Gen 1'},
+    {a:'u', b:'ν1',    color:G1, label:'Gen 1'},
+    {a:'d', b:'e',           color:G1, label:'Gen 1'},
+    {a:'d', b:'ν1',    color:G1, label:'Gen 1'},
+    {a:'e', b:'ν1',    color:G1, label:'Gen 1'},
+    {a:'c', b:'s',           color:G2, label:'Gen 2'},
+    {a:'c', b:'μ',     color:G2, label:'Gen 2'},
+    {a:'c', b:'ν2',    color:G2, label:'Gen 2'},
+    {a:'s', b:'μ',     color:G2, label:'Gen 2'},
+    {a:'s', b:'ν2',    color:G2, label:'Gen 2'},
+    {a:'μ', b:'ν2', color:G2, label:'Gen 2'},
+    {a:'t', b:'τ',     color:G3, label:'Gen 3'},
+    {a:'t', b:'ν3',    color:G3, label:'Gen 3'},
+    {a:'τ', b:'ν3', color:G3, label:'Gen 3'},
+    {a:'b', b:'t',           color:G3, label:'Gen 3'},
+    {a:'b', b:'τ',      color:G3, label:'Gen 3'},
+    {a:'b', b:'ν3',     color:G3, label:'Gen 3'},
+];
+buildConnectionsMulti(gensEntries, gensGroup, gensLines);
+
 function refreshLineHighlights(symbol) {
     [
-        { lines: genLines,   group: genGroup },
-        { lines: recLines,   group: recurGroup },
-        { lines: hockLines,  group: hockeyGroup },
+        { lines: genLines,      group: genGroup },
+        { lines: recLines,      group: recurGroup },
+        { lines: hockLines,     group: hockeyGroup },
+        { lines: gensLines,     group: gensGroup },
     ].forEach(({ lines, group }) => {
         if (!group.visible) return;
         lines.forEach(line => {
@@ -484,7 +545,7 @@ function refreshLineHighlights(symbol) {
     });
 }
 function resetLineColors() {
-    [genLines, recLines, hockLines].forEach(arr =>
+    [genLines, recLines, hockLines, gensLines].forEach(arr =>
         arr.forEach(l => l.material.color.setHex(l.userData.baseColor))
     );
 }
@@ -501,7 +562,7 @@ function showInstructions() {
     document.getElementById('info').innerHTML = `
         <h2>IDWT Spectrum Explorer</h2>
         <p style="line-height:1.65;color:#777;margin:0 0 12px 0;font-size:13px">
-            All 14 Standard Model particles placed on Pascal&rsquo;s triangle layers &mdash;
+            15 massive particles plus the massless photon (&gamma;) placed on Pascal&rsquo;s triangle layers &mdash;
             one layer per sector <span class="mono">d&thinsp;&isin;&thinsp;{2,3,4,5,6,10}</span>.
             Each particle sits at the coefficient
             <span class="mono">S(n,d)&thinsp;=&thinsp;C(n+d&minus;1,&thinsp;d)</span>
@@ -517,17 +578,21 @@ function showInstructions() {
         <div class="row"><span class="label">Hover any dot</span><span>Show S(n,d) value</span></div>
         <div class="row"><span class="label">&#8635; Reset view</span><span>Return camera to default</span></div>
         <h3>Relationship overlays</h3>
-        <div class="row" style="margin-bottom:5px">
+        <div class="row" style="margin-bottom:4px">
             <span class="pill" style="border-color:#22d3ee">Generation Law</span>
             <span style="color:#aaa;font-size:12px">n<sub>lepton</sub> = n<sub>&nu;</sub> + n<sub>quark</sub></span>
         </div>
-        <div class="row" style="margin-bottom:5px">
+        <div class="row" style="margin-bottom:4px">
             <span class="pill" style="border-color:#f59e0b">Pascal Recursion</span>
             <span style="color:#aaa;font-size:12px">S(n,d)&thinsp;=&thinsp;S(n,d&minus;1)&thinsp;+&thinsp;S(n&minus;1,d)</span>
         </div>
-        <div class="row" style="margin-bottom:10px">
+        <div class="row" style="margin-bottom:4px">
             <span class="pill" style="border-color:#a855f7">Hockey-stick</span>
             <span style="color:#aaa;font-size:12px">S(n,d)&thinsp;=&thinsp;&Sigma;<sub>k</sub>&thinsp;S(k,d&minus;1)</span>
+        </div>
+        <div class="row" style="margin-bottom:4px">
+            <span class="pill" style="border-color:#4ade80">Generations</span>
+            <span style="color:#aaa;font-size:12px"><span style="color:#4ade80">&#9632;</span>gen1&thinsp;<span style="color:#fbbf24">&#9632;</span>gen2&thinsp;<span style="color:#f87171">&#9632;</span>gen3 &mdash; all within-gen pairs</span>
         </div>
         <p style="font-size:11.5px;color:#444;margin:0">
             Select a particle then toggle an overlay to highlight only its connections.
@@ -537,38 +602,46 @@ function showInstructions() {
 function updateInfo(p) {
     const sec = sectorByD[p.d];
 
+    const sym = p.symbol;
     const allRel = [];
-    genPairs.forEach(([a,b]) => {
-        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'gen'});
-        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'gen'});
-    });
-    recPairs.forEach(([a,b]) => {
-        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'rec'});
-        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'rec'});
-    });
-    hockPairs.forEach(([a,b]) => {
-        if (a===p.symbol) allRel.push({type:'child', sym:b, rel:'hock'});
-        if (b===p.symbol) allRel.push({type:'parent',sym:a, rel:'hock'});
-    });
-    const seen = new Set();
-    const rels = allRel.filter(r => {
-        const k = r.type+r.sym+r.rel;
-        return seen.has(k) ? false : seen.add(k);
+
+    // Fixed-color overlays (pair arrays)
+    [
+        { pairs: genPairs,  color:'#22d3ee', label:'Generation Law' },
+        { pairs: recPairs,  color:'#f59e0b', label:'Pascal Recursion' },
+        { pairs: hockPairs, color:'#a855f7', label:'Hockey-stick' },
+    ].forEach(({pairs, color, label}) => {
+        pairs.forEach(([a, b]) => {
+            if (a === sym) allRel.push({sym:b, color, label, arrow:'→'});
+            if (b === sym) allRel.push({sym:a, color, label, arrow:'←'});
+        });
     });
 
-    const relColor = {gen:'#22d3ee', rec:'#f59e0b', hock:'#a855f7'};
-    const relLabel = {gen:'Generation Law', rec:'Pascal Recursion', hock:'Hockey-stick'};
+    // Per-entry-color overlays
+    [gensEntries].forEach(entries => {
+        entries.forEach(({a, b, color, label}) => {
+            const hex = '#' + color.toString(16).padStart(6, '0');
+            if (a === sym) allRel.push({sym:b, color:hex, label, arrow:'→'});
+            if (b === sym) allRel.push({sym:a, color:hex, label, arrow:'←'});
+        });
+    });
+
+    const seen = new Set();
+    const rels = allRel.filter(r => {
+        const k = r.label + r.sym + r.arrow;
+        return seen.has(k) ? false : seen.add(k);
+    });
 
     let relHTML = '';
     if (rels.length) {
         relHTML = '<h3>Relationships</h3>';
         rels.forEach(r => {
             const pDat = particles.find(x => x.symbol === r.sym);
-            const arrow = r.type === 'parent' ? '&larr; from' : '&rarr; to';
+            const arrowHTML = r.arrow === '→' ? '&rarr; to' : '&larr; from';
             relHTML += `
                 <div class="rel-row">
-                    <span class="pill" style="border-color:${relColor[r.rel]};font-size:11px">${relLabel[r.rel]}</span>
-                    <span class="rel-target" data-sym="${r.sym}">${arrow} <strong>${r.sym}</strong> &thinsp;<span style="color:#666">${pDat?pDat.name:''}</span></span>
+                    <span class="pill" style="border-color:${r.color};font-size:11px">${r.label}</span>
+                    <span class="rel-target" data-sym="${r.sym}">${arrowHTML} <strong>${r.sym}</strong>&thinsp;<span style="color:#666">${pDat?pDat.name:''}</span></span>
                 </div>`;
         });
     }
@@ -614,12 +687,12 @@ let selectedIndex = -1;
 
 function selectParticle(mesh, fly) {
     if (selected && selected !== mesh) {
-        selected.material.emissiveIntensity = 0.85;
+        if (selected.material.emissive) selected.material.emissiveIntensity = selected.userData.special === 'beat' ? 0.5 : 0.85;
         selected.scale.setScalar(1);
     }
     selected      = mesh;
     selectedIndex = particleMeshes.indexOf(mesh);
-    selected.material.emissiveIntensity = 2.4;
+    if (selected.material.emissive) selected.material.emissiveIntensity = 2.4;
     selected.scale.setScalar(1.35);
     updateInfo(mesh.userData);
     refreshLineHighlights(mesh.userData.symbol);
@@ -628,7 +701,7 @@ function selectParticle(mesh, fly) {
 
 function deselectAll() {
     if (selected) {
-        selected.material.emissiveIntensity = 0.85;
+        if (selected.material.emissive) selected.material.emissiveIntensity = selected.userData.special === 'beat' ? 0.5 : 0.85;
         selected.scale.setScalar(1);
         selected = null; selectedIndex = -1;
     }
@@ -691,7 +764,7 @@ renderer.domElement.addEventListener('pointermove', e => {
         tooltipEl.style.left = (e.clientX + 14) + 'px';
         tooltipEl.style.top  = (e.clientY + 14) + 'px';
         tooltipEl.innerHTML =
-            `n = ${d.value.toLocaleString()} &nbsp; C(${d.row},${d.col})`;
+            `n = ${d.row - d.col + 1} &nbsp; S = ${d.value.toLocaleString()}`;
         renderer.domElement.style.cursor = 'crosshair';
         return;
     }
@@ -708,9 +781,10 @@ function wireOverlay(btnId, group, lineStore) {
         if (group.visible && selected) refreshLineHighlights(selected.userData.symbol);
     };
 }
-wireOverlay('btnGen',  genGroup,    genLines);
-wireOverlay('btnRec',  recurGroup,  recLines);
-wireOverlay('btnHock', hockeyGroup, hockLines);
+wireOverlay('btnGen',      genGroup,      genLines);
+wireOverlay('btnRec',      recurGroup,    recLines);
+wireOverlay('btnHock',     hockeyGroup,   hockLines);
+wireOverlay('btnGens',     gensGroup,     gensLines);
 
 document.getElementById('btnDiag').onclick = function() {
     const v = !diagonalLines[0].visible;
@@ -724,6 +798,7 @@ document.getElementById('btnReset').onclick = function() {
 
 // ==================== INITIAL STATE ====================
 genGroup.visible = recurGroup.visible = hockeyGroup.visible = false;
+gensGroup.visible = false;
 diagonalLines.forEach(l => l.visible = false);
 showInstructions();
 

@@ -255,7 +255,7 @@ lineGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 const lineMat = new THREE.LineBasicMaterial({
   vertexColors: true,
   transparent: true,
-  opacity: 0.78,
+  opacity: 0.1,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });
@@ -266,20 +266,20 @@ scene.add(orbitLine);
 const tubeMat = new THREE.LineBasicMaterial({
   color: 0xaac8ff,
   transparent: true,
-  opacity: 0.03,
+  opacity: 0.1,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });
 const orbitGlow = new THREE.Line(lineGeo.clone(), tubeMat);
-scene.add(orbitGlow);
+//scene.add(orbitGlow);
 
 // Emphasis spheres — fewer, evenly spaced along the dense orbit
-const sphereCount = 12;
+const sphereCount = 3;
 const sphereGeo = new THREE.SphereGeometry(0.1, 12, 12);
 const sphereMat = new THREE.MeshBasicMaterial({
   color: 0xffffff,
   transparent: true,
-  opacity: 0.9,
+  opacity: 0.5,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });

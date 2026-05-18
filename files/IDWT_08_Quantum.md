@@ -46,26 +46,12 @@ The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8
 | 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
 | **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no Majorana mass → neutrinos are Dirac** |
 | 6 | 6 | ✓ | ✗ | ✗ | 8 | Weyl: Kähler γ₅ splits lepton doublets |
-| 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 of Spin(10) — one full SM generation; weight lattice gives tau hypercharges |
+| 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 real components; tau lepton sector |
 
 
 **d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. This forbids any Majorana mass term for neutrinos; the seesaw mechanism is geometrically prohibited. **Neutrinos are Dirac fermions** — a concrete, falsifiable prediction (see Part 1 §6). Neutrinoless double beta decay must have rate exactly zero.
 
-**d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The physical spinor has 16 real components (= 2^(d/2−1) = 2^4), forming the **16** of Spin(10) ≅ SO(10). The Dirac spinor in d=10 has 32 complex components, but the Majorana-Weyl projection halves this to 16 — and it is this 16-component object, not the 32, that carries the physical content of one SM generation:
-
-```
-16 of SO(10) under SU(3)×SU(2)×U(1)_Y:
-  (3,2)_{+1/6}  → Q_L = (u_L, d_L) — left-handed quark doublet, ×3 colours
-  (3̄,1)_{-2/3} → u_R^c  — right-handed up antiquark
-  (1,1)_{+1}   → e_R^c  — right-handed antilepton
-  (3̄,1)_{+1/3} → d_R^c  — right-handed down antiquark
-  (1,2)_{-1/2} → L_L = (ν_L, e_L) — left-handed lepton doublet
-  (1,1)_{0}    → ν_R^c  — absent from physical spectrum (observability filter)
-  ─────────────────────────────────────────────
-  Total: 16 Weyl fermions = 2^(d/2−1) = 2^4
-```
-
-The tau, ν_τ, b quark, and t quark — all in the d=10 sector — are components of one SO(10) multiplet. Their hypercharges Y(τ)=−1, Y(ν_τ)=0, Y(t)=+2/3, Y(b)=−1/3 follow from the SO(10) weight lattice, not from separate SM assignment.
+**d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The Dirac spinor in d=10 has 32 complex components; the Majorana condition imposes a reality projection and the Weyl condition selects chirality, leaving 16 real components (= 2^(d/2−1) = 2^4). The d=10 sector contains the tau lepton. Its hypercharge Y(τ) = −1 is derived from gauge anomaly cancellation with N_c = 3 and Y_L = −1/2 (Part 3 §8, §13).
 
 ### 2.2 Spin Structure by Sector
 
@@ -126,7 +112,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 | d=4 | CP² | 1 | C(3,2) = 3 | Three quark colours ✅ |
 | d=5 | S⁵ | — | 0 | Dirac neutrino sector ✅ |
 | d=6 | CP³ | 1 | C(4,3) = 4 | 4 lepton states per generation ✅ |
-| d=10 | CP⁵ | 1 | C(6,5) = 6 | Tau SO(10) sector ✅ |
+| d=10 | CP⁵ | 1 | C(6,5) = 6 | Tau lepton sector ✅ |
 
 **What remains open:**
 - Explicit D_Ξ spectrum on Sym^n(ℝ^d) and whether eigenvalues match m_scale_d × f(S(n,d))

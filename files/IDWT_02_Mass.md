@@ -237,7 +237,7 @@ The geometric mean is forced by the symmetry of the equal-weight condition and t
 
 ## 9. Coupling Constants — Complete Derived Set
 
-The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ from seed n_s (with n_u = n_s−1 derived); g₆₆ and g₁₀,₁₀ from CP³ quaternionic geometry (§9c); g₂₂ from the cross-sector back-reaction fixed-point (§10); g₅₅ = 96/g₂₂ from Hopf universality. All six sector self-couplings are derived from m_e and seeds.
+The coupling matrix G has rank 1: G_{dd'} = v_d × v_{d'} where v_d = √g_{dd}. All cross-sector couplings follow from the six sector self-couplings, which reduce to five distinct values (g₆₆ = g₁₀,₁₀). g₃₃ and g₄₄ from seed n_s (with n_u = n_s−1 derived); g₆₆ and g₁₀,₁₀ from CP³ complex geometry (§9c); g₂₂ from the cross-sector back-reaction fixed-point (§10); g₅₅ = 96/g₂₂ from Hopf universality. All six sector self-couplings are derived from m_e and seeds.
 
 ---
 
@@ -280,13 +280,13 @@ The rank-1 identity g₃₃×g₄₄ = g₃₄² follows from the seed structure
 
 ---
 
-### g₆₆ = 1/4 — from CP³ quaternionic geometry
+### g₆₆ = 1/4 — from CP³ complex geometry
 
 The d=6 sector lives on CP³. Three independent geometric properties of CP³ all fix the same value:
 
 1. **Euler characteristic:** χ(CP³) = 4 = n_s. The seed n_s was forced by this same fact (Part 1 §3a). The sector coupling is 1/χ(CP³) = 1/n_s = 1/4.
 
-2. **Quaternionic structure:** CP³ = Sp(2)/(Sp(1)×U(1)) is the twistor space of HP¹ ≅ S⁴ (the quaternionic projective line). Its base space has quaternionic dimension 1, and dim_ℝ(ℍ) = 4 = n_s. The natural coupling scale of a quaternionic fiber is 1/dim_ℝ(ℍ) = 1/4.
+2. **Twistor structure:** CP³ = Sp(2)/(Sp(1)×U(1)) is the twistor space of S⁴ ≅ HP¹. The base space S⁴ has real dimension 4 = n_s, so the coupling scale 1/n_s = 1/4 is geometrically fixed by the twistor fibration.
 
 3. **Fubini-Study curvature:** The minimum sectional curvature of CP³ with the Fubini-Study metric is 1/4 (attained on totally real planes). This is the unique curvature scale invariant under the full Sp(2) isometry group of the sector, and it equals 1/n_s.
 
@@ -339,7 +339,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Verification:** v₃/v₂ = v₅/v₄ = 0.17116 and g₂₅ = v₂×v₅ = 9.798 = g₃₄ = 4√6
 
-**Key consequence:** g₅₅ is fully determined by g₂₂ — no additional measurement is needed. The coupling algebra is closed by the single measured constant m_e: all six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from CP³ quaternionic geometry, g₅₅ = 96/g₂₂ from Hopf universality, g₂₂ from the cross-sector mode formula §10).
+**Key consequence:** g₅₅ is fully determined by g₂₂ — no additional measurement is needed. The coupling algebra is closed by the single measured constant m_e: all six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from CP³ complex geometry, g₅₅ = 96/g₂₂ from Hopf universality, g₂₂ from the cross-sector mode formula §10).
 
 **Neutrino mass scale (derived, §9c):** The d=5 scale is set by the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ = 7.429×10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. No suppression mechanism is needed; the small scale arises geometrically from the Hopf fibration S¹→S⁵→CP². The d=5 sector admits only Dirac spinors (d mod 8 = 5 forbids Majorana), so 0νββ is exactly zero.
 
@@ -357,7 +357,7 @@ g₄,₁₀ = √(g₄₄ × g₁₀,₁₀) = √(3/√7)  [= g₄₆]
 g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 ```
 
-**Coupling algebra complete:** All six sector self-couplings are derived from m_e and the seeds {1,4}. g₃₃ and g₄₄ from seed equations; g₆₆ and g₁₀,₁₀ from CP³ quaternionic geometry (§9c); g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4) / 2 from seeds (§10); g₅₅ = 96/g₂₂ from Hopf universality.
+**Coupling algebra complete:** All six sector self-couplings are derived from m_e and the seeds {1,4}. g₃₃ and g₄₄ from seed equations; g₆₆ and g₁₀,₁₀ from CP³ complex geometry (§9c); g₂₂ = (S(n_s,3)−n_u)² × S(n_u−1,4) / 2 from seeds (§10); g₅₅ = 96/g₂₂ from Hopf universality.
 
 ---
 
@@ -563,7 +563,7 @@ The lightest occupied mode is the up quark: m_u = m_scale_4 × S(3,4) = m_e × �
 
 ### The ρ Meson — Comb Filter Prediction
 
-The inter-sector comb filter Im[Γ_{346}(ω)] predicts the ρ meson mass independently of m_scale_3. Its inputs are the coupling constants g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4 (all derived from seeds and CP³ quaternionic geometry) and the Jacobi chain delays τ_d = 1/(2√(k₀+d)) at resonance site k₀=16:
+The inter-sector comb filter Im[Γ_{346}(ω)] predicts the ρ meson mass independently of m_scale_3. Its inputs are the coupling constants g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4 (all derived from seeds and CP³ complex geometry) and the Jacobi chain delays τ_d = 1/(2√(k₀+d)) at resonance site k₀=16:
 
 ```
 m_rho* = arg max Im[Γ_{346}(ω)] = 775.794 MeV    (PDG: 775.260 ± 0.250 MeV)
@@ -781,7 +781,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 
 | d | g_dd source | m_scale derived? |
 |---|------------|-----------------|
-| 6 | g₆₆ = 1/n_s = 1/4 (CP³ quaternionic geometry: χ(CP³)=n_s, dim_ℝ(ℍ)=n_s, min. Fubini-Study curvature=1/4) | ✅ |
+| 6 | g₆₆ = 1/n_s = 1/4 (CP³ complex geometry: χ(CP³)=n_s=4, min. Fubini-Study curvature=1/4) | ✅ |
 | 3 | g₃₃ = n_s²√(n_s+n_u)/2 from seed self-interaction | ✅ from m_e |
 | 4 | g₄₄ = n_sn_u/√(n_s+n_u) from seed harmonic mean | ✅ from m_e |
 | 10 | g₁₀,₁₀ = g₆₆ = 1/n_s from seed (shared with d=6) | ✅ (m_scale_10 = m_scale_6) |
@@ -808,11 +808,10 @@ For the six IDWT sectors: b_{k₀} takes values 0.51539 (d=2) down to **0.50000 
 
 **Corollary (WKB exactness for d=10).** The leading-order WKB delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a WKB artifact.
 
-**Sector summary — three routes to d=10:**
+**Sector summary — two routes to d=10:**
 
 | Route | Origin | Statement |
 |---|---|---|
-| Hurwitz (geometry) | Division algebras | 𝕆 = last normed algebra; octonionic Hopf → d=10 |
 | **Gegenbauer (algebra)** | **Jacobi chain criticality** | **b_{k₀}=1/2 iff d=2(n_s+1)=10** |
 | Seed coupling | g₁₀,₁₀ = g₆₆ = 1/n_s = 1/4 from seed | Same coupling for both CP sectors |
 

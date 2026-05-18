@@ -147,11 +147,9 @@ n_charm = S(n_strange, 3)   # = 20
 n_mu = n_charm + n_nu2   # = 35; cross-check: S(n_strange, 4) = 35 exactly
 
 # n_tau = n_nu3 + n_down = 22 + 1 = 23
-# Tau: third-generation lepton, d=10 sector (octonionic Hopf total space).
-# The d=10 sector carries the Majorana-Weyl spinor of SO(10): its 16-component
-# Weyl part is the 16 of SO(10), containing one full SM generation (tau, nu_tau,
-# b quark, t quark). Their hypercharges follow from the SO(10) root lattice.
-# (Part 1 section 6, Part 2 section 7, Part 8 section 59.1)
+# Tau: third-generation charged lepton, d=10 sector (CP⁵, d mod 8 = 2 Majorana-Weyl).
+# d=10 contains only the tau lepton; top/bottom/nu_tau are in d=4/3/5 respectively.
+# (Part 1 §3d, Part 2 §7)
 n_tau = n_nu3 + n_down    # = 23
 
 # --- Up-type quark mode indices ----------------------------------------------
@@ -520,9 +518,7 @@ r1_bare    = Vud_bare**2 + sin_C_bare**2
 # f_π. (Part 3 section 0.7, Part 5)
 f_pi = m_scale3 * S(n_strange, 3)
 
-# N_c = 3 — number of quark colours.
-# Equal to the Atiyah-Singer index ind(D^c_{CP²} ⊗ O(1)) = 3 (Theorem S3,
-# Part 8 section 59). Also χ(CP²) = 3 and the QCD color group rank.
+# N_c = 3 — number of quark colours, equal to χ(CP²) = 3 (one cell in each of dims 0, 2, 4).
 N_c  = 3
 
 # Λ_QCD = N_c × f_π

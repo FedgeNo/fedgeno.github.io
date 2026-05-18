@@ -10,11 +10,11 @@
 
 The mass tables in this document invite an immediate reaction: this must be curve-fitting. The reaction is understandable and wrong, in ways that are not obvious on a first pass. Three specific misconceptions are worth addressing before proceeding.
 
-**The mode indices are not fitted.** Every mode index $n$ in the particle spectrum is generated algebraically by the Hockey-Stick identity $S(n,d) = \binom{n+d-1}{d}$ applied to the single seed $n_s = 4$. The full derivation chain is in §5 and Part 2 §6. As one example: $n_\mu = S(4,4) = 35$ because that is Pascal's recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ evaluated at $(n=4, d=4)$ — not because the muon happens to have that index. The seed $n_s = 4$ is itself topologically forced by the Dirac index of $\mathbb{CP}^3$ (§3b), independently of any mass data.
+**The mode indices are not fitted.** Every mode index $n$ in the particle spectrum is generated algebraically by the Hockey-Stick identity $S(n,d) = \binom{n+d-1}{d}$ applied to the single seed $n_s = 4$. The full derivation chain is in §5 and Part 2 §6. As one example: $n_\mu = S(4,4) = 35$ because that is Pascal's recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ evaluated at $(n=4, d=4)$ — not because the muon happens to have that index. The seed $n_s = 4$ is itself topologically forced by $\chi(\mathbb{CP}^3) = 4$ (§3b), independently of any mass data.
 
-**The sector assignments are not arbitrary.** Each sector imparts specific physical properties through its spinor geometry. $d=5$ ($S^5$, $d \bmod 8 = 5$) forbids Majorana spinors by Clifford algebra periodicity — Dirac neutrinos are not a choice, they are a geometric consequence. $d=4$ ($\mathbb{CP}^2$) generates colour charge from its $SU(3)$ isometry group via the Atiyah-Singer index. $d=6$ ($\mathbb{CP}^3$) produces colour-neutral chiral fermions through its Kähler structure. Moving a particle to a different sector does not produce a different prediction — it produces the wrong quantum numbers entirely. The assignments are locked by geometry.
+**The sector assignments are not arbitrary.** Each sector imparts specific physical properties through its spinor geometry. $d=5$ ($S^5$, $d \bmod 8 = 5$) forbids Majorana spinors by Clifford algebra periodicity — Dirac neutrinos are not a choice, they are a geometric consequence. $d=4$ ($\mathbb{CP}^2$) generates colour charge from its $SU(3)$ isometry group; $\chi(\mathbb{CP}^2) = 3 = N_c$. $d=6$ ($\mathbb{CP}^3$) produces colour-neutral chiral fermions through its Kähler structure. Moving a particle to a different sector does not produce a different prediction — it produces the wrong quantum numbers entirely. The assignments are locked by geometry.
 
-**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from $n_s = 4$ alone ($g_{33} = 8\sqrt{7}$) and from the quaternionic geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
+**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from $n_s = 4$ alone ($g_{33} = 8\sqrt{7}$) and from the complex geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
 
 The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_s = 4$). Everything else — the sector set, all mode indices, all coupling constants, all sector scales, all particle masses — is derived. The structural evidence against numerology is the cross-referencing: the same numbers arriving independently from different directions. The quantity $q = S(n_u-1, 4) = 5$ appears in both the EW coupling derivation $g_{22} = p^2 q/2$ and the boson mass gap $n_Z - n_W = 5$. The resonance site $k_0 = 16$ satisfies three independent conditions simultaneously. The Higgs mode index $n_H = 95$ is reached by two separate cross-sector routes. Numerological schemes are flexible enough to always find a match. This framework is rigid enough that these convergences are non-trivial.
 
@@ -91,7 +91,7 @@ The mode-selection structure of IDWT is analogous to the cut-and-project method 
 
 The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the geometry and the seed n_s = 4.
 
-Key difference from quasicrystals: IDWT involves continuous amplitude weighting — modes have continuous suppression factor exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, mass gaps between successive occupied modes approach the ratio S(n+1,d)/S(n,d) = (n+d)/n → d in the large-n limit: the spectrum within each sector is asymptotically geometric.
+Key difference from quasicrystals: IDWT involves continuous amplitude weighting — modes have continuous suppression factor exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, the ratio of successive mode masses S(n+1,d)/S(n,d) = (n+d)/n → 1 as n → ∞: S(n,d) ~ nᵈ/d! grows polynomially, so the sector spectrum becomes increasingly dense at large n rather than maintaining a fixed geometric ratio.
 
 ---
 
@@ -106,7 +106,7 @@ The sector space decomposes into sectors with distinct potential well symmetries
 | 4 | CP² | SU(3)/U(2) | Weyl (spin^c) | 4 | Up-type quarks (u, c, t) |
 | 5 | S⁵ | SO(6) | Dirac only | 4 | Neutrinos (ν_e, ν_μ, ν_τ) |
 | 6 | CP³ | SU(4)/U(3) | Weyl | 8 | Charged leptons (e, μ) |
-| 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 32 | Tau lepton; d mod 8=2 Maj-Weyl (cross-check: coincides with 16 of Spin(10)) |
+| 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 16 | Tau lepton; d mod 8=2 Maj-Weyl (16 real components) |
 
 This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a below.
 
@@ -116,7 +116,7 @@ This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a 
 
 **Step 1 — CP base sectors from the seed.** The seed $n_s = 4$ and the colour index $N_c = 3$ (from the CP² spin$^c$ index, Part 8 §2.2) identify three complex projective spaces by their Euler characteristics:
 
-$$\chi(\mathbb{CP}^{N_c-1}) = N_c = 3, \quad d = 4; \qquad \chi(\mathbb{CP}^{n_s-1}) = n_s = 4, \quad d = 6; \qquad \chi(\mathbb{CP}^{n_s-1}) = 2, \quad d = 2.$$
+$$\chi(\mathbb{CP}^{N_c-1}) = N_c = 3, \quad d = 4; \qquad \chi(\mathbb{CP}^{n_s-1}) = n_s = 4, \quad d = 6; \qquad \chi(\mathbb{CP}^1) = 2, \quad d = 2.$$
 
 $d = 2$ (CP¹) is the $U(1)$ Hopf fiber base required by the chain. This gives $d \in \{2, 4, 6\}$. The $d=10$ sector is determined by Rule B below.
 
@@ -166,9 +166,9 @@ The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identit
 
 ---
 
-### Sector Topology and the Atiyah-Singer Index
+### Sector Euler Characteristics
 
-Each CP^n sector carries an Euler characteristic χ(CP^n) = n+1. By the Atiyah-Singer index theorem, this equals the holomorphic index ind(D_{CP^n}) = n+1 — the number of independent zero modes of the sector's Dirac operator.
+Each CP^n sector carries an Euler characteristic χ(CP^n) = n+1 (one cell in each even dimension 0, 2, ..., 2n; alternating signs give n+1).
 
 The Euler characteristics of the IDWT sectors are:
 
@@ -181,7 +181,7 @@ The Euler characteristics of the IDWT sectors are:
 | d=6 | CP³ | 4 | **n_s = 4 = seed** (index = n_s, the filtration seed) |
 | d=10 | CP⁵ | 6 | **N_f = 6 flavours** (index = quark family count) |
 
-**The seed n_s = 4 is topologically forced.** The d=6 lepton sector lives on CP³. The Dirac index ind(D_{CP³}) = χ(CP³) = 4. The seed n_s must equal this index for the d=6 spectrum to be self-consistent — it counts the zero modes available before gauge fixing removes one, leaving three generations (e, μ, τ). Therefore n_s = 4 is not chosen: it equals the topological invariant of the lepton sector.
+**The seed n_s = 4 is topologically forced.** The d=6 lepton sector lives on CP³, with χ(CP³) = 4 (cells in dimensions 0, 2, 4, 6). The seed n_s must equal this Euler characteristic for the d=6 spectrum to be self-consistent — it counts the available topological modes before gauge fixing removes one, leaving three generations (e, μ, τ). Therefore n_s = 4 is not chosen: it equals χ(CP³).
 
 **The top quark mode index from geometry:**
 
@@ -221,11 +221,11 @@ The two uniqueness results are parallel:
 
 
 
-**Convergence on d=10.** Four independent routes — Hopf/octonionic chain (approximate), Gegenbauer criticality (exact), Spin(10) spinor weight lattice (cross-check), and Hurwitz termination (exact) — all give d=10.
+**Convergence on d=10.** Two independent routes — Hopf chain (topology) and Gegenbauer criticality (algebra) — both give d=10.
 
-The spinor type per sector follows from the Clifford algebra periodicity theorem (Bott periodicity, mod 8). The sectors are independent in the sense that each carries a distinct Clifford algebra Cl(d) with no shared generators; their spinor spaces therefore combine as a tensor product. The d=10 sector carries a Majorana-Weyl spinor (16 real components, the **16** of Spin(10)); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by d mod 8 (Part 8 §2.1). The total sector-space spinor component count is 2×2×4×4×8×16 = 2¹³ = 8,192 [tensor product over all six sectors].
+The spinor type per sector follows from Clifford algebra periodicity (Bott periodicity, mod 8). The d=10 sector carries a Majorana-Weyl spinor (16 real components, d mod 8 = 2); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by their d mod 8 (Part 8 §2.1).
 
-These sector dimensions are not chosen. They are the unique sequence produced by the Hopf fibration chain over the normed division algebras (ℝ, ℂ, ℍ, 𝕆):
+These sector dimensions are not chosen. They are the unique sequence produced by the complex Hopf fibration chain S¹→S^{2n+1}→CP^n:
 
 ```
 S¹ → S³  → S²    complex Hopf     →  d=2 (base CP¹), d=3 (total S³)
@@ -235,9 +235,9 @@ S³ → S⁷  → S⁴    quaternionic     →  d=4 also as S⁴≅HP¹ (consist
 
 d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6 and serves as the twistor space of S⁴ ≅ HP¹. d=7 (the total space S⁷) is excluded from the IDWT sector set for two consistent reasons: (i) geometrically, S⁷ is the total space of the quaternionic Hopf fibration S³→S⁷→S⁴ and is fully accounted for by the d=4 and d=3 sectors already present; (ii) algebraically, g_{66} = 1/n_s is a seed ratio rather than a kernel fixed-point coupling, so Hopf universality cannot determine a coupling formula for a hypothetical d=7 sector over d=6. Both routes reach the same conclusion.
 
-d=10 arises as CP⁵ = SU(6)/U(5), the next step in the complex projective chain beyond CP³. Its sector dimension d=10 is fixed by the Sector Set Theorem (§3a) — $d=10 = 2(N_f-1)$ where $N_f = n_{\rm top}/(N_c \times n_s) = 6$ — and confirmed independently by the Gegenbauer criticality condition (§3b). Hurwitz's theorem provides a third confirmation: CP⁵ associated with the octonions is the last space in the chain for which the sector structure remains self-consistent.
+d=10 arises as CP⁵ = SU(6)/U(5), the next step in the complex projective chain beyond CP³. Its sector dimension d=10 is fixed by the Sector Set Theorem (§3a) — $d=10 = 2(N_f-1)$ where $N_f = n_{\rm top}/(N_c \times n_s) = 6$ — and confirmed independently by the Gegenbauer criticality condition (§3b), which shows that $b_{k_0}(d) = 1/2$ is achieved uniquely at d=10.
 
-The sequence terminates at d=10 because the octonions are the last normed division algebra — Hurwitz's theorem admits no further entries.
+The sequence terminates at d=10 because any d > 10 puts the seed resonance site $k_0$ in the evanescent (subcritical) regime — stable eigenmodes cannot form.
 
 ### 3c. Gegenbauer Criticality Theorem — Second Route to d=10
 
@@ -275,11 +275,10 @@ For the IDWT sectors with k₀ = n_s² = 16 this evaluates to:
 
 | Route | Condition | Result |
 |---|---|---|
-| Hurwitz (geometry) | Normed division algebras end at 𝕆 | d = 10 |
 | **Gegenbauer (algebra)** | **b_{k₀}(d) = 1/2 ↔ d = 2(n_s+1)** | **d = 10** |
 | Hypercharge (gauge) | g_{10,10} = g_{6,6} = 1/n_s = 1/4 | d = 10 |
 
-Three routes, one answer. The IDWT framework is over-determined on the terminal sector.
+Two routes, one answer. The IDWT framework is over-determined on the terminal sector.
 
 ---
 
@@ -340,7 +339,7 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 **Quantum properties.**
 - **SU(3) color:** Down-type quarks carry color via coordinate containment inside Ξ₄; the SU(3) symmetry arises from the CP² (d=4) isometry. They transform in the fundamental representation.
 - **Confinement:** No scattering states survive the observability filter in d=3; all modes are confined.
-- **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22500, −0.2%). The 1/240 is the Lichnerowicz S³ curvature correction.
+- **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22450, +0.09σ). The 1/240 is the Lichnerowicz S³ curvature correction.
 - **Baryon number:** Topological winding number of the S³ mode.
 - **Coupling filter:** Left-handed weak isospin. The SO(4) = SU(2)_L × SU(2)_R isometry of S³ gives left-handed W coupling and leaves the right-handed component decoupled from the weak interaction. Color coupling is inherited derivatively via coordinate containment inside Ξ_4, not from S³ itself.
 
@@ -371,7 +370,7 @@ Note: S(n,4) = n(n+1)(n+2)(n+3)/24. ε = 1/(280√7) ≈ 0.001348.
 - **Electric charge +2/3:** From Kähler index and U(2) representation theory (Part 3 §4).
 - **Chirality:** CP² Kähler γ₅ → W couples to left-handed component only.
 - **GTC:** The topological correction (1−ε)^k accounts for the compression of up-type masses relative to naive mode scaling; without it the top is overestimated by ~1.35%.
-- **Coupling filter:** Color conservation. The Atiyah-Singer index on CP² gives N_c = 3 — the number of independent color coupling handles. All processes must conserve color; isolated color-nonsinglet states are geometrically forbidden. Confinement is this filter operating at the level of which asymptotic states can be constructed, not a dynamical suppression.
+- **Coupling filter:** Color conservation. χ(CP²) = 3 gives N_c = 3 — the number of independent color coupling handles. All processes must conserve color; isolated color-nonsinglet states are geometrically forbidden. Confinement is this filter operating at the level of which asymptotic states can be constructed, not a dynamical suppression.
 
 **Spectral.** ζ₄(1) = 4/3, ζ₄(0) = −2, a₀₄ ≈ 2.006.
 
@@ -393,7 +392,7 @@ m_scale_5 is fully derived from the cross-sector constraint m_scale_5 × m_scale
 |---|---|---|---|---|
 | ν₁ | 10 | 2002 | 1.487 meV | < 450 meV ✅ |
 | ν₂ | 15 | 11628 | 8.639 meV | < 450 meV ✅ |
-| ν₃ | 22 | 65780 | 50.27 meV (bare: 48.87 meV) | < 450 meV ✅ |
+| ν₃ | 22 | 65780 | 50.26 meV (bare: 48.87 meV) | < 450 meV ✅ |
 
 Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d); bare 59.00 meV. Δm²₃₁/Δm²₂₁ = 32.949 (PDG: 34.825, −5.4%).
 
@@ -430,7 +429,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Electric charge −1:** From Kähler index of CP³ (Part 3 §5).
 - **Chirality:** CP³ Kähler γ₅ → left-handed W coupling (same mechanism as d=4).
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
-- **Coupling filter:** Total colour silence. The Atiyah-Singer index on CP³ gives χ(CP³) = 4, not 3; colour index contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
+- **Coupling filter:** Total colour silence. χ(CP³) = 4, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. CP³ is the twistor space of flat 3+1 Minkowski spacetime, which gives the electron-photon vertex its precise twistor-structured form. The electron's clean electromagnetic behavior is a consequence of its sector geometry being the twistor space of the spacetime in which both it and the photon propagate.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -455,7 +454,6 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 **Quantum properties.**
 - **Lepton number L=1 and charge −1:** Shared with d=6 via joint g=1/4 coupling.
 - **Aubry-André criticality:** At the self-dual point, the WKB approximation is exact — no higher-order corrections to the tau mass. Unique among all sectors.
-- **Spin(10) spinor weight lattice (d mod 8 = 2):** The 16-component Majorana-Weyl spinor of SO(10) has weight lattice cross-checking tau hypercharges against anomaly cancellation (Part 8).
 - **Lepton universality:** m_scale_{10} = m_scale_6 enforces identical mass unit for the heavy lepton family; mass splitting comes entirely from different mode indices (23 vs 13, 35).
 - **Coupling filter:** Fractal marginal coupling. At the AA critical point, the tau's resonance spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the tau's short lifetime), but each specific channel carries measure-zero weight (explaining why the lifetime is finite rather than zero). The tau's coordinate space Ξ_{10} contains all other sectors; in principle it couples to everything, but at every channel the coupling is marginal. The Dyson resummation correction δ_τ = 1/1680 (required only at the critical point) is the mathematical signature of this fractal coupling structure.
 
@@ -482,9 +480,9 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 
 M∞ is one coordinate system extended step by step: the two coordinates of d=2 are contained in d=3, the three of d=3 are contained in d=4, and so on without bound. The sectors D = {2, 3, 4, 5, 6, 10} are the stable levels at which this extension produces observable eigenmodes.
 
-At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, the Atiyah-Singer index is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
+At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, χ is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
 
-M∞ is genuinely infinite-dimensional. Beyond d=10 the Atiyah-Singer index vanishes, the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenmodes closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
+M∞ is genuinely infinite-dimensional. Beyond d=10 χ = 0 (odd spheres) or the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenmodes closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
 
 The containment chain Ξ₂ ⊂ Ξ₃ ⊂ Ξ₄ ⊂ Ξ₅ ⊂ Ξ₆ ⊂ Ξ₁₀ holds for all six sectors: each Ξ_d is M∞ evaluated at coordinate level d, and each level's coordinates are a literal subset of the next level's coordinates.
 
@@ -532,13 +530,13 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 | d = 3 | Particle orbit coincides with our 3D | Down-type quarks: fully at home in observable space |
 | d > 3 | Particle orbit contains our 3D plus (d−3) hidden sector dimensions | Electron (d=6): 3 observable + 3 hidden sector dimensions |
 
-**Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic sector dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We observe the 3D projection of its full 6-dimensional motion. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those sector dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we observe only the d=3 projection of a mode structure that lives in d=6.
+**Particles with d > 3 — partial observation.** The electron (d=6) orbits in 6 dimensions. Three of those dimensions are ours — the d=3 coordinate subspace that constitutes our observable space. The other three are real, physical, macroscopic sector dimensions we cannot directly observe. The electron, from its own perspective, inhabits a 6-dimensional world with no special status attached to any three of the six coordinates. We measure the d=3 component of its full 6-dimensional activity. The internal quantum numbers — hypercharge, lepton number, chirality — are determined by the isometry geometry of the sector manifold in those sector dimensions (SU(4)/U(3) for CP³, the d=6 manifold). They appear to us as discrete labels rather than spatial directions because we can only resolve the d=3 component of a mode structure that lives in d=6.
 
 **Particles with d < 3 — sub-dimensional embedding.** The photon (d=2) is the opposite case. Its orbit spans 2 dimensions — a proper subspace of our 3D. Those 2 dimensions lie entirely within our observable space. From the photon's perspective, reality is 2-dimensional: the third spatial dimension of our world does not exist in its coordinate system. From our perspective, the photon is a 2D entity moving within our 3D world. Its 2D polarization plane can be oriented in any direction within our 3D — the photon is not fixed to one plane in space — but in whichever direction it travels, it is always a 2D object.
 
 **The direct consequence: electromagnetic waves must be transverse.** The photon oscillates in its 2 dimensions. The direction of propagation is the one coordinate our 3D has that the photon's world does not. The photon cannot oscillate in that direction because that direction does not exist from its perspective. As the photon travels in different directions through our 3D space, its 2D polarization plane rotates to remain perpendicular to the direction of travel — the missing dimension is always the one the photon is moving through. Electromagnetic waves are transverse because the photon is a d=2 entity propagating through a d=3 observable space: it oscillates in the 2 dimensions it possesses and propagates through the 1 dimension it doesn't. The two polarization states are the photon's 2 dimensions, made directly observable. This is derived in Part 3 §14.
 
-**The electron cloud is a projection artefact.** The language of "electron clouds" or "probability distributions" in atomic physics is the inevitable result of projecting a 6D orbit onto a 3D observational slice. The electron does not occupy a smeared region of 3D space in any fundamental sense. It occupies a definite position in 6-dimensional CP³ at every moment. A d=3 observer, unable to resolve the three hidden sector coordinates, integrates over them — what remains is a marginal distribution in 3D that looks like a cloud. The orbital shapes of standard quantum mechanics (s, p, d, f — spherical harmonic angular dependence in 3D) are cross-sections of the full CP³ mode geometry. The "uncertainty" in the electron's 3D position is irreducible only from the d=3 observer's perspective; it is the information discarded in the projection, not a fundamental indeterminacy.
+**The electron cloud as a d=3 marginal density.** The language of "electron clouds" or "probability distributions" in atomic physics is the inevitable result of a d=3 observer integrating over the three inaccessible hidden sector coordinates. The electron does not occupy a smeared region of 3D space in any fundamental sense. It occupies a definite position in 6-dimensional CP³ at every moment. A d=3 observer, unable to resolve the three hidden sector coordinates, integrates over them — what remains is a marginal distribution in 3D that looks like a cloud. The orbital shapes of standard quantum mechanics (s, p, d, f — spherical harmonic angular dependence in 3D) are cross-sections of the full CP³ mode geometry. The "uncertainty" in the electron's 3D position is irreducible only from the d=3 observer's perspective; it is the information integrated over in the sector-space marginal, not a fundamental indeterminacy.
 
 **The nucleus is geometrically thin in the electron's space.** The atomic nucleus is a colour-singlet composite of d=3 and d=4 quarks. Colour confinement forces the composite to project out its d=4 character entirely — the CP² color index cancels in any singlet — leaving a d=3 object. The nucleus has wavefunction support in only 3 of the 6 dimensions the electron's CP³ orbit spans. From the electron's perspective, it orbits something geometrically thin: the nucleus extends through 3 of the electron's 6 coordinate directions and is absent from the other 3. The electromagnetic coupling (d=2 sector, nested inside both d=3 and d=6) provides the binding handle. The atom is therefore not a nucleus at the center of a cloud — it is a d=3 structure being orbited in 6-dimensional space by a d=6 excitation, coupled through a shared d=2 coordinate.
 
@@ -560,10 +558,10 @@ This is the Klein-Gordon equation. The mass term is not a separate input — it 
 
 ## 4. The Unified Kernel
 
-The cross-sector interaction is the unique leading term compatible with U(d) × U(d') symmetries. Sectors d and d' may couple only when d + d' is itself a sector dimension (Vandermonde rule):
+The cross-sector interaction is the unique leading term compatible with U(d) × U(d') symmetries (T2). The coupling matrix g_{dd'} = v_d × v_{d'} (rank-1) connects every pair of sectors in D — self-couplings (d=d') and cross-sector terms alike. The full kernel:
 
 ```
-V_kernel = Σ_{d+d' ∈ sectors} g_{d,d'} (ξ_d · ξ_{d'})² |Ψ^(d)|² |Ψ^(d')|²
+V_kernel = Σ_{d,d'∈D} g_{d,d'} (ξ_d · ξ_{d'})² |Ψ^(d)|² |Ψ^(d')|²
 ```
 
 The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by the seed n_s=4 (with n_u = n_s−1 = 3 derived) — the same integers from which the entire particle spectrum is selected. "Vacuum stability" is the physical condition that fixes the gap; n_s=4 (seed) and n_u=n_s−1 (derived) supply the numbers. No particle mass appears in the determination of g₃₃.
@@ -731,7 +729,7 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 | CKM Cabibbo angle | sin θ_C = (1+1/240)/√S(n_s,3) = 0.22454 — seed + Lichnerowicz | ✅ |
 | Neutrino oscillations | d=5 sector, normal ordering | ✅ |
 | Dirac neutrinos | d=5 has d mod 8=5: Majorana forbidden → 0νββ rate = 0 predicted | ✅ |
-| Spin(10) spinor weight lattice | d=10 Maj-Weyl spinor (d mod 8 = 2) has 16-component Weyl part; its weight lattice gives tau hypercharges as cross-check on the anomaly cancellation derivation | ✅ |
+| Tau hypercharges | Y(τ)=−1 from anomaly cancellation with N_c=3 and g_{66}=1/n_s (Part 3 §8, §13) | ✅ |
 | Confinement | Colour vector closure E_conf = λ_c|N⃗| from CP² geometry | ✅ |
 | Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |
 

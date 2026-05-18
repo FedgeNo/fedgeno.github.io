@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Down Quark — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Derivation</div>
+  <h1>The Down Quark</h1>
+  <p class="sub">The ground state of the observer's sector — the simplest particle there is, and the one whose mode index appears in every generation.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The simplest possible mode</h2>
+  <div class="prose">
+    <p>Every particle in IDWT has two numbers: a sector dimension d and a mode index n. Its mass is S(n,d) × m<sub>scale,d</sub>, where <a href="/articles/simplex-number.html">S(n,d)</a> counts the number of ways to distribute n quanta across d hidden directions.</p>
+    <p>The down quark has n = 1, d = 3. The first thing to notice is that S(1, d) = 1 for every sector d, without exception. A mode at n = 1 always has exactly one microstate configuration — the single state where all quanta go to the same direction. There is no simpler excitation in any sector. The down quark is the most fundamental particle IDWT produces: it sits at the ground state of the sector that coincides with our observable 3D space.</p>
+  </div>
+
+  <div class="formula">
+    m<sub>down</sub> = S(1, 3) × m<sub>scale,3</sub> = 1 × m<sub>scale,3</sub> ≈ 4.702 MeV
+    <br><br>
+    S(1, d) = C(d, d) = 1 &nbsp; for every sector d
+  </div>
+
+  <div class="prose">
+    <p>The mass of the down quark is simply the energy scale of the d=3 sector. Nothing multiplies it. n = 1 is not a mode that was chosen — it is the only mode that can exist before the spectrum begins. It is the base case of every <a href="/articles/simplex-number.html">hockey-stick sum</a> in the theory.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why n = 1 is forced</h2>
+  <div class="prose">
+    <p>The two seeds that define the entire IDWT spectrum are n<sub>down</sub> = 1 and n<sub>strange</sub> = 4. The strange quark's seed requires an argument (<a href="/articles/seed.html">it is the unique integer satisfying a fixed-point condition</a>). The down quark's seed requires no argument at all — it is forced by the combinatorial structure of S.</p>
+    <p>S(1, d) = C(d, d) = 1 for any d ≥ 0. The ground state of any sector has exactly one microstate. Setting n<sub>down</sub> = anything other than 1 would contradict the fact that S counts cumulative states from level 0 through n−1; a non-unit value at the ground state would imply a fractional or missing first level, which has no geometric meaning. n<sub>down</sub> = 1 is not a choice or a fit — it is the unique consistent starting point.</p>
+    <p>This universality has a consequence: the down quark's mode index appears unchanged in every sector's generation law. When the hockey-stick identity closes the third generation, the closing term is always +n<sub>down</sub> = +1. The down quark is the "+1" of the entire spectrum.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why down is heavier than up</h2>
+  <div class="prose">
+    <p>The down quark is heavier than the up quark — m<sub>d</sub> ≈ 4.7 MeV versus m<sub>u</sub> ≈ 2.2 MeV — even though the down quark is the ground state (n = 1) and the up quark is at mode n = 3. A higher mode index normally means more microstates and more mass. So what is going on?</p>
+    <p>The answer is that the two quarks live in different sectors with different energy scales. The down quark (d=3) and the up quark (d=4) each have their own m<sub>scale</sub>, set by the sector coupling constants. The d=3 scale is larger than the d=4 scale by enough that even though S(3,4) = 15 amplifies the up quark's mass above the bare d=4 scale, the d=4 scale is small enough that the result stays below the d=3 ground state.</p>
+    <p>The ratio m<sub>u</sub>/m<sub>d</sub> is not a free parameter. It is a theorem of the coupling structure:</p>
+  </div>
+
+  <div class="formula">
+    m<sub>u</sub>/m<sub>d</sub> = √(3/14) &nbsp;≈ 0.463 &nbsp;&nbsp;&nbsp; (Theorem S2)
+  </div>
+
+  <div class="prose">
+    <p>This ratio equals √(3/14) because the coupling constants g<sub>33</sub> = 8√7 and g<sub>44</sub> = 12/√7, both derived from n<sub>s</sub> = 4, satisfy g<sub>33</sub>/g<sub>44</sub> = 14/3 = (m<sub>d</sub>/m<sub>u</sub>)². The squared mass ratio between the lightest particles of the two quark sectors is a geometric ratio of coupling constants — a ratio that comes from the seed integer alone.</p>
+    <p>The coupling constants also satisfy the exact product identity g<sub>33</sub> × g<sub>44</sub> = 96 (Theorem T9a). Both constants are computed from the same formula with n<sub>s</sub> = 4 — neither is independent of the other. The up-to-down mass ratio is therefore not a measured number inserted into the theory; it is the same number that fixes the PMNS neutrino mixing angles and the GTC correction to quark masses. Change one and every prediction in the theory shifts together.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The mass scale of d=3</h2>
+  <div class="prose">
+    <p>The d=3 sector's energy scale m<sub>scale,3</sub> is the down quark mass. It is derived from the coupling constant g<sub>33</sub> through the self-consistency equations that link sector scales to one another. Specifically, the product g<sub>33</sub> × g<sub>44</sub> = 96 ties the d=3 and d=4 scales together, and once the electron mass m<sub>e</sub> anchors the d=6 scale, every other scale follows through the chain of coupling ratios.</p>
+    <p>The IDWT value is m<sub>down</sub> = 4.702 MeV, against the PDG central value of 4.67 MeV — an error of +0.68%. This offset is structural: the rank-1 approximation to the coupling kernel forces exactly the same fractional offset onto every regular mode in a sector. The down and strange quarks both show +0.68% because both are regular modes of d=3, subject to the same correction. This offset is not a free parameter tuned to one particle — it is the same number across all regular modes in the sector, and it arises from the difference between the rank-1 kernel and the full kernel, not from a missing constant.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>n</th>
+          <th>S(n,3)</th>
+          <th>IDWT mass</th>
+          <th>PDG</th>
+          <th>Error</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>down quark</td>
+          <td>1</td>
+          <td>1</td>
+          <td>4.702 MeV</td>
+          <td>4.67 MeV</td>
+          <td>+0.68%</td>
+        </tr>
+        <tr>
+          <td>strange quark</td>
+          <td>4</td>
+          <td>20</td>
+          <td>94.04 MeV</td>
+          <td>93.4 MeV</td>
+          <td>+0.68%</td>
+        </tr>
+        <tr>
+          <td>bottom quark</td>
+          <td>geometric beat k₀=16</td>
+          <td>√(816×969)</td>
+          <td>4,181 MeV</td>
+          <td>4,180 MeV</td>
+          <td>+0.02%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>Note that S(1,3) = 1 and S(4,3) = C(6,3) = 20, confirming the mass ratio m<sub>strange</sub>/m<sub>down</sub> = 20, which equals S(4,3)/S(1,3) exactly. The strange quark is twenty times the down quark mass because it occupies the twentieth microstate configuration of the same sector. No other explanation is needed.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The down quark's sector</h2>
+  <div class="prose">
+    <p>The <a href="/articles/sector-3.html">d=3 sector</a> has geometry S³ — the three-sphere — with isometry group SO(4). Unlike every other sector except d=5, it is a real manifold rather than a complex projective space. This absence of complex (Kähler) structure means the d=3 sector is vector-like: its left and right handedness are not separated by the sector geometry itself. SO(4) = SU(2)<sub>L</sub> × SU(2)<sub>R</sub> gives the left-handed weak isospin coupling, with the right-handed SU(2)<sub>R</sub> present in the geometry but not generating an observed coupling.</p>
+    <p>The d=3 sector is also our observable space. The coordinate nesting Ξ<sub>2</sub> ⊂ Ξ<sub>3</sub> ⊂ Ξ<sub>4</sub> ⊂ ... places the d=3 sector at the same dimensional depth we occupy. Down quarks are not hidden in extra dimensions — they vibrate in the same three spatial directions we move through. This is why the quark content of a proton contributes to its inertia and gravity in a geometrically straightforward way: d=3 wavefunctions projected onto d=3 observer space gives a unit overlap, not a fractional cross-section.</p>
+    <p>The colour charge of the down quark is inherited, not intrinsic. It comes from the coordinate containment relation d=3 ⊂ d=4: the down quark's wavefunction has support in the d=4 CP² directions, where colour originates. The d=3 sector's own coupling contribution is the weak isospin structure; the colour coupling is what CP² geometry produces when the d=3 wavefunction extends into d=4.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>n<sub>down</sub> = 1 closes the third generation</h2>
+  <div class="prose">
+    <p>The <a href="/articles/three-generations.html">three generation laws</a> all follow from the hockey-stick identity S(n,d) = S(n,d−1) + S(n−1,d) applied at specific (n,d) pairs. The third generation law is:</p>
+  </div>
+
+  <div class="formula">
+    n<sub>τ</sub> = n<sub>ν₃</sub> + n<sub>down</sub> = 22 + 1 = 23
+  </div>
+
+  <div class="prose">
+    <p>The tau lepton's mode index is the third neutrino's mode plus exactly the down quark's mode index. Since n<sub>down</sub> = S(1, d) = 1 for every d, the "+1" in this identity is not specific to d=3 — it is the universal ground state appearing at the closing step of the generation tower. The down quark contributes the base case. Without n<sub>down</sub> = 1, the generation tower does not close.</p>
+    <p>This is also why the tau is the heaviest lepton. The third-generation closing adds the minimum possible increment — the ground-state unit — to the largest neutrino mode index. Any other choice of closing term would either produce a tau that is lighter than it is or would require a mode index not in the observed spectrum. The structure is uniquely determined.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>← <a href="/articles/sector-3.html">Sector 3 — Down-type Quarks</a> &nbsp;·&nbsp; <a href="/articles/simplex-number.html">The Simplex Number</a> &nbsp;·&nbsp; <a href="/articles/three-generations.html">Three Generations</a></p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

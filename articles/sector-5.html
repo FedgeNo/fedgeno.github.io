@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sector 5 — Neutrinos — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Sector</div>
+  <h1>Sector 5 — Neutrinos</h1>
+  <p class="sub">Five dimensions, a Clifford algebra constraint, and the most precise null prediction in the theory.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Geometry</h2>
+  <div class="prose">
+    <p>The d=5 sector has geometry S⁵ — the five-sphere — with isometry group SO(6). Like S³ at d=3, S⁵ is a real manifold without a Kähler structure. The Hopf fibration of S⁵ takes the form S¹ → S⁵ → CP², meaning the base space CP² (the colour sector) sits inside S⁵ as a quotient. This embedding is what makes the neutrino sector contain the colour directions geometrically while still projecting to zero colour charge.</p>
+    <p>The critical property of d=5 is the Clifford algebra: d mod 8 = 5. At this value of d mod 8, the Clifford algebra periodicity theorem (Bott periodicity) makes it impossible to impose a Majorana condition on the spinor. This is a structural fact about the geometry of five-dimensional spaces — it does not depend on the energy scale, the coupling strength, or any dynamical property of the neutrino. The Majorana condition simply cannot be written down for a spinor on S⁵.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Particles</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>Mode index n</th>
+          <th>Mass (IDWT)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>ν₁</td>
+          <td>n = 10</td>
+          <td>1.487 meV</td>
+          <td>not yet measured directly</td>
+        </tr>
+        <tr>
+          <td>ν₂</td>
+          <td>n = 15</td>
+          <td>8.639 meV</td>
+          <td>not yet measured directly</td>
+        </tr>
+        <tr>
+          <td>ν₃</td>
+          <td>n = 22</td>
+          <td>50.26 meV</td>
+          <td>~50.1–50.3 meV from Δm²₃₁ ✓</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>The neutrino mass scale is not a free parameter. It is derived from the sector coupling constants:</p>
+  </div>
+  <div class="formula">
+    m<sub>scale,5</sub> = (n<sub>u</sub>/n<sub>s</sub>) × m<sub>scale,6</sub>³ / m<sub>scale,4</sub>²
+  </div>
+  <div class="prose">
+    <p>No neutrino mass data enters this derivation. The scale follows from the cross-sector consistency of the coupling constants, which are themselves derived from n<sub>s</sub> = 4. The three neutrino masses are then determined by their mode indices alone.</p>
+    <p>The mass ratio ν₂/ν₁ = S(15,5)/S(10,5) = 11628/2002 ≈ 5.808, giving Δm²<sub>21</sub> = 7.242 × 10⁻⁵ eV² (PDG: 7.42 × 10⁻⁵ eV², −2.4%). The ν₃ mass includes a cross-sector correction δ<sub>ν₃</sub> = ε × g<sub>33</sub> = 1/35 from the GTC coefficient and d=3 coupling, derived exactly in Part 2 §9d.</p>
+    <p>The total neutrino mass sum Σm<sub>ν</sub> = 60.39 meV is within reach of CMB-S4. A measurement below 40 meV or above 80 meV falsifies IDWT.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Coupling filter — Majorana forbidden</h2>
+  <div class="prose">
+    <p>Because d mod 8 = 5 forbids the Majorana condition, the consequences are total and permanent:</p>
+    <ul>
+      <li><strong>Neutrinos are strictly Dirac fermions.</strong> Not approximately Dirac — the Majorana condition cannot be imposed at any energy scale.</li>
+      <li><strong>All Majorana mass terms are forbidden.</strong> Every term in a Lagrangian that would give a Majorana mass to a neutrino requires the Majorana spinor type. That type does not exist in the d=5 sector.</li>
+      <li><strong>All lepton-number-violating interactions are forbidden.</strong> Every such interaction requires a Majorana mass term at some order. Without the spinor type that supports Majorana masses, no lepton-number-violating vertex can be formulated.</li>
+      <li><strong>The neutrinoless double beta decay rate is exactly zero.</strong> Not suppressed by a small coupling — zero. The interaction vertex does not exist in the theory.</li>
+      <li><strong>The see-saw mechanism is eliminated.</strong> The see-saw requires a heavy Majorana neutrino. The d=5 geometry cannot support one.</li>
+    </ul>
+    <p>This is IDWT's sharpest null prediction. KamLAND-Zen, nEXO, LEGEND, and every other 0νββ experiment is searching for a signal that IDWT says is geometrically absent. A single positive detection falsifies the theory immediately.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Colour neutrality from geometry</h2>
+  <div class="prose">
+    <p>Neutrinos contain the d=4 colour sector in their coordinates — the nesting gives d=4 ⊂ d=5. Yet neutrinos have zero colour charge. This is not a coincidence; it is the S⁵ Hopf fibration at work.</p>
+    <p>The Hopf fibration S¹ → S⁵ → CP² has S¹ (the U(1) fiber) wrapping around S⁵ with CP² as the base. The S¹ fiber averages over the CP² colour representation as the wavefunction winds around it. That averaging selects only the colour-singlet component. Neutrinos have coordinate support in the colour sector but the S⁵ geometry projects that support onto exactly zero colour charge. They are not colour-neutral because they lack the d=4 directions — they are colour-neutral because the d=5 geometry has an averaging mechanism that cancels the colour contribution to zero.</p>
+    <p>What neutrinos get positively from the SO(6) ≅ SU(4) Pati-Salam structure of S⁵ is baryon-minus-lepton number (B−L charge). This is their genuine quantum number from the d=5 sector geometry.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>PMNS mixing angles</h2>
+  <div class="prose">
+    <p>All three PMNS mixing angles are determined by the sector coupling constant g<sub>55</sub> and the four mode indices of the charged leptons and neutrinos, with no free parameters:</p>
+  </div>
+  <div class="formula">
+    g<sub>55</sub> = g<sub>33</sub> g<sub>44</sub> / g<sub>22</sub> = 96 / g<sub>22</sub>
+  </div>
+  <div class="prose">
+    <p>Predictions: sin²θ<sub>23</sub> = 0.55897 (PDG: 0.561, −0.36%), sin²θ<sub>12</sub> = 0.30856 (PDG: 0.307, +0.51%), sin²θ<sub>13</sub> = 0.02211 (PDG: 0.0220, +0.51%). The CP-violating phase δ<sub>CP</sub> = π + 2θ<sub>13</sub> = 197.11° follows from spectral flow on the lepton sector manifolds (PDG: ~197°, +0.05%).</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>← <a href="/articles/sector-4.html">Sector 4 — Up-type Quarks</a> &nbsp;·&nbsp; <a href="/articles/sectors.html">All Sectors</a> &nbsp;·&nbsp; Next: <a href="/articles/sector-6.html">Sector 6 — Charged Leptons</a> →</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

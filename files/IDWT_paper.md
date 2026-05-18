@@ -95,7 +95,7 @@ The kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the leading quartic term consistent
 
 The combinatorial mass formula is not ad-hoc: it emerges from a spectral geometry with precise analytic control. The **heat kernel** $K_d(t)=\sum_{n=1}^\infty e^{-tS(n,d)}$ of each sector — the trace of the heat semi-group of $D_d$ — has the small-$t$ Weyl expansion
 $$K_d(t) = \underbrace{\Gamma\!\bigl(1+\tfrac{1}{d}\bigr)(d!)^{1/d}}_{\text{Weyl coefficient }a_0^{(d)}}\,t^{-1/d} - \frac{d}{2} + O(t^{1/d}),$$
-where the power $t^{-1/d}$ confirms the spectral dimension of sector $d$ equals its fiber dimension. Via the Mellin transform $\Gamma(s)\zeta_d(s)=\int_0^\infty t^{s-1}K_d(t)\,dt$, the two terms pin the spectral zeta $\zeta_d(s)=\sum_{n\geq1}S(n,d)^{-s}$ at its two most important arguments:
+where the power $t^{-1/d}$ confirms the spectral dimension of sector $d$ equals $d$. Via the Mellin transform $\Gamma(s)\zeta_d(s)=\int_0^\infty t^{s-1}K_d(t)\,dt$, the two terms pin the spectral zeta $\zeta_d(s)=\sum_{n\geq1}S(n,d)^{-s}$ at its two most important arguments:
 
 | Sector $d$ | $\zeta_d(1)=d/(d-1)$ | $\zeta_d(0)=-d/2$ |
 |---|---|---|
@@ -435,7 +435,7 @@ The coordinate containment principle (Section 11) answers which forces can reach
 
 **d=5 (S⁵, SO(6)) — Majorana/LNV filter.** The Clifford algebra on S⁵ ($d \bmod 8 = 5$) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. This is why $m_{\beta\beta} = 0$ exactly (Section 10): not a fine-tuning but a geometric impossibility. The S⁵ Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$ additionally projects the CP² color representation onto its singlet, giving color-neutral neutrinos despite their coordinate support inside $\Xi_4$. Positively, the SO(6) $\cong$ SU(4) structure gives neutrinos their $B-L$ charge.
 
-**d=6 (CP³, SU(4)/U(3)) — colour silence filter.** $\chi(\mathbb{CP}^3) = 4$, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — geometrically absent, not suppressed. CP³ is the twistor space of flat 3+1 Minkowski spacetime; the electron-photon vertex has the precise form it does because CP³ is twistor space and CP¹ is the photon's sector.
+**d=6 (CP³, SU(4)/U(3)) — colour silence filter.** $\chi(\mathbb{CP}^3) = 4$, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — geometrically absent, not suppressed. The d=2 photon sector (CP¹) sits inside d=6 via the coordinate nesting $\Xi_2 \subset \Xi_6$; the electron-photon coupling follows from coordinate containment, giving pure U(1) EM with coupling structure fixed by the CP³ isometry.
 
 **d=10 (CP⁵, SU(6)/U(5)) — fractal marginal coupling.** At the Aubry-André critical point, the tau's spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the short lifetime); each specific channel carries measure-zero weight (explaining why the lifetime is finite). The Dyson resummation $\delta_\tau = 1/1680$ (Section 7.2) is the mathematical signature of this fractal coupling structure — an all-orders resummation is required only at the critical point.
 

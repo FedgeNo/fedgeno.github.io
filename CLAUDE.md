@@ -251,3 +251,4 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 - Your role is to verify and gatekeep what goes into the documents, script and website.
 - You are to verify all math before putting it into the project.
 - **Keep this file in sync.** Whenever a theorem statement, framing convention, section title, or key concept changes in the documents, update the corresponding entry in CLAUDE.md in the same session. This file is the authoritative quick-reference; stale entries mislead future sessions.
+- **To-do list:** `claude-todo.md` in the project root is your task list (in .gitignore). Check it at the start of sessions. Remove items by striking them through (~~item~~ ✓) when completed.

@@ -281,7 +281,7 @@ The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction weighted 
 g₂ = (2/3) √(2g₄₄/π²) = 0.65275     (PDG: 0.65270,  +0.008%)
 G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)
 EW scale (√2 G_F)^{−1/2} = 246.3 GeV  [consistency check: √Tr(D²) = 248.3 GeV, +0.85%]
-1/α (at fiber scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
+1/α (at d=2 sector scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
 ```
 
 The EW scale $({\sqrt{2}\,G_F})^{-1/2} = 246.3$ GeV is derived from $G_F$ above; $\sqrt{\text{Tr}(D^2)} = 248.3$ GeV is the RMS of the IDWT mass spectrum. Their 0.85% agreement is a self-consistency check — both quantities come from the same seed structure — not a separate prediction. The Higgs VEV concept (from spontaneous symmetry breaking) does not apply in IDWT; the Higgs is a confinement mode of the d=2 sector (§3c below). $\lambda_H = m_H^2/(2v^2)$ is therefore not a meaningful IDWT quantity.
@@ -304,7 +304,7 @@ PDG: 2495 MeV.  Error: −2.0%
 PDG: 2.603×10⁻⁸ s.  Error: +37%  (m_π = 132 MeV from GOR, 5.3% below PDG; dominates via phase-space factor)
 ```
 
-**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻² (−0.05%). The EW scale (√2 G_F)^{−1/2} = 246.3 GeV is the self-consistency check target; √Tr(D²) = 248.3 GeV (+0.85% gap, same offset as sin²θ_W and g₁ residuals). α at fiber scale 1/α = 131.8 (+3.1% from PDG at m_Z; running to m_Z is open — see Part 6).
+**Note:** g₂ = (2/3)√g_s (Part 3 §0.7) gives G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻² (−0.05%). The EW scale (√2 G_F)^{−1/2} = 246.3 GeV is the self-consistency check target; √Tr(D²) = 248.3 GeV (+0.85% gap, same offset as sin²θ_W and g₁ residuals). α at d=2 sector scale 1/α = 131.8 (+3.1% from PDG at m_Z; running to m_Z is open — see Part 6).
 
 ---
 
@@ -435,7 +435,7 @@ A_t = +2τ_t(1+(1-τ_t)arcsin²(1/√τ_t)) × Nc Q_u² = +1.83  (top loop)
 A_total = −6.50,  |A|² = 42.2
 
 Γ(H→γγ) = α² G_F m_H³/(128√2 π³) × |A|² = 9.92 keV
-PDG: 9.3 keV.  Error: +6.7%  (using fiber-scale α; with α(m_Z) the error grows to +13%)
+PDG: 9.3 keV.  Error: +6.7%  (using d=2-sector-scale α; with α(m_Z) the error grows to +13%)
 ```
 W loop dominates with the correct sign (negative); top loop partially cancels.
 
@@ -541,7 +541,7 @@ where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles from $g_{55}$ and 
 
 ## 5. Electroweak Running (1-loop + 2-loop)
 
-The g₁ coupling in IDWT is computed at the fiber scale (approximately m_W). The PDG value g₁ = 0.35740 is quoted at m_Z in the $\overline{\rm MS}$ scheme. The 1-loop U(1)_Y running between m_W and m_Z, with β-function coefficient b₁ = 41/6 (full SM particle content above m_W):
+The g₁ coupling in IDWT is computed at the d=2 sector scale (approximately m_W). The PDG value g₁ = 0.35740 is quoted at m_Z in the $\overline{\rm MS}$ scheme. The 1-loop U(1)_Y running between m_W and m_Z, with β-function coefficient b₁ = 41/6 (full SM particle content above m_W):
 
 $$\frac{1}{g_1^2(m_Z)} = \frac{1}{g_1^2(m_W)} - \frac{b_1}{8\pi^2}\ln\frac{m_Z}{m_W} = \frac{1}{0.12280} - \frac{41/6}{8\pi^2}\ln\frac{91230}{80379} = 8.143 - 0.011 = 8.132.$$
 
@@ -665,7 +665,7 @@ These follow from the IDWT framework geometry and differ qualitatively from Stan
 
 **C7 — Exact CKM unitarity.** The CKM matrix is exactly unitary at tree level: |V_ud|² + |V_us|² + |V_ub|² = 1. IDWT gives V_us = sin θ_C = 0.22454 and V_ud = √(1 − sin²θ_C) = 0.97447. The apparent 5.5σ Cabibbo Angle Anomaly (nuclear beta-decay |V_ud| = 0.97370 vs kaon |V_us|) is a tension between two independent PDG measurements. IDWT's exact-unitarity value 0.97447 matches the kaon-derived determination. If the Cabibbo Angle Anomaly is confirmed to require genuinely non-unitary CKM physics, that would falsify C7.
 
-**C8 — No glueballs.** The IDWT action contains no propagating colour quanta (Part 3 §0.2, §0.6). The strong interaction is a direct quark contact coupling — SU(3)-symmetric by the CP² isometry, but not mediated by exchange of colour quanta. A glueball is a bound state of gluons; without propagating gluons, no such state can form. IDWT therefore predicts that no glueball will ever be definitively identified as a particle species distinct from quark-sector states. Claimed evidence from radiative J/ψ decays (e.g. f₀(1710), f₀(1500) candidates) is reinterpreted within IDWT as ordinary d=3 or d=4 hadronic resonances misidentified as pure-glue states — gluon-rich production channels do not require a glueball in the final state when the underlying interaction is a quark contact term. A confirmed glueball with quantum numbers incompatible with any quark-model assignment, established at > 5σ significance with independent production and decay mode consistency, would falsify the IDWT colour sector.
+**C8 — No glueballs.** The strong interaction in IDWT is a direct quark contact coupling — SU(3)-symmetric by the CP² isometry, with no colour-exchange field (Part 3 §0.2, §0.6). There is no colour-exchange field to bind into a glueball; any state that QCD would classify as a glueball must in IDWT be a misidentified quark-sector resonance. IDWT therefore predicts that no glueball will ever be definitively identified as a particle species distinct from quark-sector states. Claimed evidence from radiative J/ψ decays (e.g. f₀(1710), f₀(1500) candidates) is reinterpreted within IDWT as ordinary d=3 or d=4 hadronic resonances misidentified as pure-colour-field states — colour-intense production channels do not require a glueball in the final state when the underlying interaction is a quark contact term. A confirmed glueball with quantum numbers incompatible with any quark-model assignment, established at > 5σ significance with independent production and decay mode consistency, would falsify the IDWT colour sector.
 
 ---
 

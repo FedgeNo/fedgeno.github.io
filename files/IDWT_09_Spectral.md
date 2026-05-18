@@ -76,7 +76,7 @@ $$P_d(t) = \frac{1}{(1-t)^d} = \sum_{n\geq 1} S(n,d)\,t^n.$$
 
 $$\boxed{S(n,d) \;=\; \dim\mathrm{Sym}^{n-1}(\mathbb{R}^{d+1}) \;=\; \mathrm{IDOS}_d(n) \;=\; [t^n]\frac{1}{(1-t)^d}}$$
 
-**Corollary (Hockey-stick = quasicrystal inflation).** The identity $S(n+1,d)=S(n,d)+S(n,d-1)$ is the $d$-dimensional generalisation of the Penrose inflation rule ($L\to LS$, $S\to L$). The IDWT filtration is a $d$-dimensional quasicrystal inflation seeded at $n_s=4$; the observable spectrum is its cut-and-project image at the d=3 coordinate level, selected by T0.5.
+**Corollary (Hockey-stick = quasicrystal inflation).** The identity $S(n+1,d)=S(n,d)+S(n,d-1)$ is the $d$-dimensional generalisation of the Penrose inflation rule ($L\to LS$, $S\to L$). The IDWT filtration is a $d$-dimensional quasicrystal inflation seeded at $n_s=4$; the observable spectrum is the restriction to the d=3 coordinate subspace of this inflation, selected by T0.5.
 
 Sector $d$ Hilbert series — first seven coefficients:
 
@@ -257,7 +257,7 @@ is identified as the candidate source of CP violation. It is non-zero because th
 
 **What the computation requires.** Whether $\Delta c_1 = -2$ produces a non-zero imaginary part in the mixing matrix requires integrating the Fubini-Study curvature 2-form $\omega_{\rm FS}$ around the effective loop area in **sector coupling parameter space** — the space of coupling constants $g_{dd'}$, not $|\Psi_\infty|$ amplitude space. The curvature integral must be expressed in terms of the dimensionless couplings $g_{5,6}$, $g_{5,10}$, and the Fubini-Study geometry of $\mathbb{CP}^3$ and $\mathbb{CP}^5$. This computation has not been performed.
 
-**Coupling moduli space and its metric.** Define the sector coupling state as the tensor product of sector eigenmodes evaluated at the IDWT coupling values:
+**Coupling parameter space and its metric.** Define the sector coupling state as the tensor product of sector eigenmodes evaluated at the IDWT coupling values:
 
 $$\Psi_{\rm sect}(\{g_{dd}\}) = \bigotimes_d \chi_{n_d,d}(\xi^0;\, g_{dd})$$
 
@@ -330,7 +330,7 @@ All six sector self-couplings are derived from $n_s=4$, $n_u=3$:
 
 **T9c** ($\mu$-$\tau$ symmetry). $g_{66}=g_{10,10}=1/n_s$ exactly, giving $v_6=v_{10}=1/2$. This is the $\mu$-$\tau$ interchange symmetry that drives TBM (T6 Step 2).
 
-**T9d** (Electric charge). $e=g_2\sin\theta_W$, both derived. $1/\alpha=131.8$ at the fiber scale; after 1-loop QED running $1/\alpha(0)\approx133.1$ (PDG: 137.036, $-2.9\%$ from missing hadronic vacuum polarisation — a non-perturbative QCD contribution not computed by IDWT's 1-loop lepton running).
+**T9d** (Electric charge). $e=g_2\sin\theta_W$, both derived. $1/\alpha=131.8$ at the d=2 sector scale; after 1-loop QED running $1/\alpha(0)\approx133.1$ (PDG: 137.036, $-2.9\%$ from missing hadronic vacuum polarisation — a non-perturbative QCD contribution not computed by IDWT's 1-loop lepton running).
 
 ---
 
@@ -416,7 +416,7 @@ Summing (ii)$+$(iii): constant term $=-(d-1)/2-1/2=-d/2$. $\square$
 | 6 | 2.777402 | −3.0 | 6 |
 | 10 | 4.308410 | −5.0 | 10 |
 
-The power $t^{-1/d}$ encodes the **spectral dimension** $d$ of the sector: eigenvalues grow as $n^d$, so the counting function $N(\lambda)\propto\lambda^{1/d}$, and the leading heat-kernel exponent is $1/d$ — matching the fiber dimension of the sector's Hopf space.
+The power $t^{-1/d}$ encodes the **spectral dimension** $d$ of the sector: eigenvalues grow as $n^d$, so the counting function $N(\lambda)\propto\lambda^{1/d}$, and the leading heat-kernel exponent is $1/d$ — matching the sector dimension $d$.
 
 **Numerical check** at $t=10^{-3}$: the 2-term approximation agrees with the exact partial sum at the 0.01% level for $d=2$, 0.2% for $d=3$, 0.7% for $d=4$, degrading to $\sim12\%$ for $d=10$ because $t^{1/d}=(10^{-3})^{0.1}\approx 0.5$ is not yet small — large-$d$ sectors enter the Weyl regime only at smaller $t$.
 

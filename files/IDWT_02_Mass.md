@@ -286,11 +286,9 @@ The d=6 sector lives on CP³. Three independent geometric properties of CP³ all
 
 1. **Euler characteristic:** χ(CP³) = 4 = n_s. The seed n_s was forced by this same fact (Part 1 §3a). The sector coupling is 1/χ(CP³) = 1/n_s = 1/4.
 
-2. **Twistor structure:** CP³ = Sp(2)/(Sp(1)×U(1)) is the twistor space of S⁴ ≅ HP¹. The base space S⁴ has real dimension 4 = n_s, so the coupling scale 1/n_s = 1/4 is geometrically fixed by the twistor fibration.
+2. **Fubini-Study curvature:** The minimum sectional curvature of CP³ with the Fubini-Study metric is 1/4 (attained on totally real planes). This is the unique curvature scale invariant under the full Sp(2) isometry group of the sector, and it equals 1/n_s.
 
-3. **Fubini-Study curvature:** The minimum sectional curvature of CP³ with the Fubini-Study metric is 1/4 (attained on totally real planes). This is the unique curvature scale invariant under the full Sp(2) isometry group of the sector, and it equals 1/n_s.
-
-All three give g₆₆ = 1/n_s = 1/4, with no mass input and no hypercharge assumption.
+Both give g₆₆ = 1/n_s = 1/4, with no mass input and no hypercharge assumption.
 ```
 g₆₆ = 1/n_s = 1/4
 ```
@@ -829,6 +827,6 @@ $$\zeta_d(1) = \frac{d}{d-1} \quad\text{(total inverse-mass weight; Part 9 T13a)
 
 2. **Functional determinant is finite without a cutoff.** $\zeta_d(0)=-d/2$ is a finite, purely combinatorial number, so the sector functional determinant $\log\det D_d=-\zeta_d'(0)$ is well-defined by zeta regularisation alone. No tuning of a regulator scale is required.
 
-3. **Spectral dimension equals fiber dimension.** The heat kernel of sector $d$ satisfies $K_d(t)=\sum_{n\geq1}e^{-tS(n,d)}\sim\Gamma(1+1/d)(d!)^{1/d}\,t^{-1/d}$ as $t\to0^+$. The leading power $t^{-1/d}$ establishes spectral dimension $= d$, consistent with the identification of each sector as a resonance tower in a $d$-dimensional Hopf fiber (§§3, 9–10 above).
+3. **Spectral dimension equals sector dimension.** The heat kernel of sector $d$ satisfies $K_d(t)=\sum_{n\geq1}e^{-tS(n,d)}\sim\Gamma(1+1/d)(d!)^{1/d}\,t^{-1/d}$ as $t\to0^+$. The leading power $t^{-1/d}$ establishes spectral dimension $= d$, consistent with the identification of each sector as a resonance tower in $d$-dimensional sector space (§§3, 9–10 above).
 
 These results follow from $S(n,d)=\binom{n+d-1}{d}$ by Pascal's identity and Euler-Maclaurin, with no free parameters. The mass formula is the spectrum of a well-defined spectral triple, not a phenomenological fit (Part 1 §0, Part 9 T0).

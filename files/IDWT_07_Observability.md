@@ -4,14 +4,18 @@
 
 ---
 
+**Where we are.** We are inside M_∞ at the d=3 coordinate level — not external observers viewing a projection from a separate space. Every mode of Ψ_∞ is a feature of the same manifold we occupy. What this document calls "observability" is therefore not the question of how an outside observer projects modes onto our space, but the question of which resonances of M_∞ have enough of their vibrational activity in the d=3 coordinates that constitute our space for us to resolve them, and which are stable resonances at all. Both are intrinsic properties of the modes and of M_∞, not properties of an observer.
+
+---
+
 ## 1. All Modes Exist — Two-Stage Observability
 
 Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
 
-- **Stage 1 (Dimensional Visibility):** Enough of the mode's vibrational activity must be in our d=3 dimensions. Modes with high dimensional depth Ω_log(n,d) = ln(S(n,d)/S(n,2)) have most of their activity in extra dimensions and are observationally obscured by exp(−Ω_log).
+- **Stage 1 (Dimensional Visibility):** Enough of the mode's vibrational activity must be in our d=3 dimensions. Modes with high dimensional depth Ω_log(n,d) = ln(S(n,d)/S(n,2)) have most of their activity in the d>3 sector coordinates and are observationally obscured by exp(−Ω_log).
 - **Stage 2 (Co-fixed-point):** The mode index n must be a co-fixed-point of the sector comb filtration from n_s=4. Modes that are not co-fixed-points are not stable resonances of M_∞. This condition is purely algebraic and applies uniformly across all sectors.
 
-This reframes mode selection from a dynamical problem inside M_∞ to a geometric filtering problem at the boundary.
+This reframes mode selection from a dynamical problem to a geometric filtering problem on M_∞ itself: which (n,d) pairs are stable resonances, and which of those have enough d=3-coordinate activity to be resolved by an observer at our coordinate level.
 
 ---
 
@@ -28,7 +32,7 @@ The dimensional depth for mode (n,d):
 Ω_log(n,d) = ln(S(n,d) / S(n,2))
 ```
 
-Ω_log measures how much of the mode's activity is distributed across extra dimensions relative to the d=2 gauge sector baseline. Modes with high Ω_log have most of their vibration in dimensions beyond our 3; their d=3 visible fraction is exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ — their activity is spread across the full infinite-dimensional space and they have negligible presence in our d=3 dimensions. Bound states have finite Ω_log; the co-fixed-point structure of the eigenmode selection rule selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
+Ω_log measures how much of the mode's activity is distributed across the d>3 sector coordinates relative to the d=2 gauge sector baseline. Modes with high Ω_log have most of their vibration in the d>3 sector coordinates; their d=3 visible fraction is exp(−Ω_log) = S(n,2)/S(n,d). Scattering states (non-normalizable modes, Part 4 §3.8) have Ω_log → ∞ — their activity is spread across the full infinite-dimensional space and they have negligible presence in our d=3 dimensions. Bound states have finite Ω_log; the co-fixed-point structure of the eigenmode selection rule selects the specific (n,d) pairs that appear in the observed spectrum regardless of their individual Ω_log values.
 
 **Partition function interpretation:** The dimensional visibility weight exp(−Ω_log) = S(n,2)/S(n,d) is a Boltzmann weight. The visibility-weighted mode sum Z = Σ S(n,d)·exp(−Ω_log) = Σ S(n,2) — the result is independent of d. Every mode (n,d) contributes exactly S(n,2) to the d=3-visible count regardless of sector. The apparent mass hierarchy between sectors is a property of the resonance selection mechanism (co-fixed-point), not of dimensional structure itself.
 
@@ -39,9 +43,9 @@ The dimensional depth for mode (n,d):
 | d=2 | CP¹ | Gauge bosons | fully visible (all activity in d≤3) |
 | d=3 | S³ | Down-type quarks | fully visible (colour-protected) |
 | d=4 | CP² | Up-type quarks | fully visible (colour-protected) |
-| d=5 | S⁵ | Neutrinos | partially obscured in extra dimensions |
-| d=6 | CP³ | Charged leptons | partially obscured in extra dimensions |
-| d=10 | CP⁵ | Tau | most activity in extra dimensions |
+| d=5 | S⁵ | Neutrinos | partially obscured in d>3 sector coordinates |
+| d=6 | CP³ | Charged leptons | partially obscured in d>3 sector coordinates |
+| d=10 | CP⁵ | Tau | most activity in d>3 sector coordinates |
 
 Quarks (d=3,4) are fully visible because the U(1)-breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c, forcing all their activity into d≤3. The visibility hierarchy for leptons/neutrinos follows from the heat-kernel derivation (§2.9).
 
@@ -214,7 +218,7 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 | Leptons | 6 | 0.122 |
 | Tau | 10 | 0.083 |
 
-**Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — all their activity is in our d=3 dimensions. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This is why quarks are fully visible while leptons and neutrinos have activity in extra dimensions.
+**Colour protection.** For sectors d=3,4 (quarks), Φ†P₁Φ is not an SU(3)_c singlet and is gauge-forbidden. Therefore λ_d = 0 for quarks automatically — all their activity is in our d=3 dimensions. For d=2,5,6,10 (gauge bosons, neutrinos, leptons, tau), Φ is a colour singlet and λ_d > 0 is allowed. This is why quarks are fully visible while leptons and neutrinos have activity in d>3 sector coordinates.
 
 **KK excitation energies.** First excited modes on CP^d have energy ΔE ≈ (d+1)/L_d². For macroscopic L_d (the mode is spread over macroscopic scales), ΔE is negligibly small and completely unobservable. There is no KK tower — excited modes above the ground state fail Stage-1 for the same reason scattering states do: their activity is spread too far into extra dimensions to be detectable at d=3.
 
@@ -236,7 +240,7 @@ where L_d = 1/√(λ_d − E_0(d)) is the Agmon localization length. Numerically
 - Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; this would also determine L_d = 1/√(λ_d − E_0) and hence G_eff)
 - Deriving the 3D gauge group from U(d) subgroups
 
-**Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only whether the neutrino modes are visible to a 3D observer; it plays no role in determining their mass.
+**Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only how much of a neutrino mode's vibrational activity is in the d=3 coordinates an observer at our coordinate level can resolve; it plays no role in determining the mode's frequency.
 
 | IDWT result | Heat-kernel interpretation |
 |-------------|---------------------------|

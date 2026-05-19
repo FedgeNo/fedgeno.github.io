@@ -12,7 +12,7 @@ IDWT's macroscopic sector dimensions are consistent with all known gravitational
 
 ---
 
-## 1b. Why Macroscopic Hidden Dimensions Are Consistent with All Experiment
+## 1b. Why Macroscopic Sector Dimensions Are Consistent with All Experiment
 
 Every experimental constraint on extra dimensions assumes a KK tower. IDWT has no KK tower. The constraint category does not exist in IDWT.
 
@@ -50,7 +50,7 @@ This section establishes what gravity is in IDWT and describes the effective gra
 
 ### 3.1 Gravity as Curvature of M_∞ Sourced by Mass
 
-Gravity in IDWT is curvature of M_∞ caused by mass. The mass of a mode (n,d) is m(n,d) = S(n,d) × m_scale_d — a count of hidden microstates, the mode's dimensional complexity (dimensional inertia). A concentration of that dimensional inertia distorts the geometry of M_∞, and that distortion is what gravity is.
+Gravity in IDWT is curvature of M_∞ caused by mass. The mass of a mode (n,d) is m(n,d) = S(n,d) × m_scale_d — a count of sector microstates, the mode's dimensional complexity (dimensional inertia). A concentration of that dimensional inertia distorts the geometry of M_∞, and that distortion is what gravity is.
 
 There is no postulated gravitational field, no graviton, and no separate gravitational action written by hand. The M_∞ action contains the matter term:
 
@@ -81,7 +81,7 @@ G_μν(x) = 8πG_N × T_μν^{eff}(x)
 T_μν^{eff}(x) ≡ ∫_Ξ T_μν^{Dirac}(x, ξ) dμ_ξ
 ```
 
-where G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 hidden sector dimensions (§3.12.2). This equation correctly describes the observer's measurements. It is the 3D observer's read of ∞D curvature sourced by mass — not a fundamental equation of IDWT.
+where G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3 (§3.12.2). This equation correctly describes the observer's measurements. It is the 3D observer's read of ∞D curvature sourced by mass — not a fundamental equation of IDWT.
 
 The gravitational source is the full sector-space integral of the matter energy density. No R^{(Ξ)} curvature enters the right-hand side: the sector geometry is a fixed background, not an independent gravitational source.
 
@@ -107,7 +107,7 @@ G_μν(x) = 8πG_N × T_μν^{obs}[ψ](x)
 
 The sector dimensions have contributed their mass to this source and do not appear as an independent gravitational term. Mass is the only channel through which the sector-space geometry enters the observer's gravitational measurement.
 
-### 3.4 Why There Are No Hidden Gravitational Degrees of Freedom
+### 3.4 Why There Are No Additional Gravitational Degrees of Freedom
 
 Gravity is geometry, not a field. Geometry does not have quanta. There are no gravitons because there is no gravitational field to quantize — there is only M_∞ curvature caused by mass. This is not an additional assumption; it follows from what gravity is in IDWT.
 
@@ -145,10 +145,10 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility
 | Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
-| G_N sector-independent; no hidden-sector correction | ✅ | §3.11–3.12.2 |
+| G_N sector-independent; no sector correction | ✅ | §3.11–3.12.2 |
 | G_N = G_∞/V_7: V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
-In the static strong-field regime, the projected metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector-space coordinates. Information is preserved globally.
+In the static strong-field regime, the d=3-coordinate metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector-space coordinates. Information is preserved globally.
 
 ---
 
@@ -329,13 +329,13 @@ G_μν(x) = 8π G_N × T_μν^{obs}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 hidden sector dimensions. Gravity is not quantized; there are no gravitons; the concept of a Planck mass as a quantum gravitational threshold does not apply. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
+**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; the concept of a Planck mass as a quantum gravitational threshold does not apply. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
 
 ---
 
-## 3.12 Newton's Constant — No Hidden-Sector Correction
+## 3.12 Newton's Constant — No Sector Correction
 
-### 3.12.1 Why Hidden Sector Fluctuations Do Not Correct G_N
+### 3.12.1 Why Sector Fluctuations Do Not Correct G_N
 
 A legitimate concern with any multi-sector theory is whether integrating out sector-space degrees of freedom produces corrections to the Einstein-Hilbert term. In standard Kaluza-Klein theories this always occurs: the compact space volume multiplies M_Pl and becomes a dynamical modulus. The induced correction is:
 
@@ -345,7 +345,7 @@ M_Pl^{obs,eff} = M_Pl^{6D} × √Vol(compact space)
 
 **IDWT has a different structure that forbids this correction.**
 
-The functional determinant of the hidden sector operator O_Ξ contributes a term:
+The functional determinant of the sector operator O_Ξ contributes a term:
 
 ```
 Γ_Ξ = (1/2) Tr_Ξ[log O_Ξ]    where O_Ξ = −D_Ξ² + V_d(ξ)
@@ -379,17 +379,17 @@ There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled 
 
 In IDWT, there is no graviton propagating anywhere. Gravity is curvature of M_∞ caused by mass — not a field with quanta. The sector manifolds Ξ_d are macroscopic spatial dimensions in which Ψ∞ vibrates; h_ab(ξ) is a fixed classical background metric, has no equation of motion, and does not mix with the 3D observer's metric. There are no moduli, no metric fluctuations in Ξ_d, and no KK graviton tower. All KK-exclusion bounds presuppose graviton propagation into the sector space; they do not apply to IDWT.
 
-**Conclusion.** G_N as measured by a 3D observer receives no correction from hidden sector fluctuations. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
+**Conclusion.** G_N as measured by a 3D observer receives no correction from sector fluctuations. The decoupling of Γ_Ξ from g_μν follows from the fixed-background structure of Ξ, which is a consequence of gravity being ∞D curvature sourced by mass rather than a dynamical field in Ξ.
 
 ---
 
 ### 3.12.2 G_N as the 3D Measurement of Infinite-Dimensional Gravity
 
-The previous subsections show that G_N is sector-independent (§3.11) and not corrected by hidden sector fluctuations (§3.12.1). Neither addresses the causal origin of G_N. This section establishes the correct logical direction: gravity is a phenomenon of the full $M_\infty$, not a 3D or 10D field appended to the particle physics. G_N is what a 3D observer at $\xi^0$ measures of it.
+The previous subsections show that G_N is sector-independent (§3.11) and not corrected by sector fluctuations (§3.12.1). Neither addresses the causal origin of G_N. This section establishes the correct logical direction: gravity is a phenomenon of the full $M_\infty$, not a 3D or 10D field appended to the particle physics. G_N is what a 3D observer at $\xi^0$ measures of it.
 
 **Gravity has no sector boundary.** Every other force acts within a specific sector (EM and weak in d=2, strong in d=4). Gravity is the unique exception — it has no sector confinement because it is curvature of $M_\infty$ itself, the space in which all sectors live. A force confined to d=4 cannot reach a d=2 particle. Gravity reaches everything because everything lives in $M_\infty$.
 
-**Mass encodes dimensional complexity; gravity couples through it.** The mass formula $m(n,d)=S(n,d)\times m_{\rm scale,d}$ assigns mass proportional to the count of hidden microstates in sector $d$. More dimensions means exponentially more microstates: the photon (d=2, ground-state massless — two transverse polarisations, no excited microstates) barely couples to gravity; the tau (d=10, $S(23,10)=64\,512\,240$) couples strongly. Gravity couples to each particle through that particle's dimensional complexity, which is encoded in its mass. There is no separate gravitational rule per sector — the mass formula already carries the dimensional structure, and gravity couples to mass.
+**Mass encodes dimensional complexity; gravity couples through it.** The mass formula $m(n,d)=S(n,d)\times m_{\rm scale,d}$ assigns mass proportional to the count of sector microstates in sector $d$. More dimensions means exponentially more microstates: the photon (d=2, ground-state massless — two transverse polarisations, no excited microstates) barely couples to gravity; the tau (d=10, $S(23,10)=64\,512\,240$) couples strongly. Gravity couples to each particle through that particle's dimensional complexity, which is encoded in its mass. There is no separate gravitational rule per sector — the mass formula already carries the dimensional structure, and gravity couples to mass.
 
 **G_N as a measurement.** The M_∞ curvature sourced by mass has a fundamental strength $G_\infty$. A 3D observer integrates out all dimensions beyond observer space — both the sector space (d=4,5,6,10, with localised modes) and the vacuum dimensions (d>10, with no stable bound states). The occupied-sector contribution to this integration is $V_7$, fully derived from the sector coupling constants:
 
@@ -402,11 +402,11 @@ The previous subsections show that G_N is sector-independent (§3.11) and not co
 
 $$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.801\times2.623\times2.301\times(2.198)^4 \approx 113$$
 
-The vacuum sectors (d>10) are subcritical — their modes are extended, not localised (T5). Schematically:
+The d>10 vacuum region is subcritical — its modes are extended, not localised (T5). Schematically:
 
 $$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
-**Why the localization formula fails for d>10.** The Agmon theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For vacuum sectors (d>10), T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The Agmon decay theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum sector.
+**Why the localization formula fails for d>10.** The Agmon theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For the d>10 vacuum region, T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The Agmon decay theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum dimension.
 
 **Numerical check.** Extrapolating the d=6 and d=10 data ($\kappa_d \to \sqrt{\lambda}=0.5$, $L_d \to 2$ as $d\to\infty$ with $g_{dd}=1/4$) gives a cumulative $\ln V_{\rm vacuum}$ that grows linearly with the number of vacuum dimensions. The product diverges: $V_{\rm vacuum} = \infty$ with the localization formula, giving $G_N = 0$. This confirms the formula cannot be extended naively.
 
@@ -441,7 +441,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Result | Status |
 |---|---|
 | Spacetime Einstein equations from M_∞ action | ✅ §3.1–3.4 |
-| No hidden gravitational propagating modes | ✅ §3.4 |
+| No additional gravitational propagating modes | ✅ §3.4 |
 | Equivalence principle: m_grav = m_inertial | ✅ §3.6 |
 | Boundary terms vanish on non-compact Ξ | ✅ §3.5 |
 | L²(Ξ) normalisability via Agmon theorem | ✅ §3.13 Part I |
@@ -449,7 +449,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
 | Sector length L_d = Agmon localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
-| G_N sector-independent; no hidden-sector correction | ✅ §3.11–3.12.1 |
+| G_N sector-independent; no sector correction | ✅ §3.11–3.12.1 |
 | G_N = G_∞/V_7; V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
 
 ---

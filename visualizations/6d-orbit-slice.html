@@ -112,18 +112,18 @@
 </nav>
 <div class="overlay">
   <div class="title">CP³ Mode (3,2,1) — Electron Sector Orbit</div>
-  <div class="hint">The electron lives in a 6D sector (CP³). This is its actual orbit — three complex coordinate pairs weighted by occupation numbers √(3/6), √(2/6), √(1/6). What you see is its 3D shadow.</div>
-  <div class="hint" style="margin-top:8px">The orbit rotates through three independent hidden-sector planes at φ-ratio rates, so the 3D cross-section continuously morphs through the orbital family — s, p, d shapes emerging and dissolving.</div>
-  <div class="hint" style="margin-top:8px"><b>Drag</b> to manually rotate the hidden dimensions.</div>
+  <div class="hint">The electron lives in a 6D sector (CP³). This is its actual orbit — three complex coordinate pairs weighted by occupation numbers √(3/6), √(2/6), √(1/6). What you see is its activity in d=3 — the part of the orbit our coordinate level can resolve.</div>
+  <div class="hint" style="margin-top:8px">The orbit rotates through three independent sector planes at φ-ratio rates, so the d=3 coordinate-level readout continuously morphs through the orbital family — s, p, d shapes emerging and dissolving.</div>
+  <div class="hint" style="margin-top:8px"><b>Drag</b> to rotate sector planes 1 &amp; 2. <b>Right-drag</b> to rotate the 3rd sector plane.</div>
   <div class="row" style="margin-top:8px">
-    <span class="key">Shift + Drag</span>
-    <span>3rd hidden plane</span>
+    <span class="key">Left-drag</span>
+    <span>planes 1 &amp; 2</span>
+    <span class="key">Right-drag</span>
+    <span>3rd plane</span>
   </div>
   <div class="row">
     <span class="key">Wheel</span>
     <span>zoom</span>
-    <span class="key">Right-drag</span>
-    <span>pan</span>
   </div>
 </div>
 
@@ -138,10 +138,9 @@ scene.background = new THREE.Color(0x05070f);
 scene.fog = new THREE.FogExp2(0x05070f, 0.012);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-const cameraTarget = new THREE.Vector3(0, 0, 0);
 let cameraDistance = 5.8;
 camera.position.set(0, 0, cameraDistance);
-camera.lookAt(cameraTarget);
+camera.lookAt(0, 0, 0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -326,7 +325,7 @@ projectPoints();
 
 // Interaction
 let isRotating = false;
-let isPanning = false;
+let isAltRotating = false;
 let lastX = 0, lastY = 0;
 
 renderer.domElement.addEventListener('contextmenu', e => e.preventDefault());
@@ -335,7 +334,7 @@ renderer.domElement.addEventListener('pointerdown', e => {
   if (e.button === 0) {
     isRotating = true;
   } else if (e.button === 2) {
-    isPanning = true;
+    isAltRotating = true;
   }
   lastX = e.clientX;
   lastY = e.clientY;
@@ -345,16 +344,11 @@ window.addEventListener('pointermove', e => {
   const dx = e.clientX - lastX;
   const dy = e.clientY - lastY;
   if (isRotating) {
-    if (e.shiftKey) {
-      rotatePlane(2, 5, dx * 0.005);
-    } else {
-      rotatePlane(0, 3, dx * 0.005);
-      rotatePlane(1, 4, dy * 0.005);
-    }
+    rotatePlane(0, 3, dx * 0.005);
+    rotatePlane(1, 4, dy * 0.005);
   }
-  if (isPanning) {
-    cameraTarget.x -= dx * 0.002 * cameraDistance;
-    cameraTarget.y += dy * 0.002 * cameraDistance;
+  if (isAltRotating) {
+    rotatePlane(2, 5, dx * 0.005);
   }
   lastX = e.clientX;
   lastY = e.clientY;
@@ -362,7 +356,7 @@ window.addEventListener('pointermove', e => {
 
 window.addEventListener('pointerup', () => {
   isRotating = false;
-  isPanning = false;
+  isAltRotating = false;
 });
 
 renderer.domElement.addEventListener('wheel', e => {
@@ -406,8 +400,8 @@ function animate() {
   projectPoints();
 
   // Camera update
-  camera.position.set(cameraTarget.x, cameraTarget.y, cameraTarget.z + cameraDistance);
-  camera.lookAt(cameraTarget);
+  camera.position.set(0, 0, cameraDistance);
+  camera.lookAt(0, 0, 0);
 
   // Subtle scene motion
   stars.rotation.y += 0.00008;

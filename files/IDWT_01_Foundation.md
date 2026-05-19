@@ -63,7 +63,7 @@ Particles with d > 3 are not separate from us. Their modes include the d=3 coord
 
 For particles with d ≤ 3, all vibrational activity is in our dimensions. The photon's 2 dimensions lie within our 3; down-type quarks' 3 dimensions exactly match ours. These particles are fully visible — there is no component of their vibration that eludes our measurement.
 
-For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 visible and 7 hidden sector dimensions. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
+For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 visible and 7 sector dimensions beyond d=3. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
 
 The fraction of a sector-d mode's activity in our d=3 coordinates is set by the L² normalisation of the mode functions:
 
@@ -536,23 +536,23 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 
 **The direct consequence: electromagnetic waves must be transverse.** The photon oscillates in its 2 dimensions. The direction of propagation is the one coordinate our 3D has that the photon's world does not. The photon cannot oscillate in that direction because that direction does not exist from its perspective. As the photon travels in different directions through our 3D space, its 2D polarization plane rotates to remain perpendicular to the direction of travel — the missing dimension is always the one the photon is moving through. Electromagnetic waves are transverse because the photon is a d=2 entity propagating through a d=3 observable space: it oscillates in the 2 dimensions it possesses and propagates through the 1 dimension it doesn't. The two polarization states are the photon's 2 dimensions, made directly observable. This is derived in Part 3 §14.
 
-**The electron cloud as a d=3 marginal density.** The language of "electron clouds" or "probability distributions" in atomic physics is the inevitable result of a d=3 observer integrating over the three inaccessible hidden sector coordinates. The electron does not occupy a smeared region of 3D space in any fundamental sense. It occupies a definite position in 6-dimensional CP³ at every moment. A d=3 observer, unable to resolve the three hidden sector coordinates, integrates over them — what remains is a marginal distribution in 3D that looks like a cloud. The orbital shapes of standard quantum mechanics (s, p, d, f — spherical harmonic angular dependence in 3D) are cross-sections of the full CP³ mode geometry. The "uncertainty" in the electron's 3D position is irreducible only from the d=3 observer's perspective; it is the information integrated over in the sector-space marginal, not a fundamental indeterminacy.
+**The electron cloud as a d=3 marginal density.** The language of "electron clouds" or "probability distributions" in atomic physics is the inevitable result of a d=3 observer integrating over the three inaccessible sector coordinates of CP³. The electron does not occupy a smeared region of 3D space in any fundamental sense. It occupies a definite position in 6-dimensional CP³ at every moment. A d=3 observer, unable to resolve the three sector coordinates beyond d=3, integrates over them — what remains is a marginal distribution in 3D that looks like a cloud. The orbital shapes of standard quantum mechanics (s, p, d, f — spherical harmonic angular dependence in 3D) are the d=3-coordinate structure of the full CP³ mode. The "uncertainty" in the electron's 3D position is irreducible only from the d=3 observer's perspective; it is the information integrated over in the sector-space marginal, not a fundamental indeterminacy.
 
 **The nucleus is geometrically thin in the electron's space.** The atomic nucleus is a colour-singlet composite of d=3 and d=4 quarks. Colour confinement forces the composite to project out its d=4 character entirely — the CP² color index cancels in any singlet — leaving a d=3 object. The nucleus has wavefunction support in only 3 of the 6 dimensions the electron's CP³ orbit spans. From the electron's perspective, it orbits something geometrically thin: the nucleus extends through 3 of the electron's 6 coordinate directions and is absent from the other 3. The electromagnetic coupling (d=2 sector, nested inside both d=3 and d=6) provides the binding handle. The atom is therefore not a nucleus at the center of a cloud — it is a d=3 structure being orbited in 6-dimensional space by a d=6 excitation, coupled through a shared d=2 coordinate.
 
 **Mass as the sector eigenvalue.** The governing equation on M_∞ separates into observable and sector parts. For a mode with sector wavefunction χ_{n,d}:
 
 ```
-∂_t² Ψ = c²(Δ_3 + Δ_hidden) Ψ
+∂_t² Ψ = c²(Δ_3 + Δ_Ξ) Ψ
 ```
 
-The Laplacian on Ξ_d acts on χ_{n,d} and returns its eigenvalue: Δ_hidden χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve motion in Ξ_d, sees:
+The Laplacian on Ξ_d acts on χ_{n,d} and returns its eigenvalue: Δ_Ξ χ_{n,d} = −m² χ_{n,d}, where m = m_scale_d × S(n,d). A d=3 observer, who cannot resolve motion in Ξ_d, sees:
 
 ```
 ∂_t² ψ = c²(Δ_3 − m²) ψ
 ```
 
-This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the hidden sector operator, appearing to a d=3 observer as a scalar constant because the Ξ_d degrees of freedom are inaccessible. Mass is a count of excited hidden microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d dimensions of Ξ_d, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that hidden sector operator.
+This is the Klein-Gordon equation. The mass term is not a separate input — it is the eigenvalue of the sector operator, appearing to a d=3 observer as a scalar constant because the Ξ_d degrees of freedom are inaccessible. Mass is a count of excited sector microstates: S(n,d) = C(n+d−1, d) counts the number of independent ways to distribute n excitations across d dimensions of Ξ_d, and m_scale_d sets the sector frequency. The photon (n=0, d=2) has S(0,2) = 0, so m = 0 exactly — zero excitations means zero mass. Every other particle has n ≥ 1 and a non-zero count of excited microstates, giving non-zero mass. The mass formula m = m_scale_d × S(n,d) is the spectrum of that sector operator.
 
 ---
 
@@ -572,7 +572,7 @@ The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by th
 
 All masses predicted from a **sole unit reference m_e = 0.511 MeV**. The W boson mass follows from m_scale_2 × S(76,2). Sector scales follow from seeds alone (Part 2 §10).
 
-The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of hidden microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the eigenmode selection rule holds as a theorem rather than a coincidence (see Part 2).
+The mass formula m = m_scale_d × S(n,d) where S(n,d) = C(n+d−1, d) is a binomial coefficient. In natural units, mass is frequency — S(n,d) × m_scale_d is the resonant frequency of mode n in sector d. The crucial additional fact is that this resonant frequency equals the cumulative count of sector microstates below level n — a hockey-stick sum: S(n,d) = Σ_{k=0}^{n-1} C(k+d−1, d−1). This identity is why the eigenmode selection rule holds as a theorem rather than a coincidence (see Part 2).
 
 Derived sector scales (coupling self-consistency; see Part 2 §10):
 ```
@@ -643,7 +643,7 @@ $$n_e = n_c - n_u - n_s = 13, \qquad n_\mu = S(n_s, 4) = 35$$
 $$n_\tau = n_\mu - n_e + n_d = 23$$
 
 $$n_{\nu_1} = S(n_u, 3) = 10, \quad n_{\nu_2} = S(n_u, 4) = 15, \quad n_{\nu_3} = n_{\nu_1} + n_{\nu_2} - n_u = 22$$
-[inclusion-exclusion: both $n_{\nu_1}$ and $n_{\nu_2}$ project the same seed $n_u$, so their sum over-counts $n_u$ once; subtracting it is forced. Cross-check: $n_{\nu_3} = n_\tau - n_d = 22$ ✓]
+[inclusion-exclusion: both $n_{\nu_1}$ and $n_{\nu_2}$ encode the same seed $n_u$, so their sum over-counts $n_u$ once; subtracting it is forced. Cross-check: $n_{\nu_3} = n_\tau - n_d = 22$ ✓]
 
 $$n_{\rm top} = S(n_e, 2) - n_c + 1 = 72$$
 
@@ -769,7 +769,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 - **No hierarchy problem:** m_H is integer-determined (n_H = 95); radiative corrections cannot shift mode indices.
 - **Higgs is not a condensate:** no quartic self-coupling, no VEV, no vacuum metastability from λ_H running.
 - **No seesaw:** neutrino mass scale set by cross-sector Hopf fixed point, not by a heavy right-handed neutrino mass term.
-- **No sterile neutrinos:** Stage-1 filter eliminates all non-projecting d=5 modes; exactly three neutrino species.
+- **No sterile neutrinos:** Stage-1 filter eliminates all d=5 modes with vanishing d=3 amplitude; exactly three neutrino species.
 - **Left-handed W coupling is geometric:** Kähler γ₅ on CP² and CP³ selects holomorphic (left-handed) components; not imposed as a postulate.
 - **No glueballs:** The strong force is a direct quark contact coupling symmetric under the CP² isometry, with no colour-exchange field. There is no colour-exchange field to bind into a glueball; any state that QCD would classify as a glueball must in IDWT be a misidentified quark-sector resonance. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
 

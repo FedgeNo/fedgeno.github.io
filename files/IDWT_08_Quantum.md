@@ -18,7 +18,7 @@ The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the sector reduction; correc
 
 ---
 
-## 2. Hidden-Sector Quantum Numbers
+## 2. Sector Quantum Numbers
 
 Ψ∞ is a Dirac spinor field. The sector separation on M_∞ = ℝ^{3,1} × Ξ_d gives:
 
@@ -178,7 +178,7 @@ S(n,d) is the total number of quantum states of the d-dimensional sector harmoni
 m(n,d) = m_scale_d × S(n,d) = m_scale_d × N_d(n−1)
 ```
 
-states that the mass of a particle equals m_scale_d times the cumulative count of sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of hidden microstates" is exactly this: m/m_scale_d = N_d(n−1).
+states that the mass of a particle equals m_scale_d times the cumulative count of sector oscillator states at levels k = 0, 1, ..., n−1. The IDWT postulate "mass is a count of sector microstates" is exactly this: m/m_scale_d = N_d(n−1).
 
 ### 3.4 Connection to the Dirac Operator D_Ξ
 

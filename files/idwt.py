@@ -48,7 +48,7 @@ def S(n, d):
     C(n+d-1, d-1), one index off). The distinction matters: S(1,d) = 1 for
     all d (ground state uniqueness), while C(d-1, d-1) = 1 only trivially.
 
-    Physical meaning in IDWT: S(n,d) counts the cumulative hidden microstates
+    Physical meaning in IDWT: S(n,d) counts the cumulative sector microstates
     at excitation levels 0 through n-1 in sector d. The mass formula
     m(n,d) = m_scale_d * S(n,d) assigns mass proportional to this count.
     (Part 1 section 5, Part 2 section 1)

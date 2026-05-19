@@ -44,7 +44,7 @@ S(n, d) = Σ_{k=0}^{n-1} C(k+d−1, d−1)
 
 It is the engine of the entire spectrum.
 
-**Physical meaning:** The resonant frequency S(n,d) equals the cumulative count of hidden quantum microstates below level n. These are the same thing. The frequency at which mode n resonates is precisely the total number of accessible hidden states up to that level. Heavier particles — higher frequencies — occupy higher-entropy configurations of the hidden geometry. The hockey-stick identity is the bridge between the spectral and the statistical descriptions.
+**Physical meaning:** The resonant frequency S(n,d) equals the cumulative count of sector microstates below level n. These are the same thing. The frequency at which mode n resonates is precisely the total number of accessible sector states up to that level. Heavier particles — higher frequencies — occupy higher-entropy configurations of the sector geometry. The hockey-stick identity is the bridge between the spectral and the statistical descriptions.
 
 ---
 
@@ -175,7 +175,7 @@ n_ν₁    = S(3, 3)       = 10      [hockey-stick in d=3 through level 2]
 n_ν₂    = S(3, 4)       = 15      [hockey-stick in d=4 through level 2]
 n_e     = n_ν₁ + n_u   = 13      [hockey-stick generation law, stage 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
-n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22  [inclusion-exclusion: n_ν₁ = S(n_u,3) and n_ν₂ = S(n_u,4) are both projections of the same up-quark seed n_u=3 into d=3 and d=4 respectively. Adding them counts the shared base n_u once too many; subtracting n_u removes the overlap exactly. This is forced — without it n_ν₃ = 25 and S(25,5)×m_scale_5 gives Σm_ν ≈ 98 meV, excluded by DESI. Cross-check: n_ν₃ = n_τ − n_d = 23−1 = 22 (Generation Law from the tau side).]
+n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22  [inclusion-exclusion: n_ν₁ = S(n_u,3) and n_ν₂ = S(n_u,4) both arise from the same up-quark seed n_u=3, evaluated in d=3 and d=4 respectively. Adding them counts the shared base n_u once too many; subtracting n_u removes the overlap exactly. This is forced — without it n_ν₃ = 25 and S(25,5)×m_scale_5 gives Σm_ν ≈ 98 meV, excluded by DESI. Cross-check: n_ν₃ = n_τ − n_d = 23−1 = 22 (Generation Law from the tau side).]
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
 n_top   = S(n_e,2) − n_c + 1 = 91 − 20 + 1 = 72   [eigenmode selection chain]
           [cross-check: χ(CP²)×χ(CP³)×χ(CP⁵) = 3×4×6 = 72 — consistency, not derivation]
@@ -507,7 +507,7 @@ The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_m
 - n_ν₂ = S(n_u,4) = 15: primary Pascal evaluation in d=4 alone. No cross-sector l=2 mixing; no correction.
 - n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22: the unique inclusion-exclusion mode, combining the d=3 image (n_ν₁) and the d=4 image (n_ν₂) of the same seed n_u. The l=2 cross-term of the kernel (T2) then operates on the product of the two sector amplitudes: ε from the d=4 coupling geometry, g_{33} from the d=3 back-reaction. Their product is 1/35 by the identity above.
 
-**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both projections of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 Dyson correction (T10b), which is a geometric-series resummation at the Aubry-André critical point. The ν₃ correction is a single-order cross-sector constructive interference.
+**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both images of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 Dyson correction (T10b), which is a geometric-series resummation at the Aubry-André critical point. The ν₃ correction is a single-order cross-sector constructive interference.
 
 **Numerical check:**
 

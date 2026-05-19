@@ -1,13 +1,13 @@
 # Infinite Dimensional Wave Theory
 
 ## Overview
-A physics framework under construction. Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. The hidden space Ξ decomposes into six sectors d ∈ D = {2, 3, 4, 5, 6, 10}, each a distinct geometric manifold. We are inside M_∞ at the d=3 coordinate level; the observable universe is Ψ∞ evaluated at fixed hidden coordinate ξ⁰.
+A physics framework under construction. Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. The sector manifold Ξ decomposes into six sectors d ∈ D = {2, 3, 4, 5, 6, 10}, each a distinct geometric manifold. We are inside M_∞ at the d=3 coordinate level; the observable universe is Ψ∞ evaluated at fixed ξ⁰ in the d>3 sector coordinates.
 
 ## Core Principles
 - Reality is a single complex wave Ψ∞ on an infinite-dimensional manifold.
 - We are inside M_∞ at the d=3 coordinate level, not external observers projecting onto a screen. Particles with d > 3 vibrate across dimensions we do not occupy; we measure only their d=3 activity.
-- The hidden dimensions are not compactified Planck-scale curls; they are macroscopic.
-- What we call mass is a scaled count of hidden microstates.
+- The sector dimensions are not compactified Planck-scale curls; they are macroscopic.
+- What we call mass is a scaled count of sector microstates.
 - Gravity is a phenomenon of M_∞ — it has no sector boundary. G_N = G_∞/V_7; V_7 ≈ 113 is fully derived from sector couplings. V_vacuum (d>10) does not enter: curvature from d≤10 propagates into d>10 but disperses (T5: scattering states, not L²-normalizable); d>10 is Ricci-flat in vacuum (R_ab=0, no contribution to a_2 = ∫R dvol). G_∞ = G_N × V_7 = 7.57 × 10^{-43} MeV^{-2} (currently input from measurement). Genuine closure: a_4 is Λ-independent in IDWT (fixed by T9); computing a_2(M_∞) from T14 sector heat kernels + Ricci scalars and using the a_2/a_4 ratio eliminates Λ and makes G_N a prediction — this is the single remaining open item. KK formula M_Pl^2 = M_∗^9 V_7^phys does not apply (requires compact dimensions and KK graviton tower, both excluded). Gravity couples to each particle through that particle's dimensional complexity, encoded in mass m(n,d) = S(n,d) × m_scale_d.
 - Forces mediate via coordinate containment: a particle couples to a force only if it has wavefunction support in the force's sector coordinates. Complementary principle — coupling filter: the particle's own sector geometry determines the structure of that coupling. The sector quantum number (polarization, color, Dirac condition, color silence, AA Cantor-set) is not a label; it is the geometry expressing itself as a coupling structure, specifying both what interactions are available and what is geometrically forbidden. Both principles together determine the full interaction structure of any particle (Part 1 §3d, §3g; Part 3 §0.8).
 - Extra dimensions are purely spatial. Time is 1D and universal.
@@ -163,9 +163,9 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **Part 4 — Gravity**
 - §1: Gravity is Curvature of M_∞ Caused by Mass
-- §1b: Why Macroscopic Hidden Dimensions Are Consistent with All Experiment
+- §1b: Why Macroscopic Sector Dimensions Are Consistent with All Experiment
 - §2: Newtonian Limit
-- §3: Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement (§3.1 Gravity as ∞D curvature sourced by mass; §3.2 Observer's effective gravitational equation; §3.3–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 No Hidden-Sector Correction and G_N as 3D measurement of ∞D curvature; §3.12.4 G_∞ numerically + spectral action closure condition — G_∞ = 7.57×10^{-43} MeV^{-2}; a_4 Λ-independent via T9; genuine closure path: compute a_2(M_∞) from T14 heat kernels to eliminate Λ; KK M_∗ formula rejected; §3.13 Covariant Conservation of T_{μν}^eff)
+- §3: Gravity on M_∞: Source, Structure, and the 3D Observer's Measurement (§3.1 Gravity as ∞D curvature sourced by mass; §3.2 Observer's effective gravitational equation; §3.3–§3.7 formal structure; §3.9 Sector Localization Length; §3.10 Derivation of λ_d; §3.11 Newton's Constant Sector-Independence; §3.12 No Sector Correction and G_N as 3D measurement of ∞D curvature; §3.12.4 G_∞ numerically + spectral action closure condition — G_∞ = 7.57×10^{-43} MeV^{-2}; a_4 Λ-independent via T9; genuine closure path: compute a_2(M_∞) from T14 heat kernels to eliminate Λ; KK M_∗ formula rejected; §3.13 Covariant Conservation of T_{μν}^eff)
 - §4: Cosmological Constant
 - §5: Two-Stage Observability
 
@@ -192,7 +192,7 @@ Coordinate nesting: Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}
 
 **Part 8 — Quantum Structure, Lorentz, Dirac & Confinement**
 - §1: Lorentz Covariance
-- §2: Hidden-Sector Quantum Numbers (§2.1 Majorana/Weyl Classification, §2.2 Spin Structure, §2.3 Chirality from Kähler γ₅, §2.4 Dirac Index per Sector)
+- §2: Sector Quantum Numbers (§2.1 Majorana/Weyl Classification, §2.2 Spin Structure, §2.3 Chirality from Kähler γ₅, §2.4 Dirac Index per Sector)
 - §3: Spectral Counting Theorem (§3.1–§3.4 incl. connection to Dirac operator D_Ξ)
 - §4: General Odd-Sphere Spectral Theorem
 - §5: Spectral Numerical Theorems (S1, S2, S3)

@@ -28,6 +28,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+a {
+    color: var(--accent-1);
+}
+
 /* ── Background ────────────────────────────────────── */
 
 .bg {

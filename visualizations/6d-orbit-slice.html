@@ -3,104 +3,227 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>6D Orbit — CP³ Electron Sector</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-  html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-    background: #05070f;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-  canvas { display: block; width: 100%; height: 100%; touch-action: none; }
-  /* site nav */
-  .site-nav {
-    position: fixed; top: 0; left: 0; right: 0;
-    height: 56px; display: flex; align-items: center;
-    justify-content: space-between; padding: 0 28px;
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    background: rgba(5,7,15,0.75);
-    border-bottom: 1px solid rgba(139,156,255,0.12);
-    z-index: 200;
-  }
-  .nav-logo {
-    font-size: 1.1rem; font-weight: 700; letter-spacing: 0.06em;
-    text-decoration: none;
-    background: linear-gradient(90deg, #60a5fa 0%, #8b9cff 50%, #a78bfa 100%);
-    -webkit-background-clip: text; background-clip: text;
-    -webkit-text-fill-color: transparent; color: transparent;
-  }
-  .nav-links { display: flex; gap: 8px; }
-  .nav-links a {
-    color: #94a3b8; text-decoration: none;
-    font-size: 0.875rem; padding: 6px 12px; border-radius: 6px;
-    transition: color 0.15s, background 0.15s;
-  }
-  .nav-links a:hover { color: #e2e8f0; background: rgba(139,156,255,0.08); }
-  .nav-links a[aria-current="page"] { color: #8b9cff; background: rgba(139,156,255,0.08); }
-
-  .overlay {
-    position: absolute;
-    top: 68px;
-    left: 24px;
-    padding: 14px 18px;
-    background: linear-gradient(180deg, rgba(12,16,28,0.85), rgba(8,10,18,0.75));
-    border: 1px solid rgba(140,170,255,0.18);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 14px;
-    color: #d6e2ff;
-    font-size: 13px;
-    line-height: 1.6;
-    letter-spacing: 0.2px;
-    pointer-events: none;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
-    max-width: 320px;
-  }
-  .overlay b {
-    color: #ffffff;
-    font-weight: 500;
-  }
-  .overlay .title {
-    font-weight: 500;
-    font-size: 14px;
-    margin-bottom: 6px;
-    color: #fff;
-    letter-spacing: 0.3px;
-  }
-  .overlay .hint {
-    opacity: 0.85;
-  }
-  .overlay .row {
-    display: flex;
-    gap: 8px;
-    margin-top: 4px;
-    flex-wrap: wrap;
-  }
-  .key {
-    padding: 2px 6px;
-    background: rgba(140,170,255,0.12);
-    border: 1px solid rgba(140,170,255,0.25);
-    border-radius: 6px;
-    font-size: 11px;
-    color: #b8c9ff;
-  }
-  @media (max-width: 600px) {
-    .overlay { top: 68px; left: 12px; right: 12px; font-size: 12px; padding: 12px 14px; }
-  }
-</style>
+<title>Atomic Orbitals as CP³ Projection — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
-<script type="importmap">
-{
-  "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-  }
-}
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }</script>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)'], ['$','$']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea'] }
+};
 </script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+/* ── layout ── */
+html, body { margin:0; height:100%; overflow:hidden; }
+
+.split-root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+  padding-top: 56px; /* nav height */
+  box-sizing: border-box;
+}
+@media (orientation: portrait) {
+  .split-root { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+}
+
+/* ── text panel ── */
+.text-panel {
+  overflow-y: auto;
+  padding: 32px 36px 60px;
+  border-right: 1px solid rgba(139,156,255,0.12);
+  color: var(--prose, #c4cae2);
+  font-size: 0.925rem;
+  line-height: 1.75;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139,156,255,0.2) transparent;
+}
+@media (orientation: portrait) {
+  .text-panel { border-right: none; border-bottom: 1px solid rgba(139,156,255,0.12); padding: 24px 22px 36px; }
+}
+
+.text-panel h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e8ecf8;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+.text-panel .eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8b9cff;
+  margin-bottom: 10px;
+}
+.text-panel .sub {
+  color: #9aa3b8;
+  font-size: 0.9rem;
+  margin: 0 0 28px;
+  border-bottom: 1px solid rgba(139,156,255,0.1);
+  padding-bottom: 20px;
+}
+.text-panel h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #d6daf0;
+  margin: 28px 0 10px;
+}
+.text-panel h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #b8c0d8;
+  margin: 20px 0 8px;
+}
+.text-panel p { margin: 0 0 12px; }
+.text-panel a { color: #8b9cff; text-decoration: none; }
+.text-panel a:hover { text-decoration: underline; }
+
+.status-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 4px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+.tag-id    { background: rgba(250,204,21,0.1);  color: #fde68a; border: 1px solid rgba(250,204,21,0.25); }
+.tag-sc    { background: rgba(52,211,153,0.1);  color: #6ee7b7; border: 1px solid rgba(52,211,153,0.25); }
+.tag-open  { background: rgba(251,146,60,0.1);  color: #fdba74; border: 1px solid rgba(251,146,60,0.25); }
+
+.formula-block {
+  background: rgba(10,13,28,0.7);
+  border: 1px solid rgba(139,156,255,0.14);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  overflow-x: auto;
+  font-size: 0.95em;
+}
+.formula-block .label {
+  font-size: 0.75rem;
+  color: #7a8499;
+  margin-bottom: 6px;
+  letter-spacing: 0.06em;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 12px 0;
+}
+.data-table th {
+  text-align: left;
+  color: #8b9cff;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-bottom: 1px solid rgba(139,156,255,0.18);
+}
+.data-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid rgba(139,156,255,0.07);
+  color: #c4cae2;
+}
+.data-table tr:hover td { background: rgba(139,156,255,0.04); }
+.obs-cell { color: #7fa0ff; font-weight: 500; }
+.hid-cell { color: #f59e0b; }
+
+.lemma-box {
+  background: rgba(52,211,153,0.04);
+  border: 1px solid rgba(52,211,153,0.18);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.lemma-box .lemma-title {
+  font-weight: 600;
+  color: #6ee7b7;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.result-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 6px 0;
+  font-size: 0.88rem;
+}
+.result-row .check { color: #6ee7b7; flex-shrink: 0; margin-top: 1px; }
+
+/* ── viz panel ── */
+.viz-panel {
+  position: relative;
+  overflow: hidden;
+  background: #05070e;
+}
+.viz-panel canvas { display: block; }
+
+.shell-bar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.shell-btn {
+  background: rgba(10,13,28,0.8);
+  border: 1px solid rgba(139,156,255,0.25);
+  border-radius: 8px;
+  color: #9aa3b8;
+  font-family: inherit;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: all 0.15s;
+  backdrop-filter: blur(8px);
+}
+.shell-btn:hover { border-color: rgba(139,156,255,0.5); color: #e2e8f0; }
+.shell-btn.active { background: rgba(139,156,255,0.15); border-color: #8b9cff; color: #8b9cff; }
+
+.viz-info {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(10,13,28,0.78);
+  border: 1px solid rgba(139,156,255,0.18);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: #9aa3b8;
+  backdrop-filter: blur(12px);
+  pointer-events: none;
+  z-index: 10;
+  max-width: 200px;
+}
+.viz-info .vi-title { color: #d6daf0; font-weight: 600; margin-bottom: 4px; font-size: 0.82rem; }
+.vi-obs { color: #7fa0ff; }
+.vi-hid { color: #f59e0b; }
+.vi-dim { color: #7a8499; }
+
+.drag-hint {
+  position: absolute;
+  bottom: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.72rem;
+  color: #4a5270;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+</style>
 </head>
 <body>
+<div class="bg"></div>
+
 <nav class="site-nav">
   <a class="nav-logo" href="/">IDWT</a>
   <div class="nav-links">
@@ -110,22 +233,142 @@
     <a href="/published/">Published</a>
   </div>
 </nav>
-<div class="overlay">
-  <div class="title">CP³ Mode (3,2,1) — Electron Sector Orbit</div>
-  <div class="hint">The electron lives in a 6D sector (CP³). This is its actual orbit — three complex coordinate pairs weighted by occupation numbers √(3/6), √(2/6), √(1/6). What you see is its activity in d=3 — the part of the orbit our coordinate level can resolve.</div>
-  <div class="hint" style="margin-top:8px">The orbit rotates through three independent sector planes at φ-ratio rates, so the d=3 coordinate-level readout continuously morphs through the orbital family — s, p, d shapes emerging and dissolving.</div>
-  <div class="hint" style="margin-top:8px"><b>Drag</b> to rotate sector planes 1 &amp; 2. <b>Right-drag</b> to rotate the 3rd sector plane.</div>
-  <div class="row" style="margin-top:8px">
-    <span class="key">Left-drag</span>
-    <span>planes 1 &amp; 2</span>
-    <span class="key">Right-drag</span>
-    <span>3rd plane</span>
+
+<div class="split-root">
+
+<!-- ══════════════════════ TEXT PANEL ══════════════════════ -->
+<div class="text-panel">
+  <div class="eyebrow">Visualization · d=6 Sector</div>
+  <h1>Atomic Orbitals as CP³ Projection</h1>
+  <p class="sub">The s, p, d, f orbital families are the observable shadow of the electron's CP³ sector geometry. Every orbital shell contains hidden states that carry angular momentum in the Ξ<sub>6</sub> directions — and are exactly spectroscopically dark.</p>
+
+  <h2>Setup</h2>
+  <p>In IDWT, the electron is the mode \((n=13,\, d=6)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)/\mathrm{U}(3)\). The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
+  <div class="formula-block">
+    \[\mathrm{SU}(4) \supset \mathrm{SU}(3) \supset \mathrm{SO}(3)\]
+    <div class="label">the natural projection path from d=6 sector to observable space</div>
   </div>
-  <div class="row">
-    <span class="key">Wheel</span>
-    <span>zoom</span>
+  <p>where \(\mathrm{SU}(3)\) is the d=4 quark-sector colour group embedded in the d=6 lepton isometry, and \(\mathrm{SO}(3)\) acts on the three real observable directions.</p>
+
+  <h2>The Orbital Representations</h2>
+  <p>At angular momentum \(L\), the orbital states form the holomorphic symmetric representation of \(\mathrm{SU}(4)\):</p>
+  <div class="formula-block">
+    \[\mathrm{Sym}^L(\mathbb{C}^4), \quad \dim = \binom{L+3}{3}\]
   </div>
+  <p>Under the full subgroup chain, only the highest-spin \(\mathrm{SO}(3)\) irrep at each level survives projection — the states that are purely polynomial in \((z_1, z_2, z_3)\) with no \(\xi\)-dependence. These are the \(2L+1\) standard spherical harmonics. All other states carry hidden angular momentum.</p>
+
+  <h3>Orbital Counting Theorem <span class="status-tag tag-id">⭐ Identity</span></h3>
+  <p>Projection of \(\mathrm{Sym}^L(\mathbb{C}^4)\) to the observable \(\mathrm{SO}(3)\) selects exactly \(2L+1\) states. The remaining</p>
+  <div class="formula-block">
+    \[\binom{L+3}{3} - (2L+1)\]
+  </div>
+  <p>states carry hidden-sector angular momentum and vanish at the observer address \(\xi^0\).</p>
+
+  <table class="data-table">
+    <thead><tr><th>Shell</th><th>\(L\)</th><th>Total dim</th><th class="obs-cell">Observable</th><th class="hid-cell">Hidden</th></tr></thead>
+    <tbody>
+      <tr><td>s</td><td>0</td><td>1</td><td class="obs-cell">1</td><td class="hid-cell">0</td></tr>
+      <tr><td>p</td><td>1</td><td>4</td><td class="obs-cell">3</td><td class="hid-cell">1</td></tr>
+      <tr><td>d</td><td>2</td><td>10</td><td class="obs-cell">5</td><td class="hid-cell">5</td></tr>
+      <tr><td>f</td><td>3</td><td>20</td><td class="obs-cell">7</td><td class="hid-cell">13</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Simplex Identity <span class="status-tag tag-id">⭐ Identity</span></h3>
+  <p>The total dimension equals the IDWT simplex number at mode \(n = L+1\) in the d=3 hadronic sector:</p>
+  <div class="formula-block">
+    \[\dim\bigl(\mathrm{Sym}^L(\mathbb{C}^4)\bigr) = \binom{L+3}{3} = S(L+1,\,3)\]
+    <div class="label">pure algebraic identity — valid independently of IDWT postulates</div>
+  </div>
+  <p>The orbital shell structure of atomic physics and the IDWT hadronic mass spectrum are governed by the same combinatorial sequence.</p>
+
+  <h2>The SU(4) → SO(3) Decomposition</h2>
+  <p>Under \(\mathrm{SU}(4) \supset \mathrm{SU}(3) \times \mathrm{U}(1)\), the fundamental decomposes as \(\mathbf{4} \to \mathbf{3} + \mathbf{1}\). The higher symmetric powers decompose as:</p>
+
+  <table class="data-table">
+    <thead><tr><th>\(\mathrm{Sym}^L\)</th><th>\(\mathrm{SU}(3)\) content</th><th>\(\mathrm{SO}(3)\) irreps</th></tr></thead>
+    <tbody>
+      <tr><td>\(\mathbf{1}\)</td><td>\(\mathbf{1}\)</td><td>\(j=0\)</td></tr>
+      <tr><td>\(\mathbf{4}\)</td><td>\(\mathbf{3} + \mathbf{1}\)</td><td>\(j=1\) (obs) \(+\) \(j=0\) (hid)</td></tr>
+      <tr><td>\(\mathbf{10}\)</td><td>\(\mathbf{6} + \mathbf{3} + \mathbf{1}\)</td><td>\(j=2\) (obs) \(+\) \(j=0,1\) (hid)</td></tr>
+      <tr><td>\(\mathbf{20}\)</td><td>\(\mathbf{10} + \mathbf{6} + \mathbf{3} + \mathbf{1}\)</td><td>\(j=3\) (obs) \(+\) \(j=0,1,2\) (hid)</td></tr>
+    </tbody>
+  </table>
+
+  <p>Observable states are the unique highest-\(j\) irrep. Hidden states are all lower-\(j\) content and states involving the \(z_4\) fibre direction.</p>
+
+  <h2>The Exact Hamiltonian</h2>
+
+  <div class="lemma-box">
+    <div class="lemma-title">Lemma 1 — Exact Potential Separability <span class="status-tag tag-sc">✅ Structural</span></div>
+    <p style="margin:0 0 8px">The total interaction potential on \(M_\infty = \mathbf{R}^3 \times \Xi_6\) is</p>
+    <div class="formula-block" style="margin:0">
+      \[V(\mathbf{r},\xi) = V_\mathrm{Coulomb}(|\mathbf{r}|) + V_6(|\xi|)\]
+    </div>
+    <p style="margin:8px 0 0">an exact sum — no \(\mathbf{r}\)-\(\xi\) cross terms. The proof has three parts: (i) the d=2 photon couples only to \(\rho_\mathrm{3D}(\mathbf{r})\), so the Coulomb term has no \(\xi\)-dependence; (ii) CP³ colour silence means the proton's quark modes create no \(\xi\)-dependent potential for the electron; (iii) the CP³ isometry makes \(V_6\) spherically symmetric in \(\xi\) and independent of \(\mathbf{r}\).</p>
+  </div>
+
+  <p>Because the potential separates exactly, the Schrödinger equation on \(M_\infty\) is exactly separable. The electron occupies sector mode \(n=13\), so \(\chi = \chi_{13}\) with \(E_\xi = m_e\). The 3D Hamiltonian is therefore exact — not an approximation:</p>
+  <div class="formula-block">
+    \[H_\mathrm{eff} = -\frac{\hbar^2}{2m_e}\nabla^2_r - \frac{e^2}{|\mathbf{r}|} + m_e\]
+    <div class="label">effective 3D Hamiltonian — exact consequence of sector structure</div>
+  </div>
+
+  <h3>Energy Levels <span class="status-tag tag-sc">✅ Structural</span></h3>
+  <div class="formula-block">
+    \[E_{nL} = m_e - \frac{m_e\,\alpha^2}{2n^2}\]
+    <div class="label">standard Bohr spectrum with electron rest mass — no correction term</div>
+  </div>
+
+  <h2>Why Hidden States Are Dark</h2>
+
+  <div class="lemma-box">
+    <div class="lemma-title">Lemma 2 — ξ-Orthogonality <span class="status-tag tag-sc">✅ Structural</span></div>
+    <p style="margin:0">Let \(O(\mathbf{r}, \nabla_r)\) be any 3D operator (no \(\xi\)-dependence). Let \(|\mathrm{obs}\rangle\) be any observable orbital state (angular part is a polynomial in \(z_1, z_2, z_3\) only). Let \(|\mathrm{hid}\rangle\) have nontrivial \(z_4\)-dependence. Then \(\langle\mathrm{hid}|O|\mathrm{obs}\rangle = 0\) — the \(\xi\)-sphere integral of the hidden state's angular factor is zero by spherical harmonic orthogonality.</p>
+  </div>
+
+  <p>This single lemma carries four results:</p>
+  <div class="result-row"><span class="check">✅</span><span><strong>Spectroscopic darkness</strong> — J<sup>μ</sup>(<b>r</b>) has no ξ-dependence; hidden states are structurally zero-amplitude at the EM vertex, not perturbatively suppressed.</span></div>
+  <div class="result-row"><span class="check">✅</span><span><strong>Zeeman splitting</strong> — <b>B</b> ∈ R³ has zero Ξ<sub>6</sub> component; \(\mathbf{B}\cdot\mathbf{L}_{\Xi_6} = 0\) exactly; each shell gives exactly \(2L+1\) lines.</span></div>
+  <div class="result-row"><span class="check">✅</span><span><strong>Stark selection rules</strong> — the \(z\)-operator has no \(\xi\)-dependence; Lemma 2 kills all mixing with hidden states; standard \(\Delta L = \pm 1\) follows.</span></div>
+
+  <h2>Explicit Basis: L = 1</h2>
+  <p>\(\mathrm{Sym}^1(\mathbb{C}^4)\) has basis \(\{z_1, z_2, z_3, z_4\}\).</p>
+  <p><span style="color:#7fa0ff">Observable p-orbitals:</span> \(\{z_1, z_2, z_3\} \to (p_x, p_y, p_z)\). These are the standard \(Y_1^m\).</p>
+  <p><span style="color:#f59e0b">Hidden state:</span> \(\{z_4\}\), which integrates to zero over the \(\xi\)-sphere. Any 3D operator has zero matrix element between \(z_4\) and the observable states.</p>
+
+  <h2>Explicit Basis: L = 2</h2>
+  <p>\(\mathrm{Sym}^2(\mathbb{C}^4)\) has 10 basis monomials.</p>
+  <p><span style="color:#7fa0ff">Observable d-orbitals:</span> the 5 traceless degree-2 polynomials in \((z_1, z_2, z_3)\) — the standard \(Y_2^m\).</p>
+  <p><span style="color:#f59e0b">Hidden states (5):</span> \(\{z_1 z_4,\, z_2 z_4,\, z_3 z_4\}\) (p-like, \(j=1\)), \(\{z_4^2\}\) (s-like, \(j=0\)), and \(\{z_1^2+z_2^2+z_3^2\}\) (the SO(3) trace, \(j=0\)). All five integrate to zero over the \(\xi\)-sphere.</p>
+
+  <h2>Summary</h2>
+  <p>Chemistry is a shadow of the d=6 sector geometry. The orbital degeneracy counts 1, 3, 5, 7 for s, p, d, f shells are a theorem of the representation theory of \(\mathrm{SU}(4)\). The Bohr spectrum is an exact consequence of potential separability in \(M_\infty\). The spectroscopic selection rules follow from \(\xi\)-orthogonality. No parameters are adjusted.</p>
+
+  <p style="margin-top:24px; font-size:0.83rem; color:#5a6380">
+    See also: <a href="/articles/sectors.html">The Six Sectors</a> &nbsp;·&nbsp;
+    <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a> &nbsp;·&nbsp;
+    <a href="/articles/sector-filters.html">Coupling Filters</a>
+  </p>
+</div><!-- end text-panel -->
+
+<!-- ══════════════════════ VIZ PANEL ══════════════════════ -->
+<div class="viz-panel" id="vizPanel">
+  <div class="viz-info" id="vizInfo">
+    <div class="vi-title">s shell — L=0</div>
+    <div><span class="vi-obs">1 observable</span> · <span class="vi-hid">0 hidden</span></div>
+    <div class="vi-dim">Total dim: S(1,3) = 1</div>
+  </div>
+  <div class="shell-bar">
+    <button class="shell-btn active" id="btn-s" onclick="setShell(0)">s (L=0)</button>
+    <button class="shell-btn" id="btn-p" onclick="setShell(1)">p (L=1)</button>
+    <button class="shell-btn" id="btn-d" onclick="setShell(2)">d (L=2)</button>
+    <button class="shell-btn" id="btn-f" onclick="setShell(3)">f (L=3)</button>
+  </div>
+  <div class="drag-hint">drag to rotate</div>
 </div>
+
+</div><!-- end split-root -->
 
 <script type="module">
 import * as THREE from 'three';
@@ -133,295 +376,323 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
-const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x05070f);
-scene.fog = new THREE.FogExp2(0x05070f, 0.012);
+// ── scene setup ──────────────────────────────────────────────
+const panel = document.getElementById('vizPanel');
+const W = () => panel.clientWidth;
+const H = () => panel.clientHeight;
 
-const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-let cameraDistance = 2;
-camera.position.set(0, 0, cameraDistance);
-camera.lookAt(0, 0, 0);
-
-const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 0.9;
+renderer.toneMappingExposure = 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-document.body.appendChild(renderer.domElement);
+renderer.setSize(W(), H());
+panel.appendChild(renderer.domElement);
 
-// Postprocessing
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, W() / H(), 0.05, 100);
+camera.position.set(0, 0, 4.5);
+camera.lookAt(0, 0, 0);
+
 const renderPass = new RenderPass(scene, camera);
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.4, 0.35, 0.25);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(W(), H()), 0.55, 0.4, 0.2);
 const composer = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 
-// Lights
-scene.add(new THREE.AmbientLight(0x6a7bb8, 0.4));
-const p1 = new THREE.PointLight(0x7fa0ff, 2.5, 30);
-p1.position.set(5, 4, 5);
-scene.add(p1);
-const p2 = new THREE.PointLight(0xff7ab8, 1.8, 30);
-p2.position.set(-6, -3, 2);
-scene.add(p2);
+scene.add(new THREE.AmbientLight(0x6070c0, 0.5));
+const pLight1 = new THREE.PointLight(0x7fa0ff, 3, 20);
+pLight1.position.set(4, 3, 4);
+scene.add(pLight1);
+const pLight2 = new THREE.PointLight(0xa78bfa, 2, 20);
+pLight2.position.set(-4, -2, 2);
+scene.add(pLight2);
 
-// Stars background
-const starGeo = new THREE.BufferGeometry();
-const starCount = 2000;
-const starPos = new Float32Array(starCount * 3);
-for (let i = 0; i < starCount; i++) {
-  const r = 25 + Math.random() * 25;
-  const th = Math.random() * Math.PI * 2;
-  const ph = Math.acos(2 * Math.random() - 1);
-  starPos[i*3] = r * Math.sin(ph) * Math.cos(th);
-  starPos[i*3+1] = r * Math.sin(ph) * Math.sin(th);
-  starPos[i*3+2] = r * Math.cos(ph);
-}
-starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
-const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
-  color: 0x9bb4ff,
-  size: 0.04,
-  transparent: true,
-  opacity: 0,
-  blending: THREE.AdditiveBlending,
-  depthWrite: false
-}));
-scene.add(stars);
+// nucleus
+const nucleusGeo = new THREE.SphereGeometry(0.06, 16, 16);
+const nucleusMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
+const nucleus = new THREE.Mesh(nucleusGeo, nucleusMat);
+scene.add(nucleus);
 
-// IDWT CP³ mode (n1=3, n2=2, n3=1) orbit — the real 6D trajectory of the d=6 electron sector.
-// Amplitudes A_k = sqrt(n_k / n_total) weight each complex pair by occupation number.
-// Base frequencies match mode indices; small phi-scaled drift breaks exact periodicity
-// so the orbit ergodically fills the orbital probability density rather than closing.
-const phi = (1 + Math.sqrt(5)) / 2;
-const n1 = 3, n2 = 2, n3 = 1;
-const nTot = n1 + n2 + n3;
-const A0 = Math.sqrt(n1 / nTot);  // 0.7071
-const A1 = Math.sqrt(n2 / nTot);  // 0.5774
-const A2 = Math.sqrt(n3 / nTot);  // 0.4082
-const eps = 0.005;
-const f0 = n1 + eps * phi;
-const f1 = n2 + eps;
-const f2 = n3 + eps * phi * phi;
-const N = 18000;
-const WINDINGS = 180;
-const points6D = new Float32Array(N * 6);
-for (let i = 0; i < N; i++) {
-  const t = (i / (N - 1)) * Math.PI * 2 * WINDINGS;
-  const i6 = i * 6;
-  points6D[i6]     = A0 * Math.cos(f0 * t);
-  points6D[i6 + 1] = A0 * Math.sin(f0 * t);
-  points6D[i6 + 2] = A1 * Math.cos(f1 * t);
-  points6D[i6 + 3] = A1 * Math.sin(f1 * t);
-  points6D[i6 + 4] = A2 * Math.cos(f2 * t);
-  points6D[i6 + 5] = A2 * Math.sin(f2 * t);
+// ── real spherical harmonics ─────────────────────────────────
+// Returns Y_L^m(theta, phi) — the real forms
+function realSH(L, m, theta, phi) {
+  const ct = Math.cos(theta), st = Math.sin(theta);
+  const cp = Math.cos(phi),   sp = Math.sin(phi);
+  const c2p = Math.cos(2*phi), s2p = Math.sin(2*phi);
+  const c3p = Math.cos(3*phi), s3p = Math.sin(3*phi);
+  if (L===0) return 1;
+  if (L===1) {
+    if (m=== 0) return ct;
+    if (m=== 1) return st*cp;
+    if (m===-1) return st*sp;
+  }
+  if (L===2) {
+    if (m=== 0) return 0.5*(3*ct*ct-1);
+    if (m=== 1) return st*ct*cp;
+    if (m===-1) return st*ct*sp;
+    if (m=== 2) return st*st*c2p;
+    if (m===-2) return st*st*s2p;
+  }
+  if (L===3) {
+    if (m=== 0) return ct*(5*ct*ct-3)*0.5;
+    if (m=== 1) return st*(5*ct*ct-1)*cp;
+    if (m===-1) return st*(5*ct*ct-1)*sp;
+    if (m=== 2) return st*st*ct*c2p;
+    if (m===-2) return st*st*ct*s2p;
+    if (m=== 3) return st*st*st*c3p;
+    if (m===-3) return st*st*st*s3p;
+  }
+  return 0;
 }
 
-// 6x6 rotation matrix R
-const R = [];
-for (let i = 0; i < 6; i++) {
-  R[i] = new Float32Array(6);
-  R[i][i] = 1;
+// Build a spherical harmonic surface mesh
+// scale: overall size; res: grid resolution
+function buildOrbitalMesh(L, m, color, scale=1.0, res=48, opacity=1.0, wireframe=false) {
+  const positions = [];
+  const normals   = [];
+  const indices   = [];
+  const vColors   = [];
+  const col = new THREE.Color(color);
+  const colNeg = new THREE.Color(color).multiplyScalar(0.4);
+  colNeg.lerp(new THREE.Color(0x000020), 0.2);
+
+  for (let i=0; i<=res; i++) {
+    for (let j=0; j<=res; j++) {
+      const theta = (i / res) * Math.PI;
+      const phi   = (j / res) * Math.PI * 2;
+      const r = Math.abs(realSH(L, m, theta, phi));
+      const sign = realSH(L, m, theta, phi) >= 0 ? 1 : -1;
+      const x = r * Math.sin(theta) * Math.cos(phi) * scale;
+      const y = r * Math.cos(theta) * scale;
+      const z = r * Math.sin(theta) * Math.sin(phi) * scale;
+      positions.push(x, y, z);
+      normals.push(x,y,z); // approximate — will normalize
+      const c = sign > 0 ? col : colNeg;
+      vColors.push(c.r, c.g, c.b);
+    }
+  }
+  for (let i=0; i<res; i++) {
+    for (let j=0; j<res; j++) {
+      const a = i*(res+1)+j, b=a+1, c=a+(res+1), d=c+1;
+      indices.push(a,b,d, a,d,c);
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setIndex(indices);
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  geo.setAttribute('color',    new THREE.Float32BufferAttribute(vColors, 3));
+  geo.computeVertexNormals();
+
+  const mat = wireframe
+    ? new THREE.MeshBasicMaterial({ color, wireframe:true, transparent:true, opacity: opacity*0.3 })
+    : new THREE.MeshPhongMaterial({
+        vertexColors: true,
+        shininess: 80,
+        transparent: true,
+        opacity,
+        side: THREE.DoubleSide,
+        blending: THREE.NormalBlending,
+        depthWrite: opacity > 0.9
+      });
+  return new THREE.Mesh(geo, mat);
 }
-function rotatePlane(i, j, theta) {
-  const c = Math.cos(theta);
-  const s = Math.sin(theta);
-  const ri = R[i];
-  const rj = R[j];
-  for (let col = 0; col < 6; col++) {
-    const a = ri[col];
-    const b = rj[col];
-    ri[col] = c * a - s * b;
-    rj[col] = s * a + c * b;
+
+// ── shell definitions ────────────────────────────────────────
+// For hidden states, we display their SO(3) angular shapes (from the decomposition)
+// arranged at offset positions to distinguish them from observable states.
+// Observable: blue #7fa0ff; Hidden: amber #f59e0b
+
+const OBS = 0x7fa0ff;
+const HID = 0xf59e0b;
+
+// Each shell: array of { L, m, color, pos:[x,y,z], scale, opacity }
+function shellData(shell) {
+  const s = 1.35; // orbital display scale
+  const hs = 0.7; // hidden state scale
+
+  if (shell===0) {
+    // s: just the 1 observable s-orbital (sphere)
+    return [
+      { L:0, m:0, color:OBS, pos:[0,0,0], scale:s, opacity:0.82 }
+    ];
+  }
+
+  if (shell===1) {
+    // p: 3 observable (p_x, p_y, p_z) + 1 hidden (j=0 sphere, from {z4})
+    const sp = 2.0;
+    return [
+      { L:1, m: 1, color:OBS, pos:[-sp,  0, 0], scale:s, opacity:0.82 },
+      { L:1, m: 0, color:OBS, pos:[ 0,  sp, 0], scale:s, opacity:0.82 },
+      { L:1, m:-1, color:OBS, pos:[ 0,   0, sp], scale:s, opacity:0.82 },
+      // hidden: j=0 (s-like sphere) from {z4}
+      { L:0, m:0,  color:HID, pos:[ sp,  0, 0], scale:hs*0.8, opacity:0.55 },
+    ];
+  }
+
+  if (shell===2) {
+    // d: 5 observable d-orbitals + 5 hidden (3 p-like from {z1z4,z2z4,z3z4} + 2 s-like)
+    const dp = 2.4;
+    const hp = 2.4;
+    return [
+      { L:2, m: 0, color:OBS, pos:[  0,  dp,  0], scale:s, opacity:0.82 },
+      { L:2, m: 1, color:OBS, pos:[ dp,   0,  0], scale:s, opacity:0.82 },
+      { L:2, m:-1, color:OBS, pos:[  0,   0, dp], scale:s, opacity:0.82 },
+      { L:2, m: 2, color:OBS, pos:[-dp,   0,  0], scale:s, opacity:0.82 },
+      { L:2, m:-2, color:OBS, pos:[  0,  -dp, 0], scale:s, opacity:0.82 },
+      // hidden: 3 p-like from {z1z4, z2z4, z3z4} — use j=1 shapes
+      { L:1, m: 1, color:HID, pos:[ hp,  hp,  0], scale:hs, opacity:0.5 },
+      { L:1, m: 0, color:HID, pos:[-hp,  hp,  0], scale:hs, opacity:0.5 },
+      { L:1, m:-1, color:HID, pos:[  0,  hp, hp], scale:hs, opacity:0.5 },
+      // hidden: 2 s-like from {z4^2} and {trace}
+      { L:0, m: 0, color:HID, pos:[ hp, -hp,  0], scale:hs*0.75, opacity:0.45 },
+      { L:0, m: 0, color:HID, pos:[  0, -hp, hp], scale:hs*0.75, opacity:0.45 },
+    ];
+  }
+
+  if (shell===3) {
+    // f: 7 observable f-orbitals + 13 hidden
+    // observable: 7 f-orbitals
+    // hidden: from decomposition — 3 p-like (j=1 from 10), 5 d-like (j=2 from 6), 1 s-like (j=0 from 6), 3 p-like (from 3), 1 s-like (from 1)
+    const fp = 2.5;
+    const hp = 2.5;
+    return [
+      { L:3, m: 0, color:OBS, pos:[  0,  fp,  0], scale:s, opacity:0.82 },
+      { L:3, m: 1, color:OBS, pos:[ fp,  fp,  0], scale:s*0.9, opacity:0.82 },
+      { L:3, m:-1, color:OBS, pos:[-fp,  fp,  0], scale:s*0.9, opacity:0.82 },
+      { L:3, m: 2, color:OBS, pos:[ fp,   0,  0], scale:s*0.85, opacity:0.82 },
+      { L:3, m:-2, color:OBS, pos:[-fp,   0,  0], scale:s*0.85, opacity:0.82 },
+      { L:3, m: 3, color:OBS, pos:[ fp, -fp,  0], scale:s*0.8, opacity:0.82 },
+      { L:3, m:-3, color:OBS, pos:[-fp, -fp,  0], scale:s*0.8, opacity:0.82 },
+      // hidden: 5 d-like (j=2 from SU(3) 6-rep)
+      { L:2, m: 0, color:HID, pos:[  0,  hp, hp], scale:hs, opacity:0.48 },
+      { L:2, m: 1, color:HID, pos:[ hp,  0,  hp], scale:hs, opacity:0.48 },
+      { L:2, m:-1, color:HID, pos:[-hp,  0,  hp], scale:hs, opacity:0.48 },
+      { L:2, m: 2, color:HID, pos:[  0, -hp, hp], scale:hs, opacity:0.48 },
+      { L:2, m:-2, color:HID, pos:[ hp, -hp,  0], scale:hs, opacity:0.48 },
+      // hidden: 3+3 p-like (j=1)
+      { L:1, m: 1, color:HID, pos:[ hp,  hp, hp], scale:hs*0.8, opacity:0.42 },
+      { L:1, m: 0, color:HID, pos:[-hp,  hp, hp], scale:hs*0.8, opacity:0.42 },
+      { L:1, m:-1, color:HID, pos:[  0, -hp,-hp], scale:hs*0.8, opacity:0.42 },
+      { L:1, m: 1, color:HID, pos:[ hp, -hp,-hp], scale:hs*0.8, opacity:0.42 },
+      { L:1, m: 0, color:HID, pos:[-hp, -hp, hp], scale:hs*0.8, opacity:0.42 },
+      { L:1, m:-1, color:HID, pos:[  0,  hp,-hp], scale:hs*0.8, opacity:0.42 },
+      // hidden: 2 s-like
+      { L:0, m:0, color:HID, pos:[ hp,  0, -hp], scale:hs*0.65, opacity:0.38 },
+      { L:0, m:0, color:HID, pos:[-hp,  0, -hp], scale:hs*0.65, opacity:0.38 },
+    ];
   }
 }
 
-// Line geometry
-const positions = new Float32Array(N * 3);
-const colors = new Float32Array(N * 3);
-const color = new THREE.Color();
-for (let i = 0; i < N; i++) {
-  const h = (i / (N - 1) * 0.85 + 0.55) % 1;
-  color.setHSL(h, 1, 0.5);
-  colors[i*3] = color.r;
-  colors[i*3+1] = color.g;
-  colors[i*3+2] = color.b;
-}
-const lineGeo = new THREE.BufferGeometry();
-lineGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-lineGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+// ── mesh management ──────────────────────────────────────────
+const group = new THREE.Group();
+scene.add(group);
 
-const lineMat = new THREE.LineBasicMaterial({
-  vertexColors: true,
-  transparent: true,
-  opacity: 0.1,
-  blending: THREE.AdditiveBlending,
-  depthWrite: false
-});
-const orbitLine = new THREE.Line(lineGeo, lineMat);
-scene.add(orbitLine);
+const shellInfo = [
+  { name:'s shell — L=0', obs:1, hid:0,  dim:1  },
+  { name:'p shell — L=1', obs:3, hid:1,  dim:4  },
+  { name:'d shell — L=2', obs:5, hid:5,  dim:10 },
+  { name:'f shell — L=3', obs:7, hid:13, dim:20 },
+];
+const shellNames = ['s','p','d','f'];
+let currentShell = 0;
 
-// Glow tube for extra bloom
-const tubeMat = new THREE.LineBasicMaterial({
-  color: 0xaac8ff,
-  transparent: true,
-  opacity: 0.5,
-  blending: THREE.AdditiveBlending,
-  depthWrite: false
-});
-const orbitGlow = new THREE.Line(lineGeo.clone(), tubeMat);
-//scene.add(orbitGlow);
-
-// Emphasis spheres — fewer, evenly spaced along the dense orbit
-const sphereCount = 12;
-const sphereGeo = new THREE.SphereGeometry(0.028, 12, 12);
-const sphereMat = new THREE.MeshBasicMaterial({
-  color: 0xffffff,
-  transparent: true,
-  opacity: 1,
-  blending: THREE.AdditiveBlending,
-  depthWrite: false
-});
-const spheres = [];
-for (let i = 0; i < sphereCount; i++) {
-  const m = new THREE.Mesh(sphereGeo, sphereMat.clone());
-  m.material.color.copy(color.setHSL((i/sphereCount*0.85+0.55)%1, 0.8, 0.7));
-  scene.add(m);
-  spheres.push(m);
+function updateVizInfo(L) {
+  const info = shellInfo[L];
+  document.getElementById('vizInfo').innerHTML =
+    `<div class="vi-title">${info.name}</div>` +
+    `<div><span class="vi-obs">${info.obs} observable</span> · <span class="vi-hid">${info.hid} hidden</span></div>` +
+    `<div class="vi-dim">Total dim: S(${L+1},3) = ${info.dim}</div>`;
 }
 
-// Initial projection
-function projectPoints() {
-  const r0 = R[0], r1 = R[1], r2 = R[2];
-  for (let i = 0; i < N; i++) {
-    const i6 = i * 6;
-    const p0 = points6D[i6], p1 = points6D[i6+1], p2 = points6D[i6+2];
-    const p3 = points6D[i6+3], p4 = points6D[i6+4], p5 = points6D[i6+5];
-    const x = r0[0]*p0 + r0[1]*p1 + r0[2]*p2 + r0[3]*p3 + r0[4]*p4 + r0[5]*p5;
-    const y = r1[0]*p0 + r1[1]*p1 + r1[2]*p2 + r1[3]*p3 + r1[4]*p4 + r1[5]*p5;
-    const z = r2[0]*p0 + r2[1]*p1 + r2[2]*p2 + r2[3]*p3 + r2[4]*p4 + r2[5]*p5;
-    const i3 = i * 3;
-    positions[i3] = x;
-    positions[i3+1] = y;
-    positions[i3+2] = z;
+function buildShell(L) {
+  while(group.children.length) {
+    const c = group.children[0];
+    c.geometry && c.geometry.dispose();
+    c.material && c.material.dispose();
+    group.remove(c);
   }
-  lineGeo.attributes.position.needsUpdate = true;
-  lineGeo.computeBoundingSphere();
-  orbitGlow.geometry.attributes.position.copy(lineGeo.attributes.position);
-  orbitGlow.geometry.attributes.position.needsUpdate = true;
 
-  for (let s = 0; s < sphereCount; s++) {
-    // make spheres travel along the orbit
-    const speed = 0.0006; // orbits per second, tweak this
-    const base = s * 100;
-    const offset = Math.floor((performance.now() * 0.001 * speed * N) + s * 137) % N;
-    const idx = ((base + offset) % N) * 3;
-    spheres[s].position.set(positions[idx], positions[idx+1], positions[idx+2]);
-    const scale = 0.7 + 0.2 * Math.sin(performance.now()*0.001 + s*0.2);
-    spheres[s].scale.setScalar(scale);
+  const data = shellData(L);
+  for (const o of data) {
+    const mesh = buildOrbitalMesh(o.L, o.m, o.color, o.scale, L<=1?48:36, o.opacity);
+    mesh.position.set(...o.pos);
+    group.add(mesh);
   }
+
+  // Compute bounding sphere to set camera distance
+  const box = new THREE.Box3().setFromObject(group);
+  const size = box.getSize(new THREE.Vector3()).length();
+  targetCamDist = Math.max(4.5, size * 0.78);
+
+  // Update buttons
+  for (let i=0;i<4;i++) {
+    document.getElementById(`btn-${shellNames[i]}`).classList.toggle('active', i===L);
+  }
+  updateVizInfo(L);
+  currentShell = L;
 }
-projectPoints();
 
-// Interaction
-let isRotating = false;
-let isAltRotating = false;
-let lastX = 0, lastY = 0;
+window.setShell = (L) => buildShell(L);
 
-renderer.domElement.addEventListener('contextmenu', e => e.preventDefault());
+buildShell(0);
 
-renderer.domElement.addEventListener('pointerdown', e => {
-  if (e.button === 0) {
-    isRotating = true;
-  } else if (e.button === 2) {
-    isAltRotating = true;
-  }
-  lastX = e.clientX;
-  lastY = e.clientY;
+// ── drag rotation ────────────────────────────────────────────
+let isDragging = false, lastX=0, lastY=0;
+const panelEl = panel;
+panelEl.addEventListener('pointerdown', e => { isDragging=true; lastX=e.clientX; lastY=e.clientY; panelEl.setPointerCapture(e.pointerId); });
+panelEl.addEventListener('pointermove', e => {
+  if (!isDragging) return;
+  const dx = e.clientX - lastX, dy = e.clientY - lastY;
+  group.rotation.y += dx * 0.007;
+  group.rotation.x += dy * 0.007;
+  lastX=e.clientX; lastY=e.clientY;
 });
-
-window.addEventListener('pointermove', e => {
-  const dx = e.clientX - lastX;
-  const dy = e.clientY - lastY;
-  if (isRotating) {
-    rotatePlane(0, 3, dx * 0.005);
-    rotatePlane(1, 4, dy * 0.005);
-  }
-  if (isAltRotating) {
-    rotatePlane(2, 5, dx * 0.005);
-  }
-  lastX = e.clientX;
-  lastY = e.clientY;
-});
-
-window.addEventListener('pointerup', () => {
-  isRotating = false;
-  isAltRotating = false;
-});
-
-renderer.domElement.addEventListener('wheel', e => {
+panelEl.addEventListener('pointerup', () => isDragging=false);
+panelEl.addEventListener('wheel', e => {
   e.preventDefault();
-  cameraDistance *= 1 + e.deltaY * 0.001;
-  cameraDistance = Math.max(2.0, Math.min(12, cameraDistance));
-}, { passive: false });
+  targetCamDist *= 1 + e.deltaY * 0.001;
+  targetCamDist = Math.max(2, Math.min(20, targetCamDist));
+}, { passive:false });
 
-// Touch support
-renderer.domElement.addEventListener('touchstart', e => {
-  if (e.touches.length === 1) {
-    lastX = e.touches[0].clientX;
-    lastY = e.touches[0].clientY;
-    isRotating = true;
-  }
-});
-renderer.domElement.addEventListener('touchmove', e => {
-  if (isRotating && e.touches.length === 1) {
-    const dx = e.touches[0].clientX - lastX;
-    const dy = e.touches[0].clientY - lastY;
-    rotatePlane(0, 3, dx * 0.005);
-    rotatePlane(1, 4, dy * 0.005);
-    lastX = e.touches[0].clientX;
-    lastY = e.touches[0].clientY;
-  }
-}, { passive: true });
-window.addEventListener('touchend', () => isRotating = false);
+let targetCamDist = 4.5;
+let actualCamDist = 4.5;
 
-// Animate
-let time = 0;
+// ── animate ──────────────────────────────────────────────────
+let t = 0;
 function animate() {
   requestAnimationFrame(animate);
-  time += 0.016;
+  t += 0.016;
 
-  // Auto-rotate 6D — phi-ratio rates so the three planes never synchronize,
-  // continuously morphing the projected orbital shape through its full family.
-  rotatePlane(0, 3,  0.0016);
-  rotatePlane(1, 4, -0.0016 * phi);
-  rotatePlane(2, 5,  0.0016 * phi * phi);
+  if (!isDragging) {
+    group.rotation.y += 0.003;
+    group.rotation.x += 0.0008;
+  }
 
-  projectPoints();
-
-  // Camera update
-  camera.position.set(0, 0, cameraDistance);
+  actualCamDist += (targetCamDist - actualCamDist) * 0.08;
+  camera.position.set(0, 0, actualCamDist);
   camera.lookAt(0, 0, 0);
 
-  // Subtle scene motion
-  stars.rotation.y += 0.00008;
-  stars.rotation.x = Math.sin(time * 0.05) * 0.05;
-  p1.position.x = 5 * Math.cos(time * 0.2);
-  p1.position.z = 5 * Math.sin(time * 0.2);
-  p2.position.x = -5 * Math.cos(time * 0.15);
-  p2.position.y = 3 * Math.sin(time * 0.18);
+  pLight1.position.x = 4 * Math.cos(t * 0.25);
+  pLight1.position.z = 4 * Math.sin(t * 0.25);
+  pLight2.position.x = -4 * Math.cos(t * 0.18);
+  pLight2.position.y =  3 * Math.sin(t * 0.22);
 
   composer.render();
 }
 animate();
 
-// Resize
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+// ── resize ───────────────────────────────────────────────────
+function onResize() {
+  const w = W(), h = H();
+  camera.aspect = w / h;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  composer.setSize(window.innerWidth, window.innerHeight);
-});
+  renderer.setSize(w, h);
+  composer.setSize(w, h);
+}
+window.addEventListener('resize', onResize);
+// ResizeObserver for panel size changes (orientation switch)
+new ResizeObserver(onResize).observe(panel);
 </script>
 </body>
 </html>

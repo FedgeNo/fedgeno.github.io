@@ -376,10 +376,21 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
+// Define setShell immediately so button clicks are never lost
+let _pendingShell = 0;
+let _ready = false;
+window.setShell = function(L) {
+  _pendingShell = L;
+  if (_ready) buildShell(L);
+};
+
+// Defer all Three.js init until after layout is painted — panel dimensions will be real
+window.addEventListener('load', function() {
+
 // ── scene setup ──────────────────────────────────────────────
 const panel = document.getElementById('vizPanel');
-const W = () => panel.clientWidth;
-const H = () => panel.clientHeight;
+const W = () => panel.clientWidth  || window.innerWidth  * 0.5;
+const H = () => panel.clientHeight || window.innerHeight - 56;
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -387,6 +398,7 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setSize(W(), H());
+renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
 panel.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
@@ -633,10 +645,6 @@ function buildShell(L) {
   currentShell = L;
 }
 
-window.setShell = (L) => buildShell(L);
-
-buildShell(0);
-
 // ── drag rotation ────────────────────────────────────────────
 let isDragging = false, lastX=0, lastY=0;
 const panelEl = panel;
@@ -680,7 +688,6 @@ function animate() {
 
   composer.render();
 }
-animate();
 
 // ── resize ───────────────────────────────────────────────────
 function onResize() {
@@ -691,8 +698,14 @@ function onResize() {
   composer.setSize(w, h);
 }
 window.addEventListener('resize', onResize);
-// ResizeObserver for panel size changes (orientation switch)
 new ResizeObserver(onResize).observe(panel);
+
+// ── kick off ─────────────────────────────────────────────────
+buildShell(_pendingShell);
+_ready = true;
+animate();
+
+}); // end window load
 </script>
 </body>
 </html>

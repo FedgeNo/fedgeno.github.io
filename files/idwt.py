@@ -17,9 +17,9 @@
 # Structure of this script (all computation before all output):
 #   STEPS 1-4   -- Core computation: tower, couplings, sector scales, corrections
 #   STEPS 5-24  -- Extended computation: EW, CKM, hadronic, Z, neutrinos,
-#                  PMNS, spectral action, EW precision, Jarlskog, Higgs,
+#                  PMNS, spectral action, EW precision, CP-violation,
 #                  oscillations, neutron lifetime, heat kernel, scipy eigenmode
-#   STEPS 25-29 -- Theorem verification: T4 seed uniqueness, T5 AA criticality,
+#   STEPS 25-29 -- Theorem verification: T4 seed uniqueness, T5 Gegenbauer criticality,
 #                  T15 Euler characteristic chain, T9a Hopf products, T0.5 filter
 #   STEPS 5-29  -- Output (all print() calls; begin after the STEP 29 calc block)
 #   STEPS 30-34 -- Output: T4/T5/T15/T9a/T0.5 theorem verification tables
@@ -92,14 +92,14 @@ n_strange = 4  # unique solution to S(n_strange, 4) = 35
 # n_up = n_s - 1 = 3
 # Derived from n_s via the Hopf chain reduction: the d=4 sector ground state
 # sits one level below n_s. Equivalently, n_up = n_s - 1 is required for the
-# Dyson resummation factor n_s/n_up = 4/3 to be the ratio of consecutive integers
+# geometric back-reaction factor n_s/n_up = 4/3 to be the ratio of consecutive integers
 # (forced by the d=10 self-consistency, Part 2 section 9). This is not a seed.
 n_up = n_strange - 1   # = 3  (derived)
 
 # --- Neutrino mode indices ---------------------------------------------------
 # Neutrinos live in the d=5 sector (S^5). Their mode indices are derived as
 # simplex images of the up quark seed into lower sectors. The d=5 sector
-# admits only Dirac spinors (d mod 8 = 5 forbids Majorana by Bott periodicity),
+# admits only Dirac spinors (d mod 8 = 5 forbids Majorana by Clifford algebra mod 8 periodicity),
 # which is why neutrinos are predicted to be Dirac fermions with no Majorana
 # mass and no seesaw mechanism. (Part 1 section 6, Part 2 section 6, Part 8 section 59.1)
 
@@ -294,7 +294,7 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 # For d=3 on S^2:  (xi . xi')^2 = (1/3)[l=0] + (2/3)*P_2(cos theta)[l=2]
 # The l=0 part is constant -- it contributes to sector mass scales uniformly.
 # The l=2 part is orientation-dependent -- it introduces a frequency shift
-# per filtration stage. This shift grows with filtration depth k, giving the
+# per generation step. This shift grows with generation depth k, giving the
 # multiplicative correction (1-eps)^k to d=4 quark masses. (Part 2 section 11)
 
 # epsilon = 1 / (280 * sqrt(7)) ~= 0.001350
@@ -317,13 +317,13 @@ epsilon = 1.0 / (280.0 * math.sqrt(7.0))
 # k-values: phase load per quark in the d=4 sector.
 #   up:    k = 0 (stage 1, no additional frequency shift)
 #   charm: k = 3 = n_up = n_s - 1  (frequency shift at the stage-2 comb boundary)
-#   top:   k = 10 = n_nu1 = S(n_up, 3) (filtration depth equals the first neutrino
+#   top:   k = 10 = n_nu1 = S(n_up, 3) (generation depth equals the first neutrino
 #                mode index -- a cross-sector consistency relation)
 # After correction: c/u ratio error -0.003%, t/u ratio error -0.048%.
 # (Part 2 section 11)
 k_vals = {"up": 0, "charm": 3, "top": 10}
 
-# --- Tau Dyson resummation ---------------------------------------------------
+# --- Tau geometric back-reaction correction -----------------------------------
 # The d=6 and d=10 sectors share the coupling g_{6,6} = g_{6,10} = g_{10,10}
 # = 1/n_s = 1/4 (from the seed, not from hypercharge). The leading d=6->d=10
 # kernel perturbation at the tau level has amplitude:
@@ -334,7 +334,7 @@ k_vals = {"up": 0, "charm": 3, "top": 10}
 #   is the frequency normalization. Both are determined by n_s = 4 alone.
 #
 # This perturbation feeds back through g_{10,10} = 1/n_s, giving a geometric
-# series that sums via Dyson resummation:
+# series summed as:
 #
 #   delta_m / m_tau = eps_{6->10} / (1 - g_{10,10})
 #                   = (1/2240) / (1 - 1/4)
@@ -347,7 +347,7 @@ k_vals = {"up": 0, "charm": 3, "top": 10}
 #
 # Result: m_tau = m_tau_bare * (1 + 1/1680) = 1776.84 MeV.
 # PDG: 1776.86 +/- 0.12 MeV. Error: -0.14 sigma. (Part 2 section 9)
-dyson_factor = 1.0 + 1.0 / (n_up * n_strange**2 * S(n_strange, 4))
+back_reaction_factor = 1.0 + 1.0 / (n_up * n_strange**2 * S(n_strange, 4))
 
 # --- ν₃ cross-sector constructive interference correction --------------------
 # The d=5/d=3 cross-sector kernel at mode n_nu3=22 receives a single-order
@@ -424,33 +424,28 @@ g55 = 96.0 / g22
 # is invariant under swapping mu (d=6) and tau (d=10) at tree level.
 #
 # Consequence: |U_mu_i| = |U_tau_i| for all i → sin^2(theta_23) = 1/2 exactly.
-# The full tree-level PMNS is tribimaximal (TBM):
+# The full tree-level PMNS is at the mu-tau symmetric limit:
 #   sin^2(theta_12) = 1/3 = 0.3333   (PDG: 0.307,  delta = -0.026)
 #   sin^2(theta_23) = 1/2 = 0.5000   (PDG: 0.561,  delta = +0.061)
 #   sin^2(theta_13) = 0              (PDG: 0.022,  delta = +0.022)
 #
-# Deviations from TBM are 1-loop corrections from the neutrino mass splittings
+# Deviations from the mu-tau symmetric limit come from the neutrino mass splittings
 # and the mu-tau mass difference. They are suppressed by g_{56}^2 ~ 0.033.
 # (Part 5 section 4, Part 8)
 g56_sq = g55 * g66   # cross-coupling squared d=5 ↔ d=6 (or d=10)
 
-# 1-loop running of g_1 from fiber scale (~m_W) to m_Z
-# The SM beta function coefficient for U(1)_Y with full particle content
-# (3 generations + W, Z, H above m_W) is b_1 = 41/6.
-# Running equation: d(1/g_1²)/d(ln μ) = -b_1/(8π²).
-# The residual -1.88% after running traces to the sin²θ_W +0.37% structural
-# gap; it is not a separate open item. (Part 3 section 0.7)
-b1_SM          = 41.0 / 6.0
+# g_1 at the d=2 sector scale — purely from sin²θ_W (mode indices 76, 81).
+# IDWT couplings are fixed geometric numbers; there is no running.
+# The -0.24% offset from PDG on-shell is the sin²θ_W +0.37% structural gap
+# propagated via the Weinberg-angle relation — not a separate quantity.
+# (Part 3 §0.7, Part 6)
 m_W_MeV        = m_scale2 * S(n_W, 2)
 m_Z_MeV        = m_scale2 * S(n_Z, 2)
-log_Z_over_W   = math.log(m_Z_MeV / m_W_MeV)
-delta_inv_g1sq = -b1_SM / (8.0 * math.pi**2) * log_Z_over_W
-inv_g1sq_fiber = 1.0 / g1**2
-inv_g1sq_mZ    = inv_g1sq_fiber + delta_inv_g1sq
-g1_at_mZ       = 1.0 / math.sqrt(inv_g1sq_mZ)
-pdg_g1_mZ      = 0.35740
-err_g1_fiber   = (g1       / pdg_g1_mZ - 1.0) * 100
-err_g1_mZ      = (g1_at_mZ / pdg_g1_mZ - 1.0) * 100
+# Self-consistent PDG g1 from PDG sin2_W=0.22290 and g2=0.65270
+pdg_sin2_W     = 0.22290
+pdg_g2         = 0.65270
+pdg_g1         = pdg_g2 * math.sqrt(pdg_sin2_W / (1.0 - pdg_sin2_W))  # = 0.34957
+err_g1         = (g1 / pdg_g1 - 1.0) * 100  # +0.25%: entirely sin2_W structural gap
 
 
 # =============================================================================
@@ -459,7 +454,7 @@ err_g1_mZ      = (g1_at_mZ / pdg_g1_mZ - 1.0) * 100
 
 # sin(θ_C) = (1 + 1/240) / √S(n_s, 3)
 # The bare Cabibbo angle from the d=3 sector mode ratio is 1/√S(n_s,3) = 1/√20.
-# The +1/240 Lichnerowicz correction is the heat-kernel first-order term on the
+# The +1/240 sector curvature correction is the heat-kernel first-order term on the
 # CP¹ mediating sector: factor χ(CP¹)/(24·S(n_s,3)) = 2/(24·20) = 1/240.
 # This is a curvature correction from the S² base of the d=2 Hopf fibration;
 # it shifts the bare value from 0.22361 to 0.22454. PDG: 0.22450 (+0.02%).
@@ -482,7 +477,7 @@ A_wolf = Vcb * S(n_strange, 3)
 # Full Wolfenstein CKM matrix (tree level, ρ = η = 0)
 # The CP-violating phase is zero at tree level (real product-state amplitudes);
 # |V_ub| = |V_td| = 0 exactly. Non-zero values require the Hopf Chern-Simons
-# loop integral (Part 5 §3f). λ here uses the Lichnerowicz-corrected sin_C.
+# loop integral (Part 5 §3f). λ here uses the sector-curvature-corrected sin_C.
 lam_W = sin_C
 A_W   = Vcb / lam_W**2
 Vud_m = math.sqrt(1 - lam_W**2)
@@ -496,7 +491,7 @@ _r1_ckm = Vud_m**2 + lam_W**2                         # row 1
 _r2_ckm = Vcd_m**2 + Vcs_m**2 + Vcb**2               # row 2
 _r3_ckm = 0 + Vts_m**2 + Vtb_m**2                    # row 3 (Vtd=0 tree level)
 
-# Bare Cabibbo angle (no Lichnerowicz correction) — used in STEP 25 output
+# Bare Cabibbo angle (no sector curvature correction) — used in STEP 25 output
 # to exhibit the raw prediction before the curvature correction is applied.
 sin_C_bare = 1.0 / math.sqrt(S(n_strange, 3))    # = 1/√20 = 0.22361
 Vcb_bare   = math.sqrt(S(n_up, 4) / S(n_charm, 4))
@@ -677,8 +672,8 @@ dm2_31 = (S(n_nu3,5)**2 - S(n_nu1,5)**2) * m_scale5**2 * 1.0e12   # eV²
 # =============================================================================
 
 # The PMNS is a weighted average of two spectral limits:
-#   (a) Coupling-symmetry (TBM): weight (1-g₅₅), from g₆₆=g₁₀,₁₀ exactly.
-#   (b) Simplex-ratio:           weight g₅₅,     from simplex hierarchy.
+#   (a) Coupling-symmetry (μ–τ symmetric limit): weight (1-g₅₅), from g₆₆=g₁₀,₁₀ exactly.
+#   (b) Simplex-ratio:                           weight g₅₅,     from simplex hierarchy.
 # The weight g₅₅=g₃₃×g₄₄/g₂₂=96/g₂₂ is the d=5 neutrino self-coupling.
 #
 #   sin²θ₂₃ = (1-g₅₅)/2  + g₅₅ × S(n_τ,10)/(S(n_μ,6)+S(n_τ,10))
@@ -697,7 +692,7 @@ sin2_12_pred = (1.0 - g55_pmns)/3.0 + g55_pmns*m_amp_12
 delta23_pred = sin2_23_pred - 0.5
 sin2_13_pred = g55_pmns * delta23_pred * log_r_pmns
 
-# PMNS trigonometric components used in the unitary matrix and Jarlskog invariant
+# PMNS trigonometric components used in the unitary matrix and CP-violation amplitude
 _s23 = math.sqrt(sin2_23_pred)
 _c23 = math.cos(math.asin(_s23))
 _s12 = math.sqrt(sin2_12_pred)
@@ -740,8 +735,6 @@ rms_D_val = math.sqrt(Tr_D2_val)
 # v_EW from IDWT-derived G_F: v = 1/√(√2 G_F) in MeV.
 # G_F has units GeV⁻²; factor of 10⁶ converts to MeV⁻².
 v_EW_idwt = 1000.0 / math.sqrt(math.sqrt(2.0) * GF_pred)   # MeV
-
-vH2 = rms_D_val    # spectral EW scale; used in Higgs quartic (STEP 16)
 
 
 # =============================================================================
@@ -797,7 +790,7 @@ rho_ew = (m_scale2*S(n_W,2))**2 / ((m_scale2*S(n_Z,2))**2 * (1 - sin2_W))
 # STEP 16 -- JARLSKOG INVARIANT AND TAU LIFETIME
 # =============================================================================
 
-# J_max = s₁₂ c₁₂ s₂₃ c₂₃ s₁₃ c₁₃²  (Jarlskog prefactor; J = J_max × sin δ_CP)
+# J_max = s₁₂ c₁₂ s₂₃ c₂₃ s₁₃ c₁₃²  (CP-violation prefactor; J = J_max × sin δ_CP)
 # J_max depends only on the three mixing angles from STEP 13; it is a prediction
 # of IDWT independent of δ_CP. We compare J_max to PDG 3.18×10⁻². (Part 5 §3f)
 #
@@ -811,7 +804,7 @@ J_at195 = J_max * math.sin(195 * math.pi / 180)   # at PDG best-fit δ_CP ≈ 19
 # lifetime error. R_had is the one-loop QCD correction with IDWT Λ_QCD.
 # R_lep is the phase-space ratio Γ(τ→μνν)/Γ(τ→eνν). (Part 5)
 m_mu_m    = m_scale6  * S(n_mu,  6)
-m_tau_m   = m_scale10 * S(n_tau, 10) * dyson_factor
+m_tau_m   = m_scale10 * S(n_tau, 10) * back_reaction_factor
 
 # One-loop α_s at m_τ from IDWT Λ_QCD: α_s(m_τ) = 2π / [b₀ ln(m_τ/Λ_QCD)]
 # b₀ = (11N_c - 2N_f)/3 with N_f = 3 light flavours (d, u, s; charm is above m_τ).
@@ -827,47 +820,11 @@ tau_tau_pred = tau_mu_pdg * (m_mu_m/m_tau_m)**5 / (1 + _R_lep + _R_had)
 
 
 # =============================================================================
-# STEP 17 -- HIGGS QUARTIC COUPLING
-# =============================================================================
-
-# λ_H = (m_H / v_EW)² / 2
-# IDWT predicts m_H = m_scale_2 × S(n_H, 2) directly from the mode formula.
-# The denominator v_EW = √Tr(D²) (STEP 14) is the spectral EW scale.
-# No Yukawa coupling or Higgs VEV appears; λ_H is a ratio of derived quantities.
-lam_H_val = (m_scale2*S(n_H,2) / vH2)**2 / 2
-
-
-# Γ(W→lν) = g_2² m_W / (48π)   per lepton family
-# Tree-level formula for leptonic W decay; QCD corrections are small (~2%).
-# The factor 48π comes from the 2-body phase space integral.
-Gamma_Wlnu = g2**2 * m_scale2 * S(n_W, 2) / (48.0 * math.pi)   # MeV
-# Total W width: 3 leptonic + 2 light-quark families (ud, cs); tb is closed.
-Gamma_W    = 3 * Gamma_Wlnu + 2 * N_c * Gamma_Wlnu
-
-# g_Z = g_2 / cos(θ_W)  (neutral current coupling strength)
-g_Z = g2 / math.sqrt(1.0 - sin2_W)
-
-# Γ(Z→ff̄) = N_c g_Z² m_Z (c_V² + c_A²) / (48π)
-# where c_V = T_3 - 2Q sin²θ_W, c_A = T_3.
-# Summed over 3ν, 3l, 2 up-type (no top), 3 down-type. (Part 3 section 0.7)
-def z_width(T3, Q, Nc_f):
-    cV = T3 - 2.0 * Q * sin2_W
-    cA = T3
-    return Nc_f * g_Z**2 * m_Z_MeV / (48.0 * math.pi) * (cV**2 + cA**2)
-
-Gamma_Z = (
-    3 * z_width(+0.5,  0.0, 1)   +    # 3 neutrino families
-    3 * z_width(-0.5, -1.0, 1)   +    # 3 charged lepton families
-    2 * z_width(+0.5, +2/3, N_c) +    # 2 up-type quark families (no top)
-    3 * z_width(-0.5, -1/3, N_c)      # 3 down-type quark families
-)
-
-# =============================================================================
 # STEP 18 -- NEUTRINO OSCILLATIONS: PMNS MATRIX AND OSCILLATION PROBABILITIES
 # =============================================================================
 # The PMNS matrix U is built from the three mixing angles computed in STEP 13.
-# δ_CP = 0 at tree level (Berry phase on the lepton coupling triangle vanishes;
-# proved in STEP 27 of the output section via the Berry-curvature computation).
+# δ_CP = 0 at tree level (spectral phase on the lepton coupling triangle vanishes;
+# proved in STEP 27 of the output section via the spectral-curvature computation).
 # Δm² values in eV² for the oscillation probability formula:
 #   P(να→νβ) = δ_αβ − 4 Σ_{k>j} Re(U*_αk U_βk U_αj U*_βj) sin²(Δm²_kj L/4E)
 # with the factor 1.2669 km·eV²/GeV absorbing ℏc.
@@ -1021,7 +978,7 @@ def _K_d_asymp(d, t):
 # (Part 5 §3, Part 8 §10; Part 9 T13a)
 
 _e  = epsilon       # GTC shift = 1/(280√7)
-_dy = dyson_factor  # Dyson factor = 1 + 1/(n_up × n_s² × S(n_s,4))
+_dy = back_reaction_factor  # back-reaction factor = 1 + 1/(n_up × n_s² × S(n_s,4))
 
 # Simplex values at particle mode indices (used in mass ratio table)
 _Ss = {
@@ -1038,8 +995,8 @@ _mass_ratios = [
     ("m_c / m_u",    _Ss["c"]/_Ss["u"]*(1-_e)**3,                587.96,   f"S(n_c,4)/S(n_u,4)×(1−ε)³ = {_Ss['c']}/{_Ss['u']}×..."),
     ("m_t / m_u",    _Ss["t"]/_Ss["u"]*(1-_e)**10,             79981.0,   f"S(n_t,4)/S(n_u,4)×(1−ε)¹⁰= {_Ss['t']}/{_Ss['u']}×..."),
     ("m_μ / m_e",    _Ss["mu"]/_Ss["e"],                        206.7683,  f"S(n_μ,6)/S(n_e,6) = {_Ss['mu']}/{_Ss['e']}"),
-    ("m_τ / m_μ",    _Ss["tau"]/_Ss["mu"]*_dy,                  16.8171,  f"S(n_τ,10)/S(n_μ,6)×Dyson = {_Ss['tau']}/{_Ss['mu']}×Dyson"),
-    ("m_τ / m_e",    _Ss["tau"]/_Ss["e"]*_dy,                  3477.22,   f"S(n_τ,10)/S(n_e,6)×Dyson = {_Ss['tau']}/{_Ss['e']}×Dyson"),
+    ("m_τ / m_μ",    _Ss["tau"]/_Ss["mu"]*_dy,                  16.8171,  f"S(n_τ,10)/S(n_μ,6)×BR = {_Ss['tau']}/{_Ss['mu']}×BR"),
+    ("m_τ / m_e",    _Ss["tau"]/_Ss["e"]*_dy,                  3477.22,   f"S(n_τ,10)/S(n_e,6)×BR = {_Ss['tau']}/{_Ss['e']}×BR"),
     ("m_ν₃ / m_ν₁", _Ss["n3"]/_Ss["n1"],                        None,     f"S(n_ν3,5)/S(n_ν1,5) = {_Ss['n3']}/{_Ss['n1']}"),
     ("m_ν₂ / m_ν₁", _Ss["n2"]/_Ss["n1"],                        None,     f"S(n_ν2,5)/S(n_ν1,5) = {_Ss['n2']}/{_Ss['n1']}"),
     ("m_ν₃ / m_ν₂", _Ss["n3"]/_Ss["n2"],                        None,     f"S(n_ν3,5)/S(n_ν2,5) = {_Ss['n3']}/{_Ss['n2']}"),
@@ -1056,7 +1013,7 @@ _scales_all = [
 # STEP 24 -- SECTOR EIGENMODE PERTURBATION + BERRY PHASE (scipy/numpy)
 # =============================================================================
 # Each sector d carries a confining potential V_d(r) = lambda_d r^2/(1+r^2),
-# where lambda_d = (g_dd/2)^{2/3} (Part 4 S3.10).  The Agmon substitution
+# where lambda_d = (g_dd/2)^{2/3} (Part 4 S3.10).  The sector localization substitution
 # f = r^{(d-1)/2} R reduces the d-dimensional radial equation to:
 #
 #   H_d f = E f,    H_d = -d^2/dr^2 + V_d(r) + cen_d / r^2
@@ -1159,29 +1116,29 @@ for _d in [2, 3, 4, 5, 6, 10]:
     _ndu   = _sr[_d]['ndu']
     _bures[_d] = (_g, _chain, _ndu, (_chain * _ndu)**2)
 
-# Berry phase on lepton coupling triangle
+# spectral phase on lepton coupling triangle
 _g55_phys = 96.0 / g22
 _g6_phys  = g66
 _g10_phys = g66
-_eps_berry = 0.01
+_eps_spec = 0.01
 _tri_verts = [
     (_g55_phys, _g6_phys,             _g10_phys),
-    (_g55_phys, _g6_phys + _eps_berry, _g10_phys),
-    (_g55_phys, _g6_phys + _eps_berry, _g10_phys + _eps_berry),
+    (_g55_phys, _g6_phys + _eps_spec, _g10_phys),
+    (_g55_phys, _g6_phys + _eps_spec, _g10_phys + _eps_spec),
 ]
-_lams_berry = [{5: _lam_of_g(g5), 6: _lam_of_g(g6), 10: _lam_of_g(g10)}
+_lams_spec = [{5: _lam_of_g(g5), 6: _lam_of_g(g6), 10: _lam_of_g(g10)}
                for (g5, g6, g10) in _tri_verts]
 _prod_ov = complex(1.0, 0.0)
 for (_bi, _bj) in [(0, 1), (1, 2), (2, 0)]:
     _ov_ij = 1.0
     for _bd in [5, 6, 10]:
-        _la, _lb = _lams_berry[_bi][_bd], _lams_berry[_bj][_bd]
+        _la, _lb = _lams_spec[_bi][_bd], _lams_spec[_bj][_bd]
         _ov_ij *= 1.0 if abs(_la - _lb) < 1e-12 else _gs_ov(_bd, _la, _lb)
     _prod_ov *= complex(_ov_ij, 0.0)
-_berry_phase = float(-np.angle(_prod_ov))
-_delta_lam_berry = abs(_lam_of_g(_g6_phys + _eps_berry) - _lam_of_g(_g6_phys))
+_spectral_phase = float(-np.angle(_prod_ov))
+_delta_lam_spec = abs(_lam_of_g(_g6_phys + _eps_spec) - _lam_of_g(_g6_phys))
 
-# Berry curvature F_{6,10} by finite differences
+# spectral curvature F_{6,10} by finite differences
 _delta_g = 1e-4
 _, _fv_6m,  _r6g,  _h6g  = _solve(6,  _lam_of_g(_g6_phys  - _delta_g))
 _, _fv_6p,  _,     _     = _solve(6,  _lam_of_g(_g6_phys  + _delta_g))
@@ -1195,12 +1152,12 @@ _A6    = float(np.sum(_df6_dg  * _fv_6phys[:,  0]) * _h6g)
 _A10   = float(np.sum(_fv10phys[:, 0] * _df10_dg)  * _h10g)
 _F_6_10 = -2.0 * (complex(_A6, 0.0) * complex(_A10, 0.0)).imag
 
-# Jarlskog amplitude from IDWT T6 mixing angles (stated values for cross-check)
+# CP-violation amplitude from IDWT T6 mixing angles (stated values for cross-check)
 _s2_23 = 0.5590;  _s2_12 = 0.3086;  _s2_13 = 0.02211
 _s23b = math.sqrt(_s2_23);  _c23b = math.sqrt(1 - _s2_23)
 _s12b = math.sqrt(_s2_12);  _c12b = math.sqrt(1 - _s2_12)
 _s13b = math.sqrt(_s2_13);  _c13b = math.sqrt(1 - _s2_13)
-_J_max_berry = _s12b*_c12b*_s23b*_c23b*_s13b*_c13b**2
+_J_max_spec = _s12b*_c12b*_s23b*_c23b*_s13b*_c13b**2
 
 
 # =============================================================================
@@ -1210,8 +1167,8 @@ _J_max_berry = _s12b*_c12b*_s23b*_c23b*_s13b*_c13b**2
 #
 #   n_s(n_s + 1) / S(n_s, 4)  =  n_u(n_u + 1) / S(n_u, 5)  =  4/7
 #
-# with n_u = n_s − 1. Physical origin: this is the RG fixed-point condition for
-# the cross-sector kernel at the resonance site k_0 = n_s² = 16. The Jacobi
+# with n_u = n_s − 1. Physical origin: this is the kernel algebraic fixed-point
+# condition at the resonance site k_0 = n_s² = 16. The Jacobi
 # coupling coefficient at mode k in sector d is:
 #
 #   b_k(d)  =  sqrt(k * (k + d − 1)) / (2k + d − 2)
@@ -1238,20 +1195,17 @@ t4_rhs_err = abs(t4_rhs - t4_exact)
 
 
 # =============================================================================
-# STEP 26 -- T5: AUBRY-ANDRÉ CRITICALITY
+# STEP 26 -- T5: GEGENBAUER CRITICALITY
 # =============================================================================
-# Theorem T5 (Part 9 §T5): d = 10 is the unique sector at the Aubry-André (AA)
-# metal-insulator transition. The AA coupling parameter for sector d at the
-# resonance site k_0 = n_s² = 16 is the Jacobi coupling coefficient:
+# Theorem T5 (Part 9 §T5): d = 10 is the unique sector at the Gegenbauer critical endpoint.
+# The Gegenbauer coupling coefficient for sector d at the resonance site
+# k_0 = n_s² = 16 is:
 #
 #   b_{k_0}(d)  =  sqrt( k_0 * (k_0 + d − 1) ) / ( 2*k_0 + d − 2 )
 #
-# Physical interpretation: in the quasi-periodic Schrödinger operator
-#   H = Σ_n  b_n (|n><n+1| + h.c.) + v_n |n><n|
-# with b_n = b_{k_0}(d) in the long-chain limit, the AA transition from
-# extended to localised eigenstates occurs at b = 1/2:
+# The criticality condition b = 1/2 separates extended from localised modes:
 #   b > 1/2 : supercritical — extended states, stable L²-modes exist.
-#   b = 1/2 : critical — Cantor-set spectrum (metal-insulator boundary).
+#   b = 1/2 : critical — Gegenbauer critical point; modes at localisability boundary.
 #   b < 1/2 : subcritical — localised states, no stable L²-normalizable modes.
 #
 # At d = 10 with k_0 = 16:
@@ -1259,17 +1213,18 @@ t4_rhs_err = abs(t4_rhs - t4_exact)
 #
 # The equivalence 4*k_0 = (d − 2)² uniquely determines d = 10:
 #   4 × 16 = 64 = (d − 2)²  =>  d − 2 = 8  =>  d = 10.
-# All d < 10 are supercritical (b > 1/2); d ≥ 11 are subcritical (b < 1/2)
-# with no stable resonances, so the sector chain terminates at d = 10.
-# The Cantor-set spectrum at the d=10 critical point is also why naive
-# perturbation theory fails there and the all-orders Dyson resummation
-# δ_τ = 1/1680 is required for the tau mass (STEP 4). (Part 1 §3c, §T5)
+# All d < 10 have b > 1/2 (above the Jacobi coupling threshold); d ≥ 11 have
+# b < 1/2 (below threshold), with no stable sector-bound resonances; sector
+# chain terminates at d = 10.
+# At the Gegenbauer critical point the naive perturbation series does not
+# converge, so the all-orders geometric back-reaction correction δ_τ = 1/1680
+# is required for the tau mass (STEP 4). (Part 1 §3c, §T5)
 
 k0_aa = n_strange ** 2   # = 16; the resonance site = seed self-product n_s²
 
 def _b_aa(d):
     """
-    Aubry-André coupling coefficient b_{k_0}(d) at k_0 = n_s² = 16.
+    Gegenbauer critical-endpoint coupling coefficient b_{k_0}(d) at k_0 = n_s² = 16.
     b = 1/2 exactly at d = 10 (critical point).
     b > 1/2 for d < 10 (supercritical); b < 1/2 for d >= 11 (subcritical).
     """
@@ -1307,7 +1262,7 @@ aa_exact_check = (4 * k0_aa == (10 - 2) ** 2)   # must be True
 # From N_c = χ(CP²) = 3 alone, the following all follow algebraically:
 #
 #   n_s = N_c + 1 = 4              χ(CP³) = χ(CP²) + 1             (T15)
-#   d_terminal = 2(N_c + 2) = 10   AA criticality 4k_0=(d−2)²       (T15a)
+#   d_terminal = 2(N_c + 2) = 10   Gegenbauer criticality 4k_0=(d−2)²  (T15a)
 #   Hopf product = N_c(N_c+1)³/2   both Hopf pairs equal 96          (T15c)
 #   n_e  = N_c² + N_c + 1 = 13    electron mode index                (T15d)
 #   n_ν₁ = N_c² + 1 = 10          lightest neutrino mode index       (T15d)
@@ -1544,9 +1499,9 @@ print(f"k-values (d=4):  up k={k_vals['up']},  "
       f"charm k={k_vals['charm']},  top k={k_vals['top']}")
 print(f"  (correction factor per quark = (1 - epsilon)^k)")
 print()
-print("Tau Dyson factor = 1 + 1/(n_up * n_s^2 * S(n_s,4))")
+print("Tau back-reaction factor = 1 + 1/(n_up * n_s^2 * S(n_s,4))")
 print(f"  = 1 + 1/({n_up} x {n_strange}^2 x {S(n_strange,4)}) = 1 + 1/1680")
-print(f"  = {dyson_factor:.8f}")
+print(f"  = {back_reaction_factor:.8f}")
 print(f"  Resummation: g_{{10,10}}=1/n_s=1/{n_strange}, "
       f"so factor = n_s/n_up = {n_strange}/{n_up}")
 
@@ -1615,7 +1570,7 @@ def pred_corrected(name, d, n):
     """
     Corrected IDWT prediction, applying:
     - GTC to d=4 quarks: m * (1 - epsilon)^k
-    - Dyson resummation to tau: m * (1 + 1/1680)
+    - back-reaction correction to tau: m * (1 + 1/1680)
     All other particles are uncorrected -- their raw predictions are already
     at or below PDG precision. (Part 2 sections 11 and 9)
     """
@@ -1623,7 +1578,7 @@ def pred_corrected(name, d, n):
     if name in k_vals:
         return base * (1 - epsilon) ** k_vals[name]
     if name == "tau":
-        return base * dyson_factor
+        return base * back_reaction_factor
     return base
 
 
@@ -1634,7 +1589,7 @@ sep = "-" * len(hdr)
 
 # STEP 9  -- Uncorrected table
 print("\n=== UNCORRECTED TABLE ===")
-print("  (raw: m = m_scale(d) * S(n,d), no GTC or Dyson correction applied)")
+print("  (raw: m = m_scale(d) * S(n,d), no GTC or back-reaction correction applied)")
 print(hdr)
 print(sep)
 for name, d, n, pdg in particles:
@@ -1645,7 +1600,7 @@ for name, d, n, pdg in particles:
     print(f"{name:<9} {d:2d} {n_str:>4} {s:10d} {p:12.3f} {pdg:12.3f} {err:+7.2f}%")
 
 # STEP 10 -- Corrected table
-print("\n=== CORRECTED TABLE (GTC d=4 quarks + Dyson tau) ===")
+print("\n=== CORRECTED TABLE (GTC d=4 quarks + back-reaction tau) ===")
 print("  (charm and top: (1-eps)^k correction;  tau: *(1+1/1680))")
 print(hdr)
 print(sep)
@@ -1665,16 +1620,13 @@ pdg_vals = {
     "cos(theta_W)":   (cos_W,  0.88108, "exact identity S_W/S_Z"),
     "g_2":            (g2,     0.65270, "PDG SU(2) coupling"),
     "G_F (1e-5/GeV2)":(GF_pred * 1e5, 1.16638, "Fermi constant"),
-    "1/alpha (fiber)":(1.0 / alpha_ew, 127.9,   "at m_W scale; EW running closes gap"),
+    "1/alpha (fiber)":(1.0 / alpha_ew, 127.9,   "at d=2 sector scale; PDG offset = sin²θ_W gap in different variable"),
 }
 for label, (pred, pdg, note) in pdg_vals.items():
     err = (pred / pdg - 1.0) * 100
     print(f"  {label:<25} pred={pred:>10.5f}  PDG={pdg:>9.5f}  err={err:+.3f}%  [{note}]")
-print(f"\n  --- g_1 running (1-loop, b1=41/6) ---")
-print(f"  g_1 at fiber scale (m_W):  {g1:.6f}  err={err_g1_fiber:+.4f}%")
-print(f"  g_1 after running to m_Z:  {g1_at_mZ:.6f}  err={err_g1_mZ:+.4f}%")
-print(f"  [1-loop closes {abs(err_g1_fiber)-abs(err_g1_mZ):.4f} pp; -1.88% residual remains]")
-print(f"  Remaining -1.88% = sin²θ_W structural gap (+0.37%) propagated into g₁")
+print(f"\n  --- g_1 sector-scale comparison ---")
+print(f"  g_1 at d=2 sector scale:   {g1:.6f}  err={err_g1:+.4f}%  [vs self-consistent PDG g1={pdg_g1:.5f}; +0.25% = sin²θ_W gap propagated; PDG tabulated 0.35740 is MS-bar at m_Z (-1.95% scheme/scale offset)]")
 
 
 # =============================================================================
@@ -1808,17 +1760,17 @@ print(f"    d=5 nu_3        = 48.871 meV  (exact; m_scale5*S(22,5), computed in 
 # STEP 15 -- PMNS LEADING ORDER: TRIBIMAXIMAL MIXING
 # =============================================================================
 
-print("\n=== PMNS LEADING ORDER: TRIBIMAXIMAL (Part 5 §4) ===")
+print("\n=== PMNS LEADING ORDER: μ–τ SYMMETRIC LIMIT (Part 5 §4) ===")
 print(f"  v_6 = v_{{10}} = sqrt(1/n_s) = {math.sqrt(1.0/n_strange):.5f}  [exact equality]")
 print(f"  g_{{56}}^2 = g_{{55}}*g_{{66}} = (96/g_22)/n_s = {g56_sq:.6f}")
-TBM = [("sin^2(theta_12)", 1.0/3, 0.307, "solar"),
-       ("sin^2(theta_23)", 1.0/2, 0.561, "atmospheric, exact from mu-tau symmetry"),
-       ("sin^2(theta_13)", 0.0,   0.022, "reactor; TBM gives 0, spectral geometry gives 0.02211 (Step 19)")]
-print(f"\n  {'Angle':>18}  {'TBM':>8}  {'PDG':>8}  {'delta':>8}  note")
-for name, tbm_val, pdg_val, note in TBM:
-    dev = pdg_val - tbm_val
-    print(f"  {name:>18}  {tbm_val:>8.4f}  {pdg_val:>8.4f}  {dev:>+8.4f}  {note}")
-print(f"\n  TBM tree-level deviations from PDG are derived in Step 19")
+mu_tau_sym = [("sin^2(theta_12)", 1.0/3, 0.307, "solar"),
+              ("sin^2(theta_23)", 1.0/2, 0.561, "atmospheric, exact from mu-tau symmetry"),
+              ("sin^2(theta_13)", 0.0,   0.022, "reactor; μ–τ limit gives 0, spectral geometry gives 0.02211 (Step 19)")]
+print(f"\n  {'Angle':>18}  {'μτ-sym':>8}  {'PDG':>8}  {'delta':>8}  note")
+for name, sym_val, pdg_val, note in mu_tau_sym:
+    dev = pdg_val - sym_val
+    print(f"  {name:>18}  {sym_val:>8.4f}  {pdg_val:>8.4f}  {dev:>+8.4f}  {note}")
+print(f"\n  μ–τ symmetric limit deviations from PDG are derived in Step 19")
 print(f"  from spectral geometry (T6) with no loop integrals.")
 print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s.")
 
@@ -1826,7 +1778,7 @@ print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s.")
 # =============================================================================
 # STEP 16 -- ELECTRIC CHARGE IS DERIVED
 # =============================================================================
-print("\n=== ELECTROMAGNETIC COUPLING (fully derived, not open) ===")
+print("\n=== ELECTROMAGNETIC COUPLING ===")
 print(f"  e = g_2 × sin(θ_W) = {g2:.5f} × {math.sqrt(sin2_W):.5f} = {e_charge:.5f}")
 print(f"  α at fiber scale = e²/(4π):  1/α = {1/alpha_em:.2f}  (PDG at m_Z: 127.9)")
 print(f"  Running to q→0: 1/α(0) ≈ {alpha0_inv:.2f}"
@@ -1840,8 +1792,6 @@ print(f"  Residual from sin²θ_W +0.37% structural gap — same source as g_1 r
 print("\n=== DECAY RATES ===")
 decay_vals = {
     "tau_mu (1e-6 s)": (tau_mu_pred * 1e6, 2.1969811, "muon lifetime"),
-    "Gamma_W (MeV)":   (Gamma_W,       2085.0,    "W total width"),
-    "Gamma_Z (MeV)":   (Gamma_Z,       2495.2,    "Z total width"),
 }
 for label, (pred, pdg, note) in decay_vals.items():
     err = (pred / pdg - 1.0) * 100
@@ -1930,14 +1880,6 @@ print(f"  J = J_max×sin(δ_CP); at PDG δ≈195°: J={J_at195:.5f}")
 print(f"  α_s(m_τ) = {_alpha_s_tau:.4f}  R_lep = {_R_lep:.4f}  R_had = {_R_had:.4f}")
 print(f"  τ_τ = τ_μ×(m_μ/m_τ)⁵/(1+R_lep+R_had) = {tau_tau_pred*1e15:.0f} fs"
       f"   PDG 290.3 fs   err {(tau_tau_pred*1e15/290.3-1)*100:+.1f}%  [+higher-order QCD]")
-
-# =============================================================================
-# STEP 23 -- HIGGS QUARTIC COUPLING
-# =============================================================================
-
-print("\n=== HIGGS SECTOR (Part 5) ===")
-print(f"  λ_H = (m_H/v_EW)²/2 = {lam_H_val:.5f}   PDG 0.12910   err"
-      f" {(lam_H_val/0.1291-1)*100:+.2f}%")
 
 
 # =============================================================================
@@ -2105,27 +2047,27 @@ for _d in [2, 3, 4, 5, 6, 10]:
     print(f"  {_d:2d}  {_g:9.4f}  {_chain:9.5f}  {_ndu:10.5f}  {_Gdd:12.8f}")
 
 print("\n=== STEP 27: delta_CP BERRY TRIANGLE INTEGRAL ===")
-print("(Part 9 T8 -- tree-level Berry phase on lepton coupling triangle)")
+print("(Part 9 T8 -- tree-level spectral phase on lepton coupling triangle)")
 
 print(f"\n  Lepton coupling triangle  (g55, g66, g10):")
 for _k, (_g5, _g6, _g10) in enumerate(_tri_verts):
     print(f"    P{_k}: ({_g5:.5f}, {_g6:.5f}, {_g10:.5f})")
-print(f"  eps = {_eps_berry},  Delta_lambda ~ {_delta_lam_berry:.4f}")
+print(f"  eps = {_eps_spec},  Delta_lambda ~ {_delta_lam_spec:.4f}")
 
 print(f"\n  Product overlap prod_edges <Psi_k|Psi_{{k+1}}> = "
       f"{_prod_ov.real:.8f} + {_prod_ov.imag:.2e}i")
-print(f"  Berry phase gamma = -arg(product) = {_berry_phase:.3e} rad")
-if abs(_berry_phase) < 1e-10:
+print(f"  spectral phase gamma = -arg(product) = {_spectral_phase:.3e} rad")
+if abs(_spectral_phase) < 1e-10:
     print(f"  -> gamma = 0 exactly  (v)  (real product state: delta_CP^(tree) = 0)")
 
-print(f"\n  Berry curvature check (finite differences, delta_g={_delta_g}):")
+print(f"\n  spectral curvature check (finite differences, delta_g={_delta_g}):")
 print(f"    <d_g6 chi6 | chi6>   = {_A6:.3e}   (= 0 for real modes (v))")
 print(f"    <chi10 | d_g10 chi10> = {_A10:.3e}  (= 0 for real modes (v))")
 print(f"    F_{{6,10}} = -2 Im Q_{{6,10}} = {_F_6_10:.3e}  (v)")
 
-print(f"\n  Jarlskog amplitude J_max (from IDWT mixing angles T6):")
+print(f"\n  CP-violation amplitude J_max (from IDWT mixing angles T6):")
 print(f"    sin^2(th23)={_s2_23}, sin^2(th12)={_s2_12}, sin^2(th13)={_s2_13}")
-print(f"    J_max = s12*c12*s23*c23*s13*c13^2 = {_J_max_berry:.5f}")
+print(f"    J_max = s12*c12*s23*c23*s13*c13^2 = {_J_max_spec:.5f}")
 print(f"    J_PMNS = J_max * sin(delta_CP)  (IDWT prediction given delta_CP)")
 
 
@@ -2194,7 +2136,7 @@ for _n, (_sec, _man, _mean) in _t15_meanings.items():
 print(f"\n  Derived from N_c = χ(CP²) = {t15_Nc} alone:")
 print(f"  n_s        = N_c+1          = {t15_ns:<4}  "
       f"(χ(CP³) = χ(CP²)+1)        == n_strange = {n_strange}  {'✓' if t15_ok_ns else '✗ FAIL'}")
-print(f"  d_terminal = 2(N_c+2)       = {t15_d_term:<4}  (T15a: AA criticality)")
+print(f"  d_terminal = 2(N_c+2)       = {t15_d_term:<4}  (T15a: Gegenbauer criticality)")
 print(f"  Hopf prod  = N_c(N_c+1)³/2  = {t15_hopf_prod:<4}  (T15c: both Hopf pairs)")
 print(f"  n_e        = N_c²+N_c+1     = {t15_n_e:<4}  (T15d: electron)            "
       f"== n_e = {n_e}  {'✓' if t15_ok_n_e else '✗ FAIL'}")

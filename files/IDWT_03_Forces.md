@@ -1,4 +1,4 @@
-# Infinite Dimensional Wave Theory — Part 3: Forces, Gauge Structure & Colour
+# Infinite Dimensional Wave Theory — Part 3: Forces, Coupling Structure & Colour
 
 All fundamental forces emerge from the geometry of Ψ∞ and the sector structure of M_∞.
 
@@ -6,7 +6,7 @@ All fundamental forces emerge from the geometry of Ψ∞ and the sector structur
 
 ## 0. The Complete IDWT Action
 
-Everything in IDWT — gravity, the mass spectrum, gauge fields, coupling constants, mixing angles — follows from a single action functional on M_∞ = ℝ^{3,1} × Ξ, varied with respect to two dynamical objects: the spacetime metric g_μν(x) and the master spinor field Ψ∞(x,ξ).
+Everything in IDWT — gravity, the mass spectrum, coupling constants, mixing angles — follows from a single action functional on M_∞ = ℝ^{3,1} × Ξ, varied with respect to two dynamical objects: the spacetime metric g_μν(x) and the master spinor field Ψ∞(x,ξ).
 
 ### 0.1 Field Content
 
@@ -76,8 +76,8 @@ with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and �
 | L_kinetic (sector part) | δΨ̄∞ | Mass eigenvalue problem H_d χ = m_eff χ |
 | L_kernel (d=d', self) | δΨ̄∞ | Sector confinement V_d, λ_d = (g_{dd}/2)^{2/3} |
 | L_kernel (d=4, colour) | δΨ̄∞ | SU(3)-symmetric quark contact coupling; effective coupling g²_eff = 2g_{44}/π² (§4) |
-| L_kernel (d=4↔d=2) | consistency | U(2) electroweak gauge fields, W±, Z, γ |
-| L_kernel (d=3↔d=4) | eigenvalue + Lichnerowicz | Cabibbo angle sin θ_C |
+| L_kernel (d=4↔d=2) | consistency | U(2) electroweak coupling fields, W±, Z, γ |
+| L_kernel (d=3↔d=4) | eigenvalue + CP¹ sector curvature correction | Cabibbo angle sin θ_C |
 
 ### 0.5 Mass Spectrum from the Action
 
@@ -133,7 +133,7 @@ g₂ = (2/3)√g_s = 0.65275
 PDG: 0.65270.  Error: +0.008%
 ```
 
-**The coupling cascade.** All three gauge couplings descend from a single seed-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
+**The coupling cascade.** All three couplings descend from a single seed-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
 
 ```
 g_{44}  [seed: n_s=4, n_u=3]
@@ -186,9 +186,9 @@ T_μν^{eff}(x) = ∫_Ξ T_μν^{Dirac}(x,ξ) dμ_ξ
 
 The gravitational field is genuinely 10D — it is not a 3D field with extra-dimensional corrections. A d=3 observer is a subspace of M_∞ and experiences the field only within their d=3 coordinate subspace, giving G_N = G_fund / V_7 rather than G_fund (Part 4 §3.12.2).
 
-**Spatial extent and coupling strength.** The gauge forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
+**Spatial extent and coupling strength.** The coupling forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 113 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
 
-**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force's coupling geometry occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 AA Cantor-set spectrum constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
+**Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force's coupling geometry occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 Gegenbauer-critical coupling structure constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
 ### 0.9 CKM Matrix from the Kernel
 
@@ -211,7 +211,7 @@ The Cabibbo angle is the d=3 intra-sector mixing (down ↔ strange):
 ```
 sin²θ_C = S(n_d, 3) / S(n_s, 3) = 1/20    → sin θ_C = 1/√20 = 0.22361  [bare]
 ```
-Corrected by CP¹ curvature (Lichnerowicz, §12): sin θ_C = (1+1/240)/√20 = 0.22454
+Corrected by CP¹ sector curvature correction (§12): sin θ_C = (1+1/240)/√20 = 0.22454
 
 The |V_cb| element is the d=4 intra-sector mixing (up ↔ charm):
 ```
@@ -296,7 +296,7 @@ Given the three-dimensional colour space identified from χ(CP²) = 3 (§2):
    F_μν = ∂_μA_ν − ∂_νA_μ + i[A_μ, A_ν]
    ```
 
-SU(3) gauge theory is not postulated. It follows from the CP² sector geometry and the requirement that physics not depend on the local orientation of the colour frame.
+SU(3) coupling theory is not postulated. It follows from the CP² sector geometry and the requirement that physics not depend on the local orientation of the colour frame.
 
 ### 3a. Explicit Colour Connection Construction 🔶
 
@@ -322,9 +322,9 @@ This integral extracts the three colour amplitudes from the full sector-space fi
 A_μ(x) = i ψ_color†(x) ∂_μ ψ_color(x)   ∈ su(3)
 ```
 
-This is the colour connection — the SU(3)-valued gauge field encoding local colour frame freedom in the d=4 sector.
+This is the colour connection — the SU(3)-valued coupling encoding local colour frame freedom in the d=4 sector.
 
-**Gauge transformation check.** Under U(x) ∈ SU(3): ψ_color(x) → U(x)ψ_color(x). Direct computation:
+**Coupling transformation check.** Under U(x) ∈ SU(3): ψ_color(x) → U(x)ψ_color(x). Direct computation:
 
 ```
 A_μ → i(Uψ)† ∂_μ(Uψ)
@@ -377,7 +377,7 @@ This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s →
 
 ## 5. Colour Confinement
 
-Assign each quark a colour expectation vector n⃗ ∈ ℝ⁸ (the 8 Gell-Mann matrix expectation values). For any single quark, |n⃗|² = 4/3. Antiquarks have n⃗(q̄) = −n⃗(q).
+Assign each quark a colour expectation vector n⃗ ∈ ℝ⁸ (the 8 CP² isometry generator expectation values). For any single quark, |n⃗|² = 4/3. Antiquarks have n⃗(q̄) = −n⃗(q).
 
 The energy of a composite system is:
 ```
@@ -397,7 +397,7 @@ This is the unique SU(3)-invariant linear energy functional. Its consequences:
 
 ## 6. SU(3)_colour × U(2)_EW from One Manifold
 
-CP² carries two independent gauge-algebraic structures:
+CP² carries two independent coupling-algebraic structures:
 
 | Structure | Source | Group | Generators | Physical role |
 |---|---|---|---|---|
@@ -406,7 +406,7 @@ CP² carries two independent gauge-algebraic structures:
 
 ### Why U(1)_Y is the U(1) in U(2), and SU(2)_L is the SU(2) in U(2)
 
-**The U(1)_Y generator is T₈ of SU(3).** Since CP² = SU(3)/U(2), the isotropy group U(2) sits inside SU(3). The U(1) factor of U(2) is generated by the 8th Gell-Mann generator:
+**The U(1)_Y generator is T₈ of SU(3).** Since CP² = SU(3)/U(2), the isotropy group U(2) sits inside SU(3). The U(1) factor of U(2) is generated by the 8th CP² isometry generator:
 
 ```
 Y_generator = T₈ = λ₈/2 = diag(1, 1, −2)/(2√3)
@@ -445,7 +445,7 @@ where m ≅ T_{[e]}(CP²) is the 4-dimensional (real) tangent space at the base 
 - The **8 colour generators** are the 8 generators of su(3). Of these, 4 live in u(2) (the holonomy generators) and 4 live in m (the tangent space generators). These generators act on the colour states of quarks through the SU(3)-invariant kernel — they are symmetry generators of the contact coupling, not propagating quanta.
 - The **4 EW bosons** are the 4 generators of u(2) ⊂ su(3). They act on the tangent space of CP², not on the colour fibre. Since u(2) and m are orthogonal in su(3), the EW generators do not mix with the colour generators.
 
-The colour-plus-EW algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry group SU(3), decomposed according to the homogeneous space structure. No extra gauge bosons appear because the decomposition su(3) = u(2) ⊕ m is complete and exhausts all generators.
+The colour-plus-EW algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry group SU(3), decomposed according to the homogeneous space structure. No extra bosons appear because the decomposition su(3) = u(2) ⊕ m is complete and exhausts all generators.
 
 ---
 
@@ -476,9 +476,10 @@ The U(2) holonomy of CP² acts on T^{*1,0}(CP²) — the holomorphic cotangent b
 - Λ^{0,1} = T^{*1,0}: transforms in the fundamental of U(2) → doublet, LEFT-handed
 - Λ^{0,2} = det(T^{*1,0}): transforms as a character of U(2) → singlet, RIGHT-handed
 
-The W boson is the SU(2) ⊂ U(2) gauge field. Since SU(2) acts on Λ^{0,1} (the left-handed sector) but acts trivially on Λ^{0,0} and Λ^{0,2} (right-handed), the W couples exclusively to left-handed quarks. Right-handed quarks live in SU(2) singlets — not because this is postulated, but because U(2) holonomy acts non-trivially only on Λ^{0,1}.
+The d = 2 boson sector particles couple exclusively to left-handed quarks and leptons. This selectivity arises from the Kähler geometry of the d=4 (CP²) and d=6 (CP³) sectors. The Kähler structure naturally divides the spinors into holomorphic (Λ^{0,1}) and anti-holomorphic (Λ^{0,0} and Λ^{0,2}) components. The boson sector particles couple only to the holomorphic part.
+Right-handed quarks and leptons live in geometric singlets under this coupling — not because left-handedness is postulated, but because the Kähler geometry makes the anti-holomorphic components invisible to the boson sector particles.
 
-For d=6 (CP³, m=3): S₊ = Λ^{0,0} ⊕ Λ^{0,2} (dim 1+3=4) and S₋ = Λ^{0,1} ⊕ Λ^{0,3} (dim 3+1=4), giving the 4L+4R split of the lepton sector.
+For the d=6 lepton sector (CP³), the Kähler geometry splits the spinor into holomorphic (left-handed, 4 components) and anti-holomorphic (right-handed, 4 components) parts: Λ^{0,1} ⊕ Λ^{0,3} and Λ^{0,0} ⊕ Λ^{0,2}.
 
 **The non-Kähler sectors (d=3, d=5) have no Kähler form** and therefore no intrinsic chirality operator. Quarks in d=3 (S³) are intrinsically vector-like; their observed left-right asymmetry is inherited from the d=4 sector via the cross-coupling g_{3,4}. The neutrino sector d=5 (S⁵) is also non-Kähler — it has no chirality operator — consistent with the fact that neutrinos are Dirac fermions (no Weyl condition possible in d=5, see Part 1 §6).
 
@@ -497,7 +498,7 @@ For d=6 (CP³, m=3): S₊ = Λ^{0,0} ⊕ Λ^{0,2} (dim 1+3=4) and S₋ = Λ^{0,1
 
 ## 8. Hypercharges from Anomaly Cancellation
 
-With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geometry (Part 2 §9c), all SM hypercharges follow from gauge anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
+With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geometry (Part 2 §9c), all SM hypercharges follow from anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
 
 **Note on derivation order.** The anomaly cancellation route works from d=4 geometry upward: χ(CP²) = 3 gives N_c = 3, then CP³ complex geometry (χ(CP³) = n_s) gives g₆₆ = 1/4, and N_c = 3 together with Y_L = −√g₆₆ = −1/2 force the remaining hypercharge assignments via SU(2)²U(1) anomaly cancellation. Anomaly cancellation is the mechanism that propagates the geometric inputs into a complete hypercharge table — it is not the source of g₆₆.
 
@@ -538,7 +539,7 @@ The Z-W mode gap equals q — the same Dirac eigenstate increment that enters g�
 
 ## 11. The Boson Eigenmode Selection and Sector Coupling Map
 
-All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + b − 1 applied to occupied mode indices and sector dimensions:
+🔶 All boson mode indices follow from the Vandermonde sector coupling g(a,b) = a + b − 1 applied to occupied mode indices and sector dimensions:
 
 | Coupling | Result | Identification |
 |---------|--------|----------------|
@@ -573,6 +574,8 @@ n_W + S(2,3) = n_s × S(n_s,3):  76+4 = 80 = 4×20
 
 The coupling-conservation identity is equivalent to any of: g(d=5, n_top) = n_W; n_W = 4×19 = 76; n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent and all proved.
 
+**Open item — origin of the −1 offset.** The Vandermonde rule g(a,b) = a+b−1 is an observed pattern: given the occupied fermionic mode indices and sector dimensions, adding them and subtracting 1 recovers each boson index exactly. The −1 offset is load-bearing — g(d=5, n_top=72) = 76 = n_W, whereas a+b would give 77 with m_W ≈ 82.3 GeV, not 80.4 GeV. The Jacobi boundary identity b₁₆² = 76 independently confirms n_W = 76 but does not explain the rule. A derivation of g(a,b) = a+b−1 from the kernel or action, showing why the boson composite index must satisfy this specific Vandermonde identity, is an open item (Part 6 §Open).
+
 ---
 
 ## 12. Cabibbo Angle
@@ -597,14 +600,14 @@ This is a theorem of the seed n_s=4 and the Vandermonde structure, with no free 
 
 ### Curvature Correction from the Mediating Sector
 
-The Cabibbo mixing is mediated by the W boson, which lives in the d=2 sector (CP¹ = S²). The bare prediction uses a flat-space normalization of the mode functions on CP¹. The actual CP¹ geometry has curvature, which corrects the effective mode density through the Lichnerowicz formula.
+The Cabibbo mixing is mediated by the W boson, which lives in the d=2 sector (CP¹ = S²). The bare prediction uses a flat-space normalization of the mode functions on CP¹. The actual CP¹ geometry has curvature, which corrects the effective mode density through the sector Dirac curvature correction formula.
 
-**Step 1 — Lichnerowicz on CP¹ (d=2 sector):**
+**Step 1 — CP¹ sector curvature correction on CP¹ (d=2 sector):**
 
 The Dirac operator on CP¹ satisfies:
 
 ```
-D² = Δ + R/4      (Lichnerowicz–Bochner)
+D² = Δ + R/4      (sector Dirac curvature identity)
 ```
 
 The heat kernel of D² on CP¹ at the diagonal:
@@ -662,7 +665,7 @@ sin θ_C = (1 + χ(CP¹)/(24 · S(n_s,3))) / √S(n_s,3)
 | PDG \|V_us\| | 0.22450 ± 0.00044 |
 | Tension | +0.09σ |
 
-The correction closes the tension from −2.03σ to +0.09σ with no free parameters. The inputs are: χ(CP¹) = 2 (topology of the W boson sector), S(n_s,3) = 20 (seed structure), and the Lichnerowicz coefficient −R/12 (a theorem of spin geometry).
+The correction closes the tension from −2.03σ to +0.09σ with no free parameters. The inputs are: χ(CP¹) = 2 (topology of the W boson sector), S(n_s,3) = 20 (seed structure), and the CP¹ sector curvature correction coefficient −R/12 (a theorem of spin geometry).
 
 **First-row unitarity.** IDWT's CKM matrix is unitary by construction. V_ud is not an independent prediction — it is the trigonometric complement of sin θ_C:
 
@@ -680,15 +683,27 @@ This value is not separately testable against the PDG nuclear beta-decay result 
 
 CP² is spin^c (not spin). The spin^c structure requires an auxiliary U(1) bundle — geometrically forced, naturally identified with U(1)_Y (hypercharge).
 
-**N_c = 3 determines all SM hypercharges via gauge anomaly cancellation:**
+**N_c = 3 determines all SM hypercharges via anomaly cancellation:**
+
+The SM gauge group SU(3)×SU(2)×U(1)_Y has four independent triangle anomaly conditions per generation. With N_c = 3 (from χ(CP²)), Y_Q = 1/(2N_c) = 1/6, Y_L = −1/2, Y_u = 2/3, Y_d = −1/3, Y_e = −1:
 
 ```
-SU(2)²U(1) anomaly: N_c Y_Q + Y_L = 0  →  Y_Q = 1/(2N_c) = 1/6
-SU(3)²U(1) anomaly: 2Y_Q = Y_u + Y_d   →  Y_u + Y_d = 1/3
-Electric charge:    Q = T₃ + Y          →  Q_u = 2/3, Q_d = −1/3
+[SU(2)]²[U(1)_Y]:  N_c Y_Q + Y_L = 0
+                    3(1/6) + (−1/2) = 1/2 − 1/2 = 0  ✓
+
+[SU(3)]²[U(1)_Y]:  2Y_Q − Y_u − Y_d = 0
+                    2(1/6) − 2/3 − (−1/3) = 1/3 − 1/3 = 0  ✓
+
+[grav]²[U(1)_Y]:   2N_c Y_Q + 2Y_L − N_c Y_u − N_c Y_d − Y_e = 0
+                    6(1/6) + 2(−1/2) − 3(2/3) − 3(−1/3) − (−1)
+                    = 1 − 1 − 2 + 1 + 1 = 0  ✓
+
+[U(1)_Y]³:         2N_c Y_Q³ + 2Y_L³ − N_c Y_u³ − N_c Y_d³ − Y_e³ = 0
+                    6(1/6)³ + 2(−1/2)³ − 3(2/3)³ − 3(−1/3)³ − (−1)³
+                    = 1/36 − 9/36 − 32/36 + 4/36 + 36/36 = 0  ✓
 ```
 
-All four independent anomaly conditions cancel exactly with SM values. Fractional hypercharges (1/6, 2/3, −1/3) are not inputs — they follow from N_c = 3 from CP² geometry.
+All four independent anomaly conditions cancel exactly with N_c = 3. The charge formula Q = T₃ + Y (Gell-Mann–Nishijima) then gives Q_u = 2/3, Q_d = −1/3 — a consequence of the hypercharge assignments, not a separate anomaly condition. Fractional charges are not inputs — they follow from N_c = 3 from CP² geometry.
 
 **The N_c chain:**
 ```
@@ -712,13 +727,13 @@ S¹ → S³ → S² = CP¹
 (fiber)  (d=3)  (d=2)
 ```
 
-- **d=2 (CP¹ = S²):** The base of the Hopf fibration — gauge bosons parameterize the base
+- **d=2 (CP¹ = S²):** The base of the Hopf fibration — bosons parameterize the base
 - **d=3 (S³):** The total space — quarks live here and naturally carry U(1) charge from the fiber action
-- **S¹ fiber = U(1):** The electromagnetic gauge group, not postulated — it is the Hopf fiber
+- **S¹ fiber = U(1):** The electromagnetic group, not postulated — it is the Hopf fiber
 
 ### Photon Derivation
 
-Write Ψ∞ = A·e^{iθ}. The phase gradient defines the gauge field:
+Write Ψ∞ = A·e^{iθ}. The phase gradient defines the photon:
 ```
 A_μ = ∂_μθ
 ```
@@ -733,15 +748,33 @@ F = q(E + v × B)
 ```
 Electromagnetism is not postulated — it emerges from the phase geometry of Ψ∞ via the Hopf fiber.
 
+### The Second Hopf Fibration: S¹ → S⁵ → CP²
+
+Electromagnetism arises from the n=1 complex Hopf fibration S¹ → S³ → S² = CP¹ (d=3 over d=2). The n=2 complex Hopf fibration plays the same structural role for the weak vertex:
+
+```
+S¹  →  S⁵  →  CP²
+(d=2 fibre)   (d=5 neutrino total space)   (d=4 up-quark base)
+```
+
+The d=5 neutrino sector (S⁵) is the total space of this fibration. The base is CP² — the up-quark sector (d=4). The fibre is S¹ — the d=2 sector. The neutrino's S⁵ coordinate space is geometrically circles over the quark sector. The W (d=2 = S¹) is the fibre of S⁵ projected over CP² — the weak vertex is not a coupling constant added separately, it is the geometry of the S¹ → S⁵ → CP² fibration. The coupling between up quarks and neutrinos exists because the neutrino's coordinate space is built from the quark sector and the d=2 fibre. The d=2 fibre direction is always part of the coupling because that is the coordinate direction the d=5 sector shares with d=2; the d=4 base is always involved because it is what the fibre is defined over. There is no S¹ fibre without the CP² base — which is why there is no neutrino without a companion quark coupling.
+
+| Fibration | Total space | Base | Fibre | Vertex |
+|-----------|-------------|------|-------|--------|
+| S¹ → S³ → S² | d=3 (down quarks) | d=2 (gauge / CP¹) | S¹ | EM: γ couples d=3 ↔ d=2 |
+| S¹ → S⁵ → CP² | d=5 (neutrinos) | d=4 (up quarks) | S¹ | Weak: W couples d=5 ↔ d=4 along S¹ fibre |
+
+Both are instances of the complex Hopf fibration S¹ → S^{2n+1} → CP^n at n=1 and n=2. The same S¹ fibre appears in both; the difference is which fermion sector sits at the base.
+
 ### Massless Photon
 
-In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_photon = 0 exactly. The n=0 mode exists because the U(1) fiber has a trivial representation with zero occupation — no fiber excitation means massless gauge boson. The first d=2 sector excitation (n=1) has mass m_scale_2 × 1 = 27.47 MeV, safely above photon mass bounds.
+In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_photon = 0 exactly. The n=0 mode exists because the U(1) fiber has a trivial representation with zero occupation — no fiber excitation means massless boson. The first d=2 sector excitation (n=1) has mass m_scale_2 × 1 = 27.47 MeV, safely above photon mass bounds.
 
 ### Transverse Polarization from Sector Dimension
 
 The photon lives in the d=2 sector. Our observable space is d=3 (Part 1 §3i). The photon's 2 dimensions are a proper subspace of our 3 — it is a 2-dimensional entity in a 3-dimensional world. The direction of propagation is the one coordinate our 3D has that the photon's sector does not. The photon cannot oscillate in the propagation direction because that coordinate falls outside its world.
 
-This is why electromagnetic waves are transverse. The two polarization states — the only two independent oscillation modes of the photon field — are exactly the photon's 2 sector dimensions. As the photon travels in different directions through our 3D space, its polarization plane rotates to stay perpendicular to the direction of travel: the missing coordinate is always the propagation direction. No additional argument from gauge invariance or the Maxwell equations is needed; transversality is a direct consequence of d=2 < 3.
+This is why electromagnetic waves are transverse. The two polarization states — the only two independent oscillation modes of the photon field — are exactly the photon's 2 sector dimensions. As the photon travels in different directions through our 3D space, its polarization plane rotates to stay perpendicular to the direction of travel: the missing coordinate is always the propagation direction. Transversality and the requirement that photons travel at exactly the speed of light are both direct consequences of the photon living in the d=2 sector embedded inside our d=3 space. No additional argument from gauge invariance or the Maxwell equations is needed.
 
 The masslessness (n=0, S(0,2)=0) and the universality (d=2 ⊂ every higher sector) are properties of the photon within its sector. The transversality is a property of the photon relative to our observable space. All three follow from d=2.
 
@@ -757,6 +790,8 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
 **Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the d=2 sector scale — the natural coupling scale of the d=2 sector, ≈m_W, where IDWT couplings are defined before QED/QCD running — is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
+
+**Open item — charge quantization from fiber topology.** The derivation above computes the numerical value of e from g_2 and sinθ_W. A separate question is why charge is quantized — why all observable charges are rational multiples of e. The U(1) Hopf fiber S¹ → S³ → S² has integer first Chern class (winding number), which naturally produces quantized couplings to the fiber. Whether this topological integer structure is the IDWT mechanism for charge quantization — and how it yields the fractional quark charges e/3, 2e/3 alongside the integer lepton charges — has not been shown in closed form. The fractional values follow from anomaly cancellation (§13), but the connection between the integer Chern class of the Hopf bundle and the observed charge spectrum is an open derivation.
 
 ---
 
@@ -804,7 +839,7 @@ Setting δS = 0 (invariance of the action) yields:
 ∂^μ J_μ^{EM}(x) = 0    [Ward identity]
 ```
 
-The Ward-Takahashi identity at all loop orders:
+The U(1) Hopf fiber current conservation law at all loop orders:
 
 ```
 q_μ Γ^μ(p, p+q) = S^{-1}(p+q) − S^{-1}(p)
@@ -822,7 +857,7 @@ holds automatically from gauge invariance.
 (ξ·ξ')² = a₀ P₀(ξ·ξ') + a₂ P₂(ξ·ξ') + 0·P₁ + 0·P₃ + ...
 ```
 
-The photon is an L=1 (vector) gauge boson. The kernel matrix element ⟨γ|K|γ⟩ involves the L=1 component of the kernel, which is exactly zero:
+The photon is an L=1 (vector) boson. The kernel matrix element ⟨γ|K|γ⟩ involves the L=1 component of the kernel, which is exactly zero:
 
 ```
 ⟨γ|K|γ⟩ = 0    for any kernel insertion

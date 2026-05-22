@@ -299,7 +299,7 @@ function applyFilter() {
 // ==================== PASCAL TRIANGLE DOTS ====================
 const allBinomDots  = [];
 const diagonalLines = [];
-const binomDotGeo   = new THREE.SphereGeometry(0.18, 8, 8);
+const binomDotGeo   = new THREE.SphereGeometry(0.3, 8, 8);
 
 sectors.forEach((s, gi) => {
     // Each sector is the same Pascal triangle, just at a different z depth.
@@ -671,7 +671,7 @@ function updateInfo(p) {
         <div class="deriv-box">${p.deriv}</div>
         ${relHTML}
     `;
-
+    document.getElementById('info').scroll(0, 0);
     // Wire clickable relation targets
     document.querySelectorAll('.rel-target[data-sym]').forEach(el => {
         el.addEventListener('click', () => {

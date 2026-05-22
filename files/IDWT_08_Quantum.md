@@ -6,12 +6,12 @@
 
 ## 1. Lorentz Covariance
 
-The mode functions χ_{n,α}(ξ) are the independent degree-n monomials ξ₁^{a₁}⋯ξ_d^{a_d} with a₁+…+a_d = n. Their count is S(n,d) = C(n+d−1,d) — the dimension of Sym^n(ℝ^d). This is a theorem of algebraic geometry, not a postulate.
+The mode functions χ_{n,α}(ξ) spanning mode (n,d) are the monomials ξ₁^{a₁}⋯ξ_d^{a_d} with total degree a₁+…+a_d ≤ n−1. Their count is S(n,d) = C(n+d−1,d) — equivalently, dim Sym^{n-1}(ℝ^{d+1}), the space of degree-(n-1) symmetric tensors on ℝ^{d+1}. This is a theorem of algebraic geometry, not a postulate.
 
 **Established:**
 - □_x φ + m²_eff φ = 0 is Lorentz-covariant
 - Ψ∞(r, ξ⁰, t) is Lorentz-covariant: evaluation at a fixed sector-space address ξ⁰ commutes with Lorentz transformations on the 3+1D coordinates
-- S(n,d) = dim Sym^n(ℝ^d): geometric fact, not postulate
+- S(n,d) = dim Sym^{n-1}(ℝ^{d+1}): geometric fact, not postulate
 - Fermion spin-½ from the Dirac operator on M_∞ — see §2
 
 The separation ansatz Ψ∞ = φ(x)χ(ξ) underpins the sector reduction; corrections couple modes.
@@ -37,7 +37,7 @@ Spin-½ of all quarks and leptons follows from the spinor bundle on M_∞. The s
 
 ### 2.1 Majorana/Weyl Classification by Sector
 
-The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8 determines which spinor types exist in each sector:
+The Clifford algebra Cl(d) has periodicity 8 (mod 8 periodicity class). The periodicity class d mod 8 determines which spinor types exist in each sector:
 
 | d | d mod 8 | Weyl | Majorana | Maj-Weyl | Dim | Physical consequence |
 |---|---------|------|----------|----------|-----|---------------------|
@@ -49,7 +49,7 @@ The Clifford algebra Cl(d) has Bott periodicity 8. The periodicity class d mod 8
 | 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 real components; tau lepton sector |
 
 
-**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. This forbids any Majorana mass term for neutrinos; the seesaw mechanism is geometrically prohibited. **Neutrinos are Dirac fermions** — a concrete, falsifiable prediction (see Part 1 §6). Neutrinoless double beta decay must have rate exactly zero.
+**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. This establishes that the fundamental d=5 spinor is Dirac-type; no Majorana mass term is present at leading order. Induced operators and nonperturbative effects are not yet analyzed. **Neutrinos are Dirac fermions at the fundamental level** — a concrete, falsifiable prediction (see Part 1 §6). No 0νββ signal is expected at leading order from a Majorana mass term; Majorana mass term absent at leading order.
 
 **d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The Dirac spinor in d=10 has 32 complex components; the Majorana condition imposes a reality projection and the Weyl condition selects chirality, leaving 16 real components (= 2^(d/2−1) = 2^4). The d=10 sector contains the tau lepton. Its hypercharge Y(τ) = −1 is derived from gauge anomaly cancellation with N_c = 3 and Y_L = −1/2 (Part 3 §8, §13).
 
@@ -115,7 +115,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 | d=10 | CP⁵ | 1 | C(6,5) = 6 | Tau lepton sector ✅ |
 
 **What remains open:**
-- Explicit D_Ξ spectrum on Sym^n(ℝ^d) and whether eigenvalues match m_scale_d × f(S(n,d))
+- Explicit D_Ξ spectrum on Sym^{n-1}(ℝ^{d+1}) and whether eigenvalues match m_scale_d × f(S(n,d))
 - Promoting spin^c U(1) at d=4 to full SU(3) gauge symmetry (colour promotion)
 
 ---
@@ -182,7 +182,7 @@ states that the mass of a particle equals m_scale_d times the cumulative count o
 
 ### 3.4 Connection to the Dirac Operator D_Ξ
 
-For macroscopic sector extent (Agmon localization length $L_d$), the Lichnerowicz curvature correction to D_Ξ² vanishes:
+For macroscopic sector extent (sector localization length $L_d$), the CP¹ sector curvature correction curvature correction to D_Ξ² vanishes:
 
 ```
 D_Ξ² = H_d + R/4,    R/4 = m(m+1)/(4L_d²) → 0   (d = 2m, CP^m sectors)
@@ -200,13 +200,15 @@ where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator ener
 
 **Status.** The spectral theorem is proved: S(n,d) equals the cumulative degeneracy count of the d-dimensional sector harmonic oscillator. This holds exactly for the harmonic approximation V_d ≈ λ_d r² (valid for low-n modes deep in the potential well) and approximately for the full sector potential V_d = λ_d r²/(1+r²) (where deviations appear at high n as the potential saturates — a potential source of higher-order corrections to heavy-particle mass predictions).
 
+**Weyl asymptotic. ⭐** For large n, S(n,d) = C(n+d-1, d) ~ n^d/d! — the leading-order Weyl counting law for the d-dimensional sector. The mass formula m(n,d) = m_scale_d × S(n,d) ~ m_scale_d × n^d/d! is therefore a sector Weyl law: mass grows as the d-th power of the mode index, with the factorial denominator reflecting the combinatorial degeneracy of degree-n monomials in d variables.
+
 ---
 
 ## 4. General Odd-Sphere Spectral Theorem
 
 Theorem S1 (§3b) established $S(n,3) = \tfrac{1}{2}N_{D_{S^3}}(n-1)$ for the $d=3$ quark sector. The result is not specific to $S^3$.
 
-**Theorem (General Odd-Sphere Weyl Law).** For all $k \geq 1$ and all $n \geq 1$:
+**Theorem S1 (sector spectral counting theorem).** For all $k \geq 1$ and all $n \geq 1$:
 
 $$S(n,\, 2k+1) = \frac{1}{2}\, N_{D_{S^{2k+1}}}(n-1),$$
 
@@ -276,7 +278,7 @@ Three targeted spectral validations, each staying entirely in the eigenvalue dom
 | 4 | 70 | 70 | ✅ |
 | 5 | 112 | 112 | ✅ |
 
-**Consequence.** S(n,3) = ½ × {positive Dirac eigenvalues on S³ at levels 0 through n-1}. The IDWT mass formula m = m_scale_3 × S(n,3) is a Weyl spectral law — **mass is half the cumulative number of fermionic eigenstates below the mode's Dirac level**. The factor of ½ is the spin degeneracy.
+**Consequence.** S(n,3) = ½ × {positive Dirac eigenvalues on S³ at levels 0 through n-1}. The IDWT mass formula m = m_scale_3 × S(n,3) is a sector spectral counting law — **mass is half the cumulative number of fermionic eigenstates below the mode's Dirac level**. The factor of ½ is the spin degeneracy.
 
 **Note on individual radial eigenvalues.** The reduced 1D eigenvalue problem H_3 = −Δ^{radial}_{S³} + V_3 (with the Gegenbauer substitution u = sinχ·f) gives individual eigenvalues growing as ~n², while S(n,3) grows as ~n³. A bounded potential cannot change the asymptotic power law. The spectral grounding of S(n,3) is therefore through **cumulative Dirac eigenvalue counting** (this theorem), not through individual 1D radial eigenvalues.
 
@@ -353,7 +355,7 @@ with SU(3) acting on this space via its standard 3-dimensional representation.
 
 ### The 8-Dimensional Colour Vector
 
-Quantify colour charge by the expectation vector n⃗_a = ⟨ψ|λ_a|ψ⟩ (a=1,…,8, the Gell-Mann matrices). **Verified numerically:**
+Quantify colour charge by the expectation vector n⃗_a = ⟨ψ|λ_a|ψ⟩ (a=1,…,8, CP² su(3) isometry generators). **Verified numerically:**
 
 | Particle | |n⃗|² |
 |----------|------|

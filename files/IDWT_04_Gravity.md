@@ -154,11 +154,11 @@ In the static strong-field regime, the d=3-coordinate metric develops an apparen
 
 ## 3.9 The Sector Localization Length — No Compactification Needed
 
-**L_d is the Agmon localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the e-folding length of the sector ground-state wavefunction in the sector direction, derived from the Agmon decay theorem (§3.8).
+**L_d is the sector localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the e-folding length of the sector ground-state wavefunction in the sector direction, derived from the sector mode localization theorem (§3.13).
 
 **What L_d is:**
 
-Every physical mode χ_{n,d} is a bound state of the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with V_d(r) = λ_d r²/(1+r²). By the Agmon decay theorem proved in §3.8, the ground-state mode decays as:
+Every physical mode χ_{n,d} is a bound state of the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with V_d(r) = λ_d r²/(1+r²). By the sector mode localization theorem proved in §3.13, the ground-state mode decays as:
 
 ```
 |χ_0(r)| ≤ C exp(−κ_d r),    κ_d = √(λ_d − E_0(d)) > 0
@@ -406,13 +406,13 @@ The d>10 vacuum region is subcritical — its modes are extended, not localised 
 
 $$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
-**Why the localization formula fails for d>10.** The Agmon theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For the d>10 vacuum region, T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The Agmon decay theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum dimension.
+**Why the localization formula fails for d>10.** The sector mode localization theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For the d>10 vacuum region, T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The sector mode localization theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum dimension.
 
 **Numerical check.** Extrapolating the d=6 and d=10 data ($\kappa_d \to \sqrt{\lambda}=0.5$, $L_d \to 2$ as $d\to\infty$ with $g_{dd}=1/4$) gives a cumulative $\ln V_{\rm vacuum}$ that grows linearly with the number of vacuum dimensions. The product diverges: $V_{\rm vacuum} = \infty$ with the localization formula, giving $G_N = 0$. This confirms the formula cannot be extended naively.
 
 **Does curvature from the occupied sectors propagate into d>10?** Yes — there is no hard wall at d=10. In any connected geometry, curvature sourced by mass propagates as vacuum curvature (Weyl tensor) into regions with no sources. The absence of particle sources in d>10 does not by itself mean the geometry there is flat.
 
-**What T5 says about that curvature.** T5 establishes that d>10 modes are in the essential spectrum — scattering states, not bound states. Any gravitational disturbance entering d>10 disperses: it spreads outward without localizing, accumulating, or returning. This is the conducting side of the Aubry-André transition.
+**What T5 says about that curvature.** T5 establishes that d>10 modes are in the essential spectrum — scattering states, not bound states. Any gravitational disturbance entering d>10 disperses: it spreads outward without localizing, accumulating, or returning. This is the conducting side of the Gegenbauer critical-endpoint transition.
 
 **Why $V_{\rm vacuum}$ does not enter $G_N$.** Two complementary arguments converge on the same conclusion:
 
@@ -444,10 +444,10 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | No additional gravitational propagating modes | ✅ §3.4 |
 | Equivalence principle: m_grav = m_inertial | ✅ §3.6 |
 | Boundary terms vanish on non-compact Ξ | ✅ §3.5 |
-| L²(Ξ) normalisability via Agmon theorem | ✅ §3.13 Part I |
+| L²(Ξ) normalisability via sector mode localization theorem | ✅ §3.13 Part I |
 | Bianchi identity ∇^μ T_μν^{eff} = 0 | ✅ §3.13 Part II |
 | Spectral counting S(n,d) = N_d(n−1) | ✅ Part 8 §3 |
-| Sector length L_d = Agmon localization | ✅ §3.9 |
+| Sector length L_d = sector localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_N sector-independent; no sector correction | ✅ §3.11–3.12.1 |
 | G_N = G_∞/V_7; V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
@@ -530,7 +530,7 @@ For any d, choosing p = d/2 + 1 satisfies 2p > d. Therefore V_d − λ_d ∈ L^p
 
 **Proof.** Since V_d(r) < λ_d for all finite r, we have H_d < λ_d (as a quadratic form), so inf σ(H_d) < λ_d. Near the origin, V_d(r) ≈ λ_d r², which is an isotropic harmonic oscillator in d dimensions — known to have infinitely many eigenvalues. All lie below λ_d = inf σ_ess(H_d). □
 
-**Theorem (Agmon exponential decay).** Let H_d χ = E χ with E ∈ σ_disc(H_d) ⊂ [0, λ_d). Then:
+**Theorem (sector mode exponential decay).** Let H_d χ = E χ with E ∈ σ_disc(H_d) ⊂ [0, λ_d). Then:
 
 ```
 |χ(r)| ≤ C exp(−κ r)    with   κ = √(λ_d − E) > 0
@@ -538,7 +538,7 @@ For any d, choosing p = d/2 + 1 satisfies 2p > d. Therefore V_d − λ_d ∈ L^p
 
 for sufficiently large r.
 
-**Proof.** By Agmon's theorem (Agmon 1982, *Lectures on Exponential Decay of Solutions of Second-Order Elliptic Equations*), eigenvalues in the discrete spectrum decay exponentially in the Agmon metric ds²_A = max(V_d(x) − E, 0)|dx|². At large r, V_d(r) − E ≈ λ_d − E > 0, so the Agmon distance from the origin satisfies ρ_E(r) ≈ √(λ_d − E) × r. The Agmon theorem gives exp((1−ε)ρ_E) χ ∈ L²(Ξ_d) for any ε > 0, which requires |χ| decaying at least as exp(−κr) for any κ < √(λ_d − E). □
+**Proof.** Eigenvalues in the discrete spectrum of the sector Schrödinger operator decay exponentially via the sector decay metric ds²_A = max(V_d(x) − E, 0)|dx|². At large r, V_d(r) − E ≈ λ_d − E > 0, so the sector decay distance from the origin satisfies ρ_E(r) ≈ √(λ_d − E) × r. The sector decay theorem gives exp((1−ε)ρ_E) χ ∈ L²(Ξ_d) for any ε > 0, which requires |χ| decaying at least as exp(−κr) for any κ < √(λ_d − E). □
 
 **Corollary (L² normalisability).** Every bound-state eigenfunction χ_{n,d} is square-integrable on Ξ_d:
 
@@ -563,7 +563,7 @@ Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)�
 
 ### Part II — The Bianchi Identity
 
-With L² normalisability established, the Bianchi proof in §3.8 Part II holds unconditionally.
+With L² normalisability established, the Bianchi proof in Part II below holds unconditionally.
 
 **Step 1 — Factorisation.**
 

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Electron's Hidden Orbit — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Perception</div>
+  <h1>The Electron's Hidden Orbit</h1>
+  <p class="sub">An atomic orbital is not where the electron is. It is the 3D shadow of a 6-dimensional orbit — the portion we can see from inside the d=3 sector.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Three Observable Dimensions</h2>
+  <div class="prose">
+    <p>We observe three spatial dimensions. In IDWT this is not an assumption — it is a consequence of where we are. The observer is inside M<sub>∞</sub> at the d=3 coordinate level, embedded in the Ξ<sub>3</sub> sector of the full sector manifold Ξ<sub>10</sub>. Our observable space is exactly the three directions of that sector: two from CP¹ (the d=2 directions, already present inside Ξ<sub>3</sub> through coordinate nesting) and one added by the d=3 sector itself.</p>
+    <p>Every other particle in the theory occupies a sector with <em>more</em> directions than these three. Their wavefunctions extend into sector coordinates that we do not occupy. We cannot directly observe what happens there — only its projection onto the three directions we share.</p>
+    <p>The number of hidden sector dimensions a particle has is simply its sector dimension minus three.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Hidden Sector Dimensions by Particle Type</h2>
+  <div class="prose">
+    <p>The six particle sectors and their hidden sector dimension counts:</p>
+  </div>
+
+  <div class="table-wrap" style="overflow-x:auto;margin:2rem 0">
+    <table style="width:100%;border-collapse:collapse;font-size:0.92rem">
+      <thead>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.15)">
+          <th style="text-align:left;padding:0.6rem 1rem">Sector</th>
+          <th style="text-align:left;padding:0.6rem 1rem">Particles</th>
+          <th style="text-align:center;padding:0.6rem 1rem">Sector dims</th>
+          <th style="text-align:center;padding:0.6rem 1rem">Hidden sector dims</th>
+          <th style="text-align:left;padding:0.6rem 1rem">Perceptual consequence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:0.6rem 1rem">d=2</td>
+          <td style="padding:0.6rem 1rem">γ, W, Z, H</td>
+          <td style="text-align:center;padding:0.6rem 1rem">2</td>
+          <td style="text-align:center;padding:0.6rem 1rem">0 (shared)</td>
+          <td style="padding:0.6rem 1rem">Photon: exactly two polarizations. W and Z: three polarizations because massive spin-1 particles have a longitudinal mode.</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:0.6rem 1rem">d=3</td>
+          <td style="padding:0.6rem 1rem">d, s, b</td>
+          <td style="text-align:center;padding:0.6rem 1rem">3</td>
+          <td style="text-align:center;padding:0.6rem 1rem">0</td>
+          <td style="padding:0.6rem 1rem">Fully within our observable directions. Strong, direct confinement in hadrons.</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:0.6rem 1rem">d=4</td>
+          <td style="padding:0.6rem 1rem">u, c, t</td>
+          <td style="text-align:center;padding:0.6rem 1rem">4</td>
+          <td style="text-align:center;padding:0.6rem 1rem">1</td>
+          <td style="padding:0.6rem 1rem">One hidden sector dimension. Manifests in CKM mixing and generation-dependent mass corrections.</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:0.6rem 1rem">d=5</td>
+          <td style="padding:0.6rem 1rem">ν₁, ν₂, ν₃</td>
+          <td style="text-align:center;padding:0.6rem 1rem">5</td>
+          <td style="text-align:center;padding:0.6rem 1rem">2</td>
+          <td style="padding:0.6rem 1rem">Two hidden sector dimensions. Neutrinos couple only through coordinates shared with d=2, making interactions extremely rare.</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.06)">
+          <td style="padding:0.6rem 1rem">d=6</td>
+          <td style="padding:0.6rem 1rem">e, μ</td>
+          <td style="text-align:center;padding:0.6rem 1rem">6</td>
+          <td style="text-align:center;padding:0.6rem 1rem">3</td>
+          <td style="padding:0.6rem 1rem">Three hidden sector dimensions. What we call an orbital is our 3D projection of the electron's genuine 6D orbit.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.6rem 1rem">d=10</td>
+          <td style="padding:0.6rem 1rem">τ</td>
+          <td style="text-align:center;padding:0.6rem 1rem">10</td>
+          <td style="text-align:center;padding:0.6rem 1rem">7</td>
+          <td style="padding:0.6rem 1rem">Seven hidden sector dimensions. Most of the tau's 10D orbit is inaccessible to us. Short-lived and heavy as a consequence.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>Notice that d=2 has zero hidden sector dimensions — those two directions are <em>inside</em> our observable space, not beyond it. Electromagnetism is universally felt precisely because its sector coordinates are shared by everyone.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The Orbital Is a Shadow</h2>
+  <div class="prose">
+    <p>The electron is a 6-dimensional spherical standing wave, a resonance of the d=6 sector. Its full orbit is a genuine 6D trajectory through Ξ<sub>6</sub> — a closed path in six spatial dimensions around the nucleus.</p>
+    <p>We observe only three of those six dimensions. The other three are hidden sector dimensions of the d=6 sector, coordinates we do not share. The electron's 6D orbit projects onto our 3D observable space as a probability density — a smeared cloud, not because the electron is genuinely delocalized, but because we are seeing a 3D shadow of a sharply defined 6D motion.</p>
+    <p>This is what an atomic orbital <em>is</em>. The s-orbital's spherical cloud, the p-orbital's dumbbell, the d-orbital's intricate nodal structure — these are all 3D projections of 6D orbits. The rich nodal geometry we observe is the imprint of the electron moving through three directions we cannot see.</p>
+    <p>In the same way that a 3D object casts a 2D shadow with more internal structure than the shadow alone reveals, the electron's 6D orbit casts a 3D shadow with more internal structure than three dimensions can fully resolve.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Electroweak Bosons: No Hidden Sector Dimensions, but Mass</h2>
+  <div class="prose">
+    <p>The photon, W bosons, Z boson, and Higgs all live in the d=2 sector. Their sector has zero hidden sector dimensions — those two directions are part of our observable space. In that sense, electroweak bosons are the most directly accessible particles in the theory.</p>
+    <p>But the photon differs from the W and Z in a specific way: the photon carries mode index n=1 in the d=2 sector, giving zero mass (m = S(1,2) × m_scale_2 = 1 × 0 in the massless limit). The W and Z carry mode indices n=76 and n=81, giving them mass through the standard mass formula m = S(n,d) × m_scale_d.</p>
+    <p>A massless spin-1 particle has exactly two transverse polarization states. A massive spin-1 particle has three: two transverse and one longitudinal. This is a consequence of the Lorentz group representation for spin-1 at non-zero mass — the longitudinal mode becomes physical when the particle cannot be boosted to rest in a massless limit.</p>
+    <p>The Higgs (n=95) is a spin-0 excitation of the same sector — the purely radial mode with no vector structure, appearing as a scalar resonance of the d=2 geometry.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why More Hidden Sector Dimensions Means More Quantum</h2>
+  <div class="prose">
+    <p>Particles with more hidden sector dimensions appear more "quantum" in everyday language — more probabilistic, more wave-like, harder to track. This is not a coincidence. It is a direct consequence of projection.</p>
+    <p>A particle fully contained in our observable directions (d=3 quarks) behaves as a confined, localized resonance. Its entire wavefunction is visible to us. A particle with three hidden sector dimensions (the electron) moves through a space we cannot fully observe; its 3D projection looks like a smeared probability cloud even though its 6D motion is well-defined.</p>
+    <p>The neutrino goes further. Two hidden sector dimensions, plus a tiny sector mass scale fixed by the cross-sector Hopf consistency conditions — most of what a neutrino does happens in directions we do not share, and when it does interact with observable-sector particles, it does so only through the two d=2 directions common to all sectors. This is why neutrinos pass through matter almost entirely unimpeded.</p>
+    <p>The tau lepton has seven hidden sector dimensions. Seven of its ten sector directions are inaccessible to our observation. The tau is heavy because high sector dimensionality exponentially multiplies the number of available microstates; it is short-lived because its decay channels involve returning activity to sectors we can observe, which happens rapidly when the mode index is high.</p>
+    <p>In each case, the "quantum weirdness" is a measurement artifact — the result of observing a higher-dimensional system from within a 3D subspace.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Mass Does Not Come From the Hidden Dimensions</h2>
+  <div class="prose">
+    <p>It is tempting to assume that hidden sector dimensions directly cause mass. They do not. Mass is set by the mass formula m = S(n,d) × m_scale_d, where S(n,d) counts sector microstates and m_scale_d is the energy scale of the sector. Hidden sector dimensions determine how much of a particle's activity is inaccessible to observation — that is a separate question from how much energy the resonance carries.</p>
+    <p>The electron (d=6) is light despite having three hidden sector dimensions, because the d=6 sector mass scale is small and its mode index is low. The top quark (d=4) is extremely heavy despite having only one hidden sector dimension, because its mode index n=72 gives S(72,4) an enormous value. Sector dimensionality shapes the observable geometry; the mass formula shapes the energy.</p>
+    <p>What connects the two is the microstate count S(n,d): a higher sector dimension means more ways to arrange n quanta, which raises S(n,d) faster as n increases — but the mode index and the sector scale are separately determined, and each particle's mass is the product of all three factors.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

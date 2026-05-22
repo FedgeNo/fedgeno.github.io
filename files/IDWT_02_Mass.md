@@ -34,6 +34,8 @@ Given this single definition, the four applications are different functionals on
 
 These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — dimensional depth is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
 
+**Dark matter modes use Role 1 but not Role 3.** A co-fixed-point mode that fails Stage 1 (Ω_log > ln 2, no colour-protection override) has a well-defined mass eigenvalue via F_mass — its resonant frequency is S(n,d) × m_scale_d regardless of dimensional visibility — but its F_proj value S(n,2)/S(n,d) ≈ 0 means it contributes negligibly to the d=3 observable density. The mass formula is universal; the observability filter is not. This is why dark modes carry mass and gravitate (Role 1 fires) while remaining invisible to nuclear detectors (Role 3 → 0). See Part 7 §2.6.
+
 **S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
 **The hockey-stick identity is a proved theorem of combinatorics:**
@@ -141,7 +143,7 @@ The last identity is structurally significant: the d=2 sector gap between W and 
 
 ## 4. Why d=6 is Colour-Neutral
 
-The Vandermonde-Chu identity is the hockey-stick identity applied twice and convolved:
+The double hockey-stick identity is the hockey-stick identity applied twice and convolved:
 ```
 Σ_{k=0}^N C(k+2, 2) × C(N−k+2, 2) = C(N+5, 5)
 ```
@@ -206,7 +208,7 @@ n_ν₃ − n_ν₂ = 7 = n_u + n_strange
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-**Spectral grounding (General Weyl Law, Part 8 §3.5):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same Weyl spectral law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
+**Spectral grounding (sector spectral counting theorem, T-S1):** S(n,5) = ½ N_{D_{S⁵}}(n−1). Neutrino masses obey the same sector spectral counting law as down-type quark masses: mass equals half the cumulative Dirac eigenvalue count on S⁵ below the mode's level. The three neutrino modes (n=10, 15, 22) correspond to 2×S(10,5)=4004, 2×S(15,5)=23256, and 2×S(22,5)=131560 cumulative Dirac eigenstates on S⁵.
 
 From m_scale_5 = (n_u/n_s) × m_scale_6³/m_scale_4² (§9c): m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 50.27 meV (corrected; bare 48.87 meV), Σm_ν = 60.39 meV (bare 59.00 meV; δ_ν₃ = 1/35, §9d).
 
@@ -359,7 +361,7 @@ g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 
 ---
 
-## 9b. Tau Mass — Dyson Resummation
+## 9b. Tau Mass — Geometric Back-reaction Correction
 
 The tau is the one lepton whose raw simplex prediction requires a correction beyond the GTC. The mechanism is the isotropic back-reaction between the d=6 and d=10 sectors.
 
@@ -401,7 +403,7 @@ Each factor has an independent meaning from the seed structure:
 - n_s + n_u = 7: the sum of the seed and its derived companion
 - S(n_s,3) = 20: the strange quark mode count (= n_c, the charm mode index)
 
-The product n_s × n_u × (n_s+n_u) × n_c is the canonical combinatorial invariant of the quark sector at the seed level. Its reciprocal is the subleading Dyson correction.
+The product n_s × n_u × (n_s+n_u) × n_c is the canonical combinatorial invariant of the quark sector at the seed level. Its reciprocal is the subleading back-reaction correction.
 
 **Result.**
 
@@ -432,7 +434,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
            = 7.429 × 10⁻¹³ MeV
 ```
 
-**Physical interpretation.** The neutrino mass scale is suppressed by the sector hierarchy: m_scale_4² appears in the denominator because the d=5 sector is tied to the d=4 quark sector through the S¹ fiber of the Hopf fibration S¹→S⁵→CP². This is purely geometric suppression — no Majorana mass, no heavy right-handed partner, no seesaw of any kind. The small scale arises from the relative depths of the sector potential wells, which are fixed by the seed coupling constants.
+**Physical interpretation.** The neutrino mass scale is suppressed by the sector hierarchy: m_scale_4² appears in the denominator because the d=5 sector is tied to the d=4 quark sector through the S¹ fiber of the Hopf fibration S¹→S⁵→CP². This is purely geometric suppression — no Majorana mass, no heavy right-handed partner. The small scale arises from the relative depths of the sector potential wells, which are fixed by the seed coupling constants.
 
 **Neutrino mass predictions (no empirical neutrino input):**
 
@@ -450,7 +452,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 
 **On m_ν₃ and oscillation data.** Oscillation experiments measure Δm² (interference of mass eigenstates in flight) because they cannot access absolute masses. IDWT predicts absolute masses directly, so Δm² values are derived consequences, not primary quantities. Expressed natively: m_ν₃ = 48.87 meV is 2.5–2.9% below the value implied by current oscillation data (PDG 2023–2024: Δm²₃₁ = (2.51–2.53)×10⁻³ eV², giving m_ν₃^{osc} ≈ 50.1–50.3 meV). The correction δ_ν₃ = 1/35 (derived in §9d from ε × g_{33} = 1/35 exactly) gives m_ν₃^{corr} = 48.87 × 36/35 = 50.26 meV, implying Δm²₃₁ = 2.524×10⁻³ eV² — matching PDG 2023 within 0.05% and within the ±0.025×10⁻³ experimental uncertainty of PDG 2024.
 
-**Structural source.** n_ν₁ = S(n_u,3) = 10 and n_ν₂ = S(n_u,4) = 15 are primary Pascal evaluations at the seed. n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22 is derived by inclusion-exclusion from two primary modes — the only neutrino mode requiring information from both the d=3 and d=4 Hopf images. This cross-sector entanglement makes n_ν₃ susceptible to a correction at the seed level: the leading d=4 evaluation above n_u is S(n_s,4) = 35 (a hockey-stick identity consequence: S(n_s+1,3) = S(n_s,4) = 35), which appears as the natural denominator. This is structurally analogous to the τ Dyson correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) — the same S(n_s,4) = 35 appears — but without the AA criticality factor n_s² = 16 (d=5 is not at the critical point) and without the Dyson resummation factor n_u (g_{55} ≠ 1/n_s). The first-principles derivation of this coefficient is given in §9d.
+**Structural source.** n_ν₁ = S(n_u,3) = 10 and n_ν₂ = S(n_u,4) = 15 are primary Pascal evaluations at the seed. n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22 is derived by inclusion-exclusion from two primary modes — the only neutrino mode requiring information from both the d=3 and d=4 Hopf images. This cross-sector entanglement makes n_ν₃ susceptible to a correction at the seed level: the leading d=4 evaluation above n_u is S(n_s,4) = 35 (a hockey-stick identity consequence: S(n_s+1,3) = S(n_s,4) = 35), which appears as the natural denominator. This is structurally analogous to the τ back-reaction correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) — the same S(n_s,4) = 35 appears — but without the Gegenbauer criticality factor n_s² = 16 (d=5 is not at the critical point) and without the back-reaction resummation factor n_u (g_{55} ≠ 1/n_s). The first-principles derivation of this coefficient is given in §9d.
 
 The corrected Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV; bare 59.00 meV. Both are within current cosmological bounds; CMB-S4 will distinguish them.
 
@@ -467,9 +469,9 @@ The corrected Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV; bare 59.00 meV. Both a
 
 ---
 
-## 9d. The ν₃ Correction — Exact Derivation
+## 9d. The ν₃ Correction — Closure Relation 🔶
 
-The correction δ_ν₃ = 1/35 (§9c) is derived from two quantities fixed elsewhere in the framework: the GTC coefficient ε (§11) and the d=3 self-coupling g_{33} (T9).
+The correction δ_ν₃ = 1/35 (§9c) is a highly constrained closure relation: given the GTC coefficient ε (§11) and the d=3 self-coupling g_{33} (T9), their product is 1/35 by an algebraic identity. The identity is exact and the inputs are fully derived elsewhere in the framework. What is not yet shown is the deeper operator mechanism — specifically, why the l=2 cross-term of the T2 kernel acts on the inclusion-exclusion mode n_{ν₃} with precisely this product of amplitudes, rather than a different kernel-level combination. Until that mechanism is derived from first principles, δ_ν₃ = 1/35 should be understood as a closure relation: an exact algebraic consequence of independently-derived quantities that happens to match observation, rather than an unavoidable structural prediction.
 
 **Setup.** Let k₀ = n_s² = 16 (the quartic bifurcation index). From §11, the GTC coefficient is:
 
@@ -507,7 +509,7 @@ The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_m
 - n_ν₂ = S(n_u,4) = 15: primary Pascal evaluation in d=4 alone. No cross-sector l=2 mixing; no correction.
 - n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22: the unique inclusion-exclusion mode, combining the d=3 image (n_ν₁) and the d=4 image (n_ν₂) of the same seed n_u. The l=2 cross-term of the kernel (T2) then operates on the product of the two sector amplitudes: ε from the d=4 coupling geometry, g_{33} from the d=3 back-reaction. Their product is 1/35 by the identity above.
 
-**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both images of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 Dyson correction (T10b), which is a geometric-series resummation at the Aubry-André critical point. The ν₃ correction is a single-order cross-sector constructive interference.
+**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both images of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 geometric back-reaction correction (T10b), which is a geometric-series resummation at the Gegenbauer critical endpoint. The ν₃ correction is a single-order cross-sector constructive interference.
 
 **Numerical check:**
 
@@ -568,7 +570,7 @@ m_rho* = arg max Im[Γ_{346}(ω)] = 775.794 MeV    (PDG: 775.260 ± 0.250 MeV)
 Error: +0.069%
 ```
 
-No direct mass input is used. The 0.534 MeV residual is consistent with (a) Breit-Wigner mass definition ambiguity (~±1 MeV for a resonance with Γ/m ≈ 19%), (b) isospin breaking absent from the SU(3)-symmetric kernel, and (c) the leading-order WKB approximation in τ_d being exact only for d=10 (see Part 1 §3b). The agreement is a consistency check of the coupling geometry at the 0.069% level.
+No direct mass input is used. The 0.534 MeV residual reflects the accuracy of the comb filter at this order; contributing open items include: (a) isospin breaking absent from the SU(3)-symmetric kernel (open item, Part 2 §11), and (b) the leading-order sector phase delay approximation in τ_d being exact only for d=10 (see Part 1 §3b). The agreement is a consistency check of the coupling geometry at the 0.069% level.
 
 Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase delay at the resonance site k₀, where both d=3 and d=6 modes are evaluated at the same resonance frequency scale set by k₀=n_s²=16. The delay formula does not assume comparable mass scales between sectors — it depends only on the Jacobi chain structure at k₀, which is a geometric property of the manifold, not the sector mass scale.
 
@@ -714,7 +716,7 @@ k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
 
 **Why k = S(n_u,3) for top:** The top quark at n_t = 72 is n_t − k₀ = 56 modes above k₀. Its GTC depth = S(n_u,3) = 10 = the first neutrino mode index = the image of n_u under Hopf depth 2 (through the d=3 sector). This connects the top quark correction directly to the neutrino sector.
 
-The k values are used exclusively for ratios within d=4 (c/u and t/u). d=6 modes have k=0 effective phase load because the same factor appears in every d=6 mass and cancels in all ratios. The tau's residual is handled separately by the d=6→d=10 Dyson resummation (§9b).
+The k values are used exclusively for ratios within d=4 (c/u and t/u). d=6 modes have k=0 effective phase load because the same factor appears in every d=6 mass and cancels in all ratios. The tau's residual is handled separately by the d=6→d=10 back-reaction correction (§9b).
 
 **Chain order:** d=4 receives the largest downstream phase load (earliest in the Hopf chain); d=6 is terminal and receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
 
@@ -741,7 +743,7 @@ Even with a generous ±10% theoretical uncertainty on the normalization (coverin
 | c/u | +0.403% | **−0.003%** |
 | t/u | +1.311% | **−0.048%** |
 | t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% raw | **+0.001%** after Dyson resummation (§9b) |
+| tau/mu | −0.059% raw | **+0.001%** after back-reaction correction (§9b) |
 
 ```python
 GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350
@@ -790,7 +792,7 @@ The sector mass scales satisfy m_scale_d² = g_dd × ⟨|Ψ^(d)|²⟩ — the ke
 
 ## 13. Sector Termination — Gegenbauer Criticality
 
-The IDWT sector set {2,3,4,5,6,10} terminates at d=10 for three independent reasons, the third being an algebraic consequence of the seed structure: Gegenbauer criticality.
+The IDWT active sector set {2,3,4,5,6,10} terminates at d=10 for three independent reasons, the third being an algebraic consequence of the seed structure: Gegenbauer criticality. Note that d=7,8,9 exist as coordinates of M_∞ but are absent from the active sector set — they are supercritical (b_{k₀} > 1/2) but Rule A eliminates them before the Gegenbauer criterion is reached. The criticality condition governs where the active chain terminates; the gap from d=6 to d=10 in the active set is produced by Rule A independently.
 
 **Definition.** The Gegenbauer polynomial coupling at the seed resonance site k₀ = n_s² = 16 in the d-dimensional Jacobi chain is:
 
@@ -798,13 +800,13 @@ The IDWT sector set {2,3,4,5,6,10} terminates at d=10 for three independent reas
 b_{k₀}(d) = √(k₀(k₀+d−1)) / (2k₀+d−2)
 ```
 
-For the six IDWT sectors: b_{k₀} takes values 0.51539 (d=2) down to **0.50000 (d=10) exactly**, then 0.49747 (d=11, subcritical).
+For the six active IDWT sectors and the three inactive-but-present sectors: b_{k₀} takes values 0.51539 (d=2) down through 0.50712, 0.50497, 0.50246 (d=7,8,9 — present in M_∞, supercritical, but excluded from active set by Rule A) to **0.50000 (d=10) exactly**, then 0.49747 (d=11, subcritical).
 
 **Theorem.**  b_{k₀}(d) = 1/2  ⟺  4k₀ = (d−2)²  ⟺  d = 2 + 2n_s = 10.
 
 **Proof.**  b = 1/2  ↔  4k₀(k₀+d−1) = (2k₀+d−2)².  Expanding: LHS = 4k₀² + 4k₀(d−1), RHS = 4k₀² + 4k₀(d−2) + (d−2)². Subtracting: 4k₀ = (d−2)². With k₀ = n_s² = 16: d = 2 + 2√16 = 2 + 2n_s = 10. □
 
-**Corollary (WKB exactness for d=10).** The leading-order WKB delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a WKB artifact.
+**Corollary (exact sector phase delayness for d=10).** The leading-order sector phase delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a sector phase delay artifact.
 
 **Sector summary — two routes to d=10:**
 

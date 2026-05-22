@@ -138,7 +138,7 @@ scene.background = new THREE.Color(0x05070f);
 scene.fog = new THREE.FogExp2(0x05070f, 0.012);
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
-let cameraDistance = 5.8;
+let cameraDistance = 2;
 camera.position.set(0, 0, cameraDistance);
 camera.lookAt(0, 0, 0);
 
@@ -183,7 +183,7 @@ const stars = new THREE.Points(starGeo, new THREE.PointsMaterial({
   color: 0x9bb4ff,
   size: 0.04,
   transparent: true,
-  opacity: 0.7,
+  opacity: 0,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 }));
@@ -254,7 +254,7 @@ lineGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 const lineMat = new THREE.LineBasicMaterial({
   vertexColors: true,
   transparent: true,
-  opacity: 0.04,
+  opacity: 0.1,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });
@@ -265,7 +265,7 @@ scene.add(orbitLine);
 const tubeMat = new THREE.LineBasicMaterial({
   color: 0xaac8ff,
   transparent: true,
-  opacity: 0.1,
+  opacity: 0.5,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });
@@ -278,7 +278,7 @@ const sphereGeo = new THREE.SphereGeometry(0.028, 12, 12);
 const sphereMat = new THREE.MeshBasicMaterial({
   color: 0xffffff,
   transparent: true,
-  opacity: 0.5,
+  opacity: 1,
   blending: THREE.AdditiveBlending,
   depthWrite: false
 });

@@ -25,7 +25,13 @@ The framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_
 ## 1. Core Postulates
 
 **P1 — The Master Field**
-Ψ∞ is a **Dirac spinor field** on the infinite-dimensional manifold M_∞ = ℝ_t × Ξ_{10}. It is the only fundamental object. Everything observable — particles, fields, forces, quantum numbers — is a derived consequence of its geometry. The mass spectrum follows from the mode counting function S(n,d) = C(n+d−1, d). The coupling structure of each particle — what interactions are available to it and what is geometrically forbidden — follows from the Riemannian and spinor geometry of its sector manifold. Quantum number labels are not inputs; they are outputs of the geometry.
+Ψ∞ is a **Dirac spinor field** on the infinite-dimensional manifold M_∞ = ℝ_t × Ξ_∞. It is the only fundamental object. Everything observable — particles, fields, forces, quantum numbers — is a derived consequence of its geometry. The mass spectrum follows from the mode counting function S(n,d) = C(n+d−1, d). The coupling structure of each particle — what interactions are available to it and what is geometrically forbidden — follows from the Riemannian and spinor geometry of its sector manifold. Quantum number labels are not inputs; they are outputs of the geometry.
+
+The sector space Ξ_∞ contains all dimensions d ≥ 1. The active sectors — those whose geometry supports stable bound-state eigenmodes — are D = {2,3,4,5,6,10}. Sectors d=7,8,9 exist as coordinates of M_∞ but their geometry does not support stable eigenmodes (Rule A, §3a); sectors d≥11 are subcritical and cannot localize modes at all (Rule B, §3a). The label Ξ_{10} used in earlier versions of this document referred to the highest active sector, not to a truncation of M_∞.
+
+**Dependency structure.** In the current formulation, where the sector potential V_d(r) = λ_d r²/(1+r²) is postulated rather than derived from the action, the logical chain is one-directional: M_∞ topology determines the active sector set D (via the Gegenbauer criticality condition and Hopf fibration pairing, Part 9 T3), the sector geometries {M_d}_{d∈D} determine the projection operators Π_d, and observables are the projected fields Π_d Ψ_∞. Given fixed sector geometry, S(n,d), m_scale_d, and g_{dd'} are derived quantities; they do not feed back into the determination of which d are active.
+
+This one-directionality is a property of the current postulated-V_d formulation, not of the complete theory. When V_d is derived from the IDWT action (open item MC-2, Part 6), the sector geometry will itself become a functional of the vacuum structure of Ψ_∞, making the full problem a coupled fixed-point system (Ψ_∞, {M_d}) ∈ Fix(T). At that level D = {2,3,4,5,6,10} should emerge as stable solution branches of the joint field-geometry system, not solely from M_∞ topology. This is precisely the content of Theorems A and B in Part 6 §Open.
 
 **P2 — The Observer's Position**
 We are at d=3 — inside M_∞, at the coordinate level where the first stable hadronic sector constitutes space. The observable universe is Ψ∞ evaluated at a fixed sector-space address ξ⁰:
@@ -35,23 +41,23 @@ We are at d=3 — inside M_∞, at the coordinate level where the first stable h
 The observer's position determines dimensional visibility but not which modes exist. The physical spectrum is closed at exactly 15 states: those mode-sector pairs (n,d) satisfying both the Stage-1 criterion (Ω_log ≤ ln 2 — sufficient d=3 activity) and the Stage-2 co-fixed-point condition (n is a co-fixed-point of the sector comb filtration from n_s = 4). All observers at any ξ⁰ see the same 15-particle spectrum.
 
 **P3 — Non-Compact Sector Spaces**
-The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the Agmon decay theorem (Part 4 §3.8). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of mode wavefunctions near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are eliminated by the Stage-1 filter (Ω_log → ∞); they are not detectable. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
+The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the sector mode localization theorem (Part 4 §3.13). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of mode wavefunctions near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are eliminated by the Stage-1 filter (Ω_log → ∞); they are not detectable. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
 
 **P4 — Two Force Principles**
 Forces couple through two complementary geometric principles. Both are required; neither alone is sufficient.
 
-*(a) Coordinate containment — necessary condition.* A particle couples to a force only if its wavefunction has support in the force's sector coordinates. The sectors nest as Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10}. Coupling is possible only when the force's sector is contained in the particle's sector.
+*(a) Coordinate containment — necessary condition.* A particle couples to a force only if its wavefunction has support in the force's sector coordinates. The active sectors nest as Ξ_2 ⊂ Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} ⊂ Ξ_∞. Coupling is possible only when the force's sector is contained in the particle's sector. The coordinates of d=7,8,9 exist in Ξ_∞ but host no stable eigenmodes (§3a Rule A), so no particle has its wavefunction localized there; they are inert coordinates of M_∞, traversed by the nesting chain but not occupied.
 
-*(b) Coupling filter — structural condition.* The particle's own sector geometry determines the structure of whatever coupling it has. The sector quantum number is not a label — it is the geometry expressing itself as a coupling structure: polarization (U(1) of CP¹), color (SU(3)/U(2) of CP²), the Dirac condition (Clifford algebra of S⁵), color silence (index cancellation on CP³), fractal marginal coupling (Aubry-André criticality of CP⁵). Each is the natural generalization of polarization to a higher-dimensional geometry. The geometry specifies not only what interaction handles exist but what entire classes of interaction are geometrically forbidden — not suppressed, unavailable.
+*(b) Coupling filter — structural condition.* The particle's own sector geometry determines the structure of whatever coupling it has. The sector quantum number is not a label — it is the geometry expressing itself as a coupling structure: polarization (U(1) of CP¹), color (SU(3)/U(2) of CP²), the Dirac condition (Clifford algebra of S⁵), color silence (index cancellation on CP³), Gegenbauer-critical coupling (Gegenbauer critical-endpoint condition of CP⁵). Each is the natural generalization of polarization to a higher-dimensional geometry. The geometry specifies not only what interaction handles exist but what entire classes of interaction are geometrically forbidden — not suppressed, unavailable.
 
 A particle with coordinate support in a force sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero (as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4).
 
 **P5 — Gravity as Curvature of M_∞**
-Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants (Part 4 §3.12).
+Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
 
 ---
 
-## 2. Observable Coordinates and the Born Rule
+## 2. Observable Coordinates and the d=3 Marginal
 
 ### 2.1 We Are Inside M∞
 
@@ -71,7 +77,7 @@ $$|\chi_n(\xi^0)| \propto \frac{1}{\sqrt{S(n,d)}}$$
 
 Higher sectors and higher mode indices give larger S(n,d), meaning more of the mode's activity is distributed across dimensions beyond our 3. This is the basis of the Stage-1 observability criterion (Part 7): mode (n,d) has sufficient activity in our d=3 dimensions when Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 — the d=3 visible fraction is at least 1/√2 of the d=2 baseline. Mass and coupling predictions do not depend on this fraction — they are eigenvalues of each particle's sector manifold (T0, Part 9). Dimensional visibility governs observability, not what the particle is.
 
-### 2.3 The Born Rule Applied to Ψ∞
+### 2.3 The Observable Probability Density from Ψ∞
 
 ```
 ρ(r, t) = ∫ |Ψ∞(r, ξ, t)|² dξ
@@ -79,19 +85,7 @@ Higher sectors and higher mode indices give larger S(n,d), meaning more of the m
 
 The observable probability density at position r is the marginal of |Ψ∞|² over the sector coordinates. Since our measurements are mediated by d=3 interactions and we cannot independently access the sector-space coordinates, the density we measure is the integral of |Ψ∞|² over ξ — the sector-space marginal, not the full function.
 
-This is the Born rule applied to Ψ∞. It is not a separate postulate; it follows from the fact that our measurements access only the d=3 coordinate marginal. An electron is not a cloud in 3D — it is a structured mode in M∞ whose d=3 marginal appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the sector-space coordinates even when their d=3 marginals are far apart.
-
-### 2.4 Connection to Cut-and-Project Construction
-
-The mode-selection structure of IDWT is analogous to the cut-and-project method for constructing quasicrystals. The analogy is structural, not mechanistic — there is no external projection operator.
-
-1. **Full space:** M∞ (infinite-dimensional manifold supporting Ψ∞)
-2. **Coordinate level:** d=3, where we exist; the field value Ψ∞(r, ξ⁰, t) at fixed sector-space address ξ⁰
-3. **Acceptance window:** Two-stage filter (Stage-1 amplitude criterion Ω_log ≤ ln 2 + Stage-2 co-fixed-point of the sector comb filtration from n_s). In quasicrystal theory the acceptance window is a geometric region; in IDWT it is a spectral criterion. The analogy captures the structure of selection — an underlying high-dimensional space, a coordinate level, and a filter — rather than the mechanism.
-
-The observed particle spectrum {1, 3, 4, 10, 13, 15, 20, 22, 23, 35, 72, 76, 81, 95} in mode-index space is the IDWT analogue of the aperiodic quasicrystal point set: irregular when listed, exactly determined by the geometry and the seed n_s = 4.
-
-Key difference from quasicrystals: IDWT involves continuous amplitude weighting — modes have continuous suppression factor exp(−Ω_log) = S(n,2)/S(n,d) rather than a binary in/out criterion. Consequently, the ratio of successive mode masses S(n+1,d)/S(n,d) = (n+d)/n → 1 as n → ∞: S(n,d) ~ nᵈ/d! grows polynomially, so the sector spectrum becomes increasingly dense at large n rather than maintaining a fixed geometric ratio.
+This is not a separate postulate; it follows from the fact that our measurements access only the d=3 coordinate marginal. An electron is not a cloud in 3D — it is a structured mode in M∞ whose d=3 marginal appears as a diffuse probability density. Entangled particles are features of Ψ∞ that are close in the sector-space coordinates even when their d=3 marginals are far apart.
 
 ---
 
@@ -106,6 +100,7 @@ The sector space decomposes into sectors with distinct potential well symmetries
 | 4 | CP² | SU(3)/U(2) | Weyl (spin^c) | 4 | Up-type quarks (u, c, t) |
 | 5 | S⁵ | SO(6) | Dirac only | 4 | Neutrinos (ν_e, ν_μ, ν_τ) |
 | 6 | CP³ | SU(4)/U(3) | Weyl | 8 | Charged leptons (e, μ) |
+| 7,8,9 | — | — | — | — | *Coordinates of M_∞; supercritical (b > 1/2), but IDWT's coupling construction does not reach these sectors (Rule A, §3a). No active sector geometry is established; whether eigenmodes could form under an extended coupling is open.* |
 | 10 | CP⁵ | SU(6)/U(5) | Majorana-Weyl | 16 | Tau lepton; d mod 8=2 Maj-Weyl (16 real components) |
 
 This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a below.
@@ -127,18 +122,22 @@ $d = 2$ (CP¹) is the $U(1)$ Hopf fiber base required by the chain. This gives $
 
 **Step 3 — Termination rules exclude all remaining spaces.**
 
-*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the seed ratio — a direct output of the seed, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ cannot extend to $d=7$: no fixed-point formula for $g_{77}$ exists within IDWT. Sectors $d=7, 8, 9$ are excluded.
+*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the seed ratio — a direct output of the seed, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ cannot extend to $d=7$: no fixed-point formula for $g_{77}$ exists within IDWT. Sectors $d=7, 8, 9$ exist as coordinates of M_∞ but are excluded from the active sector set — IDWT's coupling construction terminates at $d=6$ and does not establish active sector geometry there. Note that this is a statement about the reach of the construction, not a geometric proof that eigenmodes cannot form: the Gegenbauer values for $d=7,8,9$ are all supercritical ($b_{k_0} > 1/2$), meaning localization would be geometrically permissible if a coupling were present. Whether these sectors could host modes under some extension of IDWT is an open question.
 
 *Rule B (Gegenbauer criticality).* The Jacobi coupling $b_{k_0}(d) = \sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ must satisfy $b_{k_0} \geq 1/2$ for a sector to support stable bound-state modes. The unique solution to $b_{k_0}(d) = 1/2$ on the complex Hopf chain is:
 $$4k_0 = (d-2)^2 \quad \Longrightarrow \quad 4\times 16 = 64 = (10-2)^2, \quad d = 10.$$
-Sector $d=10$ is the critical endpoint; all $d \geq 11$ are subcritical and excluded.
+Sector $d=10$ is the critical endpoint; all $d \geq 11$ are subcritical — localization is impossible, modes cannot bind — and are excluded from the active sector set.
 
 The sector set is therefore:
 $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs } n=1,2} \cup \underbrace{\{6\}}_{n=3 \text{ base, Rule A}} \cup \underbrace{\{10\}}_{n=5 \text{ base, Rule B}} = \{2,3,4,5,6,10\} \quad \square$$
 
 **Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the seed alone — no hypercharge assignment enters.
 
-**Remark — two qualitatively distinct types of excluded dimension.** $d\geq11$ and $d\in\{7,8,9\}$ are excluded for different reasons. Sectors $d\geq11$ are subcritical (T5): localization is geometrically impossible, modes cannot bind, they disperse into the infinite-dimensional bulk — the most fundamental exclusion. Sectors $d\in\{7,8,9\}$ are supercritical (localization in principle possible) but are excluded by coupling structure: the Hopf universality condition has no fixed-point formula at $d=7$, so no valid sector potential forms (Rule A). These dimensions are absent not just from $D$ but from the coordinate nesting — there is no $\Xi_7$, $\Xi_8$, or $\Xi_9$. The nesting jumps directly: $\Xi_6\subset\Xi_{10}$.
+**Remark — two qualitatively distinct types of inactive dimension.** $d\geq11$ and $d\in\{7,8,9\}$ are inactive for fundamentally different reasons, and the distinction matters.
+
+Sectors $d\geq11$ are **subcritical** ($b_{k_0} < 1/2$): localization is geometrically impossible regardless of any coupling. Modes cannot bind; they disperse into the infinite-dimensional bulk. This is the stronger exclusion — it holds unconditionally.
+
+Sectors $d\in\{7,8,9\}$ are **supercritical** ($b_{k_0} > 1/2$): localization would be geometrically permissible if a coupling were present. They are absent from the active sector set because IDWT's coupling construction terminates at $d=6$ — Rule A shows that $g_{66} = 1/n_s$ is a seed ratio rather than a Hopf fixed-point coupling, so the chain that generated $g_{55}$ from $g_{33}$ and $g_{44}$ has no continuation to $d=7$. No active sector geometry is established there, so no eigenmodes are generated. But this is a gap in the construction, not a geometric prohibition: the Gegenbauer criterion does not exclude these sectors, and whether they could host modes under an extended coupling theory remains open.
 
 **Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
 
@@ -162,7 +161,9 @@ All three give $k_0 = 16$ exactly. Every quantity is determined by $n_s = 4$. Ex
 
 The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identities — they use $n_e$ (from $d=6$) and $n_u$ (from $d=4$), whose sum closes onto the $d=3$ resonance site. The same $n=16$ appears in other sectors but produces no known particle mass. $\square$
 
-**The spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of particles, their masses, and their quantum numbers are fully determined. Any additional stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new fundamental particles within the IDWT framework.
+**The observable spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of observable particles, their masses, and their quantum numbers are fully determined. Any additional *observable* stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new observable fundamental particles within the IDWT framework.
+
+**Note on dark (Stage-2-pass / Stage-1-fail) modes.** The Uniqueness Theorem closes the set of modes satisfying *both* Stage-1 and Stage-2. It does not assert that the Stage-2 co-fixed-point solution set contains no members beyond the 15 observable particles — only that any such additional co-fixed-point modes necessarily fail Stage 1, i.e. have exp(−Ω_log) ≈ 0 and are therefore undetectable by nuclear-coupled instruments. Such modes would be stable resonances of M_∞ with mass and gravitational presence but negligible d=3 amplitude. They constitute the IDWT dark matter sector. The full Stage-2 solution set has not yet been enumerated beyond the observed spectrum; that enumeration is an open derivation target (Part 7 §2.6).
 
 ---
 
@@ -223,7 +224,7 @@ The two uniqueness results are parallel:
 
 **Convergence on d=10.** Two independent routes — Hopf chain (topology) and Gegenbauer criticality (algebra) — both give d=10.
 
-The spinor type per sector follows from Clifford algebra periodicity (Bott periodicity, mod 8). The d=10 sector carries a Majorana-Weyl spinor (16 real components, d mod 8 = 2); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by their d mod 8 (Part 8 §2.1).
+The spinor type per sector follows from Clifford algebra periodicity (Clifford algebra, mod 8). The d=10 sector carries a Majorana-Weyl spinor (16 real components, d mod 8 = 2); the other sectors carry Weyl, Majorana, or Dirac spinors as determined by their d mod 8 (Part 8 §2.1).
 
 These sector dimensions are not chosen. They are the unique sequence produced by the complex Hopf fibration chain S¹→S^{2n+1}→CP^n:
 
@@ -253,13 +254,16 @@ For the IDWT sectors with k₀ = n_s² = 16 this evaluates to:
 
 | d | b_{k₀}(d) | Status |
 |---|---|---|
-| 2 | 0.51539 | supercritical |
-| 3 | 0.51426 | supercritical |
-| 4 | 0.51281 | supercritical |
-| 5 | 0.51110 | supercritical |
-| 6 | 0.50918 | supercritical |
-| **10** | **0.50000** | **critical (exact)** |
-| 11 | 0.49747 | subcritical |
+| 2 | 0.51539 | supercritical — active |
+| 3 | 0.51426 | supercritical — active |
+| 4 | 0.51281 | supercritical — active |
+| 5 | 0.51110 | supercritical — active |
+| 6 | 0.50918 | supercritical — active |
+| 7 | 0.50712 | supercritical — present in M_∞ but no stable eigenmodes (Rule A) |
+| 8 | 0.50497 | supercritical — present in M_∞ but no stable eigenmodes (Rule A) |
+| 9 | 0.50246 | supercritical — present in M_∞ but no stable eigenmodes (Rule A) |
+| **10** | **0.50000** | **critical (exact) — active** |
+| 11 | 0.49747 | subcritical — cannot localize |
 
 **Theorem.** b_{k₀}(d) = 1/2  ↔  4k₀ = (d−2)²  ↔  d = 2 + 2√k₀ = 2(n_s+1) = 10.
 
@@ -267,9 +271,9 @@ For the IDWT sectors with k₀ = n_s² = 16 this evaluates to:
 
 **Monotonicity.** b_{k₀}(d) is strictly decreasing in d. d=10 is therefore the **last** sector with b_{k₀} ≥ 1/2. For d ≥ 11 the coupling is subcritical: the resonance site k₀ falls outside the chain's natural coupling range and the sector cannot propagate.
 
-**Physical interpretation.** In the Jacobi tight-binding chain, b = 1/2 is the critical coupling where a resonance site sits precisely at the boundary between propagating and evanescent regimes. All active IDWT sectors (d = 2…6) are supercritical at k₀ (b > 1/2). d = 10 is exactly critical — the last permissible sector. d > 10 puts the seed resonance in the evanescent regime; modes cannot propagate through the chain at k₀.
+**Physical interpretation.** In the Gegenbauer recurrence, b = 1/2 is the critical coupling where a resonance site sits precisely at the boundary between propagating and evanescent regimes. All active IDWT sectors (d = 2…6 and d = 10) are at or above critical at k₀. Sectors d=7,8,9 are also supercritical (b > 1/2) — localization would be geometrically permissible — but IDWT's coupling construction does not reach them (Rule A), so no active sector geometry is established there. This is distinct from d≥11, where subcriticality (b < 1/2) means localization is geometrically impossible regardless of any coupling: modes fall into the evanescent regime and cannot propagate through the chain at k₀.
 
-**WKB consequence.** The WKB correction to the Jacobi delay τ_d = 1/(2√(k₀+d)) is proportional to (b_{k₀} − 1/2)/b_{k₀}². For d = 10 this correction **vanishes identically** — the leading-order WKB is exact for the terminal sector. For d = 3 the correction is −0.67% and goes in the wrong direction for the ρ meson, confirming that the +0.069% residual in the ρ prediction is a genuine prediction floor, not a removable WKB artifact.
+**Sector phase delay consequence.** The sector phase delay correction τ_d = 1/(2√(k₀+d)) is proportional to (b_{k₀} − 1/2)/b_{k₀}². For d = 10 this correction **vanishes identically** — the leading-order sector phase delay is exact for the terminal sector. For d = 3 the correction is −0.67% and goes in the wrong direction for the ρ meson, confirming that the +0.069% residual in the ρ prediction is a genuine prediction floor, not a removable sector phase delay artifact.
 
 **Triple consistency of d=10:**
 
@@ -339,7 +343,7 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 **Quantum properties.**
 - **SU(3) color:** Down-type quarks carry color via coordinate containment inside Ξ₄; the SU(3) symmetry arises from the CP² (d=4) isometry. They transform in the fundamental representation.
 - **Confinement:** No scattering states survive the observability filter in d=3; all modes are confined.
-- **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22450, +0.09σ). The 1/240 is the Lichnerowicz S³ curvature correction.
+- **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22450, +0.09σ). The 1/240 is the CP¹ sector curvature correction.
 - **Baryon number:** Topological winding number of the S³ mode.
 - **Coupling filter:** Left-handed weak isospin. The SO(4) = SU(2)_L × SU(2)_R isometry of S³ gives left-handed W coupling and leaves the right-handed component decoupled from the weak interaction. Color coupling is inherited derivatively via coordinate containment inside Ξ_4, not from S³ itself.
 
@@ -431,13 +435,17 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 - **Hypercharge:** Y = −1/2 (left-handed), Y = −1 (right-handed); from U(3) centre.
 - **Coupling filter:** Total colour silence. χ(CP³) = 4, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — not suppressed, geometrically absent. The d=2 photon sector (CP¹) is a coordinate subspace of d=6 (CP³); the electron-photon coupling follows from coordinate containment and the rank-1 kernel, giving pure U(1) EM coupling with the structure fixed by the CP³ isometry.
 
+**Lepton universality as a geometric theorem.** The electron and muon are both d=6 (CP³) modes — n = 13 and n = 35 in the same geometry. The coupling to any lower-d particle — photon, W, Z (all d=2) — depends only on the sector geometry, not on the mode index. Both are d=6 modes containing the same Ξ₂ coordinates, with the same contact structure; the mode index enters only the mass formula. Lepton universality is not measured and then explained — it is forced by both particles living in the same CP³. Any two modes in the same sector couple identically to everything outside it.
+
+**Orbital hybridization as a basis choice.** The sp, sp², sp³ hybridization of chemistry is usually presented as a mixing of s and p orbitals that requires energy to set up. But if the electron is a d=6 CP³ mode, then s, p, d, f orbitals are different d=3 projections of the same 6-dimensional wavefunction. The CP³ mode has symmetry group SU(4)/U(3) that rotates between these d=3 projections exactly — there is no energy cost, no approximation, no mixing. It is a basis rotation in the full d=6 mode space that appears as mixing to a d=3 observer. Carbon's sp³ bonds form a perfect tetrahedron because the SU(4)/U(3) symmetry acting on the CP³ mode projects to the tetrahedral rotation group in d=3; the tetrahedral angle (arccos(−1/3) = 109.47°) is derivable from the CP³ geometry alone, with no empirical input.
+
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
 ---
 
 #### d = 10 — Tau Sector
 
-**Geometry.** CP⁵ = SU(6)/U(5); local symmetry U(5). The Aubry-André critical endpoint: V_{10}(r) sits at the metal-insulator transition self-dual point, making WKB exact. Shares coupling and mass scale with d=6 — unified lepton seed.
+**Geometry.** CP⁵ = SU(6)/U(5); local symmetry U(5). V_{10}(r) sits at the Gegenbauer critical endpoint (b_{k₀}=1/2), making the sector phase delay exact. Shares coupling and mass scale with d=6 — unified lepton seed.
 
 | Parameter | Value |
 |---|---|
@@ -445,17 +453,19 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 | m_scale_{10} | = m_scale_6 (shared seed) |
 | L_{10} | 2.198 fm |
 
-| Particle | n | Dyson factor | Predicted mass | PDG |
+| Particle | n | Back-reaction factor | Predicted mass | PDG |
 |---|---|---|---|---|
 | τ (tau) | 23 | × (1+1/1680) | 1776.84 MeV | 1776.86 MeV ✅ |
 
-Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André critical point WKB correction. Without it, m_τ is 0.06% low.
+Back-reaction factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Gegenbauer critical endpoint sector phase delay correction. Without it, m_τ is 0.06% low.
 
 **Quantum properties.**
 - **Lepton number L=1 and charge −1:** Shared with d=6 via joint g=1/4 coupling.
-- **Aubry-André criticality:** At the self-dual point, the WKB approximation is exact — no higher-order corrections to the tau mass. Unique among all sectors.
+- **Gegenbauer critical-endpoint condition:** At the Gegenbauer critical point, the sector phase delay is exact — no higher-order corrections to the tau mass. Unique among all sectors.
 - **Lepton universality:** m_scale_{10} = m_scale_6 enforces identical mass unit for the heavy lepton family; mass splitting comes entirely from different mode indices (23 vs 13, 35).
-- **Coupling filter:** Fractal marginal coupling. At the AA critical point, the tau's resonance spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the tau's short lifetime), but each specific channel carries measure-zero weight (explaining why the lifetime is finite rather than zero). The tau's coordinate space Ξ_{10} contains all other sectors; in principle it couples to everything, but at every channel the coupling is marginal. The Dyson resummation correction δ_τ = 1/1680 (required only at the critical point) is the mathematical signature of this fractal coupling structure.
+- **Coupling filter:** Gegenbauer-critical coupling. At the Gegenbauer critical endpoint (Jacobi threshold b_{k₀} = 1/2), modes sit at the Jacobi coupling boundary — coupling weight is distributed across many channels with no dominant mode. This is a critical-point property, not a fractal or self-similar structure. The tau's coordinate space Ξ_{10} contains all other sectors; in principle it couples to everything, but at every specific channel the coupling is marginal. This explains the tau's decay pattern: no gap (short lifetime), but no dominant channel (broad decay distribution). The geometric back-reaction correction δ_τ = 1/1680 (required only at the critical point) is the mathematical signature of this critical-boundary coupling.
+
+**The tau is the only particle that touches everything.** The tau's d=10 sector contains all of Ξ₂ through Ξ₁₀; every other particle's coordinates are a subset of the tau's. The tau is the only particle where the contact condition — that one sector's coordinates overlap with the partner's — is trivially satisfied for every possible partner. But the Gegenbauer criticality means coupling weight is distributed with no dominant channel. The tau's interaction pattern is the direct consequence: it decays to electrons, muons, pions, kaons, multiple neutrinos — every channel is open, none dominates. The electron (d=6) does not decay; the muon (d=6) decays almost entirely to an electron and neutrinos; the tau (d=10) distributes across every sector. The widening of the accessible channel tree with d is a readout of coordinate nesting depth, with the Gegenbauer criticality of d=10 preventing any single open channel from being selected.
 
 **Spectral.** ζ_{10}(1) = 10/9, ζ_{10}(0) = −5, a₀_{10} ≈ 4.308.
 
@@ -472,7 +482,7 @@ Dyson factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Aubry-André 
 | 6 | CP³ (lepton) | e, μ | 1/4 | 2.75×10⁻⁵ MeV | 2.301 | 6/5 | −3 | 2.777 |
 | 10 | CP⁵ (tau) | τ | 1/4 | = m_scale_6 | 2.198 | 10/9 | −5 | 4.308 |
 
-ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, Dyson for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from the seed n_s = 4.
+ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, geometric back-reaction correction for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from the seed n_s = 4.
 
 ---
 
@@ -509,7 +519,7 @@ Each sector Ξ_d is a self-contained dynamical system. Its Hamiltonian H_d = −
 This autonomy survives the nesting Ξ_2 ⊂ Ξ_3 ⊂ ··· ⊂ Ξ_{10}. At the level of coordinate algebras, the inclusion of coordinate subspaces induces a nested chain of observable algebras — the shared coordinate algebra of M∞:
 
 ```
-C∞(Ξ_2) ⊂ C∞(Ξ_3) ⊂ C∞(Ξ_4) ⊂ C∞(Ξ_5) ⊂ C∞(Ξ_6) ⊂ C∞(Ξ_{10}) ⊂ C∞(M∞)
+C∞(Ξ_2) ⊂ C∞(Ξ_3) ⊂ C∞(Ξ_4) ⊂ C∞(Ξ_5) ⊂ C∞(Ξ_6) ⊂ C∞(Ξ_7) ⊂ C∞(Ξ_8) ⊂ C∞(Ξ_9) ⊂ C∞(Ξ_{10}) ⊂ C∞(M∞)
 ```
 
 A function of only the d=2 coordinates is simultaneously a valid function on every sector — it belongs to every algebra in the chain. The differential operators built from those coordinates — the d=2 Laplacian, the U(1) rotation generators — appear in every larger sector's operator algebra, acting on the shared coordinate subspace and commuting with any operator that acts only on the additional coordinates. The symmetry generators of a smaller sector are literal elements of the operator algebra of every larger sector.
@@ -540,6 +550,8 @@ The coordinate extension picture (§3f) assigns a concrete meaning to the phrase
 
 **The nucleus is geometrically thin in the electron's space.** The atomic nucleus is a colour-singlet composite of d=3 and d=4 quarks. Colour confinement forces the composite to project out its d=4 character entirely — the CP² color index cancels in any singlet — leaving a d=3 object. The nucleus has wavefunction support in only 3 of the 6 dimensions the electron's CP³ orbit spans. From the electron's perspective, it orbits something geometrically thin: the nucleus extends through 3 of the electron's 6 coordinate directions and is absent from the other 3. The electromagnetic coupling (d=2 sector, nested inside both d=3 and d=6) provides the binding handle. The atom is therefore not a nucleus at the center of a cloud — it is a d=3 structure being orbited in 6-dimensional space by a d=6 excitation, coupled through a shared d=2 coordinate.
 
+**Entanglement as sector-coordinate correlation.** Two entangled electrons have correlated d=6 wavefunction states, observed at d=3. The d=3 spatial separation between them is a distance in Ξ₃. The correlation, however, is in the d=4, 5, 6 sector coordinates, which have no d=3 spatial topology. Two electrons separated by 1 AU in d=3 can have completely overlapping d=6 sector coordinates, because d=6 sector space is not d=3 physical space. Measuring the spin at x₁ collapses the CP³ sector state — which affects x₂ not because anything travelled through d=3, but because the shared sector coordinates were never separated by the d=3 distance in the first place. The apparent non-locality is not a violation of causality; the connection exists in dimensions that d=3 spatial separation does not reach.
+
 **Mass as the sector eigenvalue.** The governing equation on M_∞ separates into observable and sector parts. For a mode with sector wavefunction χ_{n,d}:
 
 ```
@@ -558,7 +570,7 @@ This is the Klein-Gordon equation. The mass term is not a separate input — it 
 
 ## 4. The Unified Kernel
 
-The cross-sector interaction is the unique leading term compatible with U(d) × U(d') symmetries (T2). The coupling matrix g_{dd'} = v_d × v_{d'} (rank-1) connects every pair of sectors in D — self-couplings (d=d') and cross-sector terms alike. The full kernel:
+The cross-sector interaction is the unique leading term compatible with U(d) × U(d') symmetries (T2). The coupling matrix g_{dd'} = v_d × v_{d'} (rank-1) connects every pair of sectors in D — self-couplings (d=d') and cross-sector terms alike. **Note:** T2 proves that (ξ_d·ξ_{d'})² is the unique quartic U(d)×U(d')-invariant interaction; it proves uniqueness *within* the rank-1 ansatz for the coupling strength matrix. The rank-1 factorization g_{dd'} = v_d v_{d'} is a separate structural assumption, not a derived consequence of T2 alone. Its physical consequences — universal correlated coupling scales, constrained inter-sector mixing, the g_{3,4} cross-coupling from v_3 and v_4 alone — are all correct and verified numerically, but whether the kernel action independently forces rank-1 or admits higher-rank coupling matrices is an open question 🔶 (Part 6 §Open). The full kernel:
 
 ```
 V_kernel = Σ_{d,d'∈D} g_{d,d'} (ξ_d · ξ_{d'})² |Ψ^(d)|² |Ψ^(d')|²
@@ -618,7 +630,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 
 † The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
 
-†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the Dyson resummation of the d=6→d=10 back-reaction. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/n_s=1/4 (from the seed) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
+†† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ ± 0.12 MeV).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/n_s=1/4 (from the seed) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
 
 ‡ After applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) and k values {charm:3, top:10}, the c/u ratio becomes 0.000% and the t/u ratio −0.048%. The GTC corrects within-sector ratios; the uniform +0.77% sector-wide offset persists in all d=4 absolute masses.
 
@@ -691,11 +703,11 @@ d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→
 
 **Neutrinos are Dirac fermions — a prediction from the spinor structure**
 
-The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the sector spinor in sector d=5. Therefore no Majorana mass term is geometrically allowed for neutrinos, and the seesaw mechanism is forbidden by the sector structure. Neutrinos must be **Dirac fermions**.
+The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the sector spinor in sector d=5. Therefore the fundamental d=5 spinor is Dirac-type; no Majorana mass term is present at leading order. Induced operators and nonperturbative effects are not yet analyzed. **Neutrinos are Dirac fermions at the fundamental level.**
 
-This is a concrete, falsifiable prediction: neutrinoless double beta decay (0νββ) must have rate exactly zero. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
+This is a concrete, falsifiable prediction: no 0νββ signal is expected at leading order from a Majorana mass term. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the leading-order prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
 
-The d=5 sector mass scale is derived from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c). No suppression mechanism or seesaw is needed.
+The d=5 sector mass scale is derived from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c). No suppression mechanism is needed.
 
 **Absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data):
 ```
@@ -704,7 +716,7 @@ m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 50.27 meV,  Σm_ν = 60.39
 (Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV. Corrected by δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d.)
 All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from m_e and seeds (Part 2 §9c). The primary testable quantities are the absolute masses themselves: Σm_ν = 60.39 meV (within reach of CMB-S4) and the mass ratios m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808, m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86.
 
-**Note on oscillation comparisons.** Δm² values are derived consequences of the absolute masses, expressed in the language of oscillation experiments (which measure interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is derived exactly in Part 2 §9d (the √7 factors cancel: g_coeff × g_{33} = n_s² = k₀, so ε×g_{33} = k₀/(k₀×n_mu) = 1/35). The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
+**Note on oscillation comparisons.** Δm² values are derived consequences of the absolute masses, expressed in the language of oscillation experiments (which measure interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is a closure relation (🔶, Part 2 §9d): the √7 factors cancel algebraically (g_coeff × g_{33} = n_s² = k₀, so ε×g_{33} = k₀/(k₀×n_mu) = 1/35), but the deeper operator mechanism — why the l=2 T2 cross-term acts with exactly this product — is not yet derived. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
 
 **Normal ordering is a prediction.** Mode indices n_ν₁ < n_ν₂ < n_ν₃ are fixed by the eigenmode selection rule; since S(n,5) is monotonically increasing, m_ν₁ < m_ν₂ < m_ν₃ follows necessarily. Current experiments prefer normal ordering at 3–4σ, consistent with IDWT.
 
@@ -714,7 +726,7 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 
 | Framework | IDWT equivalent | Derivation status |
 |-----------|----------------|------------------|
-| Quantum mechanics | Ψ∞ evaluated at ξ⁰; Born rule from ∫|Ψ∞|²dξ gives d=3 probabilities | ✅ |
+| Quantum mechanics | Ψ∞ evaluated at ξ⁰; ∫|Ψ∞|²dξ gives the d=3 marginal probability density | ✅ |
 | Wave-particle duality | Ψ∞ is a wave; its d=3 activity appears particle-like when localised | ✅ |
 | Uncertainty principle | Dimensional depth prevents simultaneous position+momentum specification | ✅ |
 | Special relativity | □_x component of □_{M∞}; inherited Lorentz covariance from product structure | ✅ |
@@ -726,12 +738,13 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 | Standard Model leptons | d=6 (e,μ), d=10 (τ) — masses from simplex formula | ✅ |
 | Chiral weak force | Kähler γ₅ on CP²,CP³ selects left-handed components; W couples to holomorphic half only | ✅ |
 | Spin-½ of all fermions | Dirac operator on $M_\infty$; spinor bundle of $\Psi_\infty$ (Part 8 §2) | ✅ |
-| CKM Cabibbo angle | sin θ_C = (1+1/240)/√S(n_s,3) = 0.22454 — seed + Lichnerowicz | ✅ |
+| CKM Cabibbo angle | sin θ_C = (1+1/240)/√S(n_s,3) = 0.22454 — seed + CP¹ sector curvature correction | ✅ |
 | Neutrino oscillations | d=5 sector, normal ordering | ✅ |
 | Dirac neutrinos | d=5 has d mod 8=5: Majorana forbidden → 0νββ rate = 0 predicted | ✅ |
 | Tau hypercharges | Y(τ)=−1 from anomaly cancellation with N_c=3 and g_{66}=1/n_s (Part 3 §8, §13) | ✅ |
 | Confinement | Colour vector closure E_conf = λ_c|N⃗| from CP² geometry | ✅ |
 | Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |
+| Dark matter | Stage-2-pass / Stage-1-fail modes: stable co-fixed-point resonances with exp(−Ω_log) ≈ 0 d=3 amplitude; gravitationally present via P5, nuclear-coupling-absent via P4; mass spectrum from Stage-2 enumeration (Part 7 §2.6) | 🔶 |
 
 ---
 
@@ -743,7 +756,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 
 | Prediction | Geometric basis | Current status |
 |---|---|---|
-| **0νββ rate = 0 exactly** (m_ββ = 0) | d=5, d mod 8 = 5: Clifford structure forbids Majorana spinors; no seesaw allowed | KamLAND-Zen: m_ββ < 36 meV, no signal ✅ |
+| **0νββ signal absent at leading order** (m_ββ = 0 at leading order) | d=5, d mod 8 = 5: Clifford structure forbids Majorana spinors; induced operators not yet analyzed | KamLAND-Zen: m_ββ < 36 meV, no signal ✅ |
 | **Normal neutrino mass ordering** | n_ν₁ < n_ν₂ < n_ν₃ forced by eigenmode selection rule; S(n,5) strictly monotone | 3–4σ preference for normal ordering ✅ |
 | **No new stable fundamental particles** | Sector Set Theorem + Uniqueness Theorem closes the spectrum (§3a, §3b) | No new particles at LEP, LHC ✅ |
 | **No stable particle near 68.3 GeV** | S(35,10) × m_scale_10; not a co-fixed-point eigenmode | Excluded at LEP ✅ |
@@ -772,6 +785,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 - **No sterile neutrinos:** Stage-1 filter eliminates all d=5 modes with vanishing d=3 amplitude; exactly three neutrino species.
 - **Left-handed W coupling is geometric:** Kähler γ₅ on CP² and CP³ selects holomorphic (left-handed) components; not imposed as a postulate.
 - **No glueballs:** The strong force is a direct quark contact coupling symmetric under the CP² isometry, with no colour-exchange field. There is no colour-exchange field to bind into a glueball; any state that QCD would classify as a glueball must in IDWT be a misidentified quark-sector resonance. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
+- **Dark matter is the Stage-2-pass / Stage-1-fail mode population:** The two filters are independent conditions. Co-fixed-point modes (Stage-2 stable) that simultaneously fail Stage 1 (Ω_log > ln 2, no colour-protection override) are stable resonances of M_∞ with mass and gravitational presence — sourcing curvature via P5 identically to visible matter — but with negligible d=3 vibrational amplitude. They do not couple to nuclear detectors. No new sector, no new physics, and no free parameters are required: dark matter is a geometric consequence of the same two-filter structure that selects the observable spectrum. The dark matter mass spectrum is an output of the Stage-2 enumeration; this derivation is open (Part 7 §2.6). 🔶
 
 ### Near-future windows
 

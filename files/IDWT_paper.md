@@ -14,7 +14,7 @@ We present Infinite-Dimensional Wave Theory (IDWT), a framework that derives the
 
 $$m(n, d) = m_{\mathrm{scale},d} \times S(n,d), \qquad S(n,d) = \binom{n+d-1}{d},$$
 
-where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite sector space $\Xi_d$ and $n$ is a mode index derived entirely from $n_s$ by a fixed algebraic filtration chain. We prove five theorems: (S1) $S(n,2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all odd-sphere sectors, grounding both quark and neutrino masses as Weyl spectral laws on their sector manifolds; (S2) the cross-sector frequency ratio $m_u/m_d = \sqrt{3/14}$ exactly from sector couplings; (S3) the EW self-coupling $g_{22} = 722.5$ is a product of Dirac eigenvalue multiplicities; (S4) the sector set $D = \{2,3,4,5,6,10\}$ is uniquely determined by $n_s = 4$ through the factorisation $n_{\rm top} = N_c \times n_s \times N_f = 72$; and a Completeness Theorem proving no additional stable particles exist within the framework. Two physically motivated corrections with no free parameters — a Generation Tower Correction (GTC) $\varepsilon = 1/(280\sqrt{7})$ from the $\ell=2$ tensor kernel component, and a Dyson resummation factor $1 + 1/1680$ for the $\tau$ lepton — bring all 13 measured masses to within 0.8\% of PDG values. A cross-sector scale consistency equation yields the first parameter-free prediction of absolute neutrino masses, giving $\sum m_\nu = 60.39$ meV (corrected; bare $59.00$ meV, with $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ derived from the cross-sector kernel) and $m_{\beta\beta} = 0$ exactly. We further show that each sector geometry constitutes a \emph{coupling filter} for its particles: the sector quantum number (polarization, color, the Dirac condition, color silence, Cantor-set criticality) is not an input label but the geometry expressing itself as a coupling structure, derived from the sector isometry groups, the Euler characteristic, Clifford algebra, and Bott periodicity on the respective sector manifolds. The framework satisfies exact CKM first-row unitarity at tree level. All results are reproduced by a single open-source Python script with no free parameters beyond $m_e$.
+where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite sector space $\Xi_d$ and $n$ is a mode index derived entirely from $n_s$ by a fixed algebraic filtration chain. We prove five theorems: (S1) $S(n,2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all odd-sphere sectors, grounding both quark and neutrino masses as sector spectral counting laws on their sector manifolds; (S2) the cross-sector frequency ratio $m_u/m_d = \sqrt{3/14}$ exactly from sector couplings; (S3) the EW self-coupling $g_{22} = 722.5$ is a product of Dirac eigenvalue multiplicities; (S4) the sector set $D = \{2,3,4,5,6,10\}$ is uniquely determined by $n_s = 4$ through the factorisation $n_{\rm top} = N_c \times n_s \times N_f = 72$; and a Completeness Theorem proving no additional stable particles exist within the framework. Two physically motivated corrections with no free parameters — a Generation Tower Correction (GTC) $\varepsilon = 1/(280\sqrt{7})$ from the $\ell=2$ tensor kernel component, and a geometric back-reaction factor $1 + 1/1680$ for the $\tau$ lepton — bring all 13 measured masses to within 0.8\% of PDG values. A cross-sector scale consistency equation yields the first parameter-free prediction of absolute neutrino masses, giving $\sum m_\nu = 60.39$ meV (corrected; bare $59.00$ meV, with $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ derived from the cross-sector kernel) and $m_{\beta\beta} = 0$ at leading order. We further show that each sector geometry constitutes a \emph{coupling filter} for its particles: the sector quantum number (polarization, color, the Dirac condition, color silence, Gegenbauer-critical marginal coupling) is not an input label but the geometry expressing itself as a coupling structure, derived from the sector isometry groups, the Euler characteristic, Clifford algebra, and Clifford algebra mod 8 periodicity on the respective sector manifolds. The framework satisfies exact CKM first-row unitarity at tree level. All results are reproduced by a single open-source Python script with no free parameters beyond $m_e$.
 
 ---
 
@@ -22,11 +22,11 @@ where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite sector space $\Xi
 
 The Standard Model contains 19 free parameters, including six fermion masses spanning five orders of magnitude, three CKM angles, and the electroweak mixing angle. Despite extraordinary experimental precision, no principle relates these parameters from first principles. This paper asks: is there a spectral interpretation of particle masses in which every mass equals a combinatorial integer (a mode count) multiplied by a sector-dependent energy scale, where the integers are forced by a topological uniqueness condition rather than chosen to match observations?
 
-We show this interpretation exists, is unique, and is grounded in the Dirac spectra of infinite-extent sector manifolds with harmonic potential wells (the Agmon-localized modes of the sector Dirac-Harmonic operator). The framework produces quantitative predictions for all 13 measured particle masses, the electroweak sector, CKM observables, and — new in this work — the absolute masses of all three neutrinos, from two inputs: the integer $n_s = 4$ and the electron mass $m_e$.
+We show this interpretation exists, is unique, and is grounded in the Dirac spectra of infinite-extent sector manifolds with harmonic potential wells (the sector-localized modes of the sector Dirac-Harmonic operator). The framework produces quantitative predictions for all 13 measured particle masses, the electroweak sector, CKM observables, and — new in this work — the absolute masses of all three neutrinos, from two inputs: the integer $n_s = 4$ and the electron mass $m_e$.
 
 ### 1.1 What IDWT Is and Is Not
 
-IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The sector manifolds $\Xi_d$ are infinite Riemannian spaces — not compact extra dimensions, not accessible to gravitons or KK excitations. They are macroscopic, non-compact spatial dimensions — real geometric spaces in which $\Psi_\infty$ vibrates. They differ from KK compact extra dimensions in that they are non-compact, mode localization is set by the Agmon length $L_d$ (not by periodic boundary conditions), and there is no KK graviton tower. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric — purely geometric, with no graviton propagation into the sector space. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
+IDWT does not add new spacetime dimensions in the Kaluza-Klein sense. The sector manifolds $\Xi_d$ are infinite Riemannian spaces — not compact extra dimensions, not accessible to gravitons or KK excitations. They are macroscopic, non-compact spatial dimensions — real geometric spaces in which $\Psi_\infty$ vibrates. They differ from KK compact extra dimensions in that they are non-compact, mode localization is set by the sector localization length $L_d$ (not by periodic boundary conditions), and there is no KK graviton tower. All IDWT predictions concern the mass spectrum and coupling structure of existing particles, not new KK towers. Gravity in IDWT is the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric — purely geometric, with no graviton propagation into the sector space. See Technical Volume 4 [11] for the full derivation of the effective Einstein equations.
 
 This framework does not employ Higgs fields, Yukawa couplings, or spontaneous symmetry breaking to generate masses. The $W$ and $Z$ masses are confinement masses of the $d=2$ sector — analogous to the $\rho$ meson mass in QCD — not consequences of a Higgs mechanism. The mass formula $m \propto S(n,d)$ holds for all particles simultaneously.
 
@@ -112,7 +112,7 @@ $\zeta_d(1)=d/(d-1)$ is the spectral sum rule proved by telescoping from Pascal'
 
 ## 3. Five Spectral Theorems
 
-### Theorem S1 — Odd-Sphere Weyl Law (General)
+### Theorem S1 — Sector Spectral Counting Theorem (Odd Spheres)
 
 The positive Dirac eigenvalues on $S^{2k+1}$ at level $\ell$ are $\lambda_\ell = \ell + (2k+1)/2$, each with multiplicity $M_\ell = 2\binom{\ell+2k}{2k}$ [1]. Their cumulative sum satisfies:
 
@@ -120,7 +120,7 @@ $$\sum_{\ell=0}^{n-1} M_\ell^{S^{2k+1}} = 2\sum_{\ell=0}^{n-1}\binom{\ell+2k}{2k
 
 *Proof.* By the hockey-stick identity $\sum_{\ell=0}^{n-1}\binom{\ell+2k}{2k} = \binom{n+2k}{2k+1}$, verified by induction. $\square$
 
-**Corollary.** $S(n, 2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all $k \geq 1$. The mass formula $m = m_{\mathrm{scale},d} \times S(n,d)$ for $d \in \{3,5\}$ is a **Weyl spectral law**: particle mass equals half the cumulative Dirac eigenvalue count on the sector sphere below the particle's level.
+**Corollary.** $S(n, 2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all $k \geq 1$. The mass formula $m = m_{\mathrm{scale},d} \times S(n,d)$ for $d \in \{3,5\}$ is a **sector spectral counting law**: particle mass equals half the cumulative Dirac eigenvalue count on the sector sphere below the particle's level.
 
 For IDWT: $d=3$ ($S^3$, quarks) and $d=5$ ($S^5$, neutrinos) both obey the same law. The three neutrino masses $m_{\nu_i} = m_{\mathrm{scale},5} \times S(n_{\nu_i},5)$ equal $\tfrac{1}{2}N_{D_{S^5}}(n_{\nu_i}-1) \times m_{\mathrm{scale},5}$ — they are half the cumulative Dirac eigenvalue count on $S^5$ at levels below $n_{\nu_i}$, multiplied by the sector scale.
 
@@ -257,7 +257,7 @@ PDG: $m_b = 4180 \pm 10$ MeV. Error: $+0.023\%$. The exhaustive search over $n \
 
 ## 6. Mass Predictions
 
-**Table 1.** All masses from $m_e$ and $n_s = 4$ alone. GTC applied to charm ($k=3$) and top ($k=10$); Dyson resummation applied to $\tau$.
+**Table 1.** All masses from $m_e$ and $n_s = 4$ alone. GTC applied to charm ($k=3$) and top ($k=10$); back-reaction correction applied to $\tau$.
 
 | Particle | $d$ | $n$ | $S(n,d)$ | IDWT (MeV) | PDG (MeV) | Error |
 |---|---|---|---|---|---|---|
@@ -283,17 +283,17 @@ $^\dagger$ Within PDG $1\sigma$ uncertainties ($\pm10\%$ for $m_d$, $\pm9\%$ for
 
 ### 7.1 Generation Tower Correction — Complete Derivation
 
-**Physical origin.** The $\ell=2$ tensor component of the kernel $({\xi}_d \cdot {\xi}_{d'})^2$ contributes a frequency shift to modes that pass through multiple comb filtration stages. For $d=3$, the angular decomposition on $S^2$ gives:
+**Physical origin.** The $\ell=2$ tensor component of the kernel $({\xi}_d \cdot {\xi}_{d'})^2$ contributes a frequency shift to modes that descend through multiple generation steps from the seed. For $d=3$, the angular decomposition on $S^2$ gives:
 
 $$(\xi \cdot \xi')^2 = \frac{1}{3}[\ell=0] + \frac{2}{3}P_2(\cos\theta)[\ell=2].$$
 
-The $\ell=0$ piece is a constant contributing to the sector mass scale. The $\ell=2$ piece depends on the relative orientation of $\xi$ and $\xi'$ and introduces a mode-number-dependent correction when modes are built by successive filtration stages.
+The $\ell=0$ piece is a constant contributing to the sector mass scale. The $\ell=2$ piece depends on the relative orientation of $\xi$ and $\xi'$ and introduces a mode-number-dependent correction when modes are built by successive generation steps.
 
-**Derivation of $\varepsilon$.** At the resonance site $k_0 = n_s^2 = 16$, the self-consistency eigenvalue of the $\ell=2$ kernel insertion is $g_{\rm coeff}^2 = 4/7$ (derived in Section 5.1). The $\ell=2$ coupling amplitude per filtration winding is:
+**Derivation of $\varepsilon$.** At the resonance site $k_0 = n_s^2 = 16$, the self-consistency eigenvalue of the $\ell=2$ kernel insertion is $g_{\rm coeff}^2 = 4/7$ (derived in Section 5.1). The $\ell=2$ coupling amplitude per generation step is:
 
 $$g_{\rm coeff} = \sqrt{n_s(n_s+1)/S(n_s,4)} = \sqrt{4/7} = 2/\sqrt{7}.$$
 
-This is normalised at the resonance site $k_0 = 16$ and at the muon mode $n_\mu = S(n_s,4) = 35$ which sets the natural frequency scale at which the $d=4$ filtration chain is calibrated:
+This is normalised at the resonance site $k_0 = 16$ and at the muon mode $n_\mu = S(n_s,4) = 35$ which sets the natural frequency scale at which the $d=4$ generation tower is calibrated:
 
 $$\varepsilon = \frac{g_{\rm coeff}}{k_0 \times n_\mu} = \frac{2/\sqrt{7}}{16 \times 35} = \frac{1}{280\sqrt{7}} \approx 0.001350.$$
 
@@ -301,7 +301,7 @@ This is not fitted. Every factor is forced: $g_{\rm coeff}$ from the double self
 
 Cross-check: from PDG mass ratios, $\varepsilon_{\rm PDG} \approx 0.001340$; derived $\varepsilon = 0.001350$, a $0.74\%$ discrepancy within light-quark uncertainties.
 
-**Filtration depth $k$.** The exponent $k$ counts the number of hockey-stick stages through which mode $n$ passes from the seed:
+**Generation depth $k$.** The exponent $k$ counts the number of hockey-stick steps through which mode $n$ descends from the seed:
 
 $$k_u = 0, \quad k_c = n_u = 3 \text{ (depth 1; GTC depth equals Hopf chain reduction)}, \quad k_t = S(n_u,3) = 10 \text{ (depth 2; equals } n_{\nu_1}\text{)}.$$
 
@@ -319,7 +319,7 @@ $k_t = n_{\nu_1}$ connects the top quark correction depth to the first neutrino 
 
 The $d=3$ and $d=6$ sectors have $k=0$ effective depth (the correction cancels in all intra-sector ratios).
 
-### 7.2 Tau Lepton Dyson Resummation — Complete Derivation
+### 7.2 Tau Lepton Geometric Back-reaction Correction — Complete Derivation
 
 The $d=6$ ($\mu$) and $d=10$ ($\tau$) sectors share identical coupling $g_{66} = g_{6,10} = g_{10,10} = 1/n_s = 1/4$ from the seed. The leading $d=6 \to d=10$ back-reaction perturbation at the $\tau$ level is:
 
@@ -409,7 +409,7 @@ No neutrino oscillation data enters. The absolute masses:
 
 The $\nu_3$ correction $\delta_{\nu_3} = \varepsilon \times g_{33} = [1/(280\sqrt{7})] \times [8\sqrt{7}] = 1/35$ (exact) is the cross-sector constructive interference between the GTC kernel ($\ell=2$ component) and the $d=3$ coupling, derived with no free parameters. Applied multiplicatively: $m_{\nu_3}^{\rm corr} = m_{\nu_3}^{\rm bare} \times (36/35) = 50.27$ meV. This closes the $\Delta m^2_{31}$ discrepancy from $-7.7\%$ (bare) to $-2.3\%$ (corrected).
 
-The $m_{\beta\beta} = 0$ prediction is exact: $d = 5 \equiv 5 \pmod{8}$ does not admit a Majorana condition by Bott periodicity [2]. Any $0\nu\beta\beta$ signal immediately falsifies IDWT. $\sum m_\nu = 60.39$ meV is within reach of CMB-S4 ($\sim 14$ meV sensitivity) and the Simons Observatory ($\sim 30$–40 meV); IDWT will be confirmed or excluded within this decade.
+The $m_{\beta\beta} = 0$ prediction is exact: $d = 5 \equiv 5 \pmod{8}$ does not admit a Majorana condition by Clifford algebra mod 8 periodicity. Any $0\nu\beta\beta$ signal immediately falsifies IDWT. $\sum m_\nu = 60.39$ meV is within reach of CMB-S4 ($\sim 14$ meV sensitivity) and the Simons Observatory ($\sim 30$–40 meV); IDWT will be confirmed or excluded within this decade.
 
 ---
 
@@ -433,15 +433,15 @@ The coordinate containment principle (Section 11) answers which forces can reach
 
 **d=4 (CP², SU(3)/U(2)) — color filter.** Color originates here. $\chi(\mathbb{CP}^2) = 3$ — three color coupling handles as a theorem of CP² topology, not a parameter. Color conservation is not a dynamical rule; isolated color-nonsinglet asymptotic states are geometrically impossible. Confinement is this filter at the level of which states can be constructed.
 
-**d=5 (S⁵, SO(6)) — Majorana/LNV filter.** The Clifford algebra on S⁵ ($d \bmod 8 = 5$) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. This is why $m_{\beta\beta} = 0$ exactly (Section 10): not a fine-tuning but a geometric impossibility. The S⁵ Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$ additionally projects the CP² color representation onto its singlet, giving color-neutral neutrinos despite their coordinate support inside $\Xi_4$. Positively, the SO(6) $\cong$ SU(4) structure gives neutrinos their $B-L$ charge.
+**d=5 (S⁵, SO(6)) — Majorana/LNV filter.** The Clifford algebra on S⁵ ($d \bmod 8 = 5$) cannot support the spinor structure required by a fundamental Majorana mass term. This is a property of the fundamental d=5 spinor — induced operators and sector-mixing effects at low energy are not yet analyzed. Majorana mass term absent at leading order from the Clifford structure; this is the basis for the $m_{\beta\beta} = 0$ leading-order prediction (Section 10). The S⁵ Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$ additionally projects the CP² color representation onto its singlet, giving color-neutral neutrinos despite their coordinate support inside $\Xi_4$. Positively, the SO(6) $\cong$ SU(4) structure gives neutrinos their $B-L$ charge.
 
 **d=6 (CP³, SU(4)/U(3)) — colour silence filter.** $\chi(\mathbb{CP}^3) = 4$, not 3; colour contributions cancel in the SU(4)/U(3) representation. Zero strong coupling at any energy — geometrically absent, not suppressed. The d=2 photon sector (CP¹) sits inside d=6 via the coordinate nesting $\Xi_2 \subset \Xi_6$; the electron-photon coupling follows from coordinate containment, giving pure U(1) EM with coupling structure fixed by the CP³ isometry.
 
-**d=10 (CP⁵, SU(6)/U(5)) — fractal marginal coupling.** At the Aubry-André critical point, the tau's spectrum is a Cantor set — measure zero but topologically dense. Every energy neighborhood contains a decay channel (explaining the short lifetime); each specific channel carries measure-zero weight (explaining why the lifetime is finite). The Dyson resummation $\delta_\tau = 1/1680$ (Section 7.2) is the mathematical signature of this fractal coupling structure — an all-orders resummation is required only at the critical point.
+**d=10 (CP⁵, SU(6)/U(5)) — Gegenbauer-critical coupling.** At the Gegenbauer critical endpoint, modes sit at the Jacobi coupling boundary — neither freely sector-delocalized nor robustly sector-bound. The tau couples in principle to every sector (its coordinates span all of Ξ₁₀), but coupling weight is distributed with no dominant channel. No single decay mode is selected; every channel is accessible; none carries concentrated weight. This explains the tau's decay pattern: short lifetime (no gap protecting it) but broad distribution across many channels. The geometric back-reaction correction $\delta_\tau = 1/1680$ (Section 7.2) is required because the naive perturbation series does not converge at the critical point.
 
 **Relationship to coordinate containment.** Coordinate containment is necessary but not sufficient. A particle may have coordinate support in a force's sector and still have zero coupling if its own sector geometry projects the relevant representation to zero. The S⁵ Hopf structure projects the CP² color representation onto the singlet; the CP³ index cancellation gives zero strong coupling despite the lepton's coordinates containing $\Xi_4$. Both principles together determine the full coupling structure of any particle.
 
-**Significance.** The Standard Model takes quantum numbers as axioms: quarks have three colors by measurement; neutrinos are (possibly) Dirac by measurement; leptons are color-neutral by measurement. IDWT derives each from the Euler characteristic, Bott periodicity, or Clifford algebra on the respective sector manifold. The coupling structure of every particle in the Standard Model is a theorem of each particle's sector manifold geometry, not a postulate.
+**Significance.** The Standard Model takes quantum numbers as axioms: quarks have three colors by measurement; neutrinos are (possibly) Dirac by measurement; leptons are color-neutral by measurement. IDWT derives each from the Euler characteristic, Clifford algebra mod 8 periodicity, or Clifford algebra on the respective sector manifold. The coupling structure of every particle in the Standard Model is a theorem of each particle's sector manifold geometry, not a postulate.
 
 ---
 
@@ -483,7 +483,7 @@ IDWT is distinctive in providing: (a) parameter-free masses for all 13 particles
 ## 16. Open Items
 
 1. **CP-violating phase $\delta$.** Requires loop-level computation of the Hopf Chern-Simons integral.
-2. **PMNS mixing angles.** ~~Open.~~ Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 0.561, $-0.36\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires Berry phase integral).
+2. **PMNS mixing angles.** ~~Open.~~ Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 0.561, $-0.36\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires spectral phase integral).
 3. **$\Delta m^2_{31}$ discrepancy.** ~~$-7.7\%$ open.~~ Closed by $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ (cross-sector constructive interference, exact). Corrected $\Delta m^2_{31} = 2.525\times10^{-3}$ eV$^2$ (PDG: $2.584\times10^{-3}$, $-2.3\%$).
 4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.
@@ -496,7 +496,7 @@ IDWT is distinctive in providing: (a) parameter-free masses for all 13 particles
 
 Starting from the single non-trivial integer $n_s = 4$ — uniquely forced by the topological fixed point $S(4,4) = 35$ — and the dimensional reference $m_e$, IDWT derives the complete Standard Model mass spectrum, the electroweak sector, CKM observables, and absolute neutrino masses. Five theorems ground the framework in spectral geometry, with complete proofs supplied above. The Completeness Theorem proves no additional particles exist within the framework — a consequence, not a claim. All corrections are physically motivated and fully derived from the kernel structure with no free parameters.
 
-A complementary structural result (Section 12) shows that each sector geometry constitutes a coupling filter for its particles. The sector quantum number — polarization, color, the Dirac condition, total color silence, Cantor-set criticality — is not an input label but the geometry expressing itself as a coupling structure, derived from the Euler characteristic, Bott periodicity, and Clifford algebra on the sector manifold. Coordinate containment determines whether coupling is possible; the sector geometry determines the structure and forbidden classes of that coupling. These are independent principles that together give a complete geometric account of why each particle interacts the way it does.
+A complementary structural result (Section 12) shows that each sector geometry constitutes a coupling filter for its particles. The sector quantum number — polarization, color, the Dirac condition, total color silence, Gegenbauer-critical marginal coupling — is not an input label but the geometry expressing itself as a coupling structure, derived from the Euler characteristic, Clifford algebra mod 8 periodicity, and Clifford algebra on the sector manifold. Coordinate containment determines whether coupling is possible; the sector geometry determines the structure and forbidden classes of that coupling. These are independent principles that together give a complete geometric account of why each particle interacts the way it does.
 
 The framework makes five concrete predictions falsifiable with near-term experiments, most critically $\sum m_\nu = 60.39$ meV (corrected; bare 59.00 meV, with $\delta_{\nu_3} = 1/35$ derived from the cross-sector kernel; CMB-S4 target: $\sim 14$ meV) and $m_{\beta\beta} = 0$ (current KamLAND-Zen bound: $< 28$–122 meV, NME-dependent [6]). These will confirm or exclude IDWT within this decade.
 
@@ -516,9 +516,9 @@ All results from $n_s = 4$ and $m_e$ alone.
 | **$g_{22}$** | $(S(n_s,3)-n_u)^2 \times (S(n_u,4)-S(n_u,3))/2=722.5$ | Theorem S3 |
 | **Sector set** | $D=\{2,3,4,5,6,10\}$ from $72=N_c\times n_s\times N_f$ | Theorem S4 |
 | **GTC** | $\varepsilon=1/(280\sqrt{7})=0.001350$ | $\ell=2$ kernel |
-| **Dyson** | $1/1680=1/(n_s n_u(n_s+n_u)S(n_s,3))$ | $d=6\to d=10$ |
+| **Back-reaction** | $1/1680=1/(n_s n_u(n_s+n_u)S(n_s,3))$ | $d=6\to d=10$ |
 | **$\sum m_\nu$** | $60.39$ meV (corrected; bare: $59.00$ meV, $\delta_{\nu_3}=1/35$) | §10 |
-| **$m_{\beta\beta}$** | $0$ (exact, Bott periodicity on $S^5$) | §10 |
+| **$m_{\beta\beta}$** | $0$ at leading order (Majorana mass term absent at leading order from Clifford algebra mod 8 on $S^5$) | §10 |
 | **CKM unitarity** | $|V_{ud}|^2+|V_{us}|^2+|V_{ub}|^2=1$ (exact) | §9 |
 
 ---
@@ -552,7 +552,7 @@ All results from $n_s = 4$ and $m_e$ alone.
 ## References
 
 1. C. Bär, *Geom. Funct. Anal.* **6**, 899 (1996). *(Dirac spectrum on $S^n$)*
-2. H. B. Lawson and M.-L. Michelsohn, *Spin Geometry* (Princeton University Press, 1989). *(Bott periodicity, Majorana conditions)*
+2. H. B. Lawson and M.-L. Michelsohn, *Spin Geometry* (Princeton University Press, 1989). *(Clifford algebra mod 8 periodicity, Majorana conditions)*
 3. Y. Koide, *Lett. Nuovo Cim.* **34**, 201 (1983).
 4. A. Chamseddine, A. Connes, and V. Mukhanov, *JHEP* **2015**, 104 (2015).
 5. Planck Collaboration (N. Aghanim et al.), "Planck 2018 results. VI. Cosmological parameters," *A&A* **641**, A6 (2020), arXiv:1807.06209.

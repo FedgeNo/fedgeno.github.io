@@ -159,7 +159,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
 .viz-panel {
   position: relative;
   overflow: hidden;
-  background: #05070e;
+  background: transparent;
 }
 .viz-panel canvas { display: block; }
 
@@ -362,10 +362,10 @@ html, body { margin:0; height:100%; overflow:hidden; }
     <div class="vi-dim">Total dim: S(1,3) = 1</div>
   </div>
   <div class="shell-bar">
-    <button class="shell-btn active" id="btn-s" onclick="setShell(0)">s (L=0)</button>
-    <button class="shell-btn" id="btn-p" onclick="setShell(1)">p (L=1)</button>
-    <button class="shell-btn" id="btn-d" onclick="setShell(2)">d (L=2)</button>
-    <button class="shell-btn" id="btn-f" onclick="setShell(3)">f (L=3)</button>
+    <button class="shell-btn active" id="btn-s">s (L=0)</button>
+    <button class="shell-btn" id="btn-p">p (L=1)</button>
+    <button class="shell-btn" id="btn-d">d (L=2)</button>
+    <button class="shell-btn" id="btn-f">f (L=3)</button>
   </div>
   <div class="drag-hint">drag to rotate</div>
 </div>
@@ -378,341 +378,255 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
-// ── globals (set during init, used by closures) ───────────────
+// ── renderer ─────────────────────────────────────────────────
 const panel = document.getElementById('vizPanel');
-let renderer, composer, camera, scene, group, pLight1, pLight2;
-let isDragging = false, lastX = 0, lastY = 0;
-let targetCamDist = 6, actualCamDist = 6;
-let t = 0;
+// Use window dimensions as safe initial size; ResizeObserver corrects immediately
+const initW = Math.max(100, Math.floor(window.innerWidth / 2));
+const initH = Math.max(100, window.innerHeight - 56);
 
-// setShell defined immediately so onclick="setShell(N)" always works
-let _pendingShell = 0, _ready = false;
-window.setShell = function(L) {
-  _pendingShell = L;
-  if (_ready) buildShell(L);
-};
-
-// ── robust init: runs when panel first has real dimensions ────
-let _initDone = false;
-function tryInit() {
-  if (_initDone) return;
-  const w = panel.clientWidth, h = panel.clientHeight;
-  if (!w || !h) return;
-  _initDone = true;
-  init(w, h);
-}
-// Belt-and-suspenders triggers (handles any timing of module load vs page load)
-tryInit();
-document.addEventListener('DOMContentLoaded', tryInit);
-window.addEventListener('load', tryInit);
-setTimeout(tryInit, 50);
-setTimeout(tryInit, 300);
-new ResizeObserver(tryInit).observe(panel);
-
-function init(w, h) {
-
-// ── scene setup ──────────────────────────────────────────────
-renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', alpha: true });
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.1;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.setClearColor(0x000000, 0); // transparent — lets .bg gradient show through
-renderer.setSize(w, h);
+renderer.setClearColor(0x000000, 0);
+renderer.setSize(initW, initH);
 renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
 panel.appendChild(renderer.domElement);
 
-scene = new THREE.Scene();
-
-// Camera angled so depth is immediately visible — not looking straight down Z
-camera = new THREE.PerspectiveCamera(50, w / h, 0.05, 100);
-camera.position.set(0, 0, targetCamDist);
+// ── scene ─────────────────────────────────────────────────────
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, initW / initH, 0.05, 100);
 camera.lookAt(0, 0, 0);
 
 const renderPass = new RenderPass(scene, camera);
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 0.28, 0.4, 0.12);
-composer = new EffectComposer(renderer);
+const bloomPass  = new UnrealBloomPass(new THREE.Vector2(initW, initH), 0.28, 0.4, 0.12);
+const composer   = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 
-// Low ambient so shading shows strong 3D relief
-scene.add(new THREE.AmbientLight(0x2040a0, 0.1));
-// Directional light from upper-left for crisp shadow gradient
+scene.add(new THREE.AmbientLight(0x2040a0, 0.12));
 const dirLight = new THREE.DirectionalLight(0xffffff, 1.6);
 dirLight.position.set(3, 5, 4);
 scene.add(dirLight);
-pLight1 = new THREE.PointLight(0x7fa0ff, 5, 25);
-pLight1.position.set(4, 3, 4);
+const pLight1 = new THREE.PointLight(0x7fa0ff, 5, 25);
 scene.add(pLight1);
-pLight2 = new THREE.PointLight(0xc080ff, 3, 20);
-pLight2.position.set(-4, -2, 2);
+const pLight2 = new THREE.PointLight(0xc080ff, 3, 20);
 scene.add(pLight2);
 
-// Group pre-tilted so viewer immediately sees 3D depth
-group = new THREE.Group();
+const group = new THREE.Group();
 group.rotation.x = 0.4;
 group.rotation.y = 0.6;
 scene.add(group);
 
-// ── real spherical harmonics ─────────────────────────────────
-// Returns Y_L^m(theta, phi) — the real forms
+// ── spherical harmonics ───────────────────────────────────────
 function realSH(L, m, theta, phi) {
   const ct = Math.cos(theta), st = Math.sin(theta);
-  const cp = Math.cos(phi),   sp = Math.sin(phi);
-  const c2p = Math.cos(2*phi), s2p = Math.sin(2*phi);
-  const c3p = Math.cos(3*phi), s3p = Math.sin(3*phi);
-  if (L===0) return 1;
-  if (L===1) {
-    if (m=== 0) return ct;
-    if (m=== 1) return st*cp;
-    if (m===-1) return st*sp;
+  const cp = Math.cos(phi), sp = Math.sin(phi);
+  if (L === 0) return 1;
+  if (L === 1) {
+    if (m ===  0) return ct;
+    if (m ===  1) return st * cp;
+    if (m === -1) return st * sp;
   }
-  if (L===2) {
-    if (m=== 0) return 0.5*(3*ct*ct-1);
-    if (m=== 1) return st*ct*cp;
-    if (m===-1) return st*ct*sp;
-    if (m=== 2) return st*st*c2p;
-    if (m===-2) return st*st*s2p;
+  if (L === 2) {
+    if (m ===  0) return 0.5 * (3*ct*ct - 1);
+    if (m ===  1) return st * ct * cp;
+    if (m === -1) return st * ct * sp;
+    if (m ===  2) return st*st * Math.cos(2*phi);
+    if (m === -2) return st*st * Math.sin(2*phi);
   }
-  if (L===3) {
-    if (m=== 0) return ct*(5*ct*ct-3)*0.5;
-    if (m=== 1) return st*(5*ct*ct-1)*cp;
-    if (m===-1) return st*(5*ct*ct-1)*sp;
-    if (m=== 2) return st*st*ct*c2p;
-    if (m===-2) return st*st*ct*s2p;
-    if (m=== 3) return st*st*st*c3p;
-    if (m===-3) return st*st*st*s3p;
+  if (L === 3) {
+    if (m ===  0) return 0.5 * ct * (5*ct*ct - 3);
+    if (m ===  1) return st * (5*ct*ct - 1) * cp;
+    if (m === -1) return st * (5*ct*ct - 1) * sp;
+    if (m ===  2) return st*st * ct * Math.cos(2*phi);
+    if (m === -2) return st*st * ct * Math.sin(2*phi);
+    if (m ===  3) return st*st*st * Math.cos(3*phi);
+    if (m === -3) return st*st*st * Math.sin(3*phi);
   }
   return 0;
 }
 
-// Build a spherical harmonic surface mesh
-// scale: overall size; res: grid resolution
-function buildOrbitalMesh(L, m, color, scale=1.0, res=48, opacity=1.0, wireframe=false) {
-  const positions = [];
-  const normals   = [];
-  const indices   = [];
-  const vColors   = [];
-  const col = new THREE.Color(color);
-  const colNeg = new THREE.Color(color).multiplyScalar(0.4);
-  colNeg.lerp(new THREE.Color(0x000020), 0.2);
-
-  for (let i=0; i<=res; i++) {
-    for (let j=0; j<=res; j++) {
+function buildOrbitalMesh(L, m, color, scale, res, opacity) {
+  const col    = new THREE.Color(color);
+  const colNeg = new THREE.Color(color).multiplyScalar(0.35).lerp(new THREE.Color(0x000818), 0.3);
+  const pos = [], cols = [], idx = [];
+  for (let i = 0; i <= res; i++) {
+    for (let j = 0; j <= res; j++) {
       const theta = (i / res) * Math.PI;
       const phi   = (j / res) * Math.PI * 2;
-      const r = Math.abs(realSH(L, m, theta, phi));
-      const sign = realSH(L, m, theta, phi) >= 0 ? 1 : -1;
-      const x = r * Math.sin(theta) * Math.cos(phi) * scale;
-      const y = r * Math.cos(theta) * scale;
-      const z = r * Math.sin(theta) * Math.sin(phi) * scale;
-      positions.push(x, y, z);
-      normals.push(x,y,z); // approximate — will normalize
-      const c = sign > 0 ? col : colNeg;
-      vColors.push(c.r, c.g, c.b);
+      const v = realSH(L, m, theta, phi);
+      const r = Math.abs(v) * scale;
+      pos.push(r * Math.sin(theta) * Math.cos(phi),
+               r * Math.cos(theta),
+               r * Math.sin(theta) * Math.sin(phi));
+      const c = v >= 0 ? col : colNeg;
+      cols.push(c.r, c.g, c.b);
     }
   }
-  for (let i=0; i<res; i++) {
-    for (let j=0; j<res; j++) {
-      const a = i*(res+1)+j, b=a+1, c=a+(res+1), d=c+1;
-      indices.push(a,b,d, a,d,c);
+  for (let i = 0; i < res; i++) {
+    for (let j = 0; j < res; j++) {
+      const a = i*(res+1)+j, b = a+1, c = a+(res+1), d = c+1;
+      idx.push(a,b,d, a,d,c);
     }
   }
   const geo = new THREE.BufferGeometry();
-  geo.setIndex(indices);
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  geo.setAttribute('color',    new THREE.Float32BufferAttribute(vColors, 3));
+  geo.setIndex(idx);
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,  3));
+  geo.setAttribute('color',    new THREE.Float32BufferAttribute(cols, 3));
   geo.computeVertexNormals();
-
-  const baseCol = new THREE.Color(color);
-  const mat = wireframe
-    ? new THREE.MeshBasicMaterial({ color, wireframe:true, transparent:true, opacity: opacity*0.3 })
-    : new THREE.MeshPhongMaterial({
-        vertexColors: true,
-        emissive: baseCol.clone().multiplyScalar(0.18),
-        shininess: 140,
-        transparent: true,
-        opacity,
-        side: THREE.DoubleSide,
-        blending: THREE.NormalBlending,
-        depthWrite: opacity > 0.75
-      });
+  const mat = new THREE.MeshPhongMaterial({
+    vertexColors: true,
+    emissive: col.clone().multiplyScalar(0.15),
+    shininess: 120,
+    transparent: true, opacity,
+    side: THREE.DoubleSide,
+    depthWrite: opacity > 0.8,
+  });
   return new THREE.Mesh(geo, mat);
 }
 
-// ── shell definitions ────────────────────────────────────────
-// For hidden states, we display their SO(3) angular shapes (from the decomposition)
-// arranged at offset positions to distinguish them from observable states.
-// Observable: blue #7fa0ff; Hidden: amber #f59e0b
+// ── shell data ────────────────────────────────────────────────
+const OBS = 0x7fa0ff, HID = 0xf59e0b;
 
-const OBS = 0x7fa0ff;
-const HID = 0xf59e0b;
-
-// Each shell: array of { L, m, color, pos:[x,y,z], scale, opacity }
-function shellData(shell) {
-  const s = 0.9;  // observable orbital scale
-  const hs = 0.5; // hidden state scale
-
-  if (shell===0) {
-    return [
-      { L:0, m:0, color:OBS, pos:[0,0,0], scale:1.1, opacity:0.72 }
-    ];
-  }
-
-  if (shell===1) {
-    const sp = 1.6;
-    return [
-      { L:1, m: 1, color:OBS, pos:[-sp,  0,  0], scale:s, opacity:0.72 },
-      { L:1, m: 0, color:OBS, pos:[ 0,  sp,  0], scale:s, opacity:0.72 },
-      { L:1, m:-1, color:OBS, pos:[ 0,   0, sp], scale:s, opacity:0.72 },
-      { L:0, m: 0, color:HID, pos:[ sp,  0,  0], scale:hs*0.9, opacity:0.48 },
-    ];
-  }
-
-  if (shell===2) {
-    const dp = 1.9;
-    return [
-      { L:2, m: 0, color:OBS, pos:[  0,  dp,  0], scale:s, opacity:0.72 },
-      { L:2, m: 1, color:OBS, pos:[ dp,   0,  0], scale:s, opacity:0.72 },
-      { L:2, m:-1, color:OBS, pos:[  0,   0, dp], scale:s, opacity:0.72 },
-      { L:2, m: 2, color:OBS, pos:[-dp,   0,  0], scale:s, opacity:0.72 },
-      { L:2, m:-2, color:OBS, pos:[  0, -dp,  0], scale:s, opacity:0.72 },
-      { L:1, m: 1, color:HID, pos:[ dp,  dp,  0], scale:hs, opacity:0.42 },
-      { L:1, m: 0, color:HID, pos:[-dp,  dp,  0], scale:hs, opacity:0.42 },
-      { L:1, m:-1, color:HID, pos:[  0,  dp, dp], scale:hs, opacity:0.42 },
-      { L:0, m: 0, color:HID, pos:[ dp, -dp,  0], scale:hs*0.8, opacity:0.38 },
-      { L:0, m: 0, color:HID, pos:[  0, -dp, dp], scale:hs*0.8, opacity:0.38 },
-    ];
-  }
-
-  if (shell===3) {
-    const fp = 2.0;
-    return [
-      { L:3, m: 0, color:OBS, pos:[  0,  fp,  0], scale:s,      opacity:0.72 },
-      { L:3, m: 1, color:OBS, pos:[ fp,  fp,  0], scale:s*0.85, opacity:0.72 },
-      { L:3, m:-1, color:OBS, pos:[-fp,  fp,  0], scale:s*0.85, opacity:0.72 },
-      { L:3, m: 2, color:OBS, pos:[ fp,   0,  0], scale:s*0.8,  opacity:0.72 },
-      { L:3, m:-2, color:OBS, pos:[-fp,   0,  0], scale:s*0.8,  opacity:0.72 },
-      { L:3, m: 3, color:OBS, pos:[ fp, -fp,  0], scale:s*0.75, opacity:0.72 },
-      { L:3, m:-3, color:OBS, pos:[-fp, -fp,  0], scale:s*0.75, opacity:0.72 },
-      { L:2, m: 0, color:HID, pos:[  0,  fp, fp], scale:hs,      opacity:0.38 },
-      { L:2, m: 1, color:HID, pos:[ fp,  0,  fp], scale:hs,      opacity:0.38 },
-      { L:2, m:-1, color:HID, pos:[-fp,  0,  fp], scale:hs,      opacity:0.38 },
-      { L:2, m: 2, color:HID, pos:[  0, -fp, fp], scale:hs,      opacity:0.38 },
-      { L:2, m:-2, color:HID, pos:[ fp, -fp,  0], scale:hs,      opacity:0.38 },
-      { L:1, m: 1, color:HID, pos:[ fp,  fp, fp], scale:hs*0.75, opacity:0.32 },
-      { L:1, m: 0, color:HID, pos:[-fp,  fp, fp], scale:hs*0.75, opacity:0.32 },
-      { L:1, m:-1, color:HID, pos:[  0, -fp,-fp], scale:hs*0.75, opacity:0.32 },
-      { L:1, m: 1, color:HID, pos:[ fp, -fp,-fp], scale:hs*0.75, opacity:0.32 },
-      { L:1, m: 0, color:HID, pos:[-fp, -fp, fp], scale:hs*0.75, opacity:0.32 },
-      { L:1, m:-1, color:HID, pos:[  0,  fp,-fp], scale:hs*0.75, opacity:0.32 },
-      { L:0, m: 0, color:HID, pos:[ fp,  0, -fp], scale:hs*0.6,  opacity:0.28 },
-      { L:0, m: 0, color:HID, pos:[-fp,  0, -fp], scale:hs*0.6,  opacity:0.28 },
-    ];
-  }
+function shellData(L) {
+  const s = 0.9, hs = 0.5;
+  if (L === 0) return [
+    { L:0, m:0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.70 },
+  ];
+  if (L === 1) { const p = 1.6; return [
+    { L:1, m: 1, color:OBS, pos:[-p, 0, 0], scale:s, opacity:0.72 },
+    { L:1, m: 0, color:OBS, pos:[ 0, p, 0], scale:s, opacity:0.72 },
+    { L:1, m:-1, color:OBS, pos:[ 0, 0, p], scale:s, opacity:0.72 },
+    { L:0, m: 0, color:HID, pos:[ p, 0, 0], scale:hs*0.85, opacity:0.48 },
+  ]; }
+  if (L === 2) { const p = 1.9; return [
+    { L:2, m: 0, color:OBS, pos:[ 0, p, 0], scale:s,    opacity:0.72 },
+    { L:2, m: 1, color:OBS, pos:[ p, 0, 0], scale:s,    opacity:0.72 },
+    { L:2, m:-1, color:OBS, pos:[ 0, 0, p], scale:s,    opacity:0.72 },
+    { L:2, m: 2, color:OBS, pos:[-p, 0, 0], scale:s,    opacity:0.72 },
+    { L:2, m:-2, color:OBS, pos:[ 0,-p, 0], scale:s,    opacity:0.72 },
+    { L:1, m: 1, color:HID, pos:[ p, p, 0], scale:hs,   opacity:0.42 },
+    { L:1, m: 0, color:HID, pos:[-p, p, 0], scale:hs,   opacity:0.42 },
+    { L:1, m:-1, color:HID, pos:[ 0, p, p], scale:hs,   opacity:0.42 },
+    { L:0, m: 0, color:HID, pos:[ p,-p, 0], scale:hs*0.8, opacity:0.38 },
+    { L:0, m: 0, color:HID, pos:[ 0,-p, p], scale:hs*0.8, opacity:0.38 },
+  ]; }
+  if (L === 3) { const p = 2.0; return [
+    { L:3, m: 0, color:OBS, pos:[ 0, p, 0], scale:s*1.0,  opacity:0.72 },
+    { L:3, m: 1, color:OBS, pos:[ p, p, 0], scale:s*0.85, opacity:0.72 },
+    { L:3, m:-1, color:OBS, pos:[-p, p, 0], scale:s*0.85, opacity:0.72 },
+    { L:3, m: 2, color:OBS, pos:[ p, 0, 0], scale:s*0.8,  opacity:0.72 },
+    { L:3, m:-2, color:OBS, pos:[-p, 0, 0], scale:s*0.8,  opacity:0.72 },
+    { L:3, m: 3, color:OBS, pos:[ p,-p, 0], scale:s*0.75, opacity:0.72 },
+    { L:3, m:-3, color:OBS, pos:[-p,-p, 0], scale:s*0.75, opacity:0.72 },
+    { L:2, m: 0, color:HID, pos:[ 0, p, p], scale:hs,     opacity:0.36 },
+    { L:2, m: 1, color:HID, pos:[ p, 0, p], scale:hs,     opacity:0.36 },
+    { L:2, m:-1, color:HID, pos:[-p, 0, p], scale:hs,     opacity:0.36 },
+    { L:2, m: 2, color:HID, pos:[ 0,-p, p], scale:hs,     opacity:0.36 },
+    { L:2, m:-2, color:HID, pos:[ p,-p, 0], scale:hs,     opacity:0.36 },
+    { L:1, m: 1, color:HID, pos:[ p, p, p], scale:hs*0.7, opacity:0.30 },
+    { L:1, m: 0, color:HID, pos:[-p, p, p], scale:hs*0.7, opacity:0.30 },
+    { L:1, m:-1, color:HID, pos:[ 0,-p,-p], scale:hs*0.7, opacity:0.30 },
+    { L:1, m: 1, color:HID, pos:[ p,-p,-p], scale:hs*0.7, opacity:0.30 },
+    { L:1, m: 0, color:HID, pos:[-p,-p, p], scale:hs*0.7, opacity:0.30 },
+    { L:1, m:-1, color:HID, pos:[ 0, p,-p], scale:hs*0.7, opacity:0.30 },
+    { L:0, m: 0, color:HID, pos:[ p, 0,-p], scale:hs*0.55, opacity:0.26 },
+    { L:0, m: 0, color:HID, pos:[-p, 0,-p], scale:hs*0.55, opacity:0.26 },
+  ]; }
+  return [];
 }
 
-const shellInfo = [
+// ── shell management ──────────────────────────────────────────
+const SHELL_NAMES = ['s','p','d','f'];
+const SHELL_META  = [
   { name:'s shell — L=0', obs:1, hid:0,  dim:1  },
   { name:'p shell — L=1', obs:3, hid:1,  dim:4  },
   { name:'d shell — L=2', obs:5, hid:5,  dim:10 },
   { name:'f shell — L=3', obs:7, hid:13, dim:20 },
 ];
-const shellNames = ['s','p','d','f'];
-let currentShell = 0;
 
-function updateVizInfo(L) {
-  const info = shellInfo[L];
-  document.getElementById('vizInfo').innerHTML =
-    `<div class="vi-title">${info.name}</div>` +
-    `<div><span class="vi-obs">${info.obs} observable</span> · <span class="vi-hid">${info.hid} hidden</span></div>` +
-    `<div class="vi-dim">Total dim: S(${L+1},3) = ${info.dim}</div>`;
-}
+let targetCamDist = 7, actualCamDist = 7;
 
-function buildShell(L) {
-  while(group.children.length) {
+function setShell(L) {
+  while (group.children.length) {
     const c = group.children[0];
-    c.geometry && c.geometry.dispose();
-    c.material && c.material.dispose();
+    if (c.geometry) c.geometry.dispose();
+    if (c.material) c.material.dispose();
     group.remove(c);
   }
-
-  const data = shellData(L);
-  for (const o of data) {
-    const mesh = buildOrbitalMesh(o.L, o.m, o.color, o.scale, L<=1?48:36, o.opacity);
+  const res = L <= 1 ? 48 : 36;
+  for (const o of shellData(L)) {
+    const mesh = buildOrbitalMesh(o.L, o.m, o.color, o.scale, res, o.opacity);
     mesh.position.set(...o.pos);
     group.add(mesh);
   }
-
-  // Compute bounding sphere to set camera distance
-  const box = new THREE.Box3().setFromObject(group);
+  const box  = new THREE.Box3().setFromObject(group);
   const size = box.getSize(new THREE.Vector3()).length();
-  targetCamDist = Math.max(5, Math.min(14, size * 0.62));
+  targetCamDist = Math.max(5, Math.min(13, size * 0.65));
 
-  // Update buttons
-  for (let i=0;i<4;i++) {
-    document.getElementById(`btn-${shellNames[i]}`).classList.toggle('active', i===L);
-  }
-  updateVizInfo(L);
-  currentShell = L;
+  SHELL_NAMES.forEach((n, i) =>
+    document.getElementById('btn-' + n).classList.toggle('active', i === L));
+
+  const m = SHELL_META[L];
+  document.getElementById('vizInfo').innerHTML =
+    `<div class="vi-title">${m.name}</div>` +
+    `<div><span class="vi-obs">${m.obs} observable</span> · <span class="vi-hid">${m.hid} hidden</span></div>` +
+    `<div class="vi-dim">Total dim: S(${L+1},3) = ${m.dim}</div>`;
 }
 
-// ── drag / wheel (use module-level vars) ─────────────────────
-panel.addEventListener('pointerdown', e => { isDragging=true; lastX=e.clientX; lastY=e.clientY; panel.setPointerCapture(e.pointerId); });
+// Wire buttons — addEventListener only, no onclick attributes
+SHELL_NAMES.forEach((n, i) =>
+  document.getElementById('btn-' + n).addEventListener('click', () => setShell(i)));
+
+// ── interaction ───────────────────────────────────────────────
+let isDragging = false, lastX = 0, lastY = 0;
+panel.addEventListener('pointerdown', e => {
+  isDragging = true; lastX = e.clientX; lastY = e.clientY;
+  panel.setPointerCapture(e.pointerId);
+});
 panel.addEventListener('pointermove', e => {
   if (!isDragging) return;
   group.rotation.y += (e.clientX - lastX) * 0.007;
   group.rotation.x += (e.clientY - lastY) * 0.007;
-  lastX=e.clientX; lastY=e.clientY;
+  lastX = e.clientX; lastY = e.clientY;
 });
-panel.addEventListener('pointerup', () => isDragging=false);
+panel.addEventListener('pointerup', () => isDragging = false);
 panel.addEventListener('wheel', e => {
   e.preventDefault();
   targetCamDist = Math.max(2, Math.min(20, targetCamDist * (1 + e.deltaY * 0.001)));
-}, { passive:false });
+}, { passive: false });
 
-// ── resize ───────────────────────────────────────────────────
+// ── resize ────────────────────────────────────────────────────
 function onResize() {
-  const nw = panel.clientWidth, nh = panel.clientHeight;
-  if (!nw || !nh) return;
-  camera.aspect = nw / nh;
+  const w = panel.clientWidth, h = panel.clientHeight;
+  if (!w || !h) return;
+  camera.aspect = w / h;
   camera.updateProjectionMatrix();
-  renderer.setSize(nw, nh);
-  composer.setSize(nw, nh);
+  renderer.setSize(w, h);
+  composer.setSize(w, h);
 }
-window.addEventListener('resize', onResize);
 new ResizeObserver(onResize).observe(panel);
+window.addEventListener('resize', onResize);
 
-// ── animate ──────────────────────────────────────────────────
+// ── animate ───────────────────────────────────────────────────
+let t = 0;
 function animate() {
   requestAnimationFrame(animate);
   t += 0.016;
-
-  if (!isDragging) {
-    group.rotation.y += 0.008; // ~8 second full rotation — clearly dynamic
-  }
-
-  // Lights orbit — fast enough to see the 3D relief change
-  pLight1.position.x = 4 * Math.cos(t * 0.6);
-  pLight1.position.z = 4 * Math.sin(t * 0.6);
-  pLight2.position.x = -4 * Math.cos(t * 0.45);
-  pLight2.position.y =  3 * Math.sin(t * 0.5);
-
+  if (!isDragging) group.rotation.y += 0.008;
+  pLight1.position.set(4*Math.cos(t*0.6), 3, 4*Math.sin(t*0.6));
+  pLight2.position.set(-4*Math.cos(t*0.45), 3*Math.sin(t*0.5), 2);
   actualCamDist += (targetCamDist - actualCamDist) * 0.08;
   camera.position.set(0, 0, actualCamDist);
   camera.lookAt(0, 0, 0);
-
   composer.render();
 }
 
-// ── kick off ─────────────────────────────────────────────────
-// Now buildShell is in scope — wire up the button handler for real
-window.setShell = function(L) { _pendingShell = L; buildShell(L); };
-buildShell(_pendingShell);
-_ready = true;
+// ── start ─────────────────────────────────────────────────────
+setShell(0);
 animate();
-
-} // end init()
 </script>
 </body>
 </html>

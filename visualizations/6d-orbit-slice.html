@@ -234,6 +234,8 @@ html, body { margin:0; height:100%; overflow:hidden; }
   </div>
 </nav>
 
+<div class="bg"></div>
+
 <div class="split-root">
 
 <!-- ══════════════════════ TEXT PANEL ══════════════════════ -->
@@ -376,55 +378,81 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
-// Define setShell immediately so button clicks are never lost
-let _pendingShell = 0;
-let _ready = false;
+// ── globals (set during init, used by closures) ───────────────
+const panel = document.getElementById('vizPanel');
+let renderer, composer, camera, scene, group, pLight1, pLight2;
+let isDragging = false, lastX = 0, lastY = 0;
+let targetCamDist = 6, actualCamDist = 6;
+let t = 0;
+
+// setShell defined immediately so onclick="setShell(N)" always works
+let _pendingShell = 0, _ready = false;
 window.setShell = function(L) {
   _pendingShell = L;
   if (_ready) buildShell(L);
 };
 
-// Defer all Three.js init until after layout is painted — panel dimensions will be real
-window.addEventListener('load', function() {
+// ── robust init: runs when panel first has real dimensions ────
+let _initDone = false;
+function tryInit() {
+  if (_initDone) return;
+  const w = panel.clientWidth, h = panel.clientHeight;
+  if (!w || !h) return;
+  _initDone = true;
+  init(w, h);
+}
+// Belt-and-suspenders triggers (handles any timing of module load vs page load)
+tryInit();
+document.addEventListener('DOMContentLoaded', tryInit);
+window.addEventListener('load', tryInit);
+setTimeout(tryInit, 50);
+setTimeout(tryInit, 300);
+new ResizeObserver(tryInit).observe(panel);
+
+function init(w, h) {
 
 // ── scene setup ──────────────────────────────────────────────
-const panel = document.getElementById('vizPanel');
-const W = () => panel.clientWidth  || window.innerWidth  * 0.5;
-const H = () => panel.clientHeight || window.innerHeight - 56;
-
-const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', alpha: true });
+renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance', alpha: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.0;
+renderer.toneMappingExposure = 1.1;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.setSize(W(), H());
+renderer.setClearColor(0x000000, 0); // transparent — lets .bg gradient show through
+renderer.setSize(w, h);
 renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
 panel.appendChild(renderer.domElement);
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(55, W() / H(), 0.05, 100);
-camera.position.set(0, 0, 4.5);
+scene = new THREE.Scene();
+
+// Camera angled so depth is immediately visible — not looking straight down Z
+camera = new THREE.PerspectiveCamera(50, w / h, 0.05, 100);
+camera.position.set(0, 0, targetCamDist);
 camera.lookAt(0, 0, 0);
 
 const renderPass = new RenderPass(scene, camera);
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(W(), H()), 0.55, 0.4, 0.2);
-const composer = new EffectComposer(renderer);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 0.28, 0.4, 0.12);
+composer = new EffectComposer(renderer);
 composer.addPass(renderPass);
 composer.addPass(bloomPass);
 
-scene.add(new THREE.AmbientLight(0x6070c0, 0.5));
-const pLight1 = new THREE.PointLight(0x7fa0ff, 3, 20);
+// Low ambient so shading shows strong 3D relief
+scene.add(new THREE.AmbientLight(0x2040a0, 0.1));
+// Directional light from upper-left for crisp shadow gradient
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.6);
+dirLight.position.set(3, 5, 4);
+scene.add(dirLight);
+pLight1 = new THREE.PointLight(0x7fa0ff, 5, 25);
 pLight1.position.set(4, 3, 4);
 scene.add(pLight1);
-const pLight2 = new THREE.PointLight(0xa78bfa, 2, 20);
+pLight2 = new THREE.PointLight(0xc080ff, 3, 20);
 pLight2.position.set(-4, -2, 2);
 scene.add(pLight2);
 
-// nucleus
-const nucleusGeo = new THREE.SphereGeometry(0.06, 16, 16);
-const nucleusMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.6 });
-const nucleus = new THREE.Mesh(nucleusGeo, nucleusMat);
-scene.add(nucleus);
+// Group pre-tilted so viewer immediately sees 3D depth
+group = new THREE.Group();
+group.rotation.x = 0.4;
+group.rotation.y = 0.6;
+scene.add(group);
 
 // ── real spherical harmonics ─────────────────────────────────
 // Returns Y_L^m(theta, phi) — the real forms
@@ -496,16 +524,18 @@ function buildOrbitalMesh(L, m, color, scale=1.0, res=48, opacity=1.0, wireframe
   geo.setAttribute('color',    new THREE.Float32BufferAttribute(vColors, 3));
   geo.computeVertexNormals();
 
+  const baseCol = new THREE.Color(color);
   const mat = wireframe
     ? new THREE.MeshBasicMaterial({ color, wireframe:true, transparent:true, opacity: opacity*0.3 })
     : new THREE.MeshPhongMaterial({
         vertexColors: true,
-        shininess: 80,
+        emissive: baseCol.clone().multiplyScalar(0.18),
+        shininess: 140,
         transparent: true,
         opacity,
         side: THREE.DoubleSide,
         blending: THREE.NormalBlending,
-        depthWrite: opacity > 0.9
+        depthWrite: opacity > 0.75
       });
   return new THREE.Mesh(geo, mat);
 }
@@ -520,78 +550,64 @@ const HID = 0xf59e0b;
 
 // Each shell: array of { L, m, color, pos:[x,y,z], scale, opacity }
 function shellData(shell) {
-  const s = 1.35; // orbital display scale
-  const hs = 0.7; // hidden state scale
+  const s = 0.9;  // observable orbital scale
+  const hs = 0.5; // hidden state scale
 
   if (shell===0) {
-    // s: just the 1 observable s-orbital (sphere)
     return [
-      { L:0, m:0, color:OBS, pos:[0,0,0], scale:s, opacity:0.82 }
+      { L:0, m:0, color:OBS, pos:[0,0,0], scale:1.1, opacity:0.72 }
     ];
   }
 
   if (shell===1) {
-    // p: 3 observable (p_x, p_y, p_z) + 1 hidden (j=0 sphere, from {z4})
-    const sp = 2.0;
+    const sp = 1.6;
     return [
-      { L:1, m: 1, color:OBS, pos:[-sp,  0, 0], scale:s, opacity:0.82 },
-      { L:1, m: 0, color:OBS, pos:[ 0,  sp, 0], scale:s, opacity:0.82 },
-      { L:1, m:-1, color:OBS, pos:[ 0,   0, sp], scale:s, opacity:0.82 },
-      // hidden: j=0 (s-like sphere) from {z4}
-      { L:0, m:0,  color:HID, pos:[ sp,  0, 0], scale:hs*0.8, opacity:0.55 },
+      { L:1, m: 1, color:OBS, pos:[-sp,  0,  0], scale:s, opacity:0.72 },
+      { L:1, m: 0, color:OBS, pos:[ 0,  sp,  0], scale:s, opacity:0.72 },
+      { L:1, m:-1, color:OBS, pos:[ 0,   0, sp], scale:s, opacity:0.72 },
+      { L:0, m: 0, color:HID, pos:[ sp,  0,  0], scale:hs*0.9, opacity:0.48 },
     ];
   }
 
   if (shell===2) {
-    // d: 5 observable d-orbitals + 5 hidden (3 p-like from {z1z4,z2z4,z3z4} + 2 s-like)
-    const dp = 2.4;
-    const hp = 2.4;
+    const dp = 1.9;
     return [
-      { L:2, m: 0, color:OBS, pos:[  0,  dp,  0], scale:s, opacity:0.82 },
-      { L:2, m: 1, color:OBS, pos:[ dp,   0,  0], scale:s, opacity:0.82 },
-      { L:2, m:-1, color:OBS, pos:[  0,   0, dp], scale:s, opacity:0.82 },
-      { L:2, m: 2, color:OBS, pos:[-dp,   0,  0], scale:s, opacity:0.82 },
-      { L:2, m:-2, color:OBS, pos:[  0,  -dp, 0], scale:s, opacity:0.82 },
-      // hidden: 3 p-like from {z1z4, z2z4, z3z4} — use j=1 shapes
-      { L:1, m: 1, color:HID, pos:[ hp,  hp,  0], scale:hs, opacity:0.5 },
-      { L:1, m: 0, color:HID, pos:[-hp,  hp,  0], scale:hs, opacity:0.5 },
-      { L:1, m:-1, color:HID, pos:[  0,  hp, hp], scale:hs, opacity:0.5 },
-      // hidden: 2 s-like from {z4^2} and {trace}
-      { L:0, m: 0, color:HID, pos:[ hp, -hp,  0], scale:hs*0.75, opacity:0.45 },
-      { L:0, m: 0, color:HID, pos:[  0, -hp, hp], scale:hs*0.75, opacity:0.45 },
+      { L:2, m: 0, color:OBS, pos:[  0,  dp,  0], scale:s, opacity:0.72 },
+      { L:2, m: 1, color:OBS, pos:[ dp,   0,  0], scale:s, opacity:0.72 },
+      { L:2, m:-1, color:OBS, pos:[  0,   0, dp], scale:s, opacity:0.72 },
+      { L:2, m: 2, color:OBS, pos:[-dp,   0,  0], scale:s, opacity:0.72 },
+      { L:2, m:-2, color:OBS, pos:[  0, -dp,  0], scale:s, opacity:0.72 },
+      { L:1, m: 1, color:HID, pos:[ dp,  dp,  0], scale:hs, opacity:0.42 },
+      { L:1, m: 0, color:HID, pos:[-dp,  dp,  0], scale:hs, opacity:0.42 },
+      { L:1, m:-1, color:HID, pos:[  0,  dp, dp], scale:hs, opacity:0.42 },
+      { L:0, m: 0, color:HID, pos:[ dp, -dp,  0], scale:hs*0.8, opacity:0.38 },
+      { L:0, m: 0, color:HID, pos:[  0, -dp, dp], scale:hs*0.8, opacity:0.38 },
     ];
   }
 
   if (shell===3) {
-    // f: 7 observable f-orbitals + 13 hidden
-    // observable: 7 f-orbitals
-    // hidden: from decomposition — 3 p-like (j=1 from 10), 5 d-like (j=2 from 6), 1 s-like (j=0 from 6), 3 p-like (from 3), 1 s-like (from 1)
-    const fp = 2.5;
-    const hp = 2.5;
+    const fp = 2.0;
     return [
-      { L:3, m: 0, color:OBS, pos:[  0,  fp,  0], scale:s, opacity:0.82 },
-      { L:3, m: 1, color:OBS, pos:[ fp,  fp,  0], scale:s*0.9, opacity:0.82 },
-      { L:3, m:-1, color:OBS, pos:[-fp,  fp,  0], scale:s*0.9, opacity:0.82 },
-      { L:3, m: 2, color:OBS, pos:[ fp,   0,  0], scale:s*0.85, opacity:0.82 },
-      { L:3, m:-2, color:OBS, pos:[-fp,   0,  0], scale:s*0.85, opacity:0.82 },
-      { L:3, m: 3, color:OBS, pos:[ fp, -fp,  0], scale:s*0.8, opacity:0.82 },
-      { L:3, m:-3, color:OBS, pos:[-fp, -fp,  0], scale:s*0.8, opacity:0.82 },
-      // hidden: 5 d-like (j=2 from SU(3) 6-rep)
-      { L:2, m: 0, color:HID, pos:[  0,  hp, hp], scale:hs, opacity:0.48 },
-      { L:2, m: 1, color:HID, pos:[ hp,  0,  hp], scale:hs, opacity:0.48 },
-      { L:2, m:-1, color:HID, pos:[-hp,  0,  hp], scale:hs, opacity:0.48 },
-      { L:2, m: 2, color:HID, pos:[  0, -hp, hp], scale:hs, opacity:0.48 },
-      { L:2, m:-2, color:HID, pos:[ hp, -hp,  0], scale:hs, opacity:0.48 },
-      // hidden: 3+3 p-like (j=1)
-      { L:1, m: 1, color:HID, pos:[ hp,  hp, hp], scale:hs*0.8, opacity:0.42 },
-      { L:1, m: 0, color:HID, pos:[-hp,  hp, hp], scale:hs*0.8, opacity:0.42 },
-      { L:1, m:-1, color:HID, pos:[  0, -hp,-hp], scale:hs*0.8, opacity:0.42 },
-      { L:1, m: 1, color:HID, pos:[ hp, -hp,-hp], scale:hs*0.8, opacity:0.42 },
-      { L:1, m: 0, color:HID, pos:[-hp, -hp, hp], scale:hs*0.8, opacity:0.42 },
-      { L:1, m:-1, color:HID, pos:[  0,  hp,-hp], scale:hs*0.8, opacity:0.42 },
-      // hidden: 2 s-like
-      { L:0, m:0, color:HID, pos:[ hp,  0, -hp], scale:hs*0.65, opacity:0.38 },
-      { L:0, m:0, color:HID, pos:[-hp,  0, -hp], scale:hs*0.65, opacity:0.38 },
+      { L:3, m: 0, color:OBS, pos:[  0,  fp,  0], scale:s,      opacity:0.72 },
+      { L:3, m: 1, color:OBS, pos:[ fp,  fp,  0], scale:s*0.85, opacity:0.72 },
+      { L:3, m:-1, color:OBS, pos:[-fp,  fp,  0], scale:s*0.85, opacity:0.72 },
+      { L:3, m: 2, color:OBS, pos:[ fp,   0,  0], scale:s*0.8,  opacity:0.72 },
+      { L:3, m:-2, color:OBS, pos:[-fp,   0,  0], scale:s*0.8,  opacity:0.72 },
+      { L:3, m: 3, color:OBS, pos:[ fp, -fp,  0], scale:s*0.75, opacity:0.72 },
+      { L:3, m:-3, color:OBS, pos:[-fp, -fp,  0], scale:s*0.75, opacity:0.72 },
+      { L:2, m: 0, color:HID, pos:[  0,  fp, fp], scale:hs,      opacity:0.38 },
+      { L:2, m: 1, color:HID, pos:[ fp,  0,  fp], scale:hs,      opacity:0.38 },
+      { L:2, m:-1, color:HID, pos:[-fp,  0,  fp], scale:hs,      opacity:0.38 },
+      { L:2, m: 2, color:HID, pos:[  0, -fp, fp], scale:hs,      opacity:0.38 },
+      { L:2, m:-2, color:HID, pos:[ fp, -fp,  0], scale:hs,      opacity:0.38 },
+      { L:1, m: 1, color:HID, pos:[ fp,  fp, fp], scale:hs*0.75, opacity:0.32 },
+      { L:1, m: 0, color:HID, pos:[-fp,  fp, fp], scale:hs*0.75, opacity:0.32 },
+      { L:1, m:-1, color:HID, pos:[  0, -fp,-fp], scale:hs*0.75, opacity:0.32 },
+      { L:1, m: 1, color:HID, pos:[ fp, -fp,-fp], scale:hs*0.75, opacity:0.32 },
+      { L:1, m: 0, color:HID, pos:[-fp, -fp, fp], scale:hs*0.75, opacity:0.32 },
+      { L:1, m:-1, color:HID, pos:[  0,  fp,-fp], scale:hs*0.75, opacity:0.32 },
+      { L:0, m: 0, color:HID, pos:[ fp,  0, -fp], scale:hs*0.6,  opacity:0.28 },
+      { L:0, m: 0, color:HID, pos:[-fp,  0, -fp], scale:hs*0.6,  opacity:0.28 },
     ];
   }
 }
@@ -635,7 +651,7 @@ function buildShell(L) {
   // Compute bounding sphere to set camera distance
   const box = new THREE.Box3().setFromObject(group);
   const size = box.getSize(new THREE.Vector3()).length();
-  targetCamDist = Math.max(4.5, size * 0.78);
+  targetCamDist = Math.max(5, Math.min(14, size * 0.62));
 
   // Update buttons
   for (let i=0;i<4;i++) {
@@ -645,67 +661,62 @@ function buildShell(L) {
   currentShell = L;
 }
 
-// ── drag rotation ────────────────────────────────────────────
-let isDragging = false, lastX=0, lastY=0;
-const panelEl = panel;
-panelEl.addEventListener('pointerdown', e => { isDragging=true; lastX=e.clientX; lastY=e.clientY; panelEl.setPointerCapture(e.pointerId); });
-panelEl.addEventListener('pointermove', e => {
+// ── drag / wheel (use module-level vars) ─────────────────────
+panel.addEventListener('pointerdown', e => { isDragging=true; lastX=e.clientX; lastY=e.clientY; panel.setPointerCapture(e.pointerId); });
+panel.addEventListener('pointermove', e => {
   if (!isDragging) return;
-  const dx = e.clientX - lastX, dy = e.clientY - lastY;
-  group.rotation.y += dx * 0.007;
-  group.rotation.x += dy * 0.007;
+  group.rotation.y += (e.clientX - lastX) * 0.007;
+  group.rotation.x += (e.clientY - lastY) * 0.007;
   lastX=e.clientX; lastY=e.clientY;
 });
-panelEl.addEventListener('pointerup', () => isDragging=false);
-panelEl.addEventListener('wheel', e => {
+panel.addEventListener('pointerup', () => isDragging=false);
+panel.addEventListener('wheel', e => {
   e.preventDefault();
-  targetCamDist *= 1 + e.deltaY * 0.001;
-  targetCamDist = Math.max(2, Math.min(20, targetCamDist));
+  targetCamDist = Math.max(2, Math.min(20, targetCamDist * (1 + e.deltaY * 0.001)));
 }, { passive:false });
 
-let targetCamDist = 4.5;
-let actualCamDist = 4.5;
+// ── resize ───────────────────────────────────────────────────
+function onResize() {
+  const nw = panel.clientWidth, nh = panel.clientHeight;
+  if (!nw || !nh) return;
+  camera.aspect = nw / nh;
+  camera.updateProjectionMatrix();
+  renderer.setSize(nw, nh);
+  composer.setSize(nw, nh);
+}
+window.addEventListener('resize', onResize);
+new ResizeObserver(onResize).observe(panel);
 
 // ── animate ──────────────────────────────────────────────────
-let t = 0;
 function animate() {
   requestAnimationFrame(animate);
   t += 0.016;
 
   if (!isDragging) {
-    group.rotation.y += 0.003;
-    group.rotation.x += 0.0008;
+    group.rotation.y += 0.008; // ~8 second full rotation — clearly dynamic
   }
+
+  // Lights orbit — fast enough to see the 3D relief change
+  pLight1.position.x = 4 * Math.cos(t * 0.6);
+  pLight1.position.z = 4 * Math.sin(t * 0.6);
+  pLight2.position.x = -4 * Math.cos(t * 0.45);
+  pLight2.position.y =  3 * Math.sin(t * 0.5);
 
   actualCamDist += (targetCamDist - actualCamDist) * 0.08;
   camera.position.set(0, 0, actualCamDist);
   camera.lookAt(0, 0, 0);
 
-  pLight1.position.x = 4 * Math.cos(t * 0.25);
-  pLight1.position.z = 4 * Math.sin(t * 0.25);
-  pLight2.position.x = -4 * Math.cos(t * 0.18);
-  pLight2.position.y =  3 * Math.sin(t * 0.22);
-
   composer.render();
 }
 
-// ── resize ───────────────────────────────────────────────────
-function onResize() {
-  const w = W(), h = H();
-  camera.aspect = w / h;
-  camera.updateProjectionMatrix();
-  renderer.setSize(w, h);
-  composer.setSize(w, h);
-}
-window.addEventListener('resize', onResize);
-new ResizeObserver(onResize).observe(panel);
-
 // ── kick off ─────────────────────────────────────────────────
+// Now buildShell is in scope — wire up the button handler for real
+window.setShell = function(L) { _pendingShell = L; buildShell(L); };
 buildShell(_pendingShell);
 _ready = true;
 animate();
 
-}); // end window load
+} // end init()
 </script>
 </body>
 </html>

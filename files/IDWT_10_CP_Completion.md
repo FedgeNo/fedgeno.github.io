@@ -70,7 +70,7 @@ $$\delta D_{CP^n} = v_5 v_{d'} \sin\theta_{13} \cdot \Pi_n$$
 
 where v_{d'} = v_{10} for the d=10 perturbation and v_{d'} = v_6 for the d=6 perturbation, Π_n is the projection onto the n_τ (or n_μ) mode in sector d', entering through the ℓ=0 kernel component (coefficient 1/d from T2). This is a rank-1 perturbation.
 
-For a rank-1 perturbation of a Dirac operator on CP^n, the spectral flow is determined by the index of the unperturbed operator twisted by the line bundle of the perturbation. The perturbation Π_n is a section of the line bundle O(n-1) on CP^n (since the mode χ_{n,d} is a degree-(n-1) section of the tautological bundle). By the Atiyah-Singer index theorem for the twisted operator:
+For a rank-1 perturbation of a Dirac operator on CP^n, the spectral flow is determined by the index of the unperturbed operator twisted by the line bundle of the perturbation. The perturbation Π_n is a section of the line bundle O(n-1) on CP^n (since the mode χ_{n,d} is a degree-(n-1) section of the tautological bundle). **Open (🔶):** the identification of Π_n as a section of O(n-1) relies on the assertion that χ_{n,d} is a degree-(n-1) holomorphic section; the explicit mode-bundle correspondence, representation map, and basis construction from the IDWT mode functions have not been worked out. The following index calculation assumes this identification. By the Atiyah-Singer index theorem for the twisted operator:
 
 $$\mathrm{ind}(D_{CP^n} \otimes \mathcal{O}(n-1)) = \chi(CP^n, \mathcal{O}(n-1)) = \binom{n-1+n}{n} = \binom{2n-1}{n}$$
 
@@ -224,6 +224,8 @@ $$\boxed{\delta_{CP} = \pi + (N_c - 1)\,\theta_{13} = \pi + 2\theta_{13}}$$
 
 where θ₁₃ is the reactor angle, N_c = χ(CP²) = 3 is the number of quark colors, and the formula holds to leading order in θ₁₃ in the APS spectral flow of the one-parameter family D_{CP^n}(θ₁₃).
 
+**Basis-dependence note.** The derivation uses the PDG standard parameterization with phase convention e^{-iδ} in U_{e3}, the μ–τ reflection symmetry as the zero-phase reference, and the specific orientation ∂U_{e3}^{(real)}/∂θ₁₃ < 0 from the inclusion-exclusion sign of n_{ν₃}. These choices select one of the two physically equivalent phase branches (δ and 2π−δ). The IDWT prediction δ = π + 2θ₁₃ is structural in the sense that the combination π + 2θ₁₃ arises from Δc₁ = −2 and the μ–τ limit boundary; however, the overall sign of the 2θ₁₃ shift (which branch) depends on the sign convention for the perturbation in §2. A basis-independent statement: |δ − π| = 2|θ₁₃|; the prediction is which branch IDWT selects.
+
 **Proof summary.** The CP phase is the argument of the PMNS matrix element U_{e3} = sin θ₁₃ e^{-iδ}. It has two contributions:
 
 *(i) Boundary condition at μ–τ limit.* At θ₁₃ = 0, U_{e3} = 0. As θ₁₃ → 0⁺, the T6 coupling matrix gives ∂U_{e3}^{(real)}/∂θ₁₃ < 0 from the inclusion-exclusion sign of n_{ν₃} (§2). This places δ = π at the μ–τ limit boundary.
@@ -248,7 +250,7 @@ $$J_{\mathrm{PMNS}} = J_{\mathrm{max}} \times \sin\delta_{CP} = 0.033351 \times 
 | sin δ_CP | **−0.2942** | ≈ −0.292 | +0.7% |
 | J_PMNS | **−0.009813** | ≈ −0.0098 | +0.1% |
 
-**Status:** T8 remains 🔶. The formula δ_CP = π + 2θ₁₃ = 197.11° is a concrete, testable prediction with strong topological motivation (Δc₁ = −2, δ_{μ–τ limit} = π). Three technical gaps prevent elevation to 🔵: (i) the spectral flow coefficient c₁(CP^n) per π needs a rigorous derivation from the IDWT rank-1 perturbation rather than the Weyl-density heuristic (§1.3); (ii) the sign ∂U_{e3}/∂θ_{13}|_{0^+} < 0 is asserted from the inclusion-exclusion structure of n_{ν₃} but not explicitly computed from the T6 coupling matrix (§2); (iii) the equivalence between spectral flow along the θ₁₃ path and the Part 9 spectral-phase coupling-space integral has not been proved formally. Closing these would move T8 to 🔵.
+**Status:** T8 remains 🔶. The formula δ_CP = π + 2θ₁₃ = 197.11° is a concrete, testable prediction with strong topological motivation (Δc₁ = −2, δ_{μ–τ limit} = π). Three content gaps prevent elevation to 🔵: (i) the spectral flow coefficient c₁(CP^n) per π needs a rigorous derivation from the IDWT rank-1 perturbation rather than the Weyl-density heuristic (§1.3); (ii) the sign ∂U_{e3}/∂θ_{13}|_{0^+} < 0 is asserted from the inclusion-exclusion structure of n_{ν₃} but not explicitly computed from the T6 coupling matrix (§2); (iii) the equivalence between spectral flow along the θ₁₃ path and the Part 9 spectral-phase coupling-space integral has not been proved formally. Four additional rigorous-mathematics gaps also remain: (iv) Fredholm continuity of the one-parameter operator family D_{CP^n}(θ₁₃) is not proved; (v) the spectral-flow definition used is heuristic (eigenvalue counting) rather than the rigorous APS definition (η function regularization); (vi) the family index construction (determinant line bundle with connection) is not formalized; (vii) regularity conditions on the mode functions and domain under the θ₁₃ perturbation are not verified. Closing (i)–(iii) would move T8 to 🔵; (iv)–(vii) are needed for a ✅ proof.
 
 ---
 
@@ -265,9 +267,9 @@ The following table consolidates the full theorem status after the T8 completion
 | T3 | D = {2,3,4,5,6,10} from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |
 | T4 | n_s = 4 from double degeneracy 4/7 | ✅ | Exact | Unique seed; all indices follow |
 | T5 | d=10 = Gegenbauer critical endpoint | ✅ | b=1/2 exact | Chain terminates; τ is critical |
-| T6 | All three PMNS angles | 🔵 | ≤0.51% | No free parameters in lepton mixing |
+| T6 | All three PMNS angles | 🔵 | ≤0.51% | Determined by g₅₅, m_scale_5, and mode indices |
 | T7 | √Tr(D²) ≈ (√2 G_F)^{-1/2} | 🔵 | +0.85% | EW scale self-consistency |
-| **T8** | **δ_CP = π + 2θ₁₃; J = −0.00981** | **🔶** | **+0.05°, +0.1%** | **Full PMNS sector: no free parameters** |
+| **T8** | **δ_CP = π + 2θ₁₃; J = −0.00981** | **🔶** | **+0.05°, +0.1%** | **Determined by spectral flow Δc₁ mismatch** |
 | T9a–d | All 6 coupling constants derived | ✅ | Exact | No free coupling parameters |
 | T10a | GTC ε = 1/(280√7) | ✅ | <0.1% | Fine structure of quark masses |
 | T10b | Geometric back-reaction correction +1/1680 for τ | ✅ | 0.001% | Critical-sector regularisation |
@@ -333,7 +335,7 @@ The CP-violating phase in the lepton sector is N_c − 1 reactor angles above π
 | J_PMNS | **−0.009813** | DUNE + Hyper-K | ~2030 | J > −0.007 or J < −0.013 falsifies |
 | δ-θ₁₃ correlation: δ = 180°+2θ₁₃ | tested as both improve | NOvA+T2K+DUNE | Running–2030 | Violation by >5° at fixed θ₁₃ falsifies |
 | Inverted ordering excluded | NH only | JUNO | ~2027 | IH detection falsifies entire IDWT lepton sector |
-| 0νββ rate | **exactly 0** | KamLAND-Zen, nEXO | Running–2028 | Any signal at any sensitivity falsifies |
+| 0νββ rate | **0 at all orders**¹ | KamLAND-Zen, nEXO | Running–2028 | Any signal at any sensitivity falsifies |
 
 ### 7.2 The θ₁₃-δ Correlation Table
 
@@ -347,7 +349,9 @@ Since δ = π + 2θ₁₃ and both are determined by the same sector structure, 
 | 0.0222 | 8.57° | 197.14° |
 | 0.0225 | 8.63° | 197.26° |
 
-If future experiments find the (θ₁₃, δ) values to be decorrelated — i.e., δ tracks a different line in this plane — T8 is falsified. This is a one-parameter prediction curve in the experimental (θ₁₃, δ) plane with no adjustable parameter.
+If future experiments find the (θ₁₃, δ) values to be decorrelated — i.e., δ tracks a different line in this plane — T8 is falsified. This is a one-parameter prediction curve in the experimental (θ₁₃, δ) plane, determined entirely by the spectral flow of the Dirac operator across the CP³→CP⁵ mismatch.
+
+¹ 0νββ is forbidden at all orders: no charge-conjugation matrix C exists on the S⁵ spinor bundle (d mod 8 = 5), so cross-sector couplings cannot construct ψ^T C ψ at any loop order.
 
 ---
 

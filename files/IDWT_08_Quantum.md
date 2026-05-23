@@ -41,7 +41,7 @@ The Clifford algebra Cl(d) has periodicity 8 (mod 8 periodicity class). The peri
 
 | d | d mod 8 | Weyl | Majorana | Maj-Weyl | Dim | Physical consequence |
 |---|---------|------|----------|----------|-----|---------------------|
-| 2 | 2 | ✓ | ✓ | ✓ | 2 | Photon chirality; W± gauge bosons |
+| 2 | 2 | ✓ | ✓ | ✓ | 2 | Photon helicity; W± gauge bosons |
 | 3 | 3 | ✗ | ✓ | ✗ | 2 | Majorana: quark↔antiquark self-conjugacy under QCD |
 | 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
 | **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no Majorana mass → neutrinos are Dirac** |
@@ -507,9 +507,9 @@ Physical meaning: physical states remain physical under time evolution.
 
 ## 10. Baryon Magnetic Moments and Axial Coupling 🔶
 
-All three nucleon static properties follow from the same kernel that produces confinement, vector mesons, and mass scales — no additional inputs.
+The same kernel that produces confinement, vector mesons, and mass scales provides the structural mechanism for nucleon static properties. Two parameters (g_{3,4}^eff and f_overlap) are estimated rather than derived from kernel matrix elements; see status note below.
 
-The proton/neutron wavefunction in sector space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes sector orbital angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (renormalized from g_{3,4} = 4√6 ≈ 9.80) with centrifugal overlap factor f_overlap = 0.72.
+The proton/neutron wavefunction in sector space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes sector orbital angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (estimated; kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement factor ~12.8× is not yet derived from kernel matrix elements) with centrifugal overlap factor f_overlap = 0.72 (not computed from first principles).
 
 **Proton magnetic moment:**
 ```
@@ -530,7 +530,7 @@ The ratio of successive d=3 mode counts at the seed level gives the IDWT predict
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
 
-**Status note:** g_{3,4}^eff = 125 is the renormalized effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The running from the kernel scale (~800 MeV) to the nucleon scale is the free element in this estimate; f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry. These are physically motivated but the precise values rely on the kernel matrix element calculation that remains open.
+**Status note (🔶):** g_{3,4}^eff = 125 is an estimated effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The enhancement factor has not been derived from kernel matrix elements; it is not the result of RG running (IDWT does not use renormalization group methods). f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry, also not computed from first principles. With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; the derivation of both from the kernel is an open item.
 
 ---
 

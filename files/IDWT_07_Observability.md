@@ -8,9 +8,9 @@
 
 ---
 
-## 1. All Modes Exist — Two-Stage Observability
+## 1. Candidate Resonances — Two-Stage Observability
 
-Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
+The framework treats every integer pair (n,d) with d ∈ {2,3,4,5,6,10} as a candidate resonance of Ψ∞ on M_∞. Observable particles are those passing **two successive filters**:
 
 - **Stage 1 (Dimensional Visibility):** Enough of the mode's vibrational activity must be in our d=3 dimensions. Modes with high dimensional depth Ω_log(n,d) = ln(S(n,d)/S(n,2)) have most of their activity in the d>3 sector coordinates and are observationally obscured by exp(−Ω_log).
 - **Stage 2 (Co-fixed-point):** The mode index n must be a co-fixed-point of the sector comb filtration from n_s=4. Modes that are not co-fixed-points are not stable resonances of M_∞. This condition is purely algebraic and applies uniformly across all sectors.

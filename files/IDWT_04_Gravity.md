@@ -278,7 +278,7 @@ Substituting into λ_d = g_{dd} ⟨r'²⟩_d / d:
 → λ_d = (g_{dd}/2)^{2/3}
 ```
 
-This is the self-consistency condition: the sector potential depth is determined by the sector self-coupling constant alone. No free parameters remain.
+This is the self-consistency condition: the sector potential depth is determined by the sector self-coupling constant alone, which is itself determined by the Euler characteristic and seed structure.
 
 ### 3.10.4 Results for All Sectors
 
@@ -455,6 +455,8 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 ---
 
 ### 3.12.4 G_∞ Numerically and the Spectral Action Closure Condition
+
+**Note on the spectral action formalism.** The Connes-Marcolli spectral action Tr(f(D/Λ)) is used here as a mathematical tool to connect the IDWT Dirac operator to the Einstein-Hilbert term. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense — the operator algebra, Hilbert space, and spectral triple structure of IDWT are distinct from the NCG Standard Model. The spectral action provides a convenient expression for how the gravitational coefficient G_∞ relates to the spectrum of D; the mechanism producing that spectrum (sector geometry, mode index selection, kernel coupling) is entirely native to IDWT.
 
 **The numerical value of G_∞.** The relation G_N = G_∞/V_7 immediately gives G_∞ once G_N and V_7 are known. Using the measured Newton's constant G_N = 6.674 × 10^{−11} m³ kg^{−1} s^{−2} and V_7 = 112.8 (fully derived in §3.12.2):
 

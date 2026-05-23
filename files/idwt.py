@@ -806,8 +806,10 @@ J_at195 = J_max * math.sin(195 * math.pi / 180)   # at PDG best-fit δ_CP ≈ 19
 m_mu_m    = m_scale6  * S(n_mu,  6)
 m_tau_m   = m_scale10 * S(n_tau, 10) * back_reaction_factor
 
-# One-loop α_s at m_τ from IDWT Λ_QCD: α_s(m_τ) = 2π / [b₀ ln(m_τ/Λ_QCD)]
-# b₀ = (11N_c - 2N_f)/3 with N_f = 3 light flavours (d, u, s; charm is above m_τ).
+# [QCD-imported] One-loop α_s at m_τ from IDWT Λ_QCD: α_s(m_τ) = 2π / [b₀ ln(m_τ/Λ_QCD)]
+# b₀ = (11N_c - 2N_f)/3: QCD one-loop β-function coefficient; N_f = 3 light flavours.
+# This NLO correction is a cross-framework consistency check — the LO result (N_c = 3) is
+# the IDWT-native result; the α_s term uses the imported SM/QCD running-coupling formula.
 _b0_tau      = (11*N_c - 2*3) // 3                              # = 9
 _alpha_s_tau = 2*math.pi / (_b0_tau * math.log(m_tau_m / Lqcd))
 _R_had       = N_c * (1 + _alpha_s_tau / math.pi)               # hadronic enhancement

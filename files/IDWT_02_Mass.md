@@ -184,7 +184,7 @@ n_top   = S(n_e,2) − n_c + 1 = 91 − 20 + 1 = 72   [eigenmode selection chain
 n_W     = g(d_ν, n_top) = d_ν + n_top − 1 = 5 + 72 − 1 = 76   [g-rule: neutrino sector dim + top mode − 1; see Part 3 §11]
           [note: d_ν − 1 = 4 = n_s numerically, but the structural source is the neutrino sector dimension, not the seed]
 n_Z     = g(d_ℓ, n_W) = d_ℓ + n_W − 1 = 6 + 76 − 1 = 81       [g-rule: lepton sector dim + W mode − 1; = n_W + q, q = d_ℓ−1 = S(n_u−1,4) = 5]
-n_Higgs = n_u   + n_charm  + n_top = 95  [= 3+20+72; also = n_down+n_e+n_Z = 1+13+81]
+n_Higgs = n_u   + n_charm  + n_top = 95  [🔶 empirical closure relation: = 3+20+72; also = n_down+n_e+n_Z = 1+13+81; dynamical derivation of why scalar excitation indices add this way is open]
 ```
 
 The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the eigenmode selection rule must hold exactly.** The hockey-stick identity leaves no room for them to fail.
@@ -341,7 +341,7 @@ g₅₅ = 0.1329,   v₅ = 0.3645
 
 **Key consequence:** g₅₅ is fully determined by g₂₂ — no additional measurement is needed. The coupling algebra is closed by the single measured constant m_e: all six sector self-couplings are derived (g₃₃ and g₄₄ from seeds, g₆₆ and g₁₀,₁₀ from CP³ complex geometry, g₅₅ = 96/g₂₂ from Hopf universality, g₂₂ from the cross-sector mode formula §10).
 
-**Neutrino mass scale (derived, §9c):** The d=5 scale is set by the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ = 7.429×10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. No suppression mechanism is needed; the small scale arises geometrically from the Hopf fibration S¹→S⁵→CP². The d=5 sector admits only Dirac spinors (d mod 8 = 5 forbids Majorana), so 0νββ is exactly zero.
+**Neutrino mass scale (derived, §9c):** The d=5 scale is set by the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ = 7.429×10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. No suppression mechanism is needed; the small scale arises geometrically from the Hopf fibration S¹→S⁵→CP². The d=5 sector admits only Dirac spinors (d mod 8 = 5 forbids Majorana), so 0νββ is forbidden at all orders: no charge-conjugation matrix C exists on the S⁵ spinor bundle, so cross-sector couplings cannot construct ψ^T C ψ at any loop order.
 
 ---
 
@@ -597,7 +597,9 @@ m_scale_10 = m_scale_6                                 [g₁₀,₁₀ = g₆₆
 m_scale_2  = m_e √(g₂₂/g₆₆)                           = 27.47 MeV           [derived from seeds via g₂₂]
 ```
 
-### 10b. g₂₂ — the kernel back-reaction fixed-point
+### 10b. g₂₂ — the kernel back-reaction fixed-point 🔶
+
+**Status: 🔶 Structurally motivated.** The combinatorial fixed-point condition below produces g₂₂ = 722.5 with impressive numerical success. The open item is an operator-level derivation: what operator trace over the kernel produces the formula g₂₂ = p²q/2 exactly, rather than approximately or by counting ansatz? Until that trace is computed, g₂₂ is structurally motivated rather than rigorously derived.
 
 The d=3 self-coupling g₃₃ is fixed by the intra-sector confinement condition g_eff(n_s,3) = g₃₃/S(n_s,3) ≈ 1 (Part 2 §8). The d=2 sector has no self-confinement — the W is massive but not confined in the quark sense. Its self-coupling g₂₂ is instead fixed by the **cross-sector back-reaction**: the requirement that the d=2 vacuum amplitude is consistent with the d=3 and d=4 quark sector structures at the seed level.
 

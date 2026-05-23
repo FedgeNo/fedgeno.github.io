@@ -8,7 +8,7 @@ What follows is an honest list of what the framework has not yet derived, with p
 
 A systematic review of the labelled "open items" against PDG experimental uncertainties shows:
 
-**Reclassified as consistent with experiment:**
+**Now consistent with experiment after revised derivation:**
 - **Light-quark mass offsets (+0.68% d=3, +0.77% d=4):** All predictions within PDG 1σ uncertainties. The d quark (0.07σ), s quark (0.07σ), u quark (0.03σ), c quark (0.48σ), t quark (1.72σ), b quark (0.10σ) are all consistent with measurement. These are predictions that agree with experiment, not scheme-conversion residuals.
 - **Λ_QCD "−9%":** IDWT defines Λ_IDWT = 3f_π = 282 MeV. The PDG "300–340 MeV" is a hadronic-scheme empirical range. IDWT's value matches 3f_π(PDG) = 276 MeV within +2.2% and m_ρ/2.74 = 283 MeV within −0.3%. The comparison label "−9%" was to an ill-defined target.
 
@@ -36,10 +36,10 @@ The IDWT geometric dilution function gives g_eff(n) = g₃₃/S(n,3), with confi
 
 f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1%)
 
-The pion decay constant is the mass at the seed level — the seed is the confinement mode. Λ_QCD = N_c × f_π = 3 × 94.04 = 282 MeV, matching 3×f_π(PDG) = 276 MeV within +2.1% — this relation uses N_c = 3 from χ(CP²). The proton mass via large-N_c QCD scaling (placeholder, native derivation from kernel binding energy pending — Part 8 §11): m_p = N_c × Λ_QCD × (1 + 1/n_up²) = 3 × 282.1 × (10/9) = 940.4 MeV (PDG: 938.3, +0.22%). Both use N_c = 3 from the CP² Dirac index.
+The pion decay constant is the mass at the seed level — the seed is the confinement mode. Λ_QCD = N_c × f_π = 3 × 94.04 = 282 MeV, matching 3×f_π(PDG) = 276 MeV within +2.1% — this relation uses N_c = 3 from χ(CP²). **🔶 Proton mass phenomenological scaling ansatz** (temporary estimate — native derivation from kernel binding energy pending — Part 8 §11): m_p = N_c × Λ_QCD × (1 + 1/n_up²) = 3 × 282.1 × (10/9) = 940.4 MeV (PDG: 938.3, +0.22%). This is a large-N_c QCD scaling law with IDWT-derived inputs; it is not a prediction from the IDWT kernel and should be replaced when the kernel binding energy calculation is complete.
 
 **Full CKM matrix and CP violation**
-The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase) and the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed). Note: V_ud = √(1−sin²θ_C) = 0.97447 is not a separate prediction but the unitarity complement of sin θ_C. The apparent 5.5σ gap against the nuclear beta-decay value (0.97370 ± 0.00014) is the Cabibbo Angle Anomaly — a pre-existing ~3σ unitarity deficit between the independently measured PDG values of |V_ud| and |V_us|. IDWT enforces exact unitarity; √(1−|V_us|²_PDG) = 0.97447 matches IDWT exactly. The tension is internal to the PDG measurements, not a failure of IDWT.
+The Cabibbo angle is derived including curvature correction: sin θ_C = (1 + χ(CP¹)/(24·S(n_s,3)))/√S(n_s,3) = (1+1/240)/√20 = 0.22454 (Part 3 §12), matching PDG |V_us| = 0.22450 ± 0.00044 at +0.09σ. |V_cb| = √(S(n_u,4)/S(n_c,4)) = √(15/8855) = 0.04116 (Part 3 §0.8; PDG exclusive: 0.04100 ± 0.0014, +0.11σ). Wolfenstein A = |V_cb|/sin²θ_C = 0.82315 (PDG: 0.8230 ± 0.0046, +0.03σ). Remaining open: |V_ub| (requires CP phase) and the CP-violating phase δ (requires complex structure in the Vandermonde kernel — not yet constructed). Note: V_ud = √(1−sin²θ_C) = 0.97447 is not a separate prediction but the unitarity complement of sin θ_C. The apparent 5.5σ gap against the nuclear beta-decay value (0.97370 ± 0.00014) is the Cabibbo Angle Anomaly — a pre-existing ~3σ unitarity deficit in the Standard Model itself. IDWT enforces exact CKM unitarity by construction; √(1−|V_us|²_PDG − |V_ub|²_PDG) = 0.97447 matches IDWT exactly. IDWT predicts sin θ_C = 0.22454; the PDG value is 0.22450 ± 0.00044 (+0.09σ agreement). The unitarity gap is between two independently measured PDG quantities, independent of IDWT's predictions.
 
 **Neutrino mass scale**
 The d=5 mass scale follows from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, giving m_scale_5 = 7.429 × 10⁻¹³ MeV. This is the d=5 analog of the g₂₂ back-reaction equation. See Part 2 §9c. Absolute masses: m_ν₁ = 1.487 meV, m_ν₂ = 8.639 meV, m_ν₃ = 50.27 meV (corrected; bare 48.87 meV), Σm_ν = 60.39 meV (bare 59.00 meV; δ_ν₃ = 1/35, Part 2 §9d).
@@ -86,3 +86,43 @@ All masses are m = S(n,d) × m_scale_d with the same mass scales as the correspo
 Open: deriving self-interaction cross-section from sector geometry; checking consistency with Ωdm h² ≈ 0.12.
 
 **g₂, α, G_F — derived.** The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction: g₂ = Q_u √g_s = (2/3)√(2g₄₄/π²) = 0.65275 (PDG: 0.65270, +0.008%). The Fermi constant follows directly from the W propagator at q²≪mW²: G_F = g₂²/(4√2 mW²) = 1.1658×10⁻⁵ GeV⁻² (PDG: 1.1664×10⁻⁵, −0.05%). Both g₂ and mW are independently derived from IDWT — no Higgs VEV enters. The d=2-sector-scale α gives 1/α = 131.8. W total width Γ_W = 2044 MeV (−2%), Z total width Γ_Z = 2444 MeV (−2.0%), muon lifetime τ_μ = 2.190×10⁻⁶ s (−0.3%). See Part 3 §0.7. g₁ = 0.35043 at the d=2 sector scale (from sin²θ_W = 0.22373 and g₂ = 0.65275 via the Weinberg relation). The self-consistent PDG value (from PDG sin²θ_W = 0.22290 and PDG g₂ = 0.65270) is 0.34957; IDWT sits +0.25% above it — exactly the sin²θ_W structural gap propagated. The PDG tabulated g₁ = 0.35740 is in MS-bar at m_Z; the −1.95% gap to that figure is a scheme/scale offset, not a physics discrepancy. IDWT couplings do not run.
+
+---
+
+## Foundational Open Items
+
+The following items are open derivations or missing foundational elements within the IDWT framework. Each is recorded here to give referees a complete picture of what has and has not been established.
+
+**Mode functions χ_{n,d}(ξ) — not yet explicit.** The mass formula m(n,d) = S(n,d) × m_scale_d depends on mode functions that are never written down explicitly in these documents. Open: derive the explicit eigenfunctions of H_d = −Δ_Ξ + V_d(r) on CP^{d/2-1} or S^d with the confining potential V_d(r) = λ_d r²/(1+r²), in a form that permits computation of normalization factors, d=3 projection amplitudes A_rel(n,d), and kernel matrix elements ⟨χ_{n_f,d_f}|K|χ_{n_i,d_i}⟩.
+
+**V_d(r) = λ_d r²/(1+r²) potential form — not derived from the IDWT action.** Part 4 §3.10 derives the r² near-origin behavior from the sector geometry, but the large-r saturation (the (1+r²) denominator) is assumed as an ansatz. Open: derive the potential functional form, including the saturation, from the IDWT kernel action or add to P3 as an explicit postulate.
+
+**Stage-2 co-fixed-point stability — not derived from the equation of motion.** The assertion that non-co-fixed-point modes "decohere on timescale 1/m_scale_d" (Part 7 §1.3) is stated without derivation from the IDWT field equation. Open: derive from the EOM that co-fixed-point modes are stable resonances and non-co-fixed-point modes are unstable. Until derived, Stage-2 remains 🔶.
+
+**Second quantization / Fock space — absent.** Ψ∞ is treated as a classical Dirac spinor field throughout. There is no Fock space, no creation/annihilation operators, no particle number operator, and no normal ordering. Open: either (a) derive a second-quantized formalism from the IDWT action (symmetry currents, canonical quantization), or (b) explain why the classical field picture is physically complete for the purposes of the framework, and acknowledge this as a foundational postulate.
+
+**Time-dependent dynamics — not analyzed.** The framework is entirely static. Part 8 §6 writes a master equation with a time derivative but no time-dependent solution is computed. Open: analyze time evolution of Ψ∞ under H_∞ — at minimum show that static sector modes are stationary solutions, and analyze decay via time-dependent perturbation theory.
+
+**Scattering amplitudes and cross-sections — no native formalism.** All decay rate estimates use SM Fermi EFT with IDWT-derived inputs. No IDWT-native scattering amplitude exists. Open: develop a native IDWT amplitude formalism from kernel transition matrix elements ⟨χ_{n_f,d_f}|K|χ_{n_i,d_i}⟩, and show it reduces to SM Fermi EFT at low energies.
+
+**Geometric dilution as testable energy-dependent prediction.** IDWT predicts g_eff(n,d) = g_dd/S(n,d) — a power-law decrease with mode index n. This is a concrete, potentially testable prediction about how effective coupling strength scales with energy/mode number. Open: derive the relationship between mode index n and energy scale from the sector Hamiltonian eigenvalues, and express g_eff(n,d) as a function of energy for comparison with experiment.
+
+**CKM mixing formula not derived from kernel.** |V_ij|² = S(n_lighter,d)/S(n_heavier,d) is asserted based on combinatorial structure (Part 3 §0.9) without deriving it from the kernel matrix element ⟨χ_{n_i,d}|K_{dd'}|χ_{n_j,d'}⟩. Open: derive the mixing formula from the kernel cross-sector coupling amplitude, or label it 🔶 empirical matching.
+
+**Stability of the 15-particle spectrum — no proof.** The Uniqueness Theorem (Part 1 §3b) shows the spectrum is the unique solution to the co-fixed-point system, but does not show the particles are stable against decay into each other. IDWT has no S-matrix. Open: define a stability condition from the IDWT energy functional E[Ψ], or explain why sector separation by mode index makes inter-sector decay geometrically impossible.
+
+**Error analysis and uncertainty propagation — absent.** All error bars in the prediction table (Part 5) are PDG experimental uncertainties. No theoretical uncertainty from IDWT is estimated. Open: compute sensitivity ∂m_i/∂m_e for each prediction and propagate m_e uncertainty through the coupling derivation chain.
+
+**Higgs-fermion coupling structure — not derived.** The Higgs mode is identified as n=95 in d=2, but no calculation shows it couples to fermions proportionally to their mass. Open: derive the Higgs-fermion coupling amplitude from the IDWT kernel overlap integral between the Higgs mode and each fermion mode, and show the coupling strength is proportional to m_f.
+
+**Bottom quark beat stability.** The bottom quark is identified as a beat mode at k₀=16 in d=3. Its stability as a beat — why the |A₁₆|=|A₁₇| amplitude ratio is preserved — is asserted but not dynamically derived. Open: derive the stability of the k₀=16 beat from the IDWT equation of motion.
+
+**Born rule — not derived.** The probability density ρ(r,t) = ∫|Ψ∞|²dξ is stated (Part 1 §2.3) without derivation from the IDWT action. If Ψ∞ is a classical field, the connection to observable detection probabilities requires justification. Open: either derive the Born rule from the action via emergent measurement theory, or add it to the postulate list explicitly (P5: Born rule).
+
+**Measurement theory — absent.** There is no account of how continuous field Ψ∞ produces discrete particle detection events. Open: either provide a decoherence analysis within IDWT (sector localization → effective discreteness) or add an explicit postulate connecting field amplitude to detection probability.
+
+**m_e as unit reference — choice not justified.** Any of the 15 particle masses could serve as the unit reference. The choice of m_e is conventional. Open: either show the electron is geometrically special as the unique lightest Stage-1 + Stage-2 mode in the minimal sector set, or state explicitly that m_e is a conventional unit choice and all ratios are the genuine predictions.
+
+**Spin-1 bosons (W, Z, photon) from spinor framework — not worked out.** W and Z are spin-1 — how does this emerge from the Dirac spinor Ψ∞? The χ(CP¹)=2 helicity count for the photon is noted, but the spin-1 polarization tensor structure for W and Z is not derived. Open: derive the spin-1 polarization structure of gauge bosons from the d=2 sector Dirac operator spectrum.
+
+**g₂₂ operator derivation — open.** g₂₂ = (1/2)p²q has combinatorial motivation (Part 2 §10b, labeled 🔶) but no operator-level derivation: what operator trace over the kernel produces g₂₂ = p²q/2 exactly? Open: compute Tr[G²₂₃ + G²₂₄] or equivalent from the kernel eigenmode expansion and show it equals (1/2)p²q.

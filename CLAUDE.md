@@ -66,11 +66,11 @@ Never write "this is the IDWT dark matter sector." Until cosmological abundance,
 
 ### Neutrinoless double beta decay
 
-Never write "0νββ rate is exactly zero." The absence of a fundamental Majorana mass term does not rule out induced operators, sector-mixing contributions, or nonperturbative effects. Write "Majorana mass term absent at leading order; induced operators not yet analyzed."
+The all-orders prohibition argument is established: no charge-conjugation matrix C exists on the S⁵ spinor bundle (d mod 8 = 5), so cross-sector couplings cannot construct ψ^T C ψ at any loop order. When claiming the rate is zero, state the mechanism explicitly: "0νββ is forbidden at all orders — no C on the S⁵ bundle means no Majorana operator can be constructed at any loop order." The bare phrase "rate is exactly zero" without the mechanism is still discouraged.
 
 ### Spinor type vs effective operators
 
-Always distinguish between the fundamental spinor type determined by Clifford algebra classification and effective low-energy operators. A d=5 Clifford argument establishes the fundamental spinor is Dirac-type. It does not by itself rule out all possible effective Majorana-like operators at low energy. State both facts separately.
+The Clifford algebra classification (d mod 8 = 5 → no Majorana, no Weyl) establishes the fundamental spinor is Dirac-type. The all-orders extension also follows from the S⁵ bundle: since no C exists globally, all loop-order and nonperturbative constructions of ψ^T C ψ are geometrically impossible, not merely dynamically suppressed. Both facts should be stated when discussing the 0νββ rate: the spinor type determines the leading term; the C non-existence determines all orders.
 
 ### Photon language
 

@@ -63,7 +63,7 @@ All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 
 ```
 sin θ_C = (1+1/240)/√20 = 0.22454   (PDG: 0.22450 ± 0.00044,  +0.09σ)
 ```
-Derived from the Vandermonde d=3↔d=4 coupling: sin²θ_C = 1/S(n_s,3) = 1/20, equivalently S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20. No free parameters. Curvature correction from CP¹ holonomy (CP¹ sector curvature correction): +1/240 shift — see Part 3 §12.
+Derived from the Vandermonde d=3↔d=4 coupling: sin²θ_C = 1/S(n_s,3) = 1/20, equivalently S(2,3)/(S(2,3)+n_W) = 4/80 = 1/20. Determined entirely by the seed structure and mode indices. Curvature correction from CP¹ holonomy (CP¹ sector curvature correction): +1/240 shift — see Part 3 §12.
 
 **Up/down quark mass ratio (Theorem S2, Part 8 §5)**
 ```
@@ -567,11 +567,11 @@ These predictions are within reach of running or funded experiments within the n
 
 | Prediction | IDWT value | Key experiment | Current status | Timescale |
 |---|---|---|---|---|
-| 0νββ signal absent at leading order | m_ββ = 0 at leading order | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | 2025–2035; reaching ~2–5 meV sensitivity |
+| 0νββ signal absent at leading order | m_ββ = 0 at leading order | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | now–2035; reaching ~2–5 meV sensitivity |
 | Σm_ν = 60.39 meV | 60.39 meV | CMB-S4 (target ~30 meV) | Below Planck bound (< 120 meV) | 2030s; within 2× of detection |
-| Normal ordering (definitive) | m_ν₁ < m_ν₂ < m_ν₃ | JUNO, DUNE, Hyper-Kamiokande | 3–4σ preference | 2025–2030 |
+| Normal ordering (definitive) | m_ν₁ < m_ν₂ < m_ν₃ | JUNO, DUNE, Hyper-Kamiokande | 3–4σ preference | now–2030 |
 | sin²θ₂₃ = 0.5590 | 0.5590 ± 0.001 | T2K, NOvA, DUNE | PDG: 0.561, −0.36% | Running now |
-| No new stable particles | closed spectrum | HL-LHC, FCC | LHC Run 3 consistent | 2025–2040 |
+| No new stable particles | closed spectrum | HL-LHC, FCC | LHC Run 3 consistent | now–2040 |
 | m_β ≈ 8.77 meV | 8.77 meV | Project 8 | KATRIN: < 0.45 eV | 2030s; targeting ~40 meV |
 | No fourth generation | none at any mass | FCC-ee (Z pole) | Z width consistent | 2040s |
 

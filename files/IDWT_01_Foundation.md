@@ -703,9 +703,9 @@ d=5 is topologically forced as the Hopf total space S⁵ of the fibration S¹→
 
 **Neutrinos are Dirac fermions — a prediction from the spinor structure**
 
-The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the sector spinor in sector d=5. Therefore the fundamental d=5 spinor is Dirac-type; no Majorana mass term is present at leading order. Induced operators and nonperturbative effects are not yet analyzed. **Neutrinos are Dirac fermions at the fundamental level.**
+The d=5 sector has d mod 8 = 5. This is the one Clifford algebra class for which Majorana spinors do not exist — neither a Majorana condition nor a Majorana-Weyl condition can be imposed on the sector spinor in sector d=5. Therefore the fundamental d=5 spinor is Dirac-type. The all-orders prohibition follows from the spinor bundle: no charge-conjugation matrix C exists on S⁵ (d mod 8 = 5 admits no C satisfying the required anti-commutation relations), so cross-sector couplings cannot construct ψ^T C ψ at any loop order. **Neutrinos are Dirac fermions at the fundamental level.**
 
-This is a concrete, falsifiable prediction: no 0νββ signal is expected at leading order from a Majorana mass term. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the leading-order prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
+This is a concrete, falsifiable prediction: 0νββ is forbidden at all orders — no 0νββ signal is expected. Current experiments (KamLAND-Zen: m_ββ < 36 meV) have seen no signal, consistent with the leading-order prediction. If 0νββ is observed, the spinor structure of IDWT is falsified on this point.
 
 The d=5 sector mass scale is derived from the cross-sector fixed point m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c). No suppression mechanism is needed.
 
@@ -756,7 +756,7 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 
 | Prediction | Geometric basis | Current status |
 |---|---|---|
-| **0νββ signal absent at leading order** (m_ββ = 0 at leading order) | d=5, d mod 8 = 5: Clifford structure forbids Majorana spinors; induced operators not yet analyzed | KamLAND-Zen: m_ββ < 36 meV, no signal ✅ |
+| **0νββ signal absent at all orders** (m_ββ = 0 at all orders) | d=5, d mod 8 = 5: no C on S⁵ bundle → no ψ^T C ψ at any loop order | KamLAND-Zen: m_ββ < 36 meV, no signal ✅ |
 | **Normal neutrino mass ordering** | n_ν₁ < n_ν₂ < n_ν₃ forced by eigenmode selection rule; S(n,5) strictly monotone | 3–4σ preference for normal ordering ✅ |
 | **No new stable fundamental particles** | Sector Set Theorem + Uniqueness Theorem closes the spectrum (§3a, §3b) | No new particles at LEP, LHC ✅ |
 | **No stable particle near 68.3 GeV** | S(35,10) × m_scale_10; not a co-fixed-point eigenmode | Excluded at LEP ✅ |
@@ -791,8 +791,8 @@ IDWT makes hard predictions — not parameter fits. Any Category A observation b
 
 | Prediction | Experiment | Timescale |
 |---|---|---|
-| 0νββ = 0 (m_ββ = 0) | nEXO, LEGEND-1000, KamLAND-Zen 800 | 2025–2035 |
+| 0νββ = 0 (m_ββ = 0) | nEXO, LEGEND-1000, KamLAND-Zen 800 | now–2035 |
 | Σm_ν = 60.39 meV | CMB-S4 (target ~30 meV) | 2030s |
-| Normal ordering (definitive) | JUNO, DUNE, Hyper-Kamiokande | 2025–2030 |
+| Normal ordering (definitive) | JUNO, DUNE, Hyper-Kamiokande | now–2030 |
 | sin²θ₂₃ = 0.5590 | T2K, NOvA, DUNE | Running |
-| No new stable particles | HL-LHC, FCC | 2025–2040 |
+| No new stable particles | HL-LHC, FCC | now–2040 |

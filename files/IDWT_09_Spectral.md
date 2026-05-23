@@ -18,6 +18,8 @@ No SM inputs are used except $m_e = 0.51099895$ MeV as the single unit of mass.
 
 ## T0. The Spectral Triple
 
+**Note.** The spectral triple notation $(\mathcal{A},\mathcal{H},D)$ is used here as a convenient mathematical framework. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense. The operator-theoretic properties listed below — self-adjointness of $D$, compact resolvent, summability, spectral dimension, KO-dimension structure — are open items rather than established results. This section defines the IDWT spectral triple proposal and the structure it is expected to have; the rigorous proofs are pending.
+
 **Definition.** IDWT is the spectral triple $(\mathcal{A},\,\mathcal{H},\,D)$ where
 
 $$\mathcal{A} = C^\infty(M_\infty)\otimes\bigoplus_{d\in D}\mathcal{M}_{n_d}(\mathbb{C}), \qquad \mathcal{H} = L^2(M_\infty,\,\mathcal{S}_\infty), \qquad D = -i\gamma^\mu\partial_\mu + \sum_{d\in D} D_d.$$
@@ -46,9 +48,9 @@ The IDWT sector heat kernel $K_d(t) = \sum_n e^{-tS(n,d)}$ has been computed exa
 
 ---
 
-## T0.5. The Two-Stage Observability Filter
+## T0.5. The Two-Stage Observability Filter 🔶
 
-**Theorem T0.5 (Spectral acceptance window).** A mode $(n,d)$ belongs to $\sigma_{\rm phys}(|D|)$ if and only if it passes both stages of the acceptance window of $D$ at the d=3 coordinate level:
+**Observability Principle T0.5 (Spectral acceptance window).** A mode $(n,d)$ is treated as physically observable if and only if it passes both stages of the acceptance window of $D$ at the d=3 coordinate level. **Status: 🔶** Stage 1 (dimensional visibility) is a heuristic estimate of d=3 activity; Stage 2 (co-fixed-point stability) is semi-structural (decoherence on timescale $1/m_{\mathrm{scale},d}$ is asserted, not derived from the IDWT equation of motion). The combined filter construction is correct in its outcomes but not a proved theorem at current rigor.
 
 **Stage 1 — Dimensional visibility.** The mode must have sufficient activity in our d=3 dimensions. The dimensional depth is
 
@@ -91,6 +93,8 @@ Sector $d$ Hilbert series — first seven coefficients:
 
 ## T2. The Kernel Uniqueness Theorem
 
+**Scope.** T2 establishes uniqueness within the following assumptions: (1) the interaction is polynomial in $(\xi_d, \xi_{d'})$; (2) it is degree-4; (3) it is invariant under $U(d)\times U(d')$; (4) the coupling matrix is required to have rank 1; (5) the $\ell$-decomposition is restricted to $\ell=0\oplus\ell=2$ by the polynomial degree. Higher-degree interactions, non-polynomial couplings, or different invariance groups are not addressed. "Unique" in what follows means unique under these five assumptions.
+
 **Theorem T2.** Among all $U(d)\times U(d')$-invariant degree-4 polynomials on $\Xi_d\times\Xi_{d'}$, the cross-sector interaction $(\xi_d\cdot\xi_{d'})^2$ is the **unique** one satisfying all three conditions:
 
 1. **Non-trivial sector mixing**: cannot be written as a product of sector-local terms.
@@ -118,8 +122,8 @@ $\ell$-decomposition coefficients on $S^{d-1}$ for every sector:
 
 **Theorem T3 (Sector set from complex Hopf chain).** The sector set $D=\{2,3,4,5,6,10\}$ is uniquely determined by two rules applied to the complex Hopf fibration chain $S^1\to S^{2n+1}\to\mathbb{CP}^n$ for $n=1,2,3,\ldots$:
 
-> **Rule A — Coupling termination at $d=6$.**
-> $g_{66}=1/n_s$ is the seed ratio, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ from $g_{33}$ and $g_{44}$ via $v_3/v_2=v_5/v_4$ cannot extend to $d=7$: no fixed-point formula for $g_{77}$ exists within IDWT. All of $d\in\{7,8,9\}$ are excluded.
+> **Rule A — Coupling termination at $d=6$.** 🔶
+> $g_{66}=1/n_s$ is the seed ratio, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ from $g_{33}$ and $g_{44}$ via $v_3/v_2=v_5/v_4$ cannot extend to $d=7$: no fixed-point formula for $g_{77}$ exists within IDWT. All of $d\in\{7,8,9\}$ are excluded. **Open item (Part 6):** prove that only sectors admitting Gegenbauer fixed-point closure can appear in $D$, or state Rule A formally as a 🔶 selection postulate.
 
 > **Rule B — Gegenbauer criticality at $d=10$.**
 > The Jacobi coupling $b_{k_0}(d)=\sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ satisfies $b_{k_0}\geq1/2$ iff $4k_0\leq(d-2)^2$, saturated uniquely at
@@ -263,7 +267,7 @@ $$\Psi_{\rm sect}(\{g_{dd}\}) = \bigotimes_d \chi_{n_d,d}(\xi^0;\, g_{dd})$$
 
 where $\chi_{n_d,d}(\xi^0;\,g_{dd})$ is the leading occupied eigenmode of sector $d$ at the observer position $\xi^0$, regarded as a function of the self-coupling $g_{dd}$. At the physical point $g_{dd} = g_{dd}^{\rm(IDWT)}$, this is the ordinary IDWT mode function; allowing $g_{dd}$ to vary defines a smooth family of states on the coupling parameter space $\mathcal{M}$.
 
-The natural metric on $\mathcal{M}$ is the quantum information (Bures) metric:
+The metric on $\mathcal{M}$ used here is the quantum information (Bures) metric, chosen because the eigenmodes $\chi_{n_d,d}$ are L²-normalizable and vary smoothly with $g_{dd}$. **Open assumption:** the coupling space $\mathcal{M}$ is not a priori a quantum state space; the identification of the Fubini-Study pullback as the physically correct metric on $\mathcal{M}$ has not been derived from the IDWT action. An alternative is the Hessian metric $\partial^2 S/\partial g_{dd}^2$. Until either form is derived, the Bures metric should be understood as a convenient choice whose suitability for computing the CP phase is an open item.
 
 $$G_{ij} = \operatorname{Re}\!\left[\langle \partial_i \Psi_{\rm sect} \mid \partial_j \Psi_{\rm sect}\rangle - \langle \partial_i \Psi_{\rm sect} \mid \Psi_{\rm sect}\rangle\langle \Psi_{\rm sect} \mid \partial_j \Psi_{\rm sect}\rangle\right]$$
 

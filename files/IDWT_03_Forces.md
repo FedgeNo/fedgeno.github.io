@@ -371,7 +371,7 @@ g²_eff = 2g₄₄/π²
 g²_eff = 2 × (12/√7) / π² = 0.919
 ```
 
-This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s → g₂ → sin²θ_W → g₁ (§0.7). The formula derives from the kernel coupling g₄₄ and the CP² volume, with no free parameters. (This is not a Kaluza-Klein result: CP² is the macroscopic d=4 sector space — non-compact, with localized bound-state modes rather than KK plane waves.)
+This is the coupling g_s = √g²_eff that enters the cascade g_{44} → g_s → g₂ → sin²θ_W → g₁ (§0.7). The formula derives from the kernel coupling g₄₄ and the CP² volume. (This is not a Kaluza-Klein result: CP² is the macroscopic d=4 sector space — non-compact, with localized bound-state modes rather than KK plane waves.)
 
 ---
 
@@ -596,7 +596,7 @@ Equivalently, from the Jacobi boundary identity n_W + S(2,3) = n_s × S(n_s,3):
 sin²θ_C = S(2,3) / (S(2,3) + n_W) = 4/80 = 1/20
 ```
 
-This is a theorem of the seed n_s=4 and the Vandermonde structure, with no free parameters.
+This is a theorem of the seed n_s=4 and the Vandermonde structure, determined entirely by the combinatorial fixed point.
 
 ### Curvature Correction from the Mediating Sector
 

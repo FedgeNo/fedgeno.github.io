@@ -208,9 +208,20 @@ html, body { margin:0; height:100%; overflow:hidden; }
 
 .drag-hint {
   position: absolute;
-  bottom: 58px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 80px;
+  left: 33%;
+  transform: translateX(-33%);
+  font-size: 0.72rem;
+  color: #4a5270;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+.wheel-hint {
+  position: absolute;
+  bottom: 80px;
+  left: 66%;
+  transform: translateX(-66%);
   font-size: 0.72rem;
   color: #4a5270;
   white-space: nowrap;
@@ -365,7 +376,8 @@ html, body { margin:0; height:100%; overflow:hidden; }
     <button class="shell-btn" id="btn-d">d (L=2)</button>
     <button class="shell-btn" id="btn-f">f (L=3)</button>
   </div>
-  <div class="drag-hint">drag to rotate</div>
+  <div class="drag-hint">Drag = rotate</div>
+  <div class="wheel-hint">Wheel = zoom</div>
 </div>
 
 </div><!-- end split-root -->

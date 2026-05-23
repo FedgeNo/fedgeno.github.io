@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemistry in Six Dimensions — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Chemistry</div>
+  <h1>Chemistry in Six Dimensions</h1>
+  <p class="sub">Chemical bonding is what happens when 6D electron orbits project into 3D space around 3D nuclei. Three canonical puzzles of chemistry — each requiring a convoluted 3D explanation — that become transparent in the 6D picture.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The Setup</h2>
+  <div class="prose">
+    <p>A nucleus is a cluster of protons and neutrons — a 3D object, confined to three spatial dimensions like everything else we can observe directly. The electrons that surround it are something else entirely. In IDWT, each electron is a compact resonance executing a genuine orbit in six spatial dimensions, three of which are the observable directions and three of which are the hidden sector coordinates of the d=6 sector. What we draw as an atomic orbital — the sphere of an s orbital, the dumbbell of a p orbital, the cloverleaf of a d orbital — is the 3D shadow of this 6D orbital path: the set of points in our three dimensions that the 6D orbit passes through.</p>
+    <p>Chemistry is electrons exchanging orbital geometry across atoms. When two atoms bond, their electrons' 6D orbits adjust to the combined nuclear potential of both atoms simultaneously. The bond forms where the 3D shadows of these 6D orbits overlap — where the orbit of each electron passes through the same region of ordinary space. The strength, direction, and character of the bond are all consequences of which 6D angular momentum states the electrons occupy and how their 3D projections align.</p>
+    <p>This framing makes some chemical phenomena look obvious that are genuinely awkward to explain in a purely 3D picture. Three examples follow.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>1 — Hybridization: The Mixing Problem</h2>
+  <div class="prose">
+    <p>Carbon forms four identical bonds in methane (CH₄), arranged at the corners of a perfect tetrahedron. The 109.5° angles are exact and all four C–H bonds are the same length. The problem for standard chemistry: a carbon atom has a 1s² 2s² 2p² ground configuration — an s orbital and two p orbitals. An s orbital is spherical; a p orbital is a dumbbell. They are geometrically different objects pointing in different directions. Why does carbon form four equal, tetrahedral bonds and not, say, two bonds along the p orbital axes plus something else from the s?</p>
+    <p>The answer 3D chemistry gives is hybridization: you take one s orbital and three p orbitals and mathematically mix them into four sp³ hybrid orbitals, each pointing toward a tetrahedral corner. This works — it produces the right geometry — but it introduces a puzzle of its own. The mixing is a mathematical operation, not a physical one. Nothing in 3D orbital theory explains <em>why</em> the mixing happens, when it happens, or why carbon in graphene uses sp² hybridization (mixing one s and two p orbitals, leaving one p unhybridized for the π system) while carbon in acetylene uses sp. Each situation requires its own mixing recipe, chosen to match the observed geometry. The hybridization scheme is a description of what happens, not an explanation of why.</p>
+    <p>In the 6D picture, s and p orbitals are not different objects that need to be mixed. They are the L=0 and L=1 angular momentum eigenstates of the same 6D orbit — the first two levels of the same tower classified by the SU(4) representation chain. An s orbital is the 3D shadow of a 6D orbit with zero angular momentum. A p orbital is the 3D shadow of a 6D orbit with one unit of angular momentum, projected along a specific axis. They are both orbits of the same electron in the same six-dimensional space, at adjacent levels of the same angular momentum sequence.</p>
+    <p>When a carbon atom forms four bonds, its electrons settle into 6D angular momentum states that are combinations of the L=0 and L=1 levels. The specific combination — and therefore the specific 3D shadow geometry — is determined by the positions of the bonding partners. The bonding partners are 3D objects (hydrogen nuclei), so the bonding geometry is determined in the 3D projection. Four equivalent bonding partners at equal angles force the electron orbits into the 6D angular momentum states whose 3D shadows are equally spaced — which are exactly the states that project to tetrahedral geometry. No mixing recipe is required; the angular momentum states simply settle into whatever combination minimises the potential energy given the nuclear geometry. What looks like ad hoc mixing in 3D is, in 6D, just the orbit finding its lowest-energy angular momentum configuration in the bonding environment.</p>
+    <p>The difference between sp³ methane and sp² graphene is then not a different mixing recipe — it is a different bonding environment, which selects a different 6D angular momentum configuration, whose 3D shadow happens to be trigonal planar rather than tetrahedral. The orbit adjusts to its environment. The adjustment looks like case-by-case hybridization in 3D because 3D only sees the shadow, not the 6D state that produced it.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>2 — Benzene: The Resonance Problem</h2>
+  <div class="prose">
+    <p>Benzene (C₆H₆) has six carbons arranged in a flat ring. Each carbon uses three bonds — one to hydrogen, two to neighboring carbons — which means each carbon's sp² arrangement leaves one p orbital perpendicular to the ring plane. Six carbons means six such perpendicular p orbitals, one per atom, all pointing in the same direction.</p>
+    <p>Here is the 3D problem: those six p orbitals hold six electrons, and the electrons need to be assigned to bonds. The obvious assignment gives alternating single and double bonds — the Kekulé structure. But there are two equivalent Kekulé structures (the double bonds can be at positions 1,3,5 or 2,4,6), and experiment shows that benzene has <em>neither</em> of them: all six C–C bonds are the same length, intermediate between a single and double bond. The two Kekulé structures together do not describe the real molecule; neither does anything in between.</p>
+    <p>The 3D response to this was to invent resonance: benzene is described as a superposition of the two Kekulé structures, with electron density distributed evenly across all six bonds by quantum mechanical averaging. Molecular orbital theory gives a more rigorous version — the six p orbitals combine into six molecular orbitals delocalized across the whole ring, three of which are bonding and filled. The delocalized picture works quantitatively, but the <em>reason</em> for the delocalization remains expressed as a calculation: you show that the delocalized state is lower energy than either Kekulé structure, and that settles it.</p>
+    <p>In the 6D picture, the question dissolves before it forms. The six π electrons of benzene execute 6D orbits whose 3D shadows are the perpendicular p orbitals at each carbon. But a 6D orbit does not have a fixed address at one carbon. An orbit that couples to the potentials of all six nuclear centers simultaneously — which it does, because all six nuclei are within range of the electron's orbit — is an orbit that goes around the ring, not around any individual atom. The 3D shadow of an orbit that loops around a hexagonal ring is electron density spread uniformly around the ring: exactly the observed bond geometry, without invoking resonance or delocalization as separate explanations.</p>
+    <p>The ring current of benzene — measurable in NMR spectroscopy as the anomalous chemical shift of aromatic protons — is the most direct observable signature of this multi-center orbit. When a magnetic field is applied perpendicular to the ring plane, the six π electrons' orbit induces a circulating current around the ring. That current is exactly what you would expect from a charged particle executing a closed loop — an orbit around the ring, not a superposition of two Kekulé configurations. Aromatic ring current is the direct experimental detection of the multi-center 6D orbit. In the 3D picture it requires an explanation; in the 6D picture it is what you would see if you put a magnet near a six-center orbit and looked at its effect on nearby protons.</p>
+    <p>Hückel's rule — that aromatic stability requires 4n+2 π electrons — corresponds in the 6D picture to the condition that the angular momentum eigenstates of the ring orbit are fully closed. The 2, 6, 10, 14, … electron counts for successive closed shells match the 1, 3, 5, 7, … degeneracy sequence (2L+1 per level, filled in pairs): 2 fills L=0, then 6 fills L=0 through L=1, then 10 through L=2, and so on. A fully closed angular momentum shell is a stable orbit; a half-filled one is not. Antiaromaticity — the instability of 4n π-electron systems like cyclobutadiene — is a half-filled angular momentum level, an orbit configuration that cannot close and distorts to escape the frustrated state.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>3 — Water: The Lone Pair Problem</h2>
+  <div class="prose">
+    <p>Water has two O–H bonds and two lone pairs on the oxygen. If you ask what geometry to expect, the naive answer is tetrahedral: four electron pairs, four tetrahedral directions, 109.5° between everything. The actual H–O–H angle is 104.5°. The standard explanation is that lone pairs take up more angular space than bonding pairs — they are closer to the oxygen nucleus and spread out more, compressing the bonding angle. This is the VSEPR (Valence Shell Electron Pair Repulsion) model, and it works as a mnemonic, but it is not a derivation. The idea that lone pairs "repel more" is a rationalization of the 104.5° figure, not a prediction of it.</p>
+    <p>The deeper 3D explanation requires a full quantum calculation: solve the Schrödinger equation for the oxygen atom in the molecular field of two protons, find the eigenstates, compute the expectation value of the H–O–H angle. This gives the right answer, but it does not make the angle obvious — you cannot see why 104.5° without doing the calculation.</p>
+    <p>In the 6D picture the geometry is a direct consequence of which angular momentum states are occupied. Oxygen has six valence electrons. In the molecular frame of water, two of those electrons go into the bonding states — the 6D angular momentum eigenstates whose 3D projections point toward the hydrogen nuclei — and four go into the lone-pair states, the angular momentum eigenstates whose 3D projections point away from the hydrogens. The angle between the bonding projections is not determined by how much space the lone pairs take; it is determined by the angular separation between the 6D angular momentum states that are available for bonding given the constraint that the lone-pair states are also occupied.</p>
+    <p>The bonding and lone-pair states are not the same kind of object in 3D — one points at a nucleus, the other does not — but in 6D they are both angular momentum eigenstates of the same orbit tower. Their 3D projections point in different directions because they carry different angular momentum in the 6D space. The compression of the H–O–H angle below 109.5° is the consequence of the angular momentum configuration of the lone-pair states pushing the bonding states closer together in the 3D projection. VSEPR describes the symptom (lone pairs compress the bonding angle) accurately; the 6D picture explains the mechanism (the lone-pair angular momentum eigenstates shift the available bonding directions in the 3D projection of the 6D orbit).</p>
+    <p>The same logic extends to ammonia (NH₃), where one lone pair compresses the H–N–H angle to 107° — less compression than water's two lone pairs, consistent with fewer angular momentum states pushing against the bonding directions. And to phosphine (PH₃), where the lone pair produces almost no compression (93.5°) because phosphorus's 3p orbitals are more diffuse — the angular momentum states contributing to the lone pair have a different projection geometry in the heavier element. Each of these angles is a specific 3D shadow of a specific 6D angular momentum configuration. VSEPR turns this into a qualitative hierarchy (more lone pairs = more compression) that works as a rule of thumb without reaching the underlying reason.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The Common Thread</h2>
+  <div class="prose">
+    <p>All three examples have the same structure. Standard 3D chemistry observes the shadow and then constructs a story to explain why the shadow has that shape. Hybridization is a mixing recipe chosen to match the observed bond angles. Resonance is an averaging procedure invented to explain why neither Kekulé structure is correct. VSEPR is a repulsion argument selected to rationalize measured angles. Each explanation is correct in the sense that it reproduces the observed geometry — but each is post-hoc, chosen after looking at the answer.</p>
+    <p>In the 6D picture, the orbital geometry is primary. The shapes are not explained — they are the natural 3D projections of 6D angular momentum eigenstates that exist for independent mathematical reasons (the representation theory of SU(4) under the chain SU(4) ⊃ SU(3) ⊃ SO(3)). Hybridization is the orbit settling into a low-energy angular momentum configuration. Delocalization is the orbit going around multiple nuclei. Bond angle compression is the angular structure of occupied vs unoccupied angular momentum states. The explanations are not chosen after the fact; they follow from the geometry of the 6D orbit.</p>
+    <p>It is worth being clear about what has and has not been derived. The orbital degeneracy sequence 2L+1, the Bohr spectrum, and all spectroscopic selection rules are structural consequences of CP³ geometry — theorems, not models. The specific bond angles, hybridization geometries, and Hückel count are not yet derived from the IDWT equations of motion for multi-electron, multi-center systems. What the 6D picture offers for those is a framework in which they are expected to follow naturally — one where the questions that require invention in 3D (why mix? why delocalize? why repel?) have direct geometric answers. Whether the full multi-center calculation from IDWT reproduces the specific numbers remains open.</p>
+    <p>But the framing itself changes what counts as a mystery. In 3D, delocalization in benzene is surprising and requires explanation. In 6D, an orbit going around six nuclei simultaneously is not surprising at all — it is what orbits do when there are six nuclei in range. The mystery dissolves at the conceptual level before any calculation is done.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

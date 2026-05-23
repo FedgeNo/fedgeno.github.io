@@ -1,6 +1,7 @@
 # IDWT
 
 - Infinite Dimensional Wave Theory is a research project by Fedge No, fedge-no@hotmail.com.
+- The IDWT website is https://fedgeno.github.io/ .
 - The home of the complete 10 document work online is https://doi.org/10.5281/zenodo.19767493 . This DOI always resolves to the most current version of the notes — older versions exist on Zenodo but are superseded. Use this URL when referencing it in other papers, letters or notes.
 - **Publication year is 2026.** When writing references or citations to the IDWT notes, always use 2026, not 2025.
 - The project aims to understand the nature of reality from a physical perspective.
@@ -17,6 +18,22 @@
 - **Never edit blindly from a todo description.** Always read the relevant subsection (and any cross-referenced material) to understand what the target content is doing before touching it. For deep mathematical or structural items (index theory, spectral flow, CP phase, operator domain questions), read the documents first and report findings to Fedge before making any edits.
 
 - **If executing a task would require changes significantly larger than the task description implies** — restructuring a major section, removing substantial content, or touching documents not named in the task — stop. Update the todo item with what you found and why the scope grew, note that input is needed, and move to the next task.
+
+## Paper Processing (md → PDF)
+
+When converting any IDWT paper from markdown to PDF, apply these standing parameters:
+
+- **Author:** Fedge No
+- **Email:** fedge-no@hotmail.com
+- **Affiliation:** none
+- **Date:** use today's actual date at time of processing
+- **Keywords:** auto-select 5–7 terms from the paper content
+- **MSC codes:** auto-select from paper content (2–4 codes)
+- **Acknowledgements:** Claude, GPT, Meta, Grok, Perplexity, Z.ai, Mistral Le Chat
+- **DOI:** prompt Fedge for the paper's DOI before processing if it has not already been provided in the conversation. Do not proceed without it.
+- **IDWT notes reference:** always cite the notes as doi:10.5281/zenodo.19767493 (Fedge No, *Infinite Dimensional Wave Theory*, 2026)
+
+Use pandoc with `--pdf-engine=xelatex`. Write the pandoc command to `claude/build_paper.sh` so Fedge can re-run it later.
 
 ## Claude's Folder
 

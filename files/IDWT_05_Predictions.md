@@ -271,26 +271,15 @@ The SU(2)_L coupling is determined by the CP²→CP¹ sector reduction weighted 
 
 ```
 g₂ = (2/3) √(2g₄₄/π²) = 0.65275     (PDG: 0.65270,  +0.008%)
-G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵, −0.05%)
-EW scale (√2 G_F)^{−1/2} = 246.3 GeV  [consistency check: √Tr(D²) = 248.3 GeV, +0.85%]
+EW scale: √Tr(D²) = 248.3 GeV        (SM v ≈ 246 GeV, +0.93%)
 1/α (at d=2 sector scale ≈m_W) = 131.8     (PDG α(m_Z)=1/127.9, +3.1%)
 ```
 
-The EW scale $({\sqrt{2}\,G_F})^{-1/2} = 246.3$ GeV is derived from $G_F$ above; $\sqrt{\text{Tr}(D^2)} = 248.3$ GeV is the RMS of the IDWT mass spectrum. Their 0.85% agreement is a self-consistency check — both quantities come from the same seed structure — not a separate prediction. The Higgs VEV concept (from spontaneous symmetry breaking) does not apply in IDWT; the Higgs is a confinement mode of the d=2 sector (§3c below). $\lambda_H = m_H^2/(2v^2)$ is therefore not a meaningful IDWT quantity.
+$\sqrt{\text{Tr}(D^2)} = 248.3$ GeV is the IDWT-native electroweak scale — the RMS of the mass spectrum. The Higgs VEV concept (from spontaneous symmetry breaking) does not apply in IDWT; the Higgs is a confinement mode of the d=2 sector (§3c below). $\lambda_H = m_H^2/(2v^2)$ is therefore not a meaningful IDWT quantity.
 
 ---
 
 ## 3b. Extended Predictions
-
-**Tau lepton lifetime — leading order 🔶**
-
-R_had (LO) = N_c · (|V_ud|² + |V_us|²) = 3, where N_c = 3 from χ(CP²) and CKM unitarity from the kernel. The hadronic tau width at leading order is purely a colour-counting result.
-
-```
-τ_τ (LO) = 327 fs      (PDG: 290.3 fs,  +12.8%)
-```
-
-The +12.8% gap is the NLO kernel transition correction (Part 8 §6 — not yet computed).
 
 **PMNS CP-violation amplitude 🔶**
 ```
@@ -332,7 +321,7 @@ m_ν₃ = m_scale_5 × S(22,5) × (1 + 1/35) = 50.27 meV  [n_ν₃ = n_τ − n_
 Σm_ν = 60.39 meV                            (Planck bound: < 120 meV)
 
 m_β (beta-decay effective) ≈ 8.77 meV       (KATRIN bound: < 450 meV)
-m_ββ (0νββ, leading order) = 0               (Majorana mass term absent in d=5 at leading order)
+m_ββ (0νββ) = 0                              (no C on S⁵ bundle → no ψ^T Cψ at any order; 0νββ forbidden at all orders)
 (Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV.)
 ```
 
@@ -341,9 +330,6 @@ m_ββ (0νββ, leading order) = 0               (Majorana mass term absent in 
 **On oscillation comparisons.** Δm² values are derived consequences of the absolute masses expressed in oscillation-experiment language (which measures interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is a closure relation (🔶, primary derivation Part 2 §9d): algebraically exact given ε and g_{33}, but the deeper operator mechanism is not yet derived. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
 
 ## 3c. Deep Predictions
-
-**B meson oscillation structure 🔶**
-Δm_s/Δm_d ∝ |V_ts|²/|V_td|² — ratio of CKM matrix elements derivable from IDWT kernel cross-sector overlaps g_34. Native derivation of the oscillation amplitude from kernel structure not yet done.
 
 **No hierarchy problem**
 ```

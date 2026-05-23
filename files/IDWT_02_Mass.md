@@ -38,7 +38,7 @@ These are mutually consistent because all four reduce to operations on N_d(n−1
 
 **S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
-**The hockey-stick identity is a proved theorem of combinatorics:**
+⭐ **Hockey-stick identity (proved theorem of combinatorics):**
 
 ```
 S(n, d) = Σ_{k=0}^{n-1} C(k+d−1, d−1)
@@ -47,6 +47,17 @@ S(n, d) = Σ_{k=0}^{n-1} C(k+d−1, d−1)
 It is the engine of the entire spectrum.
 
 **Physical meaning:** The resonant frequency S(n,d) equals the cumulative count of sector microstates below level n. These are the same thing. The frequency at which mode n resonates is precisely the total number of accessible sector states up to that level. Heavier particles — higher frequencies — occupy higher-entropy configurations of the sector geometry. The hockey-stick identity is the bridge between the spectral and the statistical descriptions.
+
+⭐ **Large-n asymptotic (proved by Stirling's approximation):**
+
+$$S(n,d) = \binom{n+d-1}{d} \sim \frac{n^d}{d!} \quad \text{as } n \to \infty$$
+
+*Proof sketch.* $S(n,d) = \frac{(n+d-1)(n+d-2)\cdots n}{d!}$. Each of the $d$ factors in the numerator approaches $n$ as $n\to\infty$, giving $n^d/d!$. The relative error is $O(1/n)$. $\square$
+
+The asymptotic has direct physical consequences:
+- **Mass growth:** $m(n,d) = m_{\rm scale,d}\times S(n,d) \sim m_{\rm scale,d}\times n^d/d!$ — mass grows as the $d$-th power of the mode index. Higher sectors ($d$ larger) produce faster mass growth with $n$.
+- **Sector hierarchy:** $S(n,d)/S(n,d') \sim n^{d-d'}/(d!/d'!)$ for $d > d'$, so higher-$d$ modes are exponentially heavier than same-$n$ modes in lower sectors.
+- **Spectral dimension:** The heat kernel $K_d(t) = \sum_{n\geq 1}e^{-tS(n,d)} \sim t^{-1/d}$ as $t\to 0^+$, establishing spectral dimension $= d$ for each sector (Part 8 §3.2).
 
 ---
 
@@ -91,13 +102,17 @@ For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere.
 
 ## 3. The Pascal Recursion — One Identity, All Generation Laws
 
-The hockey-stick identity implies the Pascal recursion:
+⭐ **Pascal recursion (proved theorem of combinatorics):**
 
 ```
 S(n, d) = S(n, d−1) + S(n−1, d)
 ```
 
-This is a proved theorem. It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the eigenmode selection rule:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not produce the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
+*Proof.* $S(n,d) = \binom{n+d-1}{d}$. Pascal's rule $\binom{m}{k} = \binom{m-1}{k-1}+\binom{m-1}{k}$ applied with $m=n+d-1$, $k=d$ gives $\binom{n+d-1}{d} = \binom{n+d-2}{d-1}+\binom{n+d-2}{d} = S(n,d-1)+S(n-1,d)$. $\square$
+
+Boundary conditions: $S(1,d)=1$ for all $d$ (universal ground state); $S(n,1)=n$ (linear sector).
+
+It says: the simplex number at (n, d) equals its neighbour at (n, d−1) plus its neighbour at (n−1, d). **The Pascal recursion constrains the eigenmode selection rule:** any mode index assignment that violates S(n,d) = S(n,d−1) + S(n−1,d) is rejected. The observed assignments are the unique set that simultaneously satisfies the recursion and the seed conditions {n_down=1, n_strange=4}. The recursion does not produce the assignments from scratch — but it makes the assignments rigid: there is no freedom to choose different mode indices once the seeds are fixed.
 
 **Generation 2 law — the clearest case:**
 
@@ -143,12 +158,17 @@ The last identity is structurally significant: the d=2 sector gap between W and 
 
 ## 4. Why d=6 is Colour-Neutral
 
-The double hockey-stick identity is the hockey-stick identity applied twice and convolved:
+⭐ **Double hockey-stick identity (proved theorem of combinatorics):**
+
 ```
 Σ_{k=0}^N C(k+2, 2) × C(N−k+2, 2) = C(N+5, 5)
 ```
 
-This proves: **the d=6 oscillator is exactly the tensor product of two d=3 oscillators.** The lepton sector (d=6 = d=3 ⊗ d=3) is colour-neutral because it is built from products of colour spaces, not embedded in one. This is the geometric origin of the lepton/quark distinction.
+**Important:** $C(k+2,2)$ is the **level multiplicity** at level $k$ of a $d=3$ harmonic oscillator — the number of states at that level, not the IDOS. The cumulative count (IDOS) of $d=3$ is $S(k,3) = C(k+2,3)$, which is a different object. The convolution of two sets of IDOS values gives $\sum_k S(k,3)\times S(n-k,3) = C(n+5,7)$, not $C(N+5,5)$.
+
+Here, $C(N+5,5)$ is simultaneously: (a) the level multiplicity at level $N$ of a $d=6$ harmonic oscillator, and (b) the IDOS $S(N+1,5)$. These are the same number, but the physically relevant interpretation for the tensor product argument is (a).
+
+This proves: **the d=6 oscillator is exactly the tensor product of two d=3 oscillators**, in the sense that pairing states level-by-level in two $d=3$ spaces gives the same state count as a single $d=6$ space. The lepton sector ($d=6 = d=3 \otimes d=3$) is colour-neutral because it is built from products of colour spaces, not embedded in one. This is the geometric origin of the lepton/quark distinction.
 
 Verification (N=32): Σ_{k=0}^{32} C(k+2,2) × C(32−k+2,2) = 435,897 = C(37,5)
 
@@ -186,6 +206,8 @@ n_W     = g(d_ν, n_top) = d_ν + n_top − 1 = 5 + 72 − 1 = 76   [g-rule: neu
 n_Z     = g(d_ℓ, n_W) = d_ℓ + n_W − 1 = 6 + 76 − 1 = 81       [g-rule: lepton sector dim + W mode − 1; = n_W + q, q = d_ℓ−1 = S(n_u−1,4) = 5]
 n_Higgs = n_u   + n_charm  + n_top = 95  [🔶 empirical closure relation: = 3+20+72; also = n_down+n_e+n_Z = 1+13+81; dynamical derivation of why scalar excitation indices add this way is open]
 ```
+
+**Status of n_u=3. 🔶** The derivation of n_u=3 via the g-rule is a self-consistency argument: the generation law n_e = S(n_u,3) + n_u and the g-rule g(d_u, n_ν₁) = n_e together force n_u=3 as the unique integer making the lattice close. This is a consistency constraint, not a derivation from an independent principle. The identity n_u = n_s−1 holds numerically but the mechanism by which the seed n_s=4 forces n_u=n_s−1 is the lattice closure condition, not a deduction from N_c or any prior result. The g-rule, generation law, and n_u=n_s−1 should all be understood as a jointly consistent co-fixed-point system whose unique solution is the IDWT spectrum. Presented elsewhere as "n_u derived from n_s" for brevity; the more accurate statement is "n_u=3 is the unique value consistent with the generation law, g-rule, and S(n_u,3) = n_ν₁."
 
 The physical claim this sharpens: **if mass is the cumulative microstate count S(n,d), then the hockey-stick identity must appear throughout the spectrum, and the eigenmode selection rule must hold exactly.** The hockey-stick identity leaves no room for them to fail.
 

@@ -54,7 +54,7 @@ The words **proved, theorem, forced, inevitable, cannot fail** require ⭐ or �
 
 ### Ontology — one stable picture
 
-Particles **are** sector excitations of Ψ_∞. They are not particles living in spacetime that happen to carry sector labels. Never write as though sectors are coupled subsystems or external spectral indices. Audit sentences for Picture B language ("the particle occupies sector d," "the sector interacts with") and replace with Picture A language ("the excitation at mode (n,d)," "the d=3 component of Ψ_∞").
+Particles **are** sector excitations of Ψ_∞. They keep their standard names (electron, photon, etc.) — do not rename them to mode-index labels. The ontological point is about framing, not vocabulary. Never write as though sectors are independent subsystems that couple to each other ("the d=3 sector interacts with the d=4 sector"), as if they were separate fields exchanging quanta. The sectors are geometric strata of a single wave Ψ_∞; cross-sector effects are projections of one object, not interactions between two.
 
 ### "All modes exist" is not established
 

@@ -1638,7 +1638,7 @@ print("\n=== CKM MIXING ===")
 ckm_vals = {
     "sin(theta_C)":  (sin_C,  0.22450, 0.00044, "Cabibbo angle, |V_us|"),
     "|V_cb|":        (Vcb,    0.04100, 0.00140, "charm-bottom mixing"),
-    "Wolfenstein A": (A_wolf, 0.82300, 0.00460, ""),
+    "|V_ts|":        (Vcb,    0.04183, 0.00070, "unitarity: |V_ts| ≈ |V_cb|"),
 }
 for label, (pred, pdg, unc, note) in ckm_vals.items():
     sigma = (pred - pdg) / unc

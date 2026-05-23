@@ -256,6 +256,8 @@ V_self(r) = g_{dd} × (⟨r'²⟩_d / d) × r²
 
 where r = |ξ_d| and ⟨r'²⟩_d = ∫_{Ξ_d} r'² |χ_d(ξ')|² dμ_ξ' is the mean-square sector radius of the ground-state mode. This gives a harmonic potential V_self ∝ r² — precisely the near-origin behaviour of V_conf = λ_d r²/(1+r²), with:
 
+**Note on the potential functional form (MC-2).** The derivation establishes only the near-origin r² behaviour of V_conf. The full potential form V_d(r) = λ_d r²/(1+r²), which saturates to λ_d at large r, is an ansatz: the (1+r²) denominator is chosen to give a bounded potential that reduces to λ_d r² for small r and to λ_d for large r, ensuring a discrete spectrum. This saturation form has not been derived from the IDWT action. Open item (Part 6, MC-2): derive the large-r saturation from the kernel self-energy at large r, or promote the functional form to an explicit postulate (extension of P3).
+
 ```
 λ_d = g_{dd} × ⟨r'²⟩_d / d
 ```

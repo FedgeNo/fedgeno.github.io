@@ -43,6 +43,8 @@ where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the 
 
 The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector (T2). Its quartic-in-Ψ form gives confinement, mass, and inter-sector coupling from a single geometric term.
 
+**Note on G_N.** The Einstein-Hilbert coefficient G_N appearing in the action as written is currently an external input — the one additional input beyond m_e and n_s=4 that the framework has not yet derived. In the complete IDWT picture, the EH term should emerge from the a₂ Seeley-DeWitt coefficient of the spectral action Tr(f(D/Λ)), giving G_∞ = f₂Λ²a₂/(8π) and G_N = G_∞/V_7 as a prediction. That computation is open (Part 4 §3.12.4, Part 6). Until it is completed, the action above is an effective description with G_N as a measured input, not a postulated constant of the theory. **Particle physics predictions (masses, mixing angles, coupling constants) are independent of G_N** — they depend only on m_e, n_s=4, and the kernel geometry.
+
 ### 0.3 Equations of Motion
 
 **Varying g^{μν}:**
@@ -222,17 +224,9 @@ The |V_cb| element is the d=4 intra-sector mixing (up ↔ charm):
 
 PDG |V_cb| = 0.04100 ± 0.0014 (exclusive). Tension: +0.11σ.
 
-The Wolfenstein parameter A:
-```
-A = |V_cb| / sin²θ_C = √(S(n_u,4)/S(n_c,4)) × S(n_s,3)
-  = √(15/8855) × 20 = 0.82315
-```
-
-PDG A = 0.8230 ± 0.0046. Tension: +0.03σ.
-
 **|V_ts| from unitarity:** The third row of the CKM matrix has |V_tb| ≈ 1, so |V_ts|² ≈ |V_cb|². IDWT predicts |V_ts| ≈ |V_cb| = 0.04116. PDG: 0.04183 ± 0.0007. Tension: −0.96σ.
 
-**|V_ub| lower bound:** Without the CP-violating phase (ρ, η — open in IDWT): |V_ub|_min = A s_C³ = 0.00920. PDG |V_ub| = 0.00382, which requires √(ρ²+η²) ≈ 0.41. The CP phase is not yet derived.
+**|V_ub|:** Requires the CP-violating phase δ_CP, which is not yet derived (T8, Part 5 §9). SM cross-reference: the Wolfenstein parameter A = |V_cb|/sin²θ_C = 0.82315 matches PDG A = 0.8230 ± 0.0046 at +0.03σ.
 
 ### 0.10 Pure Sector Identities from the Lagrangian
 

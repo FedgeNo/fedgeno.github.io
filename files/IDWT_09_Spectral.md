@@ -642,9 +642,9 @@ The factor suppressing neutrino masses relative to the charged-lepton and quark 
 |---|---|---|---|
 | 2 | $U(1)$ | 1 | 722.5 |
 | 3 | $SO(4)$ | 6 | $8\sqrt{7}\approx21.2$ |
-| 4 | $SU(3)/U(2)$ | 8 | $12/\sqrt{7}\approx4.5$ |
+| 4 | $SU(3)$ | 8 | $12/\sqrt{7}\approx4.5$ |
 | 5 | $SO(6)$ | 15 | $96/722.5\approx0.133$ |
-| 6,10 | $SU(4)/U(3)$, $SU(6)/U(5)$ | 15, 35 | $1/4 = 0.25$ |
+| 6,10 | $SU(4)$, $SU(6)$ | 15, 35 | $1/4 = 0.25$ |
 
 The coupling decreases as the symmetry group grows. A larger isometry group imposes more structure on allowed interactions — the coupling filter is more selective, more interactions are geometrically forbidden — and the self-coupling is correspondingly weaker. Consequently:
 

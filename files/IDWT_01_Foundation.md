@@ -55,6 +55,15 @@ A particle with coordinate support in a force sector may still have zero couplin
 **P5 — Gravity as Curvature of M_∞**
 Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 113 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
 
+**P6 — Rank-1 Coupling 🔶**
+The inter-sector coupling strength matrix factorizes as $g_{dd'} = v_d \times v_{d'}$ — rank-1 as an outer product of a coupling vector $v = (v_2, v_3, v_4, v_5, v_6, v_{10})$. All six components $v_d$ are derived from two seeds $\{1,4\}$ and $N_c = 3$ (Part 2 §10, Part 3 §0.1). The rank-1 factorization itself — why the coupling matrix is an outer product rather than a general matrix — is an open item 🔶: T2 (Part 9) proves uniqueness of the kernel form $(\xi_d \cdot \xi_{d'})^2$ within the rank-1 ansatz, but does not independently force rank-1 over higher-rank coupling. Physical consequences: universal correlated coupling scales across sectors, constrained inter-sector mixing, the Wolfenstein angle from a single ratio $v_3/v_4$.
+
+**P7 — Two-Stage Observability Filter 🔶**
+A mode $(n,d)$ of Ψ_∞ is physically observable if and only if it passes both stages. Stage 1 (dimensional visibility): the relative d=3 spectral amplitude $A_{rel}(n,d) = S(n,2)/S(n,d)$ satisfies $\Omega_{log}(n,d) = \ln(S(n,d)/S(n,2)) \leq \ln 2$, meaning more than half the mode's spectral support is in the observable d=3 subspace. Stage 2 (co-fixed-point stability): $n$ is a co-fixed-point of the sector comb filtration from the seed $n_s = 4$, meaning the mode is a stable resonance of the full sector Hamiltonian $H_d$. Stage 1 is a heuristic estimate of d=3 activity; Stage 2 is semi-structural (decoherence on timescale $1/m_{\rm scale,d}$ is asserted, not derived from the EOM). Status: 🔶 for both stages (Part 7 §1–§2, Part 9 T0.5).
+
+**P8 — Co-Fixed-Point Stability 🔶**
+A mode index $n$ is a stable resonance of sector $d$ if and only if it is a co-fixed-point of the sector comb filtration: repeated application of the hockey-stick recursion $S(n,d) \to S(S(n,d),d')$ from the seed $n_s=4$ eventually maps every active $n$ back to itself (modulo the sector chain). Non-co-fixed-point modes are asserted to be unstable with decoherence timescale $1/m_{\rm scale,d}$. This assertion has not been derived from the IDWT equation of motion; it is a postulate 🔶 that the mode-selection algorithm correctly identifies the stable resonances. Until the EOM analysis is complete (Part 6, MC-4 analog), P8 is foundational but unproved.
+
 ---
 
 ## 2. Observable Coordinates and the d=3 Marginal
@@ -750,49 +759,6 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 
 ## 8. What Would Falsify IDWT
 
-IDWT makes hard predictions — not parameter fits. Any Category A observation below directly and irrecoverably falsifies the framework with no parameter to adjust. Full inventory, thresholds, and structural predictions are in Part 5 §9.
+The complete falsification inventory — hard binary falsifiers (Category A), precision quantitative thresholds (Category B), structural predictions without SM equivalent (Category C), and near-future experimental windows — is in Part 5 §9, the canonical reference for IDWT's testability. That section also explains the distinction between a falsifier (no adjustable parameter) and a residual (small, structurally explained, within measurement uncertainty).
 
-### Category A — Hard binary falsifiers (one observation ends the framework)
-
-| Prediction | Geometric basis | Current status |
-|---|---|---|
-| **0νββ signal absent at all orders** (m_ββ = 0 at all orders) | d=5, d mod 8 = 5: no C on S⁵ bundle → no ψ^T C ψ at any loop order | KamLAND-Zen: m_ββ < 36 meV, no signal ✅ |
-| **Normal neutrino mass ordering** | n_ν₁ < n_ν₂ < n_ν₃ forced by eigenmode selection rule; S(n,5) strictly monotone | 3–4σ preference for normal ordering ✅ |
-| **No new stable fundamental particles** | Sector Set Theorem + Uniqueness Theorem closes the spectrum (§3a, §3b) | No new particles at LEP, LHC ✅ |
-| **No stable particle near 68.3 GeV** | S(35,10) × m_scale_10; not a co-fixed-point eigenmode | Excluded at LEP ✅ |
-| **No narrow hadronic resonance in 15–50 MeV** | d=3 n=2,3 modes fail Stage-2; no stable states predicted in this window | Consistent with QCD spectrum ✅ |
-| **No fourth quark or lepton generation** | Completeness Theorem; N_ν = 3 exactly | Z invisible width: PDG 2.984 ± 0.008 ✅ |
-
-### Category B — Precision quantitative tests (with explicit thresholds)
-
-| Prediction | Value | Falsified if... |
-|---|---|---|
-| m_s/m_d | 20.000 exactly | Outside 19.5–20.5 at controlled scale |
-| m_μ/m_e | 206.7647 | Outside 206.760 ± 0.005 |
-| Σm_ν | 60.39 meV | Measured < 40 meV or > 80 meV |
-| sin²θ₂₃ | 0.5590 | > 3σ from 0.5590 |
-| sin²θ₁₂ | 0.3086 | > 3σ from 0.3086 |
-| sin²θ₁₃ | 0.02211 | > 3σ from 0.02211 |
-| sin θ_C | 0.22454 | Outside 0.2237–0.2254 |
-| ρ parameter | 1.00000 at tree level | ρ ≠ 1 beyond radiative corrections |
-| N_ν | 3 exactly | Fourth neutrino species confirmed |
-
-### Category C — Structural predictions (no SM equivalent)
-
-- **No hierarchy problem:** m_H is integer-determined (n_H = 95); radiative corrections cannot shift mode indices.
-- **Higgs is not a condensate:** no quartic self-coupling, no VEV, no vacuum metastability from λ_H running.
-- **No seesaw:** neutrino mass scale set by cross-sector Hopf fixed point, not by a heavy right-handed neutrino mass term.
-- **No sterile neutrinos:** Stage-1 filter eliminates all d=5 modes with vanishing d=3 amplitude; exactly three neutrino species.
-- **Left-handed W coupling is geometric:** Kähler γ₅ on CP² and CP³ selects holomorphic (left-handed) components; not imposed as a postulate.
-- **No glueballs:** The strong force is a direct quark contact coupling symmetric under the CP² isometry, with no colour-exchange field. There is no colour-exchange field to bind into a glueball; any state that QCD would classify as a glueball must in IDWT be a misidentified quark-sector resonance. No glueball will be definitively detected. Claimed candidate states (f₀(1710), f₀(1500), etc.) are ordinary quark-sector resonances. See Part 5 §9 C8.
-- **Dark matter is the Stage-2-pass / Stage-1-fail mode population:** The two filters are independent conditions. Co-fixed-point modes (Stage-2 stable) that simultaneously fail Stage 1 (Ω_log > ln 2, no colour-protection override) are stable resonances of M_∞ with mass and gravitational presence — sourcing curvature via P5 identically to visible matter — but with negligible d=3 vibrational amplitude. They do not couple to nuclear detectors. No new sector, no new physics, and no free parameters are required: dark matter is a geometric consequence of the same two-filter structure that selects the observable spectrum. The dark matter mass spectrum is an output of the Stage-2 enumeration; this derivation is open (Part 7 §2.6). 🔶
-
-### Near-future windows
-
-| Prediction | Experiment | Timescale |
-|---|---|---|
-| 0νββ = 0 (m_ββ = 0) | nEXO, LEGEND-1000, KamLAND-Zen 800 | now–2035 |
-| Σm_ν = 60.39 meV | CMB-S4 (target ~30 meV) | 2030s |
-| Normal ordering (definitive) | JUNO, DUNE, Hyper-Kamiokande | now–2030 |
-| sin²θ₂₃ = 0.5590 | T2K, NOvA, DUNE | Running |
-| No new stable particles | HL-LHC, FCC | now–2040 |
+Key hard falsifiers: observed 0νββ attributed to a fundamental Majorana mass term; confirmed non-unitary PMNS; CP phase δ_CP inconsistent with |δ − π| = 2|θ₁₃|; any new stable fundamental particle beyond the 15 in the spectrum; a fourth neutrino species. These are all irrecoverable — no sector, coupling constant, or mode index can be adjusted to accommodate them.

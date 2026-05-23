@@ -89,21 +89,21 @@ The exact cross-coupling g_{3,4} = 4√6 is fully derived from seed structure (P
 
 The (d,d') sector pairs give additional predicted resonances:
 
-| Pair | Beat (MeV) | Identification | Error |
+| Pair | Beat (MeV) | Nearest state | Mass error |
 |------|-----------|----------------|-------|
-| (3,6) | 775.0 | ρ(770) = 775.26 MeV | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07% consistency check) |
-| (4,6) | 1207.6 | a₁(1260) = 1230 MeV | −1.82% |
+| (3,6) | 775.0 | mass consistent with ρ(770) = 775.26 MeV; quantum numbers and decay channels not yet verified | −0.04% (simple beat; Im[Γ₃₄₆] gives 775.8 MeV, +0.07% consistency check) |
+| (4,6) | 1207.6 | mass consistent with a₁(1260) = 1230 MeV; quantum numbers and decay channels not yet verified | −1.82% |
 
-The a₁(1260) is the lightest axial vector meson (J^PC = 1⁺⁺) and the chiral partner of the ρ. Both emerge from the same comb filter structure with no additional input. The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic identifications.
+The (3,4) beat at 2163 MeV and the (6,10) beat at 736 MeV do not have clean hadronic mass matches. **Caveat on all beat identifications:** hadronic spectra are dense and overlapping; a mass match alone is insufficient for identification. Spin/parity quantum numbers, decay widths, and selection rules have not been verified from IDWT for any of the beat-tower states.
 
 ### 1.6 Complete d=3 Sideband Beat Tower
 
 The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full tower:
 
-| n, n+1 | Beat (MeV) | Nearest state | Match |
+| n, n+1 | Beat (MeV) | Nearest state | Mass error |
 |--------|------------|---------------|-------|
 | 4, 5 | 124.4 | (no identification — pion is a collective excitation, absent from sector spectrum; §3d Part 5) | — |
-| 11, 12 | 1517.1 | f₂(1525) | −0.5% |
+| 11, 12 | 1517.1 | mass consistent with f₂(1525); quantum numbers and decay channels not yet verified | −0.5% |
 | **16, 17** | **4181** | **b quark (4180)** | **+0.02%** |
 
 ---
@@ -114,7 +114,7 @@ The two-stage paradigm unifies all mode-selection results. Every (n,d) exists as
 
 The n=2,3 modes in d=3 are absent from the co-fixed-point spectrum — they pass Stage 1 (Ω_log = 0.288, 0.511, both below ln 2) but are not selected by the hockey-stick fixed-point structure. Their suppression is combinatorial, not geometric.
 
-The two filters are independent conditions. This opens a third population not yet discussed: modes that **pass Stage 2 but fail Stage 1**. Such modes are stable resonances of M_∞ — they carry mass and source gravitational curvature via P5 — but have negligible d=3 vibrational activity, suppressed by exp(−Ω_log) ≈ 0. They do not couple to nuclear detectors. This is the IDWT dark matter sector; see §2.6.
+The two filters are independent conditions. This opens a third population not yet discussed: modes that **pass Stage 2 but fail Stage 1**. Such modes are stable resonances of M_∞ — they carry mass and source gravitational curvature via P5 — but have negligible d=3 vibrational activity, suppressed by exp(−Ω_log) ≈ 0. They do not couple to nuclear detectors. These are candidate hidden resonances; see §2.6.
 
 **Stage-1 gates the dark sector, not the observed spectrum.** None of the 15 observed particles is selected or excluded by Stage-1 alone:
 - **Quarks (d=3,4)**: Stage-1 is bypassed entirely — colour protection (SU(3)_c gauge invariance) forces Ω_log = 0, so A_rel = 1 unconditionally regardless of mode index.

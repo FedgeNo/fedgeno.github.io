@@ -817,6 +817,14 @@ The spinor structure governs quantum numbers — what attaches to each mode. The
 
 ## 16. Electromagnetism: Ward Identity and L-Parity Protection
 
+**Three arguments for photon masslessness.** IDWT has three distinct lines of argument, ordered by strength and IDWT-nativity:
+
+1. **Mass formula (primary).** S(0,2) = C(1,2) = 0, so m_photon = S(0,2) × m_scale_2 = 0 exactly from the IDWT mass formula. This is argument (1); it is the cleanest and most model-independent, requiring only the mode-index assignment n=0 for the photon.
+
+2. **L-parity (all-orders, IDWT-native, §16.2).** The kernel (ξ·ξ')² is even under L → −L and has no L=1 component. Therefore Π_kernel(q²) = 0 for all q², and no photon mass is generated at any order in the kernel coupling. This is stronger than argument (1) in that it rules out dynamical mass generation beyond the mass formula.
+
+3. **Ward identity (§16.1, partly imported).** Current conservation ∂^μ J_μ^{EM} = 0 follows from U(1) gauge invariance of the IDWT action by Noether's theorem — this part is IDWT-native. The Ward-Takahashi identity in vertex form (q_μ Γ^μ = S^{-1}(p+q) − S^{-1}(p)) is QFT language used to express the consequence of gauge invariance for the photon propagator. Arguments (1) and (2) are the primary IDWT proofs; argument (3) translates the result into QFT language for cross-framework comparison. It is not an independent derivation within IDWT.
+
 ### 16.1 The Ward Identity in IDWT
 
 The IDWT kinetic term contains the covariant derivative:

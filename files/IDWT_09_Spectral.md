@@ -18,7 +18,21 @@ No SM inputs are used except $m_e = 0.51099895$ MeV as the single unit of mass.
 
 ## T0. The Spectral Triple
 
-**Note.** The spectral triple notation $(\mathcal{A},\mathcal{H},D)$ is used here as a convenient mathematical framework. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense. The operator-theoretic properties listed below — self-adjointness of $D$, compact resolvent, summability, spectral dimension, KO-dimension structure — are open items rather than established results. This section defines the IDWT spectral triple proposal and the structure it is expected to have; the rigorous proofs are pending.
+**Note.** The spectral triple notation $(\mathcal{A},\mathcal{H},D)$ is used here as a convenient mathematical framework. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense. This section defines the IDWT spectral triple proposal and the structure it is expected to have; the rigorous proofs are pending. The following operator-theoretic properties are open items:
+
+1. **Self-adjointness of $D$.** $D$ is defined on $L^2(M_\infty,\mathcal{S}_\infty)$ with confining potential $V_d(r)$ in each sector. That $D$ is essentially self-adjoint on a natural core domain (e.g., smooth compactly supported spinors) has not been proved. The confining potential makes this plausible but does not substitute for a rigorous argument via Kato-Rellich or deficiency indices.
+
+2. **Compact resolvent.** The resolvent $(D-\lambda)^{-1}$ must be compact for a spectral triple. Compactness follows if the spectrum is discrete and eigenvalues diverge to $\pm\infty$, which is expected from the confining potential but not proved.
+
+3. **Finite $p$-summability.** A spectral triple is $p$-summable if $|D|^{-p}$ is trace-class. The expected summability dimension $p$ (related to the spectral dimension of $M_\infty$) has not been computed. The sector heat kernel $K_d(t)$ is known (T14), but summing over all sectors to obtain the full heat kernel and reading off the summability exponent is an open calculation.
+
+4. **Fredholm module structure.** To apply the Kasparov product and define the class in $K$-homology, $(\mathcal{A},\mathcal{H},F)$ with $F = D|D|^{-1}$ must be a Fredholm module — i.e., $[F,a]$ compact for $a\in\mathcal{A}$. This has not been verified for the IDWT algebra $\mathcal{A}$.
+
+5. **KO-dimension.** The KO-dimension of the spectral triple (determined by the real structure $J$ and the $\mathbb{Z}/8\mathbb{Z}$ Clifford commutation relations) is expected to reflect the sector Clifford structure (d=5 admits no $C$, etc.), but the global KO-dimension of the full product spectral triple on $M_\infty$ has not been computed.
+
+6. **Regularity.** For $(\mathcal{A},\mathcal{H},D)$ to be a regular spectral triple, $a$ and $[D,a]$ must be in $\bigcap_k\operatorname{Dom}(\delta^k)$ where $\delta = [|D|,\cdot]$. Regularity for the IDWT algebra is open.
+
+7. **Spectral dimension.** The spectral dimension $d_s$ defined by $\zeta_D(s) = \operatorname{Tr}|D|^{-s}$ having a simple pole at $s=d_s$ is expected to equal the effective dimension of $M_\infty$, but the pole structure of the full multi-sector zeta function has not been computed. Individual sector contributions are known (T14).
 
 **Definition.** IDWT is the spectral triple $(\mathcal{A},\,\mathcal{H},\,D)$ where
 
@@ -381,6 +395,8 @@ The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure re
 
 ## T14. Heat Kernel and Spectral Geometry
 
+**Note on non-compact sector spaces.** The standard Seeley-DeWitt heat kernel expansion is developed for compact Riemannian manifolds. IDWT's sector spaces $\Xi_d$ are non-compact (the confining potential $V_d(r)=\lambda_dr^2/(1+r^2)$ replaces compactness; eigenmodes are L²-normalizable). The results below (Weyl coefficient, $\zeta_d(0)$) are derived directly from the IDWT eigenvalue sequence $S(n,d)$ via Euler-Maclaurin and Mellin transforms — they do not invoke the compact-manifold Seeley-DeWitt formula. Correspondence between these direct results and the standard heat-kernel coefficient formulas applied to non-compact operators with confining potentials has not been verified; this is an open item (Part 4 §3.12.1, Part 6 MC-8).
+
 The **heat kernel** of sector $d$ is the trace of the heat semi-group of the sector operator:
 $$K_d(t) = \operatorname{Tr}(e^{-t|D_d|}) = \sum_{n=1}^{\infty} e^{-t\,S(n,d)}, \qquad t > 0.$$
 
@@ -554,6 +570,8 @@ The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{
 
 **Theorem T15 (Euler characteristic unification).** The entire IDWT coupling structure — all six sector self-couplings $\{g_{22},g_{33},g_{44},g_{55},g_{66},g_{10,10}\}$ — is a function of a single Euler characteristic: $N_c = \chi(\mathbb{CP}^2) = 3$, the Euler characteristic of the color sector.
 
+**Note ($\Xi_d$ vs $\mathbb{CP}^n$).** The Euler characteristics computed below are those of $\mathbb{CP}^k$ as compact Kähler manifolds. IDWT's actual sector spaces $\Xi_d$ are non-compact; their local symmetry near $r=0$ is that of $\mathbb{CP}^k$, but the global topology differs. The identification $N_c = \chi(\mathbb{CP}^2)$ relies on the local symmetry group of $\Xi_4$, not on $\Xi_4$ being globally homeomorphic to $\mathbb{CP}^2$. Whether the topological invariants of the compact local model fully characterise the index and coupling structure of the non-compact $\Xi_d$ has not been proved; the relevant statement is that the Atiyah-Singer index and CW-decomposition arguments apply to the $\mathbb{CP}^k$ local model of $\Xi_d$ near the origin, and global corrections from the large-$r$ non-compact region are expected to vanish for L²-normalizable modes. This is an open item (Part 6).
+
 **Lemma.** $\chi(\mathbb{CP}^k) = k+1$ for all $k\geq 0$.
 
 *Proof.* $\mathbb{CP}^k$ admits a CW decomposition with exactly one cell in each even dimension $0,2,4,\ldots,2k$, giving $k+1$ cells total. Each cell contributes $+1$ to the Euler characteristic, so $\chi(\mathbb{CP}^k) = k+1$. $\square$
@@ -663,8 +681,8 @@ This is the coupling filter principle operating at the level of the self-couplin
 
 | Theorem | Content | Status | Accuracy | Physical consequence |
 |---|---|---|---|---|
-| T0 | Spectral triple; physical spectrum | ✅ | Exact | All SM masses from one operator |
-| T0.5 | Two-stage observability filter | ✅ | Exact | Selects 15 from infinite spectrum |
+| T0 | Spectral triple; physical spectrum | 🔶 | Exact | All SM masses from one operator; spectral triple properties (self-adjointness, compact resolvent, summability, KO-dimension, regularity) open — see Note |
+| T0.5 | Two-stage observability filter | 🔶 | Exact | Selects 15 from infinite spectrum; filter derivation semi-structural — see T0.5 status note |
 | T1 | $m=S(n,d)\cdot m_{\rm scale}$ = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
 | T2 | $(\xi\cdot\xi')^2$ = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
 | T3 | $D=\{2,3,4,5,6,10\}$ from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |
@@ -677,7 +695,7 @@ This is the coupling filter principle operating at the level of the self-couplin
 | T15 | $N_c=\chi(\mathbb{CP}^2)=n_u$; all couplings, mode indices, and sector-chain extent from one Euler characteristic (T15a–f) | ✅ | Exact | Coupling filter and mass scale hierarchy share one geometric root; $g_{dd}$ anti-correlates with isometry group dimension; $m_e$ is the only dimensional input |
 | T10a | GTC $\varepsilon=1/(280\sqrt7)$ | ✅ | $<0.1\%$ | Fine structure of quark masses |
 | T10b | Geometric back-reaction correction $+1/1680$ for $\tau$ | ✅ | $0.001\%$ | Critical-sector regularisation |
-| T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=60.39$ meV ($\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived, §9d); uncorrected 59.00 meV | ✅ | $<0.05\%$ | $0\nu\beta\beta=0$ at leading order |
+| T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=60.39$ meV ($\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived, §9d); uncorrected 59.00 meV | ✅ | $<0.05\%$ | $0\nu\beta\beta=0$ at all orders (no $C$ on $S^5$) |
 | T13a | Spectral sum rule $\zeta_d(1)=d/(d-1)$ | ✅ | Exact | Total inverse-mass weight of sector $d$ is $d/(d-1)$; pure Pascal |
 | T14a | Heat kernel Weyl term $K_d(t)\sim a_0^{(d)} t^{-1/d}$ | ✅ | Exact | Spectral dimension = $d$; Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ |
 | T14b | Constant term $-d/2$ and $\zeta_d(0)=-d/2$ | ✅ | Exact | Regularised eigenvalue count; sets sector functional determinant |

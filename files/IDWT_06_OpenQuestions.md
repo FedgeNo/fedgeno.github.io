@@ -126,3 +126,9 @@ The following items are open derivations or missing foundational elements within
 **Spin-1 bosons (W, Z, photon) from spinor framework — not worked out.** W and Z are spin-1 — how does this emerge from the Dirac spinor Ψ∞? The χ(CP¹)=2 helicity count for the photon is noted, but the spin-1 polarization tensor structure for W and Z is not derived. Open: derive the spin-1 polarization structure of gauge bosons from the d=2 sector Dirac operator spectrum.
 
 **g₂₂ operator derivation — open.** g₂₂ = (1/2)p²q has combinatorial motivation (Part 2 §10b, labeled 🔶) but no operator-level derivation: what operator trace over the kernel produces g₂₂ = p²q/2 exactly? Open: compute Tr[G²₂₃ + G²₂₄] or equivalent from the kernel eigenmode expansion and show it equals (1/2)p²q.
+
+---
+
+## Falsifiability
+
+The complete falsification inventory is in Part 5 §9 — the canonical location for IDWT's testability, organized into hard binary falsifiers (Category A), precision quantitative thresholds (Category B), structural predictions without SM equivalent (Category C), and near-future experimental windows. Part 1 §8 gives a brief summary with a pointer to Part 5 §9.

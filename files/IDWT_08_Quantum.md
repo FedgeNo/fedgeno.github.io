@@ -44,12 +44,12 @@ The Clifford algebra Cl(d) has periodicity 8 (mod 8 periodicity class). The peri
 | 2 | 2 | ✓ | ✓ | ✓ | 2 | Photon helicity; W± gauge bosons |
 | 3 | 3 | ✗ | ✓ | ✗ | 2 | Majorana: quark↔antiquark self-conjugacy under QCD |
 | 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
-| **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no Majorana mass → neutrinos are Dirac** |
+| **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no charge-conjugation matrix $C$ on $S^5$ → no $\psi^T C\psi$ at any order → 0νββ forbidden at all orders; neutrinos are Dirac** |
 | 6 | 6 | ✓ | ✗ | ✗ | 8 | Weyl: Kähler γ₅ splits lepton doublets |
 | 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 real components; tau lepton sector |
 
 
-**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. This establishes that the fundamental d=5 spinor is Dirac-type; no Majorana mass term is present at leading order. Induced operators and nonperturbative effects are not yet analyzed. **Neutrinos are Dirac fermions at the fundamental level** — a concrete, falsifiable prediction (see Part 1 §6). No 0νββ signal is expected at leading order from a Majorana mass term; Majorana mass term absent at leading order.
+**d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. More strongly: no charge-conjugation matrix $C$ satisfying the required anti-commutation relations exists on the $S^5$ spinor bundle (this is a global topological fact about the bundle, not just a local Clifford statement). Therefore cross-sector couplings cannot construct $\psi^T C\psi$ at any loop order, and 0νββ is forbidden at all orders. **Neutrinos are Dirac fermions at the fundamental level** — a concrete, falsifiable prediction (see Part 1 §6). ✅
 
 **d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The Dirac spinor in d=10 has 32 complex components; the Majorana condition imposes a reality projection and the Weyl condition selects chirality, leaving 16 real components (= 2^(d/2−1) = 2^4). The d=10 sector contains the tau lepton. Its hypercharge Y(τ) = −1 is derived from gauge anomaly cancellation with N_c = 3 and Y_L = −1/2 (Part 3 §8, §13).
 
@@ -89,6 +89,8 @@ For $k = 1$ (fundamental colour representation, $\mathcal{O}(1)$): $\mathrm{ind}
 For $k = -1$ (anti-fundamental, $\mathcal{O}(-1)$): $\mathrm{ind} = \binom{1}{2} = 0$. Right-handed singlets carry no geometric chiral bias.
 
 The left-right asymmetry of the SM quark sector is therefore a direct consequence of the spin^c structure on the $d=4$ sector: $\mathbb{CP}^2$ is not a spin manifold ($w_2 \neq 0$), forcing the spin^c choice, and the index of $D^c \otimes \mathcal{O}(1)$ fixes exactly 3 left-handed quark colours without any additional assumption. Note also $S(2,2) = 3 = N_c$, connecting this index to the d=2 mode count — the same 3 that appears throughout the sector coupling constants.
+
+**Note ($\Xi_d$ vs $\mathbb{CP}^n$).** The Atiyah-Singer index theorem and Hirzebruch-Riemann-Roch computation above are carried out for $\mathbb{CP}^2$ as a compact Kähler manifold. IDWT's actual $d=4$ sector space $\Xi_4$ is non-compact: it is a Hilbert space of L²-normalizable modes with confining potential $V_4(r)=\lambda_4 r^2/(1+r^2)$, whose local symmetry near $r=0$ is that of $\mathbb{CP}^2$. The topological index result ($\mathrm{ind}=3$) is computed for $\mathbb{CP}^2$; whether the index on the full non-compact $\Xi_4$ equals that of its compact $\mathbb{CP}^2$ local model requires showing that global corrections from the large-$r$ region are absent. This is expected from the L²-normalizability of the bound-state modes (which localises the integrand near $r=0$), but has not been proved rigorously. This is an open item (Part 6).
 
 ### 2.3 Chirality from Kähler γ₅
 
@@ -364,24 +366,24 @@ Quantify colour charge by the expectation vector n⃗_a = ⟨ψ|λ_a|ψ⟩ (a=1,
 
 Antiquark vectors are exact negatives of quark vectors: n⃗(q̄) = −n⃗(q).
 
-### The Energy Law and Confinement
+### The Energy Law and Colour-Neutrality Condition
 
 ```
 N⃗ = Σᵢ n⃗(qᵢ)     E_conf = λ_c |N⃗|
 ```
 
-This is the unique SU(3)-invariant linear energy functional, where λ_c is the confinement energy scale (related to Λ_QCD, not to the Generation Tower Correction ε). Confinement follows geometrically:
+This is the unique SU(3)-invariant linear energy functional, where λ_c is an energy scale (related to Λ_QCD, not to the Generation Tower Correction ε; λ_c is an open item — see below). The colour-neutrality condition |N⃗|=0 follows geometrically as the zero-energy criterion:
 
-| System | |N⃗| | E_conf | Confined? |
+| System | |N⃗| | E_conf | Colour-neutral? |
 |--------|------|---|-----------|
 | Meson r+r̄ | 0 | 0 | ✅ |
 | Meson r+ḡ | 2 | 2λ_c | ✗ |
 | Baryon r+g+b | 0 | 0 | ✅ |
 | Baryon r+r+g | >0 | >0 | ✗ |
 
-**Only colour-matched configurations are stable.** This is not assumed — it follows from E_conf = λ_c|N⃗| applied to the specific SU(3) colour vectors.
+**Only colour-neutral configurations have zero colour-energy.** This follows from E_conf = λ_c|N⃗| applied to the specific SU(3) colour vectors. **Note:** this establishes colour-neutrality as the geometric stability criterion; it is not a derivation of full QCD confinement (flux tube formation, asymptotic freedom, and the running of α_s are not addressed here).
 
-**The derivation chain:**
+**What is established (geometric):**
 ```
 IDWT M_∞ geometry
     ↓
@@ -395,12 +397,12 @@ SU(3) acts on colour space (CP² isometry)
     ↓
 8D colour expectation vectors
     ↓
-E_conf = λ_c|N⃗| confinement law
+E_conf = λ_c|N⃗| colour-neutrality condition
     ↓
-Mesons and baryons are colour-neutral
+Mesons and baryons are colour-neutral (colour selection rule)
 ```
 
-**What remains open:** Deriving λ_c from the IDWT action. The energy law E_conf = λ_c|N⃗| is geometrically natural; λ_c is free until connected to m_scale_4 or g_{3,4}. (Note: λ_c is distinct from the Generation Tower Correction ε = 1/(280√7).)
+**What remains open:** (1) Deriving λ_c from the IDWT action (λ_c is free until connected to m_scale_4 or g_{3,4}; note λ_c is distinct from ε = 1/(280√7)); (2) promoting the spin^c U(1) auxiliary bundle to full SU(3) local gauge symmetry — the isometry acts geometrically on the sector, but SU(3) as a local gauge symmetry of a 3+1D Yang-Mills action has not been derived; (3) the dynamical confinement mechanism (flux tube formation, asymptotic freedom, and the QCD string tension) is not addressed.
 
 ---
 

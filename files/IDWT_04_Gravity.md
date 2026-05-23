@@ -357,7 +357,9 @@ Via the Seeley-DeWitt heat kernel expansion, this yields terms of the form:
 Γ_Ξ ~ ∫_Ξ [a_0 + a_2 R_Ξ + a_4 R_Ξ² + ...] dμ_ξ
 ```
 
-The a_2 term, proportional to the Ricci scalar R_Ξ of the sector manifold, is the one that would correct the observed Planck mass in a KK theory.
+**Note (non-compact caveat).** The standard Seeley-DeWitt expansion and the coefficient formulas $a_0, a_2, a_4$ are derived for compact Riemannian manifolds. IDWT's sector spaces $\Xi_d$ are non-compact (confinement is from $V_d(r)$, not compactness). The no-correction argument below relies only on the decoupling $\delta\Gamma_\Xi/\delta g_{\mu\nu}=0$, which follows from the product metric structure and is independent of whether the Seeley-DeWitt coefficients retain their standard compact-manifold form. The argument is therefore valid as stated. However, the computation of $a_2(M_\infty)$ for the prediction of $G_\infty$ (§3.12.4) does require the Seeley-DeWitt expansion on the non-compact $\Xi_d$; verifying that the coefficient formulas hold for L²-normalizable modes with confining potential $V_d(r)$ is an open item (Part 6, MC-8).
+
+The $a_2$ term, proportional to the Ricci scalar $R_\Xi$ of the sector manifold, is the one that would correct the observed Planck mass in a KK theory.
 
 **The key: O_Ξ is independent of g_μν.**
 

@@ -254,7 +254,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   <p class="sub">The s, p, d, f orbital families are the observable shadow of the electron's CP³ sector geometry. Every orbital shell contains hidden states that carry angular momentum in the Ξ<sub>6</sub> directions — and are exactly spectroscopically dark.</p>
 
   <h2>Setup</h2>
-  <p>In IDWT, the electron is the mode \((n=13,\, d=6)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)/\mathrm{U}(3)\). The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
+  <p>In IDWT, the electron is the mode \((n=13,\, d=6)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)\). The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
   <div class="formula-block">
     \[\mathrm{SU}(4) \supset \mathrm{SU}(3) \supset \mathrm{SO}(3)\]
     <div class="label">the natural projection path from d=6 sector to observable space</div>
@@ -269,19 +269,19 @@ html, body { margin:0; height:100%; overflow:hidden; }
   <p>Under the full subgroup chain, only the highest-spin \(\mathrm{SO}(3)\) irrep at each level survives projection — the states that are purely polynomial in \((z_1, z_2, z_3)\) with no \(\xi\)-dependence. These are the \(2L+1\) standard spherical harmonics. All other states carry hidden angular momentum.</p>
 
   <h3>Orbital Counting Theorem <span class="status-tag tag-id">⭐ Identity</span></h3>
-  <p>Projection of \(\mathrm{Sym}^L(\mathbb{C}^4)\) to the observable \(\mathrm{SO}(3)\) selects exactly \(2L+1\) states. The remaining</p>
-  <div class="formula-block">
-    \[\binom{L+3}{3} - (2L+1)\]
-  </div>
-  <p>states carry hidden-sector angular momentum and vanish at the observer address \(\xi^0\).</p>
+  <p>Projection of \(\mathrm{Sym}^L(\mathbb{C}^4)\) to the observable \(\mathrm{SO}(3)\) selects exactly \(2L+1\) states. The remaining \(\binom{L+3}{3}-(2L+1)\) non-observable states fall into two distinct categories:</p>
+  <ul style="margin:6px 0 10px 1.2em; font-size:0.9rem; line-height:1.7">
+    <li><strong>IDWT-hidden</strong> — \(L(L+1)(L+2)/6\) states with at least one \(z_4\) factor. Spectroscopically dark by ξ-orthogonality (Lemma 2).</li>
+    <li><strong>Lower-j 3D</strong> — \(L(L-1)/2\) non-harmonic degree-\(L\) polynomials in \((z_1,z_2,z_3)\) only. No \(z_4\)-dependence; already counted in shells \(L'&lt;L\). Not new or hidden states.</li>
+  </ul>
 
   <table class="data-table">
-    <thead><tr><th>Shell</th><th>\(L\)</th><th>Total dim</th><th class="obs-cell">Observable</th><th class="hid-cell">Hidden</th></tr></thead>
+    <thead><tr><th>Shell</th><th>\(L\)</th><th>Total</th><th class="obs-cell">Observable</th><th class="hid-cell">IDWT-hidden</th><th>Lower-j 3D</th></tr></thead>
     <tbody>
-      <tr><td>s</td><td>0</td><td>1</td><td class="obs-cell">1</td><td class="hid-cell">0</td></tr>
-      <tr><td>p</td><td>1</td><td>4</td><td class="obs-cell">3</td><td class="hid-cell">1</td></tr>
-      <tr><td>d</td><td>2</td><td>10</td><td class="obs-cell">5</td><td class="hid-cell">5</td></tr>
-      <tr><td>f</td><td>3</td><td>20</td><td class="obs-cell">7</td><td class="hid-cell">13</td></tr>
+      <tr><td>s</td><td>0</td><td>1</td><td class="obs-cell">1</td><td class="hid-cell">0</td><td>0</td></tr>
+      <tr><td>p</td><td>1</td><td>4</td><td class="obs-cell">3</td><td class="hid-cell">1</td><td>0</td></tr>
+      <tr><td>d</td><td>2</td><td>10</td><td class="obs-cell">5</td><td class="hid-cell">4</td><td>1</td></tr>
+      <tr><td>f</td><td>3</td><td>20</td><td class="obs-cell">7</td><td class="hid-cell">10</td><td>3</td></tr>
     </tbody>
   </table>
 
@@ -306,7 +306,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
     </tbody>
   </table>
 
-  <p>Observable states are the unique highest-\(j\) irrep. Hidden states are all lower-\(j\) content and states involving the \(z_4\) fibre direction.</p>
+  <p>Observable states are the unique highest-\(j\) irrep at each level. IDWT-hidden states involve the \(z_4\) fibre direction and are spectroscopically dark. Lower-\(j\) 3D content is non-harmonic in \((z_1,z_2,z_3)\) — no \(z_4\) dependence — and is already counted in lower orbital shells.</p>
 
   <h2>The Exact Hamiltonian</h2>
 
@@ -327,8 +327,8 @@ html, body { margin:0; height:100%; overflow:hidden; }
 
   <h3>Energy Levels <span class="status-tag tag-sc">✅ Structural</span></h3>
   <div class="formula-block">
-    \[E_{nL} = m_e - \frac{m_e\,\alpha^2}{2n^2}\]
-    <div class="label">standard Bohr spectrum with electron rest mass — no correction term</div>
+    \[E_{n_H L} = m_e - \frac{m_e\,\alpha^2}{2n_H^2}\]
+    <div class="label">standard Bohr spectrum with electron rest mass — no correction term. \(n_H = 1,2,3,\ldots\) is the hydrogenic principal quantum number, distinct from the IDWT mode index \(n\).</div>
   </div>
 
   <h2>Why Hidden States Are Dark</h2>
@@ -350,13 +350,17 @@ html, body { margin:0; height:100%; overflow:hidden; }
 
   <h2>Explicit Basis: L = 2</h2>
   <p>\(\mathrm{Sym}^2(\mathbb{C}^4)\) has 10 basis monomials.</p>
-  <p><span style="color:#7fa0ff">Observable d-orbitals:</span> the 5 traceless degree-2 polynomials in \((z_1, z_2, z_3)\) — the standard \(Y_2^m\).</p>
-  <p><span style="color:#f59e0b">Hidden states (5):</span> \(\{z_1 z_4,\, z_2 z_4,\, z_3 z_4\}\) (p-like, \(j=1\)), \(\{z_4^2\}\) (s-like, \(j=0\)), and \(\{z_1^2+z_2^2+z_3^2\}\) (the SO(3) trace, \(j=0\)). All five integrate to zero over the \(\xi\)-sphere.</p>
+  <p><span style="color:#7fa0ff">Observable d-orbitals (5):</span> the traceless degree-2 polynomials in \((z_1, z_2, z_3)\) — the standard \(Y_2^m\).</p>
+  <p><span style="color:#f59e0b">IDWT-hidden states (4):</span> \(\{z_1 z_4,\, z_2 z_4,\, z_3 z_4\}\) (\(j=1\)) and \(\{z_4^2\}\) (\(j=0\)). All carry \(z_4\)-dependence and integrate to zero over the \(\xi\)-sphere by Lemma 2.</p>
+  <p><span style="color:#9aa3b8">Lower-j 3D state (1):</span> \(\{z_1^2+z_2^2+z_3^2\}\) — the SO(3) trace, \(j=0\), no \(z_4\)-dependence. This is not IDWT-hidden; it is a non-harmonic degree-2 polynomial in \((z_1,z_2,z_3)\) already counted as an s-type configuration in the \(L=0\) shell.</p>
 
   <h2>Summary</h2>
-  <p>Chemistry is a shadow of the d=6 sector geometry. The orbital degeneracy counts 1, 3, 5, 7 for s, p, d, f shells are a theorem of the representation theory of \(\mathrm{SU}(4)\). The Bohr spectrum is an exact consequence of potential separability in \(M_\infty\). The spectroscopic selection rules follow from \(\xi\)-orthogonality. No parameters are adjusted.</p>
+  <p>The orbital degeneracy counts 1, 3, 5, 7 for s, p, d, f shells are a theorem of the representation theory of \(\mathrm{SU}(4)\) under the chain \(\mathrm{SU}(4)\supset\mathrm{SU}(3)\supset\mathrm{SO}(3)\). The Bohr spectrum is an exact consequence of potential separability in \(M_\infty\). The spectroscopic selection rules follow from \(\xi\)-orthogonality. The orbital degeneracy count, energy spectrum, and selection rules are all structural consequences of the CP³ sector geometry — no parameters are introduced beyond those of the core IDWT framework.</p>
 
   <p style="margin-top:24px; font-size:0.83rem; color:#5a6380">
+    <strong style="color:#8b9cff">Reference:</strong> Fedge No, <em>Infinite Dimensional Wave Theory</em> (2025), <a href="https://doi.org/10.5281/zenodo.19767493" target="_blank" rel="noopener">doi:10.5281/zenodo.19767493</a>
+  </p>
+  <p style="margin-top:12px; font-size:0.83rem; color:#5a6380">
     See also: <a href="/articles/sectors.html">The Six Sectors</a> &nbsp;·&nbsp;
     <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a> &nbsp;·&nbsp;
     <a href="/articles/sector-filters.html">Coupling Filters</a>
@@ -367,7 +371,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
 <div class="viz-panel" id="vizPanel">
   <div class="viz-info" id="vizInfo">
     <div class="vi-title">s shell — L=0</div>
-    <div><span class="vi-obs">1 observable</span> · <span class="vi-hid">0 hidden</span></div>
+    <div><span class="vi-obs">1 observable</span> · <span class="vi-hid">0 IDWT-hidden</span></div>
     <div class="vi-dim">Total dim: S(1,3) = 1</div>
   </div>
   <div class="shell-bar">
@@ -522,7 +526,6 @@ function shellData(L) {
     { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
     { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
     { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.36, opacity:0.28 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.30, opacity:0.24 },
   ];
   if (L === 3) return [
     { L:3, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
@@ -540,9 +543,6 @@ function shellData(L) {
     { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
     { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
     { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
-    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
-    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
-    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
     { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.26, opacity:0.18 },
     { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.22, opacity:0.16 },
   ];
@@ -552,10 +552,10 @@ function shellData(L) {
 // ── shell management ──────────────────────────────────────────
 const SHELL_NAMES = ['s','p','d','f'];
 const SHELL_META  = [
-  { name:'s shell — L=0', obs:1, hid:0,  dim:1  },
-  { name:'p shell — L=1', obs:3, hid:1,  dim:4  },
-  { name:'d shell — L=2', obs:5, hid:5,  dim:10 },
-  { name:'f shell — L=3', obs:7, hid:13, dim:20 },
+  { name:'s shell — L=0', obs:1, hid:0,  low:0, dim:1  },
+  { name:'p shell — L=1', obs:3, hid:1,  low:0, dim:4  },
+  { name:'d shell — L=2', obs:5, hid:4,  low:1, dim:10 },
+  { name:'f shell — L=3', obs:7, hid:10, low:3, dim:20 },
 ];
 
 let targetCamDist = 7, actualCamDist = 7;
@@ -583,7 +583,7 @@ function setShell(L) {
   const m = SHELL_META[L];
   document.getElementById('vizInfo').innerHTML =
     `<div class="vi-title">${m.name}</div>` +
-    `<div><span class="vi-obs">${m.obs} observable</span> · <span class="vi-hid">${m.hid} hidden</span></div>` +
+    `<div><span class="vi-obs">${m.obs} observable</span> · <span class="vi-hid">${m.hid} IDWT-hidden</span>${m.low ? ` · <span class="vi-dim">${m.low} lower-j 3D</span>` : ''}</div>` +
     `<div class="vi-dim">Total dim: S(${L+1},3) = ${m.dim}</div>`;
 }
 

@@ -1,7 +1,7 @@
 # IDWT
 
 - Infinite Dimensional Wave Theory is a research project by Fedge No, fedge-no@hotmail.com.
-- The home of the complete 10 document work online is https://doi.org/10.5281/zenodo.19767493 . Use this URL when referencing it in other papers, letters or notes.
+- The home of the complete 10 document work online is https://doi.org/10.5281/zenodo.19767493 . This DOI always resolves to the most current version of the notes — older versions exist on Zenodo but are superseded. Use this URL when referencing it in other papers, letters or notes.
 - The project aims to understand the nature of reality from a physical perspective.
 - It views everything as a complex Dirac spinor wave interacting with itself over an infinite-dimensional manifold composed of macroscopic spatial dimensions.
 

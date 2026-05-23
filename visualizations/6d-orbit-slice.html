@@ -372,7 +372,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   <div class="viz-info" id="vizInfo">
     <div class="vi-title">s shell — L=0</div>
     <div><span class="vi-obs">1 observable</span> · <span class="vi-hid">0 IDWT-hidden</span></div>
-    <div class="vi-dim">Total dim: S(1,3) = 1</div>
+    <div class="vi-dim">State count: S(1,3) = 1</div>
   </div>
   <div class="shell-bar">
     <button class="shell-btn active" id="btn-s">s (L=0)</button>
@@ -584,7 +584,7 @@ function setShell(L) {
   document.getElementById('vizInfo').innerHTML =
     `<div class="vi-title">${m.name}</div>` +
     `<div><span class="vi-obs">${m.obs} observable</span> · <span class="vi-hid">${m.hid} IDWT-hidden</span>${m.low ? ` · <span class="vi-dim">${m.low} lower-j 3D</span>` : ''}</div>` +
-    `<div class="vi-dim">Total dim: S(${L+1},3) = ${m.dim}</div>`;
+    `<div class="vi-dim">State count: S(${L+1},3) = ${m.dim}</div>`;
 }
 
 // Wire buttons — addEventListener only, no onclick attributes

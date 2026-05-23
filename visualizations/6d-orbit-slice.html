@@ -491,50 +491,49 @@ function buildOrbitalMesh(L, m, color, scale, res, opacity) {
 const OBS = 0x7fa0ff, HID = 0xf59e0b;
 
 function shellData(L) {
-  const s = 0.9, hs = 0.5;
   if (L === 0) return [
     { L:0, m:0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.70 },
   ];
-  if (L === 1) { const p = 1.6; return [
-    { L:1, m: 1, color:OBS, pos:[-p, 0, 0], scale:s, opacity:0.72 },
-    { L:1, m: 0, color:OBS, pos:[ 0, p, 0], scale:s, opacity:0.72 },
-    { L:1, m:-1, color:OBS, pos:[ 0, 0, p], scale:s, opacity:0.72 },
-    { L:0, m: 0, color:HID, pos:[ p, 0, 0], scale:hs*0.85, opacity:0.48 },
-  ]; }
-  if (L === 2) { const p = 1.9; return [
-    { L:2, m: 0, color:OBS, pos:[ 0, p, 0], scale:s,    opacity:0.72 },
-    { L:2, m: 1, color:OBS, pos:[ p, 0, 0], scale:s,    opacity:0.72 },
-    { L:2, m:-1, color:OBS, pos:[ 0, 0, p], scale:s,    opacity:0.72 },
-    { L:2, m: 2, color:OBS, pos:[-p, 0, 0], scale:s,    opacity:0.72 },
-    { L:2, m:-2, color:OBS, pos:[ 0,-p, 0], scale:s,    opacity:0.72 },
-    { L:1, m: 1, color:HID, pos:[ p, p, 0], scale:hs,   opacity:0.42 },
-    { L:1, m: 0, color:HID, pos:[-p, p, 0], scale:hs,   opacity:0.42 },
-    { L:1, m:-1, color:HID, pos:[ 0, p, p], scale:hs,   opacity:0.42 },
-    { L:0, m: 0, color:HID, pos:[ p,-p, 0], scale:hs*0.8, opacity:0.38 },
-    { L:0, m: 0, color:HID, pos:[ 0,-p, p], scale:hs*0.8, opacity:0.38 },
-  ]; }
-  if (L === 3) { const p = 2.0; return [
-    { L:3, m: 0, color:OBS, pos:[ 0, p, 0], scale:s*1.0,  opacity:0.72 },
-    { L:3, m: 1, color:OBS, pos:[ p, p, 0], scale:s*0.85, opacity:0.72 },
-    { L:3, m:-1, color:OBS, pos:[-p, p, 0], scale:s*0.85, opacity:0.72 },
-    { L:3, m: 2, color:OBS, pos:[ p, 0, 0], scale:s*0.8,  opacity:0.72 },
-    { L:3, m:-2, color:OBS, pos:[-p, 0, 0], scale:s*0.8,  opacity:0.72 },
-    { L:3, m: 3, color:OBS, pos:[ p,-p, 0], scale:s*0.75, opacity:0.72 },
-    { L:3, m:-3, color:OBS, pos:[-p,-p, 0], scale:s*0.75, opacity:0.72 },
-    { L:2, m: 0, color:HID, pos:[ 0, p, p], scale:hs,     opacity:0.36 },
-    { L:2, m: 1, color:HID, pos:[ p, 0, p], scale:hs,     opacity:0.36 },
-    { L:2, m:-1, color:HID, pos:[-p, 0, p], scale:hs,     opacity:0.36 },
-    { L:2, m: 2, color:HID, pos:[ 0,-p, p], scale:hs,     opacity:0.36 },
-    { L:2, m:-2, color:HID, pos:[ p,-p, 0], scale:hs,     opacity:0.36 },
-    { L:1, m: 1, color:HID, pos:[ p, p, p], scale:hs*0.7, opacity:0.30 },
-    { L:1, m: 0, color:HID, pos:[-p, p, p], scale:hs*0.7, opacity:0.30 },
-    { L:1, m:-1, color:HID, pos:[ 0,-p,-p], scale:hs*0.7, opacity:0.30 },
-    { L:1, m: 1, color:HID, pos:[ p,-p,-p], scale:hs*0.7, opacity:0.30 },
-    { L:1, m: 0, color:HID, pos:[-p,-p, p], scale:hs*0.7, opacity:0.30 },
-    { L:1, m:-1, color:HID, pos:[ 0, p,-p], scale:hs*0.7, opacity:0.30 },
-    { L:0, m: 0, color:HID, pos:[ p, 0,-p], scale:hs*0.55, opacity:0.26 },
-    { L:0, m: 0, color:HID, pos:[-p, 0,-p], scale:hs*0.55, opacity:0.26 },
-  ]; }
+  if (L === 1) return [
+    { L:1, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
+    { L:1, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
+    { L:1, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.50, opacity:0.38 },
+  ];
+  if (L === 2) return [
+    { L:2, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
+    { L:2, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
+    { L:2, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
+    { L:2, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
+    { L:2, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
+    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
+    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
+    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.36, opacity:0.28 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.30, opacity:0.24 },
+  ];
+  if (L === 3) return [
+    { L:3, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m: 3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:3, m:-3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
+    { L:2, m: 0, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
+    { L:2, m: 1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
+    { L:2, m:-1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
+    { L:2, m: 2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
+    { L:2, m:-2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
+    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
+    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
+    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
+    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
+    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
+    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.34, opacity:0.20 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.26, opacity:0.18 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.22, opacity:0.16 },
+  ];
   return [];
 }
 
@@ -583,6 +582,7 @@ SHELL_NAMES.forEach((n, i) =>
 // ── interaction ───────────────────────────────────────────────
 let isDragging = false, lastX = 0, lastY = 0;
 panel.addEventListener('pointerdown', e => {
+  if (e.target.closest('.shell-btn')) return;
   isDragging = true; lastX = e.clientX; lastY = e.clientY;
   panel.setPointerCapture(e.pointerId);
 });

@@ -127,8 +127,9 @@ html, body { margin:0; height:100%; overflow:hidden; }
   color: #c4cae2;
 }
 .data-table tr:hover td { background: rgba(139,156,255,0.04); }
-.obs-cell { color: #7fa0ff; font-weight: 500; }
-.hid-cell { color: #f59e0b; }
+.obs-cell { color: #4488ff; font-weight: 500; }
+.hid-cell { color: #ee44aa; }
+.low-cell { color: #44dd88; }
 
 .lemma-box {
   background: rgba(52,211,153,0.04);
@@ -202,8 +203,9 @@ html, body { margin:0; height:100%; overflow:hidden; }
   max-width: 200px;
 }
 .viz-info .vi-title { color: #d6daf0; font-weight: 600; margin-bottom: 4px; font-size: 0.82rem; }
-.vi-obs { color: #7fa0ff; }
-.vi-hid { color: #f59e0b; }
+.vi-obs { color: #4488ff; }
+.vi-hid { color: #ee44aa; }
+.vi-low { color: #44dd88; }
 .vi-dim { color: #7a8499; }
 
 .drag-hint {
@@ -276,12 +278,12 @@ html, body { margin:0; height:100%; overflow:hidden; }
   </ul>
 
   <table class="data-table">
-    <thead><tr><th>Shell</th><th>\(L\)</th><th>Total</th><th class="obs-cell">Observable</th><th class="hid-cell">IDWT-hidden</th><th>Lower-j 3D</th></tr></thead>
+    <thead><tr><th>Shell</th><th>\(L\)</th><th>Total</th><th class="obs-cell">Observable</th><th class="hid-cell">IDWT-hidden</th><th class="low-cell">Lower-j 3D</th></tr></thead>
     <tbody>
-      <tr><td>s</td><td>0</td><td>1</td><td class="obs-cell">1</td><td class="hid-cell">0</td><td>0</td></tr>
-      <tr><td>p</td><td>1</td><td>4</td><td class="obs-cell">3</td><td class="hid-cell">1</td><td>0</td></tr>
-      <tr><td>d</td><td>2</td><td>10</td><td class="obs-cell">5</td><td class="hid-cell">4</td><td>1</td></tr>
-      <tr><td>f</td><td>3</td><td>20</td><td class="obs-cell">7</td><td class="hid-cell">10</td><td>3</td></tr>
+      <tr><td>s</td><td>0</td><td>1</td><td class="obs-cell">1</td><td class="hid-cell">0</td><td class="low-cell">0</td></tr>
+      <tr><td>p</td><td>1</td><td>4</td><td class="obs-cell">3</td><td class="hid-cell">1</td><td class="low-cell">0</td></tr>
+      <tr><td>d</td><td>2</td><td>10</td><td class="obs-cell">5</td><td class="hid-cell">4</td><td class="low-cell">1</td></tr>
+      <tr><td>f</td><td>3</td><td>20</td><td class="obs-cell">7</td><td class="hid-cell">10</td><td class="low-cell">3</td></tr>
     </tbody>
   </table>
 
@@ -348,14 +350,14 @@ html, body { margin:0; height:100%; overflow:hidden; }
 
   <h2>Explicit Basis: L = 1</h2>
   <p>\(\mathrm{Sym}^1(\mathbb{C}^4)\) has basis \(\{z_1, z_2, z_3, z_4\}\).</p>
-  <p><span style="color:#7fa0ff">Observable p-orbitals:</span> \(\{z_1, z_2, z_3\} \to (p_x, p_y, p_z)\). These are the standard \(Y_1^m\).</p>
-  <p><span style="color:#f59e0b">Hidden state:</span> \(\{z_4\}\), which integrates to zero over the \(\xi\)-sphere. Any 3D operator has zero matrix element between \(z_4\) and the observable states.</p>
+  <p><span style="color:#4488ff">Observable p-orbitals:</span> \(\{z_1, z_2, z_3\} \to (p_x, p_y, p_z)\). These are the standard \(Y_1^m\).</p>
+  <p><span style="color:#ee44aa">Hidden state:</span> \(\{z_4\}\), which integrates to zero over the \(\xi\)-sphere. Any 3D operator has zero matrix element between \(z_4\) and the observable states.</p>
 
   <h2>Explicit Basis: L = 2</h2>
   <p>\(\mathrm{Sym}^2(\mathbb{C}^4)\) has 10 basis monomials.</p>
-  <p><span style="color:#7fa0ff">Observable d-orbitals (5):</span> the traceless degree-2 polynomials in \((z_1, z_2, z_3)\) — the standard \(Y_2^m\).</p>
-  <p><span style="color:#f59e0b">IDWT-hidden states (4):</span> \(\{z_1 z_4,\, z_2 z_4,\, z_3 z_4\}\) (\(j=1\)) and \(\{z_4^2\}\) (\(j=0\)). All carry \(z_4\)-dependence and integrate to zero over the \(\xi\)-sphere by Lemma 2.</p>
-  <p><span style="color:#9aa3b8">Lower-j 3D state (1):</span> \(\{z_1^2+z_2^2+z_3^2\}\) — the SO(3) trace, \(j=0\), no \(z_4\)-dependence. This is not IDWT-hidden; it is a non-harmonic degree-2 polynomial in \((z_1,z_2,z_3)\) already counted as an s-type configuration in the \(L=0\) shell.</p>
+  <p><span style="color:#4488ff">Observable d-orbitals (5):</span> the traceless degree-2 polynomials in \((z_1, z_2, z_3)\) — the standard \(Y_2^m\).</p>
+  <p><span style="color:#ee44aa">IDWT-hidden states (4):</span> \(\{z_1 z_4,\, z_2 z_4,\, z_3 z_4\}\) (\(j=1\)) and \(\{z_4^2\}\) (\(j=0\)). All carry \(z_4\)-dependence and integrate to zero over the \(\xi\)-sphere by Lemma 2.</p>
+  <p><span style="color:#44dd88">Lower-j 3D state (1):</span> \(\{z_1^2+z_2^2+z_3^2\}\) — the SO(3) trace, \(j=0\), no \(z_4\)-dependence. This is not IDWT-hidden; it is a non-harmonic degree-2 polynomial in \((z_1,z_2,z_3)\) already counted as an s-type configuration in the \(L=0\) shell.</p>
 
   <h2>Summary</h2>
   <p>The orbital degeneracy counts 1, 3, 5, 7 for s, p, d, f shells are a theorem of the representation theory of \(\mathrm{SU}(4)\) under the chain \(\mathrm{SU}(4)\supset\mathrm{SU}(3)\supset\mathrm{SO}(3)\). The Bohr spectrum is an exact consequence of potential separability in \(M_\infty\). The spectroscopic selection rules follow from \(\xi\)-orthogonality. The orbital degeneracy count, energy spectrum, and selection rules are all structural consequences of the CP³ sector geometry — no parameters are introduced beyond those of the core IDWT framework.</p>
@@ -507,7 +509,7 @@ function buildOrbitalMesh(L, m, color, scale, res, opacity) {
 }
 
 // ── shell data ────────────────────────────────────────────────
-const OBS = 0x7fa0ff, HID = 0xf59e0b;
+const OBS = 0x4488ff, HID = 0xee44aa, LOW = 0x44dd88;
 
 function shellData(L) {
   if (L === 0) return [
@@ -520,34 +522,38 @@ function shellData(L) {
     { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.50, opacity:0.38 },
   ];
   if (L === 2) return [
-    { L:2, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
-    { L:2, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
-    { L:2, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
-    { L:2, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
-    { L:2, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.55 },
-    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
-    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
-    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.34 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.36, opacity:0.28 },
+    { L:2, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
+    { L:2, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
+    { L:2, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
+    { L:2, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
+    { L:2, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
+    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
+    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
+    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.36, opacity:0.34 },
+    { L:0, m: 0, color:LOW, pos:[0,0,0], scale:0.22, opacity:0.24 },
   ];
   if (L === 3) return [
-    { L:3, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m: 3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:3, m:-3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.52 },
-    { L:2, m: 0, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
-    { L:2, m: 1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
-    { L:2, m:-1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
-    { L:2, m: 2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
-    { L:2, m:-2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.30 },
-    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
-    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
-    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.24 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.26, opacity:0.18 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.22, opacity:0.16 },
+    { L:3, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m: 3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:3, m:-3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
+    { L:2, m: 0, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
+    { L:2, m: 1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
+    { L:2, m:-1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
+    { L:2, m: 2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
+    { L:2, m:-2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
+    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
+    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
+    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.26, opacity:0.24 },
+    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.22, opacity:0.20 },
+    { L:1, m: 1, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
+    { L:1, m: 0, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
+    { L:1, m:-1, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
   ];
   return [];
 }
@@ -586,8 +592,10 @@ function setShell(L) {
   const m = SHELL_META[L];
   document.getElementById('vizInfo').innerHTML =
     `<div class="vi-title">${m.name}</div>` +
-    `<div><span class="vi-obs">${m.obs} observable</span> · <span class="vi-hid">${m.hid} IDWT-hidden</span>${m.low ? ` · <span class="vi-dim">${m.low} lower-j 3D</span>` : ''}</div>` +
-    `<div class="vi-dim">State count: S(${L+1},3) = ${m.dim}</div>`;
+    `<div class="vi-obs">${m.obs} observable</div>` +
+    `<div class="vi-hid">${m.hid} IDWT-hidden</div>` +
+    (m.low ? `<div class="vi-low">${m.low} lower-j 3D</div>` : '') +
+    `<div class="vi-dim">S(${L+1},3) = ${m.dim}</div>`;
 }
 
 // Wire buttons — addEventListener only, no onclick attributes

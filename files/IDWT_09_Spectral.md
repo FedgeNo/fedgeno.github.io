@@ -462,6 +462,53 @@ Two exact results follow:
 
 2. **First excitation gap equals sector dimension.** $S(2,d)-S(1,d)=d$ (the mode-spacing identity T13b at $n=1$, $d\to d$: $S(2,d)-S(1,d)=S(2,d-1)\neq d$ — actually $S(2,d)-1=d+1-1=d$). The energy gap to the first excited state is exactly $d$ in dimensionless units.
 
+### T14d. Pole Structure of the Sector Zeta Function ✅
+
+**Theorem.** For each sector $d\in D$, the spectral zeta function $\zeta_d(s)=\sum_{n\geq1}S(n,d)^{-s}$ has a **simple pole at $s=1/d$** with residue
+
+$$\operatorname{Res}_{s=1/d}\,\zeta_d(s) \;=\; \frac{(d!)^{1/d}}{d}.$$
+
+$\zeta_d(s)$ is analytic for $\operatorname{Re}(s)>1/d$ except at this pole. The complete multi-sector zeta function $\zeta_D(s)=\sum_{d\in D}\zeta_d(s)$ has simple poles at
+
+$$s \;\in\; \Bigl\{\tfrac{1}{2},\;\tfrac{1}{3},\;\tfrac{1}{4},\;\tfrac{1}{5},\;\tfrac{1}{6},\;\tfrac{1}{10}\Bigr\}$$
+
+one for each sector in $D=\{2,3,4,5,6,10\}$.
+
+**Proof.** For large $n$, the simplex number satisfies $S(n,d)=n^d/d!\,+\,O(n^{d-1})$. Partition the sum:
+
+$$\zeta_d(s) = \sum_{n=1}^{N_0} S(n,d)^{-s} + \sum_{n>N_0} S(n,d)^{-s}.$$
+
+The finite head is analytic in $s$. For the tail, the subleading correction $O(n^{d-1})$ perturbs each term by $O(n^{-ds-1})$, giving a contribution that converges absolutely for $\operatorname{Re}(s)>1/d-1/d=0$ — analytic away from any pole of the leading term. The leading term gives
+
+$$\sum_{n>N_0}S(n,d)^{-s}\;\approx\;(d!)^s\sum_{n>N_0}n^{-ds}\;=\;(d!)^s\bigl[\zeta(ds)-\text{finite head}\bigr].$$
+
+The Riemann zeta $\zeta(ds)$ has a simple pole at $ds=1$ (i.e.\ $s=1/d$) with residue $1$. Since $d(ds)/ds=d$, the residue of $\zeta(ds)$ viewed as a function of $s$ is $1/d$. Therefore
+
+$$\operatorname{Res}_{s=1/d}\,\zeta_d(s) = (d!)^{1/d}\times\frac{1}{d} = \frac{(d!)^{1/d}}{d}.\quad\square$$
+
+**Numerical residues** for the six IDWT sectors:
+
+| $d$ | $(d!)^{1/d}$ | Residue $(d!)^{1/d}/d$ |
+|---|---|---|
+| 2 | $2^{1/2}=1.41421$ | $0.70711$ |
+| 3 | $6^{1/3}=1.81712$ | $0.60571$ |
+| 4 | $24^{1/4}=2.21336$ | $0.55334$ |
+| 5 | $120^{1/5}=2.60517$ | $0.52103$ |
+| 6 | $720^{1/6}=2.99379$ | $0.49897$ |
+| 10 | $(10!)^{1/10}=4.52873$ | $0.45287$ |
+
+The residues decrease monotonically with $d$.
+
+**Physical meaning.** The pole at $s=1/d$ is the **spectral dimension** of sector $d$: eigenvalues grow as $n^d$, so the counting function $N(\lambda)\propto\lambda^{1/d}$ and the zeta series converges only for $s>1/d$. In IDWT, the theory has not one spectral dimension but **six**, corresponding to its six geometric sectors. The leading pole is at $s=1/2$ (from the $d=2$ photon sector, where eigenvalues grow slowest, as $n^2/2$); successive sectors contribute poles at finer resolution $1/3, 1/4, \ldots, 1/10$.
+
+This is the spectral analogue of the multi-scale structure of $M_\infty$: each sector has its own Weyl law, its own spectral dimension, and its own rate of eigenvalue growth. The photon sector dominates the UV behavior of the full zeta function; the tau sector ($d=10$, pole at $s=1/10$) is the most UV-soft, consistent with its role as the Gegenbauer critical endpoint (T5).
+
+**Connection to T14a.** The Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ (T14a) and the residue $(d!)^{1/d}/d$ are related by
+
+$$a_0^{(d)} = \Gamma(1+1/d)\times d\times\operatorname{Res}_{s=1/d}\,\zeta_d(s),$$
+
+since $\Gamma(1+1/d)=(1/d)\Gamma(1/d)$ and $d\times(d!)^{1/d}/d=(d!)^{1/d}$. The Weyl coefficient is the residue amplified by the Gamma factor from the Mellin transform — the two ways of reading the same singularity of the heat kernel. $\square$
+
 ---
 
 ## T13. Spectral Sum Rules and Exact Mass Ratios
@@ -544,19 +591,85 @@ Within a single sector, $m_{\rm scale}_d$ cancels, leaving pure rational ratios 
 
 $D=1+1/(n_{\rm up}\cdot n_s^2\cdot S(n_s,4))=1+1/1680$ is the back-reaction factor (T10b). Note $m_{\rm scale}_{10}=m_{\rm scale}_6$ so the $\tau/\mu$ and $\tau/e$ ratios are cross-sector only in dimension, not in coupling. Neutrino ratios have no direct PDG comparand because oscillation experiments measure $\Delta m^2$ differences, not absolute ratios; the IDWT predictions are falsifiable once $m_{\nu_1}$ is measured by CMB-S4 or tritium endpoint experiments.
 
+### T13d. Partial Sum Formula ✅
+
+**Theorem.** For all $d\geq 2$ and $N\geq 1$:
+
+$$\boxed{\sum_{n=1}^{N} S(n,d) \;=\; S(N,\,d+1).}$$
+
+The cumulative spectral weight through level $N$ in sector $d$ equals the spectral weight of the single mode at level $N$ in the next sector $d+1$.
+
+**Proof.** Apply the hockey-stick identity of Pascal's triangle: $\sum_{k=r}^{m}\binom{k}{r}=\binom{m+1}{r+1}$.
+
+Set $r=d$ and substitute $k=n+d-1$ (so $k$ runs from $d$ to $N+d-1$ as $n$ runs from $1$ to $N$):
+
+$$\sum_{n=1}^{N}S(n,d)=\sum_{n=1}^{N}\binom{n+d-1}{d}=\sum_{k=d}^{N+d-1}\binom{k}{d}=\binom{N+d}{d+1}=S(N,d+1).\quad\square$$
+
+The boundary term $\binom{d-1}{d}=0$ (since $d-1<d$) vanishes, so the sum starts cleanly at $n=1$.
+
+**Verification** for $d=2$, $N=4$: $\sum_{n=1}^{4}S(n,2)=1+3+6+10=20=S(4,3)=\binom{6}{3}=20$. ✓
+
+**Corollary (Mass sum).** The total mass contributed by sector $d$ through level $N$ is
+
+$$\sum_{n=1}^{N} m(n,d) \;=\; m_{{\rm scale},d}\times S(N,\,d+1).$$
+
+The sum of mode masses in sector $d$ up to cutoff $N$ is exactly $m_{{\rm scale},d}$ times the $N$-th simplex number of the next sector. This is the exact IDWT formula for the sector vacuum energy at finite cutoff — relevant to the cosmological constant computation (Part 8 §13).
+
+**Asymptotic growth.** For large $N$, $S(N,d+1)\sim N^{d+1}/(d+1)!$, so the partial mass sum grows as $N^{d+1}$. The two-stage filter (T0.5) suppresses mode contributions by $e^{-\Omega_{\log}(n,d)}\sim (S(n,2)/S(n,d))$, converting this polynomial growth into the exponentially small observed vacuum energy.
+
+### T13e. Degree and Iterated Difference Theorem ✅
+
+**Theorem.** For all $d\geq 2$, $n\geq 1$, and $1\leq k\leq d$, the $k$-th forward difference of $S(n,d)$ in $n$ is:
+
+$$\boxed{\Delta^k_n\, S(n,d) \;=\; S(n+k,\;d-k)}$$
+
+where $\Delta_n f(n) = f(n+1)-f(n)$ is the forward difference operator. In particular:
+
+- $k=1$: $\Delta_n S(n,d)=S(n+1,d-1)$ — this is T13b.
+- $k=d$: $\Delta^d_n S(n,d) = S(n+d,0) = 1$ for all $n$ — the $d$-th difference is identically $1$.
+- $k=d+1$: $\Delta^{d+1}_n S(n,d) = 0$ for all $n$.
+
+**Proof.** By induction on $k$.
+
+*Base case $k=1$:* $\Delta_n S(n,d)=S(n+1,d)-S(n,d)=S(n+1,d-1)$ by T13b. ✓
+
+*Inductive step:* Assume $\Delta^{k-1}_n S(n,d)=S(n+k-1,d-k+1)$ for all $n$. Then
+
+$$\Delta^k_n S(n,d) = \Delta_n\bigl[\Delta^{k-1}_n S(n,d)\bigr] = \Delta_n S(n+k-1,\,d-k+1).$$
+
+Apply T13b with $n\to n+k-1$ and $d\to d-k+1$:
+
+$$\Delta_n S(n+k-1,\,d-k+1) = S(n+k,\;d-k).\quad\square$$
+
+**Boundary cases.** $S(n,0)=\binom{n-1}{0}=1$ for all $n\geq 1$, so $\Delta^d_n S(n,d)=1$ exactly. For $k=d+1$: $S(n+d+1,-1)=0$ by convention (no modes exist in a sector of dimension $-1$), so the $(d+1)$-th difference vanishes — consistent with $S(n,d)$ being a degree-$d$ polynomial in $n$.
+
+**Polynomial degree interpretation.** $S(n,d)=\binom{n+d-1}{d}=\frac{n(n+1)\cdots(n+d-1)}{d!}$ is a degree-$d$ polynomial in $n$ with leading coefficient $1/d!$. For any degree-$d$ polynomial $p(n)$, $\Delta^d p(n) = d!\times(\text{leading coefficient}) = d!\times(1/d!)=1$ and $\Delta^{d+1}p(n)=0$. T13e is the operator-theoretic proof of this degree statement for the specific polynomial $S(n,d)$, with the added content that each intermediate difference $\Delta^k S(n,d)=S(n+k,d-k)$ is itself a simplex number — the differences of the IDWT spectral tower remain within the IDWT spectral tower.
+
+**Derivation chain consequence.** Applied to the mode-index chain: $\Delta^k_n S(n,d)=S(n+k,d-k)$ means that the $k$-step "velocity" of the sector-$d$ spectral tower at level $n$ is the value of sector $d-k$ at level $n+k$. The sectors are linked not just statically (via T13b spacing) but dynamically: the rate at which sector $d$ accumulates modes is measured by the instantaneous level of lower sectors. This is the precise combinatorial reason every mode-index derivation in IDWT reduces to a Pascal-triangle identity.
+
 ---
 
 ## Spectral Anchors — From Counting to Analysis
 
 T13 and T14 together establish two exact values for the spectral zeta function $\zeta_d(s)=\sum_{n\geq1}S(n,d)^{-s}$ of every sector, closing the loop from the combinatorial mass formula of T1 to analytic spectral geometry:
 
-$$\boxed{\zeta_d(1) = \frac{d}{d-1}} \qquad\text{(T13a — Pascal telescoping)} \qquad \boxed{\zeta_d(0) = -\frac{d}{2}} \qquad\text{(T14b — Mellin of heat kernel)}$$
+$$\boxed{\zeta_d(1) = \frac{d}{d-1}} \qquad\text{(T13a)} \qquad \boxed{\zeta_d(0) = -\frac{d}{2}} \qquad\text{(T14b)} \qquad \boxed{\operatorname{Res}_{s=1/d}\,\zeta_d(s) = \frac{(d!)^{1/d}}{d}} \qquad\text{(T14d)}$$
 
-These are the **two leading Seeley-DeWitt coefficients** of the sector, in precise analogy with the standard heat-kernel expansion on a Riemannian manifold of dimension $d$:
+These are the **three analytic anchors** of every IDWT sector zeta function. Together they close the loop from the combinatorial mass formula (T1) through the heat kernel (T14a) to the full pole structure (T14d):
 
-- **$\zeta_d(1)=d/(d-1)$** — total inverse-spectral-weight. Its reciprocal $(d-1)/d$ is the fraction of spectral weight outside the ground state. It governs how the tower fills its Hilbert space from below and constrains any observable built from inverse-mass sums.
+- **$\zeta_d(1)=d/(d-1)$** (T13a) — total inverse-spectral-weight. Governs every observable built from inverse-mass sums. Proved by Pascal telescoping.
 
-- **$\zeta_d(0)=-d/2$** — zeta-regularised mode count. The sector contributes exactly $d/2$ to the regularised "number of modes" — the same value a $d$-dimensional Riemannian manifold produces through its Seeley-DeWitt expansion. This sets the sector functional determinant $\log\det D_d = -\zeta_d'(0)$ and ensures the sector vacuum energy is finite without an ad-hoc cutoff.
+- **$\zeta_d(0)=-d/2$** (T14b) — zeta-regularised mode count; identical to the Seeley-DeWitt coefficient of a $d$-dimensional Riemannian manifold. Sets the sector functional determinant $\log\det D_d = -\zeta_d'(0)$.
+
+- **$\operatorname{Res}_{s=1/d}\,\zeta_d(s)=(d!)^{1/d}/d$** (T14d) — the pole at $s=1/d$ is the spectral dimension of sector $d$. The multi-sector function $\zeta_D(s)$ has six poles at $s\in\{1/2,1/3,1/4,1/5,1/6,1/10\}$, one per sector; IDWT has six spectral dimensions, not one.
+
+The combinatorial toolkit is similarly anchored by three exact identities (T13b, T13d, T13e) that together describe the full algebraic structure of the simplex tower:
+
+- **$S(n+1,d)-S(n,d)=S(n+1,d-1)$** (T13b) — first difference; mode filling rate equals previous sector.
+
+- **$\sum_{n=1}^{N}S(n,d)=S(N,d+1)$** (T13d) — partial sum equals next sector at same level; vacuum energy at cutoff $N$ is $m_{{\rm scale},d}\times S(N,d+1)$.
+
+- **$\Delta^k_n S(n,d)=S(n+k,d-k)$** (T13e) — iterated differences remain within the simplex tower; $S(n,d)$ has polynomial degree exactly $d$, with $d$-th difference identically 1.
 
 The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{-1/d}$ in the UV ($t\to 0^+$), and $K_d(t)\sim e^{-t}(1+e^{-dt}+\cdots)$ in the IR ($t\to\infty$), with Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ confirming spectral dimension $= d$. All of this follows from $S(n,d)=\binom{n+d-1}{d}$ alone, with no free parameters — the same formula that gives every particle mass.
 
@@ -697,10 +810,13 @@ This is the coupling filter principle operating at the level of the self-couplin
 | T10b | Geometric back-reaction correction $+1/1680$ for $\tau$ | ✅ | $0.001\%$ | Critical-sector regularisation |
 | T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=60.39$ meV ($\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived, §9d); uncorrected 59.00 meV | ✅ | $<0.05\%$ | $0\nu\beta\beta=0$ at all orders (no $C$ on $S^5$) |
 | T13a | Spectral sum rule $\zeta_d(1)=d/(d-1)$ | ✅ | Exact | Total inverse-mass weight of sector $d$ is $d/(d-1)$; pure Pascal |
-| T14a | Heat kernel Weyl term $K_d(t)\sim a_0^{(d)} t^{-1/d}$ | ✅ | Exact | Spectral dimension = $d$; Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ |
-| T14b | Constant term $-d/2$ and $\zeta_d(0)=-d/2$ | ✅ | Exact | Regularised eigenvalue count; sets sector functional determinant |
 | T13b | Mode spacing $S(n+1,d)-S(n,d)=S(n+1,d-1)$ | ✅ | Exact | Filling-rate relation; source of all mode-index derivation chains |
 | T13c | Exact mass ratios; all $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
+| T13d | Partial sum $\sum_{n=1}^{N}S(n,d)=S(N,d+1)$ | ✅ | Exact | Cumulative sector-$d$ weight = single mode in sector $d+1$; vacuum energy at cutoff $N$ is $m_{{\rm scale},d}\times S(N,d+1)$ |
+| T13e | Iterated difference $\Delta^k_n S(n,d)=S(n+k,d-k)$ | ✅ | Exact | $S(n,d)$ is degree-$d$ polynomial; differences stay within simplex tower; $\Delta^d=1$, $\Delta^{d+1}=0$ |
+| T14a | Heat kernel Weyl term $K_d(t)\sim a_0^{(d)} t^{-1/d}$ | ✅ | Exact | Spectral dimension = $d$; Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ |
+| T14b | Constant term $-d/2$ and $\zeta_d(0)=-d/2$ | ✅ | Exact | Regularised eigenvalue count; sets sector functional determinant |
+| T14d | Pole at $s=1/d$: $\operatorname{Res}\,\zeta_d=(d!)^{1/d}/d$; $\zeta_D$ has 6 poles at $s\in\{1/2,\ldots,1/10\}$ | ✅ | Exact | IDWT has 6 spectral dimensions, one per sector; photon sector leads UV behavior; tau sector most UV-soft |
 | $\sin^2\theta_W$ | $1-(S(76,2)/S(81,2))^2=0.2237$; +0.37% from PDG on-shell | ✅ | +0.37% | Within known 1-loop EW radiative corrections; not an open computation |
 | $G_N$ | $G_N=G_\infty/V_7$; $V_7\approx113$ fully derived; $V_{\rm vacuum}$ does not enter; gravity is $\infty$-dimensional | 🔶 | — | $V_7$ derived; $V_{\rm vacuum}$ drops out (Ricci-flat vacuum + T5 scattering states); $G_\infty$ from spectral action scale $\Lambda$ (single open item; Part 4 §3.12.2) |
 

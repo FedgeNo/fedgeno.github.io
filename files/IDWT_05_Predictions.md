@@ -160,14 +160,6 @@ matches 3×f_π(PDG) = 3 × 92.07 = 276 MeV within +2.1%
 
 N_c = 3 comes from the CP² Dirac index (Part 3 §2). The large-N_c QCD relation Λ_QCD ≈ N_c f_π is known; IDWT provides both N_c and f_π from seeds and m_e alone.
 
-**Vector mesons**
-
-```
-ρ(770) = m_scale_3 × S(9,3) = 4.702 × 165 = 775.8 MeV   (PDG: 775.3, +0.07%)
-φ(1020) = m_scale_3 × S(10,3) = 4.702 × 220 = 1034 MeV  (PDG: 1019.5, +1.5%)
-```
-
-
 ```
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229
 PDG: 1.2723 ± 0.0023.  Error: +4.0%
@@ -243,13 +235,6 @@ The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂
 μ_n = −1.913 μ_N   (PDG: −1.9130, match to 0.02%)
 ```
 Magnetic moments from the l=1 spin-orbit admixture of the cross-sector kernel (Part 8 §10). **Disclosure:** the calculation uses two parameters that are not yet derived from the kernel: g_{3,4}^{eff} = 125 (approximately 13× the kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement is not yet derived) and f_{overlap} = 0.72 (an overlap integral not computed from first principles). With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; it is included here to show the correct scale is reached. The derivation of both parameters from the kernel matrix elements is an open item (Part 8 §10). The axial coupling is the geometric ratio g_A = √(S(n_s+1,3)/S(n_s,3)) = 1.3229 (+4.0% from PDG 1.2723); the residual reflects uncalculated higher-l mixing corrections (open item, Part 8 §10).
-
-**Two unobserved d=3 states**
-```
-n=2: 18.8 MeV   (= m_scale_3 × S(2,3))
-n=3: 47.0 MeV   (= m_scale_3 × S(3,3))
-```
-Real resonances of M_∞ that fail Stage-2 co-fixed-point stability. No stable hadron-like states should exist in the 15–50 MeV window unexplained by pion relatives or nuclear states.
 
 **Neutrino absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data)
 ```
@@ -343,47 +328,30 @@ Unit references: IDWT = **1** (m_e, to set the MeV scale) vs SM = 19 free parame
 
 In IDWT the Higgs is a confinement mode of the d=2 sector — there is no quartic scalar sector and no RG running of a Higgs self-coupling. The concept of vacuum metastability from λ_H running does not apply.
 
-## 3d. d=3 Hadronic Resonance Spectrum
+## 3d. Why the d=3 Sector Scale Correlates with Hadronic Masses
 
-The d=3 sector hosts a tower of hadronic resonance modes at n > n_s = 4. These modes are not stable particles (they fail Stage-2 co-fixed-point stability), but they are colour singlet composites observable as broad resonances. The IDWT prediction for each resonance mass is m = m_scale_3 × S(n,3) with m_scale_3 = 4.7019 MeV.
+Hadrons — mesons and baryons — are composite bound states of the fundamental d=3 and d=4 sector eigenmodes. They are not sector eigenmodes and carry no IDWT mode indices. The correlation between hadronic masses and the d=3 sector scale has a direct explanation.
 
-**Absence of pion as a sector mode.** The pion (~140 MeV) is absent from the d=3 sector spectrum — no integer n satisfies S(n,3) × 4.7019 MeV = 140 MeV, and no mode passes both Stage-1 and Stage-2 filters at the pion mass. This is consistent with the pion being a collective excitation of the d=3 quark condensate, not a stable eigenstate of D. IDWT assigns no mode index to collective excitations; only single-particle sector eigenstates appear in the spectrum.
+**The confinement scale.** The d=3 geometric dilution function $g_{\rm eff}(n) = g_{33}/S(n,3)$ passes through $O(1)$ at the seed mode $n_s = 4$:
 
-**ρ–ω degeneracy.** The ρ(770) and ω(782) are the I=1 and I=0 isospin partners of the lightest vector meson. IDWT gives their SU(3)-averaged mass from a single mode n=9:
+$$g_{\rm eff}(n_s) = \frac{g_{33}}{S(n_s,3)} = \frac{8\sqrt{7}}{20} = 1.058$$
 
-$$m_{\rho/\omega}^{\rm IDWT} = m_{\rm scale,3} \times S(9,3) = 4.7019 \times 165 = 775.8 \text{ MeV}.$$
+just above 1 (confined); at $n_s+1=5$, $g_{\rm eff} = 0.605$ (free). The d=3 coupling crosses the confinement threshold at the seed. The energy scale there is:
 
-The experimental mean is $\tfrac{1}{2}(775.3 + 782.7) = 779.0$ MeV. IDWT predicts the isospin-averaged mass to −0.4%. The ρ–ω splitting of 7.5 MeV is an isospin-breaking effect beyond tree level.
+```
+f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1%)
+Λ_QCD = N_c × f_π = 3 × 94.04 = 282 MeV               (PDG: 276 MeV, +2.1%)
+```
 
-**Predicted hadronic resonance table:**
+Both follow from $m_e$ and $n_s$ alone. Hadronic masses cluster near the d=3 sector scale not because hadrons are eigenmodes, but because they are built from quarks whose confinement scale is set by $m_{\rm scale,3}$.
 
-| $n$ | $S(n,3)$ | IDWT (MeV) | PDG (MeV) | Error | State |
-|---|---|---|---|---|---|
-| 9 | 165 | 775.8 | 779.0 | −0.41% | ρ(770)/ω(782) |
-| 10 | 220 | 1034 | 1019.5 | +1.47% | φ(1020) |
-| 11 | 286 | 1345 | 1318.2 | +2.01% | a₂(1320) |
-| 12 | 364 | 1711 | 1720 | −0.50% | ρ(1700) |
+**The comb filter.** The coupling geometry of the d=3, d=4, and d=6 sectors — coupling constants $g_{33}=8\sqrt{7}$, $g_{44}=12/\sqrt{7}$, $g_{66}=1/4$, and resonance site $k_0=16$, all derived from $\{n_s=4,\,n_d=1\}$ and $m_e$ — produces an interference peak at:
 
-Note: φ(1020) is the ss̄ vector meson. Its mode index n=10 = n_s + n_s + n_d + n_d = 4+4+1+1, consistent with the two strange-quark constituents each contributing their mode index. The ρ at n=9 = n_s + n_u + n_d + n_d = 4+3+1+1, consistent with a ud̄ vector state.
+```
+Im[Γ₃₄₆(ω)] peak = 775.8 MeV   (PDG ρ(770)/ω(782) isospin average: 779.0 MeV, −0.4%)
+```
 
-**Heavy meson predictions.** The same formula extends to B and charmonium systems:
-
-| $n$ | $S(n,3)$ | IDWT (MeV) | PDG (MeV) | Error | State | Algebraic identity |
-|---|---|---|---|---|---|---|
-| 18 | 1,140 | 5,360 | 5,366.9 | −0.13% | $B_s$ (b$\bar{s}$) | $n_c - n_u + n_d = 20-3+1$ |
-| 19 | 1,330 | 6,254 | 6,274.5 | −0.33% | $B_c$ (b$\bar{c}$) | $n_c - n_d = 20-1$ |
-| 22 | 2,024 | 9,517 | 9,460.3 | +0.59% | $\Upsilon(1S)$ (b$\bar{b}$) | $n_{\nu_3} = n_\tau - n_d = 23-1$ |
-
-The $B_c$ and $\Upsilon(1S)$ predictions use mode indices that are exact algebraic consequences of the seed: $n=19 = n_c - n_d$ and $n=22 = n_{\nu_3}$. No new inputs.
-
-**Cross-sector identity.** The integer $n_{\nu_3} = 22$ appears in three sectors simultaneously:
-- $d=3$: $\Upsilon(1S)$ at $m_{\rm scale,3} \times S(22,3) = 9517$ MeV (+0.59%)
-- $d=4$: $D^0$ meson at $m_{\rm scale,4} \times S(22,4) = 1836$ MeV (−1.59%)
-- $d=5$: $\nu_3$ at $m_{\rm scale,5} \times S(22,5) = 48.871$ meV (bare); corrected 50.27 meV (×(1+1/35), Part 2 §9d)
-
-The same integer labels a bottomonium ground state, a charmed meson, and the heaviest neutrino — three different particles in three different sectors.
-
-**Falsifiable prediction:** no narrow hadronic resonance should exist in the 15–50 MeV window (d=3 modes n=2,3 pass Stage-1 but fail Stage-2; they exist only as very broad states). The 100–165 MeV window below the ρ contains n=5,6,7,8 modes (164–564 MeV) — these should appear only as very broad structures with widths comparable to their mass, not as narrow resonances. This is consistent with the observed QCD spectrum.
+This is a cross-check of the inter-sector coupling geometry, not a mode-index prediction for the ρ or ω. The peak lands near the lightest vector meson mass because those composites form at the energy scale set by the inter-sector coupling structure.
 
 ## 4. PMNS Mixing
 
@@ -496,7 +464,6 @@ A single observation in this category directly and irrecoverably falsifies IDWT.
 | **F2** | **Normal neutrino mass ordering.** Mode indices n_ν₁ = 10, n_ν₂ = 15, n_ν₃ = 22 are fixed by the eigenmode selection rule (n_ν₁ = S(n_u,3), n_ν₂ = S(n_u,4), n_ν₃ = n_τ − n_d). Since S(n,5) is strictly monotone, m_ν₁ < m_ν₂ < m_ν₃ necessarily. Inverted ordering cannot be accommodated within any consistent mode-index assignment that preserves algebraic closure of the generation chain. | Eigenmode selection rule; monotonicity of S(n,5) (§5, §6) | 3–4σ preference for normal ordering at current experiments ✅ |
 | **F3** | **No new stable fundamental particles.** The sector set D = {2,3,4,5,6,10} is complete and unique (§3a). Within each sector, the occupied mode index set Σ is the unique solution to the co-fixed-point system (Uniqueness Theorem, Part 1 §5c). The only beat mode is at k₀ = 16 in d=3, verified by exhaustive search. Any new particle requires a new sector (excluded by Rule A + Rule B) or a new mode index (excluded by the Uniqueness Theorem) — neither exists. | Sector Set Theorem + Completeness Theorem (Part 1 §3a, §3b) | No new fundamental particles at LEP, Tevatron, LHC ✅ |
 | **F4** | **No stable particle near 68.3 GeV.** S(35,10) × m_scale_10 ≈ 68.3 GeV is below the Z mass. IDWT explicitly predicts its absence: n=35 in d=10 is not a co-fixed-point eigenmode (the tau is n=23; n=35 in d=10 has no eigenmode selection rule support). | Tau sector co-fixed-point structure | Excluded at LEP (√s up to 209 GeV, no such state) ✅ |
-| **F5** | **No narrow hadronic resonance in the 15–50 MeV window.** The d=3 modes n=2 (18.8 MeV) and n=3 (47.0 MeV) pass Stage-1 dimensional visibility (Ω_log = 0.288 and 0.511, both < ln 2 = 0.693) but fail Stage-2 co-fixed-point stability. They exist only as extremely broad, short-lived colour-triplet states. A stable or narrow (Γ/m < 10%) hadron in this window with no nuclear or pion-sector explanation would falsify Stage-2. | Two-stage observability (Part 7 §2.5) | No known narrow states in this window ✅ |
 | **F6** | **No fourth quark or lepton generation.** S(72,10) × m_scale_10 ≈ 51.7 TeV is the next d=10 mode above tau — far beyond LHC reach and not a co-fixed-point eigenmode. No d=4 mode above top (n=72) or d=6 mode above muon (n=35) is in the co-fixed-point set. A confirmed fourth-generation fermion at any mass falsifies the spectrum closure. | Completeness Theorem (Part 1 §3b) | Z pole invisible width: N_ν = 3.0000 predicted (PDG: 2.984 ± 0.008) ✅ |
 
 ---

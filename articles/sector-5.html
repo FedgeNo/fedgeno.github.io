@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sector 5 — Neutrinos — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -71,7 +75,7 @@
           <td>ν₃</td>
           <td>n = 22</td>
           <td>50.26 meV</td>
-          <td>~50.1–50.3 meV from Δm²₃₁ ✓</td>
+          <td>~50.8 meV from PDG 2024 Δm²₃₁ (−1.1%)</td>
         </tr>
       </tbody>
     </table>
@@ -81,12 +85,12 @@
     <p>The neutrino mass scale is not a free parameter. It is derived from the sector coupling constants:</p>
   </div>
   <div class="formula">
-    m<sub>scale,5</sub> = (n<sub>u</sub>/n<sub>s</sub>) × m<sub>scale,6</sub>³ / m<sub>scale,4</sub>²
+    \[ m_{\text{scale},5} = \frac{n_u}{n_s} \cdot \frac{m_{\text{scale},6}^3}{m_{\text{scale},4}^2} \]
   </div>
   <div class="prose">
-    <p>No neutrino mass data enters this derivation. The scale follows from the cross-sector consistency of the coupling constants, which are themselves derived from n<sub>s</sub> = 4. The three neutrino masses are then determined by their mode indices alone.</p>
-    <p>The mass ratio ν₂/ν₁ = S(15,5)/S(10,5) = 11628/2002 ≈ 5.808, giving Δm²<sub>21</sub> = 7.242 × 10⁻⁵ eV² (PDG: 7.42 × 10⁻⁵ eV², −2.4%). The ν₃ mass includes a cross-sector correction δ<sub>ν₃</sub> = ε × g<sub>33</sub> = 1/35 from the GTC coefficient and d=3 coupling, derived exactly in Part 2 §9d.</p>
-    <p>The total neutrino mass sum Σm<sub>ν</sub> = 60.39 meV is within reach of CMB-S4. A measurement below 40 meV or above 80 meV falsifies IDWT.</p>
+    <p>No neutrino mass data enters this derivation. The scale follows from the cross-sector consistency of the coupling constants, which are themselves derived from \(n_s = 4\). The three neutrino masses are then determined by their mode indices alone.</p>
+    <p>The mass ratio \(\nu_2/\nu_1 = S(15,5)/S(10,5) = 11628/2002 \approx 5.808\), giving \(\Delta m^2_{21} = 7.242 \times 10^{-5}\text{ eV}^2\) (PDG: \(7.42 \times 10^{-5}\text{ eV}^2\), −2.4%). The \(\nu_3\) mass includes a cross-sector correction \(\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35\) from the GTC coefficient and \(d=3\) coupling, derived exactly in Part 2 §9d.</p>
+    <p>The total neutrino mass sum \(\Sigma m_\nu = 60.39\) meV is within reach of CMB-S4. A measurement below 40 meV or above 80 meV falsifies IDWT.</p>
   </div>
 
 </section>
@@ -99,10 +103,10 @@
       <li><strong>Neutrinos are strictly Dirac fermions.</strong> Not approximately Dirac — the Majorana condition cannot be imposed at any energy scale.</li>
       <li><strong>All Majorana mass terms are forbidden.</strong> Every term in a Lagrangian that would give a Majorana mass to a neutrino requires the Majorana spinor type. That type does not exist in the d=5 sector.</li>
       <li><strong>All lepton-number-violating interactions are forbidden.</strong> Every such interaction requires a Majorana mass term at some order. Without the spinor type that supports Majorana masses, no lepton-number-violating vertex can be formulated.</li>
-      <li><strong>The Majorana mass term is absent at all orders.</strong> Any induced effective Majorana operator would require a charge conjugation matrix C satisfying the Majorana condition on the S⁵ spinor bundle — but d mod 8 = 5 is the one Clifford class where no such C exists. Cross-sector coordinate couplings can correct the Dirac mass but cannot produce ψ<sup>T</sup>Cψ at any order. The 0νββ vertex cannot be written down at any level of the theory.</li>
+      <li><strong>The Majorana mass term is absent at all orders.</strong> Any induced effective Majorana operator would require a charge conjugation matrix C satisfying the Majorana condition on the S⁵ spinor bundle — but d mod 8 = 5 is the one Clifford class where no such C exists. Cross-sector coordinate couplings can correct the Dirac mass but cannot produce \(\psi^T C\psi\) at any order. The 0νββ vertex cannot be written down at any level of the theory.</li>
       <li><strong>The see-saw mechanism is eliminated.</strong> The see-saw requires a heavy Majorana neutrino. The d=5 geometry cannot support one.</li>
     </ul>
-    <p>The 0νββ rate is zero — not as a suppressed coupling but as a consequence of operator non-existence. The d=5 Clifford prohibition eliminates induced Majorana operators at every order, not just at leading order: the charge conjugation matrix C required to write ψ<sup>T</sup>Cψ does not exist on the S⁵ bundle at any loop level. KamLAND-Zen, nEXO, LEGEND, and every other 0νββ experiment is searching for a signal that IDWT says cannot be formulated. A positive detection falsifies IDWT's d=5 spinor structure directly.</p>
+    <p>The 0νββ rate is zero — not as a suppressed coupling but as a consequence of operator non-existence. The d=5 Clifford prohibition eliminates induced Majorana operators at every order, not just at leading order: the charge conjugation matrix C required to write \(\psi^T C\psi\) does not exist on the S⁵ bundle at any loop level. KamLAND-Zen, nEXO, LEGEND, and every other 0νββ experiment is searching for a signal that IDWT says cannot be formulated. A positive detection falsifies IDWT's d=5 spinor structure directly.</p>
   </div>
 
 </section>
@@ -120,13 +124,13 @@
 
   <h2>PMNS mixing angles</h2>
   <div class="prose">
-    <p>All three PMNS mixing angles are determined by the sector coupling constant g<sub>55</sub> and the four mode indices of the charged leptons and neutrinos:</p>
+    <p>All three PMNS mixing angles are determined by the sector coupling constant \(g_{55}\) and the four mode indices of the charged leptons and neutrinos:</p>
   </div>
   <div class="formula">
-    g<sub>55</sub> = g<sub>33</sub> g<sub>44</sub> / g<sub>22</sub> = 96 / g<sub>22</sub>
+    \[ g_{55} = \frac{g_{33}\,g_{44}}{g_{22}} = \frac{96}{g_{22}} \]
   </div>
   <div class="prose">
-    <p>Predictions: sin²θ<sub>23</sub> = 0.55897 (PDG: 0.561, −0.36%), sin²θ<sub>12</sub> = 0.30856 (PDG: 0.307, +0.51%), sin²θ<sub>13</sub> = 0.02211 (PDG: 0.0220, +0.51%). The CP-violating phase δ<sub>CP</sub> = π + 2θ<sub>13</sub> = 197.11° follows from spectral flow on the lepton sector manifolds (PDG: ~197°, +0.05%).</p>
+    <p>Predictions: \(\sin^2\theta_{23} = 0.55897\) (PDG: 0.561, −0.36%), \(\sin^2\theta_{12} = 0.30856\) (PDG: 0.307, +0.51%), \(\sin^2\theta_{13} = 0.02211\) (PDG: 0.0220, +0.51%). The CP-violating phase \(\delta_{CP} = \pi + 2\theta_{13} = 197.11°\) follows from spectral flow on the lepton sector manifolds (PDG: ~197°, +0.05%).</p>
   </div>
 
 </section>

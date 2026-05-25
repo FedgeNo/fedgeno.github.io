@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Euler Characteristic Chain — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Geometry</div>
+  <h1>The Euler Characteristic Chain</h1>
+  <p class="sub">Every particle mass ratio in IDWT traces back to a single topological invariant: \(\chi(\mathbb{CP}^2) = 3\). The chain from that integer to the full particle spectrum is exact, with no free parameters.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>What the Euler characteristic is</h2>
+  <div class="prose">
+    <p>In the 1750s, Leonhard Euler noticed something odd about polyhedra. Take any convex solid — a cube, a tetrahedron, a dodecahedron — count its vertices \(V\), edges \(E\), and faces \(F\), and compute \(V - E + F\). The answer is always 2. A cube has \(8 - 12 + 6 = 2\). A tetrahedron has \(4 - 6 + 4 = 2\). An icosahedron has \(12 - 30 + 20 = 2\). The number doesn't depend on the shape — it depends on something deeper.</p>
+    <p>That something is topology. A convex polyhedron is topologically a sphere: you can inflate any one of them into a round ball without tearing or gluing. The quantity \(V - E + F = 2\) is not a fact about polyhedra — it is a fact about the sphere. The Euler characteristic \(\chi\) of a space is a topological invariant: it is preserved by any continuous deformation, no matter how violent, as long as you don't cut or glue. You can stretch the sphere into an egg, squash it flat, crumple it — \(\chi\) stays 2.</p>
+    <p>Different topological spaces have different Euler characteristics. The torus (the surface of a donut) has \(\chi = 0\): it has one hole, and each hole subtracts 2 from the sphere's value. A double torus has \(\chi = -2\). A single point has \(\chi = 1\). The Euler characteristic is a number that identifies the topological type of a space — roughly, it counts cells of even dimension and subtracts cells of odd dimension in any decomposition of the space into simple pieces.</p>
+    <p>The spaces relevant to IDWT are the complex projective spaces \(\mathbb{CP}^k\). These are not easy to visualise — \(\mathbb{CP}^1\) is a two-sphere, \(\mathbb{CP}^2\) is a four-dimensional real manifold with a rich complex structure, and higher \(\mathbb{CP}^k\) are higher-dimensional still. But their Euler characteristics are unusually simple to compute. Each \(\mathbb{CP}^k\) can be built from exactly one cell in each even real dimension \(0, 2, 4, \ldots, 2k\), with no odd-dimensional cells at all. Counting those cells:</p>
+    \[ \chi(\mathbb{CP}^k) = k + 1 \]
+    <p>That is the entire calculation. \(\mathbb{CP}^1\) has cells in dimensions 0 and 2, so \(\chi = 2\). \(\mathbb{CP}^2\) has cells in dimensions 0, 2, and 4, so \(\chi = 3\). \(\mathbb{CP}^3\) adds a dimension-6 cell: \(\chi = 4\). And so on. The result is exact, following directly from the CW structure of complex projective space.</p>
+    <p>What follows shows that these four numbers — \(\chi = 2, 3, 4, 6\) for \(\mathbb{CP}^1\) through \(\mathbb{CP}^5\) — are the structural skeleton of the entire particle spectrum.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The chain begins: \(N_c = \chi(\mathbb{CP}^2) = 3\)</h2>
+  <div class="prose">
+    <p>In IDWT, the \(d=4\) sector — the sector that hosts quarks and colour charge — has the geometry of \(\mathbb{CP}^2\) near the origin. The isometry group of \(\mathbb{CP}^2\) is \(\mathrm{SU}(3)\). The Euler characteristic of \(\mathbb{CP}^2\) is 3. These two facts together determine the colour structure of the theory: \(\mathrm{SU}(3)\) is the colour gauge group, and the number of colours is \(N_c = \chi(\mathbb{CP}^2) = 3\). (This is developed further in <a href="/articles/colour-topology.html">Colour from Topology</a>.)</p>
+    <p>But \(N_c = 3\) is only the first step. The chain continues.</p>
+    <p>In the IDWT framework, the up quark occupies mode index \(n_u = N_c - 1 + 1 = N_c\) — more precisely, \(n_u = 3\) is forced by the seed uniqueness theorem (T4): it is the unique integer satisfying the cross-sector fixed-point equation \(n_u = n_s - 1\) once \(n_s\) is fixed. And \(n_s\) itself is the Euler characteristic of the next space in the projective chain:</p>
+    \[ n_s = \chi(\mathbb{CP}^3) = 4 \]
+    <p>The strange quark's mode index — the single seed integer from which IDWT derives every particle mass ratio — is the Euler characteristic of \(\mathbb{CP}^3\). The up and strange quark seeds are consecutive Euler characteristics: \(\chi(\mathbb{CP}^2)\) and \(\chi(\mathbb{CP}^3)\), differing by exactly 1. That one-step increment is not an accident: it reflects the cellular filling of the next projective space in the Hopf chain, and is the geometric reason the two seeds satisfy \(n_u = n_s - 1\) rather than some other arithmetic relation.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>From two integers, all mode indices</h2>
+  <div class="prose">
+    <p>Once \(n_u = 3\) and \(n_s = 4\) are fixed, every other particle mode index follows from the derivation chains in the theory — no further input is needed. The results can all be written back in terms of \(N_c = \chi(\mathbb{CP}^2)\):</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Mode index</th>
+          <th>Formula in \(N_c\)</th>
+          <th>Value</th>
+          <th>Particle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>\(n_u\)</td><td>\(N_c\)</td><td>3</td><td>up quark</td></tr>
+        <tr><td>\(n_s\)</td><td>\(N_c + 1\)</td><td>4</td><td>strange quark</td></tr>
+        <tr><td>\(n_{\nu_1}\)</td><td>\(N_c^2 + 1\)</td><td>10</td><td>lightest neutrino</td></tr>
+        <tr><td>\(n_{\nu_2}\)</td><td>\(S(N_c, 4)\)</td><td>15</td><td>second neutrino</td></tr>
+        <tr><td>\(n_e\)</td><td>\(N_c^2 + N_c + 1\)</td><td>13</td><td>electron</td></tr>
+        <tr><td>\(n_\mu\)</td><td>\(S(N_c{+}1,\,4)\)</td><td>35</td><td>muon</td></tr>
+        <tr><td>\(n_\tau\)</td><td>\(n_{\nu_3} + n_d\)</td><td>23</td><td>tau lepton</td></tr>
+        <tr><td>\(n_{\rm top}\)</td><td>\(N_c(N_c{+}1)(N_c{+}3)\)</td><td>72</td><td>top quark</td></tr>
+      </tbody>
+    </table>
+
+    <p>The top quark formula \(n_{\rm top} = N_c(N_c+1)(N_c+3)\) is worth pausing on. Its three factors are \(\chi(\mathbb{CP}^2) = 3\), \(\chi(\mathbb{CP}^3) = 4\), and \(\chi(\mathbb{CP}^5) = 6\) — the Euler characteristics of the three complex projective sectors in the quark part of the spectrum. The product \(3 \times 4 \times 6 = 72\) is both the top quark's mode index and an index-theory cross-check: the top's position in the spectrum is fixed by the topological invariants of the three sectors whose geometry it belongs to.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>From two integers, all coupling constants</h2>
+  <div class="prose">
+    <p>The coupling constants \(g_{dd}\) — which set the mass scale of each sector and appear in the PMNS mixing angles, the GTC correction, and the neutrino mass scale — also follow from \(n_u\) and \(n_s\) alone. There are no additional inputs.</p>
+    \[
+      g_{33} = \frac{n_s^2\,\sqrt{n_s + n_u}}{2} = 8\sqrt{7}, \qquad
+      g_{44} = \frac{n_s\, n_u}{\sqrt{n_s + n_u}} = \frac{12}{\sqrt{7}}
+    \]
+    <p>Their product is an exact integer: \(g_{33} \times g_{44} = 96 = N_c(N_c+1)^3/2\). This is T9a — a topological identity, not a numerical coincidence. The remaining couplings follow:</p>
+    \[
+      g_{66} = g_{10,10} = \frac{1}{n_s} = \frac{1}{4}, \qquad
+      g_{22} = \frac{(p^2\,q)}{2} \;\text{ with } p,q \text{ from the d=2 eigenmode count}, \qquad
+      g_{55} = \frac{96}{g_{22}}
+    \]
+    <p>Every coupling constant in the theory is a rational or algebraic combination of \(N_c\) and \(N_c+1\). The energy hierarchy — why the colour sector is strong, the electroweak sector is weak, the neutrino sector is extremely weak — is encoded in how the Euler characteristics of \(\mathbb{CP}^2\) and \(\mathbb{CP}^3\) propagate through these formulas.</p>
+    <p>T15f makes this anti-correlation precise: the self-coupling \(g_{dd}\) is anti-correlated with the dimension of the sector's isometry group. \(\mathrm{SU}(3)\) has 8 generators and \(g_{33} = 8\sqrt{7} \approx 21.2\) is the largest coupling. \(\mathrm{SU}(4)\) has 15 generators and \(g_{44} \approx 4.54\). \(\mathrm{SU}(2)\) at \(d=2\) has 3 generators and \(g_{22} = 722.5\) — but this coupling is the fine-structure denominator, not a directly observable force strength; the observable coupling is \(e = g_{22}^{-1/2}\) in the appropriate normalisation. The pattern is the same: the geometry that defines what interactions a particle can participate in also sets, through the same Euler characteristic, how strongly those interactions act.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The gap: \(\chi = N_c + 2\) is missing</h2>
+  <div class="prose">
+    <p>The IDWT sector set is \(\{2, 3, 4, 5, 6, 10\}\). Dimensions 7, 8, and 9 are absent. This is not an approximation — there are no particles there, and the theory explains why.</p>
+    <p>In terms of complex projective spaces, the occupied sectors correspond to \(\mathbb{CP}^1\) through \(\mathbb{CP}^5\) (via \(d = 2k\)), but \(k = 4\) is missing: \(\mathbb{CP}^4\), which would give \(d = 8\), has \(\chi(\mathbb{CP}^4) = 5 = N_c + 2\). This is the one Euler characteristic in the sequence that the sector coupling formula cannot accommodate — the coupling fixed-point equation for \(g_{88}\) has no solution. There is no viable sector geometry at that step.</p>
+    <p>The Euler characteristic sequence of the occupied sectors is therefore \(\{2, 3, 4, 6\}\) — consecutive from \(N_c - 1\) to \(N_c + 1\), then a jump to \(N_c + 3\). The missing value \(N_c + 2 = 5\) is the topological signature of the gap. The jump lands at \(\chi(\mathbb{CP}^5) = 6\), and the terminal sector \(d = 10\) is forced by the Gegenbauer criticality condition, which itself depends on \(N_c\): the critical dimension is \(d = 2(N_c + 2) = 10\).</p>
+    <p>The sector set, the gap, and the endpoint are all determined by where \(\chi = N_c\) sits in the Euler characteristic sequence of the complex projective spaces.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>What the chain means</h2>
+  <div class="prose">
+    <p>The Standard Model contains about 19 free parameters — masses, mixing angles, coupling constants — that are measured and inserted by hand. In IDWT, all of the dimensionless ones (mass ratios, mixing angles, coupling ratios) are functions of a single integer: \(N_c = \chi(\mathbb{CP}^2) = 3\). The only quantity that cannot be derived this way is the absolute mass scale — the unit of mass — which requires one dimensional input, taken to be \(m_e = 0.511\) MeV.</p>
+    <p>Mass ratios are topology. The ratio of the tau mass to the electron mass is fixed by the ratio of simplex numbers \(S(23,10)/S(13,6)\) times a back-reaction factor that is itself a rational function of \(N_c\). None of these numbers require any measurement beyond \(m_e\) and the single fact that \(\chi(\mathbb{CP}^2) = 3\).</p>
+    <p>This is a strong claim, and it carries a precise caveat. The identification \(N_c = \chi(\mathbb{CP}^2)\) relies on the local symmetry structure of the \(d=4\) sector near the origin — the sector spaces in IDWT are non-compact, and whether the topological invariants of the compact local model fully characterise the global operator spectrum has not been proved. The relevant results (index theorem, mode indices, coupling structure) are derived from the local \(\mathbb{CP}^k\) geometry, with global corrections expected to vanish for L²-normalizable modes. This remains an open item.</p>
+    <p>Within that framework, the chain is this: one topological invariant, computed from a CW decomposition, determines two seed integers, which determine all mode indices and all coupling constants, which determine all mass ratios. The Euler characteristic of \(\mathbb{CP}^2\) is not a parameter of the theory. It is the theory.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+</body>
+</html>

@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Why n_s = 4 — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -26,7 +30,7 @@
 
 <header class="page-hero">
   <div class="eyebrow">Article · Math</div>
-  <h1>Why n<sub>s</sub> = 4</h1>
+  <h1>Why \(n_s\) = 4</h1>
   <p class="sub">The single non-trivial integer input to IDWT is not a free parameter. It is the unique positive integer satisfying a cross-sector fixed-point equation — and it equals the Euler characteristic of the lepton sector manifold.</p>
 </header>
 
@@ -35,8 +39,8 @@
 
   <h2>Two inputs, one of which is an integer</h2>
   <div class="prose">
-    <p>IDWT derives all fifteen particle masses from two inputs: the measured electron mass m<sub>e</sub> = 0.511 MeV, which sets the energy scale, and the integer n<sub>s</sub> = 4, which determines the structure of the entire spectrum. The electron mass is a unit of energy, inevitable as a scale anchor. The integer n<sub>s</sub> is not a choice — it is forced.</p>
-    <p>The two seeds of the spectrum are n<sub>down</sub> = 1 (the universal ground state, which requires no argument) and n<sub>strange</sub> = 4 = n<sub>s</sub> (the strange quark's mode index, which requires one). From these two integers — and nothing else — every mode index in the spectrum follows by the <a href="/articles/simplex-number.html">hockey-stick identity</a>. n<sub>s</sub> = 4 is the only integer for which all fifteen resulting masses match the Standard Model spectrum. The question is why.</p>
+    <p>IDWT derives all fifteen particle masses from two inputs: the measured electron mass \(m_e = 0.511\) MeV, which sets the energy scale, and the integer \(n_s = 4\), which determines the structure of the entire spectrum. The electron mass is a unit of energy, inevitable as a scale anchor. The integer \(n_s\) is not a choice — it is forced.</p>
+    <p>The two seeds of the spectrum are \(n_{\text{down}} = 1\) (the universal ground state, which requires no argument) and \(n_{\text{strange}} = 4 = n_s\) (the strange quark's mode index, which requires one). From these two integers — and nothing else — every mode index in the spectrum follows by the <a href="/articles/simplex-number.html">hockey-stick identity</a>. \(n_s = 4\) is the only integer for which all fifteen resulting masses match the Standard Model spectrum. The question is why.</p>
   </div>
 
 </section>
@@ -48,19 +52,19 @@
   </div>
 
   <div class="formula">
-    S(n<sub>s</sub>, 4) = n<sub>muon</sub>
+    \[ S(n_s,\,4) = n_{\text{muon}} \]
   </div>
 
   <div class="prose">
-    <p>In words: the simplex number of the strange quark's mode index evaluated at sector dimension 4 must equal the muon's mode index. This is the cross-sector fixed-point condition. It has exactly one positive integer solution: n<sub>s</sub> = 4, because S(4, 4) = C(7, 4) = 35 = n<sub>muon</sub>. No other positive integer n satisfies S(n, 4) = 35:</p>
+    <p>In words: the simplex number of the strange quark's mode index evaluated at sector dimension 4 must equal the muon's mode index. This is the cross-sector fixed-point condition. It has exactly one positive integer solution: \(n_s = 4\), because \(S(4,4) = \binom{7}{4} = 35 = n_{\text{muon}}\). No other positive integer \(n\) satisfies \(S(n,4) = 35\):</p>
     <ul>
-      <li>S(1, 4) = 1</li>
-      <li>S(2, 4) = 5</li>
-      <li>S(3, 4) = 15</li>
-      <li>S(4, 4) = 35 ✓</li>
-      <li>S(5, 4) = 70</li>
+      <li>\(S(1,4) = 1\)</li>
+      <li>\(S(2,4) = 5\)</li>
+      <li>\(S(3,4) = 15\)</li>
+      <li>\(S(4,4) = 35\) ✓</li>
+      <li>\(S(5,4) = 70\)</li>
     </ul>
-    <p>The muon's mode index is what it is — 35 = S(4,4) — because the hockey-stick identity forces n<sub>muon</sub> = n<sub>charm</sub> + n<sub>ν₂</sub> = S(4,3) + S(3,4) = 20 + 15 = 35, a consequence of the Pascal recursion at (n=4, d=4). And n<sub>strange</sub> = 4 is the unique integer whose d=4 image lands on this number. The strange quark's mode index is pinned by the muon's mode, and both are pinned by n<sub>s</sub>.</p>
+    <p>The muon's mode index is what it is — \(35 = S(4,4)\) — because the hockey-stick identity forces \(n_{\text{muon}} = n_{\text{charm}} + n_{\nu_2} = S(4,3) + S(3,4) = 20 + 15 = 35\), a consequence of the Pascal recursion at \((n=4,\,d=4)\). And \(n_{\text{strange}} = 4\) is the unique integer whose \(d=4\) image lands on this number. The strange quark's mode index is pinned by the muon's mode, and both are pinned by \(n_s\).</p>
   </div>
 
 </section>
@@ -72,25 +76,21 @@
   </div>
 
   <div class="formula">
-    r(n) = n(n+1) / S(n, 4)
-    <br><br>
-    r'(n) = (n−1)n / S(n−1, 5)
+    \[ r(n) = \frac{n(n+1)}{S(n,4)} \qquad r'(n) = \frac{(n-1)n}{S(n-1,5)} \]
   </div>
 
   <div class="prose">
-    <p>These are the normalized cross-sector coupling coefficients for mode n in the d=4 and d=5 sectors respectively. Theorem T4 states: there is a unique positive integer n<sub>s</sub> for which r(n<sub>s</sub>) = r'(n<sub>s</sub>). That integer is n<sub>s</sub> = 4, with n<sub>u</sub> = n<sub>s</sub> − 1 = 3.</p>
+    <p>These are the normalized cross-sector coupling coefficients for mode \(n\) in the \(d=4\) and \(d=5\) sectors respectively. Theorem T4 states: there is a unique positive integer \(n_s\) for which \(r(n_s) = r'(n_s)\). That integer is \(n_s = 4\), with \(n_u = n_s - 1 = 3\).</p>
     <p>Verification:</p>
   </div>
 
   <div class="formula">
-    r(4) = 4 × 5 / S(4, 4) = 20 / 35 = 4/7
-    <br><br>
-    r'(4) = 3 × 4 / S(3, 5) = 12 / 21 = 4/7 ✓
+    \[ r(4) = \frac{4 \times 5}{S(4,4)} = \frac{20}{35} = \frac{4}{7} \qquad r'(4) = \frac{3 \times 4}{S(3,5)} = \frac{12}{21} = \frac{4}{7} \checkmark \]
   </div>
 
   <div class="prose">
-    <p>Both ratios equal 4/7 if and only if n<sub>s</sub> = 4. This is not a numerical coincidence — it is why the coupling coefficient can be written as the universal g<sub>coeff</sub> = 2/√7 for both the d=3 and d=4 sectors simultaneously. The seed n<sub>s</sub> = 4 is the unique value at which the coupling algebra of the two quark sectors locks into a self-consistent fixed point. Any other integer produces different values of r and r', breaking the cross-sector consistency.</p>
-    <p>The equal ratio 4/7 is itself forced: S(4,4) = 35 and n<sub>s</sub>(n<sub>s</sub>+1) = 20 give 20/35 = 4/7. The 4 in the numerator is n<sub>s</sub>; the 7 = n<sub>s</sub> + n<sub>u</sub> is the sum of both seeds. This sum appears throughout the coupling structure — it is what makes g<sub>33</sub> = 8√7 and g<sub>44</sub> = 12/√7 and g<sub>33</sub> × g<sub>44</sub> = 96 exact identities.</p>
+    <p>Both ratios equal \(4/7\) if and only if \(n_s = 4\). This is not a numerical coincidence — it is why the coupling coefficient can be written as the universal \(g_{\text{coeff}} = 2/\sqrt{7}\) for both the \(d=3\) and \(d=4\) sectors simultaneously. The seed \(n_s = 4\) is the unique value at which the coupling algebra of the two quark sectors locks into a self-consistent fixed point. Any other integer produces different values of \(r\) and \(r'\), breaking the cross-sector consistency.</p>
+    <p>The equal ratio \(4/7\) is itself forced: \(S(4,4) = 35\) and \(n_s(n_s+1) = 20\) give \(20/35 = 4/7\). The 4 in the numerator is \(n_s\); the \(7 = n_s + n_u\) is the sum of both seeds. This sum appears throughout the coupling structure — it is what makes \(g_{33} = 8\sqrt{7}\) and \(g_{44} = 12/\sqrt{7}\) and \(g_{33} \times g_{44} = 96\) exact identities.</p>
   </div>
 
 </section>
@@ -98,35 +98,34 @@
 
   <h2>The Euler characteristic connection</h2>
   <div class="prose">
-    <p>The integer n<sub>s</sub> = 4 has a geometric identity: it is the Euler characteristic χ(CP³) of the d=6 lepton sector manifold CP³. This is Theorem T15.</p>
+    <p>The integer \(n_s = 4\) has a geometric identity: it is the Euler characteristic \(\chi(\mathbb{CP}^3)\) of the \(d=6\) lepton sector manifold \(\mathbb{CP}^3\). This is Theorem T15.</p>
   </div>
 
   <div class="formula">
-    n<sub>s</sub> = 4 = χ(CP³) &nbsp;&nbsp;&nbsp; (lepton sector — <a href="/articles/sector-6.html">d=6</a>)
-    <br><br>
-    n<sub>u</sub> = 3 = χ(CP²) = N<sub>c</sub> &nbsp;&nbsp;&nbsp; (up-quark sector — <a href="/articles/sector-4.html">d=4</a>)
+    \[ n_s = 4 = \chi(\mathbb{CP}^3) \quad \text{(lepton sector — } d=6 \text{)} \]
+    \[ n_u = 3 = \chi(\mathbb{CP}^2) = N_c \quad \text{(up-quark sector — } d=4 \text{)} \]
   </div>
 
   <div class="prose">
-    <p>N<sub>c</sub> = 3 is the number of quark colours. χ(CP²) = 3 = N<sub>c</sub> is independently derived in IDWT as the source of the SU(3) colour symmetry (see <a href="/articles/colour-topology.html">Colour from Topology</a>). The connection n<sub>u</sub> = N<sub>c</sub> = χ(CP²) and n<sub>s</sub> = n<sub>u</sub> + 1 = χ(CP³) means: the seed integer of the mass spectrum is the Euler characteristic of the lepton manifold, and the quark-sector integer is the Euler characteristic of the colour manifold. Both are topological invariants of the sector geometries. The mass spectrum is organised by topology.</p>
-    <p>An Euler characteristic cannot be 3.7 or 4.2. It is an integer. That is why n<sub>s</sub> must be an integer and why a non-integer choice has no geometric meaning. The spectrum of particle masses is quantized in units set by discrete topological invariants, not by a continuous parameter that happens to be tuned to an integer.</p>
+    <p>\(N_c = 3\) is the number of quark colours. \(\chi(\mathbb{CP}^2) = 3 = N_c\) is independently derived in IDWT as the source of the SU(3) colour symmetry (see <a href="/articles/colour-topology.html">Colour from Topology</a>). The connection \(n_u = N_c = \chi(\mathbb{CP}^2)\) and \(n_s = n_u + 1 = \chi(\mathbb{CP}^3)\) means: the seed integer of the mass spectrum is the Euler characteristic of the lepton manifold, and the quark-sector integer is the Euler characteristic of the colour manifold. Both are topological invariants of the sector geometries. The mass spectrum is organised by topology.</p>
+    <p>An Euler characteristic cannot be 3.7 or 4.2. It is an integer. That is why \(n_s\) must be an integer and why a non-integer choice has no geometric meaning. The spectrum of particle masses is quantized in units set by discrete topological invariants, not by a continuous parameter that happens to be tuned to an integer.</p>
   </div>
 
 </section>
 <section>
 
-  <h2>What follows from n<sub>s</sub> = 4</h2>
+  <h2>What follows from \(n_s = 4\)</h2>
   <div class="prose">
-    <p>Once n<sub>s</sub> = 4 is identified, the following all follow by calculation with no further input (beyond m<sub>e</sub> for dimensional scale):</p>
+    <p>Once \(n_s = 4\) is identified, the following all follow by calculation with no further input (beyond \(m_e\) for dimensional scale):</p>
     <ul>
-      <li>All six sector self-coupling constants g<sub>dd</sub> (Theorem T9)</li>
+      <li>All six sector self-coupling constants \(g_{dd}\) (Theorem T9)</li>
       <li>All fifteen mode indices, via the <a href="/articles/three-generations.html">hockey-stick generation laws</a></li>
-      <li>All fifteen particle masses, via m(n,d) = S(n,d) × m<sub>scale,d</sub></li>
+      <li>All fifteen particle masses, via \(m(n,d) = S(n,d) \times m_{\text{scale},d}\)</li>
       <li>All three PMNS neutrino mixing angles</li>
-      <li>The CP-violating phase δ<sub>CP</sub> = π + 2θ<sub>13</sub></li>
+      <li>The CP-violating phase \(\delta_{CP} = \pi + 2\theta_{13}\)</li>
       <li>Newton's constant (up to the remaining open spectral action calculation)</li>
     </ul>
-    <p>The single non-trivial input to particle physics is the number 4 — the Euler characteristic of a six-dimensional geometric manifold. Every measurement in the Standard Model that does not involve m<sub>e</sub> as a dimensional anchor traces back to this integer.</p>
+    <p>The single non-trivial input to particle physics is the number 4 — the Euler characteristic of a six-dimensional geometric manifold. Every measurement in the Standard Model that does not involve \(m_e\) as a dimensional anchor traces back to this integer.</p>
   </div>
 
 </section>

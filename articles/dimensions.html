@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dimensions Accumulate — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -27,7 +31,7 @@
 <header class="page-hero">
   <div class="eyebrow">Article · Geometry</div>
   <h1>Dimensions Accumulate</h1>
-  <p class="sub">Each sector of Ξ<sub>10</sub> inherits all the coordinates of every sector below it. This single fact determines which particles feel which forces.</p>
+  <p class="sub">Each sector of \(\Xi_{10}\) inherits all the coordinates of every sector below it. This single fact determines which particles feel which forces.</p>
 </header>
 
 <main>
@@ -138,7 +142,7 @@
 
   <h2>The Mass Formula Reflects the Geometry</h2>
   <div class="prose">
-    <p>The mass formula is <code>m = m_scale,d × S(n,d)</code>, where <code>S(n,d) = C(n+d-1, d)</code> is the number of ways to distribute n quanta across d sector directions. This is directly counting how many sector microstates the mode has access to. A particle in a higher-dimensional sector has access to more sector configurations at the same mode level — which is why heavier particles tend to live in higher sectors.</p>
+    <p>The mass formula is \(m = m_{\text{scale},d} \times S(n,d)\), where \(S(n,d) = \binom{n+d-1}{d}\) is the number of ways to distribute \(n\) quanta across \(d\) sector directions. This is directly counting how many sector microstates the mode has access to. A particle in a higher-dimensional sector has access to more sector configurations at the same mode level — which is why heavier particles tend to live in higher sectors.</p>
     <p>The d=10 tau lepton (1776 MeV) is not heavier than the d=6 electron (0.511 MeV) just because d=10 > d=6. It is heavier because at any fixed mode level n, S(n,10) counts many more configurations than S(n,6) — the extra four directions give exponentially more microstates. More microstates means more mass.</p>
     <p>This connects two things that seemed unrelated: the number of sector directions a particle occupies, and how heavy that particle is. In IDWT they are the same thing.</p>
   </div>

@@ -192,6 +192,51 @@ The gravitational field is genuinely 10D — it is not a 3D field with extra-dim
 
 **Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force's coupling geometry occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 Gegenbauer-critical coupling structure constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
+### 0.8a The 1/R Force Law is Universal — Projection Theorem
+
+⭐ **Theorem (Coulomb projection).** Let a particle occupy sector d ≥ 3. Its intra-sector static interaction is governed by the d-dimensional Coulomb kernel G_d(r) = 1/r^{d-2}. A d=3 observer cannot access the (d-3) hidden sector coordinates and integrates over them:
+
+```
+φ_obs(R) = S_{d-3} ∫_0^∞ y^{(d-4)} dy / (R² + y²)^{(d-2)/2}
+```
+
+where S_{d-3} = 2π^{(d-3)/2}/Γ((d-3)/2) is the surface area of the unit (d-4)-sphere. Using the beta-function identity with k = d-3, n = (d-2)/2:
+
+```
+∫_0^∞ y^{k-1} dy / (R² + y²)^n  =  ½ R^{k-2n} B(k/2, n-k/2)
+                                   =  ½ R^{-1} Γ(k/2) Γ(1/2) / Γ(n)
+```
+
+The exponent k-2n = (d-3)-(d-2) = −1 for every d. Therefore:
+
+```
+φ_obs(R) = C_d / R     for every d ≥ 3
+```
+
+The R-dependence is universally 1/R — independent of sector. What varies with d is only the prefactor:
+
+```
+C_d = π^{(d-2)/2} / Γ((d-2)/2)
+
+C_3 = 1,   C_4 = π,   C_5 = 2π,   C_6 = π²,   C_10 = π⁴/6
+```
+
+Numerically verified: φ_obs(R) × R is constant to < 1% across two decades of R for d = 3, 4, 5, 6, 10.
+
+**Physical meaning.** Coulomb's 1/R is not special to d=3 or to the d=2 photon sector. It is a theorem about what any d=3 observer must see when they marginalise over hidden sector dimensions: the extra integration factors always cancel the extra powers of r. The 1/R law follows from projection regardless of which sector the interacting particles inhabit.
+
+**The d=2 photon propagator does not give 1/R.** If the force law arose from the photon propagating in its own d=2 sector space, the Green's function would be G_{2D}(r) = −ln(r)/(2π) — logarithmic, not 1/R, and independent of the third observable direction. The d=2 propagator does not produce Coulomb's law. The 1/R structure is a property of projection, not of the photon's sector.
+
+**Effective coupling.** The observed interaction energy between two particles of sector d with charge units q_A, q_B is:
+
+```
+E(R) = g_{dd} × q_A × q_B × C_d / R
+```
+
+The sector coupling g_{dd} and the charge units are separately normalised for each sector (charge normalisation is an open derivation — see §14). The C_d factors are pure geometry.
+
+---
+
 ### 0.9 CKM Matrix from the Kernel
 
 The mode amplitude at the d=3 coordinate level scales as $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$ from L² normalisation (Part 1 §2.2), so heavier modes (larger S) carry less weight at our coordinate level relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:

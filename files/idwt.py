@@ -665,6 +665,8 @@ sum_mnu_corr   = m_nu1_meV + m_nu2_meV + m_nu3_meV_corr  # corrected: 60.39 meV
 # Mass-squared differences are exact once the mode indices are fixed.
 dm2_21 = (S(n_nu2,5)**2 - S(n_nu1,5)**2) * m_scale5**2 * 1.0e12   # eV²
 dm2_31 = (S(n_nu3,5)**2 - S(n_nu1,5)**2) * m_scale5**2 * 1.0e12   # eV²
+# Corrected Δm²₃₁ uses m_nu3_corr = m_nu3 × (1 + 1/35); m_nu1 is unchanged
+dm2_31_corr = (m_nu3_MeV_corr**2 - (S(n_nu1,5)*m_scale5)**2) * 1.0e12  # eV²
 
 
 # =============================================================================
@@ -1818,7 +1820,9 @@ nu_vals = [
     ("Sum corr (meV)",  sum_mnu_corr,    0,       "corrected Σmν; Planck 2023 bound: < 120 meV"),
     ("Delta_m21 (eV2)", dm2_21,          7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
     ("Delta_m31 (eV2)", dm2_31,          2.584e-3,
-     "PDG: (2.584+-0.025)e-3; -7.7% structural (S(22,5)/S(10,5) fixed)"),  # noqa
+     "PDG 2024: (2.584+-0.025)e-3; -7.7% bare (S(22,5)/S(10,5) fixed)"),  # noqa
+    ("Delta_m31_corr (eV2)", dm2_31_corr, 2.584e-3,
+     "PDG 2024: (2.584+-0.025)e-3; corrected (×(1+1/35)²)"),
 ]
 for label, pred, pdg, note in nu_vals:
     if pdg > 0:

@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>What Is IDWT? — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -35,9 +39,9 @@
 
   <h2>One Wave on an Infinite-Dimensional Space</h2>
   <div class="prose">
-    <p>Infinite-Dimensional Wave Theory starts from a single postulate: <strong>reality is one complex wave Ψ<sub>∞</sub> propagating on an infinite-dimensional manifold M<sub>∞</sub></strong>. There is no separate electron field, no separate quark field, no separate photon field. There is one wave, and every particle is a bound resonance of it — the way a violin string has many harmonics but is still one string.</p>
-    <p>M<sub>∞</sub> splits into two parts: ordinary time ℝ<sub>t</sub>, and the sector manifold Ξ<sub>10</sub>. We live in the 3-dimensional observable universe, which in IDWT is Ψ<sub>∞</sub> evaluated at a fixed position in the d>3 sector coordinates — we are <em>inside</em> M<sub>∞</sub>, not projecting down onto a screen from outside.</p>
-    <p>Ξ<sub>10</sub> is not Planck-scale or compactified. It is macroscopic — its extent is set by the same coupling constants that determine particle masses. We are at d=3 of its ten directions; particles with wider wavefunction support vibrate across directions we never move through, and we measure only the d=3 component of their activity.</p>
+    <p>Infinite-Dimensional Wave Theory starts from a single postulate: <strong>reality is one complex wave \(\Psi_\infty\) propagating on an infinite-dimensional manifold \(M_\infty\)</strong>. There is no separate electron field, no separate quark field, no separate photon field. There is one wave, and every particle is a bound resonance of it — the way a violin string has many harmonics but is still one string.</p>
+    <p>\(M_\infty\) splits into two parts: ordinary time \(\mathbb{R}_t\), and the sector manifold \(\Xi_{10}\). We live in the 3-dimensional observable universe, which in IDWT is \(\Psi_\infty\) evaluated at a fixed position in the d>3 sector coordinates — we are <em>inside</em> \(M_\infty\), not projecting down onto a screen from outside.</p>
+    <p>\(\Xi_{10}\) is not Planck-scale or compactified. It is macroscopic — its extent is set by the same coupling constants that determine particle masses. We are at d=3 of its ten directions; particles with wider wavefunction support vibrate across directions we never move through, and we measure only the d=3 component of their activity.</p>
   </div>
 
 </section>
@@ -45,7 +49,7 @@
 
   <h2>Six Sectors, Not Ten Random Dimensions</h2>
   <div class="prose">
-    <p>Ξ<sub>10</sub> does not have 10 equal directions. It decomposes into exactly <strong><a href="/articles/sectors.html">six sectors</a></strong>, each a geometrically distinct manifold, with dimensions d ∈ {2, 3, 4, 5, 6, 10}. The sector set is not a choice — it is uniquely forced by two mathematical requirements: (1) the sectors must form a Hopf fibration chain, and (2) the coupling coefficient must reach a precise critical value. Those two conditions together admit exactly six sectors and no others.</p>
+    <p>\(\Xi_{10}\) does not have 10 equal directions. It decomposes into exactly <strong><a href="/articles/sectors.html">six sectors</a></strong>, each a geometrically distinct manifold, with dimensions d ∈ {2, 3, 4, 5, 6, 10}. The sector set is not a choice — it is uniquely forced by two mathematical requirements: (1) the sectors must form a Hopf fibration chain, and (2) the coupling coefficient must reach a precise critical value. Those two conditions together admit exactly six sectors and no others.</p>
     <p>The sectors are <strong>nested</strong>: every direction present in sector d is still present in all higher sectors. The d=2 directions are inside d=3, inside d=4, all the way to d=10. This is not a hierarchy of separate spaces — it is one space progressively revealing more of itself to particles with the capacity to use more dimensions.</p>
   </div>
 
@@ -120,27 +124,25 @@
   </div>
 
   <div class="formula">
-    m(n, d) = S(n, d) × m<sub>scale,d</sub>
-    <br><br>
-    S(n, d) = C(n+d−1, d) &nbsp;=&nbsp; (n+d−1)! / (n! (d−1)!)
+    \[ m(n,d) = S(n,d) \times m_{\text{scale},d} \]
+    \[ S(n,d) = \binom{n+d-1}{d} = \frac{(n+d-1)!}{n!\,(d-1)!} \]
   </div>
 
   <div class="prose">
     <p>S(n, d) is a binomial coefficient — it counts the number of ways to distribute n energy quanta across d sector directions. That is all it is. A particle with more sector directions available, or a higher mode number, can distribute its quanta in more ways, giving it a higher multiplicity and therefore more mass.</p>
 
-    <p><strong>Example:</strong> The electron has n=13, d=6. So S(13,6) = C(18,6) = 18,564. The tau has n=23, d=10. S(23,10) = C(32,10) = 64,512,240. The d=10 sector shares the same mass scale as the d=6 charged-lepton sector, so the product 64,512,240 × m<sub>scale,10</sub> × (1 + 1/1680) = 1776.84 MeV — the geometric back-reaction correction from the Gegenbauer critical point closes it to the PDG value of 1776.86 MeV.</p>
+    <p><strong>Example:</strong> The electron has \(n=13\), \(d=6\). So \(S(13,6) = \binom{18}{6} = 18{,}564\). The tau has \(n=23\), \(d=10\). \(S(23,10) = \binom{32}{10} = 64{,}512{,}240\). The \(d=10\) sector shares the same mass scale as the \(d=6\) charged-lepton sector, so \(64{,}512{,}240 \times m_{\text{scale},10} \times (1 + 1/1680) = 1776.84\) MeV — the geometric back-reaction correction from the Gegenbauer critical point closes it to the PDG value of 1776.86 MeV.</p>
 
-    <p>The mass scales m<sub>scale,d</sub> are not free parameters — they are derived from one another by consistency conditions between sectors. The entire derivation runs from two inputs:</p>
+    <p>The mass scales \(m_{\text{scale},d}\) are not free parameters — they are derived from one another by consistency conditions between sectors. The entire derivation runs from two inputs:</p>
   </div>
 
   <div class="formula">
-    Input 1: &nbsp; m<sub>e</sub> = 0.511 MeV &nbsp;(electron mass — the single dimensional anchor)
-    <br><br>
-    Input 2: &nbsp; n<sub>s</sub> = 4 &nbsp;(the seed integer — an integer, not a continuous parameter)
+    \[ \text{Input 1:} \quad m_e = 0.511\text{ MeV} \quad \text{(electron mass — the single dimensional anchor)} \]
+    \[ \text{Input 2:} \quad n_s = 4 \quad \text{(the seed integer — an integer, not a continuous parameter)} \]
   </div>
 
   <div class="prose">
-    <p>Why n<sub>s</sub>=4? It is not a choice. It is the unique positive integer satisfying a fixed-point condition between sector d=4 and sector d=5. Two different cross-sector ratios are equal if and only if n<sub>s</sub>=4. No other value works.</p>
+    <p>Why \(n_s = 4\)? It is not a choice. It is the unique positive integer satisfying a fixed-point condition between sector d=4 and sector d=5. Two different cross-sector ratios are equal if and only if \(n_s = 4\). No other value works.</p>
     <p>From these two inputs, IDWT derives all six sector mass scales, all fifteen mode indices, and all fifteen Standard Model particle masses. The derivation is closed — no additional parameters enter.</p>
   </div>
 
@@ -154,7 +156,7 @@
     <p><strong>Coordinate containment</strong> answers whether coupling is possible at all. A particle couples to a force only if the force's sector coordinates are inside the particle's sector. Since d=2 sits inside every higher sector (2 ⊂ 3 ⊂ 4 ⊂ 5 ⊂ 6 ⊂ 10), every particle has the photon's coordinates in its wavefunction — universal charge coupling. Since d=4 is not inside d=2 or d=3, photons and down quarks cannot couple to the strong force.</p>
     <p><strong>The coupling filter</strong> answers how coupling works and what is geometrically forbidden. The sector geometry of a particle is not just a label — it is a coupling structure. Polarization is not a property of the photon; it is what U(1) fiber geometry of CP¹ produces as an electromagnetic coupling handle. Color is not a property of quarks; it is what the SU(3) isometry of CP² produces, giving exactly three coupling handles — χ(CP²) = 3. For neutrinos, the Clifford algebra of S⁵ at d mod 8 = 5 makes Majorana spinors impossible — not suppressed, structurally unavailable at any order. The electron's CP³ geometry cancels all color index contributions entirely, giving total QCD silence at every energy scale.</p>
     <p>This generalizes polarization upward through the dimensions. The photon's two helicity states are what U(1) geometry produces at d=2. Moving to d=3, d=4, d=5, d=6 produces progressively more complex coupling structures — each one the natural analog of polarization in a higher-dimensional geometry. Quantum numbers are not inputs to the theory. They are what geometry does.</p>
-    <p>Gravity has no sector. It is curvature of the full M<sub>∞</sub>, sourced by mass through all sector coordinates equally. There are no gravitons. G<sub>N</sub> = G<sub>∞</sub>/V<sub>7</sub>, where V<sub>7</sub> ≈ 113 is derived from the same sector coupling constants that determine particle masses.</p>
+    <p>Gravity has no sector. It is curvature of the full \(M_\infty\), sourced by mass through all sector coordinates equally. There are no gravitons. \(G_N = G_\infty/V_7\), where \(V_7 \approx 113\) is derived from the same sector coupling constants that determine particle masses.</p>
   </div>
 
 </section>
@@ -186,14 +188,14 @@
           <td>S³</td>
           <td>SO(4)</td>
           <td>d, s, b quarks</td>
-          <td>Left-handed weak isospin from SO(4) = SU(2)<sub>L</sub> × SU(2)<sub>R</sub></td>
+          <td>Left-handed weak isospin from SO(4) = \(SU(2)_L \times SU(2)_R\)</td>
         </tr>
         <tr>
           <td><a href="/articles/sector-4.html">4</a></td>
           <td>CP²</td>
           <td>SU(3)</td>
           <td>u, c, t quarks</td>
-          <td>Color: χ(CP²) = 3 = N<sub>c</sub>; three independent colour modes from Euler characteristic</td>
+          <td>Color: \(\chi(\mathbb{CP}^2) = 3 = N_c\); three independent colour modes from Euler characteristic</td>
         </tr>
         <tr>
           <td><a href="/articles/sector-5.html">5</a></td>
@@ -225,12 +227,12 @@
 
   <h2>What Comes Out</h2>
   <div class="prose">
-    <p>From n<sub>s</sub>=4 and m<sub>e</sub>=0.511 MeV alone:</p>
+    <p>From \(n_s = 4\) and \(m_e = 0.511\) MeV alone:</p>
     <ul>
       <li><strong>All 15 particle masses</strong> — electron, muon, tau, three neutrinos, six quarks, photon, W, Z, Higgs — reproduced to better than 1% without exception, most to better than 0.1%.</li>
-      <li><strong>The number of quark colors</strong> N<sub>c</sub>=3 is derived, not assumed. It equals the Euler characteristic χ(CP²) = 3.</li>
-      <li><strong>All three PMNS mixing angles</strong> from the same sector coupling constants; the CP-violating phase δ<sub>CP</sub> = π + 2θ<sub>13</sub> ≈ 197.1° (PDG: ~197°).</li>
-      <li><strong>Newton's constant</strong> G<sub>N</sub> = G<sub>∞</sub>/V<sub>7</sub>, where V<sub>7</sub> ≈ 113 is the product of sector localization lengths, fully derived from the same coupling constants.</li>
+      <li><strong>The number of quark colors</strong> \(N_c = 3\) is derived, not assumed. It equals the Euler characteristic \(\chi(\mathbb{CP}^2) = 3\).</li>
+      <li><strong>All three PMNS mixing angles</strong> from the same sector coupling constants; the CP-violating phase \(\delta_{CP} = \pi + 2\theta_{13} \approx 197.1°\) (PDG: ~197°).</li>
+      <li><strong>Newton's constant</strong> \(G_N = G_\infty/V_7\), where \(V_7 \approx 113\) is the product of sector localization lengths, fully derived from the same coupling constants.</li>
       <li><strong>Zero neutrinoless double beta decay</strong> — an exact geometric result, not a dynamical suppression.</li>
       <li><strong>No gravitons, no supersymmetry, no Kaluza-Klein towers, no WIMP dark matter</strong> — each forbidden by a specific geometric theorem, not excluded by parameter tuning.</li>
     </ul>
@@ -242,7 +244,7 @@
   <h2>Why This Is Different</h2>
   <div class="prose">
     <p>The Standard Model takes quantum numbers as inputs: quarks have three colors because experiment says so; the electron is colour-neutral because it has never shown strong coupling; neutrinos are probably Dirac because no Majorana mass has been measured. The values are fitted; the structure is axiomatized.</p>
-    <p>In IDWT, these are not axioms — they are theorems. N<sub>c</sub>=3 is forced by the Euler characteristic of CP². Colour-neutrality for the electron is forced by index cancellation on CP³. The Dirac condition for neutrinos is forced by Clifford algebra at d mod 8 = 5. The sector quantum number of a particle is not a label attached to it — it is the geometry of its sector expressing itself as a coupling structure.</p>
+    <p>In IDWT, these are not axioms — they are theorems. \(N_c = 3\) is forced by the Euler characteristic of \(\mathbb{CP}^2\). Colour-neutrality for the electron is forced by index cancellation on \(\mathbb{CP}^3\). The Dirac condition for neutrinos is forced by Clifford algebra at d mod 8 = 5. The sector quantum number of a particle is not a label attached to it — it is the geometry of its sector expressing itself as a coupling structure.</p>
     <p>One wave. One integer. Two real inputs. Everything else follows.</p>
   </div>
 
@@ -251,11 +253,11 @@
 
   <h2>The Geometry Is Here</h2>
   <div class="prose">
-    <p>There is a temptation to imagine the extra dimensions as somewhere else — deep inside matter at the Planck scale, or rolled up in some remote corner of space. In IDWT they are neither. M<sub>∞</sub> is not a distant arena. It is here, at every point in the room you are sitting in, threading through every atom in your body.</p>
-    <p>The electrons in those atoms are not smeared-out clouds. They are orbiting in 6 dimensions — their wavefunctions are excitations of CP³, a six-dimensional geometric manifold. What the textbook calls the "electron cloud" is what an observer at d=3 resolves when they cannot access the three additional sector coordinates of that orbit: the d=3-coordinate component of a 6D trajectory. The s, p, d, f orbital shapes of chemistry are the d=3-coordinate structure of the modes, not the full structure.</p>
-    <p>The nucleus at the center of each atom is a d=3 object. The quarks inside it are forced by color confinement to cancel their d=4 character — the nucleus is a color-singlet, which in geometric terms means its d=4 footprint is zero. What remains is a d=3 structure: three-dimensional, fully at home in our observable space. That is why ordinary matter feels solid and three-dimensional. Our atoms are built around d=3 nuclei, and we are inside M<sub>∞</sub> at the d=3 coordinate level.</p>
+    <p>There is a temptation to imagine the extra dimensions as somewhere else — deep inside matter at the Planck scale, or rolled up in some remote corner of space. In IDWT they are neither. \(M_\infty\) is not a distant arena. It is here, at every point in the room you are sitting in, threading through every atom in your body.</p>
+    <p>The electrons in those atoms are not smeared-out clouds. They are orbiting in 6 dimensions — their wavefunctions are excitations of \(\mathbb{CP}^3\), a six-dimensional geometric manifold. What the textbook calls the "electron cloud" is what an observer at d=3 resolves when they cannot access the three additional sector coordinates of that orbit: the d=3-coordinate component of a 6D trajectory. The s, p, d, f orbital shapes of chemistry are the d=3-coordinate structure of the modes, not the full structure.</p>
+    <p>The nucleus at the center of each atom is a d=3 object. The quarks inside it are forced by color confinement to cancel their d=4 character — the nucleus is a color-singlet, which in geometric terms means its d=4 footprint is zero. What remains is a d=3 structure: three-dimensional, fully at home in our observable space. That is why ordinary matter feels solid and three-dimensional. Our atoms are built around d=3 nuclei, and we are inside \(M_\infty\) at the d=3 coordinate level.</p>
     <p>But the electron orbiting that nucleus is not a d=3 object. It extends into three additional directions the nucleus does not occupy. From the electron's perspective, the nucleus is geometrically thin — present in only half of its coordinate space. The atom is not a point-charge wrapped in a cloud. It is a three-dimensional structure being orbited in six-dimensional space, bound together through the two shared dimensions of electromagnetism.</p>
-    <p>This is not a metaphor or an analogy. It is the structural geometry of M<sub>∞</sub> operating at the scale of chemistry, in every molecule, in every cell, right now.</p>
+    <p>This is not a metaphor or an analogy. It is the structural geometry of \(M_\infty\) operating at the scale of chemistry, in every molecule, in every cell, right now.</p>
   </div>
 
 </section>

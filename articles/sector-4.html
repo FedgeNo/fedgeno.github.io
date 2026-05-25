@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sector 4 — Up-type Quarks — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -36,7 +40,7 @@
   <h2>Geometry</h2>
   <div class="prose">
     <p>The d=4 sector has geometry CP² — the complex projective plane — with isometry group SU(3). CP² is a Kähler manifold: it has a complex structure and a natural γ₅ operator from that structure, which provides the chirality of up-type quarks. This is why up quarks have left-handed weak coupling — not by assumption, but because the Kähler geometry of CP² selects a chirality.</p>
-    <p>CP² is also the colour sector. Its Euler characteristic χ(CP²) = 3 directly gives the number of quark colours: N<sub>c</sub> = 3. The three independent modes of the d=4 sector geometry are exactly the three colour states of a quark. They transform under SU(3) — the isometry group of CP² — in the fundamental representation, which is why colour is an SU(3) symmetry. None of this is postulated; it follows from the geometry of the manifold.</p>
+    <p>CP² is also the colour sector. Its Euler characteristic \(\chi(\mathbb{CP}^2) = 3\) directly gives the number of quark colours: \(N_c = 3\). The three independent modes of the d=4 sector geometry are exactly the three colour states of a quark. They transform under SU(3) — the isometry group of CP² — in the fundamental representation, which is why colour is an SU(3) symmetry. None of this is postulated; it follows from the geometry of the manifold.</p>
   </div>
 
 </section>
@@ -82,14 +86,14 @@
   </div>
 
   <div class="prose">
-    <p>The +0.77% offset common to all three up-type quarks is structural, forced by the constraint g<sub>33</sub> × g<sub>44</sub> = 96 (T9a). It cannot be corrected without violating this algebraic identity, which would cascade through the PMNS angles and neutrino mass scale.</p>
+    <p>The +0.77% offset common to all three up-type quarks is structural, forced by the constraint \(g_{33} \times g_{44} = 96\) (T9a). It cannot be corrected without violating this algebraic identity, which would cascade through the PMNS angles and neutrino mass scale.</p>
     <p>The charm and top quarks receive an additional Generation Tower Correction (GTC) from the ℓ=2 component of the sector kernel:</p>
   </div>
   <div class="formula">
-    ε = 1 / (280√7) ≈ 0.001350
+    \[ \varepsilon = \frac{1}{280\sqrt{7}} \approx 0.001350 \]
   </div>
   <div class="prose">
-    <p>This correction applies at depths {0, n<sub>u</sub>, S(n<sub>u</sub>,3)} = {0, 3, 10} — the up quark baseline, and then charm and top. The GTC closes the charm/up ratio error to 0.000% and the top/up error to −0.048%. The top quark mode index n = 72 = N<sub>c</sub>(N<sub>c</sub>+1)(N<sub>c</sub>+3) is derived from the Euler characteristic N<sub>c</sub> = 3 alone.</p>
+    <p>This correction applies at depths \(\{0, n_u, S(n_u,3)\} = \{0, 3, 10\}\) — the up quark baseline, and then charm and top. The GTC closes the charm/up ratio error to 0.000% and the top/up error to −0.048%. The top quark mode index \(n = 72 = N_c(N_c+1)(N_c+3)\) is derived from the Euler characteristic \(N_c = 3\) alone.</p>
   </div>
 
 </section>
@@ -97,10 +101,10 @@
 
   <h2>The geometric origin of colour</h2>
   <div class="prose">
-    <p>In the Standard Model, N<sub>c</sub> = 3 is an experimental input. In IDWT it is a theorem: N<sub>c</sub> = χ(CP²) = 3. The Euler characteristic of CP² is 3 because CP² has one cell in each of the dimensions 0, 2, and 4 — three cells total, alternating in sign — giving χ = 1 − 0 + 1 − 0 + 1 = 3.</p>
-    <p>Those three independent modes of the CP² geometry are the three colour states per quark. They are not three copies of something; they are the three geometrically independent directions of the sector space, and they transform into each other under the SU(3) isometry of CP². Colour is not a property attached to quarks from outside — it is what it means to be a mode in the d=4 sector.</p>
-    <p>SU(3) colour symmetry follows from the requirement that physics not depend on the local orientation of the colour frame in the d=4 sector. Different orientations of the three colour directions are physically equivalent — this requirement forces local SU(3) invariance, which is what we call colour gauge symmetry. It is a consistency requirement of the geometry, not a postulate.</p>
-    <p>Because N<sub>c</sub> = χ(CP²) = 3 = n<sub>u</sub>, and n<sub>s</sub> = n<sub>u</sub> + 1 = 4 = χ(CP³), all sector coupling constants are functions of N<sub>c</sub> alone.</p>
+    <p>In the Standard Model, \(N_c = 3\) is an experimental input. In IDWT it is a theorem: \(N_c = \chi(\mathbb{CP}^2) = 3\). The Euler characteristic of \(\mathbb{CP}^2\) is 3 because \(\mathbb{CP}^2\) has one cell in each of the dimensions 0, 2, and 4 — three cells total, alternating in sign — giving \(\chi = 1 - 0 + 1 - 0 + 1 = 3\).</p>
+    <p>Those three independent modes of the \(\mathbb{CP}^2\) geometry are the three colour states per quark. They are not three copies of something; they are the three geometrically independent directions of the sector space, and they transform into each other under the SU(3) isometry of \(\mathbb{CP}^2\). Colour is not a property attached to quarks from outside — it is what it means to be a mode in the \(d=4\) sector.</p>
+    <p>SU(3) colour symmetry follows from the requirement that physics not depend on the local orientation of the colour frame in the \(d=4\) sector. Different orientations of the three colour directions are physically equivalent — this requirement forces local SU(3) invariance, which is what we call colour gauge symmetry. It is a consistency requirement of the geometry, not a postulate.</p>
+    <p>Because \(N_c = \chi(\mathbb{CP}^2) = 3 = n_u\), and \(n_s = n_u + 1 = 4 = \chi(\mathbb{CP}^3)\), all sector coupling constants are functions of \(N_c\) alone.</p>
   </div>
 
 </section>
@@ -108,13 +112,13 @@
 
   <h2>Coupling constant</h2>
   <div class="prose">
-    <p>The d=4 sector self-coupling is g<sub>44</sub> = 12/√7, derived from n<sub>s</sub> and n<sub>u</sub>:</p>
+    <p>The d=4 sector self-coupling is \(g_{44} = 12/\sqrt{7}\), derived from \(n_s\) and \(n_u\):</p>
   </div>
   <div class="formula">
-    g<sub>44</sub> = n<sub>s</sub> · n<sub>u</sub> / √(n<sub>s</sub> + n<sub>u</sub>) = 12/√7 ≈ 4.536
+    \[ g_{44} = \frac{n_s \cdot n_u}{\sqrt{n_s + n_u}} = \frac{12}{\sqrt{7}} \approx 4.536 \]
   </div>
   <div class="prose">
-    <p>T9a: g<sub>33</sub> × g<sub>44</sub> = 8√7 × 12/√7 = 96 exactly. This product is the Hopf universality product for sectors d=3 and d=4, equal to N<sub>c</sub>(N<sub>c</sub>+1)³/2 = 96.</p>
+    <p>T9a: \(g_{33} \times g_{44} = 8\sqrt{7} \times 12/\sqrt{7} = 96\) exactly. This product is the Hopf universality product for sectors \(d=3\) and \(d=4\), equal to \(N_c(N_c+1)^3/2 = 96\).</p>
   </div>
 
 </section>

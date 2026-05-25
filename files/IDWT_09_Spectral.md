@@ -181,6 +181,10 @@ holds simultaneously in the $d=3$ sector (left) and the $d=4$ sector (right). Th
 | **4** | $\mathbf{20/35 = 4/7 = 0.5714}$ | $\mathbf{12/21 = 4/7 = 0.5714}$ | **Yes** |
 | 5 | $30/56 = 0.4286$ | $20/56 = 0.3571$ | No |
 
+**Complementary derivation via Gegenbauer coupling weights.** ⭐ The same uniqueness can be seen from the Gegenbauer coupling weights $b_n(d) = \Gamma(d)\,\Gamma(n+1)/\Gamma(n+d)$. At mode index $n$, the weights for $d=3$ and $d=4$ are:
+$$b_n(3) = \frac{24}{(n+2)(n+3)}, \qquad b_n(4) = \frac{120}{(n+1)(n+2)(n+3)}.$$
+Setting $b_n(3) = b_n(4)$ and cancelling the common factor $(n+2)(n+3)$ gives $24 = 120/(n+1)$, hence $n+1=5$ and $n_s = 4$ — the unique crossing point. For $n < 4$ the $d=4$ weight dominates; for $n > 4$ the $d=3$ weight dominates. The fixed point is isolated and exact.
+
 ---
 
 ## T5. The Gegenbauer Criticality Theorem

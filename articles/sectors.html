@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Six Sectors — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -27,7 +31,7 @@
 <header class="page-hero">
   <div class="eyebrow">Article · Sectors</div>
   <h1>The Six Sectors</h1>
-  <p class="sub">Ξ<sub>10</sub> has ten dimensions organised into six geometric depths. Each depth is a sector. Every particle lives in exactly one.</p>
+  <p class="sub">\(\Xi_{10}\) has ten dimensions organised into six geometric depths. Each depth is a sector. Every particle lives in exactly one.</p>
 </header>
 
 <main>
@@ -35,7 +39,7 @@
 
   <h2>What a sector is</h2>
   <div class="prose">
-    <p>A sector is not a separate space. It is a depth — a particular number of spatial directions drawn from the same underlying sector manifold Ξ<sub>10</sub>. The d=2 sector uses two of those directions. The d=6 sector uses the same two directions, plus four more. The ten directions are shared; what changes from one sector to the next is how many of them a particle's wavefunction spans.</p>
+    <p>A sector is not a separate space. It is a depth — a particular number of spatial directions drawn from the same underlying sector manifold \(\Xi_{10}\). The d=2 sector uses two of those directions. The d=6 sector uses the same two directions, plus four more. The ten directions are shared; what changes from one sector to the next is how many of them a particle's wavefunction spans.</p>
     <p>The sectors are nested: every direction present at depth d is still present at every depth above d. The d=2 directions are literally inside d=3, inside d=4, all the way up to d=10. This nesting — not any separate rule — is what determines which particles interact with which forces. A force associated with a given sector can only reach particles whose wavefunctions have support in that sector's directions.</p>
     <p>See <a href="/articles/shared-space.html">One Space, Six Depths</a> for a detailed treatment of the nesting structure, and <a href="/articles/dimensions.html">Dimensions Accumulate</a> for how each sector adds to the ones below it.</p>
   </div>
@@ -78,14 +82,14 @@
           <td>S³</td>
           <td>SO(4)</td>
           <td>d, s, b quarks</td>
-          <td>Left-handed weak isospin from SO(4) = SU(2)<sub>L</sub> × SU(2)<sub>R</sub></td>
+          <td>Left-handed weak isospin from \(SO(4) = SU(2)_L \times SU(2)_R\)</td>
         </tr>
         <tr>
           <td><a href="/articles/sector-4.html">d=4</a></td>
           <td>CP²</td>
           <td>SU(3)</td>
           <td>u, c, t quarks</td>
-          <td>Origin of colour: χ(CP²) = 3 = N<sub>c</sub></td>
+          <td>Origin of colour: \(\chi(\mathbb{CP}^2) = 3 = N_c\)</td>
         </tr>
         <tr>
           <td><a href="/articles/sector-5.html">d=5</a></td>
@@ -132,14 +136,12 @@
   </div>
 
   <div class="formula">
-    m(n, d) = S(n, d) × m<sub>scale,d</sub>
-    <br><br>
-    S(n, d) = C(n+d−1, d)
+    \[ m(n,d) = S(n,d) \times m_{\text{scale},d} \qquad S(n,d) = \binom{n+d-1}{d} \]
   </div>
 
   <div class="prose">
     <p>S(n, d) counts the number of ways to distribute n energy quanta across d sector directions — the simplex number. Particles in higher sectors have more directions available, so the same mode index n gives a larger count and a heavier mass. Particles with the same d but different n are different excitations of the same sector geometry — they are in the same family, distinguished by their energy level.</p>
-    <p>The mass scales m<sub>scale,d</sub> are not free parameters. They are determined by consistency conditions between the sector coupling constants, which are themselves derived from the single seed integer n<sub>s</sub> = 4. The sole dimensional input is m<sub>e</sub> = 0.511 MeV.</p>
+    <p>The mass scales \(m_{\text{scale},d}\) are not free parameters. They are determined by consistency conditions between the sector coupling constants, which are themselves derived from the single seed integer \(n_s = 4\). The sole dimensional input is \(m_e = 0.511\) MeV.</p>
   </div>
 
 </section>

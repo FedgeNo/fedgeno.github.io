@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IDWT — Infinite-Dimensional Wave Theory</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -43,11 +47,11 @@
     <li>The fundamental object is a Dirac spinor field Ψ∞ on an infinite-dimensional manifold M∞. Particles are its resonant modes.</li>
     <li>Our observable 3D universe is Ψ∞ evaluated at our fixed ξ⁰ in the d>3 sector coordinates — we are inside M∞ at the d=3 coordinate level, not external observers looking in.</li>
     <li>The sector dimensions are macroscopic, with particles bound by sector potential wells rather than compactified into Planck-scale geometry.</li>
-    <li>Mass equals the cumulative count of a mode's sector microstates: m = m_scale,d × S(n,d).</li>
+    <li>Mass equals the cumulative count of a mode's sector microstates: \(m = m_{\text{scale},d} \times S(n,d)\).</li>
   </ol>
   <p>M∞ has six stable sectors at dimensions d ∈ {2, 3, 4, 5, 6, 10} — the levels at which the coordinate extension locks into self-consistent eigenstates. Each sector's particles couple to particles in other sectors because the sectors share coordinates: d=2 photon coordinates are literally inside every higher sector.</p>
   <div class="formula">
-    <code>m = m_scale,d × S(n,d)</code> &nbsp; where &nbsp; <code>S(n,d) = C(n+d-1, d)</code>
+    \[ m = m_{\text{scale},d} \times S(n,d) \quad \text{where} \quad S(n,d) = \binom{n+d-1}{d} \]
   </div>
 </section>
 

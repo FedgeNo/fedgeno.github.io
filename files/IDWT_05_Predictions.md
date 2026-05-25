@@ -359,10 +359,10 @@ The experimental mean is $\tfrac{1}{2}(775.3 + 782.7) = 779.0$ MeV. IDWT predict
 
 | $n$ | $S(n,3)$ | IDWT (MeV) | PDG (MeV) | Error | State |
 |---|---|---|---|---|---|
-| 9 | 165 | 775.8 | 775.3 | +0.07% | ρ(770)/ω(782) |
+| 9 | 165 | 775.8 | 779.0 | −0.41% | ρ(770)/ω(782) |
 | 10 | 220 | 1034 | 1019.5 | +1.47% | φ(1020) |
 | 11 | 286 | 1345 | 1318.2 | +2.01% | a₂(1320) |
-| 12 | 364 | 1711 | 1720 | −0.46% | ρ(1700) |
+| 12 | 364 | 1711 | 1720 | −0.50% | ρ(1700) |
 
 Note: φ(1020) is the ss̄ vector meson. Its mode index n=10 = n_s + n_s + n_d + n_d = 4+4+1+1, consistent with the two strange-quark constituents each contributing their mode index. The ρ at n=9 = n_s + n_u + n_d + n_d = 4+3+1+1, consistent with a ud̄ vector state.
 

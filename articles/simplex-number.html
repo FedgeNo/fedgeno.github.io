@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Simplex Number — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -39,9 +43,8 @@
   </div>
 
   <div class="formula">
-    m(n, d) = S(n, d) × m<sub>scale,d</sub>
-    <br><br>
-    S(n, d) = C(n+d−1, d) = (n+d−1)! / (n! (d−1)!)
+    \[ m(n,d) = S(n,d) \times m_{\text{scale},d} \]
+    \[ S(n,d) = \binom{n+d-1}{d} = \frac{(n+d-1)!}{n!\,(d-1)!} \]
   </div>
 
   <div class="prose">
@@ -55,9 +58,9 @@
   <h2>Stars and bars</h2>
   <div class="prose">
     <p>The simplest way to understand S(n,d) is the stars-and-bars combinatorial argument. How many ways can you place n identical objects into d labelled boxes? The answer is C(n+d−1, d), also written C(n+d−1, n−1). This is a standard result from combinatorics: represent the objects as stars (★) and the divisions between boxes as bars (|). A configuration of 3 quanta in 4 directions might look like ★★ | | ★ |, meaning 2 quanta in direction 1, 0 in direction 2, 1 in direction 3, 0 in direction 4. The total configurations of stars and bars across all boxes is C(n+d−1, d).</p>
-    <p>For the up quark (n=3, d=4): S(3,4) = C(6,4) = 15. There are 15 ways to arrange 3 energy quanta across 4 sector directions. The up quark has 15 microstate configurations, so its mass is 15 × m<sub>scale,4</sub>.</p>
-    <p>For the electron (n=13, d=6): S(13,6) = C(18,6) = 18,564. There are 18,564 ways to arrange 13 quanta across 6 directions. The electron has 18,564 microstate configurations, giving m<sub>e</sub> = 18,564 × m<sub>scale,6</sub> = 0.511 MeV.</p>
-    <p>For the tau lepton (n=23, d=10): S(23,10) = C(32,10) = 64,512,240. The tau spans ten sector directions and can arrange its quanta in over 64 million ways. Before the geometric back-reaction correction: m<sub>τ</sub> ≈ S(23,10) × m<sub>scale,10</sub>. The back-reaction correction from the d=10 Gegenbauer critical point brings this to 1776.84 MeV, within 0.001% of the PDG value.</p>
+    <p>For the up quark \((n=3,\,d=4)\): \(S(3,4) = \binom{6}{4} = 15\). There are 15 ways to arrange 3 energy quanta across 4 sector directions. The up quark has 15 microstate configurations, so its mass is \(15 \times m_{\text{scale},4}\).</p>
+    <p>For the electron \((n=13,\,d=6)\): \(S(13,6) = \binom{18}{6} = 18{,}564\). There are 18,564 ways to arrange 13 quanta across 6 directions. The electron has 18,564 microstate configurations, giving \(m_e = 18{,}564 \times m_{\text{scale},6} = 0.511\) MeV.</p>
+    <p>For the tau lepton \((n=23,\,d=10)\): \(S(23,10) = \binom{32}{10} = 64{,}512{,}240\). The tau spans ten sector directions and can arrange its quanta in over 64 million ways. Before the geometric back-reaction correction: \(m_\tau \approx S(23,10) \times m_{\text{scale},10}\). The back-reaction correction from the \(d=10\) Gegenbauer critical point brings this to 1776.84 MeV, within 0.001% of the PDG value.</p>
   </div>
 
   <div class="table-wrap">
@@ -73,14 +76,14 @@
       </thead>
       <tbody>
         <tr><td><a href="/articles/down-quark.html">down quark</a></td><td>1</td><td>3</td><td>1</td><td>4.702 MeV</td></tr>
-        <tr><td>up quark</td><td>3</td><td>4</td><td>15</td><td>2.163 MeV</td></tr>
+        <tr><td>up quark</td><td>3</td><td>4</td><td>15</td><td>2.177 MeV</td></tr>
         <tr><td>strange quark</td><td>4</td><td>3</td><td>20</td><td>94.04 MeV</td></tr>
         <tr><td>ν₁</td><td>10</td><td>5</td><td>2,002</td><td>1.487 meV</td></tr>
         <tr><td>ν₂</td><td>15</td><td>5</td><td>11,628</td><td>8.639 meV</td></tr>
         <tr><td>electron</td><td>13</td><td>6</td><td>18,564</td><td>0.511 MeV</td></tr>
-        <tr><td>muon</td><td>35</td><td>6</td><td>1,344,904</td><td>105.66 MeV</td></tr>
+        <tr><td>muon</td><td>35</td><td>6</td><td>3,838,380</td><td>105.66 MeV</td></tr>
         <tr><td>tau lepton</td><td>23</td><td>10</td><td>64,512,240</td><td>1,776.84 MeV</td></tr>
-        <tr><td>top quark</td><td>72</td><td>4</td><td>82,251</td><td>172,760 MeV</td></tr>
+        <tr><td>top quark</td><td>72</td><td>4</td><td>1,215,450</td><td>173,999 MeV</td></tr>
       </tbody>
     </table>
   </div>
@@ -94,7 +97,7 @@
   </div>
 
   <div class="formula">
-    S(n, d) = Σ<sub>k=0</sub><sup>n−1</sup> C(k+d−1, d−1)
+    \[ S(n,d) = \sum_{k=0}^{n-1} \binom{k+d-1}{d-1} \]
   </div>
 
   <div class="prose">
@@ -104,7 +107,7 @@
   </div>
 
   <div class="formula">
-    S(n, d) = S(n, d−1) + S(n−1, d)
+    \[ S(n,d) = S(n,d-1) + S(n-1,d) \]
   </div>
 
   <div class="prose">
@@ -120,11 +123,11 @@
   </div>
 
   <div class="formula">
-    S(1, d) = C(d, d) = 1 &nbsp; for every sector d
+    \[ S(1,d) = \binom{d}{d} = 1 \quad \text{for every sector } d \]
   </div>
 
   <div class="prose">
-    <p>There is exactly one way to distribute 1 quantum across any number of directions — put it in one direction. This is the unique ground state of every sector. It is why <a href="/articles/down-quark.html">the down quark</a>, at n=1 in d=3, has S = 1 and its mass equals the bare d=3 scale. It is also why n<sub>down</sub> = 1 is required by the empirical absence of states below the down quark: any other starting index would imply particles beneath it in the spectrum — and they are not observed. The ground state is unique, and it is 1.</p>
+    <p>There is exactly one way to distribute 1 quantum across any number of directions — put it in one direction. This is the unique ground state of every sector. It is why <a href="/articles/down-quark.html">the down quark</a>, at n=1 in d=3, has S = 1 and its mass equals the bare d=3 scale. It is also why \(n_\text{down} = 1\) is required by the empirical absence of states below the down quark: any other starting index would imply particles beneath it in the spectrum — and they are not observed. The ground state is unique, and it is 1.</p>
     <p>The converse is also worth noting. For large d at fixed n, S(n,d) grows rapidly with d. The same mode index n gives vastly different masses in different sectors, purely because of how many sector directions are available. The electron (n=13, d=6) with S = 18,564 is far heavier than the lightest neutrino (n=10, d=5) with S = 2,002, even though the neutrino has a slightly lower mode index — because the electron has six sector directions available versus five for the neutrino.</p>
   </div>
 
@@ -137,18 +140,18 @@
   </div>
 
   <div class="formula">
-    S(n, 3) = ½ N<sub>D<sub>S³</sub></sub>(n−1)
+    \[ S(n,3) = \tfrac{1}{2}\,N_{D_{S^3}}(n-1) \]
   </div>
 
   <div class="prose">
-    <p>N<sub>D<sub>S³</sub></sub>(n−1) is the cumulative count of positive eigenvalues of the Dirac operator on S³ up to level n−1. The mass formula for down-type quarks is therefore the statement that mass equals half the cumulative Dirac eigenvalue count on S³. This is not a consequence of fitting — it is what it means for the sector geometry to be S³. The same grounding holds for other sectors: the spectral counting function of the sector's harmonic oscillator gives the microstate count, and that count equals S(n,d) by the Weyl law for the sector geometry.</p>
+    <p>\(N_{D_{S^3}}(n-1)\) is the cumulative count of positive eigenvalues of the Dirac operator on \(S^3\) up to level \(n-1\). The mass formula for down-type quarks is therefore the statement that mass equals half the cumulative Dirac eigenvalue count on \(S^3\). This is not a consequence of fitting — it is what it means for the sector geometry to be S³. The same grounding holds for other sectors: the spectral counting function of the sector's harmonic oscillator gives the microstate count, and that count equals S(n,d) by the Weyl law for the sector geometry.</p>
     <p>This is the sense in which IDWT mass predictions are theorems rather than fits: the Dirac eigenvalue spectrum of a geometric space is a mathematical fact, not adjustable by parameter choice. S(n,d) for the spectrum of S³ is determined by the geometry of S³, not by particle physics. That this geometric fact equals the observed particle mass ratios — to better than 1% across fifteen particles — is the core empirical claim of the theory.</p>
   </div>
 
 </section>
 <section>
   <div class="prose">
-    <p>See also: <a href="/articles/down-quark.html">The Down Quark</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why n<sub>s</sub> = 4</a> &nbsp;·&nbsp; <a href="/articles/three-generations.html">Three Generations</a> &nbsp;·&nbsp; <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a></p>
+    <p>See also: <a href="/articles/down-quark.html">The Down Quark</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why \(n_s = 4\)</a> &nbsp;·&nbsp; <a href="/articles/three-generations.html">Three Generations</a> &nbsp;·&nbsp; <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a></p>
   </div>
 </section>
 </main>

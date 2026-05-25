@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sector 3 — Down-type Quarks — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -36,7 +40,7 @@
   <h2>Geometry</h2>
   <div class="prose">
     <p>The d=3 sector has geometry S³ — the three-sphere — with isometry group SO(4). Unlike the complex projective spaces CP^n that appear at even sectors, S³ is a real manifold. This absence of a complex (Kähler) structure has direct physical consequences: the d=3 sector is vector-like rather than chiral, meaning the left and right handedness of quarks are not distinguished by the sector geometry itself.</p>
-    <p>SO(4) decomposes as SU(2)<sub>L</sub> × SU(2)<sub>R</sub>, a left-right symmetric group. The left-handed component SU(2)<sub>L</sub> is what provides down-type quarks with their weak isospin — their coupling to the W boson.</p>
+    <p>SO(4) decomposes as \(SU(2)_L \times SU(2)_R\), a left-right symmetric group. The left-handed component \(SU(2)_L\) is what provides down-type quarks with their weak isospin — their coupling to the W boson.</p>
     <p>The d=3 sector is also our observable 3D space. Down-type quarks therefore live at the same dimensional depth as we do. They are not hidden in any additional direction — their wavefunction spans exactly the three directions we already occupy.</p>
   </div>
 
@@ -86,8 +90,8 @@
   </div>
 
   <div class="prose">
-    <p>The +0.68% mass offset common to down and strange is structural: the rank-1 kernel forces the same fractional offset for every regular mode in a sector, consistent with PDG light-quark mass uncertainties. This offset is not a free parameter — it is forced by the constraint g<sub>33</sub> × g<sub>44</sub> = 96 exactly (T9a).</p>
-    <p>The bottom quark is special. It does not arise from a regular mode index. Instead, it appears as a quartic bifurcation beat at the resonance site k₀ = 16 = n<sub>s</sub>², the kernel algebraic fixed-point. This is the unique mode that satisfies three independent conditions simultaneously and is therefore structurally distinct from the down and strange quarks.</p>
+    <p>The +0.68% mass offset common to down and strange is structural: the rank-1 kernel forces the same fractional offset for every regular mode in a sector, consistent with PDG light-quark mass uncertainties. This offset is not a free parameter — it is forced by the constraint \(g_{33} \times g_{44} = 96\) exactly (T9a).</p>
+    <p>The bottom quark is special. It does not arise from a regular mode index. Instead, it appears as a quartic bifurcation beat at the resonance site \(k_0 = 16 = n_s^2\), the kernel algebraic fixed-point. This is the unique mode that satisfies three independent conditions simultaneously and is therefore structurally distinct from the down and strange quarks.</p>
   </div>
 
 </section>
@@ -95,7 +99,7 @@
 
   <h2>Coupling filter</h2>
   <div class="prose">
-    <p>The S³ geometry provides down-type quarks with their weak isospin — the left-handed coupling to the W boson. The SU(2)<sub>L</sub> factor of SO(4) is the geometric handle. The right-handed SU(2)<sub>R</sub> factor is present in the geometry but does not generate a coupling in the observed weak interaction; it is latent.</p>
+    <p>The S³ geometry provides down-type quarks with their weak isospin — the left-handed coupling to the W boson. The \(SU(2)_L\) factor of SO(4) is the geometric handle. The right-handed \(SU(2)_R\) factor is present in the geometry but does not generate a coupling in the observed weak interaction; it is latent.</p>
     <p>Down-type quarks also carry colour charge, but they do not get it from the S³ sector geometry itself. They get it derivatively: d=3 ⊂ d=4, so the d=3 wavefunction has support in the d=4 CP² directions, and CP² is where colour originates. Down quarks couple to the strong force through those shared coordinates. The colour charge is a consequence of containment, not of the S³ geometry directly.</p>
     <p>This distinction matters: the d=3 sector's own coupling contribution is the weak isospin structure. The colour coupling is an inheritance from d=4 above it.</p>
   </div>
@@ -105,13 +109,13 @@
 
   <h2>Coupling constant</h2>
   <div class="prose">
-    <p>The d=3 sector self-coupling is g<sub>33</sub> = 8√7, derived from n<sub>s</sub> = 4 and n<sub>u</sub> = 3:</p>
+    <p>The d=3 sector self-coupling is \(g_{33} = 8\sqrt{7}\), derived from \(n_s = 4\) and \(n_u = 3\):</p>
   </div>
   <div class="formula">
-    g<sub>33</sub> = n<sub>s</sub>² √(n<sub>s</sub> + n<sub>u</sub>) / 2 = 8√7 ≈ 21.17
+    \[ g_{33} = \frac{n_s^2\,\sqrt{n_s + n_u}}{2} = 8\sqrt{7} \approx 21.17 \]
   </div>
   <div class="prose">
-    <p>Together with g<sub>44</sub> = 12/√7 from the d=4 sector, this satisfies T9a exactly: g<sub>33</sub> × g<sub>44</sub> = 96. This product is fixed by the geometry and cannot be altered without cascading changes through the PMNS angles, the GTC correction, and the neutrino mass scale.</p>
+    <p>Together with \(g_{44} = 12/\sqrt{7}\) from the \(d=4\) sector, this satisfies T9a exactly: \(g_{33} \times g_{44} = 96\). This product is fixed by the geometry and cannot be altered without cascading changes through the PMNS angles, the GTC correction, and the neutrino mass scale.</p>
   </div>
 
 </section>

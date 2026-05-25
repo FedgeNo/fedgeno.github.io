@@ -9,11 +9,13 @@
 
 ## Standing rules
 
+- When searching for terminology or errors, search ALL files: `files/*.md`, `files/idwt.py`, and all HTML files (`articles/`, `visualizations/`, `*.html`). Never limit a search to md files only.
+
 - When searching for terminology or errors, **search all files**: `README.md`, `files/*.md`, `files/idwt.py`, and all HTML files (`articles/`, `visualizations/`, `*.html`). Never limit a search to md files only. **do not search .git**.
 
 - Writing guidelines apply to all markdown and HTML files in the project, not just the md files.
 
-- **Before making any edit, read the entire subsection containing the target.** A subsection is the content between any two heading lines (any `#` depth) in markdown. Assess the full subsection before deciding what to change. Fix every instance of *the same problem type* within that subsection in one pass — do not make a single replacement and move on. Do not fix a different problem type encountered in the same pass; instead, add any glaring issues discovered while reading to claude-todo.md and alert Fedge.
+- **Before making any edit, read the entire subsection containing the target.** A subsection is the content between any two heading lines (any `#` depth) in markdown or inside <section> tags in an HTML document (or paragraphs if <section> isn't used. Assess the full subsection before deciding what to change. Fix every instance of *the same problem type* within that subsection in one pass — do not make a single replacement and move on. Do not fix a different problem type encountered in the same pass; instead, add any glaring issues discovered while reading to claude-todo.md and alert Fedge.
 
 - **Never edit blindly from a todo description.** Always read the relevant subsection (and any cross-referenced material) to understand what the target content is doing before touching it. For deep mathematical or structural items (index theory, spectral flow, CP phase, operator domain questions), read the documents first and report findings to Fedge before making any edits.
 
@@ -33,11 +35,22 @@ When converting any IDWT paper from markdown to PDF, apply these standing parame
 - **DOI:** prompt Fedge for the paper's DOI before processing if it has not already been provided in the conversation. Do not proceed without it.
 - **IDWT notes reference:** always cite the notes as doi:10.5281/zenodo.19767493 (Fedge No, *Infinite Dimensional Wave Theory*, 2026)
 
-Use pandoc with `--pdf-engine=xelatex`. Write the pandoc command to `claude/build_paper.sh` so Fedge can re-run it later.
+Use `claude/build_paper.sh`
+
+### PDF rendering rules
+
+These apply every time a markdown paper is prepared for PDF output via pandoc/xelatex:
+
+- **No Unicode super/subscripts.** Replace all Unicode superscript (⁰¹²³⁴⁵⁶⁷⁸⁹) and subscript (₀₁₂₃₄₅₆₇₈₉) characters in prose with LaTeX math mode: `$S^5$`, `$\Xi_{10}$`, etc. Latin Modern Roman cannot render these glyphs.
+- **No emoji.** Remove all emoji (🔶 ⭐ ✅ 🔵 ❓ and any others) from the source before building. Replace status-label emoji with bracketed text: `[open]`, `[verified]`, `[structural]`, etc.
+- **No Unicode manifold shorthand in prose.** Strings like `S³`, `CP²`, `CP⁵`, `Ξ₁₀` must be written as `$S^3$`, `$\mathbb{CP}^2$`, `$\mathbb{CP}^5$`, `$\Xi_{10}$` — even outside display math.
+- **Keywords, MSC codes, and DOI** must appear visibly in the PDF, not just in YAML metadata. Use a `header-includes` block in the YAML that appends them after the abstract environment.
 
 ## Claude's Folder
 
 - **The claude subfolder** of the project is a working space that has been added to .gitignore. Write scripts, lists and other working files there so they don't get pushed to the repo. Leave scripts after running for Fedge to test later if desired.
+
+- **Never name a new file the same as an existing file** anywhere in the project. Before writing any new file, check that the filename does not already exist in the repo. If a natural name is taken, add a distinguishing suffix (e.g. `_pub`, `_v2`, or a short descriptor).
 
 - **claude-todo.md** is a list of tasks that need to be accomplished. Finish them in order when possible. Add new tasks to the end of the list. **Delete completed tasks from the file completely** to prevent old tasks from cluttering or corrupting context. If Fedge asks what we should be doing, this list is the place to start. If foundational work is missing for a computation, place it above the computation in the list so it will get done before attempting the computation next time the list is run.
 

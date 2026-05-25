@@ -331,7 +331,7 @@ G_μν(x) = 8π G_N × T_μν^{obs}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; the concept of a Planck mass as a quantum gravitational threshold does not apply. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
+**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; there is no quantum gravitational threshold in this framework. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
 
 ---
 
@@ -468,21 +468,11 @@ $$G_\infty = G_N \times V_7 = 7.57 \times 10^{-43}\ \mathrm{MeV}^{-2}$$
 
 This is not a prediction — it is what G_∞ must equal, given the current input of one measured gravitational coupling. It becomes a prediction when G_∞ is derived independently.
 
-**The undiluted ∞D Planck scale.** The reduced Planck mass in the observer's 3D space is M_Pl^{red} = (8πG_N)^{−1/2} = 2.435 × 10^{21} MeV. The corresponding ∞D quantity is:
-
-$$M_{\rm Pl}^{(\infty),{\rm red}} = \frac{M_{\rm Pl}^{\rm red}}{\sqrt{V_7}} = \frac{2.435 \times 10^{21}}{\sqrt{112.8}}\ \mathrm{MeV} \approx 2.29 \times 10^{20}\ \mathrm{MeV}$$
-
-This is not a new scale. It is G_∞ restated as a mass: M_Pl^{(∞),red} = (8πG_∞)^{−1/2}. There are no additional physical scales beyond G_N and the sector mass scales (all set by m_e and N_c).
-
 **The spectral action condition — and why it is currently circular.** In the Connes-Marcolli spectral action, the Einstein-Hilbert term arises from the Seeley-DeWitt coefficient a_2:
 
 $$G_N^{-1} \sim \frac{f_2 \Lambda^2 N_{\rm eff}}{12\pi^2}$$
 
-where Λ is the spectral cutoff, f_2 is a moment of the cutoff function, and N_eff is the number of Dirac degrees of freedom in the spectral triple. For the IDWT spectrum (15 particles with appropriate spinor degrees of freedom, N_eff ≈ 96), this gives:
-
-$$\Lambda \approx \sqrt{\frac{12\pi^2 G_N^{-1}}{f_2 N_{\rm eff}}} \approx 3.9\ M_{\rm Pl}^{\rm red} \qquad (f_2 = 1)$$
-
-This is circular: Λ ~ M_Pl because G_N^{−1} ~ M_Pl^2 by definition. Setting Λ from the spectral action condition and then predicting G_N reproduces the input. No sector mass scale approaches M_Pl — the top quark at ~173 GeV sits 1.4 × 10^{16} below it — so no natural cutoff emerges from the IDWT sector structure at the Planck scale.
+where Λ is the spectral cutoff, f_2 is a moment of the cutoff function, and N_eff is the number of Dirac degrees of freedom in the spectral triple. Setting Λ from the spectral action condition and then predicting G_N reproduces the input — the condition is circular until Λ is fixed from the sector geometry independently. No sector mass scale provides a natural cutoff: the top quark at ~173 GeV is many orders of magnitude below the gravitational scale set by G_N^{−1/2}.
 
 **Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the coupling term, which controls the sector couplings g_{dd}). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
 

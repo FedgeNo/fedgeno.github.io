@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sector 2 — Gauge Bosons — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -101,7 +105,7 @@
   <h2>Coupling filter</h2>
   <div class="prose">
     <p>The U(1) geometry of CP¹ gives the photon its two polarization states — helicity +1 and helicity −1. These are not an arbitrary choice; they are the complete set of independent directions in a 2D space. A photon couples to whatever is aligned with its polarization and is blocked by everything perpendicular. This is the orientation filter of electromagnetism.</p>
-    <p>The W and Z bosons also live in d=2 and couple through the same sector, but via the SU(2)<sub>L</sub> × SU(2)<sub>R</sub> structure that the d=3 sector's SO(4) geometry introduces. The weak coupling is chiral — it only reaches left-handed components of fermions — because the Kähler chirality of the d=2 sector selects one handedness when paired with the d=3 sector above it.</p>
+    <p>The W and Z bosons also live in d=2 and couple through the same sector, but via the \(SU(2)_L \times SU(2)_R\) structure that the d=3 sector's SO(4) geometry introduces. The weak coupling is chiral — it only reaches left-handed components of fermions — because the Kähler chirality of the d=2 sector selects one handedness when paired with the d=3 sector above it.</p>
   </div>
 
 </section>
@@ -109,7 +113,7 @@
 
   <h2>The universal sector</h2>
   <div class="prose">
-    <p>The d=2 sector is the reference for the Stage-1 observability criterion. A mode (n,d) is observable in our d=3 world only if its dimensional depth Ω<sub>log</sub> = ln(S(n,d)/S(n,2)) ≤ ln 2. This measures how much of the mode's activity is concentrated in the d=2 directions relative to the full d-dimensional activity. The d=2 sector is the anchor because it is the intersection of all sector wavefunctions: every particle above d=2 contains the d=2 coordinates exactly, and the observability criterion checks whether enough activity reaches those shared directions to be measurable.</p>
+    <p>The \(d=2\) sector is the reference for the Stage-1 observability criterion. A mode \((n,d)\) is observable in our \(d=3\) world only if its dimensional depth \(\Omega_{\log} = \ln(S(n,d)/S(n,2)) \leq \ln 2\). This measures how much of the mode's activity is concentrated in the d=2 directions relative to the full d-dimensional activity. The d=2 sector is the anchor because it is the intersection of all sector wavefunctions: every particle above d=2 contains the d=2 coordinates exactly, and the observability criterion checks whether enough activity reaches those shared directions to be measurable.</p>
     <p>Because d=2 is nested inside every higher sector, every particle with d ≥ 2 has the photon's coordinates in its wavefunction. This is the geometric origin of the universality of electric charge: coupling to electromagnetism does not require a special property — it requires only that you contain the d=2 directions, which every particle does.</p>
     <p>The one exception is the photon itself, which has d=2 exactly and therefore has no sector activity beyond those two directions. It appears in our 3D world as a clean transverse wave because there is nothing more to it than the two transverse directions it already occupies.</p>
   </div>
@@ -119,14 +123,14 @@
 
   <h2>Coupling constant</h2>
   <div class="prose">
-    <p>The d=2 sector self-coupling is g<sub>22</sub> = 722.5, derived from n<sub>s</sub> = 4 alone:</p>
+    <p>The d=2 sector self-coupling is \(g_{22} = 722.5\), derived from \(n_s = 4\) alone:</p>
   </div>
   <div class="formula">
-    g<sub>22</sub> = (S(n<sub>s</sub>,3) − n<sub>u</sub>)² (S(n<sub>u</sub>,4) − S(n<sub>u</sub>,3)) / 2 = 722.5
+    \[ g_{22} = \frac{(S(n_s,3) - n_u)^2\,(S(n_u,4) - S(n_u,3))}{2} = 722.5 \]
   </div>
   <div class="prose">
-    <p>This large value reflects the d=2 sector's role as the universal reference. The PMNS mixing angles are determined by g<sub>55</sub> = 96/g<sub>22</sub>, connecting neutrino mixing directly to the gauge boson coupling scale. The fine structure constant α and the electroweak mixing angle sin²θ<sub>W</sub> are both derived from the d=2 mode indices and g<sub>22</sub>.</p>
-    <p>The coupling scale of this sector is the d=2 sector scale, numerically close to m<sub>W</sub>. IDWT does not use RG running; geometric dilution (g<sub>eff</sub> = g<sub>dd</sub>/S(n,d)) replaces coupling evolution.</p>
+    <p>This large value reflects the d=2 sector's role as the universal reference. The PMNS mixing angles are determined by \(g_{55} = 96/g_{22}\), connecting neutrino mixing directly to the gauge boson coupling scale. The fine structure constant α and the electroweak mixing angle \(\sin^2\theta_W\) are both derived from the d=2 mode indices and \(g_{22}\).</p>
+    <p>The coupling scale of this sector is the d=2 sector scale, numerically close to \(m_W\). IDWT does not use RG running; geometric dilution (\(g_\text{eff} = g_{dd}/S(n,d)\)) replaces coupling evolution.</p>
   </div>
 
 </section>

@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quantum Numbers Are Coupling Filters — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -107,7 +111,7 @@
 
   <h2><a href="/articles/sector-10.html">d=10</a> — CP⁵, SU(6) — Tau — Fractal marginal coupling</h2>
   <div class="prose">
-    <p>The tau sits at the Gegenbauer critical point — where the coupling coefficient b<sub>k₀</sub>(d) equals exactly 1/2, the Jacobi coupling boundary. At d=10, modes sit at this boundary: coupling weight is distributed across many channels with no single dominant mode.</p>
+    <p>The tau sits at the Gegenbauer critical point — where the coupling coefficient \(b_{k_0}(d)\) equals exactly 1/2, the Jacobi coupling boundary. At d=10, modes sit at this boundary: coupling weight is distributed across many channels with no single dominant mode.</p>
     <p>At the Gegenbauer critical point this means two things simultaneously. No gap: the tau can always find a decay channel, so in principle it is always unstable. No dominant channel: coupling weight is distributed and marginal at every specific channel, so no single mode carries significant probability. The tau is therefore heavy (a large mode index n=23 is required to form a sector-bound state at the critical point), short-lived (no gap means decay channels are always accessible), but not infinitely unstable (each specific channel is marginally coupled).</p>
     <p>The geometric back-reaction correction required for the tau's mass — δ_τ = 1/1680, giving m_τ = 1776.84 MeV against the PDG value of 1776.86 MeV — is the mathematical signature of the Gegenbauer critical point. The naive eigenvalue calculation does not converge without resumming the full perturbation series. The tau's interaction structure requires all-orders contributions because its resonance sits at the Jacobi coupling boundary.</p>
     <p>The coordinate nesting puts the tau at the outermost layer: Ξ_6 ⊂ Ξ_10, with the jump from d=6 to d=10 containing no sectors in between (d=7,8,9 have no valid sector geometries). The tau's coordinates contain all other sectors. In principle it couples to everything. But the Gegenbauer criticality makes this coupling universal and marginal simultaneously — the filter here is not blocking a class of interactions but making all interactions barely available.</p>

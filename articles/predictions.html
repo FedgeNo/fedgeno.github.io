@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Predictions — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 </head>
@@ -27,7 +31,7 @@
 <header class="page-hero">
   <div class="eyebrow">Article · Predictions</div>
   <h1>Predictions</h1>
-  <p class="sub">All 15 particle masses from m<sub>e</sub> and a single integer n<sub>s</sub> = 4.</p>
+  <p class="sub">All 15 particle masses from \(m_e\) and a single integer \(n_s = 4\).</p>
 </header>
 
 <main>
@@ -66,20 +70,20 @@
       <tbody>
         <tr><td>ν₁ mass</td><td>1.487 meV</td><td>not yet measured</td><td>—</td></tr>
         <tr><td>ν₂ mass</td><td>8.639 meV</td><td>not yet measured</td><td>—</td></tr>
-        <tr><td>ν₃ mass</td><td>50.26 meV</td><td>~50.1–50.3 meV (from Δm²₃₁)</td><td>+0.05% ✓</td></tr>
-        <tr><td>Σm<sub>ν</sub></td><td>60.39 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
+        <tr><td>ν₃ mass</td><td>50.26 meV</td><td>~50.8 meV (from PDG 2024 Δm²₃₁)</td><td>−1.1%</td></tr>
+        <tr><td>\(\Sigma m_\nu\)</td><td>60.39 meV</td><td>&lt; 120 meV (Planck 2023)</td><td>✓</td></tr>
         <tr><td>Δm²₂₁</td><td>7.242 × 10⁻⁵ eV²</td><td>(7.42 ± 0.21) × 10⁻⁵ eV²</td><td>−2.4% ✓</td></tr>
-        <tr><td>Δm²₃₁</td><td>2.524 × 10⁻³ eV²</td><td>(2.51–2.53) × 10⁻³ eV²</td><td>+0.05% ✓</td></tr>
+        <tr><td>Δm²₃₁</td><td>2.524 × 10⁻³ eV²</td><td>(2.584 ± 0.025) × 10⁻³ eV² (PDG 2024)</td><td>−2.3%</td></tr>
         <tr><td>sin²θ₁₂</td><td>0.3086</td><td>0.307</td><td>+0.51%</td></tr>
         <tr><td>sin²θ₂₃</td><td>0.5590</td><td>0.561</td><td>−0.36%</td></tr>
         <tr><td>sin²θ₁₃</td><td>0.02211</td><td>0.022</td><td>+0.51%</td></tr>
         <tr><td>Mass ordering</td><td>Normal</td><td>Normal (preferred)</td><td>✓</td></tr>
-        <tr><td>m<sub>ββ</sub> (0νββ)</td><td>0</td><td>not observed</td><td>✓ falsifiable</td></tr>
-        <tr><td>m<sub>β</sub> (tritium)</td><td>8.77 meV</td><td>&lt; 450 meV (KATRIN)</td><td>✓</td></tr>
+        <tr><td>\(m_{\beta\beta}\) (0νββ)</td><td>0</td><td>not observed</td><td>✓ falsifiable</td></tr>
+        <tr><td>\(m_\beta\) (tritium)</td><td>8.77 meV</td><td>&lt; 450 meV (KATRIN)</td><td>✓</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The Majorana mass term is absent at all orders — the charge conjugation matrix C required for ψ<sup>T</sup>Cψ does not exist on the S⁵ spinor bundle. Cross-sector coordinate couplings can generate Dirac mass corrections but cannot produce Majorana operators at any order. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios. The ν₃ mass includes a cross-sector correction δ_ν₃ = ε × g₃₃ = 1/35, derived exactly from the GTC coefficient and d=3 coupling (Part 2 §9d).</p>
+  <p class="note">Neutrinos are Dirac fermions in IDWT — the d=5 sector has d mod 8 = 5, the unique Clifford-algebra class that geometrically forbids Majorana spinors. The Majorana mass term is absent at all orders — the charge conjugation matrix C required for \(\psi^T C\psi\) does not exist on the S⁵ spinor bundle. Cross-sector coordinate couplings can generate Dirac mass corrections but cannot produce Majorana operators at any order. All three PMNS mixing angles are derived from a single coupling constant g₅₅ = 96/g₂₂ and simplex mode-index ratios. The ν₃ mass includes a cross-sector correction δ_ν₃ = ε × g₃₃ = 1/35, derived exactly from the GTC coefficient and d=3 coupling (Part 2 §9d).</p>
 </section>
 </main>
 

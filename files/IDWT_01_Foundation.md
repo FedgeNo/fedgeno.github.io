@@ -112,7 +112,7 @@ The sector space decomposes into sectors with distinct potential well symmetries
 | 7,8,9 | — | — | — | — | *Coordinates of M_∞; supercritical (b > 1/2), but IDWT's coupling construction does not reach these sectors (Rule A, §3a). No active sector geometry is established; whether eigenmodes could form under an extended coupling is open.* |
 | 10 | CP⁵ | SU(6) | Majorana-Weyl | 16 | Tau lepton; d mod 8=2 Maj-Weyl (16 real components) |
 
-This list is derived from the seed $n_s = 4$ and the mode index tower. See §3a below.
+This list is derived from the seed $n_s = 4$ and the Generation Tower. See §3a below.
 
 ### 3a. Sector Set Theorem
 

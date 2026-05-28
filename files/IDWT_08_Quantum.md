@@ -35,34 +35,23 @@ D_{Ξ} χ = m_eff χ              [mass = Dirac eigenvalue on Ξ_d]
 
 Spin-½ of all quarks and leptons follows from the spinor bundle on M_∞. The spinor structure determines which quantum numbers attach to each mode; the mode frequencies themselves are determined by the combinatorial structure S(n,d) independently of spin.
 
-### 2.1 Majorana/Weyl Classification by Sector
+### 2.1 Spinor Classification by Sector
 
-The Clifford algebra Cl(d) has periodicity 8 (mod 8 periodicity class). The periodicity class d mod 8 determines which spinor types exist in each sector:
+The Clifford algebra $\mathrm{Cl}(d)$ has periodicity 8 (mod 8 class). The class $d\bmod 8$ determines which spinor types are admissible in each sector and what spin structure the sector manifold carries. Both properties are listed together since they constrain the same physical content:
 
-| d | d mod 8 | Weyl | Majorana | Maj-Weyl | Dim | Physical consequence |
-|---|---------|------|----------|----------|-----|---------------------|
-| 2 | 2 | ✓ | ✓ | ✓ | 2 | Photon helicity; W± gauge bosons |
-| 3 | 3 | ✗ | ✓ | ✗ | 2 | Majorana: quark↔antiquark self-conjugacy under QCD |
-| 4 | 4 | ✓ | ✓ | ✗ | 4 | Weyl: Kähler γ₅ splits u_L,d_L from u_R,d_R |
-| **5** | **5** | **✗** | **✗** | **✗** | **4** | **Dirac only: no charge-conjugation matrix $C$ on $S^5$ → no $\psi^T C\psi$ at any order → 0νββ forbidden at all orders; neutrinos are Dirac** |
-| 6 | 6 | ✓ | ✗ | ✗ | 8 | Weyl: Kähler γ₅ splits lepton doublets |
-| 10 | 2 | ✓ | ✓ | ✓ | **16** | Maj-Weyl; 16 real components; tau lepton sector |
+| $d$ | Manifold | $d\bmod8$ | Weyl | Majorana | Maj-Weyl | Spin structure | Spinor dim | Physical consequence |
+|---|---|---|---|---|---|---|---|---|
+| 2 | $\mathbb{CP}^1$ | 2 | ✓ | ✓ | ✓ | Spin | 2 | Photon helicity; $W^\pm$ gauge bosons |
+| 3 | $S^3$ | 3 | ✗ | ✓ | ✗ | Spin | 2 | Majorana: quark$\leftrightarrow$antiquark self-conjugacy under QCD |
+| 4 | $\mathbb{CP}^2$ | 4 | ✓ | ✓ | ✗ | spin$^c$ only ($w_2\neq0$; $U(1)$ bundle $= U(1)_Y$) | 4 | Weyl: Kähler $\gamma_5$ splits $u_L,d_L$ from $u_R,d_R$ |
+| **5** | $S^5$ | **5** | **✗** | **✗** | **✗** | Spin (odd spheres always spin) | **4** | **Dirac only: no $C$ on $S^5$ bundle $\to$ no $\psi^TC\psi$ at any order $\to$ $0\nu\beta\beta$ forbidden; neutrinos are Dirac** |
+| 6 | $\mathbb{CP}^3$ | 6 | ✓ | ✗ | ✗ | Spin ($\mathbb{CP}^n$ spin iff $n$ odd; $n=3$ ✓) | 8 | Weyl: Kähler $\gamma_5$ splits lepton doublets |
+| 10 | $\mathbb{CP}^5$ | 2 | ✓ | ✓ | ✓ | Spin ($\mathbb{CP}^n$ spin iff $n$ odd; $n=5$ ✓) | **16** | Maj-Weyl; 16 real components; tau lepton sector |
 
 
 **d=5 (Dirac only):** For d mod 8 = 5, neither a Majorana condition nor a Weyl condition can be imposed. The d=5 sector spinor is a full Dirac spinor with no reality projection. More strongly: no charge-conjugation matrix $C$ satisfying the required anti-commutation relations exists on the $S^5$ spinor bundle (this is a global topological fact about the bundle, not just a local Clifford statement). Therefore cross-sector couplings cannot construct $\psi^T C\psi$ at any loop order, and 0νββ is forbidden at all orders. **Neutrinos are Dirac fermions at the fundamental level** — a concrete, falsifiable prediction (see Part 1 §6). ✅
 
 **d=10 (Majorana-Weyl):** For d mod 8 = 2, a Majorana-Weyl spinor exists. The Dirac spinor in d=10 has 32 complex components; the Majorana condition imposes a reality projection and the Weyl condition selects chirality, leaving 16 real components (= 2^(d/2−1) = 2^4). The d=10 sector contains the tau lepton. Its hypercharge Y(τ) = −1 is derived from gauge anomaly cancellation with N_c = 3 and Y_L = −1/2 (Part 3 §8, §13).
-
-### 2.2 Spin Structure by Sector
-
-| Sector | Geometry | Spin structure | Notes |
-|--------|----------|---------------|-------|
-| d=2 | CP¹ | Spin | |
-| d=3 | S³ | Spin | |
-| d=4 | CP² | spin^c only | w₂ ≠ 0; U(1) auxiliary bundle identified with U(1)_Y |
-| d=5 | S⁵ | Spin | Odd spheres are always spin |
-| d=6 | CP³ | Spin | |
-| d=10 | CP⁵ | Spin | CP^n is spin when n is odd (n=5) |
 
 **CP² and colour:** CP² requires spin^c rather than spin. The spin^c connection carries an auxiliary U(1) bundle, geometrically identified with U(1)_Y (hypercharge). Every eigenspace of D^c_{CP²} is an SU(3) representation from the CP² isometry, providing the geometric basis for colour charge. The spin^c U(1) bundle would need to be promoted to SU(3) gauge symmetry — a genuine open problem, but the colour states themselves emerge from the Dirac index (§8).
 

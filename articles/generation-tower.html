@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Generation Tower — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Structure</div>
+  <h1>The Generation Tower</h1>
+  <p class="sub">Every particle in the spectrum has a mode index \(n\). All fifteen of them follow from two forced integers by a chain of additions. This is that chain.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>What a mode index is</h2>
+  <div class="prose">
+    <p>Each particle in IDWT is a standing-wave resonance of the field \(\Psi_\infty\) in one of the <a href="/articles/sectors.html">six sector manifolds</a>. The resonance is labeled by a pair \((n, d)\): \(d\) identifies the sector and \(n\) is the <em>mode index</em> — the excitation level within that sector. The mass follows directly:</p>
+  </div>
+
+  <div class="formula">
+    \[ m(n,\,d) = m_{\text{scale},d} \times S(n,\,d) \]
+  </div>
+
+  <div class="prose">
+    <p>where \(S(n,d) = \binom{n+d-1}{d}\) is the <a href="/articles/simplex-number.html">simplex number</a>. The sector scale \(m_{\text{scale},d}\) is the same for every particle in a sector. All the mass differences between particles in the same sector come entirely from their mode indices \(n\).</p>
+    <p>So the question "why do particles have the masses they do?" reduces, within a sector, to "why do they have the mode indices they do?" The generation tower is the answer to that question.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Two seeds, nothing else</h2>
+  <div class="prose">
+    <p>The entire tower is built from two integers:</p>
+    <ul>
+      <li>\(n_{\text{down}} = 1\) — the down quark mode index, forced because \(S(1,d)=1\) for every sector \(d\). The ground state of any sector is uniquely \(n=1\). No other value is consistent.</li>
+      <li>\(n_s = 4\) — the strange quark mode index, forced by the fixed-point condition \(S(n_s,\,4) = n_\mu\). The muon mode index must equal the \(d=4\) simplex image of the strange quark seed. The unique positive integer satisfying this is \(n_s = 4\), because \(S(4,4) = \binom{7}{4} = 35\), and the equation \(S(n,4) = 35\) has exactly one solution. The full uniqueness argument is at <a href="/articles/seed.html">Why \(n_s = 4\)</a>.</li>
+    </ul>
+    <p>Neither seed is chosen. Both are forced. Everything above them in the tower is derived by addition — no further choices are made at any step.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Dependency diagram</h2>
+  <div class="prose">
+    <p>Each node is an integer. Arrows show which integers feed into which. Solid arrows are direct additions; dashed arrows are long-range dependencies that skip tiers. Color follows the sector of the particle that integer belongs to.</p>
+  </div>
+
+  <svg viewBox="0 0 780 462" width="100%" style="display:block;margin:28px auto 0;max-width:780px" aria-label="Generation tower dependency diagram">
+    <defs>
+      <marker id="ah" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="rgba(139,156,255,0.5)"/>
+      </marker>
+      <marker id="ahd" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="rgba(139,156,255,0.28)"/>
+      </marker>
+    </defs>
+
+    <!-- ── Dashed (long-range) arrows, drawn first so nodes sit on top ── -->
+    <!-- n_down → n_τ (left edge) -->
+    <path d="M85,48 C20,190 40,295 170,340" fill="none" stroke="rgba(0,255,68,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- n_up → n_e (skips row 2) -->
+    <path d="M415,128 C330,170 200,215 90,260" fill="none" stroke="rgba(255,102,0,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- n_charm → n_top (right edge) -->
+    <path d="M725,128 C780,235 640,310 475,340" fill="none" stroke="rgba(255,102,0,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- n_e → n_top (bottom arc) -->
+    <path d="M90,288 C50,390 340,405 475,340" fill="none" stroke="rgba(255,0,0,0.22)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- n_ν₂ → n_H (right side) -->
+    <path d="M480,208 C730,285 740,375 680,420" fill="none" stroke="rgba(204,0,255,0.22)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+
+    <!-- ── Solid arrows ── -->
+    <line x1="710" y1="48" x2="445" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="735" y1="48" x2="725" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="415" y1="128" x2="285" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="435" y1="128" x2="455" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="265" y1="208" x2="100" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="270" y1="208" x2="295" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="445" y1="208" x2="315" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="465" y1="208" x2="530" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="700" y1="128" x2="560" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="295" y1="288" x2="200" y2="340" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="465" y1="368" x2="310" y2="420" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="330" y1="434" x2="410" y2="434" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <line x1="510" y1="434" x2="610" y2="434" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+
+    <!-- ── Nodes ── -->
+    <!-- Seeds row (y=20) -->
+    <rect x="20"  y="20" width="130" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5"/>
+    <text x="85"  y="38" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">n_down = 1</text>
+
+    <rect x="660" y="20" width="130" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5"/>
+    <text x="725" y="38" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">n_s = 4</text>
+
+    <!-- Row 1 (y=100) -->
+    <rect x="365" y="100" width="110" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
+    <text x="420" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_up = 3</text>
+
+    <rect x="660" y="100" width="130" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
+    <text x="725" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_charm = 20</text>
+
+    <!-- Row 2 (y=180) -->
+    <rect x="210" y="180" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="265" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2081; = 10</text>
+
+    <rect x="400" y="180" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="455" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2082; = 15</text>
+
+    <!-- Row 3 (y=260) -->
+    <rect x="20"  y="260" width="100" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
+    <text x="70"  y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_e = 13</text>
+
+    <rect x="240" y="260" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="295" y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2083; = 22</text>
+
+    <rect x="490" y="260" width="100" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
+    <text x="540" y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_&#x03BC; = 35</text>
+
+    <!-- Row 4 (y=340) -->
+    <rect x="120" y="340" width="100" height="28" rx="6" fill="#080c18" stroke="#ffdd00" stroke-width="1.5"/>
+    <text x="170" y="358" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ffdd00">n_&#x03C4; = 23</text>
+
+    <rect x="415" y="340" width="110" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
+    <text x="470" y="358" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_top = 72</text>
+
+    <!-- Row 5 (y=420) bosons -->
+    <rect x="250" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="300" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_W = 76</text>
+
+    <rect x="410" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="460" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_Z = 81</text>
+
+    <rect x="610" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="660" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_H = 95</text>
+  </svg>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 0;font-size:0.82rem;font-family:'JetBrains Mono',monospace">
+    <span style="color:#00ff44">&#9632; d=3 Down-type</span>
+    <span style="color:#ff6600">&#9632; d=4 Up-type</span>
+    <span style="color:#cc00ff">&#9632; d=5 Neutrinos</span>
+    <span style="color:#ff4444">&#9632; d=6 Charged leptons</span>
+    <span style="color:#ffdd00">&#9632; d=10 Tau</span>
+    <span style="color:#00aaff">&#9632; d=2 Bosons</span>
+    <span style="color:rgba(139,156,255,0.5)">&#9135;&#9135; dashed = long-range dependency</span>
+  </div>
+
+</section>
+<section>
+
+  <h2>The tower, step by step</h2>
+  <div class="prose">
+    <p>Each entry below gives the equation that determines the index and the reason that equation is the one that applies. Steps are in dependency order — each index uses only those already established above it.</p>
+  </div>
+
+  <div class="tower-wrap">
+  <dl class="derivation-tower">
+
+    <dt class="d3">\(n_{\text{down}} = 1\)</dt>
+    <dd>The universal ground state. \(S(1,d) = \binom{d}{d} = 1\) for every sector \(d\), so the lowest occupied mode in any sector is always \(n=1\). The down quark sits at the ground state of the \(d=3\) sector (\(S^3\)). No other assignment is possible.</dd>
+
+    <dt class="d3">\(n_s = 4\)</dt>
+    <dd>The strange quark seed — the one non-trivial input to the entire tower. Forced by the self-referential fixed point: the muon mode index must satisfy \(n_\mu = S(n_s, 4)\). Only \(n_s = 4\) works, because \(S(4,4) = \binom{7}{4} = 35\) and \(S(n,4) = 35\) has no other positive-integer solution. See <a href="/articles/seed.html">Why \(n_s = 4\)</a> for the full argument.</dd>
+
+    <dt class="d4">\(n_{\text{up}} = n_s - 1 = 3\)</dt>
+    <dd>The up quark index is not a seed — it is derived. The \(d=10\) sector self-consistency equation requires the back-reaction ratio \(n_s / n_{\text{up}}\) to be the ratio of consecutive integers \(4/3\). This forces \(n_{\text{up}} = n_s - 1 = 3\). Equivalently, the ground state of the \(d=4\) sector (\(\mathbb{CP}^2\)) sits one level below the strange seed in the <a href="/articles/simplex-number.html">simplex tower</a>.</dd>
+
+    <dt class="d5">\(n_{\nu_1} = S(n_{\text{up}},\, 3) = S(3,3) = 10\)</dt>
+    <dd>The first neutrino mode index. Neutrinos live in the \(d=5\) sector (\(S^5\)), which couples to \(d=3\) via the Vandermonde rule. The lightest \(d=5\) resonance lands at the \(d=3\) <a href="/articles/simplex-number.html">simplex image</a> of the up quark seed: \(S(3,3) = \binom{5}{3} = 10\). The first neutrino is entirely determined by \(n_{\text{up}}\).</dd>
+
+    <dt class="d5">\(n_{\nu_2} = S(n_{\text{up}},\, 4) = S(3,4) = 15\)</dt>
+    <dd>The second neutrino mode index: the up quark seed imaged into \(d=4\). \(S(3,4) = \binom{6}{4} = 15\). By binomial symmetry \(\binom{6}{4} = \binom{6}{2}\), this index is also connected to the W boson: \(n_W = S(n_e, 2) - n_{\nu_2} = 91 - 15 = 76\). The neutrino and the W boson share a combinatorial root.</dd>
+
+    <dt class="d6">\(n_e = n_{\nu_1} + n_{\text{up}} = 10 + 3 = 13\)</dt>
+    <dd>The electron mode index. The eigenmode selection rule — a lepton mode index equals the corresponding neutrino mode index plus the quark partner mode index — is the <a href="/articles/simplex-number.html">hockey-stick identity</a> \(S(n,d) = S(n,d-1) + S(n-1,d)\) applied at generation 1. The electron is the unique \(d=6\) (\(\mathbb{CP}^3\)) mode consistent with the <a href="/articles/two-stage-filter.html">sector comb filtration</a> at this stage.</dd>
+
+    <dt class="d4">\(n_{\text{charm}} = S(n_s,\, 3) = S(4,3) = 20\)</dt>
+    <dd>The charm quark mode index: the strange seed \(n_s = 4\) imaged into \(d=3\). \(S(4,3) = \binom{6}{3} = 20\). The charm quark is the second rung of the \(d=4\) (\(\mathbb{CP}^2\)) tower, selected by the <a href="/articles/two-stage-filter.html">sector comb</a> at filtration stage 2. Its index is forced by the same seed that forced the strange quark.</dd>
+
+    <dt class="d5">\(n_{\nu_3} = n_{\nu_1} + n_{\nu_2} - n_{\text{up}} = 10 + 15 - 3 = 22\)</dt>
+    <dd>The third neutrino mode index, selected by an inclusion-exclusion identity. Both \(n_{\nu_1}\) and \(n_{\nu_2}\) are <a href="/articles/simplex-number.html">simplex images</a> of the same up quark seed, one into \(d=3\) and one into \(d=4\). Adding them counts the shared seed once too many; subtracting \(n_{\text{up}}\) removes the overlap. Cross-check: \(n_{\nu_3} = n_\tau - n_{\text{down}} = 23 - 1 = 22\) — the same value from two independent paths.</dd>
+
+    <dt class="d6">\(n_\mu = n_{\text{charm}} + n_{\nu_2} = 20 + 15 = 35\)</dt>
+    <dd>The muon mode index — eigenmode selection rule at generation 2. This is simultaneously \(n_{\text{charm}} + n_{\nu_2}\) and \(S(4,4) = \binom{7}{4} = 35\), the \(d=4\) self-image of the strange seed. These two facts coinciding is a theorem from the <a href="/articles/simplex-number.html">hockey-stick identity</a>. Read in reverse, it is also the equation that originally forced \(n_s = 4\): the fixed point and the generation-2 law are the same equation viewed from opposite directions.</dd>
+
+    <dt class="d10">\(n_\tau = n_{\nu_3} + n_{\text{down}} = 22 + 1 = 23\)</dt>
+    <dd>The tau lepton mode index — eigenmode selection rule at generation 3, closing onto the \(d=10\) sector (\(\mathbb{CP}^5\)). The closing term is \(n_{\text{down}} = 1\), the universal ground state from the very first step. Since \(S(1,d) = 1\) for every sector, the \(+1\) that closes the third generation is the base case of every hockey-stick sum in the tower. The third generation closes by adding the minimum possible increment. See <a href="/articles/three-generations.html">Three Generations</a>.</dd>
+
+    <dt class="d4">\(n_{\text{top}} = S(n_e,\,2) - n_{\text{charm}} + 1 = 91 - 20 + 1 = 72\)</dt>
+    <dd>\(S(13,2) = \binom{14}{2} = 91\) is the \(d=2\) simplex image of the electron mode. Subtracting \(n_{\text{charm}}\) and adding 1 gives the top quark index. Cross-check: \(n_{\text{top}} = N_c \times n_s \times N_f = 3 \times 4 \times 6 = 72\), the product of the <a href="/articles/euler-characteristic-chain.html">Euler characteristics</a> of the three complex projective sectors \(\chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5)\). \(n_{\text{top}}\) is the topological product of the entire sector geometry.</dd>
+
+    <dt class="d2">\(n_W = n_{\text{top}} + 5 - 1 = 76\)</dt>
+    <dd>The W boson mode index. Bosons are derived by the Vandermonde coupling rule: when sectors \(d\) and \(d'\) combine, the mode index is \(g(a,b) = a + b - 1\). The W couples the neutrino sector (\(d=5\)) to the top quark mode: \(76 = 72 + 5 - 1\). Cross-check: \(n_W = S(n_e,2) - n_{\nu_2} = 91 - 15 = 76\) — two independent routes to the same integer.</dd>
+
+    <dt class="d2">\(n_Z = n_W + 6 - 1 = 81\)</dt>
+    <dd>The Z boson mode index. The lepton sector (\(d=6\)) coupled to the W mode via the Vandermonde rule. The increment \(n_Z - n_W = 5 = S(n_{\text{up}},4) - S(n_{\text{up}},3)\) is the <a href="/articles/simplex-number.html">hockey-stick step</a> at the up quark threshold — the same \(q\) that enters the photon coupling \(g_{22}\).</dd>
+
+    <dt class="d2">\(n_H = n_Z + n_{\nu_2} - 1 = 95\)</dt>
+    <dd>The Higgs boson mode index: the second neutrino mode coupled to the Z. Cross-check: \(n_H = n_{\text{up}} + n_{\text{charm}} + n_{\text{top}} = 3 + 20 + 72 = 95\). The Higgs mode index equals the sum of all three up-type quark mode indices simultaneously — it encodes all three generations of up-type quarks in a single integer. The Vandermonde construction and the up-type sum are two descriptions of the same combinatorial fact.</dd>
+
+  </dl>
+  </div>
+
+</section>
+<section>
+
+  <h2>Mode index summary</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>\(n\)</th>
+          <th>\(d\)</th>
+          <th>Sector</th>
+          <th>Derived from</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>down</td><td>1</td><td>3</td><td>\(S^3\)</td><td>Seed — \(S(1,d)=1\) for all \(d\)</td></tr>
+        <tr><td>strange</td><td>4</td><td>3</td><td>\(S^3\)</td><td>Seed — unique solution to \(S(n,4)=35\)</td></tr>
+        <tr><td>up</td><td>3</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>\(n_s - 1\)</td></tr>
+        <tr><td>\(\nu_1\)</td><td>10</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},3)\)</td></tr>
+        <tr><td>\(\nu_2\)</td><td>15</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},4)\)</td></tr>
+        <tr><td>electron</td><td>13</td><td>6</td><td>\(\mathbb{CP}^3\)</td><td>\(n_{\nu_1} + n_{\text{up}}\)</td></tr>
+        <tr><td>charm</td><td>20</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>\(S(n_s,3)\)</td></tr>
+        <tr><td>\(\nu_3\)</td><td>22</td><td>5</td><td>\(S^5\)</td><td>\(n_{\nu_1} + n_{\nu_2} - n_{\text{up}}\)</td></tr>
+        <tr><td>muon</td><td>35</td><td>6</td><td>\(\mathbb{CP}^3\)</td><td>\(n_{\text{charm}} + n_{\nu_2} = S(n_s,4)\)</td></tr>
+        <tr><td>tau</td><td>23</td><td>10</td><td>\(\mathbb{CP}^5\)</td><td>\(n_{\nu_3} + n_{\text{down}}\)</td></tr>
+        <tr><td>top</td><td>72</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>\(S(n_e,2) - n_{\text{charm}} + 1 = N_c\, n_s\, N_f\)</td></tr>
+        <tr><td>W</td><td>76</td><td>2</td><td>\(\mathbb{CP}^1\)</td><td>\(n_{\text{top}} + 5 - 1\) (Vandermonde, \(d=5\))</td></tr>
+        <tr><td>Z</td><td>81</td><td>2</td><td>\(\mathbb{CP}^1\)</td><td>\(n_W + 6 - 1\) (Vandermonde, \(d=6\))</td></tr>
+        <tr><td>H</td><td>95</td><td>2</td><td>\(\mathbb{CP}^1\)</td><td>\(n_Z + n_{\nu_2} - 1 = n_u + n_c + n_t\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">The bottom quark (\(d=3\)) mass is derived from a geometric-mean rule between sector scales rather than a tower addition step; it is not listed here.</p>
+
+</section>
+<section>
+
+  <h2>The structure of the tower</h2>
+  <div class="prose">
+    <p>The tower is not a list of coincidences. Every step is a consequence of either the <a href="/articles/simplex-number.html">hockey-stick identity</a> or the Vandermonde coupling rule, applied to the indices already established. The derivation is one-directional: once the two seeds are fixed, every subsequent entry is forced. There are no branch points, no choices, and no parameters introduced after \(n_s = 4\).</p>
+    <p>The tower is also self-consistent in a non-trivial way. The muon equation \(S(4,4) = 35\) is both a step in the tower (generating \(n_\mu\)) and the fixed-point condition that forced \(n_s = 4\) in the first place. The tower closes on itself: the equation that justifies the seed is the same equation that uses it.</p>
+    <p>A final cross-check: the Higgs mode index satisfies \(n_H = n_u + n_c + n_t = 3 + 20 + 72 = 95\) and simultaneously \(n_H = n_Z + n_{\nu_2} - 1\). The Vandermonde construction and the sum of up-type modes are two descriptions of the same combinatorial fact. The tower is not a sequence of separate results — it is one interlocking structure.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why "generation tower"</h2>
+  <div class="prose">
+    <p>The name reflects the layered structure: <a href="/articles/three-generations.html">generation 1</a> leptons and neutrinos are built from the up quark seed; generation 2 from the strange quark seed imaged through the Pascal recursion; generation 3 by closing the inclusion-exclusion mode back onto the ground state. Each generation sits above the one before it, and no generation can be constructed without first constructing the ones below. The tower grows upward from the two seeds, and the particle spectrum is what you find at the top.</p>
+    <p>The Generation Tower Correction — a small multiplicative factor \((1-\varepsilon)^k\) that adjusts the masses of the heavier up-type quarks — takes its name from this structure. The correction accumulates with depth in the tower: the charm quark picks up a factor \((1-\varepsilon)^3\); the top quark, further still, picks up \((1-\varepsilon)^{10}\). The tower gives the correction its geometry.</p>
+  </div>
+
+</section>
+<section>
+  <div class="prose">
+    <p>See also: <a href="/articles/simplex-number.html">The Simplex Number</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why \(n_s = 4\)</a> &nbsp;·&nbsp; <a href="/articles/three-generations.html">Three Generations</a> &nbsp;·&nbsp; <a href="/articles/two-stage-filter.html">The Two-Stage Filter</a> &nbsp;·&nbsp; <a href="/articles/euler-characteristic-chain.html">The Euler Characteristic Chain</a></p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

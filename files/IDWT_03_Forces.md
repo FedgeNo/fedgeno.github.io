@@ -237,6 +237,25 @@ The sector coupling g_{dd} and the charge units are separately normalised for ea
 
 ---
 
+### 0.8b Sector Properties at a Glance
+
+The table below consolidates, for each sector $d \in D$, the geometric, coupling, and scale properties discussed separately in §0.7–§0.8 and Parts 1–2. One row per sector; read across for the complete coupling profile of each particle family.
+
+| $d$ | Manifold | Isometry | $\chi$ | $g_{dd}$ (exact) | $m_{\rm scale}$ | Hosted particles | Coupling filter consequence |
+|---|---|---|---|---|---|---|---|
+| 2 | $\mathbb{CP}^1$ | $U(1)$ | 2 | $722.5$ | 27.47 MeV | $\gamma,\;W^\pm,\;Z^0,\;H$ | Orientation filter: two helicity states = complete internal geometry; coupling $\propto \varepsilon_\mu j^\mu$, zero for $j^\mu \perp \varepsilon_\mu$ |
+| 3 | $S^3$ | $\mathrm{SO}(4)$ | 0 | $8\sqrt{7}$ | 4.702 MeV | $d,\;s,\;b$ | Weak isospin filter: $\mathrm{SO}(4) = \mathrm{SU}(2)_L\times\mathrm{SU}(2)_R$; only $\mathrm{SU}(2)_L$ active; right-handed quarks decouple from $W$ |
+| 4 | $\mathbb{CP}^2$ | $\mathrm{SU}(3)$ | 3 | $12/\sqrt{7}$ | 0.145 MeV | $u,\;c,\;t$ | Colour filter: $\chi(\mathbb{CP}^2) = N_c = 3$ colour handles from index theorem (§2, Part 8); colour-nonsinglet asymptotic states geometrically impossible |
+| 5 | $S^5$ | $\mathrm{SO}(6)$ | 0 | $96/g_{22}\approx 0.133$ | $7.4\times10^{-13}$ MeV | $\nu_1,\;\nu_2,\;\nu_3$ | Majorana/LNV filter: no $C$ on $S^5$ spinor bundle ($d\bmod8=5$); Hopf $S^1\!\to\!S^5\!\to\!\mathbb{CP}^2$ projects colour to singlet |
+| 6 | $\mathbb{CP}^3$ | $\mathrm{SU}(4)$ | 4 | $1/4$ | $2.75\times10^{-5}$ MeV | $e^-,\;\mu^-$ | Colour-silence filter: $\chi(\mathbb{CP}^3)=4\neq N_c$; colour contributions cancel in $\mathrm{SU}(4)$ representation; zero strong coupling at all energies |
+| 10 | $\mathbb{CP}^5$ | $\mathrm{SU}(6)$ | 6 | $1/4$ | $2.75\times10^{-5}$ MeV | $\tau^-$ | Gegenbauer-critical filter: $b_{k_0}(10)=1/2$ exactly (Part 9 T5); coupling weight distributed with no dominant decay channel; back-reaction correction $+1/1680$ required |
+
+**Column notes.** $\chi$ is the Euler characteristic of the compact local $\mathbb{CP}^k$ model; for odd-sphere sectors ($d=3,5$) the sphere has $\chi(S^d)=0$ and structural counting roles are carried by the CP sector in the Hopf pair. Specifically: $\chi(\mathbb{CP}^2)=N_c=3$, $\chi(\mathbb{CP}^3)=n_s=4$, $\chi(\mathbb{CP}^5)=N_f=6$ (Part 9 T15). The $g_{dd}$ values are exact from seeds $n_s=4$, $n_u=3$; derivations in §0.7 and Part 2 §9. The $m_{\rm scale}$ values use $m_e=0.511$ MeV as the unit reference (Part 2 §10).
+
+**Coordinate containment vs coupling filter.** These are two distinct necessary conditions. Coordinate containment (§0.8) governs which forces can reach a particle: a force couples to a particle only if the particle's wavefunction has support in that force's sector. The coupling filter governs what happens within that sector: even with support in the sector, the particle's own sector geometry may project the relevant representation to zero. Both must hold for coupling to occur. Neutrinos ($d=5$): coordinates are nested inside $\Xi_4$ (colour sector), but the $S^5$ Hopf projection selects only the colour singlet — they are colour-neutral despite spatial overlap with the colour sector. Electrons ($d=6$): $\chi(\mathbb{CP}^3)=4\neq 3$; colour contributions cancel in the $\mathrm{SU}(4)$ representation regardless of spatial overlap with $\Xi_4$.
+
+---
+
 ### 0.9 CKM Matrix from the Kernel
 
 The mode amplitude at the d=3 coordinate level scales as $|\chi_n(\xi^0)| \propto 1/\sqrt{S(n,d)}$ from L² normalisation (Part 1 §2.2), so heavier modes (larger S) carry less weight at our coordinate level relative to lighter modes. The intra-sector kernel matrix element between modes $n_i$ (lighter) and $n_j$ (heavier) is proportional to the amplitude of the **heavier** mode at ξ₀ relative to the lighter:

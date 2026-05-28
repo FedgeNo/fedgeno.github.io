@@ -775,7 +775,19 @@ GTC_K   = {'down':0, 'strange':0, 'up':0, 'charm':3, 'top':10, 'bottom':0}
 # d=6 and d=10 particles not in GTC table: GTC correction cancels in all d=6 ratios
 ```
 
+### 11.6 Corrections Summary
 
+All three perturbative corrections to the bare mass formula $m = m_{\rm scale} \times S(n,d)$ are derived from $n_s = 4$ with no additional inputs. Each applies to exactly one particle or family; they are structurally orthogonal.
+
+| Correction | Symbol | Formula | Derivation | Applies to | Status |
+|---|---|---|---|---|---|
+| Generation Tower Correction | $\varepsilon$ | $1/(280\sqrt{7}) \approx 0.001350$ | $\ell=2$ kernel component at $k_0=n_s^2=16$ (§11.2); exact factors $g_{\rm coeff}=2/\sqrt{7}$, $k_0=16$, $n_\mu=35$ | $u$ ($k=0$), $c$ ($k=3$), $t$ ($k=10$): $m\to m(1-\varepsilon)^k$ | ✅ |
+| Geometric back-reaction | $\delta_\tau$ | $+1/1680$ | $d=6\to d=10$ geometric series; $1/(1-g_{10,10})$ resummation; $1680 = n_s n_u(n_s+n_u)S(n_s,3)$ (§9b) | $\tau$ only: $m_\tau \to m_\tau(1+1/1680)$ | ✅ |
+| $\nu_3$ closure relation | $\delta_{\nu_3}$ | $+1/35$ | Cross-sector $\ell=2 \times d=3$ interference; $\varepsilon \times g_{33} = [1/(280\sqrt{7})]\times[8\sqrt{7}] = 8/280$ (§9d) | $\nu_3$ only: $m_{\nu_3} \to m_{\nu_3}(36/35)$ | 🔶 |
+
+**Algebraic relationship.** $\delta_{\nu_3} = \varepsilon \times g_{33}$ exactly; the $\sqrt{7}$ factors cancel and the result $1/35 = 1/n_\mu$ is rational. The same Jacobi coefficient $g_{\rm coeff} = 2/\sqrt{7}$ that generates the GTC also generates $\delta_{\nu_3}$ via $g_{33}$, so the two corrections share a common seed. Despite this shared origin, they act on disjoint particle sets and through structurally distinct mechanisms: the GTC accumulates multiplicatively over generation depth $k$ in the $d=4$ sector; $\delta_{\nu_3}$ enters as a single additive shift from the inclusion-exclusion mode structure of $n_{\nu_3}$.
+
+**No particle carries more than one correction.** The bottom quark uses the geometric-mean rule (§8), not these perturbative corrections. Particles in $d=3$ and $d=6$ carry $k=0$ in the GTC table so the factor $(1-\varepsilon)^0 = 1$ is trivial; they receive no GTC shift.
 
 ## 12. Two-Layer Mass Structure and Unified Scale Formula
 

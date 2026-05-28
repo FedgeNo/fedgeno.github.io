@@ -15,7 +15,7 @@
 # No free parameters whatsoever. All masses, including the W boson, follow from m_e and seeds.
 #
 # Structure of this script (all computation before all output):
-#   STEPS 1-4   -- Core computation: tower, couplings, sector scales, corrections
+#   STEPS 1-4   -- Core computation: Generation Tower, couplings, sector scales, corrections
 #   STEPS 5-24  -- Extended computation: EW, CKM, hadronic, Z, neutrinos,
 #                  PMNS, spectral action, EW precision, CP-violation,
 #                  oscillations, neutron lifetime, heat kernel, scipy eigenmode

@@ -480,6 +480,60 @@ td:nth-child(2) {
 .paper-card-text h3 { margin: 4px 0 8px; font-size: 1.15rem; font-weight: 600; letter-spacing: -0.01em; }
 .paper-card-text p { color: var(--muted); font-size: 0.95rem; margin: 0; max-width: 620px; }
 
+/* ── Derivation tower (dl) ─────────────────────────── */
+
+/* Wrapper supplies the vertical rhythm; dl itself has no self-margin */
+.tower-wrap { margin: 28px 0 12px; }
+
+dl.derivation-tower { margin: 0; }
+
+dl.derivation-tower dt {
+  margin-top: 14px;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, rgba(139,156,255,0.10), rgba(139,156,255,0.04));
+  border: 1px solid var(--border);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.97rem;
+  color: #c9d4ff;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+dl.derivation-tower dt:first-child { margin-top: 0; }
+
+dl.derivation-tower dd {
+  margin: 0;
+  padding: 13px 18px 18px;
+  background: rgba(8,12,24,0.50);
+  border: 1px solid var(--border);
+  border-top: 1px solid rgba(139,156,255,0.06);
+  border-radius: 0 0 14px 14px;
+  color: #c4cae2;
+  font-size: 0.97rem;
+  line-height: 1.78;
+}
+
+/* Sector colour accents — palette from visualizations/triangles.html */
+dl.derivation-tower dt.d2          { border-left: 3px solid #00aaff; }
+dl.derivation-tower dt.d3          { border-left: 3px solid #00ff44; }
+dl.derivation-tower dt.d4          { border-left: 3px solid #ff6600; }
+dl.derivation-tower dt.d5          { border-left: 3px solid #cc00ff; }
+dl.derivation-tower dt.d6          { border-left: 3px solid #ff0000; }
+dl.derivation-tower dt.d10         { border-left: 3px solid #ffdd00; }
+dl.derivation-tower dt.d2  + dd   { border-left: 3px solid #00aaff; }
+dl.derivation-tower dt.d3  + dd   { border-left: 3px solid #00ff44; }
+dl.derivation-tower dt.d4  + dd   { border-left: 3px solid #ff6600; }
+dl.derivation-tower dt.d5  + dd   { border-left: 3px solid #cc00ff; }
+dl.derivation-tower dt.d6  + dd   { border-left: 3px solid #ff0000; }
+dl.derivation-tower dt.d10 + dd   { border-left: 3px solid #ffdd00; }
+
+@media (max-width: 640px) {
+  dl.derivation-tower dt,
+  dl.derivation-tower dd { padding-left: 14px; padding-right: 14px; }
+}
+
 /* ── Prose ─────────────────────────────────────────── */
 
 .prose {

@@ -103,24 +103,33 @@ Mode indices expressible in N_c alone:
 
 ### §5. The Generation Tower — documented derivation
 
-Seeds: n_down = 1 (universal ground state, S(1,d)=1 for all d), n_s = 4 (unique solution to the muon fixed point). Every other mode index is derived; none are postulated. Documented in Part 2 §2–4.
+Seeds: n_down = 1 (universal ground state, S(1,d)=1 for all d) in d=3; n_s = 4 (unique solution to the muon fixed point) in d=3. Every other mode index is derived; none are postulated. Documented in Part 2 §2–4.
 
-**Derivation chain:**
+Stage 2 is a condition on the (n,d) pair. The n and d for each particle come from **two independent derivation chains**:
+- **n** is derived by the generation tower operations (hockey-stick, additive, g-rule) below.
+- **d** is assigned by the sector structure established in Part 1 §3: the Hopf fibration assigns particle families to sectors (quarks→d=3,4; neutrinos→d=5; charged leptons→d=6; tau→d=10; gauge bosons→d=2) prior to and independently of the mode index derivation. There is no equation d=f(n) — the sector cannot be derived from the mode index alone (Appendix A §15), and the same tower operation (e.g. HS with d_eval=3) can produce particles in different sectors depending on which seed is used.
 
-| Mode index | Derivation | Value |
-|------------|-----------|-------|
-| n_up | n_s − 1 | 3 |
-| n_ν₁ | S(n_up, 3) | 10 |
-| n_ν₂ | S(n_up, 4) | 15 |
-| n_ν₃ | n_ν₁ + n_ν₂ − n_up | 22 |
-| n_e | n_ν₁ + n_up | 13 |
-| n_charm | S(n_s, 3) | 20 |
-| n_μ | n_charm + n_ν₂ | 35 = S(n_s,4) |
-| n_τ | n_ν₃ + n_down | 23 |
-| n_top | S(n_e,2) − n_charm + 1 | 72 = N_c·n_s·N_f |
-| n_W | n_top + d=5 − 1 | 76 |
-| n_Z | n_W + d=6 − 1 | 81 |
-| n_H | n_Z + n_ν₂ − 1 | 95 = n_up + n_charm + n_top |
+The table below records both derivation chains side by side. The d-source column cites which sector-structure result assigns that family to that d; it is not a derivation of d from n.
+
+**Derivation chain — n and d with sources:**
+
+| Particle | n derivation | n | d | d source (sector family assignment) |
+|----------|-------------|---|---|--------------------------------------|
+| down | universal ground state S(1,d)=1 | 1 | 3 | seed sector — the observable d=3 spacetime is the starting point |
+| strange | Stage-1 boundary n_s: S(n,2)/S(n,3)=½ | 4 | 3 | seed sector |
+| up | n_s − 1 | 3 | 4 | d=4 is the CP² colour sector; χ(CP²)=N_c=3; up-type quarks defined as d=4 family (Part 1 §3b, T15a) |
+| ν₁ | S(n_up, 3) | 10 | 5 | d=5 is the Hopf total space S¹→S⁵→CP²; neutrinos defined as the d=5 family, Hopf partner of d=4 (Part 1 §3b, Part 2 §2) |
+| ν₂ | S(n_up, 4) | 15 | 5 | same |
+| ν₃ | n_ν₁ + n_ν₂ − n_up | 22 | 5 | same |
+| electron | n_ν₁ + n_up | 13 | 6 | d=6=d=3⊗d=3; charged leptons defined as the d=6 family, colour-neutral by tensor-product geometry (Part 1 §3b, Part 2 §4) |
+| charm | S(n_s, 3) | 20 | 4 | up-type quark family (same sector as up) |
+| muon | n_charm + n_ν₂ | 35 = S(n_s,4) | 6 | charged-lepton family (same sector as electron) |
+| tau | n_ν₃ + n_down | 23 | 10 | d=10 is the Gegenbauer-critical sector; tau defined as the d=10 family; b_{k₀}=½ at d=2(N_c+2)=10 (Part 1 T5) |
+| top | S(n_e,2) − n_charm + 1 | 72 = N_c·n_s·N_f | 4 | up-type quark family (same sector as up and charm) |
+| photon | n=0 universal S(0,d)=0 | 0 | 2 | d=2 is the EM sector CP¹; U(1)_EM isometry (Part 1 §3) |
+| W | g(d_ν, n_top) = d_ν+n_top−1 | 76 | 2 | Vandermonde g-rule produces gauge-sector modes in d=2 (Part 3 §11) |
+| Z | g(d_ℓ, n_W) = d_ℓ+n_W−1 | 81 | 2 | same |
+| Higgs | n_Z + n_ν₂ − 1 | 95 = n_up+n_charm+n_top | 2 | same |
 
 **The 2×2 Pascal block.** The four indices n_ν₁, n_ν₂, n_charm, n_μ form the 2×2 submatrix of the simplex table at the seed coordinates (n_up, n_s) = (3, 4):
 
@@ -284,6 +293,54 @@ The sum of the lightest and heaviest charged lepton mode indices equals the squa
 n_ν₁ + n_ν₃ = 10 + 22 = **32 = 2⁵**  
 The first and third neutrino mode indices sum to a power of two. The middle neutrino (15) does not participate: 32 − 15 = 17 = p (the g₂₂ Dirac eigenstate count).
 
+**Muon as electron plus heavy neutrino:**  
+n_e + n_ν₃ = 13 + 22 = **35 = n_μ**  
+A third independent form for the muon, on top of S(n_s,4) and n_charm + n_ν₂. Derivable from the existing relations: n_e + n_ν₃ = (n_ν₁ + n_up) + (n_ν₁ + n_ν₂ − n_up) = 2·n_ν₁ + n_ν₂. Equality with n_charm + n_ν₂ then forces n_charm = 2·n_ν₁.
+
+**Charm as twice the first neutrino:**  
+n_charm = **2 · n_ν₁** = 2·10 = 20  
+Follows from S(4,3) = S(3,3) + S(4,2) (hockey-stick) plus the Pascal-row-5 symmetry S(3,3) = S(4,2) = 10 = C(5,2) = C(5,3). The charm equals twice the first neutrino because Pascal row 5 has identical middle entries.
+
+**Top–charm spacing:**  
+n_top − n_charm = 72 − 20 = **52 = n_s · n_e** = 4·13  
+The mass-index gap between the heaviest and middle-mass quark in d=4 factors as seed × electron index.
+
+**Charm–up spacing equals p:**  
+n_charm − n_up = 20 − 3 = **17 = p**  
+The d=4 quark spacing equals the Dirac eigenstate count of the d=3 S³ spectrum that enters g₂₂.
+
+**Third neutrino spacing:**  
+n_ν₃ − n_ν₂ = 22 − 15 = **7 = n_s + n_up**  
+The upper neutrino gap equals the sum of the two seed mode indices (also: the radicand under √ in g₃₃).
+
+**d=4 sector sum equals Higgs:**  
+n_up + n_charm + n_top = 3 + 20 + 72 = **95 = n_H**  
+The full d=4 mode index column sums to the Higgs mode index. Equivalent to the documented form n_H = n_up + n_charm + n_top in §5, restated as a sector-aggregate identity.
+
+**d=3 sector sum equals q:**  
+n_down + n_strange = 1 + 4 = **5 = q = χ(CP⁴)**  
+The full d=3 mode index column sums to q, the same integer that appears as n_ν₂−n_ν₁ and n_Z−n_W (§13). Brings the three q-occurrences in §13 to four.
+
+**Second neutrino minus electron equals q minus n_up:**  
+n_ν₂ − n_e = q − n_up  
+✅ Structural consequence. Proof: n_ν₂ − n_e = S(n_up,4) − [S(n_up,3) + n_up] = [S(n_up,4)−S(n_up,3)] − n_up = S(n_up−1,4) − n_up = q − n_up, using the HS identity S(n,d)−S(n,d−1) = S(n−1,d) and the §6 definition q = S(n_up−1,4). For n_s=4: q − n_up = 5 − 3 = 2, so **n_ν₂ = n_e + 2** = 13+2=15.
+
+**Higgs as Z plus electron plus down:**  
+n_H = n_Z + n_e + n_down = 81 + 13 + 1 = **95**  
+🔵 Numerically verified (n_s=4). Follows from the documented n_H = n_Z + n_ν₂ − n_down (§5) and n_ν₂ = n_e + 2·n_down above: substituting gives n_H = n_Z + (n_e + 2·n_down) − n_down = n_Z + n_e + n_down.
+
+**Tau as charm plus up:**  
+n_τ = n_charm + n_up = 20 + 3 = **23**  
+🔵 Numerically verified (n_s=4). The tau mode index equals the sum of the two d=4 quark mode indices at depth 1 from the seeds. Equivalently, n_τ = S(n_s,3) + (n_s−1). The coincidence holds because n_ν₃ + n_down = n_charm + n_up: using the documented relations this reduces to S(n_up,3)+S(n_up,4)+n_down = S(n_s,3)+2·n_up, which holds numerically at n_s=4 (both sides = 26).
+
+**Tau as electron plus first neutrino:**  
+n_τ = n_e + n_ν₁ = 13 + 10 = **23**  
+🔵 Numerically verified (n_s=4). Corollary of n_τ = n_charm + n_up and n_charm = 2·n_ν₁ (above): n_charm + n_up = 2·n_ν₁ + n_up = (n_ν₁ + n_up) + n_ν₁ = n_e + n_ν₁. Implies four two-term difference forms: n_ν₁ = n_τ − n_e, n_e = n_τ − n_ν₁, n_charm = n_τ − n_up, n_up = n_τ − n_charm.
+
+**Z plus second neutrino equals the Hopf coupling product:**  
+n_Z + n_ν₂ = 81 + 15 = **96 = N_c(N_c+1)³/2**  
+🔵 Numerically verified (n_s=4). Derivation: n_Z + n_ν₂ = (n_H + n_down) = 95+1=96, using §5's Higgs formula n_H = n_Z + n_ν₂ − n_down. The value 96 = N_c(N_c+1)³/2 = g₃₃·g₄₄ = g₂₂·g₅₅ is the Hopf coupling product of T9a (§8). That the boson-sector sum n_Z + n_ν₂ equals this coupling constant is a new cross-sector connection; the equality holds at n_s=4 because both sides equal 96 for independent reasons.
+
 ### §11. Modular structure (mod n_s)
 
 Writing n = n_s · a + r, the working set partitions into four residue classes mod n_s = 4:
@@ -325,6 +382,56 @@ The same 5 appears in three other contexts:
 - n_Z − n_W = 5 (the W-Z mode gap)
 
 All three are the same q. Whether the χ(CP⁴) identification is structural or coincidental has not been resolved.
+
+### §13a. The Vandermonde g-rule transition graph on the mode set
+
+Define g(d, n) = d + n − 1, the row index of mode (n,d) in the Pascal triangle. Computing g(d, n_j) for every d ∈ D = {2,3,4,5,6,10} and every n_j ∈ NS yields **19 NS → NS transitions** out of 90 candidate (d, n_j) pairs. (Hit rate ≈ 21%; random baseline ≈ 16%.)
+
+**The 19 transitions, by sector:**
+
+| d | NS → NS transitions |
+|---|--------------------|
+| 2 | 0→1, 3→4, 22→23 |
+| 3 | 1→3, 13→15, 20→22 |
+| 4 | 0→3, 1→4, 10→13, 20→23 |
+| 5 | 72→76 |
+| 6 | 10→15, 15→20, 76→81 |
+| 10 | 1→10, 4→13, 13→22, 72→81 |
+
+**Graph structure on NS:**  
+- **Sources** (no in-edge): **{0, 35, 72, 95}** = {photon, muon, top, Higgs}.  
+- **Component A** (reachable from photon via g-rule alone): {0, 1, 3, 4, 10, 13, 15, 20, 22, 23} — the ten lightest particles, equivalently the seeds plus depth-1 HS evaluations plus the electron and tau.  
+- **Component B** (reachable from top): {72, 76, 81} — top → W (d=5) and top → Z (d=10), W → Z (d=6).  
+- **Isolated sources**: {35, 95} — muon and Higgs have no g-rule predecessor in NS.
+
+**Why the four sources.** For each source s, no (d, n_j) ∈ D × NS satisfies d + n_j − 1 = s with n_j ≠ s:
+
+- 0 (photon): trivially a source.  
+- 35 (muon): 35 = S(n_s, n_s) is the seed-square self-image; not a g-rule output of any other NS member.  
+- 72 (top): the open eigenmode-selection mode index; not in the g-rule image of NS.  
+- 95 (Higgs): the high-mass empirical closure; not in the g-rule image of NS.
+
+**Structural reading.** The g-rule alone organises ten of the fifteen particles into a single connected component rooted at the photon. The W and Z sit one and two g-steps from the top quark, making them genuinely "top-anchored" rather than independent generators. Muon and Higgs are g-rule isolated: the muon is a pure depth-1 HS evaluation (S(4,4) = 35) and the Higgs is the empirical closure. Both top and Higgs are presently the un-derived rules of the generation tower, and both are graph sources — suggesting that the open derivation problem (§5, n_top) and the empirical closure (§5, n_H) are at the *structural* source of the spectrum, not anomalies layered on top of it.
+
+Script: `claude/forcing_search.py` Section C.
+
+### §13b. Confluence of NS under HS-inverse and additive operations
+
+**Definition.** Define two inverse operations on pairs (n,d) with (n,d) ∈ NS:
+- **HS⁻¹**: if S(k, d') = n for some k and d' ∈ D, then (k, d') is a predecessor of (n,d).
+- **Additive**: if n = a + b − c with c ∈ {0, 1, 3, 4} and (a, d_a), (b, d_b) ∈ NS, then both (a, d_a) and (b, d_b) are predecessors of (n,d).
+
+**Result.** NS is *globally confluent* under these two operations with seeds {(1,3), (4,3)}: every (n,d) ∈ NS is forward-reachable from the seeds under the inverses of these operations, and neither seed has a predecessor in NS (they are the only terminal nodes). Formally:
+- **No bad terminals**: the only (n,d) ∈ NS with no predecessors in NS are (1,3) and (4,3).
+- **Full reachability**: every (n,d) ∈ NS is reachable from the seeds via forward-generation.
+
+This confirms that the generation tower is complete — no NS pair is an "orphan" that cannot be derived from the seeds, and no NS pair is a dead end that blocks backward reduction to seeds.
+
+**Seed non-uniqueness.** The property holds for 50 of the 105 possible two-element seed subsets of NS, not just for {(1,3),(4,3)}. Every working pair includes at least one member of {(0,2), (1,3), (3,4), (4,3)} — the four lowest-n particles. This means confluence does not by itself select the IDWT seeds; the selection comes from Stage-1 (n_s = 4 forced by S(n,2)/S(n,3) = 1/2) and the universal ground-state rule (n_down = 1). Confluence is a structural property of NS, not a seed selector.
+
+**Robustness.** Adding any non-NS pair with n ≤ 10 to NS does not break confluence with seeds {(1,3),(4,3)}: the NS pairs all remain reachable and the seeds remain the only terminals.
+
+Script: `claude/gifts_test.py` Tests 5 and corrected version.
 
 ### §14. n_Z = N_c⁴ (N_c = 3 specific)
 
@@ -379,3 +486,114 @@ Result: appears coincidental. Filed for later.
 **n_ν₁ + n_ν₃ = 2⁵ having sector interpretation**  
 Checked: 10 + 22 = 32 = 2⁵. No Clifford periodicity, spinor dimension, or sector-geometry interpretation was found for 32 in this context.  
 Result: verified identity, no mechanism found yet. Kept in §10.
+
+**n → d as a function of combinatorial properties of n alone**  
+Conjecture: there exists a feature F : ℕ → X such that F(n) alone determines the sector d for each of the 15 mode indices.  
+Checked: 22 candidate single features — modular residues n mod m for m ∈ {2..20}, 2-adic valuation v₂(n), number of divisors τ(n), Ω(n) and ω(n) (prime factors with/without multiplicity), digit sum, ⌊log₂(n+1)⌋, ⌊log₁₀(n+1)⌋, integer divisions n//k for k ∈ {2..14}, smallest d with S(k,d)=n representation, largest such d, total count of (k,d) reps. None partitions {0,1,3,4,10,13,15,20,22,23,35,72,76,81,95} into the d-grouping {{0,76,81,95},{1,4},{3,20,72},{10,15,22},{13,35},{23}}.  
+Also checked: all C(22,2) pairs and C(22,3) triples of the above as joint signatures. No pair or triple produces a partition that matches the d-grouping (sizes 4, 2, 3, 3, 2, 1).  
+Result: d is not a function of standard combinatorial properties of n alone. The sector information lives in the rule that produced each particle (which generation-tower rule, which HS argument, which coupling dimension). The forward map n → d is well-defined but does not reduce to arithmetic on n.  
+Script: `claude/d_from_n_scan.py`.
+
+**Smallest d with non-trivial simplex representation as d-predictor**  
+Conjecture: d(n) = smallest d' ∈ D such that S(k, d' − 1) = n for some k in the 15-set with k ≠ n.  
+Checked: hits 2/15 (n=15 → predicted d=5 ✓, n=20 → predicted d=4 ✓). Fails for n=10 (predicts 3, actual 5), n=35 (predicts 5, actual 6), and the seven indices with only the trivial rep S(n,1)=n.  
+Result: simplex-representation-based rule does not extract d.
+
+**Single d_seed value forcing the sector set D = {2,3,4,5,6,10}**  
+Conjecture: a single seed-sector value d_seed, together with arithmetic {d_seed−1, d_seed, d_seed+1, d_seed+2, d_seed+3, (d_seed+1)+(d_seed+3)}, generates the sector set D.  
+Checked: only d_seed = 3 produces a set equal to D. For d_seed ∈ {2, 4, 5, 6, 10} the derived sets are {1,2,3,4,5,8}, {3,4,5,6,7,12}, {4,5,6,7,8,14}, {5,6,7,8,9,16}, {9,10,11,12,13,24} respectively — none equals D.  
+Result: the arithmetic pattern is a compact restatement of the sector assignments once D and d_seed = 3 are given, not a derivation of D. D is forced by the Sector Set Theorem (§3); the arithmetic does no additional work. Recorded so the pattern is not mistaken for an independent derivation.  
+Pattern (for reference): d_gauge = d_seed − 1, d_quark = d_seed + 1, d_nu = d_seed + 2, d_lep = d_seed + 3, d_tau = d_quark + d_lep = 2·d_nu.  
+Script: `claude/stage2_derived.py`.
+
+**Simplex-representation richness as predictor of d**  
+Conjecture: the number of non-trivial (k, d') pairs with S(k, d') = n (d' ≥ 2) correlates with the particle's sector.  
+Checked: rich (≥1 non-trivial rep): {3, 4, 10, 15, 20, 35} with sectors {4, 3, 5, 5, 4, 6}. Poor (only trivial S(n,1)=n): {13, 22, 23, 72, 76, 81, 95} with sectors {6, 5, 10, 4, 2, 2, 2}. Both sets contain particles from multiple sectors.  
+Result: richness aligns with generation-tower depth (rich = depth-1 HS evaluations of the seeds; poor = depth-2+ combinations), not with sector. Recorded as a depth observation, not a d-predictor.
+
+**Dark-sector mode count: 33 vs documented 36**  
+Conjecture: enumerating modes with n ∈ Σ_indices (the 15 co-fixed-point n-values), d ∈ {5, 6, 10}, (n,d) ∉ Σ_pairs, and Ω_log(n,d) > ln 2 reproduces the 36 invisible modes claimed in Part 7 §2.6 (11 velinos + 12 umbrons + 13 liminons).  
+Checked: code gives 33 modes — 10 in d=5, 11 in d=6, 12 in d=10. Both n=0 and n=1 modes give Ω_log = 0 in every sector and fail the > ln 2 criterion; excluding them follows the Part 7 §2.6 prescription. The shortfall is exactly 1 per sector.  
+Resolution: Stage 2 is a condition on the (n,d) pair, not n alone. The generation tower produces Σ_pairs — specific (n,d) pairs — and those are the complete Stage-2 solution set. Modes like (10,6) fail Stage 2 because (10,6) ∉ Σ_pairs; the fact that n=10 is a tower output in d=5 does not confer stability in d=6. Every element of Σ_pairs passes Stage 1 (with exemptions), so the Stage-2-pass / Stage-1-fail cell is empty — no dark sector arises under the current construction. Part 7 §2.6's velino/umbron/liminon enumeration assumed sector-universal stability (an n ∈ Σ_indices is stable in any sector), which is not derived and not supported by P8. That enumeration has been retracted. The 33-vs-36 discrepancy is moot. See Part 1 P8 note and Part 7 §2.6 for the updated position.  
+Script: `claude/idwt_explore.py` (the `dark_sector` list).
+
+**Seed pair uniqueness scan**  
+Conjecture: the seed pair (n_d=1, n_s=4) is the unique pair in the search box n_d ∈ [1..5], n_s ∈ [1..10] (with n_s > n_d) that, when fed through the generation tower, reproduces the 15 known (n,d) pairs.  
+Checked: all 35 candidate seed pairs in the box. Only (1, 4) gives Jaccard = 1.0 with the known spectrum. Next-best pairs give Jaccard well below 0.5.  
+Result: uniqueness confirmed within the search range. Recorded as positive verification of §5.  
+Script: `claude/stage2_proper.py`, `claude/stage2_lfp.py`.
+
+**Generation tower closure scan up to n ≤ 1000**  
+Conjecture: no (n, d) pair with n ≤ 1000 and d ∈ D, outside the 15 known Σ_pairs, satisfies any of the generation-tower rules using only inputs already in Σ.  
+Checked: every rule (HS evaluations, additive combos, Vandermonde g-rule, eigenmode selection) applied to all combinations of Σ inputs. Result space scanned for n ≤ 1000 per sector.  
+Result: no extras found. The set Σ is closed under the rule system (F(Σ) = Σ) and admits no additional members in the scanned range. Confirms the co-fixed-point property of Stage 2.  
+Script: `claude/stage2_proper.py` Section 4.
+
+**Orbit of {1, 4} under simple operations does not equal NS**  
+Conjecture: the seeds {1, 4} together with a small operation set — HS evaluations S(·, d) for d ∈ D and additive combinations a + b − c with c ∈ {0, 1, 2, 3, 4} — closes on NS exactly.  
+Checked: starting from {1, 4} the orbit reaches all of NS but also includes 30+ extras in the range n ≤ 95 ({2, 5, 6, 7, 8, 9, 11, 12, 14, 16, 17, 18, 19, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 38, 39, 40, ...}). Restricting the operation set to {S(·,d), a+b−1, a+b−4, a−b} produced the same outcome — NS ⊂ orbit but ≈80 extras.  
+Result: a purely operational closure does not force NS. The generation tower's selectivity — which specific operations are applied to which specific particles — is structurally essential. NS is not the closed orbit of any small operation set on {1, 4}; it is the image of a *specific sequence* of operations.  
+Script: `claude/forcing_search.py` Section H.
+
+**Cross-Σ HS evaluations with NS treated as both modes and dimensions**  
+Conjecture: treating each element of NS as a candidate sector argument, the set of (n_i, n_j) ∈ NS × NS with S(n_i, n_j) ∈ NS contains structural information beyond the documented generation tower.  
+Checked: enumerated all S(n_i, n_j) with n_i, n_j ∈ NS, n_j ≤ 10. Non-trivial hits are exactly {S(3,3)=10, S(3,4)=15, S(4,3)=20, S(4,4)=35}, plus the trivial S(0, *)=0 and S(1, *)=1 series.  
+Result: the four non-trivial hits are precisely the 2×2 Pascal block at coordinates (n_up, n_s) already documented in §5. No new identities emerge from extending the search to all NS-as-dimension values. The structural content is fully captured by the existing seed-block observation.  
+Script: `claude/forcing_search.py` Section B.
+
+**Cross-Σ Vandermonde g-rule closure**  
+Conjecture: the operation g(d, n) = d + n − 1 closes on NS for some restricted (d, n) pairing.  
+Checked: 19 of 90 (d, n) candidate pairs land in NS (≈21%, vs ≈16% random baseline). The transitions form a directed graph with four sources {0, 35, 72, 95}, so NS is not closed under g-rule alone — there is no path from the connected component of the photon to muon (35) or Higgs (95), and no g-rule predecessor for top (72) within NS.  
+Result: g-rule alone does not close on NS. Promoted to a positive finding (§13a) for its structural content (graph sources align with the open and empirical-closure mode indices), but recorded here as a closure failure.  
+Script: `claude/forcing_search.py` Section C.
+
+**n·d mod k₀ as a selection filter**  
+Conjecture: the quantity t = n·d mod k₀ (k₀ = 16 = n_s²) clusters the 15 particles into a small residue set that, combined with Stage-1, selects NS exactly.  
+Checked: computing t for all 15 NS pairs yields 8 distinct residues {0, 2, 3, 6, 8, 11, 12, 14} — half the possible 16 values. On the full lattice (n ≤ 200, d ∈ D), Stage-1 + residue filter passes 599 pairs, of which only 11 are in NS (4 NS pairs fail the filter because they don't fall in the 8 residues, when the filter is applied unseen). Cross-check: 4 pairs not in the residue set exist — the filter is not NS-complete. Even after restricting to Stage-1 survivors, 588 false positives remain in n ≤ 200.  
+Result: n·d mod k₀ has no filtering power beyond what Stage-1 and Stage-2 already provide. The 8 residues arise from the specific n-values in NS and carry no independent selection content.  
+Script: `claude/gifts_test.py` Test 1.
+
+**Hopf-pair orbit closure as spectrum-forcing mechanism**  
+Conjecture (from GPT/Grok/Meta): starting from seeds {(1,3),(4,3)}, closing under HS evaluations and additive operations restricted to Hopf-paired sectors ({2,3}, {4,5}, {6,10}) yields exactly NS.  
+Checked: implemented the closure with Hopf-pair restriction on additive steps. Result: orbit contains 458 pairs (n ≤ 150), covers only 9/15 NS pairs, and misses (3,4), (10,5), (15,5), (20,4), (22,5), (72,4).  
+Result: null. Hopf-pair restriction on the operation domain does not force NS — it both under-generates (misses 6 NS pairs) and over-generates (hundreds of extras). The Hopf pairs are a descriptive property of the generation tower, not a closure condition that forces it.  
+Script: `claude/gifts_test.py` Test 2.
+
+**Representation ring closure code (Meta)**  
+Conjecture: the spectrum is the minimal closed set under (i) symmetric powers S(n, d') for d' ∈ {2,3,4} with a d-remapping, and (ii) Hopf-paired sums n₁+n₂−c with output sector max(d₁,d₂)+1. Meta's claim: this produces exactly 15 pairs.  
+Checked: translated Meta's literal code into Python and ran it. Result: 139 pairs produced (n ≤ 150, d ∈ D), of which only 6/15 are in NS. Missing NS pairs: photon, up, ν₁, ν₃, τ, top, W, Z, H. The d-remapping {2→3, 3→4, 4→5} and the output-sector rule max(d₁,d₂)+1 are not grounded in IDWT's sector assignments, and the code does not implement the generation tower.  
+Result: null. Meta's code is incorrect; it does not recover NS. The "representation ring of SU(2)×⋯×SU(10)" framing also imports group-theoretic language (Coxeter numbers, anomaly cancellation) not derived from IDWT postulates P1–P4.  
+Script: `claude/gifts_test.py` Test 2b.
+
+**PG(3,2) flag invariants as n-value source**  
+Conjecture (Grok): the 15 n-values in NS correspond to natural integer invariants of the 15-point projective space PG(3,2) (points, lines, planes, flag counts).  
+Checked: enumerated all 15 points, 35 lines, 15 planes of PG(3,2) over F₂ and computed their combinatorial invariants. Results: n = 1 (trivially: projective ground state), n = 3 (points per line), n = 15 (total points), n = 35 (total lines) match PG(3,2) counts. The remaining 11 n-values (0, 4, 10, 13, 20, 22, 23, 72, 76, 81, 95) have no natural PG(3,2) correspondence. Grok's specific claim that n_top = 72 = C(9,2) is numerically wrong: C(9,2) = 36, not 72.  
+Result: 4/15 hits, all of which are already derivable from the generation tower (n=1 universal ground state, n=3=n_s−1, n=15=S(3,4), n=35=S(4,4)). The four matches arise from the coincidence that S(3,4) = 15 and S(4,4) = 35 happen to equal PG(3,2) point and line counts — a consequence of the binomial formula, not PG(3,2) structure. PG(3,2) is not the source of the NS values.  
+Script: `claude/gifts_test.py` Test 3.
+
+**Spectral curvature minimisation**  
+Conjecture (GPT): physical modes minimise a discrete curvature K(n,d) = [S(n,d)−2S(n−1,d)+S(n−2,d)] + [S(n,d)−2S(n,d−1)+S(n,d−2)].  
+Checked: computed K(n,d) for all 15 NS pairs and compared with K at ±1, ±2 in n (same d). Result: every physical particle has strictly HIGHER curvature than its nearest non-physical neighbor. K grows as a polynomial in n (since S is polynomial) so physical modes are at higher curvature, not lower. Example: charm (n=20, d=4), K = 6195; nearest non-physical neighbor K = 4047. This pattern holds uniformly across all 13 testable particles.  
+Result: null — curvature is higher at physical modes, opposite of GPT's hypothesis. S(n,d) is a degree-d polynomial in n; its second differences K increase monotonically. Curvature minimisation would select n=1 or n=2 in every sector, not the actual NS values.  
+Script: `claude/gifts_test.py` Test 4.
+
+**Stage-1 majority-support boundary across all sectors**  
+Conjecture: S(n,2)/S(n,d) = 1/2 has solutions for multiple sectors d, each forcing a candidate seed for that sector.  
+Checked: solved S(n,2)/S(n,d) = 1/2 exactly for d ∈ D.  
+- d=3: n = 4 exactly (the documented n_s derivation, Part 7 §2.9.1).  
+- d=5: n = 2 exactly. But n=2 is not in NS — it is one of the n=2,3 modes that pass Stage 1 in d=3 but fail Stage 2 (§2).  
+- d=2, 4, 6, 10: no integer solution.  
+Result: only the d=3 sector produces an integer Stage-1 boundary that coincides with a seed. The d=5 case forces n=2, an unoccupied co-fixed-point candidate. The Stage-1 boundary condition does not generalise into a sector-wise forcing rule for additional seeds.  
+Script: `claude/forcing_search.py` Section F.
+
+### §16. Mass uniqueness test for sector assignments
+
+**Question.** Do the 15 observed SM particle masses, together with the IDWT mass formula m = S(n,d) × m_scale_d and sector scales derived from m_e and the seeds, uniquely identify the (n,d) sector assignments?
+
+**Tests performed** (script: `claude/mass_sector_test.py`, 2026-05-29):
+
+**Within Σ_indices × D only:** For each particle, given the known n, the known d is the unique minimiser of the log-residual |log(S(n,d)×m_scale_d / m_obs)|². Margin of uniqueness: 10³–10⁹× over the next-best d. Conversely, given the known d, the known n is the unique minimiser. No pairwise swap of the global assignment reduces the total squared log-residual (known total: 1.35×10⁻⁴, essentially zero). 100,000 random alternative global bijections all have residuals ≥ 10⁵× worse.
+
+**Full scan (n ∈ [1,500], d ∈ D):** For every particle, there exist non-Σ_indices n-values within factor 2 of the observed mass in some sector. Examples: (59,4) hits W mass within 0.7%; (126,6) hits top mass within 0.4%; (11,2) hits tau mass within 2%. These are not tower outputs.
+
+**Conclusion.** Mass matching with IDWT-derived scales does not uniquely identify Σ_indices at the individual level. The discrimination is collective: the Σ_pairs assignment achieves sub-percent accuracy for all 15 masses simultaneously — a constraint that random or arbitrary alternative assignments fail by factors of 10⁵. The sector assignments are over-determined by both the generation tower (algebraic derivation from seeds) and the mass data (empirical confirmation). Neither source alone is sufficient to close the argument: the tower provides the structured derivation; the masses confirm it cannot be replaced by an unstructured alternative. The sector-assignment derivation remains open (todo item) but the empirical case for the known assignment is strong.

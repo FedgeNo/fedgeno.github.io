@@ -144,9 +144,9 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility
 | Bianchi identity: ∇^μ T_μν^{eff} = 0 | ✅ proved unconditionally | §3.13 Part II |
 | Spectral theorem: S(n,d) = N_d(n−1) | ✅ proved | Part 8 §3 |
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
-| L_d = 1/κ_d as sector length scale | ✅ defined and computed | §3.9, §3.10.4 |
+| L_d = λ_d^{−1/4} as sector length scale (harmonic oscillator length) | ✅ defined and computed | §3.9, §3.10.4 |
 | G_N sector-independent; no sector correction | ✅ | §3.11–3.12.2 |
-| G_N = G_∞/V_7: V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
+| G_N = G_∞/V_7: V_7 ≈ 7.76 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
 In the static strong-field regime, the d=3-coordinate metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector-space coordinates. Information is preserved globally.
 
@@ -154,60 +154,52 @@ In the static strong-field regime, the d=3-coordinate metric develops an apparen
 
 ## 3.9 The Sector Localization Length — No Compactification Needed
 
-**L_d is the sector localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the e-folding length of the sector ground-state wavefunction in the sector direction, derived from the sector mode localization theorem (§3.13).
+**L_d is the sector localization length — not a compactification radius.** IDWT has no compact extra dimensions, no periodic boundary conditions, no Kaluza-Klein tower. The space Ξ is limitless. L_d is the characteristic width of the sector ground-state Gaussian in the sector direction (the harmonic oscillator length), derived from the self-consistency equation for λ_d in §3.10.
 
 **What L_d is:**
 
-Every physical mode χ_{n,d} is a bound state of the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with V_d(r) = λ_d r²/(1+r²). By the sector mode localization theorem proved in §3.13, the ground-state mode decays as:
+Every physical mode χ_{n,d} is a bound state of the sector Schrödinger operator H_d = −Δ_{Ξ_d} + λ_d r² (the harmonic self-binding potential derived in §3.10.2). The ground-state mode is a Gaussian:
 
 ```
-|χ_0(r)| ≤ C exp(−κ_d r),    κ_d = √(λ_d − E_0(d)) > 0
+χ_0(r) ∝ exp(−√λ_d r²/2)
 ```
 
-This decay defines a natural length scale:
+with characteristic width set by the **harmonic oscillator length**:
 
 ```
-L_d ≡ 1/κ_d = 1/√(λ_d − E_0(d))
+L_d ≡ λ_d^{−1/4}
 ```
 
-This is the IDWT analogue of the Bohr radius. The hydrogen atom provides the exact analogy: the potential −e²/r produces a bound state whose exponential decay defines a_0 = ℏ²/m_e e² — the Bohr radius is not a compactification radius, it is the localization length of the ground-state wave function in an infinite space. Exactly the same here.
+This is the IDWT analogue of the Bohr radius. Like a_0 = ℏ²/m_e e², L_d is not a compactification radius — it is the localization width of the ground-state wave function in an infinite flat space. At any distance r >> L_d, the mode amplitude falls as a Gaussian exp(−r²/L_d²), making the mode activity in that sector negligible to any observer in the d=3 subspace.
 
-**The localization length in the harmonic approximation.** For the harmonic limit V_d ≈ λ_d r² near the origin, the d-dimensional isotropic harmonic oscillator has ground-state energy:
-
-```
-E_0^{harm} = d × √λ_d
-```
-
-giving a harmonic localization estimate:
+**Localization length, ground-state energy, and dimensionless coupling.** The d-dimensional harmonic oscillator ground state has energy:
 
 ```
-L_d^{harm} = 1/√(λ_d − d√λ_d)  [upper bound on L_d]
+E_0 = d × √λ_d
 ```
 
-The actual L_d < L_d^{harm} because V_d < λ_d r² everywhere, so the actual ground state sits lower in energy, and κ_d is larger.
-
-**The dimensionless coupling is naturally O(1).** Part 7 §2.9 uses the dimensionless coupling λ̂_d = λ_d × L_d². With L_d = 1/κ_d = 1/√(λ_d − E_0):
+and the harmonic oscillator has no continuum (σ_ess = ∅) — the spectrum is purely discrete with no scattering threshold. The natural dimensionless coupling is:
 
 ```
-λ̂_d = λ_d × L_d² = λ_d / (λ_d − E_0)
+λ̂_d ≡ λ_d × L_d² = λ_d^{1/2} = √λ_d
 ```
 
-For modes well below the continuum (E_0 << λ_d): λ̂_d → 1. Numerically:
+Values:
 
-| λ_d | E_0 (d=3, exact) | κ_d | L_d | λ̂_d |
+| d | λ_d | E_0 = d√λ_d | L_d = λ_d^{−1/4} | λ̂_d = √λ_d |
 |---|---|---|---|---|
-| 10 | 0.263 | 3.121 | 0.321 | 1.027 |
-| 25 | 0.605 | 4.939 | 0.203 | 1.025 |
-| 100 | 2.011 | 9.899 | 0.101 | 1.021 |
-| 400 | 12.89 | 19.68 | 0.051 | 1.033 |
-
-λ̂_d ≈ 1 robustly across all λ_d values. The IDWT coupling is naturally self-normalizing — the mode localization and the potential depth conspire to keep λ̂_d ≈ 1 without any imposed boundary condition.
+| 2 | 50.723 | 14.244 | 0.375 | 7.122 |
+| 3 | 4.820 | 6.586 | 0.675 | 2.195 |
+| 4 | 1.726 | 5.255 | 0.872 | 1.314 |
+| 5 | 0.164 | 2.025 | 1.571 | 0.405 |
+| 6 | 0.250 | 3.000 | 1.414 | 0.500 |
+| 10 | 0.250 | 5.000 | 1.414 | 0.500 |
 
 **Why experimental bounds do not apply.** All experimental constraints on macroscopic extra dimensions — Eöt-Wash torsion balance, precision spectroscopy, ISL tests — assume a Kaluza-Klein tower of modes with masses m_n = n/R and modified gravitational potential at distances r ~ R. In IDWT:
 
 - There is no KK tower (no periodic modes, no 1/R quantization)
 - The sector modes are exponentially localized bound states, not plane waves
-- At any laboratory distance r >> L_d, the mode is already suppressed as exp(−r/L_d) ≈ exp(−10^{30}) for macroscopic L_d
+- At any laboratory distance r >> L_d, the mode is already Gaussian-suppressed as exp(−r²/L_d²) ≈ exp(−10^{60}) for macroscopic L_d
 - No deviation from 1/r² gravity occurs at any accessible scale
 - The gravitational interaction appears standard to the observer: G_μν = 8πG T_μν^{eff} with T_μν^{eff} indistinguishable from a standard point mass
 
@@ -284,16 +276,16 @@ This is the self-consistency condition: the sector potential depth is determined
 
 ### 3.10.4 Results for All Sectors
 
-| d | g_{dd} | λ_d = (g_{dd}/2)^{2/3} | E_0 (numerical) | κ_d | L_d | λ̂_d = λ_d L_d² |
-|---|---|---|---|---|---|---|
-| 2 | 722.5 | 50.723 | 1.024 | 7.050 | 0.142 | 1.021 |
-| 3 | 8√7 ≈ 21.17 | 4.820 | 0.101 | 2.172 | 0.460 | 1.022 |
-| 4 | 12/√7 ≈ 4.54 | 1.726 | 0.168 | 1.248 | 0.801 | 1.108 |
-| 5 | 96/722.5 ≈ 0.133 | 0.164 | 0.019 | 0.381 | 2.623 | 1.129 |
-| 6 | 1/4 | 0.250 | 0.061 | 0.435 | 2.301 | 1.324 |
-| 10 | 1/4 | 0.250 | 0.043 | 0.455 | 2.198 | 1.208 |
+| d | g_{dd} | λ_d = (g_{dd}/2)^{2/3} | E_0 = d√λ_d | L_d = λ_d^{−1/4} | λ̂_d = √λ_d |
+|---|---|---|---|---|---|
+| 2 | 722.5 | 50.723 | 14.244 | 0.375 | 7.122 |
+| 3 | 8√7 ≈ 21.17 | 4.820 | 6.586 | 0.675 | 2.195 |
+| 4 | 12/√7 ≈ 4.54 | 1.726 | 5.255 | 0.872 | 1.314 |
+| 5 | 96/722.5 ≈ 0.133 | 0.164 | 2.025 | 1.571 | 0.405 |
+| 6 | 1/4 | 0.250 | 3.000 | 1.414 | 0.500 |
+| 10 | 1/4 | 0.250 | 5.000 | 1.414 | 0.500 |
 
-λ̂_d = λ_d L_d² ranges from 1.02 to 1.32. For sectors d=2,3 it is close to 1 and for d=4,5,6,10 it rises modestly — all remain O(1) without any imposed constraint.
+E_0 = d√λ_d is the exact ground-state energy of the d-dimensional isotropic harmonic oscillator. L_d = λ_d^{−1/4} is the oscillator length (Gaussian width of the ground state). λ̂_d = √λ_d varies across sectors; the previous claim λ̂_d ≈ 1 was an artifact of the saturating-potential ansatz (MC-2) and does not hold for the harmonic self-binding operator derived in §3.10.2.
 
 ---
 
@@ -331,7 +323,7 @@ G_μν(x) = 8π G_N × T_μν^{obs}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; there is no quantum gravitational threshold in this framework. V_7 ≈ 113 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
+**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; there is no quantum gravitational threshold in this framework. V_7 ≈ 7.76 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
 
 ---
 
@@ -397,22 +389,22 @@ The previous subsections show that G_N is sector-independent (§3.11) and not co
 
 **G_N as a measurement.** The M_∞ curvature sourced by mass has a fundamental strength $G_\infty$. A 3D observer integrates out all dimensions beyond observer space — both the sector space (d=4,5,6,10, with localised modes) and the vacuum dimensions (d>10, with no stable bound states). The occupied-sector contribution to this integration is $V_7$, fully derived from the sector coupling constants:
 
-| New coordinate(s) | Sector | $L_d = 1/\kappa_d$ |
+| New coordinate(s) | Sector | $L_d = \lambda_d^{-1/4}$ |
 |---|---|---|
-| 4th | d=4 | 0.801 |
-| 5th | d=5 | 2.623 |
-| 6th | d=6 | 2.301 |
-| 7th–10th | d=10 | 2.198 each |
+| 4th | d=4 | 0.872 |
+| 5th | d=5 | 1.571 |
+| 6th | d=6 | 1.414 |
+| 7th–10th | d=10 | 1.414 each |
 
-$$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.801\times2.623\times2.301\times(2.198)^4 \approx 113$$
+$$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.872\times1.571\times1.414\times(1.414)^4 \approx 7.76$$
 
 The d>10 vacuum region is subcritical — its modes are extended, not localised (T5). Schematically:
 
 $$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
-**Why the localization formula fails for d>10.** The sector mode localization theorem (§3.13) gives $L_d = 1/\kappa_d$ only for modes in the *discrete* spectrum of $H_d$ — i.e., bound states below the continuum threshold $\lambda_d$. For the occupied sectors (d≤10), such bound states exist and $L_d$ is well-defined. For the d>10 vacuum region, T5 states the modes are *extended* (scattering states in the essential spectrum $[\lambda_d, \infty)$). The sector mode localization theorem does not apply to scattering states; $L_d$ is formally infinite for each vacuum dimension.
+**Why the localization formula fails for d>10.** The sector mode localization theorem (§3.13) gives $L_d = \lambda_d^{-1/4}$ for modes in the *discrete* spectrum of $H_d^{\rm harm}$. For the occupied sectors (d≤10), the harmonic well is confining and $L_d$ is well-defined. For the d>10 vacuum region, T5 states the modes are *extended* (scattering states) — the harmonic self-binding requires a self-consistent sector coupling $g_{dd}$, which for the vacuum dimensions either vanishes or is not sourced by any particle. The localization formula does not apply to the vacuum region; $L_d$ is formally undefined there.
 
-**Numerical check.** Extrapolating the d=6 and d=10 data ($\kappa_d \to \sqrt{\lambda}=0.5$, $L_d \to 2$ as $d\to\infty$ with $g_{dd}=1/4$) gives a cumulative $\ln V_{\rm vacuum}$ that grows linearly with the number of vacuum dimensions. The product diverges: $V_{\rm vacuum} = \infty$ with the localization formula, giving $G_N = 0$. This confirms the formula cannot be extended naively.
+**Numerical check.** If $g_{dd}=1/4$ were naively extended to d>10, $L_d = (1/8)^{-1/6} \approx 1.41$ for all d>10, giving a product $V_{\rm vacuum}$ that diverges exponentially with the number of vacuum dimensions, yielding $G_N \to 0$. This confirms the formula cannot be extended naively — the two arguments excluding $V_{\rm vacuum}$ (Ricci-flat vacuum + T5 scattering states) are required and correct.
 
 **Does curvature from the occupied sectors propagate into d>10?** Yes — there is no hard wall at d=10. In any connected geometry, curvature sourced by mass propagates as vacuum curvature (Weyl tensor) into regions with no sources. The absence of particle sources in d>10 does not by itself mean the geometry there is flat.
 
@@ -426,9 +418,9 @@ $$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
 Both arguments give the same result: $V_{\rm vacuum}$ does not appear as a dilution factor. The correct structure is:
 
-$$G_N = G_\infty / V_7, \qquad V_7 \approx 113$$
+$$G_N = G_\infty / V_7, \qquad V_7 \approx 7.76$$
 
-**Status.** $V_7\approx113$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
+**Status.** $V_7\approx7.76$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
 
 ---
 
@@ -454,7 +446,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Sector length L_d = sector localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_N sector-independent; no sector correction | ✅ §3.11–3.12.1 |
-| G_N = G_∞/V_7; V_7 ≈ 113 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
+| G_N = G_∞/V_7; V_7 ≈ 7.76 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
 
 ---
 
@@ -508,52 +500,44 @@ The proof proceeds in two parts: first establishing that all physical modes are 
 
 ### Part I — L²(Ξ) Normalisability of Physical Modes
 
-**Lemma (Weyl essential spectrum).** For the sector Schrödinger operator H_d = −Δ_{Ξ_d} + V_d(r) with sector potential V_d(r) = λ_d r²/(1+r²):
+**Lemma (harmonic spectrum is purely discrete).** For the sector Schrödinger operator H_d^harm = −Δ_{ℝ^d} + λ_d r²:
 
 ```
-σ_ess(H_d) = [λ_d, ∞)
+σ_ess(H_d^harm) = ∅
 ```
 
-**Proof.** The perturbation V_d(r) − λ_d = −λ_d/(1+r²) satisfies:
+The spectrum is purely discrete: σ(H_d^harm) = {(2N + d)√λ_d : N = 0, 1, 2, …} with finite multiplicity C(N+d−1, d−1) at each level N.
+
+**Proof.** The potential λ_d r² → ∞ as r → ∞. By Rellich's criterion, the resolvent (H_d^harm − z)^{−1} is compact for all z ∉ σ(H_d^harm), which implies σ_ess = ∅. The eigenvalues follow from separation into radial and angular parts: the radial equation reduces to the d-dimensional isotropic harmonic oscillator, whose eigenvalues are (2n_r + l + d/2)·2√λ_d with n_r = 0,1,… and l = 0,1,…; the principal level N = 2n_r + l has cumulative degeneracy C(N+d−1,d−1), giving infinitely many discrete eigenvalues. □
+
+**Theorem (sector mode Gaussian decay).** Every eigenfunction χ_{n,d} of H_d^harm satisfies:
 
 ```
-∫_{Ξ_d} |V_d(r) − λ_d|^p dμ_ξ ~ ∫_0^∞ r^{d-1}/(1+r²)^p dr < ∞   iff   2p > d
+|χ_{n,d}(r)| ≤ P_n(r) × exp(−√λ_d r²/2)
 ```
 
-For any d, choosing p = d/2 + 1 satisfies 2p > d. Therefore V_d − λ_d ∈ L^p(Ξ_d) for p > d/2, which implies it is relatively compact with respect to −Δ. By Weyl's essential spectrum theorem, σ_ess(H_d) = σ_ess(−Δ + λ_d) = [λ_d, ∞). □
+where P_n is a polynomial of degree n−1 (the generalised Laguerre × angular-harmonic factor).
 
-**Lemma (Bound states exist).** H_d has at least one discrete eigenvalue below λ_d, and in fact infinitely many.
+**Proof.** Eigenfunctions of the d-dimensional harmonic oscillator are products of generalised Laguerre polynomials and solid harmonics times the Gaussian exp(−√λ_d r²/2). Since P_n is a polynomial, it grows at most as a power, and the Gaussian dominates for all r. □
 
-**Proof.** Since V_d(r) < λ_d for all finite r, we have H_d < λ_d (as a quadratic form), so inf σ(H_d) < λ_d. Near the origin, V_d(r) ≈ λ_d r², which is an isotropic harmonic oscillator in d dimensions — known to have infinitely many eigenvalues. All lie below λ_d = inf σ_ess(H_d). □
-
-**Theorem (sector mode exponential decay).** Let H_d χ = E χ with E ∈ σ_disc(H_d) ⊂ [0, λ_d). Then:
+**Corollary (L² normalisability).** Every eigenfunction χ_{n,d} is square-integrable on ℝ^d:
 
 ```
-|χ(r)| ≤ C exp(−κ r)    with   κ = √(λ_d − E) > 0
+‖χ_{n,d}‖²_{ℝ^d} = ∫_{ℝ^d} |χ_{n,d}(ξ)|² dξ
+                  ≤ C_n ∫_0^∞ r^{d−1+2(n−1)} e^{−√λ_d r²} dr < ∞
 ```
 
-for sufficiently large r.
+for all d ≥ 1 and all n ≥ 1. Compactness of Ξ_d is not required — confinement follows from the harmonic potential growing without bound. □
 
-**Proof.** Eigenvalues in the discrete spectrum of the sector Schrödinger operator decay exponentially via the sector decay metric ds²_A = max(V_d(x) − E, 0)|dx|². At large r, V_d(r) − E ≈ λ_d − E > 0, so the sector decay distance from the origin satisfies ρ_E(r) ≈ √(λ_d − E) × r. The sector decay theorem gives exp((1−ε)ρ_E) χ ∈ L²(Ξ_d) for any ε > 0, which requires |χ| decaying at least as exp(−κr) for any κ < √(λ_d − E). □
+Numerical verification (d=3, n=1, l=0): χ_0 ∝ exp(−√λ_3 r²/2); ∫_0^∞ r² e^{−2√λ_3 r²/2} dr = ∫_0^∞ r² e^{−√4.82 r²} dr = (√π/4)(√4.82)^{-3/2} < ∞. ✓
 
-**Corollary (L² normalisability).** Every bound-state eigenfunction χ_{n,d} is square-integrable on Ξ_d:
-
-```
-‖χ_{n,d}‖²_{Ξ_d} = ∫_{Ξ_d} |χ_{n,d}(ξ)|² dμ_ξ ≤ C² ∫_0^∞ e^{−2κr} r^{d−1} dr
-                  = C² × (d−1)! / (2κ)^d < ∞
-```
-
-for all d ≥ 1, all κ > 0, and all macroscopic localization lengths L_d. Compactness of Ξ_d is not required. □
-
-Numerical verification (d=3, κ=1/√2): ∫_0^∞ e^{−2κr} r² dr = 2/(2κ)³ = √2/2 = 0.7071
-
-**Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 dimensional visibility (Ω_log < ln 2) if and only if χ ∈ L²(Ξ_d).
+**Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 dimensional visibility (Ω_log < ln 2) if and only if χ is a normalised eigenfunction of H_d^harm (i.e. χ ∈ L²(ℝ^d)).
 
 **Proof.**
 
-*(→) Scattering states fail Stage-1.* For E ≥ λ_d = inf σ_ess(H_d), the eigenfunction χ_E oscillates at large r: χ_E(r) ~ r^{−(d−1)/2} sin(kr + δ) with k = √(E − λ_d) ≥ 0. The squared amplitude decays only as r^{−(d−1)}, so ∫|χ_E|² dμ_ξ diverges for macroscopic Ξ_d. The dimensional visibility A_rel = |χ_E(ξ⁰)|² / ∫|χ_E|² dμ_ξ → 0, giving Ω_log → ∞. Stage-1 condition Ω_log < ln 2 fails.
+*(→) Non-eigenfunction modes fail Stage-1.* Any mode that is not a discrete eigenfunction of H_d^harm either oscillates (plane-wave-like in the sector directions) or grows. For any non-normalizable state, ∫|χ|² dξ diverges, so A_rel = |χ(ξ⁰)|² / ∫|χ|² dξ → 0, giving Ω_log → ∞. Stage-1 condition Ω_log < ln 2 fails.
 
-*(←) Bound states pass Stage-1.* For E < λ_d, |χ(r)| ≤ C exp(−κr). Then |χ(ξ⁰)|² > 0 (χ is continuous and non-zero at ξ⁰ by standard ODE theory for bound states), and ‖χ‖²_{Ξ_d} < ∞. Therefore A_rel > 0 and Ω_log is finite. Whether Ω_log < ln 2 depends on λ_d — Stage-2 further selects among bound states. But all Stage-1-passing modes are among the L² bound states. □
+*(←) Harmonic eigenstates pass Stage-1.* Every χ_{n,d} ∈ L²(ℝ^d) by the corollary above. The Gaussian envelope ensures |χ_{n,d}(ξ⁰)|² > 0 (the ground state is non-zero at the origin; excited states are non-zero on a dense set). Therefore A_rel > 0 and Ω_log is finite. Stage-2 further selects among eigenstates; all Stage-1-passing modes are among the L² harmonic eigenstates. □
 
 ---
 

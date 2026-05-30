@@ -321,7 +321,7 @@ m_ββ (0νββ) = 0                              (no C on S⁵ bundle → no ψ
 m_H/m_e = √(g₂₂/g₆₆) × S(95,2) = 53.76 × 4560 = 245,140  (exact integer-determined ratio)
 ```
 In IDWT, m_H is a confinement mass from the sector spectrum, not a Higgs VEV.
-Radiative corrections cannot shift integer mode indices n. The hierarchy is fixed.
+Radiative corrections cannot shift integer mode indices n (Mode Index Stability Theorem, Part 8 §3a). The hierarchy is fixed by combinatorics, not cancellations.
 Unit references: IDWT = **1** (m_e, to set the MeV scale) vs SM = 19 free parameters.
 
 **Higgs vacuum stability**
@@ -352,6 +352,30 @@ Im[Γ₃₄₆(ω)] peak = 775.8 MeV   (PDG ρ(770)/ω(782) isospin average: 779
 ```
 
 This is a cross-check of the inter-sector coupling geometry, not a mode-index prediction for the ρ or ω. The peak lands near the lightest vector meson mass because those composites form at the energy scale set by the inter-sector coupling structure.
+
+**Pseudoscalar meson masses — GOR formula with IDWT chiral condensate. 🔵** Pseudoscalar mesons are composites with no (n,d) assignment. Their masses follow the GOR relation $m^2 = (m_{q_1}+m_{q_2}) \times B_0$ where the chiral condensate parameter is fully determined (Part 2 §8a):
+
+$$B_0 = \frac{N_c}{2} \cdot \frac{f_\pi^2}{m_{\rm scale,3}} = \Lambda_{\rm QCD} \cdot \frac{S(n_s,3)}{2} = 2821\ \text{MeV}$$
+
+| Meson | Predicted | PDG | Error |
+|-------|-----------|-----|-------|
+| π± | 139.3 MeV | 139.6 | −0.2% |
+| K± | 521.0 | 493.7 | +5.5% |
+| D± | 1903.6 | 1869.7 | +1.8% |
+| D⁰ | 1901.7 | 1864.8 | +2.0% |
+| D_s | 1968.7 | 1968.4 | 0.0% |
+
+**Heavy-meson and bottomonium masses — beat-binding formula. 🔵** For $m_{\rm quark} \gg \Lambda_{\rm QCD}$ the binding energy is $\sqrt{m_{\rm heavy} \times \Lambda_{\rm QCD}}$ (Part 2 §8a). For B mesons and bottomonium the k₀=n_s²=16 triple-coincidence that fixes m_b also determines the binding:
+
+$$E_{\rm bind}(b) = \sqrt{m_b \times \Lambda_{\rm QCD}} = 1086\ \text{MeV}$$
+
+| Meson | Predicted | PDG | Error |
+|-------|-----------|-----|-------|
+| B± | 5269.3 MeV | 5279.3 | −0.19% |
+| B⁰ | 5271.9 | 5279.7 | −0.15% |
+| B_s | 5361.2 | 5366.9 | −0.11% |
+| Υ(1S) | 9448.3 | 9460.3 | −0.13% |
+| J/ψ | 3160.3 | 3096.9 | +2.0% |
 
 ## 4. PMNS Mixing
 
@@ -496,7 +520,7 @@ These predictions have specific numerical values from mode indices and sector ge
 
 These follow from the IDWT framework geometry and differ qualitatively from Standard Model assumptions. They are not numerical point predictions but predict the absence of certain phenomena or physical mechanisms.
 
-**C1 — No hierarchy problem.** The ratio m_H/m_e = √(g₂₂/g₆₆) × S(95,2) = 245,140 is determined by integer mode indices n_H = 95 and n_e = 13. Radiative corrections cannot shift integer mode indices; the Higgs mass is technically natural with no fine-tuning. Mass is an eigenfrequency of a self-adjoint operator, not a parameter sensitive to a UV cutoff. If supersymmetric partners, WIMPs, or other hierarchy-solving particles are discovered, they are absent from the IDWT closed spectrum (F3, F6) — their existence would simultaneously require reopening the spectrum and explaining why the Uniqueness Theorem is wrong.
+**C1 — No hierarchy problem. ✅** The ratio m_H/m_e = √(g₂₂/g₆₆) × S(95,2) = 245,140 is determined by integer mode indices n_H = 95 and n_e = 13. The Mode Index Stability Theorem (Part 8 §3a) proves that radiative corrections cannot shift integer mode indices: $n$ is the rank of an eigenvalue in a purely discrete spectrum, a topological invariant preserved under any bounded perturbation. The Higgs mass is technically natural without supersymmetry — not because corrections cancel, but because the integer $S(95,2) = 4560$ cannot receive a fractional additive renormalization. The hierarchy problem does not arise; it presupposes that mass is an action coefficient, which it is not in IDWT. If supersymmetric partners, WIMPs, or other hierarchy-solving particles are discovered, they are absent from the IDWT closed spectrum (F3, F6) — their existence would simultaneously require reopening the spectrum and explaining why the Uniqueness Theorem is wrong.
 
 **C2 — Higgs is a confinement mode, not a condensate.** In IDWT the Higgs is mode n=95 of the d=2 sector potential V₂(r) = λ₂r²/(1+r²). There is no quartic scalar self-coupling, no Higgs VEV, no spontaneous symmetry breaking, and no vacuum metastability from RG running of λ_H. If vacuum instability is established at high confidence — the electroweak vacuum confirmed metastable with a cosmologically short lifetime — this contradicts the IDWT Higgs interpretation, since there is no λ_H to run negative.
 

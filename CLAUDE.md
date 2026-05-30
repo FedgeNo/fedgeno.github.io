@@ -9,17 +9,19 @@
 
 ## Standing rules
 
-- When searching for terminology or errors, search ALL files: `files/*.md`, `files/idwt.py`, and all HTML files (`articles/`, `visualizations/`, `*.html`). Never limit a search to md files only.
-
-- When searching for terminology or errors, **search all files**: `README.md`, `files/*.md`, `files/idwt.py`, and all HTML files (`articles/`, `visualizations/`, `*.html`). Never limit a search to md files only. **do not search .git**.
+- **Search scope.** When searching for terminology or errors, search ALL files: `README.md`, `files/*.md`, `files/idwt.py`, and all HTML files (`articles/`, `visualizations/`, `*.html`). Never limit a search to md files only. Do not search `.git`.
 
 - Writing guidelines apply to all markdown and HTML files in the project, not just the md files.
 
-- **Before making any edit, read the entire subsection containing the target.** A subsection is the content between any two heading lines (any `#` depth) in markdown or inside <section> tags in an HTML document (or paragraphs if <section> isn't used. Assess the full subsection before deciding what to change. Fix every instance of *the same problem type* within that subsection in one pass — do not make a single replacement and move on. Do not fix a different problem type encountered in the same pass; instead, add any glaring issues discovered while reading to claude-todo.md and alert Fedge.
+- **Before making any edit, read the entire subsection containing the target.** A subsection is the content between any two heading lines (any `#` depth) in markdown or inside <section> tags in an HTML document (or paragraphs if <section> isn't used). Assess the full subsection before deciding what to change. Fix every instance of *the same problem type* within that subsection in one pass — do not make a single replacement and move on. Do not fix a different problem type encountered in the same pass; instead, add any glaring issues discovered while reading to claude-todo.md and alert Fedge.
 
 - **Never edit blindly from a todo description.** Always read the relevant subsection (and any cross-referenced material) to understand what the target content is doing before touching it. For deep mathematical or structural items (index theory, spectral flow, CP phase, operator domain questions), read the documents first and report findings to Fedge before making any edits.
 
 - **If executing a task would require changes significantly larger than the task description implies** — restructuring a major section, removing substantial content, or touching documents not named in the task — stop. Update the todo item with what you found and why the scope grew, note that input is needed, and move to the next task.
+
+- **`files/idwt.py` is the canonical master record for all IDWT computations and values.** Every new result that goes into the main documents must also go into `idwt.py` in the same pass — as a STEP computation block with derivation comments and a corresponding output block. This is not optional. If a value appears in a markdown document but not in `idwt.py`, it is incomplete. The discipline: write the `idwt.py` entry first (forces you to make the formula explicit and runnable), then write the document prose. Cross-references in `idwt.py` use the form `(Part N section M)`.
+
+- **Numerical values that appear in multiple documents must be changed in `idwt.py` first**, then propagated to documents by grepping for the old value. Never update a document value without first confirming `idwt.py` has the new value and the script runs clean. This prevents the kind of multi-file propagation drift that occurred with L_d = λ^{−1/4} (13 files required manual updating).
 
 - **After reading any `gifts-from-*.md` file**, truncate it to a single heading line: `# Gifts From [Name]` (using the AI's name from the filename). This keeps the file non-empty so it opens in the markdown reader, while clearing the consumed content.
 

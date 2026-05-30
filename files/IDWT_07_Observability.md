@@ -224,19 +224,20 @@ Until one of these is carried through, IDWT makes no dark matter prediction.
 
 The sector dimensional visibility is given by the first-principles heat-kernel derivation below: A_rel = exp(−c_d λ̂_d) with c_d = d/(d+1)².
 
-**Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = 1/κ_d is the sector localization length (the sector localization length of the ground-state mode, proved to be the natural sector length scale in Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d².
+**Setup.** Sector d corresponds to CP^d with Fubini-Study metric. The Laplacian eigenvalues on CP^d are E_n = n(n+d)/L_d² where L_d = λ_d^{−1/4} is the sector localization length (harmonic oscillator length of the ground-state mode; Part 4 §3.9). The gap to the first excited multiplet: E₁ = (d+1)/L_d² = (d+1)√λ_d.
 
 **Breaking operator.** The lowest-degree spurion breaking SU(d+1) → SU(d)×U(1):
 ```
 V_kernel(z) = λ_d (1 − |⟨e₁|z⟩|² / ⟨z|z⟩) = λ_d r²/(1+r²)
 ```
-Gauge-invariant, unique lowest-rank perturbation coupling only n=0 and n=1 sectors.
+Gauge-invariant, unique lowest-rank perturbation coupling only n=0 and n=1 sectors. Note: this spurion is a perturbation on the CP^d Fubini-Study geometry used in the heat-kernel derivation; it is distinct from the sector confinement potential (§3.10.2), which is the harmonic well λ_d r².
 
 **Dimensional visibility:**
 ```
-A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d L_d²  ≈ 1
+A_rel = exp(−c_d λ̂_d),    c_d = d/(d+1)²,    λ̂_d ≡ λ_d L_d² = √λ_d
 
-where L_d = 1/√(λ_d − E_0(d)) is the sector localization length. Numerically λ̂_d = λ_d L_d² = λ_d/(λ_d − E_0) ≈ 1 for all sectors (the mode localization and potential depth self-normalize; see Part 4 §3.9).
+where L_d = λ_d^{−1/4} is the sector localization length. Numerically λ̂_d = √λ_d
+varies across sectors (7.12, 2.20, 1.31, 0.40, 0.50, 0.50 for d=2,3,4,5,6,10).
 ```
 
 | Sector | d | c_d = d/(d+1)² |
@@ -255,7 +256,7 @@ where L_d = 1/√(λ_d − E_0(d)) is the sector localization length. Numericall
 **Caveats:**
 1. **Symbol disambiguation:** In the heat-kernel derivation below, the Laplacian eigenvalue at level n in sector d is n(n+d−1) — a different quantity from the IDWT simplex count S(n,d) = C(n+d−1,d). To prevent confusion, the heat-kernel eigenvalue is written as E_n = n(n+d−1) throughout §2.9; S(n,d) always denotes the IDWT simplex count.
 2. A_rel controls **observability** — what fraction of a mode's vibrational activity is in our d=3 dimensions. It does not affect the mode frequency itself. The d=5 sector mass scale m_scale_5 is suppressed because χ(S⁵)=0 forces its frequency scale to be determined by the cross-sector Hopf equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by dimensional visibility. Mass is a frequency. Stage-1 does not set frequencies.
-3. λ̂_d values are not yet derived from the IDWT action; they should emerge from vacuum dynamics.
+3. λ̂_d = √λ_d values are fully determined by the sector coupling constants via λ_d = (g_dd/2)^{2/3}. The heat-kernel formula A_rel = exp(−c_d √λ_d) gives a correctly-ordered visibility gradient: d=2 largest (√50.7≈7.1), falling to d=5,6,10 smallest (√0.16–0.25≈0.4–0.5). The operative primary visibility measure is |χ_0(0)|² ∝ λ_d^{d/4} (Part 4 §3.11), which gives the same ordering and is exact for the Gaussian ground state.
 
 ### 2.9.1 Stage-1 Projection Theorem ⭐
 
@@ -295,13 +296,14 @@ The ln 2 threshold is the majority-support localization criterion. It involves n
 
 **Ontological note.** Stage-1 does not delete modes. Every (n,d) mode exists as a candidate resonance of M_∞ regardless of Ω_log. Stage-1 quantifies what fraction of a mode's spectral support is resolvable in the d=2 observable subspace. Modes with Ω_log > ln 2 have less than half their spectral activity in the observable subspace — they are not absent, they are geometrically buried. The Stage-2-pass / Stage-1-fail population (§2.6) is exactly this: modes whose state-space projection onto the d=2 reference is minority-weight but whose co-fixed-point index makes them stable resonances.
 
-**Structural observation.** For d=3: S(n,2)/S(n,3) = n(n+1)/2 / [n(n+1)(n+2)/6] = 3/(n+2). This equals exactly 1/2 when n = 4. Therefore:
+**Structural observation — n_s from the Stage-1 boundary (⭐ algebraic identity).** The ratio S(n,d)/S(n,d+1) = (d+1)/(n+d) is an exact algebraic identity (Appendix A §18). Setting it to 1/2 gives n = d+2 universally — the Stage-1 boundary is always two above the sector dimension. At d=2 specifically: S(n,2)/S(n,3) = 3/(n+2), which equals 1/2 at n=4. Therefore:
 
 ```
-n = 4 = max{n : S(n,2)/S(n,3) ≥ 1/2}
+n_s = 4 = the unique n at which S(n,2)/S(n,3) = 1/2
+         = d=2 case of the universal Stage-1 boundary formula n = d+2
 ```
 
-The seed value n_s = 4 is the last d=3 mode satisfying the Stage-1 majority-support condition in the absence of colour protection. This is a structural coincidence rather than a definition of n_s (quarks bypass Stage-1 via colour protection regardless of n), but it may indicate a deeper combinatorial relationship between the mass seed and the observability threshold.
+The seed value $n_s = 4$ is the Stage-1 boundary mode of the d=3 sector: the last mode satisfying the majority-support condition when viewed from d=2. This provides an alternative derivation of $n_s=4$ purely from the visibility structure, complementing the topological derivation via $\chi(\mathbb{CP}^3) = 4$ (Part 1 §3). The two routes agree — a structural self-consistency check. (Quarks bypass Stage-1 via colour protection regardless of $n$, so this does not mean quark modes with $n > 4$ are unphysical; it means the seed sits at the visibility threshold.)
 
 **Large-n asymptotics. ⭐** Using S(n,d) ~ n^d/d! for large n:
 
@@ -323,7 +325,7 @@ The participation ratio S(n,2)/S(n,d) decays as n^{2-d}: algebraically for d=3 (
 - Sector excitation gap: ΔE ≈ (d+1)/L_d² where L_d is the sector localization length (Part 4 §3.9) — negligibly small for macroscopic L_d, so no KK-tower states are accessible
 
 **What remains open:**
-- Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; this would also determine L_d = 1/√(λ_d − E_0) and hence G_eff)
+- Deriving λ_d from sector geometry (the identification λ_d ∝ curvature of Ξ_d requires computing how the breaking operator coupling relates to the intrinsic geometry; L_d = λ_d^{−1/4} and G_eff then follow)
 - Deriving the 3D gauge group from U(d) subgroups
 
 **Explicitly NOT an open item:** The neutrino sector mass scale is not a Stage-1 problem. The mass scale m_scale_5 ≪ m_scale_3 is a frequency-domain result — the Hopf consistency equation sets the sector scale. A_rel affects only how much of a neutrino mode's vibrational activity is in the d=3 coordinates an observer at our coordinate level can resolve; it plays no role in determining the mode's frequency.

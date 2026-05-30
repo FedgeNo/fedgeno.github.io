@@ -281,7 +281,7 @@ The following table consolidates the full theorem status after the T8 completion
 | T13c | Exact mass ratios | ✅ | ≤0.048% | From integer S ratios |
 | T15 | N_c = χ(CP²) = n_u; all couplings/indices from one Euler characteristic | ✅ | Exact | Coupling filter and mass hierarchy share one root |
 | sin²θ_W | 1−(S(76,2)/S(81,2))² = 0.2237; +0.37% from PDG on-shell | ✅ | +0.37% | Within EW radiative corrections |
-| G_N | G_N = G_∞/V₇; V₇ ≈ 113 fully derived; G_∞ from spectral action scale Λ | 🔶 | — | V₇ derived; G_∞ from Λ (one open item) |
+| G_N | G_N = G_∞/V₇; V₇ ≈ 7.76 fully derived; G_∞ from spectral action scale Λ | 🔶 | — | V₇ derived; G_∞ from Λ (one open item) |
 
 **Count:**
 - ✅ Proved: 18 items

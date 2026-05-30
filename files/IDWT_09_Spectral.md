@@ -307,7 +307,7 @@ $$\frac{\partial \chi_{n_d,d}}{\partial g_{dd}} = \frac{1}{3}\!\left(\frac{g_{dd
 
 The quantity $\partial \chi / \partial \lambda_d$ is the first-order perturbation of the sector bound-state mode under a change in potential depth — a definite quantum-mechanical calculation on $V_d(r) = \lambda_d r^2/(1+r^2)$. $\mathcal{F}_\mathcal{M}$ is non-zero if and only if $\partial\chi_{d=6}/\partial\lambda_6$ and $\partial\chi_{d=10}/\partial\lambda_{10}$ are non-collinear in $L^2(\Xi)$. Non-collinearity is expected because $c_1(\mathbb{CP}^3) \neq c_1(\mathbb{CP}^5)$, which is what $\Delta c_1 = -2$ encodes geometrically — but confirming it requires evaluating the perturbation integrals.
 
-**Numerical results (STEPs 26–27).** The first-order perturbation $\partial f_{0,d}/\partial\lambda_d$ was computed for $d=6$ and $d=10$ using a tridiagonal discretisation of the 1D centrifugal equation ($N=6000$, $r_{\rm max}=6/\kappa_d$):
+**Numerical results (STEPs 26–27).** The first-order perturbation $\partial f_{0,d}/\partial\lambda_d$ was computed for $d=6$ and $d=10$ using a tridiagonal discretisation of the 1D centrifugal equation ($N=6000$, $r_{\rm max}=6/\kappa_d$ where $\kappa_d$ is a legacy grid-sizing parameter retained in `idwt.py` for this computation only; the sector localization length is $L_d = \lambda_d^{-1/4}$):
 
 $$\|\partial f_{0,6}/\partial\lambda_6\| = 0.04772, \qquad \|\partial f_{0,10}/\partial\lambda_{10}\| = 0.01508$$
 

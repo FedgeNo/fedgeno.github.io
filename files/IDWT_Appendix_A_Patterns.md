@@ -386,23 +386,57 @@ Define g(d, n) = d + n − 1, the row index of mode (n,d) in the Pascal triangle
 
 Script: `claude/forcing_search.py` Section C.
 
-### §13b. Confluence of NS under HS-inverse and additive operations
+### §13b. Confluence of the generation tower — corrected analysis (2026-05-29)
 
-**Definition.** Define two inverse operations on pairs (n,d) with (n,d) ∈ NS:
-- **HS⁻¹**: if S(k, d') = n for some k and d' ∈ D, then (k, d') is a predecessor of (n,d).
-- **Additive**: if n = a + b − c with c ∈ {0, 1, 3, 4} and (a, d_a), (b, d_b) ∈ NS, then both (a, d_a) and (b, d_b) are predecessors of (n,d).
+**Two distinct predecessor relations.** The §13b analysis was initially run with the GENERAL additive predecessor: any n = a+b−c with a,b ∈ NS, c ∈ {0,1,3,4}. This was then corrected to examine the TOWER-SPECIFIC directed predecessor: the actual named operations of the generation tower (Part 2 §6). The two give very different results.
 
-**Result.** NS is *globally confluent* under these two operations with seeds {(1,3), (4,3)}: every (n,d) ∈ NS is forward-reachable from the seeds under the inverses of these operations, and neither seed has a predecessor in NS (they are the only terminal nodes). Formally:
-- **No bad terminals**: the only (n,d) ∈ NS with no predecessors in NS are (1,3) and (4,3).
-- **Full reachability**: every (n,d) ∈ NS is reachable from the seeds via forward-generation.
+**GENERAL additive predecessor: cyclic graph, no source nodes.**
+Under any a+b−c=n (a,b ∈ NS, c ∈ {0,1,3,4}), ALL 15 NS particles have predecessors in NS. Specifically:
+- Photon (0,2): (1,3)+(3,4)−4 = 0 — predecessors: down and up.
+- Down (1,3): (0,2)+(4,3)−3 = 1 — predecessors: photon and strange.
+- Up (3,4): (0,2)+(4,3)−1 = 3 — predecessors: photon and strange.
+- Strange (4,3): (1,3)+(3,4)−0 = 4 — predecessors: down and up.
 
-This confirms that the generation tower is complete — no NS pair is an "orphan" that cannot be derived from the seeds, and no NS pair is a dead end that blocks backward reduction to seeds.
+The L-particles form a cycle: photon ↔ {down,up}; strange ↔ {down,up}. There are **no source nodes** under the general relation. The original §13b claim "seeds have no predecessors" was a verification gap: Test 5 hardcoded {(1,3),(4,3)} as seeds and skipped computing their predecessors.
 
-**Seed non-uniqueness.** The property holds for 50 of the 105 possible two-element seed subsets of NS, not just for {(1,3),(4,3)}. Every working pair includes at least one member of {(0,2), (1,3), (3,4), (4,3)} — the four lowest-n particles. This means confluence does not by itself select the IDWT seeds; the selection comes from Stage-1 (n_s = 4 forced by S(n,2)/S(n,3) = 1/2) and the universal ground-state rule (n_down = 1). Confluence is a structural property of NS, not a seed selector.
+**TOWER-SPECIFIC directed predecessor: acyclic DAG, unique seeds. ✅**
+Using only the actual operations of the generation tower (Part 2 §6), the derivation is a finite acyclic DAG (verified: `has_cycle = False`). Each particle has a unique tower-derivation predecessor:
 
-**Robustness.** Adding any non-NS pair with n ≤ 10 to NS does not break confluence with seeds {(1,3),(4,3)}: the NS pairs all remain reachable and the seeds remain the only terminals.
+| Particle | Derivation | Tower predecessors |
+|----------|------------|-------------------|
+| photon (0,2) | d=2 ground state (n=0 trivially) | none — always present |
+| down (1,3) | SEED: S(1,d)=1 for all d | none |
+| strange (4,3) | SEED: S(n_s,4)=n_muon fixed point | none |
+| up (3,4) | n_u = n_s − n_down = 3 | {strange, down} |
+| nu1 (10,5) | S(n_u,3) = 10 | {up} |
+| charm (20,4) | S(n_s,3) = 20 | {strange} |
+| electron (13,6) | n_nu1 + n_u = 13 | {nu1, up} |
+| nu2 (15,5) | S(n_u,4) = 15 | {up} |
+| muon (35,6) | n_charm + n_nu2 = 35 | {charm, nu2} |
+| nu3 (22,5) | n_nu1 + n_nu2 − n_u = 22 | {nu1, nu2, up} |
+| tau (23,10) | n_nu3 + n_down = 23 | {nu3, down} |
+| top (72,4) | S(n_e,2) − n_charm + 1 = 72 | {electron, charm} |
+| W (76,2) | g-rule: n_top + d_ν − 1 = 76 | {top} |
+| Z (81,2) | g-rule: n_W + d_ℓ − 1 = 81 | {W} |
+| Higgs (95,2) | n_u + n_charm + n_top = 95 | {up, charm, top} |
 
-Script: `claude/gifts_test.py` Tests 5 and corrected version.
+Derivation depths: seeds at 0; up/charm at 1; nu1/nu2 at 2; electron/nu3/muon at 3; tau/top at 4; W/Higgs at 5; Z at 6. All 13 derived particles (excluding photon ground state) reach {(1,3),(4,3)} in at most 6 backward steps. Verified: `all particles reduce to {down,strange}`.
+
+**Seed minimality.** Neither single seed alone generates all NS via tower operations (down alone: 1/15; strange alone: 2/15). Together, {down, strange} generate all 14 non-photon particles (14/15). The photon (n=0, d=2 ground state) is always present independently of the seeds — it does not require derivation.
+
+**Why {(1,3),(4,3)} and not some other pair.** Stage-1 selects these two specifically: n_down=1 is forced by S(1,d)=1 for all d (the universal harmonic oscillator ground state); n_s=4 is forced by S(n,2)/S(n,3)=1/2 (Stage-1 majority-support threshold, Part 7 §2.9).
+
+**Status.** The tower derivation is a finite acyclic DAG with unique source nodes {(1,3),(4,3)} (⭐, verified). The general additive predecessor graph is cyclic with no source nodes (verified, §15 dead end). Scripts: `claude/confluence_correct.py`, `claude/dag_automorphisms.py`.
+
+**Seed sector derivation (🔵, 2026-05-29).** The seeds belong to d=3 because n_s=4 is simultaneously (a) the muon fixed-point S(4,4)=35 and (b) the Stage-1 boundary between d=2 and d=3: S(4,2)/S(4,3)=1/2 exactly. No other active sector transition has its Stage-1 boundary at n=4 (boundary at d=j→d=j+1 is n=j+2; d=2→d=3 gives n=4=n_s; all other transitions give different n). Therefore d=3 is uniquely selected without SM input. The down seed n=1 is the ground state in d=3 by the same sector argument. Full sector assignments then propagate via the Hopf chain structure (d=3→4→5→6,10) and trivial automorphism group — see P8 update in Part 1. Script: `claude/dag_automorphisms.py`.
+
+**DAG automorphism group is trivial (⭐, 2026-05-29).** The tower DAG has no non-trivial automorphisms. The only degree-compatible candidate swaps are {down ↔ strange}, {nu1 ↔ nu2}, and {tau ↔ muon}; all three fail because they violate specific predecessor constraints:
+
+- down ↔ strange: blocked because charm has predecessor {strange} only; no NS particle has predecessor {down} only.
+- nu1 ↔ nu2: blocked because electron has predecessors {nu1, up}; no NS particle has predecessors {nu2, up}.
+- tau ↔ muon: blocked because muon has predecessors {nu2, charm}; tau has predecessors {down, nu3} — different composition entirely.
+
+The full backtracking search over all 15! possible permutations (with degree-pruning) confirms: **exactly one automorphism exists — the identity**. The particle labeling is uniquely determined by the DAG structure. No alternative sector/mode-index assignment preserves the derivation order. This resolves GPT's question about graph automorphisms: there is no relabeling freedom, so the coupling vector v and the rank-1 structure G_{dd'} = v_d v_{d'} are the unique coupling structure consistent with the tower DAG. The seed values (n_s=4, n_down=1) remain the fundamental inputs; the automorphism result says that given those values, the entire labeling of the spectrum is rigid.
 
 ### §14. n_Z = N_c⁴ (N_c = 3 specific)
 
@@ -413,6 +447,61 @@ n_Z = n_top + N_c² = N_c(N_c+1)(N_c+3) + N_c²
 Setting this equal to N_c⁴ requires N_c⁴ − N_c(N_c+1)(N_c+3) − N_c² = 0, which factors as N_c(N_c−3)(N_c+1)² = 0. This is satisfied only at N_c = 3 (and the unphysical N_c = 0, −1).
 
 **The form that generalises:** n_Z = n_top + N_c² = n_top + n_up². Valid for any N_c. The form n_Z = N_c⁴ is a numerical coincidence of our world's N_c = 3.
+
+### §21. Composite hadron masses — GOR formula with IDWT chiral condensate
+
+**Context (2026-05-29).** Pion, kaon, and heavier mesons are not elementary sector modes and cannot be assigned (n,d) pairs. Their masses must come from a formula using constituent quark masses. The natural candidate is the Gell-Mann–Oakes–Renner (GOR) relation:
+
+$$m_{\rm meson}^2 = (m_{q_1} + m_{q_2}) \times B_0$$
+
+where B₀ is the chiral condensate parameter. In IDWT, B₀ is fully determined (🔵):
+
+$$B_0 = \Lambda_{\rm QCD} \times \frac{S(n_s,3)}{2} = \frac{N_c}{2} \times \frac{f_\pi^2}{m_{\rm scale,3}} = 2821 \text{ MeV}$$
+
+where every factor is IDWT-derived: Λ_QCD = N_c f_π = 282.1 MeV, S(n_s,3) = 20, N_c = χ(CP²) = 3. Equivalently B₀ = Λ_QCD × n_s(n_s²−1)/6, the seed's own combinatorial factor divided into the QCD scale.
+
+**Pseudoscalar meson predictions** (m_meson = √((m_q1+m_q2)×B₀)):
+
+| Meson | Content | m_q1+m_q2 (MeV) | Predicted (MeV) | PDG (MeV) | Error |
+|-------|---------|-----------------|-----------------|-----------|-------|
+| π± | ūd | 6.88 | 139.3 | 139.6 | −0.2% |
+| K± | ūs | 96.2 | 521.0 | 493.7 | +5.5% |
+| K⁰ | d̄s | 98.7 | 527.8 | 497.6 | +6.1% |
+| D± | c̄d | 1284.4 | 1903.6 | 1869.7 | +1.8% |
+| D⁰ | c̄u | 1281.9 | 1901.7 | 1864.8 | +2.0% |
+| Ds | c̄s | 1373.7 | 1968.7 | 1968.4 | 0.0% |
+
+**Pattern:** The formula works precisely (< 3%) for cross-sector pseudoscalars (q from d=3, q̄ from d=4 or vice versa). It works at the leading-order ChPT level (5–6%) for kaons. It fails for same-sector composites (φ=s̄s: −29%, J/ψ=c̄c: −13%) and B mesons (−35%): the b quark is a beat mode, not a pure harmonic eigenmode, requiring different treatment.
+
+The Gell-Mann–Okubo relation 4m_K² − m_π² = 3m_η², applied to IDWT predictions, gives m_η = 596 MeV (PDG: 548, +9%) — consistent with leading-order SU(3) ChPT accuracy.
+
+**Baryons:** The existing proton formula N_c Λ_QCD(1+1/n_u²) = 940.4 MeV (+0.22%) works well for p and n. The GOR-baryon analogue √(3 Σm_q × B₀) gives right order of magnitude for the baryon octet but not < 1% — the proton formula captures different physics (constituent quark binding vs. chiral symmetry breaking). For Λ, Σ, Ξ, Ω: the GOR baryon formula gives 924, 913–924, 1269, 1545 MeV vs PDG 1116, 1190–1193, 1315, 1673 MeV — systematic 10–15% underestimate, suggesting an additive mass shift per strange quark.
+
+**Status:** 🔵 (formula verified across 6 pseudoscalar mesons, pattern understood). Script: `claude/composite_mass_formula.py`.
+
+**Two-formula picture and the bottom quark (2026-05-29, `claude/bottom_quark_binding.py`).** There are two distinct mass formulas depending on whether m_quark ≪ Λ_QCD (chiral regime) or m_quark ≫ Λ_QCD (heavy-quark regime). The boundary is at Λ_QCD = 282 MeV.
+
+*Chiral (light quarks):* m² = (m_q1+m_q2)×B₀ as above — u, d, s quarks.
+
+*Heavy-quark binding formula* (🔵):
+$$m_{\rm meson} = m_{q_1} + m_{q_2} + \sqrt{m_{\rm heavy} \times \Lambda_{\rm QCD}}$$
+
+| Meson | Predicted | PDG | Error |
+|-------|-----------|-----|-------|
+| B+ | 5269.3 MeV | 5279.3 | −0.19% |
+| B⁰ | 5271.9 | 5279.7 | −0.15% |
+| Bs | 5361.2 | 5366.9 | −0.11% |
+| Υ(1S) | 9448.3 | 9460.3 | −0.13% |
+| J/ψ | 3160.3 | 3096.9 | +2.0% |
+
+D mesons sit at the crossover: both formulas give ~1% accuracy.
+
+**The k₀ = n_s² connection.** The binding energy of every B meson and bottomonium is:
+$$E_{\rm bind} = \sqrt{m_b \times \Lambda_{\rm QCD}} = m_{\rm scale,3} \times \sqrt{N_c \, S(n_s,3) \times \sqrt{S(n_s^2,3)\,S(n_s^2+1,3)}}$$
+
+The beat level k₀ = n_s² = 16 (already derived in Part 2 as the three-resonance coincidence) appears here again: the same structural fact that fixes m_b also determines the binding energy of all B mesons. The binding energy is fully expressible in terms of n_s, N_c, and m_scale_3 — no external input.
+
+**Remaining open:** (a) J/ψ heavy formula is +2% — the cc̄ same-sector binding may have an additional correction; η_c vs J/ψ (113 MeV hyperfine gap) is separate physics. (b) φ(ss̄): intermediate mass, neither formula works well — the strange quark sits near the regime boundary. (c) Baryon extension: the proton formula N_c Λ_QCD(1+1/n_u²) works for p/n; Λ, Σ, Ξ, Ω show ~15% systematic underestimate suggesting an additive shift per strange quark. Script: `claude/bottom_quark_binding.py`.
 
 ---
 
@@ -557,6 +646,11 @@ Checked: solved S(n,2)/S(n,d) = 1/2 exactly for d ∈ D.
 Result: only the d=3 sector produces an integer Stage-1 boundary that coincides with a seed. The d=5 case forces n=2, an unoccupied co-fixed-point candidate. The Stage-1 boundary condition does not generalise into a sector-wise forcing rule for additional seeds.  
 Script: `claude/forcing_search.py` Section F.
 
+**Saturating confining potential as the spectrum-generating operator**  
+Conjecture: the IDWT mode functions are bound states of H_d^sat = −Δ_d + λ_d r²/(1+r²) (Part 4 §3.10), so this operator generates the simplex tower.  
+Checked: solved the correct d-dimensional radial operator (centrifugal A=(d−1)(d−3)/4 included) for d ∈ D. Deeply-bound l=0 states: d=2→3, d=3→1, d=4→0 (one marginal threshold state), d=5,6,10→0. For d=5,6,10 the absence is analytically certain (V_eff ≥ λ_d everywhere since A ≥ λ_d).  
+Result: the saturating potential does **not** host the required tower — fewest where the theory needs most, and zero in the matter sectors d=5,6,10. The mode functions are instead the harmonic (monomial) eigenfunctions; the saturating potential cannot simultaneously be the confining regulator and the spectrum generator. Full positive/negative writeup in §20. Flagged for Fedge. Script: `claude/sector_mode_functions.py`.
+
 ### §16. Mass uniqueness test for sector assignments
 
 **Question.** Do the 15 observed SM particle masses, together with the IDWT mass formula m = S(n,d) × m_scale_d and sector scales derived from m_e and the seeds, uniquely identify the (n,d) sector assignments?
@@ -617,3 +711,66 @@ The formula predicts D correctly for n_s=4. The derivation of the consecutive qu
 3. Matter quartet starts at spacetime: n_s−1 = 3 iff n_s = 4.
 
 No other value of n_s satisfies all three simultaneously. Conditions 2 and 3 are new and not yet derived from IDWT dynamics.
+
+### §20. Sector mode functions: explicit harmonic forms, and the saturating-potential binding deficit
+
+**Context (2026-05-29).** Task #1 of the foundational program: write the sector mode functions χ_{n,d} explicitly as eigenfunctions of H_d, in a form that permits normalization, d=3 projection amplitudes, and kernel matrix elements. Two operators appear in the documents and they are **not** the same:
+
+- **Harmonic** H_d^harm = −Δ_d + λ_d r² — the monomial / IDOS operator the mass formula rests on.
+- **Saturating** H_d^sat = −Δ_d + λ_d r²/(1+r²) — the confining ansatz of Part 4 §3.10, introduced to obtain a discrete spectrum with finite localization length L_d and continuum threshold λ_d.
+
+**Positive result — explicit harmonic mode functions (⭐ identity).** The eigenfunctions of H_d^harm are exact:
+$$\chi_{n_r,l,m}(r,\Omega) = N_{n_r,l}\; r^{l}\, L_{n_r}^{(l+d/2-1)}(w\,r^2)\, e^{-w\,r^2/2}\, Y_{lm}(\Omega), \qquad w=\sqrt{\lambda_d},$$
+with level N = 2n_r + l, energy E = √λ_d (4n_r + 2l + d) = √λ_d(2N + d), level degeneracy C(N+d−1, d−1), and cumulative count (IDOS) through level n−1 equal to S(n,d) = C(n+d−1, d). The full d-dimensional normalization ∫|R|²r^{d−1}dr = 1 gives the closed form
+$$N_{n_r,l}^2 = \frac{2\,w^{\,l+d/2}\,n_r!}{\Gamma(n_r+l+d/2)}.$$
+This is the explicit form requested by Task #1 for the monomial picture. The S(n,d)-dimensional "mode n" is the space of degree-(n−1) homogeneous polynomials in d+1 sector coordinates (dim Sym^{n−1}(ℝ^{d+1}) = S(n,d)). These functions are ready for use in A_rel(n,d) and kernel overlap integrals. Script: `claude/sector_mode_functions.py` (Part E).
+
+**Structural finding — the saturating potential does not host the tower.** With the **correct** d-dimensional radial reduction (u = r^{(d−1)/2}R, l=0 centrifugal coefficient A = (d−1)(d−3)/4), the saturating operator H_d^sat has the following count of l=0 bound states below threshold λ_d (deeply-bound count, box-size independent):
+
+| d | λ_d | A=(d−1)(d−3)/4 | E_0^harm = d√λ_d | deeply-bound l=0 states | overlap with harmonic ground |
+|---|------|----------------|------------------|------------------------|------------------------------|
+| 2 | 50.72 | −0.25 | 14.24 | 3 | 0.973 |
+| 3 | 4.82 | 0 | 6.59 | 1 | 0.778 |
+| 4 | 1.73 | 0.75 | 5.26 | 0 (one marginal threshold state) | 0.096 |
+| 5 | 0.164 | 2.00 | 2.02 | 0 | — |
+| 6 | 0.25 | 3.75 | 3.00 | 0 | — |
+| 10 | 0.25 | 15.75 | 5.00 | 0 | — |
+
+Three facts, in increasing severity:
+
+1. **The harmonic ground state is bound (E_0^harm < λ_d) only when λ_d > d² — i.e. only for d=2.** For every matter sector d ∈ {3,4,5,6,10} the harmonic ground-state energy d√λ_d lies *above* the saturating continuum threshold λ_d. The harmonic well λ_d r² and the saturating well λ_d r²/(1+r²) agree only near the origin; the matter-sector ground states do not fit inside the region where they agree.
+
+2. **For d = 5, 6, 10 the saturating operator has zero l=0 bound states — analytically certain, not numerical.** V_eff(r) = λ_d − λ_d/(1+r²) + A/r² ≥ λ_d everywhere whenever A ≥ λ_d, and A = 2, 3.75, 15.75 all exceed λ_d ≈ 0.16–0.25. The three sectors that host the neutrinos (d=5), electron and muon (d=6), and tau (d=10) therefore have **no localized s-wave bound state of the confining ansatz at all**.
+
+3. **The §3.10 self-consistency that fixes λ_d closes only under the harmonic assumption it then contradicts.** §3.10.3 sets ⟨r²⟩_d = d/(2√λ_d) using the *harmonic* ground state, giving λ_d = (g_dd/2)^{2/3}. Substituting the actual saturating ground state (where one exists) gives a very different ⟨r²⟩ (e.g. d=4: 336 vs harmonic 1.52), so g_dd⟨r²⟩/d does not return λ_d. The derivation is internally consistent only in the harmonic limit, which the matter sectors violate.
+
+**Reading.** The IDWT mode functions are the harmonic (monomial) functions — that picture is explicit, normalizable, and reproduces S(n,d) exactly. The saturating potential V_d = λ_d r²/(1+r²) cannot be the operator whose bound states are those modes: it supports at most a few deeply-bound states (3, 1, 0, 0, 0, 0 for d = 2,3,4,5,6,10) rather than the required infinite tower, and none in the three deepest matter sectors. This corroborates and sharpens the existing flags MC-2 (potential form is an ansatz) and the §3.13 proof correction in `claude/claude-todo.md`. The role of the confining potential — discrete-spectrum regulator vs. the actual spectrum generator — needs to be settled at the level of Part 4 §3.10/§3.13 and Part 7 §2.9. **Flagged for Fedge; main documents not edited.** Script: `claude/sector_mode_functions.py`.
+
+**Resolution (2026-05-29) — flat harmonic self-binding; remove the saturation, not the flat sectors (✅).** The ontology constraint is binding: the sectors are *macroscopic, flat, extended* spatial dimensions (a d=2 photon propagates in our 3-space; the electron has a physical d=6 orbit). They are **not** tiny compact/curled dimensions, so the deficit must not be cured by compactifying the sector. The actual culprit is narrower: the deficit is caused **entirely by the saturating denominator (1+r²)**, which Part 4 §3.10.2 never derives. The kernel self-consistency derives only the near-origin r² term; the saturation is the unjustified MC-2 ansatz.
+
+The **pure harmonic self-binding** V_d = λ_d r² in flat, extended ℝ^d cures the deficit while keeping the sectors flat:
+
+- **Confining, infinitely many bound states, every sector.** V → ∞, so the spectrum is purely discrete (σ_ess = ∅, no continuum) and the full simplex tower is bound in all of d = 2,3,4,5,6,10 — the d=5,6,10 deficit does not occur (verified). The particle is a Gaussian-localized standing wave *within* the extended flat sector, exactly as an orbital is localized inside extended 3-space.
+- **λ_d derivation becomes exact.** §3.10.3 set ⟨r²⟩_d = d/(2√λ_d) using the harmonic ground state; with the pure harmonic well this is the *actual* ground state (verified exact for d=3,4,5,6,10), so λ_d = (g_dd/2)^{2/3} closes without circularity.
+- **IDOS = S(n,d) exactly.** d-dim isotropic-HO level degeneracy C(N+d−1,d−1), cumulative S(n,d). Spectrum-generating symmetry SU(d) ⊂ SO(d+1).
+
+**T-S1 is the dynamical-symmetry repackaging, not a compact dimension.** On S^d the Dirac operator has eigenvalues ±(k+d/2) with multiplicity 2^{⌊d/2⌋}C(k+d−1,d−1); the cumulative positive count is 2^{⌊d/2⌋}S(n,d), i.e. **per spinor component exactly S(n,d), for every d ∈ D** (verified n=1…39). This S^d is the **SO(d+1) dynamical-symmetry / spectrum-generating sphere** of the flat oscillator (a representation-theory statement), **not** a physical curled sphere. Each particle (n,d) sits at shell (n−1)+d/2. T-S1 (Part 2/Part 8, currently only d=3,5) extends to all six sectors in this reading.
+
+**Even sectors.** Under flat harmonic binding the mass count is the SU(d) oscillator IDOS for *all* d, so d=4,6,10 need **no** separate CP^{d/2} Dirac computation. The complex structure ℝ^d ≅ ℂ^{d/2} furnishes CP^{d/2} as the **Kähler/chirality** structure (γ₅, χ(CP^{d/2}) = N_c at d=4, = n_s at d=6) layered on the same flat oscillator — consistent with the existing χ usage. This dissolves the earlier "carrier manifold" residue.
+
+**Mode functions** are the flat harmonic eigenfunctions (Laguerre × Gaussian, §20 Part E, with closed-form norms) — not a proxy after all; they are the genuine self-binding modes. The spinor-harmonic / S^d picture is their SO(d+1)-covariant relabeling.
+
+**Decision (2026-05-29) — L_d = λ_d^{−1/4}, the harmonic oscillator length.** L_d appears in four places: (U1) gravity V_7 = L_4 L_5 L_6 L_10⁴ → G_N = G_∞/V_7; (U2) the visibility amplitude |χ_0(0)|² ∝ L_d^{−d} (Part 4 §3.11, stated "exact for the Gaussian ground state"); (U3) the Part 7 §2.9 spurion form A_rel = exp(−c_d λ̂_d), λ̂_d = λ_d L_d²; (U4) the KK/curvature gap (d+1)/L_d² and R/4 = m(m+1)/(4L_d²). With harmonic confinement the ground state is the Gaussian exp(−√λ_d r²/2), whose localization length is the **oscillator length L_d = λ_d^{−1/4}** — not the threshold length λ_d^{−1/2} (that is an exponential-tail length the harmonic well has no continuum to produce). Three independent reasons this is the correct choice:
+
+- It makes (U2) self-consistent: |χ_0(0)|² ∝ L_d^{−d} ∝ λ_d^{d/4} is *exact* for the Gaussian only with L_d = λ_d^{−1/4}. The current §3.10.4 table (λ_d^{−1/2}-like) contradicts §3.11; C1 removes the contradiction.
+- It gives the **correct visibility ordering**: |χ_0(0)|² ∝ λ_d^{d/4} → relative activity (vs d=2) = 1, 0.46, 0.24, 0.015, 0.018, 0.004 for d = 2,3,4,5,6,10. Gauge bosons/quarks active in d=3, neutrinos/leptons/tau suppressed. (The Part 7 §2.9 form exp(−c_d λ̂_d) gives the *reverse* ordering and is the one to retire.)
+- It is the genuine length of the harmonic ground state we adopted; λ_d^{−1/2} belongs to the rejected saturating well.
+
+Recomputed values (L_d = λ_d^{−1/4}): L_2 = 0.375, L_3 = 0.675, L_4 = 0.872, L_5 = 1.571, L_6 = 1.414, L_10 = 1.414. Downstream:
+- **V_7 = 7.76** (was 113). Not a broken prediction: G_∞ is underived/free, so V_7's absolute value only rescales G_∞. The structure G_N = G_∞/V_7 (product of seven sector lengths) is unchanged. Note: comparing G_N to sector coupling constants is a category error in IDWT — they are different types of quantity; V_7 is not "why gravity is weak", it is the geometric factor connecting G_∞ to what a 3D observer measures.
+- **λ̂_d = λ_d L_d² = √λ_d** (7.12, 2.20, 1.31, 0.41, 0.50, 0.50) — no longer ≈ 1. The "self-normalization" claim in Part 7 §2.9 is dropped; the operative visibility is the §3.11 amplitude, not exp(−c_d λ̂_d).
+- **KK gap (d+1)/L_d² = (d+1)√λ_d** (21, 9, 6.6, 2.4, 3.5, 5.5 in sector units) — positive and O(few), so excited modes remain gapped; no KK tower. Fine.
+
+**Document changes implied** (staged; outward-facing HTML/headline-113 await Fedge go-ahead): Part 4 §3.10.4 table (replace E_0/κ_d/L_d/λ̂_d columns; drop threshold framing), §3.11 (keep — now consistent), §3.13 (Gaussian decay exp(−√λr²/2) not exponential exp(−κr); fifth-force conclusion unchanged, decays faster); Part 7 §2.9 (retire λ̂_d≈1 / exp(−c_dλ̂_d); operative visibility = §3.11 amplitude); Part 1 L_d table + V_7; Part 3, Part 6, paper, articles/gravity-weak.html, what-is-idwt.html, falsifiables.html (V_7 113→7.76, exp(−r/L) → exp(−r²/l²) wording); `files/idwt.py` §3.10.4 table; Part 8 §179 (recompute R/4 with new L_d).
+
+Scripts: `claude/ld_decision.py` (the U1–U4 comparison table), `claude/sector_harmonic_resolution.py`, `claude/sector_dirac_spectrum.py`, `claude/sector_mode_functions.py`. **Canonical record set; main-document propagation pending Fedge go-ahead (esp. the public HTML and the headline V_7 number).**

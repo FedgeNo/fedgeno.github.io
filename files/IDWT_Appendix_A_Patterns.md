@@ -273,73 +273,56 @@ These have been verified numerically and are stated precisely. None has been ass
 
 ### §10. New additive forms of the mode indices
 
-**Third form of n_top:**  
-n_μ + n_ν₂ + n_ν₃ = 35 + 15 + 22 = **72 = n_top**  
-The entire light lepton index set (muon plus both heavier neutrinos) sums to the top quark mode index. No S(n,d) is involved. The two documented forms are the Euler-characteristic product N_c·n_s·N_f and the triangular-number relation S(n_e,2)−n_charm+1; this is a third independent characterisation.
-
-**Higgs as top plus tau:**  
-n_top + n_τ = 72 + 23 = **95 = n_H**  
-Equivalent to the documented n_up + n_charm + n_top = 95 via n_τ = n_up + n_charm, but the two-term form is cleaner.
-
-**Muon as product of two sector-adjacent integers:**  
-(n_s + 1)(n_s + n_up) = 5 · 7 = **35 = n_μ**  
-The factor 7 = n_s + n_up is the same quantity under the square root in g₃₃ = n_s² √(n_s+n_up)/2. The muon mode index is a product of consecutive integers around the coupling geometry parameter.
-
-**Electron plus tau equals N_f squared:**  
-n_e + n_τ = 13 + 23 = 36 = **6² = N_f²**  
-The sum of the lightest and heaviest charged lepton mode indices equals the square of the flavour count N_f = χ(CP⁵) = 6.
-
-**Outer neutrino sum:**  
-n_ν₁ + n_ν₃ = 10 + 22 = **32 = 2⁵**  
-The first and third neutrino mode indices sum to a power of two. The middle neutrino (15) does not participate: 32 − 15 = 17 = p (the g₂₂ Dirac eigenstate count).
-
-**Muon as electron plus heavy neutrino:**  
-n_e + n_ν₃ = 13 + 22 = **35 = n_μ**  
-A third independent form for the muon, on top of S(n_s,4) and n_charm + n_ν₂. Derivable from the existing relations: n_e + n_ν₃ = (n_ν₁ + n_up) + (n_ν₁ + n_ν₂ − n_up) = 2·n_ν₁ + n_ν₂. Equality with n_charm + n_ν₂ then forces n_charm = 2·n_ν₁.
-
-**Charm as twice the first neutrino:**  
-n_charm = **2 · n_ν₁** = 2·10 = 20  
-Follows from S(4,3) = S(3,3) + S(4,2) (hockey-stick) plus the Pascal-row-5 symmetry S(3,3) = S(4,2) = 10 = C(5,2) = C(5,3). The charm equals twice the first neutrino because Pascal row 5 has identical middle entries.
-
-**Top–charm spacing:**  
-n_top − n_charm = 72 − 20 = **52 = n_s · n_e** = 4·13  
-The mass-index gap between the heaviest and middle-mass quark in d=4 factors as seed × electron index.
+**Cross-sector ratio identity:**  
+n_charm × N_c = n_ν₁ × N_f = 4 × n_ν₂  
+✅ Polynomial identity (holds for all n_s). All three equal n_s(n_s−1)(n_s+1)(n_s+2)/6. Proof: n_charm = C(n_s+2,3), N_c = n_s−1 → product = C(n_s+2,3)·(n_s−1) = n_s(n_s+1)(n_s+2)(n_s-1)/6. n_ν₁ = C(n_s+1,3), N_f = n_s+2 → product = same. 4·n_ν₂ = 4·C(n_s+2,4) = same. Equivalently: n_ν₁/n_ν₂ = 4/N_f and n_charm/n_ν₁ = N_f/N_c. These are simplex ratio identities following directly from the binomial formula. The ratio of the first two neutrino mode indices equals 4/(n_s+2) for any n_s; at n_s=4 this is 2/3. Verified: n_s=3: 10=10=20 ✓; n_s=4: 60=60=60 ✓; n_s=5: 140=140=140 ✓.
 
 **Charm–up spacing equals p:**  
-n_charm − n_up = 20 − 3 = **17 = p**  
-The d=4 quark spacing equals the Dirac eigenstate count of the d=3 S³ spectrum that enters g₂₂.
+n_charm − n_up = **p** (for all n_s)  
+✅ By definition: p = S(n_s,3) − n_up = n_charm − n_up. Restated as a sector-spacing identity: the quark mode-index gap within d=4 from depth-0 to depth-1 equals the Dirac eigenstate count p that enters g₂₂.
 
-**Third neutrino spacing:**  
-n_ν₃ − n_ν₂ = 22 − 15 = **7 = n_s + n_up**  
-The upper neutrino gap equals the sum of the two seed mode indices (also: the radicand under √ in g₃₃).
-
-**d=4 sector sum equals Higgs:**  
-n_up + n_charm + n_top = 3 + 20 + 72 = **95 = n_H**  
-The full d=4 mode index column sums to the Higgs mode index. Equivalent to the documented form n_H = n_up + n_charm + n_top in §5, restated as a sector-aggregate identity.
-
-**d=3 sector sum equals q:**  
-n_down + n_strange = 1 + 4 = **5 = q = χ(CP⁴)**  
-The full d=3 mode index column sums to q, the same integer that appears as n_ν₂−n_ν₁ and n_Z−n_W (§13). Brings the three q-occurrences in §13 to four.
+**Neutrino spacing identity:**  
+n_ν₃ − n_ν₂ = n_ν₁ − n_up (for all n_s)  
+✅ Follows from n_ν₃ = n_ν₁ + n_ν₂ − n_up → n_ν₃ − n_ν₂ = n_ν₁ − n_up. At n_s=4: 22−15 = 10−3 = 7.  
+❓ Additional claim: n_ν₃ − n_ν₂ = n_s + n_up = 7 at n_s=4. True numerically but fails at n_s=5 (n_ν₃−n_ν₂=16≠9). The value 7 = n_s+n_up also appears as the radicand under √ in g₃₃; whether this connection is structural is unresolved.
 
 **Second neutrino minus electron equals q minus n_up:**  
 n_ν₂ − n_e = q − n_up  
-✅ Structural consequence. Proof: n_ν₂ − n_e = S(n_up,4) − [S(n_up,3) + n_up] = [S(n_up,4)−S(n_up,3)] − n_up = S(n_up−1,4) − n_up = q − n_up, using the HS identity S(n,d)−S(n,d−1) = S(n−1,d) and the §6 definition q = S(n_up−1,4). For n_s=4: q − n_up = 5 − 3 = 2, so **n_ν₂ = n_e + 2** = 13+2=15.
+✅ Proof: n_ν₂ − n_e = [S(n_up,4)] − [S(n_up,3) + n_up] = [S(n_up,4)−S(n_up,3)] − n_up = q − n_up, using the definition q = S(n_up,4)−S(n_up,3) and the tower identity n_e = n_ν₁ + n_up. At n_s=4: q−n_up = 5−3 = 2, so n_ν₂ = n_e + 2.
+
+**d=3 sector sum equals q:**  
+n_down + n_strange = 1 + 4 = **5 = q** (for any n_s: n_down + n_s = n_s+1 = q)  
+✅ Immediate from n_down = 1 and n_strange = n_s.
+
+**d=4 sector sum equals Higgs:**  
+n_up + n_charm + n_top = **n_H** (documented, §5)
 
 **Higgs as Z plus electron plus down:**  
-n_H = n_Z + n_e + n_down = 81 + 13 + 1 = **95**  
-🔵 Numerically verified (n_s=4). Follows from the documented n_H = n_Z + n_ν₂ − n_down (§5) and n_ν₂ = n_e + 2·n_down above: substituting gives n_H = n_Z + (n_e + 2·n_down) − n_down = n_Z + n_e + n_down.
+n_H = n_Z + n_e + n_down  
+✅ Follows from n_H = n_Z + n_ν₂ − n_down (§5) and n_ν₂ = n_e + 2·n_down (from n_ν₂ − n_e = q − n_up = 2 at n_s=4, with n_down=1).
 
-**Tau as charm plus up:**  
-n_τ = n_charm + n_up = 20 + 3 = **23**  
-🔵 Numerically verified (n_s=4). The tau mode index equals the sum of the two d=4 quark mode indices at depth 1 from the seeds. Equivalently, n_τ = S(n_s,3) + (n_s−1). The coincidence holds because n_ν₃ + n_down = n_charm + n_up: using the documented relations this reduces to S(n_up,3)+S(n_up,4)+n_down = S(n_s,3)+2·n_up, which holds numerically at n_s=4 (both sides = 26).
+---
 
-**Tau as electron plus first neutrino:**  
-n_τ = n_e + n_ν₁ = 13 + 10 = **23**  
-🔵 Numerically verified (n_s=4). Corollary of n_τ = n_charm + n_up and n_charm = 2·n_ν₁ (above): n_charm + n_up = 2·n_ν₁ + n_up = (n_ν₁ + n_up) + n_ν₁ = n_e + n_ν₁. Implies four two-term difference forms: n_ν₁ = n_τ − n_e, n_e = n_τ − n_ν₁, n_charm = n_τ − n_up, n_up = n_τ − n_charm.
+The following identities hold **only at n_s=4** (verified to fail at n_s=3,5,6). They are recorded as observed coincidences without mechanism. Status: ❓
 
-**Z plus second neutrino equals the Hopf coupling product:**  
-n_Z + n_ν₂ = 81 + 15 = **96 = N_c(N_c+1)³/2**  
-🔵 Numerically verified (n_s=4). Derivation: n_Z + n_ν₂ = (n_H + n_down) = 95+1=96, using §5's Higgs formula n_H = n_Z + n_ν₂ − n_down. The value 96 = N_c(N_c+1)³/2 = g₃₃·g₄₄ = g₂₂·g₅₅ is the Hopf coupling product of T9a (§8). That the boson-sector sum n_Z + n_ν₂ equals this coupling constant is a new cross-sector connection; the equality holds at n_s=4 because both sides equal 96 for independent reasons.
+**n_μ + n_ν₂ + n_ν₃ = 72 = n_top** ❓ (fails at n_s=3: 27≠12; n_s=5: 156≠266)
+
+**n_top + n_τ = 95 = n_H** ❓ (fails at n_s=3: 19≠8; n_s=5: 318≠309)
+
+**(n_s+1)(n_s+n_up) = n_μ** ❓ (fails at n_s=5: 54≠70)
+
+**n_e + n_τ = 36 = N_f²** ❓ (fails at n_s=5: 76≠49)
+
+**n_ν₁ + n_ν₃ = 32 = 2⁵** ❓ (fails at n_s=5: 71≠64; note 32 = 2^(n_s+1) only at n_s=4)
+
+**n_charm = 2·n_ν₁** ❓ (C(n_s+2,3)/C(n_s+1,3) = (n_s+2)/(n_s-1) = 2 only at n_s=4; consequence of Pascal row n_s+1=5 having equal middle entries C(5,2)=C(5,3)=10)
+
+**n_top − n_charm = n_s·n_e = 52** ❓ (fails at n_s=5: 231≠120)
+
+**n_Z + n_ν₂ = 96 = N_c(N_c+1)³/2** ❓ (numerically true at n_s=4; fails at n_s=5: 310≠192; the value 96 is the Hopf coupling product, but the equality is n_s=4 specific)
+
+**Tau identities at n_s=4:**  
+n_τ = n_charm + n_up = n_e + n_ν₁ = 23 🔵 (both are consequences of n_charm=2·n_ν₁ which is itself ❓)
 
 ### §11. Modular structure (mod n_s)
 
@@ -356,32 +339,20 @@ Residue 2 contains only ν₁ and ν₃. The algebraic reason: n_ν₃ − n_ν�
 
 ### §12. Factor 19
 
-19 is not a mode index but appears repeatedly in the high-mass boson sector.
+19 = n_charm − 1 = n_W/n_s = n_H/(n_s+1). Numerically: n_W = 4·19 = 76, n_H = 5·19 = 95, n_τ+n_ν₂ = 38 = 2·19. No geometric interpretation has been found. The factorisation n_W = n_s·19 and n_H = (n_s+1)·19 are numerical properties of the specific values at n_s=4; they do not generalise (at n_s=5: n_W=270=2·5·27, n_H=309=3·103). The Z does not share the factor (81=3⁴). ❓ Numerological until a mechanism is identified.
 
-**Identity of 19:** 19 = n_charm − 1 = S(n_s,3) − 1 = n_τ − n_s
+### §13. W-Z mode gap equals q
 
-**Occurrences:**
-- n_W = n_s · 19 = 4 · 19 = 76
-- n_H = (n_s+1) · 19 = 5 · 19 = 95
-- n_H − n_W = 19 (W-to-Higgs gap)
-- n_τ + n_ν₂ = 23 + 15 = 38 = 2 · 19
+n_Z − n_W = q = n_s + 1  
+✅ Polynomial identity (holds for all n_s). Proof: n_W = g(d_ν, n_top) = d_ν + n_top − 1 = (n_s+1) + n_top − 1 = n_top + n_s. n_Z = g(d_ℓ, n_W) = d_ℓ + n_W − 1 = (n_s+2) + n_W − 1 = n_W + (n_s+1). So n_Z − n_W = n_s+1 = q exactly.
 
-The W and Higgs are consecutive multiples of 19 with factors n_s and n_s+1. The Z does not share this factor (81 = 3⁴). The pattern establishes a W–H relationship that bypasses Z; the Z's role is instead to carry the gap q = n_Z − n_W = 5 (see §13 below).
+The same q appears in three further contexts (all polynomial identities or definitions):
+- q = S(n_up,4) − S(n_up,3) (definition, §6)
+- n_ν₂ − n_ν₁ = q (follows from q's definition and n_ν₁ = S(n_up,3), n_ν₂ = S(n_up,4))
+- n_down + n_strange = q (= 1+n_s = n_s+1 = q, trivially)
+- n_Z − n_W = q (proved above)
 
-No geometric interpretation of 19 has been found. It lives one step below the charm mode and one step above the tau's displacement from the seed.
-
-### §13. W-Z mode gap equals the missing sector's Euler characteristic
-
-n_Z − n_W = 5 = n_s + 1 = **χ(CP⁴)**
-
-CP⁴ is the missing sector (d=8), excluded by the coupling fixed-point gap. The W-to-Z mode spacing equals the Euler characteristic of the one CP sector that does not appear in IDWT.
-
-The same 5 appears in three other contexts:
-- q = S(n_up,4) − S(n_up,3) = 5 (the hockey-stick increment entering g₂₂)
-- n_ν₂ − n_ν₁ = 15 − 10 = 5 (the neutrino mode spacing)
-- n_Z − n_W = 5 (the W-Z mode gap)
-
-All three are the same q. Whether the χ(CP⁴) identification is structural or coincidental has not been resolved.
+❓ Additional observation at n_s=4: q = 5 = χ(CP⁴), the Euler characteristic of the missing sector d=8. Whether the W-Z spacing equalling the missing sector's Euler characteristic is structural or coincidental at n_s=4 is unresolved.
 
 ### §13a. The Vandermonde g-rule transition graph on the mode set
 
@@ -600,20 +571,9 @@ Script: `claude/forcing_search.py` Section F.
 
 ### §17. Prime-factor count of mass eigenvalues Ω(S(n,d)) vs sector dimension d
 
-**Conjecture (Meta, 2026-05-29).** For the four "pure" stable pairs — those whose mode index is a direct simplex image of a seed without additive correction — the prime-factor count Ω(S(n,d)) equals the sector dimension d exactly.
+**Observed (Meta, 2026-05-29; evaluated 2026-05-29).** For four of the stable pairs, the total prime-factor count with multiplicity Ω(S(n,d)) equals d: strange (4,3), charm (20,4), electron (13,6), tau (23,10). The other 11 particles have Ω(S(n,d)) ≠ d.
 
-**Verified** (script: `claude/gifts_test.py`):
-
-| Particle | (n,d) | S(n,d) | Factorisation | Ω | d | Δ=Ω-d |
-|----------|-------|--------|---------------|---|---|--------|
-| strange | (4,3) | 20 | 2²×5 | 3 | 3 | **0** |
-| charm | (20,4) | 8855 | 5×7×11×23 | 4 | 4 | **0** |
-| electron | (13,6) | 18564 | 2²×3×7×13×17 | 6 | 6 | **0** |
-| tau | (23,10) | 64512240 | 2⁴×3×5×7×11×17×19 | 10 | 10 | **0** |
-
-The remaining 11 particles have Δ ≠ 0. The Δ values track the additive offsets used in the generation tower (e.g. Δ = −2 for up, Δ = +3 for top, Δ = +5 for Higgs). The four Ω=d particles are exactly those built as S(seed, d) with no additive mixing.
-
-**Correlation, not derivation.** Whether Ω(S(n,d)) = d for the pure states is a combinatorial identity or a coincidence at n_s=4 has not been determined. The pattern has not been proved for general n_s. It is recorded here as a numerically verified correlation. Status: 🔵
+**Assessment: likely numerological.** Ω(m) is an arithmetic function with no connection to the IDWT eigenmode equations, coupling structure, or sector geometry. A search over all (n,d) with d ∈ D and n ≤ 200 finds many pairs satisfying Ω(C(N,d))=d; the physical particles are not distinguished within that set. The "carries" framing from Kummer's theorem is a computation device — it involves adding integers in prime-number bases, which has no physical meaning. Meta's interpretation that the Ω=d particles are "pure simplex images of seeds" is also incorrect: the electron (n_e = n_ν₁ + n_up = 13) has an additive step. No mechanism connecting Ω to d has been identified. Recorded as a null-context numerical coincidence. Status: ❓
 
 ### §18. Adjacent-sector Stage-1 ratio and the universal boundary formula
 

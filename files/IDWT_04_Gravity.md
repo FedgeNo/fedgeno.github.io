@@ -357,13 +357,13 @@ The $a_2$ term, proportional to the Ricci scalar $R_\Xi$ of the sector manifold,
 
 **The key: O_Ξ is independent of g_μν.**
 
-O_Ξ = −D_Ξ² + V_d(ξ) acts on functions of ξ only. It depends on the sector metric h_ab(ξ) and the sector potential V_d, but has no dependence on the spacetime metric g_μν(x). This is enforced by the product metric structure of M_∞ = M₄ × Ξ:
+O_Ξ = −D_Ξ² + V_d(ξ) acts on functions of ξ only. It depends on the sector metric h_ab(ξ) and the sector potential V_d, but has no dependence on the spacetime metric g_μν(x). This follows from the effective product structure in the d=3 observer's description of M_∞, where cross-terms between spacetime and sector coordinates are negligible:
 
 ```
-ds²_{M_∞} = g_μν(x) dx^μ dx^ν + h_ab(ξ) dξ^a dξ^b
+ds²_{M_∞} ≈ g_μν(x) dx^μ dx^ν + h_ab(ξ) dξ^a dξ^b
 ```
 
-There are no off-diagonal terms g_{μa}. The two metrics are entirely decoupled by construction. Therefore:
+In the full metric $G_{AB}dX^AdX^B$ on M_∞, off-diagonal terms $G_{\mu a}$ would in principle couple the spacetime and sector blocks. Their absence in the observer's effective description is what makes O_Ξ independent of g_μν — and therefore what ensures G_N receives no sector correction. Therefore:
 
 ```
 δ(Tr_Ξ log O_Ξ) / δg_μν = 0   [exactly]

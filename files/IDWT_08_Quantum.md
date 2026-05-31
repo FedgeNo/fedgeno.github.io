@@ -1062,7 +1062,7 @@ I_H = m_e α²/2 = Ry = 13.606 eV    [ground-state ionisation energy]
 
 ```
 C₆(H-H) = (3/4) × (9/2)² × a₀⁶ × (m_e α²/2)
-         = (243/16) × a₀⁶ × m_e α²
+         = (243/32) × a₀⁶ × m_e α²
          ≈ 4.54 eV·Å⁶  = 7.594 a.u.   (London leading-order estimate)
 ```
 

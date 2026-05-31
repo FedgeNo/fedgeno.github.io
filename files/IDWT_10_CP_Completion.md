@@ -261,7 +261,7 @@ The following table consolidates the full theorem status after the T8 completion
 | Theorem | Content | Status | Accuracy | Physical consequence |
 |---|---|---|---|---|
 | T0 | Spectral triple; physical spectrum | ✅ | Exact | All SM masses from one operator |
-| T0.5 | Two-stage observability filter | ✅ | Exact | Selects 15 from infinite spectrum |
+| T0.5 | Two-stage observability filter | 🔶 | Exact outcomes | Selects 15 from infinite spectrum; decoherence mechanism not yet derived from EOM |
 | T1 | m = S(n,d)·m_scale = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
 | T2 | (ξ·ξ')² = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
 | T3 | D = {2,3,4,5,6,10} from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |

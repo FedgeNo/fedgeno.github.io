@@ -38,7 +38,7 @@ No SM inputs are used except $m_e = 0.51099895$ MeV as the single unit of mass.
 
 $$\mathcal{A} = C^\infty(M_\infty)\otimes\bigoplus_{d\in D}\mathcal{M}_{n_d}(\mathbb{C}), \qquad \mathcal{H} = L^2(M_\infty,\,\mathcal{S}_\infty), \qquad D = -i\gamma^\mu\partial_\mu + \sum_{d\in D} D_d.$$
 
-Here $M_\infty = \mathbb{R}^{3,1}\times\prod_{d\in D}\Xi_d$; $\mathcal{A}$ is the smooth $C^*$-algebra of observables acting on $\mathcal{H}$ by left multiplication; $D_d$ is the Dirac-Harmonic operator in sector $d$ with potential $V_d(r) = \lambda_d r^2/(1+r^2)$; and $\mathcal{S}_\infty$ is the master spinor bundle on $M_\infty$.
+Here $M_\infty = \mathbb{R}^{3,1}\times\prod_{d\in D}\Xi_d$ is the effective product decomposition in the d=3 observer's frame (the full metric on $M_\infty$ is $G_{AB}dX^AdX^B$ without assumed block structure; the product form is used throughout this section as the working approximation); $\mathcal{A}$ is the smooth $C^*$-algebra of observables acting on $\mathcal{H}$ by left multiplication; $D_d$ is the Dirac-Harmonic operator in sector $d$ with potential $V_d(r) = \lambda_d r^2/(1+r^2)$; and $\mathcal{S}_\infty$ is the master spinor bundle on $M_\infty$.
 
 **Theorem T0 (Physical spectrum).** The physical masses are the eigenvalues of the projected operator $P_{\xi^0}\,D\,P_{\xi^0}$, where $P_{\xi^0}$ is the projection onto the subspace consistent with both observability filters (T0.5). The filtered spectrum is
 
@@ -216,7 +216,7 @@ $$\boxed{\sin^2\theta_{12} = \frac{1-g_{55}}{3} + g_{55}\,\frac{S(n_{\nu_1},5)}{
 
 $$\boxed{\sin^2\theta_{13} = g_{55}\,\delta_{23}\,\ln\frac{S(n_\tau,10)}{S(n_\mu,6)},} \qquad \delta_{23}=\sin^2\theta_{23}-\tfrac{1}{2}$$
 
-| Angle | Prediction | PDG NuFit 2022 | Error |
+| Angle | Prediction | PDG 2024 | Error |
 |---|---|---|---|
 | $\sin^2\theta_{23}$ | $0.55897$ | $0.553$ | $+1.07\%$ |
 | $\sin^2\theta_{12}$ | $0.30856$ | $0.307$ | $+0.51\%$ |
@@ -679,7 +679,7 @@ The combinatorial toolkit is similarly anchored by three exact identities (T13b,
 
 The heat kernel interpolates between the two anchors: $K_d(t)\sim a_0^{(d)}\,t^{-1/d}$ in the UV ($t\to 0^+$), and $K_d(t)\sim e^{-t}(1+e^{-dt}+\cdots)$ in the IR ($t\to\infty$), with Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ confirming spectral dimension $= d$. All of this follows from $S(n,d)=\binom{n+d-1}{d}$ alone, with no free parameters — the same formula that gives every particle mass.
 
-**UV softening of hidden sectors. ⭐** Since $S(n,d)\sim n^d/d!$, the zeta series $\zeta_d(s)\sim (d!)^s\zeta(ds)$ converges for $s>1/d$. As sector dimension $d$ increases, the convergence threshold $1/d$ decreases — higher-dimensional sectors have spectral sums that converge over a strictly larger range of $s$. This is the opposite of ordinary QFT, where higher-dimensional theories are more UV-divergent. In IDWT the hidden sectors ($d=5,6,10$) are spectrally softer than the observable sectors ($d=2,3,4$): their mode towers suppress themselves automatically through rapid simplex growth, requiring no explicit decoupling mechanism.
+**UV softening of hidden sectors. ⭐** Since $S(n,d)\sim n^d/d!$, the zeta series $\zeta_d(s)\sim (d!)^s\zeta(ds)$ converges for $s>1/d$. As sector dimension $d$ increases, the convergence threshold $1/d$ decreases — higher-dimensional sectors have spectral sums that converge over a strictly larger range of $s$. This is the opposite of ordinary QFT, where higher-dimensional theories are more UV-divergent. In IDWT the higher-dimensional sectors ($d=5,6,10$) are spectrally softer than the lower-dimensional sectors ($d=2,3,4$): their mode towers suppress themselves automatically through rapid simplex growth, requiring no explicit decoupling mechanism.
 
 **Cross-reference.** T0 (spectral triple) identifies the mathematical object; T1 (Hilbert series) gives the spectrum; T13–T14 show that spectrum is analytically controlled and geometrically consistent. The chain is complete: one operator, one spectral formula, full analytic infrastructure.
 

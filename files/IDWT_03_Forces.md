@@ -10,16 +10,22 @@ Everything in IDWT — gravity, the mass spectrum, coupling constants, mixing an
 
 ### 0.1 Field Content
 
-The single fundamental field is Ψ∞(x,ξ), a Dirac spinor on M_∞. The manifold carries the product metric:
+The single fundamental field is Ψ∞(x,ξ), a Dirac spinor on M_∞. The manifold carries the metric:
 
 ```
-ds²_{M_∞} = g_μν(x) dx^μ dx^ν  +  h_ab(ξ) dξ^a dξ^b
+ds²_{M_∞} = G_{AB}(X) dX^A dX^B
 ```
 
-g_μν(x) is the dynamical spacetime metric (3 spatial + 1 time). h_ab(ξ) is the fixed background metric on the sector space Ξ = ⊕_{d∈D} Ξ_d, D = {2,3,4,5,6,10}. The Dirac matrices on M_∞ decompose as:
+where X^A = (x^μ, ξ^a) runs over all coordinates of M_∞ without privileged blocks. From the perspective of a d=3 observer, the cross-terms between spacetime coordinates x^μ and sector coordinates ξ^a are negligible, reducing this to the effective product form:
 
 ```
-{Γ^M, Γ^N} = 2 G^{MN},    G^{MN} = diag(g^{μν}, h^{ab})
+ds²_{M_∞} ≈ g_μν(x) dx^μ dx^ν  +  h_ab(ξ) dξ^a dξ^b
+```
+
+In this observer's effective description, g_μν(x) is the dynamical spacetime metric (3 spatial + 1 time) and h_ab(ξ) is the fixed background metric on the sector space Ξ = ⊕_{d∈D} Ξ_d, D = {2,3,4,5,6,10}. The equations below use this effective form. The Dirac matrices on M_∞ decompose as:
+
+```
+{Γ^M, Γ^N} = 2 G^{MN},    G^{MN} ≈ diag(g^{μν}, h^{ab})   [effective product approximation]
 Γ^μ = e^μ_a(x) γ^a        [spacetime, via vierbein (3+1 tetrad)]
 Γ^a = sector matrices on Ξ  [from Clifford algebra Cl(d) per sector]
 ```
@@ -179,6 +185,8 @@ Each force couples to a particle through the sector coordinates the particle occ
 | Gravity | all | 10 | Curvature of M_∞; no sector boundary |
 
 **Coordinate containment.** A particle couples to a force only when the particle's sector contains the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on d=2.
+
+**Why coordinate containment guarantees coverage — transverse picture.** A lower-d particle's wavefunction is automatically spread across all of a higher-d particle's extra directions. The photon (d=2) illustrates this directly: its wavefunction spans the two transverse directions and need not be aimed at a target in those directions — anything sharing that plane is covered automatically. The same structure repeats at every level of the sector nesting. A d=3 quark's wavefunction is transverse to the one extra direction of a d=4 particle: it covers that full direction without aiming. A d=2 photon interacting with a d=10 tau is transverse to eight of the tau's dimensions simultaneously — no alignment is required or even possible in any of them. This is the geometric reason coordinate containment produces automatic coupling rather than conditional coupling: the lower-d particle does not need to find the higher-d particle in its hidden dimensions because it is already everywhere in those dimensions. The coupling strength is set by the sector geometry as usual; the transversality explains why the coupling fires at all. The same reasoning accounts for the quantum mechanical statement that the electron can be found anywhere in the universe: the electron is a d=6 object, and a d=3 observer detects it only at the intersection of its 6D orbit with our three observable coordinates. The 6D orbit sweeps through our 3D slice freely — no confinement in the d=3 directions — so those intersections fall anywhere across observable space. The apparent delocalization is not uncertainty; it is what a 6D orbit looks like when projected onto a 3D subspace it has no reason to be localized within.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 

@@ -48,7 +48,7 @@ S(0, 2) = C(1, 2) = 0   →   m_photon = 0   (exact, derived)
 ```
 m_W:      80,379 MeV   (PDG: 80,377,   +0.003%)
 m_Z:      91,230 MeV   (PDG: 91,188,   +0.047%)
-m_Higgs: 125,266 MeV   (PDG: 125,250,  +0.013%)
+m_Higgs: 125,266 MeV   (PDG: 125,200,  +0.053%)
 sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
 ρ parameter:       1   (exact, derived)
 ```
@@ -109,7 +109,7 @@ These are exact from the mode indices alone. As a cross-check in oscillation-exp
              = 131,202,380 / 4,191,798,016 = 0.03130
 ```
 
-PDG (normal hierarchy): 7.42×10⁻⁵/2.510×10⁻³ = 0.02956 ± 0.001. The ~5.9% gap reflects the ~4% shortfall in m_ν₃ discussed in Part 2 §9c.
+PDG (normal hierarchy): 7.42×10⁻⁵/2.510×10⁻³ = 0.02956 ± 0.001. The code block above uses the bare (uncorrected) mode values; with δ_ν₃ = 1/35 applied (Part 2 §9d), the corrected ratio is 0.02953 — matching PDG to −0.11%. The ~5.9% gap belongs to the bare m_ν₃ only.
 
 
 **f_π and Λ_QCD from the IDWT geometric dilution function**
@@ -197,7 +197,7 @@ Using m_e = 0.511 MeV as the sole unit reference:
 |----------|-----------|-----------|-------|------|
 | e | 0.5110 | 0.5110 | 0.000% | unit reference |
 | μ | 105.657 | 105.658 | −0.001% | — |
-| τ | 1776.84 | 1776.86 | −0.14σ† | — |
+| τ | 1776.84 | 1776.93 | −1.0σ† | — |
 | d | 4.702 | 4.670 | +0.68% | sector-uniform offset |
 | s | 94.04 | 93.40 | +0.68% | sector-uniform offset |
 | u | 2.177 | 2.160 | +0.77% | sector-uniform offset |
@@ -207,9 +207,9 @@ Using m_e = 0.511 MeV as the sole unit reference:
 | b | 4,181 | 4,180 | +0.02% | — |
 | W | 80,379 | 80,377 | +0.003% | — |
 | Z | 91,230 | 91,188 | +0.047% | — |
-| H | 125,266 | 125,250 | +0.013% | — |
+| H | 125,266 | 125,200 | +0.053% | — |
 
-† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (−0.14σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seed n_s (with n_u = n_s−1 derived).
+† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (PDG 2024: 1776.93 ± 0.09 MeV; −1.0σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seed n_s (with n_u = n_s−1 derived).
 
 
 
@@ -390,18 +390,18 @@ These are identical regardless of which charged-lepton sector ($d=6$ or $d=10$) 
 | Angle | μ–τ limit (tree) | PDG best fit | Deviation |
 |---|---|---|---|
 | $\sin^2\theta_{12}$ | $1/3 = 0.3333$ | $0.307$ | $-0.026$ |
-| $\sin^2\theta_{23}$ | $1/2 = 0.5000$ | $0.561$ | $+0.061$ |
+| $\sin^2\theta_{23}$ | $1/2 = 0.5000$ | $0.553$ | $+0.053$ |
 | $\sin^2\theta_{13}$ | $0$ | $0.0220$ | $+0.022$ |
 
 **Spectral geometry formulas for all three PMNS angles.** The rank-1 coupling matrix $W[\alpha,i] \propto \sqrt{S(n_\alpha,d_\alpha)}\sqrt{S(n_{\nu_i},5)}$ gives the PMNS as a weighted average of the μ–τ symmetric limit (weight $1-g_{55}$) and simplex-ratio structure (weight $g_{55}$), where $g_{55}=96/g_{22}=0.1329$:
 
-$$\sin^2\theta_{23} = \frac{1-g_{55}}{2} + g_{55}\frac{S(n_\tau,10)}{S(n_\mu,6)+S(n_\tau,10)} = 0.5590 \quad (\text{PDG: }0.561, -0.36\%)$$
+$$\sin^2\theta_{23} = \frac{1-g_{55}}{2} + g_{55}\frac{S(n_\tau,10)}{S(n_\mu,6)+S(n_\tau,10)} = 0.5590 \quad (\text{PDG 2024: }0.553, +1.07\%)$$
 
 $$\sin^2\theta_{12} = \frac{1-g_{55}}{3} + g_{55}\frac{S(n_{\nu_1},5)}{S(n_{\nu_1},5)+S(n_{\nu_2},5)} = 0.3086 \quad (\text{PDG: }0.307, +0.51\%)$$
 
 $$\sin^2\theta_{13} = g_{55}\,\delta_{23}\,\ln\frac{S(n_\tau,10)}{S(n_\mu,6)} = 0.02211 \quad (\text{PDG: }0.022, +0.51\%)$$
 
-where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles from $g_{55}$ and four mode indices — no loop integrals, no free parameters.
+where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles are determined by $g_{55}$ and four mode indices; the derivation introduces no loop integrals and no additional parameters beyond those fixed by the mass sector.
 
 **Physical interpretation.** The d=5 self-coupling $g_{55}=0.1329$ sets how much the neutrino mass hierarchy displaces the PMNS from the μ–τ symmetric limit toward simplex-ratio dominance. $\theta_{13}$ is the second-order correction: the product of the atmospheric deviation $\delta_{23}$ and the $\mu$–$\tau$ log mass ratio, weighted by $g_{55}$.
 
@@ -439,7 +439,7 @@ $$\sin^2\theta_{23} : \sin^2\theta_{12} : \sin^2\theta_{13} \;=\; 1 : \tfrac{1}{
 
 | Pairing | $|\Delta n|$ | Interpretation | Predicted order | PDG |
 |---|---|---|---|---|
-| $\tau\leftrightarrow\nu_3$ | $1 = n_d$ | Nearest-neighbor | largest | $\sin^2\theta_{23}=0.561$ |
+| $\tau\leftrightarrow\nu_3$ | $1 = n_d$ | Nearest-neighbor | largest | $\sin^2\theta_{23}=0.553$ |
 | $e\leftrightarrow\nu_1$ | $3 = n_u$ | 3rd-neighbor | second | $\sin^2\theta_{12}=0.307$ |
 | $\tau\leftrightarrow\nu_1$ | $13 = n_e$ | 13th-neighbor | smallest | $\sin^2\theta_{13}=0.022$ |
 
@@ -504,7 +504,7 @@ These predictions have specific numerical values from mode indices and sector ge
 | **F10** | Sum of neutrino masses | Σm_ν = 60.39 meV (corrected; δ_ν₃=1/35, Part 2 §9d) | Cross-sector Hopf fixed point; no oscillation data used | Measured < 40 meV or > 80 meV |
 | **F11** | Neutrino mass ratio m_ν₂/m_ν₁ | 5.808 (exact) | S(15,5)/S(10,5) = 11628/2002 | Ratio measured outside 5.5–6.1 |
 | **F12** | Neutrino mass ratio m_ν₃/m_ν₁ | 32.86 (exact) | S(22,5)/S(10,5) = 65780/2002 | Ratio measured outside 30–36 |
-| **F13** | Atmospheric mixing angle sin²θ₂₃ | 0.5590 (PDG 0.561, −0.36%) | PMNS spectral geometry (§4) | Outside 0.554–0.564 at > 3σ |
+| **F13** | Atmospheric mixing angle sin²θ₂₃ | 0.5590 (PDG 2024: 0.553, +1.07%) | PMNS spectral geometry (§4) | Outside 0.554–0.564 at > 3σ |
 | **F14** | Solar mixing angle sin²θ₁₂ | 0.3086 (PDG 0.307, +0.51%) | PMNS spectral geometry (§4) | Outside 0.302–0.315 at > 3σ |
 | **F15** | Reactor mixing angle sin²θ₁₃ | 0.02211 (PDG 0.022, +0.51%) | PMNS spectral geometry (§4) | Outside 0.020–0.025 at > 3σ |
 | **F16** | Cabibbo angle sin θ_C | 0.22454 (PDG +0.09σ) | sin²θ_C = 1/S(n_s,3) + CP¹ sector curvature correction | Outside 0.2237–0.2254 at > 3σ |
@@ -547,7 +547,7 @@ These predictions are within reach of running or funded experiments within the n
 | 0νββ signal absent at leading order | m_ββ = 0 at leading order | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | now–2035; reaching ~2–5 meV sensitivity |
 | Σm_ν = 60.39 meV | 60.39 meV | CMB-S4 (target ~30 meV) | Below Planck bound (< 120 meV) | 2030s; within 2× of detection |
 | Normal ordering (definitive) | m_ν₁ < m_ν₂ < m_ν₃ | JUNO, DUNE, Hyper-Kamiokande | 3–4σ preference | now–2030 |
-| sin²θ₂₃ = 0.5590 | 0.5590 ± 0.001 | T2K, NOvA, DUNE | PDG: 0.561, −0.36% | Running now |
+| sin²θ₂₃ = 0.5590 | 0.5590 ± 0.001 | T2K, NOvA, DUNE | PDG 2024: 0.553, +1.07% | Running now |
 | No new stable particles | closed spectrum | HL-LHC, FCC | LHC Run 3 consistent | now–2040 |
 | m_β ≈ 8.77 meV | 8.77 meV | Project 8 | KATRIN: < 0.45 eV | 2030s; targeting ~40 meV |
 | No fourth generation | none at any mass | FCC-ee (Z pole) | Z width consistent | 2040s |

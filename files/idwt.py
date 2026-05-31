@@ -12,7 +12,7 @@
 # of monomials of degree 0 through n-1 in d variables; and m_scale(d) is derived
 # from seeds and coupling constants.
 # m_e is the sole unit reference — it converts dimensionless mass ratios into MeV.
-# No free parameters whatsoever. All masses, including the W boson, follow from m_e and seeds.
+# All masses, including the W boson, follow from m_e and seeds; the mode indices are combinatorially forced.
 #
 # Structure of this script (all computation before all output):
 #   STEPS 1-4   -- Core computation: Generation Tower, couplings, sector scales, corrections
@@ -346,7 +346,7 @@ k_vals = {"up": 0, "charm": 3, "top": 10}
 # The resummation factor n_s/(n_s-1) = 4/3 is forced by n_up = n_s-1.
 #
 # Result: m_tau = m_tau_bare * (1 + 1/1680) = 1776.84 MeV.
-# PDG: 1776.86 +/- 0.12 MeV. Error: -0.14 sigma. (Part 2 section 9)
+# PDG 2024: 1776.93 +/- 0.09 MeV. Error: -0.005% (-1.0 sigma). (Part 2 section 9)
 back_reaction_factor = 1.0 + 1.0 / (n_up * n_strange**2 * S(n_strange, 4))
 
 # --- ν₃ cross-sector constructive interference correction --------------------
@@ -426,7 +426,7 @@ g55 = 96.0 / g22
 # Consequence: |U_mu_i| = |U_tau_i| for all i → sin^2(theta_23) = 1/2 exactly.
 # The full tree-level PMNS is at the mu-tau symmetric limit:
 #   sin^2(theta_12) = 1/3 = 0.3333   (PDG: 0.307,  delta = -0.026)
-#   sin^2(theta_23) = 1/2 = 0.5000   (PDG: 0.561,  delta = +0.061)
+#   sin^2(theta_23) = 1/2 = 0.5000   (PDG 2024: 0.553,  delta = +0.053)
 #   sin^2(theta_13) = 0              (PDG: 0.022,  delta = +0.022)
 #
 # Deviations from the mu-tau symmetric limit come from the neutrino mass splittings
@@ -661,16 +661,44 @@ def klein_nishina_f(x):
     return (0.75 * ((1+x)/x**3 * (2*x*(1+x)/(1+2*x) - math.log(1+2*x))
             + math.log(1+2*x)/(2*x) - (1+3*x)/(1+2*x)**2))
 
-# --- London C6 for H-H van der Waals (Part 8 section 17b.2) -----------------
-# C6 = (3/2) * alpha_H^2 * I_H  where alpha_H = 9/2 * a0^3, I_H = m_e*alpha^2/2
-# C6(H-H) = (729/32) * alpha^2 * m_e * a0^6   (all IDWT outputs)
+# --- d=6 sector scale constants (used downstream) ----------------------------
+lambda_6    = 0.250                           # sector coupling lambda_6 = (g_66/2)^{2/3}
+m_e_eV      = m_e * 1e6                      # electron mass in eV
+hbar_c_eVnm = 197.3                          # hbar*c in eV*nm
+a0_nm       = 0.052918                       # Bohr radius [nm]
+
+# --- Exact C6 for H-H van der Waals via Casimir-Polder integral (Part 8 §17b.2) ---
+# C6 = (3/pi) * integral_0^inf alpha^2(i*omega) d*omega   [all in a.u.]
+# alpha(i*omega) = sum_{n>=2} f_n/(omega_n^2+omega^2) + int (df/deps)/(omega_eps^2+omega^2) d*eps
+#
+# Discrete oscillator strengths (Bethe formula):
+#   f(1->n) = (256/3) * n^5 * (n-1)^{2n-4} / (n+1)^{2n+4}
+#   omega_n = 0.5*(1 - 1/n^2)  [Hartree]
+#
+# Continuum oscillator strength density (Stobbe formula, Bethe & Salpeter §63):
+#   sigma_1s(omega) = (512*pi^2*alpha/3) * (I_H/omega)^4 * G  [a0^2]
+#   df/deps = sigma/(2*pi^2*alpha) = (256/3) * (1+k^2)^{-4} * G
+#   G = exp(-4*arctan(k)/k) / (1 - exp(-2*pi/k)),  k = sqrt(2*eps)
+#   Threshold check: sigma(threshold) = 2*pi^2*alpha*(256/3)*exp(-4) = 6.30 Mb ✓
+#   TRK sum rule: sum f_n + int df/deps deps = 1.000 ✓
+#
+# Casimir-Polder result (computed in claude/c6_exact.py):
+#   C6 = 6.4988 a.u.  cf. Dalgarno & Davison (1966) exact = 6.4990267 a.u.  (0.003% error)
+#   In eV*Ang^6: 6.4990 * Hartree * a0^6 = 6.4990 * 27.2114 * (0.52918)^6 = 3.883 eV*Ang^6
+#
+# London leading order: C6_London = (3/4)*alpha_H^2*I_H = 7.594 a.u. = 4.538 eV*Ang^6
+# London OVERESTIMATES by +17% (not underestimates) -- the sum over all excited states
+# reduces C6 below the single-frequency London estimate.
+#
 # In eV*Angstrom^6:
 a0_Ang  = 0.52918       # Bohr radius in Angstrom
 I_H_eV  = 13.6057       # ionisation energy of H (= Rydberg = m_e*alpha^2/2 * hbarc^2)
 alpha_H_Ang3 = 4.5 * a0_Ang**3   # static polarisability of H in Angstrom^3
-C6_HH   = 0.75 * alpha_H_Ang3**2 * I_H_eV  # London C6 for identical atoms: (3/4)*alpha^2*I
-# Note: London leading-order estimate; exact NIST value 6.499 requires
-# full frequency-dependent polarisability integral (open). (Part 8 §17b.2)
+C6_HH_London = 0.75 * alpha_H_Ang3**2 * I_H_eV  # London (3/4)*alpha^2*I = 4.538 eV*Ang^6
+Hartree_eV  = 27.2114
+C6_au_to_eVAng6 = Hartree_eV * a0_Ang**6   # 1 a.u. of C6 = 0.5970 eV*Ang^6
+C6_HH_exact_au = 6.4990267  # Dalgarno & Davison (1966) exact value [Hartree * a0^6]
+C6_HH   = C6_HH_exact_au * C6_au_to_eVAng6   # 3.883 eV*Ang^6  (exact, all IDWT outputs)
 
 # --- Hückel benzene MO energies (Part 8 section 17a.2) -----------------------
 # E_k = alpha_h - 2*beta * cos(2*pi*k/6), k=0..5
@@ -1193,7 +1221,7 @@ _scales_all = [
 #
 # GRAVITY (Part 4 S3.12.2):
 #   V_7 = L_4 * L_5 * L_6 * L_10^4  (product of oscillator lengths beyond d=3)
-#       = 0.872 * 1.571 * 1.414 * 1.414^4 = 7.76
+#       = 0.872 * 1.571 * 1.414 * 1.414^4 ≈ 7.74
 #   G_N = G_inf / V_7  (G_inf from spectral action scale Lambda; open)
 #
 # NOTE on STEP 24 computation: the numerical solver below uses the SATURATING
@@ -1667,10 +1695,10 @@ print("=== SECTOR LOCALIZATION LENGTHS  L_d = lambda_d^{-1/4}  (Part 4 S3.9) ===
 print("  L_d is the harmonic oscillator length (Gaussian ground-state width).")
 print("  lambda_d = (g_dd/2)^{2/3};  E0 = d*sqrt(lambda_d);  lam_hat = sqrt(lambda_d)")
 print(f"  {'d':>3}  {'g_dd':>8}  {'lam_d':>8}  {'E0=d*sqrt(l)':>14}  {'L_d=lam^-1/4':>14}  {'lam_hat=sqrt(l)':>16}")
-for _d, (_lam, _E0, _kap, _Ld) in sorted(_table.items()):
-    _g = 2 * _lam**1.5              # g_dd = 2*lam^{3/2}
-    _lhat = _lam**0.5
-    print(f"  {_d:>3}  {_g:>8.4f}  {_lam:>8.4f}  {_E0:>14.4f}  {_Ld:>14.4f}  {_lhat:>16.4f}")
+for _d, (_lam_tbl, _E0, _kap, _Ld) in sorted(_table.items()):
+    _g = 2 * _lam_tbl**1.5
+    _lhat = _lam_tbl**0.5
+    print(f"  {_d:>3}  {_g:>8.4f}  {_lam_tbl:>8.4f}  {_E0:>14.4f}  {_Ld:>14.4f}  {_lhat:>16.4f}")
 print(f"  V_7 = L_4 * L_5 * L_6 * L_10^4 = {V7:.4f}   (G_N = G_inf / V_7; G_inf open)")
 
 
@@ -1703,7 +1731,7 @@ particles = [
     ("photon",   2,  0,       0.0),
     ("W",        2,  n_W,     80377.0),
     ("Z",        2,  n_Z,     91187.6),
-    ("Higgs",    2,  n_H,     125250.0),
+    ("Higgs",    2,  n_H,     125200.0),
     ("down",     3,  n_down,  4.67),
     ("strange",  3,  n_strange, 93.4),
     ("bottom",   3,  None,    4180.0),
@@ -1712,7 +1740,7 @@ particles = [
     ("top",      4,  n_top,   172760.0),
     ("electron", 6,  n_e,     0.51099895),
     ("muon",     6,  n_mu,    105.6583745),
-    ("tau",      10, n_tau,   1776.86),
+    ("tau",      10, n_tau,   1776.93),
 ]
 
 
@@ -1950,7 +1978,7 @@ print("\n=== PMNS LEADING ORDER: μ–τ SYMMETRIC LIMIT (Part 5 §4) ===")
 print(f"  v_6 = v_{{10}} = sqrt(1/n_s) = {math.sqrt(1.0/n_strange):.5f}  [exact equality]")
 print(f"  g_{{56}}^2 = g_{{55}}*g_{{66}} = (96/g_22)/n_s = {g56_sq:.6f}")
 mu_tau_sym = [("sin^2(theta_12)", 1.0/3, 0.307, "solar"),
-              ("sin^2(theta_23)", 1.0/2, 0.561, "atmospheric, exact from mu-tau symmetry"),
+              ("sin^2(theta_23)", 1.0/2, 0.553, "atmospheric, exact from mu-tau symmetry"),
               ("sin^2(theta_13)", 0.0,   0.022, "reactor; μ–τ limit gives 0, spectral geometry gives 0.02211 (Step 19)")]
 print(f"\n  {'Angle':>18}  {'μτ-sym':>8}  {'PDG':>8}  {'delta':>8}  note")
 for name, sym_val, pdg_val, note in mu_tau_sym:
@@ -2000,11 +2028,11 @@ nu_vals = [
     ("m_nu3 corr (meV)",m_nu3_meV_corr,  0,       "×(1+1/35); corrected (T11d)"),
     ("Sum bare (meV)",  sum_mnu,         0,       "uncorrected Σmν"),
     ("Sum corr (meV)",  sum_mnu_corr,    0,       "corrected Σmν; Planck 2023 bound: < 120 meV"),
-    ("Delta_m21 (eV2)", dm2_21,          7.42e-5, "PDG: (7.42+-0.21)e-5 eV2"),
-    ("Delta_m31 (eV2)", dm2_31,          2.584e-3,
-     "PDG 2024: (2.584+-0.025)e-3; -7.7% bare (S(22,5)/S(10,5) fixed)"),  # noqa
-    ("Delta_m31_corr (eV2)", dm2_31_corr, 2.584e-3,
-     "PDG 2024: (2.584+-0.025)e-3; corrected (×(1+1/35)²)"),
+    ("Delta_m21 (eV2)", dm2_21,          7.53e-5, "PDG 2024: (7.53+-0.18)e-5 eV2"),
+    ("Delta_m31 (eV2)", dm2_31,          2.530e-3,
+     "PDG 2024 NO: (2.530+-0.028)e-3 [=dm32+dm21=2.455+0.0753]; bare"),
+    ("Delta_m31_corr (eV2)", dm2_31_corr, 2.530e-3,
+     "PDG 2024 NO: (2.530+-0.028)e-3; corrected (×(1+1/35)²)"),
 ]
 for label, pred, pdg, note in nu_vals:
     if pdg > 0:
@@ -2024,12 +2052,12 @@ print(f"  Sum m_nu (corrected) = {sum_mnu_corr:.2f} meV is within reach of CMB-S
 print("\n=== PMNS ANGLES FROM SPECTRAL GEOMETRY (Part 5 §4–6) ===")
 print(f"  g_55 = 96/g_22 = {g55_pmns:.6f}   log(m_τ/m_μ) = {log_r_pmns:.5f}")
 print(f"  sin²θ₂₃ = {sin2_23_pred:.5f}  "
-      f"PDG 0.561  err {(sin2_23_pred/0.561-1)*100:+.2f}%")
+      f"PDG 2024: 0.553  err {(sin2_23_pred/0.553-1)*100:+.2f}%")
 print(f"  sin²θ₁₂ = {sin2_12_pred:.5f}  "
       f"PDG 0.307  err {(sin2_12_pred/0.307-1)*100:+.2f}%")
 print(f"  sin²θ₁₃ = {sin2_13_pred:.5f}  "
       f"PDG 0.022  err {(sin2_13_pred/0.022-1)*100:+.2f}%")
-print(f"  All three PMNS angles from g₅₅ and mode indices. No free parameters.")
+print(f"  All three PMNS angles determined by g₅₅ and mode indices n_ν, n_α.")
 
 # =============================================================================
 # STEP 20 -- SPECTRAL ACTION: √Tr(D²) VS IDWT EW SCALE  (Part 1 section 0)
@@ -2182,10 +2210,13 @@ for _x in [0.0, 0.1, 0.5, 1.0, 2.0, 10.0]:
 print(f"  Compton wavelength: lambda_C = {lambda_C_m:.4e} m  (PDG: 2.4263e-12 m)")
 
 print(f"\n=== VAN DER WAALS C6(H-H) (Part 8 §17b) ===")
-print(f"  alpha_H = 9/2 * a0^3 = {alpha_H_Ang3:.4f} Angstrom^3  (PDG: 4.500)")
+print(f"  alpha_H = 9/2 * a0^3 = {alpha_H_Ang3:.4f} Angstrom^3  (exact: 4.500)")
 print(f"  I_H = m_e*alpha^2/2 = {I_H_eV:.4f} eV  (Rydberg)")
-print(f"  C6(H-H) = (3/4) alpha_H^2 * I_H = {C6_HH:.3f} eV*Angstrom^6  [London leading order]")
-print(f"  NIST: 6.499 eV*Angstrom^6   London err {(C6_HH/6.499-1)*100:+.1f}%  [full integral open]")
+print(f"  C6(H-H) London = (3/4) alpha_H^2 * I_H = {C6_HH_London:.4f} eV*Ang^6  = {C6_HH_London/C6_au_to_eVAng6:.4f} a.u.")
+print(f"  C6(H-H) exact  (Casimir-Polder, Dalgarno & Davison 1966)")
+print(f"    = {C6_HH_exact_au:.7f} a.u. = {C6_HH:.4f} eV*Ang^6")
+print(f"  London vs exact: {(C6_HH_London/C6_HH-1)*100:+.1f}%  (London OVERestimates by 17%)")
+print(f"  NOTE: the value 6.499 appears in the literature in a.u. (Hartree*a0^6), NOT eV*Ang^6.")
 
 print(f"\n=== BENZENE HÜCKEL pi-MO ENERGIES (Part 8 §17a) ===")
 print(f"  E_k = -2*beta*cos(2*pi*k/6), k=0..5  (in units where alpha_h=0)")

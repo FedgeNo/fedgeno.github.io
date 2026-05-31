@@ -23,8 +23,8 @@ The particles that survive the two-stage filter. Each carries a mode index n and
 | 13 | electron | 6 | 18564 | unit reference |
 | 15 | ν₂ | 5 | 11628 | |
 | 20 | charm quark | 4 | 8855 | = S(4,3) index, d=4 sector |
-| 22 | ν₃ | 5 | 26334 | |
-| 23 | tau lepton | 10 | 1144066 | |
+| 22 | ν₃ | 5 | 65780 | |
+| 23 | tau lepton | 10 | 64512240 | |
 | 35 | muon | 6 | 3838380 | |
 | 72 | top quark | 4 | 1215450 | |
 | 76 | W boson | 2 | 2926 | |
@@ -70,7 +70,7 @@ No Vandermonde combination of any fermion (n,d) pair produces a d=2 mode index b
 
 **Why d=7, 8, 9 are absent.** The coupling fixed-point equation for g₈₈ has no solution (d=8 gap). The terminal sector is set by Gegenbauer criticality: b_{k₀}(d) = ½ exactly at d = 2(N_c+2) = 10 (Theorem T5, Part 1 §4b). The sequence is consecutive from d=2 through d=6, then jumps to d=10.
 
-**Jump from d=6 to d=10:**  d=10 − d=6 = 4 = n_s. The final sector is n_s steps above the penultimate sector in dimension.
+**Jump from d=6 to d=10:**  d=10 − d=6 = 4 = n_s. The final active sector is 4 steps above d=6 in dimension, spanning the inactive d=7,8,9 coordinates (which are absent not for lack of dimension but for lack of a valid coupling fixed point or Gegenbauer-critical endpoint at those values of d).
 
 **Sum of occupied dimensions:** 2+3+4+5+6+10 = 30 = (n_s+1) × N_f = 5 × 6. (Not assigned structural meaning yet; noted for reference.)
 
@@ -767,10 +767,10 @@ The **pure harmonic self-binding** V_d = λ_d r² in flat, extended ℝ^d cures 
 - It is the genuine length of the harmonic ground state we adopted; λ_d^{−1/2} belongs to the rejected saturating well.
 
 Recomputed values (L_d = λ_d^{−1/4}): L_2 = 0.375, L_3 = 0.675, L_4 = 0.872, L_5 = 1.571, L_6 = 1.414, L_10 = 1.414. Downstream:
-- **V_7 = 7.76** (was 113). Not a broken prediction: G_∞ is underived/free, so V_7's absolute value only rescales G_∞. The structure G_N = G_∞/V_7 (product of seven sector lengths) is unchanged. Note: comparing G_N to sector coupling constants is a category error in IDWT — they are different types of quantity; V_7 is not "why gravity is weak", it is the geometric factor connecting G_∞ to what a 3D observer measures.
+- **V_7 = 7.74** (was 113). Not a broken prediction: G_∞ is underived/free, so V_7's absolute value only rescales G_∞. The structure G_N = G_∞/V_7 (product of seven sector lengths) is unchanged. Note: comparing G_N to sector coupling constants is a category error in IDWT — they are different types of quantity; V_7 is not "why gravity is weak", it is the geometric factor connecting G_∞ to what a 3D observer measures.
 - **λ̂_d = λ_d L_d² = √λ_d** (7.12, 2.20, 1.31, 0.41, 0.50, 0.50) — no longer ≈ 1. The "self-normalization" claim in Part 7 §2.9 is dropped; the operative visibility is the §3.11 amplitude, not exp(−c_d λ̂_d).
 - **KK gap (d+1)/L_d² = (d+1)√λ_d** (21, 9, 6.6, 2.4, 3.5, 5.5 in sector units) — positive and O(few), so excited modes remain gapped; no KK tower. Fine.
 
-**Document changes implied** (staged; outward-facing HTML/headline-113 await Fedge go-ahead): Part 4 §3.10.4 table (replace E_0/κ_d/L_d/λ̂_d columns; drop threshold framing), §3.11 (keep — now consistent), §3.13 (Gaussian decay exp(−√λr²/2) not exponential exp(−κr); fifth-force conclusion unchanged, decays faster); Part 7 §2.9 (retire λ̂_d≈1 / exp(−c_dλ̂_d); operative visibility = §3.11 amplitude); Part 1 L_d table + V_7; Part 3, Part 6, paper, articles/gravity-weak.html, what-is-idwt.html, falsifiables.html (V_7 113→7.76, exp(−r/L) → exp(−r²/l²) wording); `files/idwt.py` §3.10.4 table; Part 8 §179 (recompute R/4 with new L_d).
+**Document changes implied** (staged; outward-facing HTML/headline-113 await Fedge go-ahead): Part 4 §3.10.4 table (replace E_0/κ_d/L_d/λ̂_d columns; drop threshold framing), §3.11 (keep — now consistent), §3.13 (Gaussian decay exp(−√λr²/2) not exponential exp(−κr); fifth-force conclusion unchanged, decays faster); Part 7 §2.9 (retire λ̂_d≈1 / exp(−c_dλ̂_d); operative visibility = §3.11 amplitude); Part 1 L_d table + V_7; Part 3, Part 6, paper, articles/gravity-weak.html, what-is-idwt.html, falsifiables.html (V_7 113→7.74, exp(−r/L) → exp(−r²/l²) wording); `files/idwt.py` §3.10.4 table; Part 8 §179 (recompute R/4 with new L_d).
 
 Scripts: `claude/ld_decision.py` (the U1–U4 comparison table), `claude/sector_harmonic_resolution.py`, `claude/sector_dirac_spectrum.py`, `claude/sector_mode_functions.py`. **Canonical record set; main-document propagation pending Fedge go-ahead (esp. the public HTML and the headline V_7 number).**

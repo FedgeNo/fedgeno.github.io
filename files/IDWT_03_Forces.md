@@ -112,9 +112,9 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 | Weinberg angle | sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))² | 0.2237 |
 | GTC correction | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
-| Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 7.76 (all six sector manifold geometries; G_fund one input) | — |
+| Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 7.74 (all six sector manifold geometries; G_fund one input) | — |
 | **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
-| **EW scale √Tr(D²)** | **spectral action RMS** | **248.3 GeV** |
+| **EW scale √Tr(D²)** | **RMS of 15-particle mass spectrum** | **248.3 GeV** |
 | **Fermi constant** | **G_F = g₂²/(4√2 m_W²)** | **1.1658×10⁻⁵ GeV⁻²** |
 
 
@@ -169,7 +169,7 @@ The +3% is the EW running from the d=2 sector scale (≈m_W) to m_Z.
 
 ### 0.8 Force Coupling as Spatial Geometry
 
-Each force couples to a particle through the sector coordinates the particle occupies. A particle couples to a force only if its wavefunction has support in that force's sector — the coupling geometry lives in that sector, and the particle is either in that space or it isn't.
+Each force couples to a particle through the sector coordinates the particle occupies. A particle couples to a force only if the particle's sector contains that force's sector — the coupling geometry lives in that sector, and the particle either occupies that space or it doesn't.
 
 | Force | Sector | Dimensions | Coupling structure |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Each force couples to a particle through the sector coordinates the particle occ
 | Strong | d=3, d=4 | 3–4 | SU(3) contact coupling via CP² isometry |
 | Gravity | all | 10 | Curvature of M_∞; no sector boundary |
 
-**Coordinate containment.** A particle couples to a force only when it has wavefunction support in the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on d=2.
+**Coordinate containment.** A particle couples to a force only when the particle's sector contains the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on d=2.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
@@ -188,7 +188,7 @@ T_μν^{eff}(x) = ∫_Ξ T_μν^{Dirac}(x,ξ) dμ_ξ
 
 The gravitational field is genuinely 10D — it is not a 3D field with extra-dimensional corrections. A d=3 observer is a subspace of M_∞ and experiences the field only within their d=3 coordinate subspace, giving G_N = G_fund / V_7 rather than G_fund (Part 4 §3.12.2).
 
-**Spatial extent and coupling strength.** The coupling forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 7.76 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
+**Spatial extent and coupling strength.** The coupling forces (EM, weak, strong) are confined to 2 or 4 spatial dimensions and act at full strength within those sectors. Gravity distributes over all 10 spatial dimensions. The factor V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 7.74 — the product of the localization lengths of the seven additional spatial dimensions introduced by the sector nesting Ξ_3 ⊂ Ξ_4 ⊂ Ξ_5 ⊂ Ξ_6 ⊂ Ξ_{10} — is precisely how much larger the gravitational field's spatial footprint is compared to what a d=3 observer can directly probe. This is the geometric origin of gravity's weakness relative to the other forces.
 
 **Coupling filter — the particle side.** The coordinate containment principle above describes the force side: which sector a force's coupling geometry occupies determines which particles it can reach. The complementary particle-side principle is the coupling filter: the particle's own sector geometry determines the structure of whatever coupling it has. Coordinate containment is necessary but not sufficient. A particle whose coordinates are nested inside a force's sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero — as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4, because the S⁵ Hopf fibration averages over the CP² colour representation and selects only the singlet. More broadly: the photon's U(1) geometry constitutes the orientation filter of EM coupling; χ(CP²) = 3 constitutes colour with N_c = 3 handles; the S⁵ Clifford algebra constitutes the prohibition of all Majorana/LNV interactions; the CP³ index cancellation constitutes total colour silence for leptons; the d=10 Gegenbauer-critical coupling structure constitutes the tau's fractal marginal coupling to all decay channels. In each case, the sector geometry is not producing a quantum number that then determines coupling — the geometry is the coupling structure. See Part 1 §3d and §3g for the full derivation of each sector's coupling filter.
 
@@ -252,7 +252,7 @@ The table below consolidates, for each sector $d \in D$, the geometric, coupling
 
 **Column notes.** $\chi$ is the Euler characteristic of the compact local $\mathbb{CP}^k$ model; for odd-sphere sectors ($d=3,5$) the sphere has $\chi(S^d)=0$ and structural counting roles are carried by the CP sector in the Hopf pair. Specifically: $\chi(\mathbb{CP}^2)=N_c=3$, $\chi(\mathbb{CP}^3)=n_s=4$, $\chi(\mathbb{CP}^5)=N_f=6$ (Part 9 T15). The $g_{dd}$ values are exact from seeds $n_s=4$, $n_u=3$; derivations in §0.7 and Part 2 §9. The $m_{\rm scale}$ values use $m_e=0.511$ MeV as the unit reference (Part 2 §10).
 
-**Coordinate containment vs coupling filter.** These are two distinct necessary conditions. Coordinate containment (§0.8) governs which forces can reach a particle: a force couples to a particle only if the particle's wavefunction has support in that force's sector. The coupling filter governs what happens within that sector: even with support in the sector, the particle's own sector geometry may project the relevant representation to zero. Both must hold for coupling to occur. Neutrinos ($d=5$): coordinates are nested inside $\Xi_4$ (colour sector), but the $S^5$ Hopf projection selects only the colour singlet — they are colour-neutral despite spatial overlap with the colour sector. Electrons ($d=6$): $\chi(\mathbb{CP}^3)=4\neq 3$; colour contributions cancel in the $\mathrm{SU}(4)$ representation regardless of spatial overlap with $\Xi_4$.
+**Coordinate containment vs coupling filter.** These are two distinct necessary conditions. Coordinate containment (§0.8) governs which forces can reach a particle: a force couples to a particle only if the particle's sector contains that force's sector. The coupling filter governs what happens within that sector: even with support in the sector, the particle's own sector geometry may project the relevant representation to zero. Both must hold for coupling to occur. Neutrinos ($d=5$): coordinates are nested inside $\Xi_4$ (colour sector), but the $S^5$ Hopf projection selects only the colour singlet — they are colour-neutral despite spatial overlap with the colour sector. Electrons ($d=6$): $\chi(\mathbb{CP}^3)=4\neq 3$; colour contributions cancel in the $\mathrm{SU}(4)$ representation regardless of spatial overlap with $\Xi_4$.
 
 ---
 
@@ -578,7 +578,7 @@ With the d=2 sector scale m_scale_2 = 27.47 MeV:
 |---|---|---|---|
 | m_photon | 0 (exact) | 0 | — |
 | m_Z | 91,230 MeV | 91,188 MeV | +0.047% |
-| m_Higgs | 125,266 MeV | 125,250 MeV | +0.013% |
+| m_Higgs | 125,266 MeV | 125,200 MeV | +0.053% |
 | sin²θ_W | 0.2237 | 0.22290 (on-shell) | +0.37% |
 | ρ parameter | 1 (exact) | 1.002 | −0.2% |
 

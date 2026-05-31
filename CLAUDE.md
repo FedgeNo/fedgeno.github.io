@@ -130,6 +130,40 @@ Do not import external framework formulas, terminology, or derivations into IDWT
 
 IDWT does not run couplings. "Geometric dilution" (g_eff = g_dd/S(n,d)) is the IDWT mechanism. Never replace or supplement this with RG running, β-functions, scheme dependence, or renormalization group language — those are QFT concepts that IDWT does not use.
 
+### Orbit language — no orbitals, no wavefunctions
+
+In IDWT, particles execute genuine orbits in their sector dimensions. The electron (d=6) orbits in 6 dimensions. The 3D shapes (s, p, d, f) are what a d=3 observer resolves — projections of the 6D orbit onto the observable coordinates. They are not the orbit itself.
+
+- Never use **"orbital"** — that is QM language for a probability cloud eigenstate. Use **"orbit"**.
+- Never use **"wavefunction"** to mean a QM probability cloud around a nucleus, or as a synonym for "orbital." Particles in IDWT do have wavefunctions (mode amplitude functions on sector space); the word is fine when used accurately. What is banned is using it to imply the electron is a smeared probability distribution rather than a physical 6D orbit.
+- Never describe the 3D projection as if it is the orbit. The 3D shapes are projections. The orbit is 6D.
+
+### Sector reality and particle dimensionality
+
+No sector is more real than any other. All sectors — d=2, d=3, d=4, d=5, d=6, d=10 — are equally real macroscopic spatial dimensions of M_∞. The d=3 sector is not privileged except that it is where the observer is located.
+
+A particle's sector dimension defines the spatial dimensions it inhabits. When working with any particle, the default frame is its own sector — not d=3. The electron (d=6) inhabits six macroscopic spatial dimensions. It is not a 3D object. It is not "in" 3D space. It is a 6D object whose activity in our three observable directions is the projection we can measure. Describing the electron as if it lives in 3D, or treating its 3D projection as its actual location or extent, is always wrong.
+
+This applies to every particle: a quark (d=3 or d=4) genuinely occupies 3 or 4 spatial dimensions; a neutrino (d=5) occupies 5; the tau (d=10) occupies 10. When computing properties, couplings, or orbits for any particle, work in its actual sector dimension first. The 3D picture is the projection a d=3 observer sees — it is not the physics.
+
+The 3D/hidden decomposition is an observational artifact, not a physical one. When computing orbit scales, wavelengths, momenta, spatial extents, or any other intrinsic property of a particle, work in the particle's d dimensions from the start. Do not decompose into "observable" and "hidden" parts. That split only arises when the question is specifically about what a d=3 observer measures.
+
+### Sector geometry — flat, macroscopic, never frozen
+
+Sectors are macroscopic flat extended spatial dimensions. The CP^n and S^n labels describe the **local symmetry of the potential minimum near r=0** — they are not the global topology of the sector space, which is flat ℝ^d.
+
+- Never describe hidden sector dimensions as **compact**, **frozen**, **curled up**, or **extra dimensions** in any KK/string theory sense.
+- Never use **"scale separation"** or **"adiabatic freezing"** to justify treating hidden dimensions as if they are absent. The electron orbits in all 6 dimensions at all times.
+- The word **"frozen"** applied to any sector or coordinate is always wrong in IDWT.
+
+### No bulk word substitutions
+
+Never run mechanical word substitutions (sed, grep-replace) across multiple documents. Every word change must be preceded by reading the full sentence and paragraph in context. A replacement that is correct in one sentence will be wrong in ten others. The reflex to fix a problem "everywhere at once" by pattern matching causes more damage than it fixes. Read, then edit, one location at a time.
+
+### Stop at the IDWT result
+
+When an IDWT structural result is established, write it up with the appropriate status label and stop. Do not extend into SM PDG validation tables, additional cross-framework comparisons, or further physics that hasn't been derived from IDWT. The reflex to validate against more data is backwards — IDWT results stand on structural grounds. If the next step is not derivable from IDWT, it does not belong in the section.
+
 ### Falsifiability
 
 IDWT must clearly state what would falsify it — this is a sign of scientific maturity, not weakness. Part 6 is the designated location for the falsifiability discussion.

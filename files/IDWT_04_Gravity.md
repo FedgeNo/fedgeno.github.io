@@ -146,7 +146,7 @@ This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility
 | λ_d from kernel self-consistency | ✅ derived: λ_d = (g_{dd}/2)^{2/3} | §3.10 |
 | L_d = λ_d^{−1/4} as sector length scale (harmonic oscillator length) | ✅ defined and computed | §3.9, §3.10.4 |
 | G_N sector-independent; no sector correction | ✅ | §3.11–3.12.2 |
-| G_N = G_∞/V_7: V_7 ≈ 7.76 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
+| G_N = G_∞/V_7: V_7 ≈ 7.74 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action scale Λ (open) | ✅/🔶 | §3.12.2 |
 
 In the static strong-field regime, the d=3-coordinate metric develops an apparent horizon while the full M_∞ geometry stays regular. The apparent singularity becomes a finite-energy high-amplitude region in the sector-space coordinates. Information is preserved globally.
 
@@ -170,7 +170,7 @@ with characteristic width set by the **harmonic oscillator length**:
 L_d ≡ λ_d^{−1/4}
 ```
 
-This is the IDWT analogue of the Bohr radius. Like a_0 = ℏ²/m_e e², L_d is not a compactification radius — it is the localization width of the ground-state wave function in an infinite flat space. At any distance r >> L_d, the mode amplitude falls as a Gaussian exp(−r²/L_d²), making the mode activity in that sector negligible to any observer in the d=3 subspace.
+This is the IDWT analogue of the Bohr radius. Like a_0 = ℏ²/m_e e², L_d is not a compactification radius — it is the localization width of the ground-state sector mode in an infinite flat space. At any distance r >> L_d, the mode amplitude falls as a Gaussian exp(−r²/L_d²), making the mode activity in that sector negligible to any observer in the d=3 subspace.
 
 **Localization length, ground-state energy, and dimensionless coupling.** The d-dimensional harmonic oscillator ground state has energy:
 
@@ -305,7 +305,7 @@ for L²-normalised modes. The normalisation condition ‖χ_d‖² = 1 absorbs t
 |χ_0^d(ξ⁰)|² ≡ |χ_0^d(0)|²
 ```
 
-(setting ξ⁰ = 0 by translational freedom). For a d-dimensional ground-state wave function with localization length L_d:
+(setting ξ⁰ = 0 by translational freedom). For a d-dimensional ground-state sector mode with localization length L_d:
 
 ```
 |χ_0^d(0)|² ∝ L_d^{−d}
@@ -323,7 +323,7 @@ G_μν(x) = 8π G_N × T_μν^{obs}[ψ](x)
 
 G_N is the same for all sectors — sector-independent by the L² normalisation argument. All particles, regardless of which sector they inhabit, source the observer's effective curvature with the same G_N. This is the equivalence principle (§3.6) as a theorem.
 
-**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; there is no quantum gravitational threshold in this framework. V_7 ≈ 7.76 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
+**Status of G_N.** G_N is not a coupling constant in a fundamental gravitational action — there is no such action written by hand in IDWT. G_N is what a 3D observer measures of ∞D curvature: G_N = G_∞/V_7, the ∞D gravitational coupling diluted by the 7 sector dimensions beyond d=3. Gravity is not quantized; there are no gravitons; there is no quantum gravitational threshold in this framework. V_7 ≈ 7.74 (occupied-sector contribution) is fully derived (§3.12.2). V_vacuum does not enter G_N — confirmed by Ricci-flat vacuum in d>10 (no particle sources, so R_ab=0) and by T5 (scattering states are not L²-normalizable and do not appear in Tr(f(D/Λ))). G_∞ requires the spectral action scale Λ on M_∞ (open, §3.12.2).
 
 ---
 
@@ -396,7 +396,7 @@ The previous subsections show that G_N is sector-independent (§3.11) and not co
 | 6th | d=6 | 1.414 |
 | 7th–10th | d=10 | 1.414 each |
 
-$$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.872\times1.571\times1.414\times(1.414)^4 \approx 7.76$$
+$$V_7 = L_4 \times L_5 \times L_6 \times L_{10}^4 = 0.872\times1.571\times1.414\times(1.414)^4 \approx 7.74$$
 
 The d>10 vacuum region is subcritical — its modes are extended, not localised (T5). Schematically:
 
@@ -418,9 +418,9 @@ $$G_N = G_\infty / V_\infty, \qquad V_\infty = V_7 \times V_{\rm vacuum}$$
 
 Both arguments give the same result: $V_{\rm vacuum}$ does not appear as a dilution factor. The correct structure is:
 
-$$G_N = G_\infty / V_7, \qquad V_7 \approx 7.76$$
+$$G_N = G_\infty / V_7, \qquad V_7 \approx 7.74$$
 
-**Status.** $V_7\approx7.76$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
+**Status.** $V_7\approx7.74$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
 
 ---
 
@@ -446,7 +446,7 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 | Sector length L_d = sector localization | ✅ §3.9 |
 | λ_d = (g_{dd}/2)^{2/3} from kernel | ✅ §3.10 |
 | G_N sector-independent; no sector correction | ✅ §3.11–3.12.1 |
-| G_N = G_∞/V_7; V_7 ≈ 7.76 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
+| G_N = G_∞/V_7; V_7 ≈ 7.74 derived; V_vacuum does not enter (Ricci-flat vacuum + T5 scattering states); G_∞ via spectral action Λ (open) | ✅/🔶 §3.12.2 |
 
 ---
 
@@ -454,9 +454,9 @@ The sector localization lengths L_d (from §3.9, §3.10) enter two things:
 
 **Note on the spectral action formalism.** The Connes-Marcolli spectral action Tr(f(D/Λ)) is used here as a mathematical tool to connect the IDWT Dirac operator to the Einstein-Hilbert term. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense — the operator algebra, Hilbert space, and spectral triple structure of IDWT are distinct from the NCG Standard Model. The spectral action provides a convenient expression for how the gravitational coefficient G_∞ relates to the spectrum of D; the mechanism producing that spectrum (sector geometry, mode index selection, kernel coupling) is entirely native to IDWT.
 
-**The numerical value of G_∞.** The relation G_N = G_∞/V_7 immediately gives G_∞ once G_N and V_7 are known. Using the measured Newton's constant G_N = 6.674 × 10^{−11} m³ kg^{−1} s^{−2} and V_7 = 112.8 (fully derived in §3.12.2):
+**The numerical value of G_∞.** The relation G_N = G_∞/V_7 immediately gives G_∞ once G_N and V_7 are known. Using the measured Newton's constant G_N = 6.674 × 10^{−11} m³ kg^{−1} s^{−2} and V_7 = 7.74 (fully derived in §3.12.2):
 
-$$G_\infty = G_N \times V_7 = 7.57 \times 10^{-43}\ \mathrm{MeV}^{-2}$$
+$$G_\infty = G_N \times V_7 = 5.19 \times 10^{-44}\ \mathrm{MeV}^{-2}$$
 
 This is not a prediction — it is what G_∞ must equal, given the current input of one measured gravitational coupling. It becomes a prediction when G_∞ is derived independently.
 

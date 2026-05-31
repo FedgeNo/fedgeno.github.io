@@ -34,7 +34,7 @@ Given this single definition, the four applications are different functionals on
 
 These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — dimensional depth is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
 
-**Dark matter modes use Role 1 but not Role 3.** A co-fixed-point mode that fails Stage 1 (Ω_log > ln 2, no colour-protection override) has a well-defined mass eigenvalue via F_mass — its resonant frequency is S(n,d) × m_scale_d regardless of dimensional visibility — but its F_proj value S(n,2)/S(n,d) ≈ 0 means it contributes negligibly to the d=3 observable density. The mass formula is universal; the observability filter is not. This is why dark modes carry mass and gravitate (Role 1 fires) while remaining invisible to nuclear detectors (Role 3 → 0). See Part 7 §2.6.
+**Stage-2-pass/Stage-1-fail cell (currently empty).** The mass formula is universal — F_mass applies to any resonance regardless of dimensional visibility. The observability filter is not universal: a co-fixed-point mode with F_proj ≈ 0 would carry mass and gravitate while remaining invisible to nuclear detectors. However, under P8 as currently stated, no co-fixed-point mode fails Stage 1 — this cell is empty in the present construction. See Part 7 §2.6 for the open question of whether extensions beyond P8 could produce candidate hidden resonances.
 
 **S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
@@ -90,7 +90,7 @@ The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S
 
 For general d, the l=0 coefficient is 1/d and the l=2 coefficient involves the Gegenbauer polynomial C₂^{(d-2)/2}. The d=3 formula is given because the d=3 quark sector is the primary source of the corrections discussed here.
 
-The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the l=1 orbital admixture in the d=3 sector that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
+The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the l=1 admixture in the d=3 sector that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
 
 For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere. The Gegenbauer l=2 component is present but averages to zero over the rotationally symmetric vacuum (Gegenbauer orthogonality): only the l=0 piece contributes to the sector self-energy after vacuum averaging. Cross-sector angular mixing is absent in the vacuum expectation value of the self-coupling.
 
@@ -487,7 +487,7 @@ The product n_s × n_u × (n_s+n_u) × n_c is the canonical combinatorial invari
 
 ```
 m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV
-PDG: 1776.86 ± 0.12 MeV.   Error: −0.14σ.   Inside 1σ.
+PDG 2024: 1776.93 ± 0.09 MeV.   Error: −1.0σ.   Inside 1σ.
 ```
 
 No inputs beyond m_e and the seed n_s = 4 (n_u = n_s−1 is derived).
@@ -520,7 +520,7 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 |---|---|---|---|---|
 | m_ν₁ | n_ν₁ = S(n_u,3) = 10 | 1.487 meV | — | Absolute mass; testable by CMB-S4 + Project 8 |
 | m_ν₂ | n_ν₂ = S(n_u,4) = 15 | 8.639 meV | — | Absolute mass |
-| m_ν₃ | n_ν₃ = n_τ − n_d = 22 | 48.87 meV → 50.26 meV | — | Absolute mass; 2.5–2.9% below oscillation inference; corrected by δ_ν₃ = 1/35 (§9d) |
+| m_ν₃ | n_ν₃ = n_τ − n_d = 22 | 48.87 meV → 50.27 meV | — | Absolute mass; 2.5–2.9% below oscillation inference; corrected by δ_ν₃ = 1/35 (§9d) |
 | Σm_ν | — | 60.39 meV (corrected; bare 59.00 meV) | < 120 meV | ✅ within Planck bound; CMB-S4 target ~30 meV |
 | m_ν₂/m_ν₁ | — | 5.808 | — | Pure ratio: S(15,5)/S(10,5); exact from mode indices |
 | m_ν₃/m_ν₁ | — | 32.86 | — | Pure ratio: S(22,5)/S(10,5); exact from mode indices |
@@ -528,11 +528,11 @@ m_scale_5 = (n_u/n_s) × m_scale_6³ / m_scale_4²
 
 **Normal mass ordering predicted:** S(n,5) is strictly increasing, so m_ν₁ < m_ν₂ < m_ν₃. Consistent with current experimental preference at 3–4σ.
 
-**On m_ν₃ and oscillation data.** Oscillation experiments measure Δm² (interference of mass eigenstates in flight) because they cannot access absolute masses. IDWT predicts absolute masses directly, so Δm² values are derived consequences, not primary quantities. Expressed natively: m_ν₃ = 48.87 meV is 2.5–2.9% below the value implied by current oscillation data (PDG 2023–2024: Δm²₃₁ = (2.51–2.53)×10⁻³ eV², giving m_ν₃^{osc} ≈ 50.1–50.3 meV). The correction δ_ν₃ = 1/35 (derived in §9d from ε × g_{33} = 1/35 exactly) gives m_ν₃^{corr} = 48.87 × 36/35 = 50.26 meV, implying Δm²₃₁ = 2.524×10⁻³ eV² — matching PDG 2023 within 0.05% and within the ±0.025×10⁻³ experimental uncertainty of PDG 2024.
+**On m_ν₃ and oscillation data.** Oscillation experiments measure Δm² (interference of mass eigenstates in flight) because they cannot access absolute masses. IDWT predicts absolute masses directly, so Δm² values are derived consequences, not primary quantities. Expressed natively: m_ν₃ = 48.87 meV is 2.5–2.9% below the value implied by current oscillation data (PDG 2023: Δm²₃₁ = 2.523×10⁻³ eV²; PDG 2024 Normal Order: Δm²₃₁ = 2.530×10⁻³ eV², from Δm²₃₂ = 2.455 + Δm²₂₁ = 0.0753). The correction δ_ν₃ = 1/35 (derived in §9d from ε × g_{33} = 1/35 exactly) gives m_ν₃^{corr} = 48.871 × 36/35 = 50.267 meV, implying Δm²₃₁ = 2.5246×10⁻³ eV² — matching PDG 2023 within 0.05% and PDG 2024 within 0.2σ (uncertainty ±0.028×10⁻³).
 
 **Structural source.** n_ν₁ = S(n_u,3) = 10 and n_ν₂ = S(n_u,4) = 15 are primary Pascal evaluations at the seed. n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22 is derived by inclusion-exclusion from two primary modes — the only neutrino mode requiring information from both the d=3 and d=4 Hopf images. This cross-sector entanglement makes n_ν₃ susceptible to a correction at the seed level: the leading d=4 evaluation above n_u is S(n_s,4) = 35 (a hockey-stick identity consequence: S(n_s+1,3) = S(n_s,4) = 35), which appears as the natural denominator. This is structurally analogous to the τ back-reaction correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) — the same S(n_s,4) = 35 appears — but without the Gegenbauer criticality factor n_s² = 16 (d=5 is not at the critical point) and without the back-reaction resummation factor n_u (g_{55} ≠ 1/n_s). The first-principles derivation of this coefficient is given in §9d.
 
-The corrected Σm_ν = 1.487 + 8.639 + 50.26 = 60.39 meV; bare 59.00 meV. Both are within current cosmological bounds; CMB-S4 will distinguish them.
+The corrected Σm_ν = 1.487 + 8.639 + 50.267 = 60.393 meV; bare 59.00 meV. Both are within current cosmological bounds; CMB-S4 will distinguish them.
 
 **Observable predictions:**
 
@@ -594,12 +594,12 @@ The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_m
 ```
 ε × g_{33} = (1/(280√7)) × 8√7 = 8/280 = 1/35   [exact]
 
-m_ν₃^{corr}       = 48.868 × 36/35 = 50.264 meV
-Δm²₃₁             = (50.264)² − (1.487)² [meV²] = 2.5243 × 10⁻³ eV²
+m_ν₃^{corr}       = 48.871 × 36/35 = 50.267 meV
+Δm²₃₁             = (50.267)² − (1.487)² [meV²] = 2.5246 × 10⁻³ eV²
 PDG 2023 central:    2.523 × 10⁻³ eV²              (+0.05%)
-PDG 2024 range:      (2.51–2.53) × 10⁻³ eV²        (within uncertainty)
+PDG 2024 central:    2.530 × 10⁻³ eV²              (−0.22%; within 0.2σ)
 
-Σm_ν (corrected) = 1.487 + 8.639 + 50.264 = 60.390 meV
+Σm_ν (corrected) = 1.487 + 8.639 + 50.267 = 60.393 meV
 ```
 
 ---
@@ -720,7 +720,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 |---|---|---|---|
 | m_W | m_scale_2 × S(76,2) = 80,379 MeV | 80,377 MeV | +0.003% |
 | m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
-| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,250 MeV | +0.013% |
+| m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,200 MeV | +0.053% |
 
 **IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
 

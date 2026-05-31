@@ -58,9 +58,9 @@ The companion Python script `idwt.py` [11] implements every derivation in this p
 
 ## 2. Framework
 
-### 2.1 Foundations: Sector Manifolds and the Master Wavefunction
+### 2.1 Foundations: Sector Manifolds and the Master Spinor Field
 
-The master wavefunction $\Psi_\infty$ is a Dirac spinor field on a product manifold $\mathcal{M}_\infty = \mathbb{R}^{3,1} \times \bigoplus_d \Xi_d$, where each $\Xi_d$ is an infinite Riemannian space of real dimension $d$. A sector harmonic potential $V_d(r) = \lambda_d r^2$ (derived from the kernel self-consistency; §3.10.2) creates a confining well that Gaussian-localizes all modes in the sector direction — these are the particles. The geometry labels $\mathbb{CP}^{(d/2)-1}$ and $S^d$ describe the local symmetry of the potential minimum, not the global topology of $\Xi_d$. The space extends without bound; no dimension is compactified. Our observable universe is the restriction $\psi_{\rm obs}(r,t) = \Psi_\infty(r, \xi^0, t)$ at a fixed internal address $\xi^0$.
+The master spinor field $\Psi_\infty$ is a Dirac spinor field on a product manifold $\mathcal{M}_\infty = \mathbb{R}^{3,1} \times \bigoplus_d \Xi_d$, where each $\Xi_d$ is an infinite Riemannian space of real dimension $d$. A sector harmonic potential $V_d(r) = \lambda_d r^2$ (derived from the kernel self-consistency; §3.10.2) creates a confining well that Gaussian-localizes all modes in the sector direction — these are the particles. The geometry labels $\mathbb{CP}^{(d/2)-1}$ and $S^d$ describe the local symmetry of the potential minimum, not the global topology of $\Xi_d$. The space extends without bound; no dimension is compactified. Our observable universe is the restriction $\psi_{\rm obs}(r,t) = \Psi_\infty(r, \xi^0, t)$ at a fixed internal address $\xi^0$.
 
 The sector manifolds $\Xi_d$ are the complex projective spaces $\mathbb{CP}^{(d/2)-1}$ for even $d$ and the odd spheres $S^d$ for odd $d$, organised by the Hopf fibration chain $S^1 \to S^{2k-1} \to \mathbb{CP}^{k-1}$. Their role is spectral: they determine, through the Dirac eigenvalue spectra of the Hopf fibration chain, which mode frequencies are accessible to $\Psi_\infty$. A particle of type $(n,d)$ is a mode of $\Psi_\infty$ whose internal frequency in sector $\Xi_d$ is $S(n,d) \times m_{\mathrm{scale},d}$.
 
@@ -288,7 +288,7 @@ PDG: $m_b = 4180 \pm 10$ MeV. Error: $+0.023\%$. The exhaustive search over $n \
 | $\gamma$ | 2 | 0 | — | 0 | 0 | exact |
 | $W^\pm$ | 2 | 76 | 2,926 | 80,379 | 80,377 | $+0.003\%$ |
 | $Z^0$ | 2 | 81 | 3,321 | 91,230 | 91,188 | $+0.047\%$ |
-| $H$ | 2 | 95 | 4,560 | 125,266 | 125,250(170) | $+0.013\%$ |
+| $H$ | 2 | 95 | 4,560 | 125,266 | 125,200(110) | $+0.053\%$ |
 | $d$ | 3 | 1 | 1 | 4.702 | 4.67(48) | $+0.68\%^\dagger$ |
 | $s$ | 3 | 4 | 20 | 94.04 | 93.4(86) | $+0.68\%^\dagger$ |
 | $b$ | 3 | beat | — | 4,181 | 4,180(10) | $+0.023\%$ |
@@ -357,7 +357,7 @@ where $1680 = n_s \times n_u \times (n_s+n_u) \times S(n_s,3) = 4 \times 3 \time
 
 $$m_\tau^{\rm corr} = m_\tau^{\rm raw} \times \left(1 + \frac{1}{1680}\right) = 1775.79 \times 1.000595 = 1776.84 \text{ MeV.}$$
 
-PDG: $1776.86 \pm 0.12$ MeV. Error: $-0.14\sigma$.
+PDG 2024: $1776.93 \pm 0.09$ MeV. Error: $-0.005\%$ ($-1.0\sigma$).
 
 The factor $1/1680$ is entirely determined by $n_s = 4$ (through $n_s, n_u, n_s+n_u, S(n_s,3)$) with no empirical input.
 
@@ -426,7 +426,7 @@ No neutrino oscillation data enters. The absolute masses:
 | $m_{\nu_2}$ | 8.639 meV | — | **First-principles prediction** |
 | $m_{\nu_3}$ | 50.27 meV (bare: 48.87) | — | **First-principles prediction** |
 | $\sum m_\nu$ | **60.39 meV** (bare: 59.00) | $<120$ meV [5] | Consistent |
-| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.42\pm0.21)\times10^{-5}$ | $-0.8\sigma$ |
+| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.53\pm0.18)\times10^{-5}$ | $-1.6\sigma$ |
 | $\Delta m^2_{31}$ | $2.525\times10^{-3}$ eV$^2$ | $(2.584\pm0.025)\times10^{-3}$ | $-2.3\%$ |
 | $m_{\beta\beta}$ | **0 (all orders)** | Unobserved [6] | Consistent |
 | Hierarchy | Normal | Preferred $3$–$4\sigma$ | Consistent |
@@ -507,7 +507,7 @@ IDWT is distinctive in providing: (a) masses for all 15 predicted particles, (b)
 ## 16. Open Items
 
 1. **CP-violating phase $\delta$.** Requires loop-level computation of the Hopf Chern-Simons integral.
-2. **PMNS mixing angles.** Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 0.561, $-0.36\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires spectral phase integral).
+2. **PMNS mixing angles.** Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 2024: 0.553, $+1.07\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires spectral phase integral).
 3. **$\Delta m^2_{31}$ discrepancy.** Closed by $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ (cross-sector constructive interference, exact). Corrected $\Delta m^2_{31} = 2.525\times10^{-3}$ eV$^2$ (PDG: $2.584\times10^{-3}$, $-2.3\%$).
 4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.

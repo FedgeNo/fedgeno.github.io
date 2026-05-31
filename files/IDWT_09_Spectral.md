@@ -218,11 +218,11 @@ $$\boxed{\sin^2\theta_{13} = g_{55}\,\delta_{23}\,\ln\frac{S(n_\tau,10)}{S(n_\mu
 
 | Angle | Prediction | PDG NuFit 2022 | Error |
 |---|---|---|---|
-| $\sin^2\theta_{23}$ | $0.55897$ | $0.561$ | $-0.36\%$ |
+| $\sin^2\theta_{23}$ | $0.55897$ | $0.553$ | $+1.07\%$ |
 | $\sin^2\theta_{12}$ | $0.30856$ | $0.307$ | $+0.51\%$ |
 | $\sin^2\theta_{13}$ | $0.02211$ | $0.0220$ | $+0.51\%$ |
 
-No free parameters. No loop integrals.
+The three PMNS angles depend only on $g_{55}$ and the four mode indices $n_{\nu_i}$, $n_\alpha$; no additional parameters enter and no loop diagrams are computed.
 
 **Derivation key steps.**
 
@@ -329,7 +329,7 @@ $$\Rightarrow \sin(\delta_{CP}) \approx -0.29 \text{ is the target for IDWT.}$$
 
 **Route to non-zero $\delta_{CP}$.** A product state of real modes gives $\gamma=0$ exactly. Non-zero $\delta_{CP}$ requires that the PMNS mixing matrix $U_{\rm PMNS}(g_{55},g_{66},g_{10,10})$ be treated as a $U(3)$ bundle over the lepton coupling space, with spectral phase accumulated by the determinant of $U$ as the couplings are varied around the lepton triangle. This requires a formula for $\delta_{CP}(g_{dd})$ from the sector-mixing structure — the part of the computation that remains open.
 
-**Status.** $\delta_{CP}^{(\rm tree)}=0$ exact and confirmed numerically ($\gamma=0$, $\mathcal{F}=0$). Bures metric non-degenerate ($\sin\theta=0.492$). CP-violation target $\sin(\delta_{CP})\approx-0.29$. **Open: derive $\delta_{CP}(g_{dd})$ from the PMNS holonomy formula and evaluate $\int_A\mathcal{F}_\mathcal{M}$ for the entangled (non-product) lepton coupling state.**
+**Status.** $\delta_{CP}^{(\rm tree)}=0$ exact and confirmed numerically ($\gamma=0$, $\mathcal{F}=0$). Bures metric non-degenerate ($\sin\theta=0.492$). CP-violation target $\sin(\delta_{CP})\approx-0.29$. 🔶 — Part 10 has since derived $\delta_{CP} = \pi + 2\theta_{13} = 197.11°$ via APS spectral flow across the CP³→CP⁵ sector mismatch; three gaps remain before 🔵 (spectral flow coefficient rigour, sign from T6 matrix, equivalence with the holonomy integral here). See Part 10 for the current derivation.
 
 ---
 
@@ -350,6 +350,8 @@ All six sector self-couplings are derived from $n_s=4$, $n_u=3$:
 
 **T9b** (Hopf universality). $v_3/v_2=v_5/v_4$ exactly, deriving $g_{55}$ from the $d=3,4$ couplings via the Hopf chain condition (T3 Rule B). The rank-1 factorisation of T2 gives $g_{dd'}=v_d v_{d'}$; the specific ratio $v_3/v_2=v_5/v_4$ is the additional Hopf universality constraint.
 
+**T9b Corollary (Hopf Routing Rule). ✅** Since $g_{55}$ is derived entirely from $g_{44}$ via $v_5/v_4 = v_3/v_2$, sector $d=5$ is the unique sector in $D$ whose self-coupling is determined by $g_{44}$. Generation tower modes derived from a $d=4$ seed belong to $d=5$ — because $d=5$ is the only sector in $D$ constructed as the Hopf fiber over $d=4$ (Part 1 §3a Step 2). Assigning those modes to any other sector in $D$ would require a sector whose coupling closes over $d=4$; by T3, no such sector exists besides $d=5$. The routing rule is a direct corollary of T9b and T3, not an independent postulate.
+
 **T9c** ($\mu$-$\tau$ symmetry). $g_{66}=g_{10,10}=1/n_s$ exactly, giving $v_6=v_{10}=1/2$. This is the $\mu$-$\tau$ interchange symmetry that gives the coupling-symmetry limit of the PMNS (T6 Step 2).
 
 **T9d** (Electric charge). $e=g_2\sin\theta_W$, both derived. $1/\alpha=131.8$ at the d=2 sector scale; after 1-loop QED running $1/\alpha(0)\approx133.1$ (PDG: 137.036, $-2.9\%$ from missing hadronic vacuum polarisation — a non-perturbative QCD contribution not computed by IDWT's 1-loop lepton running).
@@ -368,7 +370,7 @@ GTC depths $\{0,\,n_u,\,S(n_u,3)\}=\{0,3,10\}$ for $\{u,c,t\}$: closes $c/u$ rat
 
 $$\boxed{\delta_\tau = \frac{1}{n_u\cdot n_s^2\cdot S(n_s,4)} = \frac{1}{3\cdot16\cdot35} = \frac{1}{1680}.}$$
 
-Result: $m_\tau\times(1+1/1680)=1776.84$ MeV vs PDG $1776.86$ MeV ($-0.001\%$).
+Result: $m_\tau\times(1+1/1680)=1776.84$ MeV vs PDG 2024 $1776.93\pm0.09$ MeV ($-0.005\%$; $-1.0\sigma$).
 
 ---
 
@@ -386,10 +388,10 @@ As derived consequences in oscillation-experiment language, $\Delta m^2_{ij} = (
 
 | Derived quantity | Value | Oscillation inference | Gap |
 |---|---|---|---|
-| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.42\pm0.21)\times10^{-5}$ | $-2.4\%$ |
-| $m_{\nu_3}$ (absolute) | $50.27$ meV (corrected; bare $48.87$ meV) | $50.1$–$50.3$ meV (PDG 2023–2024 $\Delta m^2_{31}$) | $<0.05\%$ |
+| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.53\pm0.18)\times10^{-5}$ | $-3.8\%$ |
+| $m_{\nu_3}$ (absolute) | $50.27$ meV (corrected; bare $48.87$ meV) | $2.523\times10^{-3}$ eV² (PDG 2023); $2.530\times10^{-3}$ eV² (PDG 2024 NO) | $+0.05\%$ (2023); $-0.22\%$ (2024) |
 
-The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure relation 🔶 (primary derivation Part 2 §9d): $g_{\rm coeff}\times g_{33} = n_s^2 = k_0$ (the $\sqrt{7}$ cancels algebraically), so $\varepsilon\cdot g_{33} = k_0/(k_0\cdot n_{\rm mu}) = 1/35$ — exact given independently-derived $\varepsilon$ and $g_{33}$, but the deeper operator mechanism is not yet derived. The corrected $m_{\nu_3}^{\rm corr} = 50.27$ meV implies $\Delta m^2_{31} = 2.524\times10^{-3}$ eV$^2$ — within 0.05% of PDG 2023. Structural source: $n_{\nu_3}$ is the unique inclusion-exclusion mode index, combining the d=3 image ($n_{\nu_1}$) and d=4 image ($n_{\nu_2}$) of the seed $n_u$; the l=2 cross-term (T2) then mixes these via $\varepsilon$ (d=4 GTC coefficient) and $g_{33}$ (d=3 back-reaction). Expressing the correction as $\Delta m^2_{31}$ inflates the apparent significance without adding information.
+The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure relation 🔶 (primary derivation Part 2 §9d): $g_{\rm coeff}\times g_{33} = n_s^2 = k_0$ (the $\sqrt{7}$ cancels algebraically), so $\varepsilon\cdot g_{33} = k_0/(k_0\cdot n_{\rm mu}) = 1/35$ — exact given independently-derived $\varepsilon$ and $g_{33}$, but the deeper operator mechanism is not yet derived. The corrected $m_{\nu_3}^{\rm corr} = 50.267$ meV implies $\Delta m^2_{31} = 2.5246\times10^{-3}$ eV$^2$ — within 0.05% of PDG 2023 and within 0.2σ of PDG 2024. Structural source: $n_{\nu_3}$ is the unique inclusion-exclusion mode index, combining the d=3 image ($n_{\nu_1}$) and d=4 image ($n_{\nu_2}$) of the seed $n_u$; the l=2 cross-term (T2) then mixes these via $\varepsilon$ (d=4 GTC coefficient) and $g_{33}$ (d=3 back-reaction). Expressing the correction as $\Delta m^2_{31}$ inflates the apparent significance without adding information.
 
 **T11c** (Majorana forbidden). $d\bmod8=5$ (Clifford algebra mod 8 periodicity) forbids the Majorana condition on $\mathcal{S}_5$-spinors. Neutrinos are strictly Dirac. The $0\nu\beta\beta$ decay rate is exactly zero.
 
@@ -822,6 +824,6 @@ This is the coupling filter principle operating at the level of the self-couplin
 | T14b | Constant term $-d/2$ and $\zeta_d(0)=-d/2$ | ✅ | Exact | Regularised eigenvalue count; sets sector functional determinant |
 | T14d | Pole at $s=1/d$: $\operatorname{Res}\,\zeta_d=(d!)^{1/d}/d$; $\zeta_D$ has 6 poles at $s\in\{1/2,\ldots,1/10\}$ | ✅ | Exact | IDWT has 6 spectral dimensions, one per sector; photon sector leads UV behavior; tau sector most UV-soft |
 | $\sin^2\theta_W$ | $1-(S(76,2)/S(81,2))^2=0.2237$; +0.37% from PDG on-shell | ✅ | +0.37% | Within known 1-loop EW radiative corrections; not an open computation |
-| $G_N$ | $G_N=G_\infty/V_7$; $V_7\approx113$ fully derived; $V_{\rm vacuum}$ does not enter; gravity is $\infty$-dimensional | 🔶 | — | $V_7$ derived; $V_{\rm vacuum}$ drops out (Ricci-flat vacuum + T5 scattering states); $G_\infty$ from spectral action scale $\Lambda$ (single open item; Part 4 §3.12.2) |
+| $G_N$ | $G_N=G_\infty/V_7$; $V_7\approx7.74$ fully derived; $V_{\rm vacuum}$ does not enter; gravity is $\infty$-dimensional | 🔶 | — | $V_7$ derived; $V_{\rm vacuum}$ drops out (Ricci-flat vacuum + T5 scattering states); $G_\infty$ from spectral action scale $\Lambda$ (single open item; Part 4 §3.12.2) |
 
-**Remaining open:** (i) CP phase exact value — $\delta_{CP}^{(\rm tree)}=0$ confirmed numerically; $\Delta c_1 = c_1(\mathbb{CP}^3)-c_1(\mathbb{CP}^5)=-2$ identified as topological source; Fubini-Study curvature integral over sector coupling parameter space not performed (T8); (ii) $G_N$ from $\infty$-dimensional gravity — $G_N=G_\infty/V_7$ where $V_7\approx113$ is fully derived; $V_{\rm vacuum}$ does not enter ($d>10$ is Ricci-flat in vacuum and T5 scattering states are not L²-normalizable); the single open item is $G_\infty$ from the spectral action scale $\Lambda$ on $M_\infty$ (Part 4 §3.12.2, Part 6). **Resolved:** m_ν₃ correction $\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived exactly (Part 2 §9d); $\Sigma m_\nu=60.39$ meV.
+**Remaining open:** (i) CP phase exact value — $\delta_{CP}^{(\rm tree)}=0$ confirmed numerically; $\Delta c_1 = c_1(\mathbb{CP}^3)-c_1(\mathbb{CP}^5)=-2$ identified as topological source; Fubini-Study curvature integral over sector coupling parameter space not performed (T8); (ii) $G_N$ from $\infty$-dimensional gravity — $G_N=G_\infty/V_7$ where $V_7\approx7.74$ is fully derived; $V_{\rm vacuum}$ does not enter ($d>10$ is Ricci-flat in vacuum and T5 scattering states are not L²-normalizable); the single open item is $G_\infty$ from the spectral action scale $\Lambda$ on $M_\infty$ (Part 4 §3.12.2, Part 6). **Resolved:** m_ν₃ correction $\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived exactly (Part 2 §9d); $\Sigma m_\nu=60.393$ meV.

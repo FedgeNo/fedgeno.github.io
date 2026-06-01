@@ -377,6 +377,10 @@ $$E_{\rm bind}(b) = \sqrt{m_b \times \Lambda_{\rm QCD}} = 1086\ \text{MeV}$$
 | Υ(1S) | 9448.3 | 9460.3 | −0.13% |
 | J/ψ | 3160.3 | 3096.9 | +2.0% |
 
+The J/ψ residual (+2.0%) reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom, where the formula gives <0.2% errors). The spin-dependent hyperfine splitting J/ψ − η_c = 113 MeV is not captured by the leading-order formula; its IDWT derivation is open. The φ(ss̄) is the d=3 hadronic resonance at $n_\phi = 2n_s + 2n_{\rm down} = 10$: $m_\phi = S(10,3)\times m_{\rm scale,3} = 1034$ MeV (+1.4% vs PDG 1019.5); see Part 2 §8a.
+
+**Baryon octet — (N_c−1) color-bond formula. 🔵** (Part 2 §8a.) $m(\text{baryon}) = m_N + (N_c-1)\sum(m_s - m_{\rm replaced})$, with $N_c-1 = \chi(\mathbb{CP}^1) = 2$. Results: Λ +0.3%, Ξ −0.9% to −1.4%. Σ−Λ hyperfine (77 MeV) and Ω (J=3/2 decuplet) require spin-dependent kernel — open.
+
 ## 4. PMNS Mixing
 
 **The μ–τ interchange symmetry.** The d=6 (electron, muon) and d=10 (tau) sectors carry identical self-couplings: $g_{66} = g_{10,10} = 1/n_s = 1/4$ (shared seed coupling). Therefore $v_6 = \sqrt{g_{66}} = v_{10} = \sqrt{g_{10,10}} = 1/2$ **exactly**. The coupling of each charged lepton to the d=5 neutrino sector is:

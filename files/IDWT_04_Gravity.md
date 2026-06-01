@@ -23,7 +23,7 @@ Every one of these exclusions has the same hidden assumption: gravitons can prop
 IDWT has none of this structure:
 - There are no gravitons — gravity is curvature of M_∞ caused by mass, not a field with quanta (§1)
 - There is no KK tower — sector modes are exponentially localised bound states, not plane waves (§3.9)
-- At any macroscopic distance from the source, the sector mode is already suppressed as exp(−r/L_d), where L_d is the mode localization length
+- At any macroscopic distance from the source, the sector mode is already suppressed as exp(−r²/L_d²), where L_d = λ_d^{−1/4} is the harmonic oscillator localization length
 - The gravitational effect measured by a 3D observer is G_μν = 8πG T_μν^{eff}, with T_μν^{eff} indistinguishable from a point mass (§3.2–3.6)
 
 **The sector dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the sector-space geometry contributes to gravity only through the observer's stress-energy of the particles it hosts.

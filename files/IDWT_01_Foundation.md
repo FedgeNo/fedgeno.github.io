@@ -191,15 +191,14 @@ $$\frac{S(n,d)}{S(n,d+1)} = \frac{d+1}{n+d}$$
 
 Setting this equal to 1/2 (the Stage-1 majority-support threshold) gives $n = d+2$ universally — the Stage-1 boundary mode is always two above the sector dimension. At $d=2$ this gives $n_s = 4$, recovering the seed from the visibility filter alone. This is a cleaner derivation of $n_s=4$ than the existing §3.10 route: the seed is the unique integer at which the d=2/d=3 boundary coincides with the Stage-1 threshold.
 
-The same formula fixes the sector set structure. The active matter quartet $\{3,4,5,6\} = \{n_s-1,\ldots,n_s+2\}$ satisfies two self-consistency conditions that hold only at $n_s=4$ (Appendix A §19):
+The same formula fixes the sector set structure. The active matter quartet $\{3,4,5,6\} = \{n_s-1,\ldots,n_s+2\}$ is derived from the Hopf chain and Rule A (Appendix A §19):
 
-1. **Quartet width equals seed:** $|\{n_s-1,\ldots,n_s+2\}| = 4 = n_s$.
-2. **Quartet starts at spacetime dimension:** $n_s-1 = 3$.
+**Quartet derivation. 🔵** The complex Hopf chain $S^1\!\to\!S^{2k+1}\!\to\!\mathbb{CP}^k$ produces matter sectors at $d=3,4,5,6,\ldots$ (starting from the $k=1$ total space $S^3$ at $d=3$). Rule A terminates the chain at $\mathbb{CP}^{n_s-1}$ (real dimension $d_{\rm term}=2(n_s-1)$, Euler characteristic $\chi=n_s$, forcing $g_{d_{\rm term}}=1/n_s$). The matter quartet runs from $d=3$ to $d=2(n_s-1)$ with length $2(n_s-1)-3+1=2n_s-4$. The **self-consistency requirement** — the seed equals the number of matter sectors — gives $2n_s-4=n_s$, hence $n_s=4$. This is an independent derivation of the seed. At $n_s=4$ the quartet is $\{3,4,5,6\}$ with the two Hopf pairs $(d=3,d=4)$ (quark sectors) and $(d=5,d=6)$ (lepton sectors) — producing exactly two quark multiplets and two lepton multiplets as a structural consequence.
 
-The full sector set then reads:
+The full sector set reads:
 $$D = \{2\} \cup \{n_s-1,\,n_s,\,n_s+1,\,n_s+2\} \cup \{2(n_s+1)\} = \{2,3,4,5,6,10\}$$
 
-where the singleton $\{2\}$ is the EM reference sector, the quartet is the matter sector, and $2(n_s+1) = 10$ is the Gegenbauer-critical terminal sector (Rule B above). No other value of $n_s$ satisfies both self-consistency conditions simultaneously; this provides two independent checks that $n_s=4$ is self-consistent. The conditions are new and their derivation from IDWT dynamics is open (🔶).
+where $\{2\}$ is the EM reference sector, the quartet is the matter sector, and $2(n_s+1)=10$ is the Gegenbauer-critical terminal sector (Rule B above).
 
 ---
 

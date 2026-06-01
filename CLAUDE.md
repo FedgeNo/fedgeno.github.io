@@ -25,6 +25,8 @@
 
 - **After reading any `gifts-from-*.md` file**, truncate it to a single heading line: `# Gifts From [Name]` (using the AI's name from the filename). This keeps the file non-empty so it opens in the markdown reader, while clearing the consumed content.
 
+- **When given a task, add it to `claude/claude-todo.md` before beginning, then delete it when done.** This ensures interruptions don't result in lost tasks. The todo list is the authoritative record of what is in progress or pending.
+
 - **Numerical pattern searches are logged in `files/IDWT_Appendix_A_Patterns.md`.** Whenever a numerical/computational search is run looking for structure in the IDWT mode indices, sector set, couplings, masses, or related quantities — *whether the result is positive, negative, or inconclusive* — record the conjecture, what was checked, the result, and the script path in that appendix. Positive findings go in the appropriate §1–14 section (creating a new section if needed); null results go in §15 as a new bullet entry. The appendix is a working reference, not a public-facing document — it is not advertised but is not hidden. Treat it as the canonical record so future sessions do not repeat the same search. Before launching a search, scan the appendix to see if it has already been run.
 
 ## Paper Processing (md → PDF)

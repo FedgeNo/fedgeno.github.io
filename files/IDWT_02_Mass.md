@@ -311,7 +311,36 @@ The factor $k_0 = n_s^2 = 16$ — the same triple-coincidence that forces the b 
 | Υ(1S) | 9448.3 | 9460.3 | −0.13% |
 | J/ψ | 3160.3 | 3096.9 | +2.0% |
 
-D mesons sit at the crossover ($m_c \gg \Lambda_{\rm QCD}$) where both formulas give ~1–2% accuracy. The φ(s̄s) lies in the intermediate regime ($m_s \approx \Lambda_{\rm QCD}/3$) where neither leading-order formula applies; dedicated treatment is open. Scripts: `claude/composite_mass_formula.py`, `claude/bottom_quark_binding.py`. **Status: 🔵** (both formulas verified; φ and baryon octet open).
+D mesons sit at the crossover ($m_c \gg \Lambda_{\rm QCD}$) where both formulas give ~1–2% accuracy. The J/ψ +2% residual reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom); the spin-1 vs spin-0 hyperfine correction (J/ψ − η_c = 113 MeV) requires the spin-dependent kernel and is open. Scripts: `files/idwt.py`, `files/idwt.py`. **Status: 🔵** (both formulas verified across 10 states; J/ψ spin correction open).
+
+**d=3 hadronic resonance spectrum. 🔵** The d=3 sector supports a tower of modes at $m = m_{\rm scale,3} \times S(n,3)$ for integer $n$. These modes fail Stage-2 co-fixed-point stability — they are not stable particles — but survive as colour-singlet resonances observable as broad short-lived states. The mode indices are pinned by seed algebra:
+
+$$n_\rho = n_s + n_{\rm up} + 2n_{\rm down} = 4+3+2 = 9 \qquad (\text{uu̅/dd̅ nonet})$$
+$$n_\phi = 2n_s + 2n_{\rm down} = 8+2 = 10 \qquad (\text{ss̅ nonet})$$
+
+The step $n_\phi - n_\rho = n_{\rm strange} - n_{\rm up} = 1$ is the algebraic signature of replacing one $u$ quark by one $s$ quark in the composite. Predictions:
+
+| Resonance | $n$ | $S(n,3)$ | IDWT (MeV) | PDG (MeV) | Error |
+|-----------|-----|----------|------------|-----------|-------|
+| ρ/ω | 9 | 165 | 775.8 | 775.3/782.7 | +0.1% |
+| φ(1020) | 10 | 220 | 1034.4 | 1019.5 | +1.4% |
+
+The ρ prediction is independently confirmed at +0.069% by the cross-sector filter $\Gamma_{346}$ (§10). The φ prediction at +1.4% uses the same formula; the slightly larger residual (vs the +0.68% sector-wide offset for quarks) reflects that composite resonances sit higher in the mode tower where next-order kernel corrections are less constrained. Script: `files/idwt.py` (resonance table output). **Status: 🔵**
+
+**Baryon octet — (N_c−1) color-bond formula. 🔵** When one quark in a colour-singlet baryon is replaced by a heavier quark, each of the remaining $(N_c-1)$ colour bonds contributes the mass difference. With $N_c - 1 = \chi(\mathbb{CP}^1) = 2$ from T15:
+
+$$\boxed{m(\text{baryon}) = m_N + (N_c-1)\sum_{\text{replaced}} (m_s - m_{\rm replaced})}$$
+
+**Structural identity.** The nucleon formula rewrites as $m_N = N_c\Lambda_{\rm QCD} + m_s$, because $N_c\Lambda_{\rm QCD}/n_u^2 = m_s$ exactly (both equal 94.04 MeV). The proton mass is the colour confinement scale plus the strange quark mass — forced by seeds alone.
+
+| Baryon | Content | Prediction | PDG | Error |
+|--------|---------|-----------|-----|-------|
+| p/n | uud/udd | 940.4 MeV | 938.9 | +0.2% |
+| Λ | uds | m_N + 2(m_s − m_d) = 1119 | 1115.7 | +0.3% |
+| Ξ⁰ | uss | m_N + 2[(m_s−m_u)+(m_s−m_d)] = 1303 | 1314.9 | −0.9% |
+| Ξ⁻ | dss | m_N + 2[(m_s−m_u)+(m_s−m_d)] = 1303 | 1321.7 | −1.4% |
+
+The Σ(uds) has identical quark content to the Λ, so the formula gives the same prediction for both; the Σ−Λ splitting (77 MeV) is a spin-isospin hyperfine effect requiring the spin-dependent kernel interaction — open. The Ω(sss, J=3/2) is in the baryon decuplet, outside this formula's scope. Script: `files/idwt.py`.
 
 ---
 

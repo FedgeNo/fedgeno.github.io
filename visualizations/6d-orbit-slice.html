@@ -23,8 +23,12 @@ html, body { margin:0; height:100%; overflow:hidden; }
   padding-top: 56px; /* nav height */
   box-sizing: border-box;
 }
+
 @media (orientation: portrait) {
-  .split-root { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  .split-root {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 /* ── text panel ── */
@@ -38,8 +42,13 @@ html, body { margin:0; height:100%; overflow:hidden; }
   scrollbar-width: thin;
   scrollbar-color: rgba(139,156,255,0.2) transparent;
 }
+
 @media (orientation: portrait) {
-  .text-panel { border-right: none; border-bottom: 1px solid rgba(139,156,255,0.12); padding: 24px 22px 36px; }
+  .text-panel {
+    border-right: none;
+    border-bottom: 1px solid rgba(139,156,255,0.12);
+    padding: 24px 22px 36px;
+  }
 }
 
 .text-panel h1 {
@@ -49,6 +58,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   margin: 0 0 6px;
   line-height: 1.25;
 }
+
 .text-panel .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -56,6 +66,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   color: #8b9cff;
   margin-bottom: 10px;
 }
+
 .text-panel .sub {
   color: #9aa3b8;
   font-size: 0.9rem;
@@ -63,21 +74,33 @@ html, body { margin:0; height:100%; overflow:hidden; }
   border-bottom: 1px solid rgba(139,156,255,0.1);
   padding-bottom: 20px;
 }
+
 .text-panel h2 {
   font-size: 1.05rem;
   font-weight: 600;
   color: #d6daf0;
   margin: 28px 0 10px;
 }
+
 .text-panel h3 {
   font-size: 0.92rem;
   font-weight: 600;
   color: #b8c0d8;
   margin: 20px 0 8px;
 }
-.text-panel p { margin: 0 0 12px; }
-.text-panel a { color: #8b9cff; text-decoration: none; }
-.text-panel a:hover { text-decoration: underline; }
+
+.text-panel p {
+  margin: 0 0 12px;
+}
+
+.text-panel a {
+  color: #8b9cff;
+  text-decoration: none;
+}
+
+.text-panel a:hover {
+  text-decoration: underline;
+}
 
 .status-tag {
   display: inline-block;
@@ -88,9 +111,24 @@ html, body { margin:0; height:100%; overflow:hidden; }
   font-weight: 500;
   vertical-align: middle;
 }
-.tag-id    { background: rgba(250,204,21,0.1);  color: #fde68a; border: 1px solid rgba(250,204,21,0.25); }
-.tag-sc    { background: rgba(52,211,153,0.1);  color: #6ee7b7; border: 1px solid rgba(52,211,153,0.25); }
-.tag-open  { background: rgba(251,146,60,0.1);  color: #fdba74; border: 1px solid rgba(251,146,60,0.25); }
+
+.tag-id    {
+  background: rgba(250,204,21,0.1);
+  color: #fde68a;
+  border: 1px solid rgba(250,204,21,0.25);
+}
+
+.tag-sc    {
+  background: rgba(52,211,153,0.1);
+  color: #6ee7b7;
+  border: 1px solid rgba(52,211,153,0.25);
+}
+
+.tag-open  {
+  background: rgba(251,146,60,0.1);
+  color: #fdba74;
+  border: 1px solid rgba(251,146,60,0.25);
+}
 
 .formula-block {
   background: rgba(10,13,28,0.7);
@@ -101,6 +139,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   overflow-x: auto;
   font-size: 0.95em;
 }
+
 .formula-block .label {
   font-size: 0.75rem;
   color: #7a8499;
@@ -114,6 +153,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   font-size: 0.85rem;
   margin: 12px 0;
 }
+
 .data-table th {
   text-align: left;
   color: #8b9cff;
@@ -121,15 +161,29 @@ html, body { margin:0; height:100%; overflow:hidden; }
   padding: 6px 10px;
   border-bottom: 1px solid rgba(139,156,255,0.18);
 }
+
 .data-table td {
   padding: 5px 10px;
   border-bottom: 1px solid rgba(139,156,255,0.07);
   color: #c4cae2;
 }
-.data-table tr:hover td { background: rgba(139,156,255,0.04); }
-.obs-cell { color: #4488ff; font-weight: 500; }
-.hid-cell { color: #ee44aa; }
-.low-cell { color: #44dd88; }
+
+.data-table tr:hover td {
+  background: rgba(139,156,255,0.04);
+}
+
+.obs-cell {
+  color: #4488ff;
+  font-weight: 500;
+}
+
+.hid-cell {
+  color: #ee44aa;
+}
+
+.low-cell {
+  color: #44dd88;
+}
 
 .lemma-box {
   background: rgba(52,211,153,0.04);
@@ -138,6 +192,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   padding: 14px 18px;
   margin: 14px 0;
 }
+
 .lemma-box .lemma-title {
   font-weight: 600;
   color: #6ee7b7;
@@ -152,15 +207,26 @@ html, body { margin:0; height:100%; overflow:hidden; }
   margin: 6px 0;
   font-size: 0.88rem;
 }
-.result-row .check { color: #6ee7b7; flex-shrink: 0; margin-top: 1px; }
+
+.result-row .check {
+  color: #6ee7b7;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 
 .bomb-box {
-  background: linear-gradient(135deg, rgba(255,68,170,0.05), rgba(68,221,136,0.05) 50%, rgba(68,136,255,0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(255,68,170,0.05),
+    rgba(68,221,136,0.05) 50%,
+    rgba(68,136,255,0.05)
+  );
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 10px;
   padding: 16px 20px;
   margin: 14px 0 18px;
 }
+
 .bomb-box .bomb-title {
   font-weight: 600;
   color: #e8ecf8;
@@ -168,15 +234,20 @@ html, body { margin:0; height:100%; overflow:hidden; }
   letter-spacing: 0.02em;
   margin-bottom: 6px;
 }
-.bomb-box ul li { margin-bottom: 4px; }
 
-/* ── viz panel ── */
+.bomb-box ul li {
+  margin-bottom: 4px;
+}
+
 .viz-panel {
   position: relative;
   overflow: hidden;
   background: transparent;
 }
-.viz-panel canvas { display: block; }
+
+.viz-panel canvas {
+  display: block;
+}
 
 .shell-bar {
   position: absolute;
@@ -313,7 +384,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   <p>Note: \(\Xi_6 = \mathbb{CP}^3\) is a macroscopic 6-real-dimensional space in IDWT, not a compactified extra dimension. The electron moves freely in \(\Xi_6\); 3D experiments only see its \(\mathrm{SO}(3)\) projection.</>
 
   <h2>Setup</h2>
-  <p>In IDWT, the electron is the mode \((n=13,\, d=6)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)\). The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
+  <p>In IDWT, the electron is the \((d=6)\) mode \((n=13)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)\). Its 6D orbit is the full trajectory in \(Ξ_6\), while the observable 3D "orbital" is the projection of that orbit onto ordinary space. The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
   <div class="formula-block">
     \[\mathrm{SU}(4) \supset \mathrm{SU}(3) \supset \mathrm{SO}(3)\]
     <div class="label">the natural projection path from d=6 sector to observable space</div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refractive Index from Sector Coupling — IDWT</title>
+<title>Refraction Without Slowing — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -30,65 +30,96 @@
 
 <header class="page-hero">
   <div class="eyebrow">Article · Optics</div>
-  <h1>Refractive Index from Sector Coupling</h1>
-  <p class="sub">In IDWT, light does not slow in a medium. The photon is the d=2 mode on CP¹, which propagates null in M∞. Measured slowing is cross-sector phase matching.</p>
+  <h1>Refraction Without Slowing</h1>
+  <p class="sub">Light never slows down — and not because it races through at a fixed speed. The photon is the \(d=2\) mode on \(\mathbb{CP}^1\), a field already present across the region the light occupies, not a packet travelling from one end to the other. What a refractometer reads as a lower speed is extra phase laid onto that already-present field — a projection in \(\mathbb{R}_t\), not a wave that slowed.</p>
 </header>
 
 <main>
 <section>
 
-  <h2>Abstract</h2>
+  <h2>A medium does not slow light</h2>
   <div class="prose">
-    <p>In Infinite Dimensional Wave Theory, light does not slow in a medium. The photon is the \(d=2\) mode on \(\mathbb{CP}^1\), which propagates null in \(M_\infty\). Measured slowing arises because the \(d=2\) photon field is delocalized over the local \(d=3\) and \(d=6\) matter background. The refractive index emerges from phase matching enforced by the cross-sector kernel. Effective phase slowness increases in proportion to the local mode densities \(\rho_3\) and \(\rho_6\) weighted by the combinatorial factors \(S(n,3)\) and \(S(n,6)\). We derive \(n(\omega)\) from the IDWT phase law and show how illustrative couplings reproduce \(n \approx 1.33\) for water and \(n \approx 1.52\) for BK7 glass at 589 nm.</p>
+    <p>The refractive index \(n = c/v\) is a real measurement. Push a wavefront through glass and it arrives late; the delay is exactly what \(n = 1.52\) encodes. The standard story explains the delay as light interacting with dipoles — absorbed and re-emitted, or dressed into a slower polariton quasiparticle — so that the phase velocity drops to \(c/n\).</p>
+    <p>IDWT keeps the measurement and changes what is being measured. Time is not a dimension; it is the ordered parameter \(\mathbb{R}_t\), and every wave lives on the product manifold \(M_\infty = \mathbb{R}_t \times \Xi_\infty\). The photon is the \(d=2\) sector mode, and its two coordinates are nested inside the \(d=3\) region the light occupies. It is therefore not a localized pulse crossing from one face of the glass to the other — the \(d=2\) field is already present throughout that region. There is no packet to speed up or slow down. What a laboratory clock reconstructs as a velocity \(v\), and times as an arrival late by a factor \(n\), is the ordering of phase across that already-present field. A medium changes the phase, not a speed.</p>
+  </div>
+
+  <div class="callout">
+    \( n = c/v \) — but there is no packet moving at \(v\). The \(d=2\) field is already present across the medium; the index measures phase added to it, not a velocity.
   </div>
 
 </section>
 <section>
 
-  <h2>1. Introduction</h2>
+  <h2>The photon is the d=2 mode</h2>
   <div class="prose">
-    <p>In the standard view, the refractive index \(n = c/v\) arises because light interacts with dipoles in matter. The macroscopic fields satisfy Maxwell equations with \(\varepsilon(\omega)\) and \(\mu(\omega)\), and the phase velocity is reduced to \(c/n\). Microscopically this is described as photon absorption and re-emission, or as a polariton quasiparticle.</p>
-    <p>In IDWT the picture is different. Time is not a dimension but the ordered parameter \(\mathbb{R}_t\). All dynamics occur on the infinite product manifold \(M_\infty = \mathbb{R}_t \times \Xi_\infty\). The photon is not a particle moving through \(d=3\) space. It is the \(d=2\) sector mode, supported on \(\mathbb{CP}^1\), which is already present everywhere the \(d=3\) spatial base exists. Propagation is null in \(M_\infty\).</p>
-    <p>What we call slowing is a projection effect. When the \(d=2\) mode traverses a region rich in \(d=3\) and \(d=6\) excitations, the cross-sector coupling forces phase matching. The local phase must accumulate extra cycles to stay coherent with the matter background. An observer who measures only arrival times in \(\mathbb{R}_t\) interprets this extra phase as a lower speed, hence \(n>1\).</p>
-  </div>
-
-</section>
-<section>
-
-  <h2>2. IDWT Background</h2>
-  <div class="prose">
-    <p>We adopt the core IDWT definitions:</p>
+    <p>In IDWT the photon is not a particle threading its way through \(d=3\) space. It is the ground-state excitation of the \(d=2\) sector — mode index \(n=0\) — supported on \(\mathbb{CP}^1 \cong S^2\). Three facts about it are structural, fixed by the geometry of \(d=2\) alone:</p>
     <ul>
-      <li>Base manifold: \(M_\infty = \mathbb{R}_t \times \Xi_\infty\).</li>
-      <li>Active sectors: \(D = \{2,3,4,5,6,10\}\).</li>
-      <li>Mode count: \[ S(n,d) = \binom{n+d-1}{d} \]</li>
-      <li>Mass ladder: \[ m(n,d) = m_{\text{scale},d}\; S(n,d) \]</li>
-      <li>Phase accumulation law: \[ \frac{d\Phi_d}{d\omega} = \frac{2\pi}{m_{\text{scale},d}\; S(n(\omega), d-1)} \] where \(n(\omega)\) is the mode index resonant at \(\omega\).</li>
-      <li>Cross-sector coupling: \[ \mathcal{L}_{\text{int}} = \frac{1}{2}\sum_{d\neq d'} g_{dd'} \int (\xi_d \cdot \xi_{d'})^2\; [\bar{\Psi} P_d \Psi]\,[\bar{\Psi} P_{d'} \Psi]\; d\mu \] with projectors \(P_d\) and geometric overlap \((\xi_d \cdot \xi_{d'})^2 \ge 0\).</li>
+      <li><strong>It is massless.</strong> The mass of a \(d=2\) mode is \(m = m_{\text{scale},2}\,S(n,2)\), and \(S(0,2) = \binom{1}{2} = 0\). Zero excitations means zero mass — exactly, not approximately.</li>
+      <li><strong>It has two helicities.</strong> The two independent oscillation states of the field <em>are</em> the two sector dimensions of \(d=2\). There is no third, because the sector has no third coordinate.</li>
+      <li><strong>It is transverse.</strong> The photon's two dimensions are a proper subspace of our three. The propagation direction is the one \(d=3\) coordinate the photon's sector does not contain, so the field cannot oscillate along it. Transversality falls out of a \(d=2\) object embedded in \(d=3\) space, with no appeal to Maxwell's equations. And because the field is already present rather than in flight, there is no speed for a medium to lower.</li>
     </ul>
+    <p>One more property matters for optics: the \(d=2\) directions are <a href="/articles/shared-space.html">nested inside every higher sector</a>, \(\Xi_2 \subset \Xi_3 \subset \dots \subset \Xi_{10}\). The photon's two coordinates are therefore already present everywhere matter sits. The photon does not have to reach matter; it is co-located with it by construction.</p>
   </div>
 
 </section>
 <section>
 
-  <h2>3. Photon Sector</h2>
+  <h2>Why a medium changes anything at all</h2>
   <div class="prose">
-    <p>The photon corresponds to \(d=2\), base \(\mathbb{CP}^1 \cong S^2\). Spinor dimension is 2, giving the two helicities. In \(M_\infty\) the mode is null, with no rest mass and no longitudinal degree of freedom. Its free phase slowness is</p>
+    <p>In vacuum there is nothing for the \(d=2\) mode to couple to, and it propagates freely. In matter, the photon's two coordinates are shared — through nesting — with the sectors the atoms occupy. Wherever light and matter overlap, the cross-sector kernel couples them:</p>
   </div>
+
   <div class="formula">
-    \[ \frac{d\Phi_2}{d\omega}\Big|_{\text{vac}} = \frac{2\pi}{m_{\text{scale},2}\; S(n(\omega),1)} \]
+    \[ V_{\text{kernel}} = \sum_{d \neq d'} g_{dd'}\,(\xi_d \cdot \xi_{d'})^2\; |\Psi^{(d)}|^2\,|\Psi^{(d')}|^2 \]
   </div>
+
   <div class="prose">
-    <p>where \(S(n,1)=n\). In vacuum there is no \(d=3\) or \(d=6\) background to couple to, so this defines \(c\).</p>
+    <p>This is the same unique geometric coupling that runs through the rest of IDWT. The factor \((\xi_d \cdot \xi_{d'})^2\) is the overlap between the two sectors' coordinate directions, and \(g_{dd'} = v_d\,v_{d'}\) is the rank-1 coupling strength. The electromagnetic vertex is just this kernel with \(d=2\) on one leg — the \(d=2\) coordinate nested inside the matter sector is the same handle that binds <a href="/articles/photon-vs-electron.html">electrons to nuclei</a>.</p>
   </div>
 
 </section>
 <section>
 
-  <h2>4. Matter Background</h2>
+  <h2>It is the electrons</h2>
   <div class="prose">
-    <p>Ordinary transparent media are dominated by two sectors: \(d=3\) on \(S^3\), identified with down-type quark modes that set nucleon density, and \(d=6\) on \(\mathbb{CP}^3\), identified with electron modes that set polarizability. Both are present in any atom.</p>
-    <p>The combinatorial weights grow rapidly:</p>
+    <p>Two sectors are present in any atom: \(d=3\) on \(S^3\), the down-type quark sector that builds nucleons, and \(d=6\) on \(\mathbb{CP}^3\), the electron sector. At optical frequencies, only one of them responds.</p>
+    <p>The nucleus is a colour-singlet composite of heavy \(d=3\) and \(d=4\) quark modes — effectively rigid at a couple of electron-volts, contributing nothing to the optical response. The electrons are the light, mobile part, and refraction is overwhelmingly a \(d=2 \leftrightarrow d=6\) effect, governed by the single coupling \(g_{2,6}\). This is simply IDWT's way of stating the familiar fact that the refractive index of a transparent material is electronic. The nuclear sector is there in principle, but its contribution is negligible.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Refraction is projected phase</h2>
+  <div class="prose">
+    <p>Here is the mechanism. Where the already-present \(d=2\) field overlaps the electron background, the cross-sector kernel forces the two to share phase. Holding that coherence costs extra phase cycles per unit of \(\mathbb{R}_t\). In IDWT, phase accumulation is set by sector mode density — the per-sector phase law</p>
+  </div>
+
+  <div class="formula">
+    \[ \frac{d\Phi_d}{d\omega} = \frac{2\pi}{m_{\text{scale},d}\; S\!\left(n(\omega),\, d-1\right)} \]
+  </div>
+
+  <div class="prose">
+    <p>says exactly that: the denser the available modes, the more phase winds. A \(d=3\) observer who only times arrivals has no access to the sector coordinates where the coupling lives. They register more phase than a vacuum field would have shown and read the surplus as a lower speed — hence \(n > 1\). Nothing moved more slowly. The field was already present across the medium; only its phase changed.</p>
+    <p>This delocalization is the heart of the picture. The \(d=2\) field is not dispatched at one moment and received at another — it is already laid across the region when the interaction happens. It is why light can look <em>already present</em> across an interferometer or a delayed-choice apparatus: there is no trajectory to trace, only a phase pattern over an already-present field, and a measurement selects an outcome consistent with that phase.</p>
+  </div>
+
+  <p class="note">This is an application of IDWT's primitives — the \(d=2\) photon mode, the cross-sector kernel, and the phase law — to optics. The mechanism is grounded in the framework; the explicit refractive-index function is a motivated extension, not a result derived in the notes (🔶).</p>
+
+</section>
+<section>
+
+  <h2>Why n is never less than one</h2>
+  <div class="prose">
+    <p>The kernel's geometric overlap \((\xi_d \cdot \xi_{d'})^2\) is a square — it is never negative. A coupling that can only ever be positive can only ever <em>add</em> phase; it cannot subtract it. So coupling the \(d=2\) photon to a matter sector always pushes \(n\) up, never down.</p>
+    <p>That is a clean structural prediction: no naturally occurring material made of ordinary matter sectors can have \(n < 1\) or a negative index from this mechanism. Every transparent substance sits above unity, which is what is observed. Negative-index behaviour requires engineered resonant structures, not bulk sector coupling.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Dispersion comes from the counting function</h2>
+  <div class="prose">
+    <p>How strongly the photon phase-matches depends on how close its frequency is to the medium's electronic resonances and on how many matter modes are accessible there. The number of modes, \(S(n,d)\), climbs steeply:</p>
   </div>
 
   <div class="table-wrap">
@@ -106,113 +137,17 @@
   </div>
 
   <div class="prose">
-    <p>Note the cubic growth of \(S(n,3)\) and sixth-order growth of \(S(n,6)\). For optical frequencies, \(n(\omega)\) is typically in the 3 to 5 range for the matter sectors.</p>
+    <p>The electron count grows as the sixth power of the mode index. Because the accessible counts rise so fast with energy, the phase surplus — and with it \(n\) — increases toward the blue. That is normal dispersion, falling straight out of the combinatorics, with no separate oscillator strengths inserted by hand. Where the frequency lands on an electronic resonance the matching spikes and the medium absorbs: the anomalous-dispersion region, in the same language.</p>
   </div>
 
 </section>
 <section>
 
-  <h2>5. Derivation</h2>
+  <h2>What is settled, and what is open</h2>
   <div class="prose">
-    <p>We compute the refractive index as the ratio of effective to vacuum phase slowness for the \(d=2\) mode.</p>
-    <p><strong>Step 1: local mode occupation</strong></p>
-    <p>From mass density \(\rho_m\) and composition, estimate the number of active \(d=3\) and \(d=6\) modes per unit volume, \(\rho_3\) and \(\rho_6\). For neutral matter \(\rho_6 \approx Z/A \, \rho_3\).</p>
-    <p><strong>Step 2: effective phase slowness</strong></p>
-    <p>The cross-sector term adds a mean-field shift proportional to the overlap and local density. To first order:</p>
-  </div>
-  <div class="formula">
-    \[ \frac{d\Phi_{2,\text{eff}}}{d\omega} = \frac{d\Phi_2}{d\omega}\left[ 1 + \frac{g_{23}\,\rho_3\, S(n,2)}{m_{\text{scale},2}} + \frac{g_{26}\,\rho_6\, S(n,5)}{m_{\text{scale},2}} \right] \]
-  </div>
-  <div class="prose">
-    <p>where \(S(n,2)\) and \(S(n,5)\) appear because the coupling involves the projector densities on each sector.</p>
-    <p><strong>Step 3: define refractive index</strong></p>
-  </div>
-  <div class="formula">
-    \[ n = \frac{d\Phi_{2,\text{eff}}/d\omega}{d\Phi_{2,\text{vac}}/d\omega} \]
-  </div>
-  <div class="prose">
-    <p><strong>Step 4: practical form</strong></p>
-    <p>Absorb constants into effective polarizabilities \(\alpha_3\) and \(\alpha_6\):</p>
-  </div>
-  <div class="formula">
-    \[ n(\omega) \approx 1 + \alpha_3\,\rho_3\, S(n(\omega),2) + \alpha_6\,\rho_6\, S(n(\omega),5) \]
-  </div>
-  <div class="prose">
-    <p>with \(\alpha_3 = g_{23}/m_{\text{scale},2}\) and \(\alpha_6 = g_{26}/m_{\text{scale},2}\) in IDWT units. Frequency dependence enters through \(n(\omega)\) in \(S(n(\omega), d-1)\), via the resonance condition \(\hbar\omega \approx m_{\text{scale},d} S(n,d)\). Since \(S(n,2)=(n+1)n/2\) is quadratic and \(S(n,5)\) is quintic, \(n(\omega)\) increases with \(\omega\), giving normal dispersion.</p>
-  </div>
-
-</section>
-<section>
-
-  <h2>6. Worked Example</h2>
-  <div class="prose">
-    <p>We illustrate with two common media at the sodium D line, 589 nm. Values of \(\rho_3\), \(\rho_6\), \(\alpha_3\), \(\alpha_6\) are placeholders to be fit to measured \(g_{23}\) and \(g_{26}\). The \(d=6\) electron term is small for these low-polarizability materials and is set near zero here.</p>
-  </div>
-
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Material</th>
-          <th>\(\rho_3\) (m\(^{-3}\))</th>
-          <th>\(\rho_6\) (m\(^{-3}\))</th>
-          <th>\(\alpha_3\) (m\(^3\))</th>
-          <th>\(\alpha_6\) (m\(^3\))</th>
-          <th>\(n\) at 589 nm (IDWT est.)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Water</td>
-          <td>3.3e28</td>
-          <td>1.0e28</td>
-          <td>1.2e-30</td>
-          <td>~0</td>
-          <td>1.33</td>
-        </tr>
-        <tr>
-          <td>BK7 glass</td>
-          <td>2.5e28</td>
-          <td>7.5e27</td>
-          <td>2.0e-30</td>
-          <td>~0</td>
-          <td>1.52</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="prose">
-    <p>Computation: \(n \approx 1 + \alpha_3\rho_3 S(n,2)\). For optical frequencies we take \(S(n,2)\approx 10\) (corresponding to \(n(\omega)=4\)). Water: \(1 + (1.2\times10^{-30})(3.3\times10^{28})(10) = 1.396\), reduced to 1.33 after local-field correction. Glass: \(1 + (2.0\times10^{-30})(2.5\times10^{28})(10) = 1.50\). These match measured values once \(g_{23}\) is calibrated.</p>
-  </div>
-
-</section>
-<section>
-
-  <h2>7. Discussion</h2>
-  <div class="prose">
-    <p>IDWT provides a geometric reason for \(n>1\). The coupling term contains \((\xi_d \cdot \xi_{d'})^2\), which is non-negative. Therefore the bracket in Step 2 is always greater than one, so \(d\Phi_{2,\text{eff}}/d\omega > d\Phi_2/d\omega\). No negative-index medium is possible from pure \(d=2\)-\(d=3\) coupling, consistent with natural materials.</p>
-    <p>The standard polariton picture says the photon mixes with matter excitations to form a slower quasiparticle. IDWT says the same mixing is already built into \(M_\infty\): the \(d=2\) mode is never separable from the \(d=3\) and \(d=6\) backgrounds where they overlap. What changes is not photon speed but the projected phase in \(\mathbb{R}_t\).</p>
-    <p>Dispersion follows directly from \(S(n,d)\). Higher \(\omega\) accesses higher \(n(\omega)\), which increases \(S(n,2)\) quadratically. This gives the observed increase of \(n\) toward the blue, without invoking separate oscillator strengths. Anomalous dispersion near absorption corresponds to a jump in \(n(\omega)\) when \(\omega\) crosses a matter sector resonance \(m_{\text{scale},3}S(n,3)\) or \(m_{\text{scale},6}S(n,6)\).</p>
-    <p>The model also explains why light appears already present across a medium in delayed-choice experiments. In IDWT the \(d=2\) field is delocalized over the whole \(d=3\) region; measurement selects a phase-consistent history, not a trajectory.</p>
-  </div>
-
-</section>
-<section>
-
-  <h2>8. Conclusion</h2>
-  <div class="prose">
-    <p>Refractive index is not a change in photon velocity. It is the measurable consequence of cross-sector phase matching in IDWT. The \(d=2\) photon accumulates extra phase in proportion to local \(d=3\) and \(d=6\) mode densities, weighted by \(S(n,2)\) and \(S(n,5)\). The simple linear form \(n(\omega) \approx 1 + \alpha_3\rho_3 S(n,2) + \alpha_6\rho_6 S(n,5)\) reproduces typical indices for water and glass and predicts normal dispersion from combinatorics alone. Fitting \(\alpha_3\) and \(\alpha_6\) to precision refractometry will determine \(g_{23}\) and \(g_{26}\), providing a direct optical measurement of IDWT sector couplings.</p>
-  </div>
-
-</section>
-<section>
-
-  <h2>References</h2>
-  <div class="prose">
-    <p>[1] <a href="/notes/">IDWT Part 1</a>: Foundations — \(M_\infty = \mathbb{R}_t \times \Xi_\infty\), sector decomposition, and the projector formalism.</p>
-    <p>[2] <a href="/notes/">IDWT Part 2</a>: Particle Spectrum from \(S(n,d)\) — derivation of \(m(n,d)=m_{\text{scale},d}S(n,d)\) and identification of \(d=2,3,6\).</p>
-    <p>[3] <a href="/notes/">IDWT Part 3</a>: Cross-Sector Coupling and Mass Mixing — the \((\xi_d\cdot\xi_{d'})^2\) kernel and coupling constants \(g_{dd'}\).</p>
+    <p>Settled, because each follows from the geometry of \(d=2\) and the non-negative kernel: the photon is massless and null; it carries exactly two helicities; refraction can only raise \(n\), never lower it; dispersion runs the right way, blue over red; and resonances produce absorption. None of these need a fitted parameter.</p>
+    <p>Open is the quantitative index itself. Turning the mechanism into an actual number for water or glass requires the medium's electron response — how strongly each electron mode couples to the photon at a given frequency — and the notes do not yet derive that response (🔶). The honest direction runs the other way: precision refractometry (water at \(n \approx 1.333\), common borosilicate glass at \(n \approx 1.517\) at the sodium D line) would <em>calibrate</em> the single \(d=2 \leftrightarrow d=6\) coupling \(g_{2,6}\) the mechanism needs. That makes ordinary optics a candidate direct probe of an IDWT sector coupling — a proposed measurement, not a finished prediction.</p>
+    <p>For the photon's place in the sector structure, see <a href="/articles/sector-2.html">The d=2 Sector</a> and <a href="/articles/photon-vs-electron.html">Photon and Electron</a>; for the nesting that puts the photon everywhere matter is, see <a href="/articles/shared-space.html">One Space, Six Depths</a>. The full treatment is in the <a href="/notes/">IDWT notes</a>.</p>
   </div>
 
 </section>

@@ -66,7 +66,7 @@ The sector manifolds $\Xi_d$ are the complex projective spaces $\mathbb{CP}^{(d/
 
 The mode spectrum is discrete because the bound states of $V_d$ are discrete — just as bound states of the hydrogen potential are discrete even though $\mathbb{R}^3$ is infinite. The sectors are not compactified extra dimensions in any sense. The observable 3D universe does not couple to gravitational modes propagating through $\Xi_d$; the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric enters only through the d=3-coordinate component of the energy-momentum tensor $T_{\mu\nu}^{\rm obs} = \int |\Psi_\infty|^2 d\xi$.
 
-**How $\xi^0$ selects the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by the seed $n_s = 4$ independently of $\xi^0$. What $\xi^0$ determines is the projection amplitude with which each mode $(n,d)$ appears to an observer at that address: modes with large $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2))$ are suppressed exponentially in the Stage-1 filter (Section 11). The SM spectrum is the set of modes that survive both the Stage-1 visibility filter (small $\Omega_{\log}$) and Stage-2 co-fixed-point stability for all $\xi^0$ simultaneously — it is the spectrum common to every observer address in $\mathcal{M}_\infty$. The choice of $\xi^0$ therefore affects only the relative intensities of already-existing modes, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
+**How $\xi^0$ relates to the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by the seed $n_s = 4$ independently of $\xi^0$. The SM spectrum is the set of mode-sector pairs selected by the co-fixed-point condition (Section 11), the same for every observer address in $\mathcal{M}_\infty$. What $\xi^0$ affects is only how each already-existing mode projects onto the observer's three resolvable coordinates, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
 
 **Core postulates.** (P1) $\Psi_\infty$ satisfies a wave equation on $\mathcal{M}_\infty$ with a quartic cross-sector kernel (Section 2.4). (P2) Mass is the resonant frequency of a mode: $m(n,d) = m_{\mathrm{scale},d} \times S(n,d)$. (P3) The sector set $D = \{2,3,4,5,6,10\}$ is determined by $n_s = 4$ (Theorem S4). Full derivation of the kernel from the spinor geometry is in Technical Volume 8 [11].
 
@@ -441,7 +441,7 @@ The $m_{\beta\beta} = 0$ prediction holds at all orders: the $d=5$ sector has $d
 
 The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
 
-Colour confinement emerges from the two-stage observability filter. A mode $(n,d)$ is observable only if: (1) $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2)) \lesssim \ln 2$ (Stage-1 dimensional visibility passes); and (2) the mode belongs to the co-fixed-point spectrum of the filtration chain (Stage-2 co-fixed-point condition). The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) pass Stage 1 but fail Stage 2 — they are not stable particles, consistent with observation.
+The absence of light unstable quark states follows from the co-fixed-point condition: a mode $(n,d)$ is a physical particle only if the pair belongs to the co-fixed-point spectrum of the generation tower. The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) are not co-fixed-points — they are not stable particles, consistent with observation.
 
 Gravity: variation of the master action with respect to $g_{\mu\nu}$ yields the observer's Einstein equations $G_{\mu\nu} = 8\pi G_N T_{\mu\nu}^{\rm eff}$, where $T_{\mu\nu}^{\rm eff} = \int_\Xi T_{\mu\nu}^{\rm Dirac}\,d\mu_\xi$ is the sector-space integral of the matter stress-energy. $G_N$ is a measured constant of spacetime; the sector geometry $\Xi$ is a fixed background and contributes no gravitational degrees of freedom. Full treatment in Technical Volume 4 [11].
 
@@ -500,7 +500,7 @@ IDWT is distinctive in providing: (a) masses for all 15 predicted particles, (b)
 3. **$m_u/m_d = \sqrt{3/14} = 0.46291$ exactly (Theorem S2).** A ratio outside $[0.40, 0.55]$ falsifies the coupling derivation.
 4. **No new stable particles at any energy (Completeness Theorem).** Any new particle discovery falsifies IDWT.
 5. **Normal neutrino hierarchy.** Inverted hierarchy is excluded by mode ordering.
-6. **No stable states at 18.807 MeV or 47.019 MeV.** These $d=3$ modes pass Stage 1 but fail Stage 2; they may appear as broad resonances only.
+6. **No stable states at 18.807 MeV or 47.019 MeV.** These $d=3$ modes are not co-fixed-points; they may appear as broad resonances only.
 
 ---
 

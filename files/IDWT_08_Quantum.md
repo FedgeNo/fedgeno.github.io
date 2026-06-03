@@ -415,7 +415,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Meson masses:** Binding shifts from kernel overlap integrals (derivation open — §12 not yet written)
 - **Nucleon properties:** μ_p, μ_n, g_A from l=1 spin-orbit admixture in the d=3 sector (§10 below)
 - **QCD running:** β(α_s) from vacuum polarization of unoccupied modes
-- **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes, suppressed by Ω_log (§13)
+- **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes — smallness is an open problem (§13; Part 4 §4)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
 
 All absolute scales are outputs of the same kernel + unoccupied-mode sums.
@@ -450,7 +450,7 @@ The IDWT state space is the weighted Hilbert space:
 
 with D = {2,3,4,5,6,10} and c_{n,d} the mode coefficients.
 
-**Kernel-induced convergence:** The dimensional visibility weight exp(−Ω_log(n,d)) = S(n,2)/S(n,d) ensures that modes at high n are exponentially suppressed. For d ≥ 3 and large n, S(n,d)/S(n,2) ~ n^{d−2}, giving absolute convergence of all physical sums.
+**Convergence:** For d ≥ 3 and large n, S(n,d) ~ n^d/d! grows polynomially, and the reciprocal-mass sum Σ_n 1/S(n,d) = d/(d−1) converges (T13a). Physical observables weighted by inverse mode mass are therefore finite, and any normalizable state (finite ‖Ψ‖_w²) has coefficients c_{n,d} that decay faster than S(n,d)^{−1/2}.
 
 **Self-adjointness:** H_IDWT = O + γ(T+T†) is self-adjoint by Kato-Rellich (the inter-block coupling T is relatively bounded with relative bound < 1 from the kernel decay ~n^{−(d−1)/2}).
 
@@ -579,19 +579,9 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 ## 13. Cosmological Constant from Unoccupied-Mode Vacuum Energy 🔶
 
-**Mechanism:** Dominant vacuum energy comes from unoccupied low-n modes across all sectors. These have:
-- Low S(n,d) values (n=2,3,5,... gaps in d=3 and analogous gaps elsewhere)
-- High dimensional depth Ω_log > 1.5 → exponential Stage-1 suppression
+The vacuum energy that sources Λ_eff would come from the V_kernel vacuum expectation over the unoccupied modes of the sector tower. Its observed smallness is not currently derived: an existing mode gravitates regardless of whether a d=3 observer can resolve it, so what distinguishes contributing modes is persistence — only the co-fixed-point modes are stable resonances of M_∞, while the rest are not persistent excitations. Whether that distinction, together with the sector radii and coupling strengths that fix particle masses, yields a naturally small Λ_eff is an open problem (see Part 4 §4). ❓
 
-```
-ρ_vac^obs ≈ N_unocc × ⟨S_unocc⟩ × m_scale_3⁴ × exp(−Ω_typ) × f_overlap
-```
-
-With N_unocc ≈ 15, ⟨S_unocc⟩ ≈ 500, Ω_typ ≈ 1.8, the suppression factor exp(−Ω_typ) ≈ 0.17 brings the vacuum contribution well below the naive UV estimate.
-
-Λ_eff is parametrically small without fine-tuning because most unoccupied modes are suppressed by the two-stage filter. The "why so small" problem is addressed geometrically: occupied modes contribute negligibly (localized, fully visible but tiny volume); unoccupied modes dominate the fluctuation but are exponentially suppressed at Stage 1.
-
-The same kernel that selects {1,4}, locks the bottom beat, confines colour, and binds pions also sets the vacuum energy — no additional terms.
+The same kernel that selects {1,4}, locks the bottom beat, confines colour, and binds pions would also set the vacuum energy — but the suppression mechanism is not yet established.
 
 ---
 

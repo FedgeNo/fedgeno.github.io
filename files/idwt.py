@@ -131,12 +131,12 @@ n_nu3 = n_nu1 + n_nu2 - n_up   # = 22
 
 # n_e = n_nu1 + n_up = 10 + 3 = 13
 # Electron: the lightest lepton. This is the unique d=6 mode consistent
-# with the comb filtration at stage 1. (Part 2 section 4)
+# with the comb filtration at step 1. (Part 2 section 4)
 n_e = n_nu1 + n_up    # = 13
 
 # n_charm = S(n_s, 3) = S(4, 3) = C(6,3) = 20
 # Charm quark: the d=4 image of the strange seed via the d=3 simplex map.
-# This is the unique d=4 mode selected by the sector comb at filtration stage 2.
+# This is the unique d=4 mode selected by the sector comb at filtration step 2.
 n_charm = S(n_strange, 3)   # = 20
 
 # n_mu = n_charm + n_nu2 = 20 + 15 = 35 = S(4,4)
@@ -315,8 +315,8 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 epsilon = 1.0 / (280.0 * math.sqrt(7.0))
 
 # k-values: phase load per quark in the d=4 sector.
-#   up:    k = 0 (stage 1, no additional frequency shift)
-#   charm: k = 3 = n_up = n_s - 1  (frequency shift at the stage-2 comb boundary)
+#   up:    k = 0 (first generation, no additional frequency shift)
+#   charm: k = 3 = n_up = n_s - 1  (frequency shift at the second comb step)
 #   top:   k = 10 = n_nu1 = S(n_up, 3) (generation depth equals the first neutrino
 #                mode index -- a cross-sector consistency relation)
 # After correction: c/u ratio error -0.003%, t/u ratio error -0.048%.
@@ -588,8 +588,9 @@ m_B0_pred   = m_meson_heavy(m_d_quark, m_b, E_bind_b)
 m_Bs_pred   = m_meson_heavy(m_s_quark, m_b, E_bind_b)
 m_Ups_pred  = m_meson_heavy(m_b, m_b, E_bind_b)      # Upsilon(1S): bb-bar
 m_Jpsi_pred = m_meson_heavy(m_c_quark, m_c_quark, E_bind_c)  # J/psi: cc-bar
-# J/psi +2.0% reflects O(Lqcd/m_c)=22% correction (vs 7% for b). Spin-1 vs
-# spin-0 hyperfine J/psi-eta_c = 113 MeV requires spin-dependent kernel: open.
+# J/psi +2.0% reflects O(Lqcd/m_c)=22% correction (vs 7% for b). The J/psi-eta_c
+# difference (113 MeV) is a vector-vs-pseudoscalar object-type distinction (as
+# rho vs pi), not a correction to this single formula.
 
 # --- Baryon octet: (N_c-1) colour-bond formula --------------------------------
 # m(baryon) = m_N + (N_c-1) * sum_over_replaced(m_s - m_replaced)
@@ -599,7 +600,9 @@ m_Jpsi_pred = m_meson_heavy(m_c_quark, m_c_quark, E_bind_c)  # J/psi: cc-bar
 m_N_idwt  = N_c * Lqcd * (1.0 + 1.0/n_up**2)   # nucleon = proton/neutron avg
 m_Lambda  = m_N_idwt + (N_c-1)*(m_s_quark - m_d_quark)
 m_Xi      = m_N_idwt + (N_c-1)*((m_s_quark-m_u_quark) + (m_s_quark-m_d_quark))
-# Sigma-Lambda hyperfine (+77 MeV), Omega (J=3/2 decuplet): open.
+# Sigma and Lambda have identical content -> same formula mass; the 77 MeV
+# difference is a small same-type residual the formula does not resolve.
+# Omega (J=3/2) is decuplet, outside this octet formula.
 
 # --- Polynomial cross-mode identity ------------------------------------------
 # n_charm * N_c = n_nu1 * N_f = 4 * n_nu2 = n_s*(n_s-1)*(n_s+1)*(n_s+2)/6
@@ -612,17 +615,6 @@ _poly_check_1 = n_charm * N_c              # = 20 * 3 = 60
 _poly_check_2 = n_nu1 * N_f               # = 10 * 6 = 60
 _poly_check_3 = 4 * n_nu2                 # = 4 * 15 = 60
 
-# --- Stage-1 boundary: S(n,d)/S(n,d+1) = 1/2 gives n = d+2 universally ------
-# Setting the adjacent-sector IDOS ratio to 1/2 (the majority-support threshold)
-# gives the universal formula n_boundary(d) = d+2. At d=2: n_s = 4.
-# This is an alternative derivation of n_s=4 from the visibility structure,
-# complementing the topological route chi(CP^3)=4. (Part 7 section 2.9.1)
-# Algebraic identity: S(n,d)/S(n,d+1) = (d+1)/(n+d)  [exact for all n,d >= 1]
-def stage1_boundary(d):
-    """Returns n such that S(n,d)/S(n,d+1) = 1/2, i.e. n = d+2."""
-    return d + 2
-
-_n_boundary_d2 = stage1_boundary(2)       # = 4 = n_s  ✓
 
 # --- Mode Index Stability: spectral gaps confirm n is invariant ---------------
 # Theorem (Part 8 section 3a): n is the eigenvalue rank in a purely discrete
@@ -1544,50 +1536,26 @@ t9a_err_25  = abs(t9a_prod_25 - 96.0)
 
 
 # =============================================================================
-# STEP 29 -- T0.5: TWO-STAGE OBSERVABILITY FILTER
+# STEP 29 -- T0.5: CO-FIXED-POINT SELECTION CONDITION
 # =============================================================================
-# Theorem T0.5 (Part 9 §T0.5, Part 7): a mode (n,d) is a physical particle
-# if and only if it passes both filters.
-#
-# ── STAGE 1: Dimensional Visibility  Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 ──
-#
-#   S(n,2) counts modes in the d=2 gauge sector (the observable reference).
-#   S(n,d) counts modes in sector d. The ratio S(n,d)/S(n,2) grows rapidly
-#   with sector index d: modes in high-d sectors have most of their vibrational
-#   activity spread across extra dimensions. Ω_log = ln of this ratio quantifies
-#   the dimensional depth. The threshold ln 2 ≈ 0.693 is the spectral half-power
-#   point of the visibility kernel: above it, more than half the mode's activity
-#   is in extra dimensions.
-#
-#   Two exempt classes (Stage 1 does not apply):
-#   (a) d=2 gauge bosons: Ω_log ≡ 0 by definition (S(n,2)/S(n,2) = 1).
-#   (b) d=4 up-type quarks: SU(3)_c gauge invariance forbids the operator that
-#       would shift quark activity into extra dimensions, forcing the visible
-#       amplitude A_rel = 1 regardless of Ω_log. Without this exemption, the
-#       up quark (Ω_log = 0.916 > ln 2) would fail Stage 1.
-#   d=3 down-type quarks are NOT exempt — their occupied modes happen to have
-#   Ω_log ≤ ln 2 naturally: down quark Ω_log = 0, strange quark Ω_log = ln 2.
-#
-#   Important: Stage 1 and Stage 2 are logically independent. Leptons and
-#   neutrinos all have Ω_log >> ln 2, but they are physically occupied because
-#   they are co-fixed-points (Stage 2). Stage 1 measures dimensional suppression
-#   (how extra-dimensional the mode is); Stage 2 measures resonance stability
-#   (whether the mode is a fixed-point of the algebraic comb filtration). Large
-#   Ω_log confirms extra-dimensional activity but does not preclude occupancy.
-#   (Part 7 §1.1–1.2, Part 9 T0.5)
-#
-# ── STAGE 2: Co-fixed-point condition  (n, d) ∈ Σ_pairs ─────────────────────
+# Theorem T0.5 (Part 9 §T0.5, Part 7): a mode (n,d) is a physical particle if
+# and only if the pair (n,d) is a member of Sigma_pairs -- the co-fixed-point
+# set produced by the generation tower.
 #
 #   n must be a co-fixed-point of the sector comb filtration generated from
 #   seeds {n_s=4, n_d=1} by the hockey-stick recursion
-#     S(n+1, d) = S(n, d) + S(n, d−1)
-#   and the Vandermonde coupling rule (STEP 1). The physical (n,d) pairs Σ_pairs
-#   are exactly the 15 particles derived in STEP 1. Their membership is not a
-#   postulate: it follows entirely from the two seed values {4, 1} and the two
-#   recursion rules. Modes outside Σ_pairs may satisfy Stage 1 but are not
-#   stable resonances of M_∞. For example, d=3 modes at n=2 and n=3 both pass
-#   Stage 1 (Ω_log < ln 2) but fail Stage 2; they are short-lived colour-triplet
-#   excitations, not stable particles. (Part 7 §1.3, Part 2 §2–4)
+#     S(n+1, d) = S(n, d) + S(n, d-1)
+#   and the Vandermonde coupling rule (STEP 1); d must be the sector assigned
+#   to that family by the Hopf-chain structure (Part 1 section 3). The physical
+#   (n,d) pairs Sigma_pairs are exactly the 15 particles derived in STEP 1.
+#   Their membership is not a postulate: it follows entirely from the two seed
+#   values {4, 1} and the recursion rules.
+#
+#   Modes outside Sigma_pairs are not stable resonances of M_inf. For example,
+#   d=3 modes at n=2 (odd level, l-parity disconnected) and n=3 (even level,
+#   dephases) are not co-fixed-points; they are short-lived colour-triplet
+#   excitations, not stable particles. The instability mechanisms (l-parity,
+#   dephasing) are in STEP 15. (Part 7 section 1, Part 2 sections 2-4)
 
 # Physical (n, d) pairs — the 15 SM particles as derived in STEP 1.
 Sigma_pairs = frozenset({
@@ -1599,22 +1567,7 @@ Sigma_pairs = frozenset({
     (n_tau,     10),
 })
 
-_ln2 = math.log(2.0)   # Stage-1 threshold ≈ 0.6931
-
-# d=4 quarks are colour-exempt from Stage 1; d=3 quarks are not exempt
-# (their occupied modes satisfy Ω_log ≤ ln 2 without needing the exemption).
-_colour_exempt = frozenset({4})
-
-def _omega_log(n, d):
-    """
-    Ω_log(n,d) = ln(S(n,d) / S(n,2)).
-    For d=2 (reference sector) or n=0 (photon): return 0.
-    """
-    if n == 0 or d == 2:
-        return 0.0
-    return math.log(S(n, d) / S(n, 2))
-
-# Full 15-particle filter table.
+# Full 15-particle selection table.
 _filter_rows = [
     ("photon",  2,  0),        ("W",       2,  n_W),
     ("Z",       2,  n_Z),      ("Higgs",   2,  n_H),
@@ -1625,23 +1578,13 @@ _filter_rows = [
     ("tau",     10, n_tau),
 ]
 
-t05_rows = []
-for _nm, _d, _n in _filter_rows:
-    _ol      = _omega_log(_n, _d)
-    _s1_ex   = (_d in _colour_exempt) or (_d == 2)
-    _s1_pass = _s1_ex or (_ol <= _ln2)
-    _s2_pass = (_n, _d) in Sigma_pairs
-    t05_rows.append((_nm, _d, _n, _ol, _s1_ex, _s1_pass, _s2_pass))
+t05_rows = [(_nm, _d, _n, (_n, _d) in Sigma_pairs) for _nm, _d, _n in _filter_rows]
 
-# Three d=3 hadronic modes illustrating Stage 1 / Stage 2 rejection:
-#   n=2: Ω_log = ln(S(2,3)/S(2,2)) = ln(4/3) ≈ 0.288 < ln2  → passes Stage 1
-#   n=3: Ω_log = ln(S(3,3)/S(3,2)) = ln(10/6) ≈ 0.511 < ln2 → passes Stage 1
-#   n=5: Ω_log = ln(S(5,3)/S(5,2)) = ln(35/15) ≈ 0.847 > ln2 → fails Stage 1
-# All three fail Stage 2 ((n,3) not in Sigma_pairs); none are stable particles.
-t05_hadronic = [
-    (_n, _omega_log(_n, 3), _omega_log(_n, 3) <= _ln2, (_n, 3) in Sigma_pairs)
-    for _n in [2, 3, 5]
-]
+# d=3 modes that are NOT co-fixed-points (short-lived resonances, not stable):
+#   n=2 (level N=1, odd): l-parity disconnected from the seeds (STEP 15)
+#   n=3 (level N=2, even): dephases in the infinite-dimensional coupled system
+#   n=5 and above: not co-fixed-points
+t05_hadronic = [(_n, (_n, 3) in Sigma_pairs) for _n in [2, 3, 5]]
 
 
 # =============================================================================
@@ -1937,7 +1880,7 @@ print(f"  Row unitarities: |row1|={_r1_ckm:.6f}  |row2|={_r2_ckm:.6f}  |row3|={_
 # STEP 14 -- d=3 HADRONIC RESONANCE SPECTRUM
 # =============================================================================
 # The d=3 sector supports a tower of hadronic resonances at n > n_strange.
-# These fail Stage-2 co-fixed-point stability (not stable particles) but
+# These are not co-fixed-points (not stable particles) but
 # survive as colour-singlet composites observable as broad resonances.
 # Mass formula: m = m_scale_3 * S(n,3). No new inputs beyond m_scale_3.
 #
@@ -1992,7 +1935,7 @@ print(f"  v_6 = v_{{10}} = sqrt(1/n_s) = {math.sqrt(1.0/n_strange):.5f}  [exact 
 print(f"  g_{{56}}^2 = g_{{55}}*g_{{66}} = (96/g_22)/n_s = {g56_sq:.6f}")
 mu_tau_sym = [("sin^2(theta_12)", 1.0/3, 0.307, "solar"),
               ("sin^2(theta_23)", 1.0/2, 0.553, "atmospheric, exact from mu-tau symmetry"),
-              ("sin^2(theta_13)", 0.0,   0.022, "reactor; μ–τ limit gives 0, spectral geometry gives 0.02211 (Step 19)")]
+              ("sin^2(theta_13)", 0.0,   0.022, "reactor; μ–τ symmetric limit gives 0, spectral geometry gives 0.02211 (Step 19)")]
 print(f"\n  {'Angle':>18}  {'μτ-sym':>8}  {'PDG':>8}  {'delta':>8}  note")
 for name, sym_val, pdg_val, note in mu_tau_sym:
     dev = pdg_val - sym_val
@@ -2192,10 +2135,6 @@ print(f"    n_charm*N_c = {n_charm}*{N_c} = {_poly_check_1}   n_nu1*N_f = {n_nu1
       f"   4*n_nu2 = 4*{n_nu2} = {_poly_check_3}"
       f"   formula = {poly_identity}"
       f"   {'✓' if _poly_check_1==_poly_check_2==_poly_check_3==poly_identity else '✗'}")
-print()
-print(f"  Stage-1 boundary identity S(n,d)/S(n,d+1) = (d+1)/(n+d):")
-print(f"    Setting = 1/2 gives n = d+2 universally.")
-print(f"    At d=2: n_boundary = {_n_boundary_d2} = n_s ✓  (alternative derivation of the seed)")
 print()
 print(f"  Mode Index Stability (Part 8 §3a): spectral gaps (E_{{n+1}}-E_n)/E_n > 0 for all sectors:")
 for _d, _lam in [(2,50.723),(3,4.820),(4,1.726),(5,0.164),(6,0.250),(10,0.250)]:
@@ -2480,7 +2419,7 @@ print(f"  -> Both chains yield 96: genuine internal consistency test. ✓")
 
 
 # =============================================================================
-# STEP 34 -- T0.5: TWO-STAGE OBSERVABILITY FILTER
+# STEP 34 -- T0.5: CO-FIXED-POINT SELECTION CONDITION
 # =============================================================================
 
 print("\n=== STEP 16: CONSECUTIVE MATTER QUARTET DERIVATION (Part 1 §3a, App A §19) ===")
@@ -2509,45 +2448,31 @@ for ns, ok, length in _ok:
     d_start = ns - 1
     print(f"    n_s={ns}: d_start={d_start}, d_term={2*(ns-1)}, length={length}  {'<= UNIQUE' if ok and d_start==3 else ''}")
 
-print("\n=== T0.5: TWO-STAGE OBSERVABILITY FILTER (Part 9 §T0.5, Part 7) ===")
-print(f"  Ω_log(n,d) = ln(S(n,d)/S(n,2))   threshold: ln2 = {_ln2:.4f}")
-print(f"  Stage 1: Ω_log ≤ ln2  (or exempt: d=2 reference, d=4 colour-protected)")
-print(f"  Stage 2: (n,d) ∈ Σ_pairs  (co-fixed-point of sector comb filtration)")
-print(f"\n  {'particle':>8}  {'d':>2}  {'n':>4}  {'Ω_log':>7}  {'Stage 1':>10}  {'Stage 2':>7}")
-print("  " + "-"*58)
-for _nm, _d, _n, _ol, _s1ex, _s1p, _s2p in t05_rows:
-    if _d == 2:
-        _s1str = "✓ ref"
-    elif _s1ex:
-        _s1str = "✓ colour"
-    elif _ol <= _ln2:
-        _s1str = f"✓ {_ol:.3f}"
-    else:
-        _s1str = f"— {_ol:.3f}"   # fails Stage 1; Stage 2 overrides
+print("\n=== T0.5: CO-FIXED-POINT SELECTION CONDITION (Part 9 §T0.5, Part 7) ===")
+print(f"  A mode (n,d) is a physical particle iff (n,d) in Sigma_pairs,")
+print(f"  the co-fixed-point set of the sector comb filtration (seeds {{1,4}}).")
+print(f"\n  {'particle':>8}  {'d':>2}  {'n':>4}  {'co-fixed-point':>14}")
+print("  " + "-"*36)
+for _nm, _d, _n, _s2p in t05_rows:
     _s2str = "✓" if _s2p else "✗"
-    print(f"  {_nm:>8}  {_d:>2}  {_n:>4}  {_ol:>7.3f}  {_s1str:>10}  {_s2str:>7}")
+    print(f"  {_nm:>8}  {_d:>2}  {_n:>4}  {_s2str:>14}")
 print(f"\n  Notes:")
-print(f"  * d=3 down/strange: Ω_log ≤ ln2 naturally (colour dynamics keep activity in d≤3).")
-print(f"  * d=4 up/charm/top: Ω_log > ln2 but colour-exempt; SU(3)_c forces A_rel=1.")
-print(f"  * Leptons/neutrinos: Ω_log >> ln2; large extra-dimensional activity confirmed.")
-print(f"    They are physical because they are co-fixed-points (Stage 2), not because")
-print(f"    they are dimensionally visible (Stage 1). The two conditions are independent.")
+print(f"  * All 15 SM particles are members of Sigma_pairs.")
 print(f"  * Bottom quark: geometric-mean beat at k0={k0_aa}, not a simplex mode — see STEP 14.")
-print(f"\n  Hadronic resonances in d=3: pass Stage 1, fail Stage 2 (not stable particles):")
-print(f"  {'(n,3)':>6}  {'Ω_log':>7}  {'S1':>5}  {'S2':>5}  note")
-print("  " + "-"*45)
-for _n, _ol, _s1p, _s2p in t05_hadronic:
-    _s1str = f"✓ {_ol:.3f}" if _s1p else f"✗ {_ol:.3f}"
+print(f"\n  d=3 modes that are NOT co-fixed-points (short-lived resonances, not stable):")
+print(f"  {'(n,3)':>6}  {'co-fixed-point':>14}  note")
+print("  " + "-"*50)
+for _n, _s2p in t05_hadronic:
     _s2str = "✓" if _s2p else "✗"
     _note  = "→ short-lived colour-triplet excitation only" if not _s2p else "→ stable"
-    print(f"  ({_n},3):  {_ol:>7.3f}  {_s1str:>5}  {_s2str:>5}  {_note}")
-print(f"\n  All 15 SM particles are in Σ_pairs (Stage 2 ✓). Stage 1 and Stage 2 together")
-print(f"  account for the complete absence of stable particles between the quark sector")
-print(f"  resonances and the next co-fixed-point mode index in each sector.")
+    print(f"  ({_n},3):  {_s2str:>14}  {_note}")
+print(f"\n  Sigma_pairs is the complete stable spectrum: the absence of stable particles")
+print(f"  between the quark-sector resonances and the next co-fixed-point mode index in")
+print(f"  each sector follows from the l-parity and dephasing mechanisms (STEP 15).")
 
 
 # =============================================================================
-# STEP 15 -- STAGE-2 STABILITY: l-PARITY SELECTION RULE (Part 7 §1.3, App A §22)
+# STEP 15 -- CO-FIXED-POINT STABILITY: l-PARITY SELECTION RULE (Part 7 §1.2, App A §22)
 # =============================================================================
 # The kernel (xi_d . xi_{d'})^2 decomposes angularly into l=0 (scalar) and
 # l=2 (tensor) components only. Each kernel application changes angular momentum
@@ -2565,7 +2490,7 @@ print(f"  resonances and the next co-fixed-point mode index in each sector.")
 #
 # For even-level non-Sigma modes (n=3,5,...): they do have l=0 components
 # and couple to the seeds. Their l=0 kernel matrix elements are computed below.
-# (Part 7 §1.3, Appendix A §22)
+# (Part 7 §1.2, Appendix A §22)
 
 from math import lgamma as _lgamma
 from scipy.special import eval_genlaguerre as _genlaguerre
@@ -2598,7 +2523,7 @@ def _I3(n_r):
 
 _I3_seed = _I3(0)   # seed (n=1) overlap
 
-print("\n=== STEP 15: STAGE-2 l-PARITY SELECTION (Part 7 §1.3, App A §22) ===")
+print("\n=== STEP 15: CO-FIXED-POINT l-PARITY SELECTION (Part 7 §1.2, App A §22) ===")
 print("  Kernel (xi.xi')^2 = l=0 + l=2 only  =>  parity of l is conserved.")
 print("  Seeds are l=0 (even). Odd-l modes are permanently unreachable.")
 print()
@@ -2635,7 +2560,7 @@ print(f"    dE^(1)   = ME(3->3) = {_ME33:.3f} su  ~{_ME33*m_scale3:.1f} MeV")
 print(f"    Perturbed m(n=3) ~ {_m_n3_pert:.1f} MeV  (between Sigma modes {_m_n1:.1f} and {m_scale3*S(4,3):.1f} MeV)")
 print(f"  => n=3 is off-resonance with any Sigma_pairs mode.")
 print()
-# --- Stage-2 dephasing argument (completes the derivation) ---
+# --- Dephasing argument (completes the derivation) ---
 # The n=3 mode has non-zero off-diagonal ME to n=1, n=5, n=7, ... in d=3,
 # and to modes in d=4, d=5, d=6, d=10 via cross-sector coupling.
 # IDWT is infinite-dimensional: all five sectors, each with countably many modes.
@@ -2647,14 +2572,14 @@ print()
 # Dephasing timescale: tau ~ hbar / (off-diagonal ME * m_scale_3)
 #                          ~ 1 / (ME_13 * m_scale3)
 _tau_factor = 1.0 / (_ME13 * m_scale3)   # in 1/MeV units
-print(f"  Stage-2 dephasing argument (Part 7 §1.3, App A §22):")
+print(f"  Dephasing argument (Part 7 §1.2, App A §22):")
 print(f"    Off-diagonal ME(n=3,d=3 -> n=1,d=3) = {_ME13:.2f} sector units")
 print(f"    Dephasing time tau ~ 1/(ME * m_scale3) = 1/({_ME13:.2f} * {m_scale3:.3f})")
 print(f"                      ~ {_tau_factor:.3f} MeV^-1 ~ O(1/m_scale3)")
 print(f"    IDWT has infinite sectors × infinite modes per sector.")
 print(f"    Poincare recurrence time = infinity in infinite-dim system.")
 print(f"    => Dephasing is permanent. n=3 mode has decoherence time tau ~ 1/m_scale3.")
-print(f"  Stage-2 derivation COMPLETE: all non-Sigma modes are unstable.")
+print(f"  Co-fixed-point stability derivation COMPLETE: all non-Sigma modes are unstable.")
 print(f"    * Odd-level modes (n=2,6,8,...): l-parity blocks all coupling (exact ⭐)")
 print(f"    * Even-level modes (n=3,5,...):  off-diagonal ME + infinite-dim dephasing (🔵)")
 

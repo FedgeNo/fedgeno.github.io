@@ -377,9 +377,9 @@ $$E_{\rm bind}(b) = \sqrt{m_b \times \Lambda_{\rm QCD}} = 1086\ \text{MeV}$$
 | Υ(1S) | 9448.3 | 9460.3 | −0.13% |
 | J/ψ | 3160.3 | 3096.9 | +2.0% |
 
-The J/ψ residual (+2.0%) reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom, where the formula gives <0.2% errors). The spin-dependent hyperfine splitting J/ψ − η_c = 113 MeV is not captured by the leading-order formula; its IDWT derivation is open. The φ(ss̄) is the d=3 hadronic resonance at $n_\phi = 2n_s + 2n_{\rm down} = 10$: $m_\phi = S(10,3)\times m_{\rm scale,3} = 1034$ MeV (+1.4% vs PDG 1019.5); see Part 2 §8a.
+The J/ψ residual (+2.0%) reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom, where the formula gives <0.2% errors). The J/ψ–η_c difference (113 MeV) is a vector–pseudoscalar distinction — different object types in IDWT, as with ρ and π — not a correction to the single heavy-quark formula. The φ(ss̄) is the d=3 hadronic resonance at $n_\phi = 2n_s + 2n_{\rm down} = 10$: $m_\phi = S(10,3)\times m_{\rm scale,3} = 1034$ MeV (+1.4% vs PDG 1019.5); see Part 2 §8a.
 
-**Baryon octet — (N_c−1) color-bond formula. 🔵** (Part 2 §8a.) $m(\text{baryon}) = m_N + (N_c-1)\sum(m_s - m_{\rm replaced})$, with $N_c-1 = \chi(\mathbb{CP}^1) = 2$. Results: Λ +0.3%, Ξ −0.9% to −1.4%. Σ−Λ hyperfine (77 MeV) and Ω (J=3/2 decuplet) require spin-dependent kernel — open.
+**Baryon octet — (N_c−1) color-bond formula. 🔵** (Part 2 §8a.) $m(\text{baryon}) = m_N + (N_c-1)\sum(m_s - m_{\rm replaced})$, with $N_c-1 = \chi(\mathbb{CP}^1) = 2$. Results: Λ +0.3%, Ξ −0.9% to −1.4%. Σ and Λ have identical content, so the formula gives them the same mass; the 77 MeV difference is a small same-type residual the formula does not resolve. Ω (J=3/2) lies outside the octet formula.
 
 ## 4. PMNS Mixing
 
@@ -391,7 +391,7 @@ These are identical regardless of which charged-lepton sector ($d=6$ or $d=10$) 
 
 **Consequence: μ–τ symmetric mixing at tree level.** The μ–τ symmetry forces $|U_{\mu i}| = |U_{\tau i}|$ for all $i$, which implies $\sin^2\theta_{23} = 1/2$ exactly. Combined with the rank-1 structure of the charged-lepton coupling matrix (a single coupling strength $v_5/2$ for all three generations), the tree-level PMNS matrix takes the μ–τ symmetric form:
 
-| Angle | μ–τ limit (tree) | PDG best fit | Deviation |
+| Angle | μ–τ symmetric limit (tree) | PDG best fit | Deviation |
 |---|---|---|---|
 | $\sin^2\theta_{12}$ | $1/3 = 0.3333$ | $0.307$ | $-0.026$ |
 | $\sin^2\theta_{23}$ | $1/2 = 0.5000$ | $0.553$ | $+0.053$ |
@@ -530,7 +530,7 @@ These follow from the IDWT framework geometry and differ qualitatively from Stan
 
 **C3 — No seesaw mechanism.** Neutrino masses are small because m_scale_5 is set by the cross-sector Hopf fixed-point equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by a seesaw with a heavy right-handed neutrino. No lepton-number-violating operator appears at leading order from this structure. Discovery of a right-handed neutrino mass term, lepton-number-violating interactions at any scale, or any operator that generates a Majorana mass for SM neutrinos would falsify C3 and F1/F2 simultaneously.
 
-**C4 — No sterile neutrinos.** The two-stage observability filter eliminates all d=5 modes that do not have sufficient amplitude at the d=3 coordinate level. There are exactly three neutrino species: ν₁, ν₂, ν₃ at n = 10, 15, 22. No additional neutrino species at any mass scale is predicted; the PMNS matrix is unitary 3×3 exactly. Evidence for a fourth neutrino mixing into the PMNS matrix — from short-baseline anomalies, reactor anomalies, or direct detection — would falsify F3, F6, and C4 simultaneously.
+**C4 — No sterile neutrinos.** The co-fixed-point condition selects exactly the d=5 modes that are tower outputs. There are exactly three neutrino species: ν₁, ν₂, ν₃ at n = 10, 15, 22. No additional neutrino species at any mass scale is predicted; the PMNS matrix is unitary 3×3 exactly. Evidence for a fourth neutrino mixing into the PMNS matrix — from short-baseline anomalies, reactor anomalies, or direct detection — would falsify F3, F6, and C4 simultaneously.
 
 **C5 — Left-handed weak coupling is geometric.** The W boson's exclusive left-handed coupling follows from the Kähler structure of CP² (d=4) and CP³ (d=6): the Kähler γ₅ operator splits each sector spinor into holomorphic (left-handed) and anti-holomorphic (right-handed) components; W is a holomorphic connection and cannot couple to the right-handed component at any order that does not involve the anti-holomorphic mixing. Right-handed W couplings beyond known radiative corrections would falsify the Kähler sector geometry.
 

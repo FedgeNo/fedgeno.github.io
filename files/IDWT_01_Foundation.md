@@ -38,10 +38,10 @@ We are at d=3 — inside M_∞, at the coordinate level where the first stable h
 ```
 ψ_obs(r, t) = Ψ∞(r, ξ⁰, t)
 ```
-The observer's position determines dimensional visibility but not which modes exist. The physical spectrum is closed at exactly 15 states: those mode-sector pairs (n,d) satisfying both the Stage-1 criterion (Ω_log ≤ ln 2 — sufficient d=3 activity) and the Stage-2 co-fixed-point condition (n is a co-fixed-point of the sector comb filtration from n_s = 4). All observers at any ξ⁰ see the same 15-particle spectrum.
+The observer's position determines which modes are easy to resolve but not which modes exist. The physical spectrum is closed at exactly 15 states: those mode-sector pairs (n,d) satisfying the co-fixed-point condition — the pair (n,d) is an element of Σ_pairs, the closed set produced by the generation tower (the sector comb filtration from n_s = 4). All observers at any ξ⁰ see the same 15-particle spectrum.
 
 **P3 — Non-Compact Sector Spaces**
-The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the sector mode localization theorem (Part 4 §3.13). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of sector mode amplitudes near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are eliminated by the Stage-1 filter (Ω_log → ∞); they are not detectable. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
+The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the sector mode localization theorem (Part 4 §3.13). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of sector mode amplitudes near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are non-normalizable — not bound states — and so are not physical modes (Part 4 §3.13). The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
 
 **P4 — Two Force Principles**
 Forces couple through two complementary geometric principles. Both are required; neither alone is sufficient.
@@ -53,24 +53,20 @@ Forces couple through two complementary geometric principles. Both are required;
 A particle with coordinate support in a force sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero (as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4).
 
 **P5 — Gravity as Curvature of M_∞**
-Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; the gravitational sector of M_∞ cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 7.74 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
+Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; gravity cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 7.74 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
 
 **P6 — Rank-1 Coupling 🔶**
 The inter-sector coupling strength matrix factorizes as $g_{dd'} = v_d \times v_{d'}$ — rank-1 as an outer product of a coupling vector $v = (v_2, v_3, v_4, v_5, v_6, v_{10})$. All six components $v_d$ are derived from two seeds $\{1,4\}$ and $N_c = 3$ (Part 2 §10, Part 3 §0.1). The rank-1 factorization itself — why the coupling matrix is an outer product rather than a general matrix — is an open item 🔶: T2 (Part 9) proves uniqueness of the kernel form $(\xi_d \cdot \xi_{d'})^2$ within the rank-1 ansatz, but does not independently force rank-1 over higher-rank coupling. Physical consequences: universal correlated coupling scales across sectors, constrained inter-sector mixing, the Wolfenstein angle from a single ratio $v_3/v_4$.
 
-**P7 — Two-Stage Observability Filter 🔶**
-A mode $(n,d)$ of Ψ_∞ is physically observable if and only if it passes both stages. Stage 1 (dimensional visibility): the relative d=3 spectral amplitude $A_{rel}(n,d) = S(n,2)/S(n,d)$ satisfies $\Omega_{log}(n,d) = \ln(S(n,d)/S(n,2)) \leq \ln 2$, meaning more than half the mode's spectral support is in the observable d=3 subspace. Stage 2 (co-fixed-point stability): the pair $(n,d)$ must be an element of $\Sigma_{\rm pairs}$ — the unique finite closed set of mode-sector pairs produced by the generation tower from seeds $(n_{\rm down},d) = (1,3)$ and $(n_s,d) = (4,3)$. The generation tower assigns both the mode index and the sector; a mode at index $n$ in sector $d$ is stable only if the specific pair $(n,d)$ appears as a tower output, not merely if $n$ appears as a tower output in some other sector. Stage 1 is a heuristic estimate of d=3 activity; Stage 2 is semi-structural (decoherence on timescale $1/m_{\rm scale,d}$ is asserted, not derived from the EOM). Status: 🔶 for both stages (Part 7 §1–§2, Part 9 T0.5).
+**P7 — Mode Selection by the Co-fixed-point Condition 🔶**
+A mode $(n,d)$ of Ψ_∞ is a physical particle if and only if the pair $(n,d)$ is an element of $\Sigma_{\rm pairs}$ — the unique finite closed set of mode-sector pairs produced by the generation tower from seeds $(n_{\rm down},d) = (1,3)$ and $(n_s,d) = (4,3)$. The generation tower assigns both the mode index and the sector; a mode at index $n$ in sector $d$ is stable only if the specific pair $(n,d)$ appears as a tower output, not merely if $n$ appears as a tower output in some other sector. This is semi-structural: the instability of non-co-fixed-point modes (l-parity disconnection for odd levels, infinite-dimensional dephasing on timescale $1/m_{\rm scale,d}$ for even levels) is established at the kernel level (Part 7 §1.2) but not yet derived from the EOM. The detailed co-fixed-point set and its DAG structure are given in P8. Status: 🔶 (Part 7 §1, Part 9 T0.5).
 
 **P8 — Co-Fixed-Point Stability 🔶**
 A mode-sector pair $(n,d)$ is a stable resonance if and only if it is an element of $\Sigma_{\rm pairs}$, the co-fixed-point set: the unique finite set of pairs such that applying every generation-tower operation to $\Sigma_{\rm pairs}$ returns only elements already in $\Sigma_{\rm pairs}$ (verified exhaustively, §5c). The generation tower is a finite acyclic DAG with unique source pair $\{(1,3),(4,3)\}$ and trivial automorphism group (Appendix A §13b) — the labeling of all 15 particles is uniquely determined by the DAG structure.
 
 **Sector assignment — fully resolved (✅, 2026-05-29).** The sector assignments were previously recorded as requiring SM input. Two new results substantially change this status:
 
-*(i) Seed sector d=3 is algebraically derived.* The seed $n_s = 4$ satisfies two independent conditions simultaneously:
-- The muon fixed-point: $S(n_s, 4) = S(4,4) = 35 = n_{\rm muon}$ (algebraic, no SM input).
-- The Stage-1 boundary between d=2 and d=3: $S(n_s,2)/S(n_s,3) = 10/20 = 1/2$ exactly (algebraic identity, Appendix A §18).
-
-The second condition is unique: $n_s = 4$ is the Stage-1 boundary of the d=2→d=3 transition and **no other sector transition** has its Stage-1 boundary at $n_s$ (verified: d=1→2 gives n=3; d=3→4 gives n=5; d=4→5 gives n=6; etc.). Therefore d=3 is the **unique active sector** where $n_s$ falls at the Stage-1 threshold. The seeds belong to d=3 because that is the only sector whose visibility boundary coincides with the seed index. No SM particle names are used.
+*(i) Seed value and seed sector.* The seed value $n_s = 4$ is fixed by T4 (the $4/7$ double-degeneracy equation, Part 9) and confirmed by the muon fixed-point $S(n_s, 4) = S(4,4) = 35 = n_{\rm muon}$ (algebraic, no SM input). The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a) — the natural starting point of the generation tower. No SM particle names are used.
 
 The down seed $n_{\rm down}=1$ shares sector d=3 with $n_s$ because: (a) $S(1,d)=1$ for all $d$ (it is the ground state in any sector), and (b) the tower subtraction $n_u = n_s - n_{\rm down}$ must be a same-sector operation for it to produce a well-defined mode index — this forces both seeds into the same sector.
 
@@ -85,7 +81,7 @@ The down seed $n_{\rm down}=1$ shares sector d=3 with $n_s$ because: (a) $S(1,d)
 
 **What remains genuinely open.** The EOM derivation of co-fixed-point stability (Part 6, MC-4): the dynamical argument for why the tower $(n,d)$ pairs are stable resonances rather than transient excitations. The sector routing is fully established — the routing rule for $d=4\to d=5$ is a corollary of §3a Step 2 (see Routing Corollary above), and the trivial automorphism theorem closes uniqueness across all sectors. P8 is 🔶 on the dynamical stability mechanism alone.
 
-P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. Stage 2 has the status of an algebraically-seeded, geometrically-propagated selection rule — sector assignments are fully derived (✅); co-fixed-point stability is the one remaining open item.
+P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. The co-fixed-point condition has the status of an algebraically-seeded, geometrically-propagated selection rule — sector assignments are fully derived (✅); co-fixed-point stability is the one remaining open item.
 
 ---
 
@@ -97,17 +93,13 @@ There is no projection happening in IDWT. We are not external observers mapping 
 
 Particles with d > 3 are not separate from us. Their modes include the d=3 coordinates we occupy — those coordinates are a literal subset of every higher sector (§3f, §3i). What we cannot access are the additional d−3 sector-space coordinates their modes also span. We are not outside those coordinates looking in; we simply do not have coordinates there. The distinction matters: a projection implies an external observer with a screen. IDWT has neither. There is one manifold M∞, one field Ψ∞, and we are a feature of it at coordinate level d=3.
 
-### 2.2 Dimensional Visibility
+### 2.2 Observable and Sector Coordinates
 
-For particles with d ≤ 3, all vibrational activity is in our dimensions. The photon's 2 dimensions lie within our 3; down-type quarks' 3 dimensions exactly match ours. These particles are fully visible — there is no component of their vibration that eludes our measurement.
+For particles with d ≤ 3, all vibrational activity is in our dimensions. The photon's 2 dimensions lie within our 3; down-type quarks' 3 dimensions exactly match ours. These particles are fully resolved — there is no component of their vibration that eludes our measurement.
 
-For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 visible dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 visible and 7 sector dimensions beyond d=3. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy.
+For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 observable dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 observable and 7 sector dimensions beyond d=3. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy. This is the projection picture: what a d=3 observer resolves is a slice of a higher-dimensional object (the electron's 6D orbit and its 3D projection, Part 8).
 
-The fraction of a sector-d mode's activity in our d=3 coordinates is set by the L² normalisation of the mode functions:
-
-$$|\chi_n(\xi^0)| \propto \frac{1}{\sqrt{S(n,d)}}$$
-
-Higher sectors and higher mode indices give larger S(n,d), meaning more of the mode's activity is distributed across dimensions beyond our 3. This is the basis of the Stage-1 observability criterion (Part 7): mode (n,d) has sufficient activity in our d=3 dimensions when Ω_log(n,d) = ln(S(n,d)/S(n,2)) ≤ ln 2 — the d=3 visible fraction is at least 1/√2 of the d=2 baseline. Mass and coupling predictions do not depend on this fraction — they are eigenvalues of each particle's sector manifold (T0, Part 9). Dimensional visibility governs observability, not what the particle is.
+What an observer at ξ⁰ can resolve does not affect what the particle is. Mass and coupling are eigenvalues of each particle's sector manifold (T0, Part 9) — intrinsic, and independent of observer position.
 
 ### 2.3 The Observable Probability Density from Ψ∞
 
@@ -185,13 +177,7 @@ Sectors $d\in\{7,8,9\}$ are **supercritical** ($b_{k_0} > 1/2$): localization wo
 
 **Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
 
-**Alternative n_s derivation via the Stage-1 boundary (⭐ algebraic identity + 🔵 self-consistency).** The ratio of adjacent-sector IDOS values satisfies the identity (Appendix A §18):
-
-$$\frac{S(n,d)}{S(n,d+1)} = \frac{d+1}{n+d}$$
-
-Setting this equal to 1/2 (the Stage-1 majority-support threshold) gives $n = d+2$ universally — the Stage-1 boundary mode is always two above the sector dimension. At $d=2$ this gives $n_s = 4$, recovering the seed from the visibility filter alone. This is a cleaner derivation of $n_s=4$ than the existing §3.10 route: the seed is the unique integer at which the d=2/d=3 boundary coincides with the Stage-1 threshold.
-
-The same formula fixes the sector set structure. The active matter quartet $\{3,4,5,6\} = \{n_s-1,\ldots,n_s+2\}$ is derived from the Hopf chain and Rule A (Appendix A §19):
+**Sector set structure.** The active matter quartet $\{3,4,5,6\} = \{n_s-1,\ldots,n_s+2\}$ is derived from the Hopf chain and Rule A (Appendix A §19):
 
 **Quartet derivation. 🔵** The complex Hopf chain $S^1\!\to\!S^{2k+1}\!\to\!\mathbb{CP}^k$ produces matter sectors at $d=3,4,5,6,\ldots$ (starting from the $k=1$ total space $S^3$ at $d=3$). Rule A terminates the chain at $\mathbb{CP}^{n_s-1}$ (real dimension $d_{\rm term}=2(n_s-1)$, Euler characteristic $\chi=n_s$, forcing $g_{d_{\rm term}}=1/n_s$). The matter quartet runs from $d=3$ to $d=2(n_s-1)$ with length $2(n_s-1)-3+1=2n_s-4$. The **self-consistency requirement** — the seed equals the number of matter sectors — gives $2n_s-4=n_s$, hence $n_s=4$. This is an independent derivation of the seed. At $n_s=4$ the quartet is $\{3,4,5,6\}$ with the two Hopf pairs $(d=3,d=4)$ (quark sectors) and $(d=5,d=6)$ (lepton sectors) — producing exactly two quark multiplets and two lepton multiplets as a structural consequence.
 
@@ -210,7 +196,7 @@ where $\{2\}$ is the EM reference sector, the quartet is the matter sector, and 
 
 **Step 1 — Finite sectors.** The Sector Set Theorem (§3a) proves $D = \{2,3,4,5,6,10\}$ is the complete set. Any new particle must reside in one of these six sectors.
 
-**Step 2 — Eigenmode set is complete.** The sector comb filtration from $n_s = 4$ selects mode indices $\Sigma$. Applying every filtration rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \Sigma$ fails the **Stage-2 co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
+**Step 2 — Eigenmode set is complete.** The sector comb filtration from $n_s = 4$ selects mode indices $\Sigma$. Applying every filtration rule to $\Sigma$ either returns an element already in $\Sigma$ or exits the physically accessible range — verified exhaustively (§5c). Therefore any mode index $n \notin \Sigma$ fails the **co-fixed-point condition** and cannot be a stable resonance. This eliminates all non-$\Sigma$ modes in every sector.
 
 **Step 3 — Unique beat mode.** A beat mode arises at a site $k_0$ where three independent resonance conditions coincide simultaneously, forcing equal spectral weight at adjacent modes $n$ and $n+1$. The three conditions are:
 
@@ -221,8 +207,6 @@ All three give $k_0 = 16$ exactly. Every quantity is determined by $n_s = 4$. Ex
 The beat is structurally confined to $d=3$: conditions 2 and 3 are $d=3$ identities — they use $n_e$ (from $d=6$) and $n_u$ (from $d=4$), whose sum closes onto the $d=3$ resonance site. The same $n=16$ appears in other sectors but produces no known particle mass. $\square$
 
 **The observable spectrum is closed.** Given $n_s = 4$ and $m_e$, the list of observable particles, their masses, and their quantum numbers are fully determined. Any additional *observable* stable state would require either a new sector (excluded by §3a) or a new mode index consistent with the eigenmode selection rule (excluded by the Uniqueness Theorem, §5c). Neither exists. There is no room for new observable fundamental particles within the IDWT framework.
-
-**Note on the dark sector.** Under P8 as stated, $\Sigma_{\rm pairs}$ is the complete Stage-2 solution set — the generation tower produces exactly 15 stable pairs and no others. The Stage-2-pass / Stage-1-fail population is therefore empty under the current construction: every element of $\Sigma_{\rm pairs}$ passes Stage 1 (with colour and lepton exemptions where applicable), leaving no stable co-fixed-point modes that are simultaneously invisible. A dark sector would require either (a) a derivation showing that co-fixed-point stability is sector-universal (i.e., that a mode index stable in one sector is also stable in another sector not assigned by the tower — this has not been derived and is not supported by P8), or (b) an extension of the coupling construction to reach sectors d = 7, 8, 9 (presently excluded by Rule A), which could host new co-fixed-point sets with their own generation towers. Part 7 §2.6, which enumerated 36 candidate invisible modes by applying $\Sigma_{\rm indices}$ across sectors, relied on assumption (a) without deriving it; that enumeration has been retracted. See Part 7 §2.6. ❓
 
 ---
 
@@ -305,8 +289,8 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 | Rule | Sector | Particles | IDWT derivation |
 |------|--------|-----------|-----------------|
-| R0 | d=2 | photon, W, Z, H | d=2 is the Stage-1 reference sector by construction; g-rule maps fermion combinations to d=2 |
-| R1 | d=3 | down, strange | Stage-1 boundary between d=2 and d=3 occurs at n=d+2=4=n_s (⭐ proved) |
+| R0 | d=2 | photon, W, Z, H | d=2 is the reference sector (CP¹, U(1)_EM) by construction; g-rule maps fermion combinations to d=2 |
+| R1 | d=3 | down, strange | d=3 is observable spacetime and the first Hopf total space S³; seeds start the tower here |
 | R2 | d=4 | up, charm, top | n_u = χ(CP²) = N_c = 3; n_top = χ(CP²)×χ(CP³)×χ(CP⁵) (T15, ✅) |
 | R3 | d=5 | ν₁, ν₂, ν₃ | Hopf pair {4,5}: S⁵ is the Hopf total space over CP²; g₅₅ = g₃₃g₄₄/g₂₂ (✅) |
 | R4 | d=6 | e, μ | χ(CP³) = n_s = 4; g₆₆ = 1/n_s (T15, ✅) |
@@ -314,9 +298,9 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 **Proof sketch for each rule:**
 
-**R0.** The Stage-1 filter is defined as $\Omega_{\log} = \ln(S(n,d)/S(n,2))$, with d=2 as the reference. The photon (n=0) is the d=2 ground state. Gauge bosons (W, Z, H) land in d=2 via the Vandermonde g-rule: $g(d_\nu=5, n_{\rm top}) = 5+72-1 = 76 = n_W$; $g(d_\ell=6, n_W) = 6+76-1 = 81 = n_Z$. No SM particle names needed — only the sector dimensions d=5 and d=6 (derived below) and the already-derived mode indices.
+**R0.** The d=2 sector is the reference sector (CP¹, carrying U(1)_EM; the photon is the d=2 n=0 ground state). Gauge bosons (W, Z, H) land in d=2 via the Vandermonde g-rule: $g(d_\nu=5, n_{\rm top}) = 5+72-1 = 76 = n_W$; $g(d_\ell=6, n_W) = 6+76-1 = 81 = n_Z$. No SM particle names needed — only the sector dimensions d=5 and d=6 (derived below) and the already-derived mode indices.
 
-**R1.** Proved in §13b (Appendix A): the identity $S(n,d)/S(n,d+1) = (d+1)/(n+d)$ gives Stage-1 boundary $n = d+2$ universally. At $d=2$: boundary $n = 4 = n_s$. This is the unique active sector transition with boundary at $n_s$ — verified by exhaustive check: d=3→4 gives n=5, d=4→5 gives n=6, etc. Therefore the seeds belong to d=3.
+**R1.** The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a), the natural starting point of the generation tower. The seed value $n_s=4$ is fixed by T4 (Part 9) and the muon fixed-point $S(4,4)=35$; the down seed $n_{\rm down}=1$ is the universal ground state $S(1,d)=1$, sharing d=3 so that the tower subtraction $n_u=n_s-n_{\rm down}$ is a same-sector operation.
 
 **R2.** From T15 (§3a): $\chi(\mathbb{CP}^2) = N_c = 3 = n_u$. The up quark mode index equals the Euler characteristic of d=4 — the unique sector in $D$ with $\chi = n_u$. All up-type quarks share d=4: charm via $n_{\rm charm} = S(n_s,3)$ (HS from seed), top via $n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\mathbb{CP}^5) = 72$ (T15).
 
@@ -432,7 +416,7 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 
 **Quantum properties.**
 - **SU(3) color:** Down-type quarks carry color via coordinate containment inside Ξ₄; the SU(3) symmetry arises from the CP² (d=4) isometry. They transform in the fundamental representation.
-- **Confinement:** No scattering states survive the observability filter in d=3; all modes are confined.
+- **Confinement:** Scattering states are non-normalizable — not bound states — so they do not appear in the physical spectrum; all physical modes are confined.
 - **Cabibbo angle:** sin θ_C = (1+1/240)/√S(4,3) = 0.22454 (PDG: 0.22450, +0.09σ). The 1/240 is the CP¹ sector curvature correction.
 - **Baryon number:** Topological winding number of the S³ mode.
 - **Coupling filter:** Left-handed weak isospin. The SO(4) = SU(2)_L × SU(2)_R isometry of S³ gives left-handed W coupling and leaves the right-handed component decoupled from the weak interaction. Color coupling is inherited derivatively via coordinate containment inside Ξ_4, not from S³ itself.
@@ -494,7 +478,7 @@ Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν�
 - **Dirac (not Majorana):** d mod 8 = 5 → no real spinor → Majorana forbidden → **0νββ rate = 0** (hard prediction).
 - **Normal ordering:** n₁ < n₂ < n₃ and S(n,5) monotone → m_ν₁ < m_ν₂ < m_ν₃ necessarily. Experiments prefer normal ordering at 3–4σ.
 - **PMNS angles:** θ₁₂, θ₂₃, θ₁₃ determined by g₅₅ = 96/g₂₂ and the four mode indices (n_e, n_μ, n_τ, n_ν); all three angles fixed with no free parameters (Part 9 T6).
-- **No sterile neutrinos:** Observability filter eliminates all bulk-propagating modes.
+- **No sterile neutrinos:** bulk-propagating modes are non-normalizable (not bound states) and do not appear; the co-fixed-point condition selects exactly three d=5 modes.
 - **Coupling filter:** Dirac condition — geometric prohibition of an entire class of interactions. The Clifford algebra of S⁵ (d mod 8 = 5) cannot support the spinor structure required by Majorana mass terms, the see-saw mechanism, or any lepton-number-violating vertex. These interactions are not suppressed — they cannot be written down for S⁵ modes. The S⁵ Hopf fibration (S¹ → S⁵ → CP²) additionally projects the color representation from CP² onto its singlet component, giving color-neutral neutrinos despite their coordinate support inside Ξ_4. Positively, the SO(6) ≅ SU(4) sector gives neutrinos their B−L charge.
 
 **Spectral.** ζ₅(1) = 5/4, ζ₅(0) = −5/2, a₀₅ ≈ 2.392.
@@ -835,8 +819,8 @@ All below KATRIN bound (450 meV). The mass scale m_scale_5 is fully derived from
 | Dirac neutrinos | d=5 has d mod 8=5: Majorana forbidden → 0νββ rate = 0 predicted | ✅ |
 | Tau hypercharges | Y(τ)=−1 from anomaly cancellation with N_c=3 and g_{66}=1/n_s (Part 3 §8, §13) | ✅ |
 | Confinement | Colour-neutrality condition |N⃗|=0 from CP² isometry geometry; λ_c is an open item; full QCD confinement mechanism (flux tubes, asymptotic freedom) not derived | 🔵 |
-| Cosmological constant | Λ_eff from unoccupied-mode vacuum energy, exponentially suppressed | 🔶 |
-| Dark matter | No dark sector arises under the current construction: Σ_pairs is the complete Stage-2 solution set, and every element passes Stage 1. A dark sector would require either (a) extension of the coupling construction to d=7,8,9, or (b) a derived sector-universal stability argument. Neither has been done. See Part 7 §2.6 and P8 note. | ❓ |
+| Cosmological constant | Λ_eff from unoccupied-mode vacuum energy; suppression mechanism not derived | 🔶 |
+| Dark matter | Spectrum is complete at 15 particles; IDWT offers no dark matter candidate at present | ❓ |
 
 ---
 

@@ -10,11 +10,11 @@ m(n, d) = m_scale_d × S(n, d)
 S(n, d) = C(n+d−1, d)
 ```
 
-S(n,d) is the cumulative count of harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the integrated density of states (IDOS). Equivalently, it is the number of ways to write n−1 as an ordered sum of d non-negative integers (stars and bars with d slots), which equals dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d). **Corollary (Theorem S1, Part 8 §5):** S(n,3) = ½ N_{D_{S³}}(n−1), where N_{D_{S³}}(n−1) is the cumulative positive Dirac eigenvalue count on S³ up to level n−1.
+S(n,d) is the cumulative count of harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the integrated density of states (IDOS). Equivalently, it is the number of ways to write n−1 as an ordered sum of d non-negative integers (stars and bars with d slots), which equals dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d). It is equally the Ehrhart polynomial of the standard d-simplex evaluated at n−1 — the number of lattice points in the (n−1)-fold dilation of the d-simplex (the region where d non-negative coordinates sum to at most 1) — which is the geometric reason S(·,d) is a degree-d polynomial in n. **Corollary (Theorem S1, Part 8 §5):** S(n,3) = ½ N_{D_{S³}}(n−1), where N_{D_{S³}}(n−1) is the cumulative positive Dirac eigenvalue count on S³ up to level n−1.
 
 ### S(n,d) as a Universal Combinatorial Measure Field
 
-S(n,d) appears in four distinct physical roles across IDWT. They are four different functionals applied to the same underlying combinatorial object. The formal declaration:
+S(n,d) appears in three distinct physical roles across IDWT. They are three different functionals applied to the same underlying combinatorial object. The formal declaration:
 
 **S(n,d) is the cumulative spectral counting function of the d-dimensional sector harmonic oscillator:**
 
@@ -23,18 +23,15 @@ S(n,d) = N_d(n−1) = #{eigenvalues of H_d at level k < n, counted with multipli
         = Σ_{k=0}^{n-1} C(k+d−1, d−1)    [proved in Part 8 §3]
 ```
 
-Given this single definition, the four applications are different functionals on S:
+Given this single definition, the three applications are different functionals on S:
 
 | Role | Functional | Physical meaning |
 |---|---|---|
 | **Mass eigenvalue** | F_mass = m_scale_d × S(n,d) | Mass = sector scale × cumulative microstate count |
 | **Hilbert space weight** | F_norm = S(n,d) (weight in ‖Ψ‖_w²) | Energy-weighted norm: ‖Ψ‖_w² = Σ m(n,d)|c_{n,d}|²/m_scale_d |
-| **Dimensional visibility** | F_proj = S(n,2)/S(n,d) (ratio) | Dimensional depth = ratio of d=2 to d-sector state counts |
 | **Convergence bound** | F_conv = Σ_n 1/S(n,d) = d/(d-1) | Reciprocal sum bounds the evaluation functional |
 
-These are mutually consistent because all four reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 is consistent because Ω_log = log(m(n,d)/m(n,2)) — dimensional depth is the log of the mass mismatch between sectors. Role 4 follows by Cauchy-Schwarz from Role 2.
-
-**Stage-2-pass/Stage-1-fail cell (currently empty).** The mass formula is universal — F_mass applies to any resonance regardless of dimensional visibility. The observability filter is not universal: a co-fixed-point mode with F_proj ≈ 0 would carry mass and gravitate while remaining invisible to nuclear detectors. However, under P8 as currently stated, no co-fixed-point mode fails Stage 1 — this cell is empty in the present construction. See Part 7 §2.6 for the open question of whether extensions beyond P8 could produce candidate hidden resonances.
+These are mutually consistent because all three reduce to operations on N_d(n−1). In particular: Roles 1+2 are consistent because ‖Ψ‖_w² = Σ S(n,d)|c_{n,d}|² is precisely the energy-weighted norm (standard in QFT: the physical inner product weighted by mode energy). Role 3 follows by Cauchy-Schwarz from Role 2.
 
 **S(n,d) is the dimension of a space that exists in the sector geometry.** The mode functions χ_{n,α}(ξ) are degree-(n−1) monomials in d+1 sector coordinates, and dim Sym^{n-1}(ℝ^{d+1}) = C(n+d−1, d) = S(n,d) is a theorem of algebraic geometry. Equivalently, S(n,d) is the cumulative count of all harmonic oscillator eigenstates at levels 0 through n−1 in d dimensions — the IDOS.
 
@@ -123,7 +120,7 @@ S(4,4) = S(4,3) + S(3,4)
 n_muon  = n_charm + n_ν₂
 ```
 
-It is Pascal's recursion applied to S(4,4) = 35. The stage-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
+It is Pascal's recursion applied to S(4,4) = 35. The generation-2 lepton mode index equals the sum of the charm quark index and the second neutrino index because that is what the hockey-stick identity requires at (n=4, d=4). The eigenmode selection rule for generation 2 is a combinatorial theorem.
 
 **Generation 1 law:**
 ```
@@ -195,7 +192,7 @@ n_u    = n_s − 1 = 3         [follows from the two-seed hypothesis via the g-r
 n_charm = S(4, 3)       = 20      [hockey-stick in d=3 through level 3]
 n_ν₁    = S(3, 3)       = 10      [hockey-stick in d=3 through level 2]
 n_ν₂    = S(3, 4)       = 15      [hockey-stick in d=4 through level 2]
-n_e     = n_ν₁ + n_u   = 13      [hockey-stick generation law, stage 1]
+n_e     = n_ν₁ + n_u   = 13      [hockey-stick generation law, generation 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
 n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22  [inclusion-exclusion: n_ν₁ = S(n_u,3) and n_ν₂ = S(n_u,4) both arise from the same up-quark seed n_u=3, evaluated in d=3 and d=4 respectively. Adding them counts the shared base n_u once too many; subtracting n_u removes the overlap exactly. This is forced — without it n_ν₃ = 25 and S(25,5)×m_scale_5 gives Σm_ν ≈ 98 meV, excluded by DESI. Cross-check: n_ν₃ = n_τ − n_d = 23−1 = 22 (Generation Law from the tau side).]
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
@@ -311,9 +308,9 @@ The factor $k_0 = n_s^2 = 16$ — the same triple-coincidence that forces the b 
 | Υ(1S) | 9448.3 | 9460.3 | −0.13% |
 | J/ψ | 3160.3 | 3096.9 | +2.0% |
 
-D mesons sit at the crossover ($m_c \gg \Lambda_{\rm QCD}$) where both formulas give ~1–2% accuracy. The J/ψ +2% residual reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom); the spin-1 vs spin-0 hyperfine correction (J/ψ − η_c = 113 MeV) requires the spin-dependent kernel and is open. Scripts: `files/idwt.py`, `files/idwt.py`. **Status: 🔵** (both formulas verified across 10 states; J/ψ spin correction open).
+D mesons sit at the crossover ($m_c \gg \Lambda_{\rm QCD}$) where both formulas give ~1–2% accuracy. The J/ψ +2% residual reflects the expansion parameter $\Lambda_{\rm QCD}/m_c = 0.22$ being non-negligible for charm (vs 0.07 for bottom); the J/ψ–η_c difference (113 MeV) is a vector–pseudoscalar distinction — different object types in IDWT, as with ρ and π — not a correction to the single formula. Scripts: `files/idwt.py`, `files/idwt.py`. **Status: 🔵** (both formulas verified across 10 states; J/ψ spin correction open).
 
-**d=3 hadronic resonance spectrum. 🔵** The d=3 sector supports a tower of modes at $m = m_{\rm scale,3} \times S(n,3)$ for integer $n$. These modes fail Stage-2 co-fixed-point stability — they are not stable particles — but survive as colour-singlet resonances observable as broad short-lived states. The mode indices are pinned by seed algebra:
+**d=3 hadronic resonance spectrum. 🔵** The d=3 sector supports a tower of modes at $m = m_{\rm scale,3} \times S(n,3)$ for integer $n$. These modes are not co-fixed-points — they are not stable particles — but survive as colour-singlet resonances observable as broad short-lived states. The mode indices are pinned by seed algebra:
 
 $$n_\rho = n_s + n_{\rm up} + 2n_{\rm down} = 4+3+2 = 9 \qquad (\text{uu̅/dd̅ nonet})$$
 $$n_\phi = 2n_s + 2n_{\rm down} = 8+2 = 10 \qquad (\text{ss̅ nonet})$$
@@ -340,7 +337,7 @@ $$\boxed{m(\text{baryon}) = m_N + (N_c-1)\sum_{\text{replaced}} (m_s - m_{\rm re
 | Ξ⁰ | uss | m_N + 2[(m_s−m_u)+(m_s−m_d)] = 1303 | 1314.9 | −0.9% |
 | Ξ⁻ | dss | m_N + 2[(m_s−m_u)+(m_s−m_d)] = 1303 | 1321.7 | −1.4% |
 
-The Σ(uds) has identical quark content to the Λ, so the formula gives the same prediction for both; the Σ−Λ splitting (77 MeV) is a spin-isospin hyperfine effect requiring the spin-dependent kernel interaction — open. The Ω(sss, J=3/2) is in the baryon decuplet, outside this formula's scope. Script: `files/idwt.py`.
+The Σ(uds) has identical quark content to the Λ, so the formula gives the same prediction for both; the 77 MeV Σ−Λ difference is a small same-type residual the formula does not resolve. The Ω(sss, J=3/2) is in the baryon decuplet, outside this formula's scope. Script: `files/idwt.py`.
 
 ---
 

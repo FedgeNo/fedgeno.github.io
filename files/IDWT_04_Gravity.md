@@ -28,7 +28,7 @@ IDWT has none of this structure:
 
 **The sector dimensions are detected.** They produce the entire observed particle mass spectrum via m = m_scale_d × S(n,d). The sectors are not invisible — they are the origin of all fermion and boson masses. What they do not produce is any additional gravitational signature, because the sector-space geometry contributes to gravity only through the observer's stress-energy of the particles it hosts.
 
-**Why no other signatures appear.** The two-stage observability filter (Part 7) selects only the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — fails Stage-1 dimensional visibility and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
+**Why no other signatures appear.** The physical modes are exactly the exponentially localised bound states of each sector potential. Any mode that would propagate through Ξ — a scattering state with E ≥ λ_d — is non-normalizable, hence not a bound-state eigenmode, and is absent from the physical spectrum. There are no bulk modes, no KK excitations above the particle spectrum already identified, and no missing energy channels at any collider energy.
 
 
 ---
@@ -119,9 +119,9 @@ The question of cross-terms between different sector-space coordinates — δ²S
 
 For macroscopic (non-compact) Ξ, the variation of ∫_Ξ ... dμ_ξ by parts requires boundary conditions as |ξ| → ∞.
 
-Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 7 §2.9). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
+Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 4 §3.10). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
 
-Non-normalizable (scattering) modes do not satisfy this condition — they fail Stage-1 dimensional visibility (Ω_log > ln 2) and are absent from the physical spectrum. The two-stage observability filter automatically selects precisely the modes for which the sector-space integrals converge.
+Non-normalizable (scattering) modes do not satisfy this condition — they are not bound-state eigenmodes of the sector potential and are absent from the physical spectrum. The bound-state normalizability condition automatically selects precisely the modes for which the sector-space integrals converge.
 
 ### 3.6 The Equivalence Principle
 
@@ -134,7 +134,7 @@ Both carry the same sector normalisation factor ‖χ‖²_Ξ. For normalised mo
 m_inertial = m_grav = m_scale_d × S(n,d)
 ```
 
-This holds for all modes with the same (n,d) regardless of ξ⁰. The visibility weight W_S = |χ(ξ⁰)|²/‖χ‖²_Ξ cancels from the inertial-to-gravitational mass ratio. All particle species have m_grav/m_inertial = 1. No fifth force. No composition-dependent gravitational coupling.
+This holds for all modes with the same (n,d) regardless of ξ⁰. The sector mode-function normalization W_S = |χ(ξ⁰)|²/‖χ‖²_Ξ cancels from the inertial-to-gravitational mass ratio. All particle species have m_grav/m_inertial = 1. No fifth force. No composition-dependent gravitational coupling.
 
 ### 3.7 Status of Formal Items
 
@@ -424,13 +424,11 @@ $$G_N = G_\infty / V_7, \qquad V_7 \approx 7.74$$
 
 ---
 
-### 3.12.3 Gravitational Observability and Coupling Ratios
+### 3.12.3 Gravitational Coupling Ratios
 
-The sector localization lengths L_d (from §3.9, §3.10) enter two things:
+The sector localization lengths L_d (from §3.9, §3.10) set V_7 and hence the gravitational scale. Mass itself is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index; the d=5 neutrino sector has the smallest sector mass scale m_scale_5 because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
 
-**Stage-1 filter.** The dimensional visibility A_rel = |χ_d(ξ⁰)|² ∝ L_d^{-d} determines which sector modes are *visible* to the 3D observer — it controls observability, not mass. Mass is the resonant frequency m = m_scale_d × S(n,d), fixed entirely by the sector coupling constants and mode index. The Stage-1 filter cannot change a frequency; it only determines whether a mode at that frequency has sufficient activity in our d=3 dimensions to be detected. The d=5 neutrino sector has the smallest sector mass scale m_scale_5 not because of Stage-1 suppression, but because the d=5 sector has no self-confinement (χ(S⁵)=0) and its frequency scale is set by the cross-sector Hopf consistency equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — a frequency-domain relation among sector couplings.
-
-**Gravitational coupling ratios.** Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
+Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² between any two IDWT particles are predicted by the mass formula m = m_scale_d × S(n,d). No additional parameter is needed.
 
 **Summary of the gravity programme status:**
 
@@ -480,7 +478,7 @@ $$a_2(M_\infty) = \frac{1}{12\pi^2} \int_{M_\infty} R_\infty\, d{\rm vol}_{M_\in
 
 Each sector contributes R_{Ξ_d} = d(d−1)/(L_d^2) (the Ricci scalar of the round sphere or Fubini-Study metric of radius L_d on Ξ_d). The T14 heat kernel coefficients give the Weyl coefficient a_0^{(d)} = Γ(1+1/d)(d!)^{1/d}, which controls the volume element. The integral is finite because L²-normalizable modes (T5, §3.13 Part I) produce a convergent sector-by-sector sum, while d>10 sectors contribute R_{ab}=0 in vacuum (Ricci-flat) and vanish.
 
-This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d values of §3.10 — is the single remaining open item in the gravity sector. Once complete, G_N = G_∞/V_7 is a parameter-free prediction from the same geometry that determines all particle masses.
+This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d values of §3.10 — is the single remaining open item for gravity. Once complete, G_N = G_∞/V_7 is a parameter-free prediction from the same geometry that determines all particle masses.
 
 **What does not belong here.** The Kaluza-Klein formula M_Pl^2 = M_∗^9 V_7^{\rm phys} (which would define an "11D fundamental scale" M_∗) is not IDWT. It requires compact extra dimensions, graviton propagation through those dimensions, and a Kaluza-Klein tower of massive graviton modes — all of which are explicitly excluded by Part 4 §1b. IDWT has no compact dimensions (Ξ is non-compact), no graviton quanta (gravity is geometry, not a field), and no KK tower. The formula does not apply, and M_∗ is not a quantity that appears in this framework.
 
@@ -488,7 +486,7 @@ This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d val
 
 ## 3.13 Covariant Conservation of T_μν^{eff}
 
-**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any mode passing Stage-1 dimensional visibility — with sector-factorized form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
+**Theorem (Bianchi, unconditional).** Let Ψ∞ be a physical IDWT mode — any normalizable bound-state eigenmode — with sector-factorized form Ψ∞(x,ξ) = ψ(x) ⊗ χ_{n,d}(ξ). Then:
 
 ```
 ∇^μ T_μν^{eff}(x) = 0
@@ -531,13 +529,15 @@ for all d ≥ 1 and all n ≥ 1. Compactness of Ξ_d is not required — confine
 
 Numerical verification (d=3, n=1, l=0): χ_0 ∝ exp(−√λ_3 r²/2); ∫_0^∞ r² e^{−2√λ_3 r²/2} dr = ∫_0^∞ r² e^{−√4.82 r²} dr = (√π/4)(√4.82)^{-3/2} < ∞. ✓
 
-**Theorem (Stage-1 ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ passes Stage-1 dimensional visibility (Ω_log < ln 2) if and only if χ is a normalised eigenfunction of H_d^harm (i.e. χ ∈ L²(ℝ^d)).
+**Theorem (Physical mode ↔ L²).** For macroscopic non-compact Ξ_d, a mode χ is a physical mode — a normalised eigenfunction of H_d^harm (i.e. χ ∈ L²(ℝ^d)) — if and only if it is an exponentially localised bound state of the sector potential. Existence as a physical mode is a normalizability condition, independent of whether the mode is visible to a d=3 observer.
 
 **Proof.**
 
-*(→) Non-eigenfunction modes fail Stage-1.* Any mode that is not a discrete eigenfunction of H_d^harm either oscillates (plane-wave-like in the sector directions) or grows. For any non-normalizable state, ∫|χ|² dξ diverges, so A_rel = |χ(ξ⁰)|² / ∫|χ|² dξ → 0, giving Ω_log → ∞. Stage-1 condition Ω_log < ln 2 fails.
+*(→) Non-eigenfunction modes are non-normalizable.* Any mode that is not a discrete eigenfunction of H_d^harm either oscillates (plane-wave-like in the sector directions) or grows. For any such state, ∫|χ|² dξ diverges, so χ ∉ L²(ℝ^d) and it is not a bound state.
 
-*(←) Harmonic eigenstates pass Stage-1.* Every χ_{n,d} ∈ L²(ℝ^d) by the corollary above. The Gaussian envelope ensures |χ_{n,d}(ξ⁰)|² > 0 (the ground state is non-zero at the origin; excited states are non-zero on a dense set). Therefore A_rel > 0 and Ω_log is finite. Stage-2 further selects among eigenstates; all Stage-1-passing modes are among the L² harmonic eigenstates. □
+*(←) Harmonic eigenstates are normalizable.* Every χ_{n,d} ∈ L²(ℝ^d) by the corollary above, with a Gaussian envelope that decays exponentially — a genuine bound state. □
+
+These L² bound states are the physical modes: each exists, carries mass m = m_scale_d × S(n,d), and gravitates. Among them, the co-fixed-point condition (the generation tower) selects the stable spectrum. What a d=3 observer can or cannot detect is a separate question that does not affect existence or gravitation.
 
 ---
 
@@ -571,32 +571,18 @@ T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{obs}[ψ](x)
 
 **Multi-mode.** For Ψ∞ = Σ_i ψ_i ⊗ χ_i, cross terms contribute ⟨χ_i|χ_j⟩_Ξ T_μν^{ij}. Since D_Ξ is self-adjoint and the χ_i are eigenfunctions with distinct eigenvalues m_i ≠ m_j, they are orthogonal: ⟨χ_i|χ_j⟩_Ξ = 0. Cross terms vanish identically. ∇^μ T_μν^{eff} = 0 holds for any superposition of physical modes. □
 
-**Status.** The Bianchi identity ∇^μ T_μν^{eff} = 0 is proved unconditionally for all IDWT physical modes (those passing Stage-1). No remaining open conditions.
+**Status.** The Bianchi identity ∇^μ T_μν^{eff} = 0 is proved unconditionally for all IDWT physical modes (the normalizable bound states). No remaining open conditions.
 
 ---
 
 ## 4. Cosmological Constant
 
-Λ_eff is naturally small because unoccupied modes — the main source of vacuum energy — have high dimensional depth Ω_log = ln(S(n,d)/S(n,2)), suppressing their contribution exponentially. The scale is tied to the same sector radii and coupling strengths that fix particle masses. No fine-tuning is required.
+The vacuum energy that sources Λ_eff would come from the sector mode tower. Its observed smallness is not currently derived: an existing mode gravitates whether or not a d=3 observer can resolve it, so the relevant question is which modes are persistent physical excitations — only the co-fixed-point modes are stable resonances of M_∞, while the rest are not persistent states. Whether that distinction, together with the sector radii and coupling strengths that fix particle masses, yields a naturally small Λ_eff is an open problem. ❓
 
 ---
 
-## 5. Two-Stage Observability
+## 5. Generation Tower Mode Selection
 
-Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞. Observable particles are those passing two filters:
+Every integer pair (n,d) with d ∈ {2,3,4,5,6,10} exists as a resonance of Ψ∞. The physical particles are those selected by the co-fixed-point condition: the mode index n must be a co-fixed-point of the sector comb filtration from n_s=4 — the generation tower. Modes not in the co-fixed-point set are not stable resonances of M_∞, regardless of sector.
 
-**Stage 1 — Dimensional Visibility:** The mode must have sufficient activity in our d=3 dimensions. High dimensional depth Ω_log suppresses modes exponentially. For quarks (d=3,4), the U(1) breaking operator Φ†P₁Φ is gauge-forbidden under SU(3)_c → quarks are fully visible automatically. Leptons and neutrinos carry no colour charge, so partial obscuring is allowed.
-
-**Stage 2 — Co-fixed-point:** The mode index n must be a co-fixed-point of the sector comb filtration from n_s=4. Modes not in the co-fixed-point set are not stable resonances of M_∞, regardless of sector.
-
-The Stage-1 filter has an exact occupation criterion from the Ω_log suppression factor exp(−Ω_log) = S(n,2)/S(n,3) for d=3:
-
-| n | Ω_log | Occupied? |
-|---|-------|-----------|
-| 1 | 0.000 | ✅ down quark |
-| 2 | 0.288 | no — 18.8 MeV |
-| 3 | 0.511 | no — 47.0 MeV |
-| 4 | 0.693 | ✅ strange quark |
-| 5+ | >0.85 | no |
-
-Both occupied modes (n=1,4) are exactly those selected by the co-fixed-point spectrum {1,4}. Modes n=2,3 also pass Stage 1 (Ω_log = 0.288, 0.511 < ln 2) but are absent from the co-fixed-point spectrum — they are unoccupied resonances of M_∞, not absent due to extra-dimensional obscuring. Modes n≥5 (Ω_log > ln 2) fail Stage 1 and are additionally suppressed. The d=3 unoccupied masses (18.8 and 47 MeV) are predicted absent as stable distinct states.
+In d=3, the co-fixed-point spectrum selects exactly n=1 (down) and n=4 (strange). The intermediate modes n=2,3 are not co-fixed-points — they are unoccupied resonances of M_∞, predicted absent as stable distinct states (their d=3 masses would be 18.8 and 47 MeV). Modes n≥5 in d=3 are likewise not selected.

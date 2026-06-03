@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Particle Map — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Reference</div>
+  <h1>The Particle Map</h1>
+  <p class="sub">Every Standard Model particle is one mode of \(\Psi_\infty\), labelled by a sector dimension \(d\) and a mode index \(n\). Fifteen pairs \((n,d)\), six geometries, two inputs. This is the whole spectrum on one page.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>How to read it</h2>
+  <div class="prose">
+    <p>A particle in IDWT is fixed by two integers: the <strong>sector dimension</strong> \(d\) — which of the six geometric depths of \(\Xi_{10}\) it occupies — and the <strong>mode index</strong> \(n\) — its excitation level within that sector. Its mass is then</p>
+  </div>
+
+  <div class="formula">
+    \[ m(n,d) = S(n,d)\times m_{\text{scale},d}, \qquad S(n,d) = \binom{n+d-1}{d}. \]
+  </div>
+
+  <div class="prose">
+    <p>The <a href="/articles/simplex-number.html">simplex number</a> \(S(n,d)\) counts the microstates of the mode; the sector scale \(m_{\text{scale},d}\) is fixed by the coupling constants. Both trace back to the seed \(n_s = 4\) and the single mass unit \(m_e\). The mode indices themselves are not free — they follow from the seed by the <a href="/articles/generation-tower.html">generation tower</a>, and the sector geometries follow from the <a href="/articles/sectors.html">Hopf chain</a>. The table below is therefore not a list of measured inputs; it is the output.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The fifteen</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Particle</th>
+          <th>\(d\)</th>
+          <th>Geometry</th>
+          <th>Isometry</th>
+          <th>\(n\)</th>
+          <th>\(S(n,d)\)</th>
+          <th>Mass</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>photon γ</td><td>2</td><td>CP¹</td><td>SU(2)</td><td>0</td><td>0</td><td>0 (exact)</td></tr>
+        <tr><td>W</td><td>2</td><td>CP¹</td><td>SU(2)</td><td>76</td><td>2,926</td><td>80.38 GeV</td></tr>
+        <tr><td>Z</td><td>2</td><td>CP¹</td><td>SU(2)</td><td>81</td><td>3,321</td><td>91.23 GeV</td></tr>
+        <tr><td>Higgs</td><td>2</td><td>CP¹</td><td>SU(2)</td><td>95</td><td>4,560</td><td>125.27 GeV</td></tr>
+        <tr><td>down</td><td>3</td><td>S³</td><td>SO(4)</td><td>1</td><td>1</td><td>4.70 MeV</td></tr>
+        <tr><td>strange</td><td>3</td><td>S³</td><td>SO(4)</td><td>4</td><td>20</td><td>94.0 MeV</td></tr>
+        <tr><td>up</td><td>4</td><td>CP²</td><td>SU(3)</td><td>3</td><td>15</td><td>2.18 MeV</td></tr>
+        <tr><td>charm</td><td>4</td><td>CP²</td><td>SU(3)</td><td>20</td><td>8,855</td><td>1.28 GeV</td></tr>
+        <tr><td>top</td><td>4</td><td>CP²</td><td>SU(3)</td><td>72</td><td>1,215,450</td><td>174 GeV</td></tr>
+        <tr><td>ν₁</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>10</td><td>2,002</td><td>1.49 meV</td></tr>
+        <tr><td>ν₂</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>15</td><td>11,628</td><td>8.64 meV</td></tr>
+        <tr><td>ν₃</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>22</td><td>65,780</td><td>50.3 meV</td></tr>
+        <tr><td>electron</td><td>6</td><td>CP³</td><td>SU(4)</td><td>13</td><td>18,564</td><td>0.511 MeV</td></tr>
+        <tr><td>muon</td><td>6</td><td>CP³</td><td>SU(4)</td><td>35</td><td>3,838,380</td><td>105.7 MeV</td></tr>
+        <tr><td>tau</td><td>10</td><td>CP⁵</td><td>SU(6)</td><td>23</td><td>64,512,240</td><td>1776.8 MeV</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>Read down the \(d\) column and the six sectors group the spectrum the way nature does: the gauge bosons and Higgs in \(d=2\); the two down-type quarks in \(d=3\); the three up-type quarks in \(d=4\); the three neutrinos in \(d=5\); the electron and muon in \(d=6\); the tau alone in \(d=10\). Read across a sector and the mode index \(n\) climbs through the generations.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The bottom quark — a beat, not a mode</h2>
+  <div class="prose">
+    <p>One familiar particle is missing from the table, and deliberately so. The bottom quark is not a single \((n,d)\) mode: it sits at the resonance site \(k_0 = n_s^2 = 16\) in \(d=3\), where three independent conditions coincide and force a geometric-mean beat between the adjacent modes \(n=16\) and \(n=17\):</p>
+  </div>
+
+  <div class="formula">
+    \[ m_b = \sqrt{S(16,3)\times S(17,3)}\times m_{\text{scale},3} = \sqrt{816\times 969}\times 4.702 \approx 4{,}181\ \text{MeV} \quad (\text{PDG } 4{,}180\pm 10). \]
+  </div>
+
+  <div class="prose">
+    <p>Because it is a beat rather than a co-fixed-point pair, the bottom quark is not one of the fifteen \(\Sigma_{\text{pairs}}\); it is a stable d=3 resonance riding between two of them. See <a href="/articles/mode-selection.html">Generation Tower Mode Selection</a> for what counts as a selected mode and what does not.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>What the map is saying</h2>
+  <div class="prose">
+    <p>The Standard Model lists roughly two dozen particles with their masses and quantum numbers as independent measured facts. IDWT replaces that list with this map: two integers per particle, drawn from a single seed, on six geometries that are themselves forced. Nothing in the table is tuned. Every entry is a consequence of \(n_s = 4\) and \(m_e\) — the masses to sub-percent accuracy, the sectors from the Hopf chain, the mode indices from the generation tower.</p>
+    <p>See also: <a href="/articles/sectors.html">The Six Sectors</a> &nbsp;·&nbsp; <a href="/articles/simplex-number.html">The Simplex Number</a> &nbsp;·&nbsp; <a href="/articles/generation-tower.html">The Generation Tower</a> &nbsp;·&nbsp; <a href="/articles/seed.html">Why \(n_s = 4\)</a></p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

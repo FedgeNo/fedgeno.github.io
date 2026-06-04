@@ -1257,6 +1257,28 @@ _table = {
 # V_7 = L_4 * L_5 * L_6 * L_10^4  (sector volume factor for G_N = G_inf/V_7)
 V7 = _table[4][3] * _table[5][3] * _table[6][3] * _table[10][3]**4
 
+# --- Spectral-action G_N: Einstein-Hilbert coefficient (Part 4 section 3.12.4) -
+# Product heat kernel K_Xi = prod_d K_d has leading small-t power t^-sigma with
+#   sigma = sum_{d in D} 1/d = 31/20 (exact, fixed by the sector set => by N_c=3)
+# Weyl coefficient per sector a0_d = Gamma(1+1/d)*(d!)^(1/d) (T14).
+# G_N^-1 = [prod a0_d * Gamma(1+sigma) / (6 pi)] * Lambda^(2+2sigma),
+#   exponent 2+2sigma = 51/10 EXACT (fixed by N_c=3); prefactor cutoff-dependent.
+from math import gamma as _gamma, factorial as _fact
+_D_sa         = sorted(_table)                         # [2,3,4,5,6,10]
+_sigma_sa     = sum(1.0/_d for _d in _D_sa)            # = 31/20 = 1.55
+_GN_exponent  = 2 + 2*_sigma_sa                        # = 51/10 = 5.1
+_a0_prod      = 1.0
+for _d in _D_sa:
+    _a0_prod *= _gamma(1 + 1.0/_d) * _fact(_d)**(1.0/_d)   # prod = 116.781
+_GN_prefactor = _a0_prod * _gamma(1 + _sigma_sa) / (6*math.pi)  # ~ 8.54 (exp cutoff)
+# Lambda required to match measured G_N = 6.709e-45 MeV^-2 (NOT a prediction;
+# Lambda is a free input -- a2/a4 does NOT eliminate it: beta_5 = beta_6 = 0 and
+# a4_grav is Lambda-independent while a2 ~ Lambda^(51/10), so the NCG ratio fails).
+_GN_meas      = 6.709e-45                              # MeV^-2
+_Lambda_req   = (1.0/(_GN_prefactor*_GN_meas))**(1.0/_GN_exponent)   # ~3e8 MeV ~3e5 GeV
+# gravitational a4 factor beta_d = 1/20 - 1/(2d) + 1/(d(d-1)); beta_5=beta_6=0 exact
+_beta = {_d: 1/20 - 1/(2*_d) + 1/(_d*(_d-1)) for _d in _D_sa}
+
 def _solve(d, lam, N=6000):
     """Solve -f'' + [lam r²/(1+r²) + cen/r²] f = E f; return (Ev, fv, r, h)."""
     cen   = (d - 1) * (d - 3) / 4.0
@@ -1655,6 +1677,13 @@ for _d, (_lam_tbl, _E0, _kap, _Ld) in sorted(_table.items()):
     _lhat = _lam_tbl**0.5
     print(f"  {_d:>3}  {_g:>8.4f}  {_lam_tbl:>8.4f}  {_E0:>14.4f}  {_Ld:>14.4f}  {_lhat:>16.4f}")
 print(f"  V_7 = L_4 * L_5 * L_6 * L_10^4 = {V7:.4f}   (G_N = G_inf / V_7; G_inf open)")
+print(f"  Spectral action: sigma = sum 1/d = {_sigma_sa:.4f} (=31/20); "
+      f"G_N^-1 exponent 2+2sigma = {_GN_exponent:.1f} (=51/10, fixed by N_c=3)")
+print(f"    prod a0_d = {_a0_prod:.4f}; prefactor = {_GN_prefactor:.4f} (exp cutoff)")
+print(f"    beta_d (grav a4): " + ", ".join(f"{_d}:{_beta[_d]:+.4f}" for _d in _D_sa)
+      + "  (beta_5=beta_6=0 exact -> a2/a4 does NOT eliminate Lambda)")
+print(f"    Lambda to match G_N = {_Lambda_req:.3g} MeV ~ {_Lambda_req/1e3:.3g} GeV "
+      f"(free input; no geometric interpretation)")
 
 
 # =============================================================================

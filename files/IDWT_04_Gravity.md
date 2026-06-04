@@ -464,21 +464,19 @@ $$G_N^{-1} \sim \frac{f_2 \Lambda^2 N_{\rm eff}}{12\pi^2}$$
 
 where Λ is the spectral cutoff, f_2 is a moment of the cutoff function, and N_eff is the number of Dirac degrees of freedom in the spectral triple. Setting Λ from the spectral action condition and then predicting G_N reproduces the input — the condition is circular until Λ is fixed from the sector geometry independently. No sector mass scale provides a natural cutoff: the top quark at ~173 GeV is many orders of magnitude below the gravitational scale set by G_N^{−1/2}.
 
-**Why a_4 is already determined — and what that implies.** The spectral action generates not only a_2 (the Einstein-Hilbert term, which controls G_N) but also a_4 (the coupling term, which controls the sector couplings g_{dd}). In standard NCG, both are Λ-dependent, and the ratio a_2/a_4 eliminates Λ to give a consistency condition between G_N and the gauge couplings.
+**The a_2 (Einstein-Hilbert) coefficient — computed structurally. 🔶** The product heat kernel $K_\Xi(t) = \prod_{d\in D} K_d(t)$ has leading small-$t$ behaviour $t^{-\sigma}$ with
 
-In IDWT, the gauge couplings g_{dd} are fully derived from N_c alone (T9) — they are not inputs. This means a_4 is already fixed, independently of Λ and independently of G_N. If a_2 can be computed from the sector-space geometry (heat kernel coefficients from T14 plus the Ricci scalar on each sector manifold), then the ratio:
+$$\sigma = \sum_{d\in D}\frac{1}{d} = \tfrac12+\tfrac13+\tfrac14+\tfrac15+\tfrac16+\tfrac1{10} = \frac{31}{20}\ \text{(exact)}.$$
 
-$$\frac{a_2(M_\infty)}{a_4(M_\infty)} = \frac{G_N^{-1}}{\text{(T9 gauge couplings)}}$$
+Each sector contributes its Weyl coefficient $a_0^{(d)} = \Gamma(1+1/d)(d!)^{1/d}$ (T14), with $\prod_{d\in D} a_0^{(d)} = 116.781$. Combining the product kernel with the 4D heat kernel's $R_4/6$ term and the exponential-cutoff moment $\Gamma(1+\sigma)$ gives the Einstein-Hilbert coefficient
 
-determines G_N without any free parameter. The left side is a pure geometric quantity; the right side is the measurement. When they agree, G_N is a prediction.
+$$G_N^{-1} = \frac{\prod_{d\in D} a_0^{(d)}\,\Gamma(1+\sigma)}{6\pi}\,\Lambda^{2+2\sigma}, \qquad 2+2\sigma = \frac{51}{10}.$$
 
-**The genuine open computation.** Computing a_2 requires the integral of the Ricci scalar over M_∞:
+The **exponent $51/10$ is exact and fixed by $N_c=3$** (it is determined by the sector set $D$, which T3–T5 fix from $N_c$); the prefactor is $\approx 8.5$ for the exponential cutoff and is cutoff-dependent. The $d=2$ sector contributes $R_2\cdot\mathrm{Vol}_2 = \pi$ exactly — a topological term independent of $g_{22}$.
 
-$$a_2(M_\infty) = \frac{1}{12\pi^2} \int_{M_\infty} R_\infty\, d{\rm vol}_{M_\infty}$$
+**Why the a_2/a_4 ratio does not close it.** In standard NCG the ratio $a_2/a_4$ eliminates $\Lambda$ to give $G_N$ in terms of the gauge couplings (which here are fixed by $N_c$, T9). Carrying out the $a_4$ computation defeats this: for constant-curvature sectors the gravitational $a_4$ carries the factor $\beta_d = \tfrac1{20} - \tfrac1{2d} + \tfrac1{d(d-1)}$, and $\beta_5 = \beta_6 = 0$ **exactly** (the neutrino and charged-lepton sectors contribute nothing to the gravitational $a_4$; the $d=10$ sector dominates). Crucially $a_4^{\rm grav}$ is $\Lambda$-independent while $a_2\propto\Lambda^{51/10}$, so the ratio cannot eliminate $\Lambda$. **$\Lambda$ therefore remains a genuine free dimensional input** — matching the measured $G_N$ requires $\Lambda \approx 3\times10^8$ MeV ($\sim 3\times10^5$ GeV), far above every sector mass scale and with no geometric interpretation in the current construction.
 
-Each sector contributes R_{Ξ_d} = d(d−1)/(L_d^2) (the Ricci scalar of the round sphere or Fubini-Study metric of radius L_d on Ξ_d). The T14 heat kernel coefficients give the Weyl coefficient a_0^{(d)} = Γ(1+1/d)(d!)^{1/d}, which controls the volume element. The integral is finite because L²-normalizable modes (T5, §3.13 Part I) produce a convergent sector-by-sector sum, while d>10 sectors contribute R_{ab}=0 in vacuum (Ricci-flat) and vanish.
-
-This computation — assembling ∫R dvol on M_∞ from T14 data and the L_d values of §3.10 — is the single remaining open item for gravity. Once complete, G_N = G_∞/V_7 is a parameter-free prediction from the same geometry that determines all particle masses.
+**The remaining open item.** A $\Lambda$-dependent $a_4$ could in principle come from the gauge channel, whose cross-sector terms require the overlap integrals $\mathcal{I}_{dd'} = \int(\xi_d\cdot\xi_{d'})^4\,|\chi|^2|\chi'|^2$ — and these need the explicit mode functions $\chi_{n,d}$ (Part 6, foundational open items). The structural form, exponent, and prefactor of $a_2$ are now computed; fixing $\Lambda$ (equivalently $G_N$) is the single remaining open item, blocked on the same mode-function derivation as the hadronic and CP-phase items. The chain to closure is $\chi_{n,d} \to \mathcal{I}_{dd'} \to a_4^{\rm gauge} \to a_2/a_4 \to G_N$. Once $\Lambda$ is fixed, $G_N = G_\infty/V_7$ is a parameter-free prediction.
 
 **What does not belong here.** The Kaluza-Klein formula M_Pl^2 = M_∗^9 V_7^{\rm phys} (which would define an "11D fundamental scale" M_∗) is not IDWT. It requires compact extra dimensions, graviton propagation through those dimensions, and a Kaluza-Klein tower of massive graviton modes — all of which are explicitly excluded by Part 4 §1b. IDWT has no compact dimensions (Ξ is non-compact), no graviton quanta (gravity is geometry, not a field), and no KK tower. The formula does not apply, and M_∗ is not a quantity that appears in this framework.
 

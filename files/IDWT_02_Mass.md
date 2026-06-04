@@ -222,7 +222,7 @@ The combinatorial source is:
 
 $$n_{\rm charm} = S(n_s,3) = \binom{n_s+2}{3}, \quad n_{\nu_1} = S(n_u,3) = \binom{n_u+2}{3} = \binom{n_s+1}{3}, \quad n_{\nu_2} = S(n_u,4) = \binom{n_s+1}{4}$$
 
-with $N_c = n_s = 4 - 0 = $ ... more precisely $N_c = \chi(\mathbb{CP}^2) = n_u+1 = n_s-1+1 = n_s-n_u+n_u = 3$ and $N_f = 2n_s-2 = n_s+n_u-1 = 6$ (light quark flavours u,d,s,c,b,t). The identity $S(n_s,3)\cdot N_c = S(n_u,3)\cdot N_f$ holds because $\binom{n_s+2}{3}/(n_s-1) = \binom{n_u+2}{3}/(2n_s-2) = n_s(n_s+1)/6$, which follows from $n_u = n_s-1$. ⭐
+with $N_c = \chi(\mathbb{CP}^2) = n_u+1 = 3$ and $N_f = 2n_s-2 = n_s+n_u-1 = 6$ (light quark flavours u,d,s,c,b,t). The identity $S(n_s,3)\cdot N_c = S(n_u,3)\cdot N_f$ holds because $\binom{n_s+2}{3}/(n_s-1) = \binom{n_u+2}{3}/(2n_s-2) = n_s(n_s+1)/6$, which follows from $n_u = n_s-1$. ⭐
 
 ---
 

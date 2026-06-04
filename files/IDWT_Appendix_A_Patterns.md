@@ -838,7 +838,7 @@ Three facts, in increasing severity:
 
 The **pure harmonic self-binding** V_d = λ_d r² in flat, extended ℝ^d cures the deficit while keeping the sectors flat:
 
-- **Confining, infinitely many bound states, every sector.** V → ∞, so the spectrum is purely discrete (σ_ess = ∅, no continuum) and the full simplex tower is bound in all of d = 2,3,4,5,6,10 — the d=5,6,10 deficit does not occur (verified). The particle is a Gaussian-localized standing wave *within* the extended flat sector, exactly as an orbital is localized inside extended 3-space.
+- **Confining, infinitely many bound states, every sector.** V → ∞, so the spectrum is purely discrete (σ_ess = ∅, no continuum) and the full simplex tower is bound in all of d = 2,3,4,5,6,10 — the d=5,6,10 deficit does not occur (verified). The particle is a Gaussian-localized standing wave *within* the extended flat sector, exactly as a bound electron is localized inside extended 3-space.
 - **λ_d derivation becomes exact.** §3.10.3 set ⟨r²⟩_d = d/(2√λ_d) using the harmonic ground state; with the pure harmonic well this is the *actual* ground state (verified exact for d=3,4,5,6,10), so λ_d = (g_dd/2)^{2/3} closes without circularity.
 - **IDOS = S(n,d) exactly.** d-dim isotropic-HO level degeneracy C(N+d−1,d−1), cumulative S(n,d). Spectrum-generating symmetry SU(d) ⊂ SO(d+1).
 

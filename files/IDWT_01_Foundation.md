@@ -560,6 +560,30 @@ Back-reaction factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Gegen
 
 ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, geometric back-reaction correction for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from the seed n_s = 4.
 
+### 3e-ii. The Particle Map — All Fifteen Modes
+
+Each Standard Model particle is one mode of Ψ_∞, fixed by its sector dimension d and mode index n, with mass m(n,d) = S(n,d) × m_scale_d. The full spectrum:
+
+| Particle | d | Geometry | Isometry | n | S(n,d) | Mass |
+|----------|---|----------|----------|---|--------|------|
+| photon γ | 2 | CP¹ | SU(2) | 0 | 0 | 0 (exact) |
+| W | 2 | CP¹ | SU(2) | 76 | 2,926 | 80.38 GeV |
+| Z | 2 | CP¹ | SU(2) | 81 | 3,321 | 91.23 GeV |
+| Higgs | 2 | CP¹ | SU(2) | 95 | 4,560 | 125.27 GeV |
+| down | 3 | S³ | SO(4) | 1 | 1 | 4.70 MeV |
+| strange | 3 | S³ | SO(4) | 4 | 20 | 94.0 MeV |
+| up | 4 | CP² | SU(3) | 3 | 15 | 2.18 MeV |
+| charm | 4 | CP² | SU(3) | 20 | 8,855 | 1.28 GeV |
+| top | 4 | CP² | SU(3) | 72 | 1,215,450 | 174 GeV |
+| ν₁ | 5 | S⁵ | SO(6) | 10 | 2,002 | 1.49 meV |
+| ν₂ | 5 | S⁵ | SO(6) | 15 | 11,628 | 8.64 meV |
+| ν₃ | 5 | S⁵ | SO(6) | 22 | 65,780 | 50.3 meV |
+| electron | 6 | CP³ | SU(4) | 13 | 18,564 | 0.511 MeV |
+| muon | 6 | CP³ | SU(4) | 35 | 3,838,380 | 105.7 MeV |
+| tau | 10 | CP⁵ | SU(6) | 23 | 64,512,240 | 1776.8 MeV |
+
+The bottom quark is not in the table: it is not a single (n,d) mode but the geometric-mean beat between n=16 and n=17 in d=3 at the resonance site k₀ = n_s² = 16, m_b = √(S(16,3)·S(17,3)) × m_scale_3 ≈ 4181 MeV. It is a stable d=3 resonance, not one of the 15 co-fixed-point pairs Σ_pairs (§3b, §5).
+
 ---
 
 ### 3f. The Coordinate Extension Picture

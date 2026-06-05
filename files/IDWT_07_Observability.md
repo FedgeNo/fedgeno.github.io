@@ -44,19 +44,21 @@ Script: `files/idwt.py`. Verified numerically for $d=3$ modes up to $n=20$.
 
 **Mechanism 2 — infinite-dimensional dephasing. 🔵**
 
-Even-level non-$\Sigma_{\rm pairs}$ modes have non-zero off-diagonal matrix elements to other modes (numerically, ME($n=3 \to n=1$) $\approx 6.3$ sector units; see `files/idwt.py` STEP 15). A state that is not an eigenstate of $H$ but is instead a superposition of nearby eigenstates will dephase: its initial amplitude disperses and does not return.
+Even-level non-$\Sigma_{\rm pairs}$ modes have non-zero off-diagonal matrix elements to other modes (numerically, ME($n=3 \to n=1$) $\approx 6.3$ sector units; see `files/idwt.py` STEP 30). A state that is not an eigenstate of $H$ but is instead a superposition of nearby eigenstates will dephase: its initial amplitude disperses and does not return.
 
 In a finite system, Poincaré recurrence would eventually revive the amplitude. IDWT is infinite-dimensional — five active sectors each with a countably infinite mode tower. In an infinite-dimensional coupled system the recurrence time is infinite, so dephasing is permanent.
 
 The decoherence time is $\tau \sim \hbar / (\text{ME} \times m_{\rm scale,3}) \sim 1/m_{\rm scale,3}$. Numerically for $n=3$: $\tau \sim 1/(6.3 \times 4.7\ \text{MeV}) \approx 0.034\ \text{MeV}^{-1}$ — of order $1/m_{\rm scale,3}$ as claimed.
 
+**The dephasing cannot be sharpened to an exact cut.** The $l=0$ seed-coupling overlap of an even-level $d=3$ mode (radial number $n_r=(n-1)/2$, $l=0$) against the $l=0$ vacuum is the Laguerre transform $J(n_r,s)=\Gamma(n_r+\tfrac32)/n_r!\cdot(s-1)^{n_r}/s^{n_r+3/2}$, whose only zero in $s$ is $s=1$. The kernel fixes the weight at $s=3/2$ (vacuum density $e^{-u}$ times mode envelope $e^{-u/2}$), where the overlap carries the factor $((s-1)/s)^{n_r}=(1/3)^{n_r}>0$ and never vanishes. The exact zero that $l$-parity supplies *across* parity has no analogue *within* the reachable even-$l$ class. The even-level exclusion is therefore quantitative by construction — a strictly nonzero, geometrically decaying coupling — and 🔵 is its proven ceiling under the $(\xi\cdot\xi')^2$ kernel; an exact upgrade would require a different kernel. (`files/idwt.py` STEP 34; Appendix A §15.)
+
 **Stability derivation complete. 🔵**
 
-All non-$\Sigma_{\rm pairs}$ modes are unstable by one of two exact mechanisms:
-- **Odd-level modes** ($n=2,6,8,\ldots$): $l$-parity selection blocks all coupling to the seeds permanently. ⭐
-- **Even-level modes** ($n=3,5,7,\ldots$): non-zero off-diagonal matrix elements to the seeds, permanent dephasing in the infinite-dimensional coupled system. 🔵
+All non-$\Sigma_{\rm pairs}$ modes are unstable by one of two mechanisms:
+- **Odd-level modes** ($n=2,6,8,\ldots$): $l$-parity selection blocks all coupling to the seeds permanently — an exact zero. ⭐
+- **Even-level modes** ($n=3,5,7,\ldots$): strictly nonzero off-diagonal coupling to the seeds (the overlap has no node at the kernel weight $s=3/2$), giving permanent dephasing in the infinite-dimensional coupled system. This is the proven ceiling — no exact cut exists for this class under the $(\xi\cdot\xi')^2$ kernel. 🔵
 
-Script: `files/idwt.py` STEP 15.
+Script: `files/idwt.py` STEP 30.
 
 ---
 

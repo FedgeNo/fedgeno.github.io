@@ -21,12 +21,11 @@
 #                  oscillations, neutron lifetime, heat kernel, scipy eigenmode
 #   STEPS 25-29 -- Theorem verification: T4 seed uniqueness, T5 Gegenbauer criticality,
 #                  T15 Euler characteristic chain, T9a Hopf products, T0.5 filter
-#   STEPS 15-16, 35-36 -- Later additions (computation): co-fixed-point l-parity
-#                  stability, consecutive matter quartet, depth-relative
-#                  marginalization, bound-within / free-without (Part 1 §3i)
-#   STEPS 5-29  -- Output (all print() calls; begin after the computation blocks)
-#   STEPS 30-34 -- Output: T4/T5/T15/T9a/T0.5 theorem verification tables
-#   STEPS 15-16, 35-36 -- Output: stability, quartet, marginalization, floating
+#   STEPS 30-33 -- Extended computation: co-fixed-point l-parity stability,
+#                  consecutive matter quartet, depth-relative marginalization,
+#                  bound-within / free-without (Part 1 §3i)
+#   STEPS 1-29  -- Output (all print() calls; begin after the computation blocks)
+#   STEPS 30-33 -- Output: stability, quartet, marginalization, floating
 #
 # Cross-references use "Part N section M" referring to the IDWT document set.
 # =============================================================================
@@ -579,7 +578,7 @@ _r1_ckm = Vud_m**2 + lam_W**2                         # row 1
 _r2_ckm = Vcd_m**2 + Vcs_m**2 + Vcb**2               # row 2
 _r3_ckm = 0 + Vts_m**2 + Vtb_m**2                    # row 3 (Vtd=0 tree level)
 
-# Bare Cabibbo angle (no sector curvature correction) — used in STEP 25 output
+# Bare Cabibbo angle (no sector curvature correction) — used in STEP 6b output
 # to exhibit the raw prediction before the curvature correction is applied.
 sin_C_bare = 1.0 / math.sqrt(S(n_strange, 3))    # = 1/√20 = 0.22361
 Vcb_bare   = math.sqrt(S(n_up, 4) / S(n_charm, 4))
@@ -1015,7 +1014,7 @@ tau_tau_pred = tau_mu_pdg * (m_mu_m/m_tau_m)**5 / (1 + _R_lep + _R_had)
 # =============================================================================
 # The PMNS matrix U is built from the three mixing angles computed in STEP 13.
 # δ_CP = 0 at tree level (spectral phase on the lepton coupling triangle vanishes;
-# proved in STEP 27 of the output section via the spectral-curvature computation).
+# proved in STEP 24b of the output section via the spectral-curvature computation).
 # Δm² values in eV² for the oscillation probability formula:
 #   P(να→νβ) = δ_αβ − 4 Σ_{k>j} Re(U*_αk U_βk U_αj U*_βj) sin²(Δm²_kj L/4E)
 # with the factor 1.2669 km·eV²/GeV absorbing ℏc.
@@ -1194,7 +1193,7 @@ _mass_ratios = [
     ("m_Z  / m_W",   _Ss["Z"]/_Ss["W"],                         1.13450,  f"S(n_Z,2)/S(n_W,2) = {_Ss['Z']}/{_Ss['W']}"),
 ]
 
-# Spectral action sector table used in STEP 29 output
+# Spectral action sector table used in STEP 22 output
 _scales_all = [
     (2, m_scale2), (3, m_scale3), (4, m_scale4),
     (5, m_scale5), (6, m_scale6), (10, m_scale10),
@@ -1588,7 +1587,7 @@ t9a_err_25  = abs(t9a_prod_25 - 96.0)
 #   d=3 modes at n=2 (odd level, l-parity disconnected) and n=3 (even level,
 #   dephases) are not co-fixed-points; they are short-lived colour-triplet
 #   excitations, not stable particles. The instability mechanisms (l-parity,
-#   dephasing) are in STEP 15. (Part 7 section 1, Part 2 sections 2-4)
+#   dephasing) are in STEP 30. (Part 7 section 1, Part 2 sections 2-4)
 
 # Physical (n, d) pairs — the 15 SM particles as derived in STEP 1.
 Sigma_pairs = frozenset({
@@ -1621,7 +1620,7 @@ t05_hadronic = [(_n, (_n, 3) in Sigma_pairs) for _n in [2, 3, 5]]
 
 
 # =============================================================================
-# STEP 15 -- CO-FIXED-POINT STABILITY: l-PARITY (compute; Part 7 §1.2, App A §22)
+# STEP 30 -- CO-FIXED-POINT STABILITY: l-PARITY (compute; Part 7 §1.2, App A §22)
 # =============================================================================
 # The kernel (xi_d . xi_{d'})^2 decomposes angularly into l=0 (scalar) and
 # l=2 (tensor) components only. Each kernel application changes angular momentum
@@ -1691,7 +1690,7 @@ _tau_factor = 1.0 / (_ME13 * m_scale3)   # in 1/MeV units
 
 
 # =============================================================================
-# STEP 16 -- CONSECUTIVE MATTER QUARTET (compute; Part 1 §3a, App A §19)
+# STEP 31 -- CONSECUTIVE MATTER QUARTET (compute; Part 1 §3a, App A §19)
 # =============================================================================
 # Hopf chain S^1 -> S^{2k+1} -> CP^k produces sectors at d=2k (base) and d=2k+1
 # (total). Rule A terminates the chain at CP^{n_s-1} (real dim d_term=2(n_s-1)):
@@ -1711,7 +1710,7 @@ _ok = [(ns, 2*(ns-1)-3+1 == ns, 2*(ns-1)-3+1) for ns in range(2, 8)]
 
 
 # =============================================================================
-# STEP 35 -- DEPTH-RELATIVE MARGINALIZATION (compute; Part 1 section 3i)
+# STEP 32 -- DEPTH-RELATIVE MARGINALIZATION (compute; Part 1 section 3i)
 # =============================================================================
 # An observer assembled from sector-depth d_obs matter resolves only the first
 # d_obs coordinates of M_inf. A particle is a definite object across its own
@@ -1736,7 +1735,7 @@ def smeared_dims(d_obs, d_p):
 
 
 # =============================================================================
-# STEP 36 -- BOUND WITHIN, FREE WITHOUT (compute; a particle beyond its sector)
+# STEP 33 -- BOUND WITHIN, FREE WITHOUT (compute; a particle beyond its sector)
 # =============================================================================
 # (Part 1 section 3i; Appendix A "Bound within, free without")
 #
@@ -1788,7 +1787,72 @@ float_Ekin  = {Dl: 1.0 / (2 * m_e * Dl**2) for Dl in float_Delta}   # MeV
 
 
 # =============================================================================
-# STEP 5 -- OUTPUT: TOWER CONSTRUCTION
+# STEP 34 -- NO-NODE OVERLAP: THE EVEN-LEVEL EXCLUSION CEILING (compute)
+# (Part 9 T0.5; Part 7 section 1.2; Appendix A section 15)
+#
+# Odd-level (n even) non-Sigma modes are excluded EXACTLY: the l=0 seeds cannot
+# reach an odd-l mode through the l=0 + l=2 kernel at any order (l-parity, STEP 30,
+# an exact zero). The even-level (n odd) modes have NO such exact cut, and this
+# block proves why -- it is the structural ceiling on the even-level exclusion.
+#
+# The l=0 seed-coupling overlap of an even-level d=3 mode (radial number
+# n_r = (n-1)/2, l=0) against the l=0 vacuum is the Laguerre transform
+#   J(n_r, s) = int_0^inf L_{n_r}^{(1/2)}(u) e^{-s u} u^{1/2} du
+#             = Gamma(n_r + 3/2) / n_r! * (s-1)^{n_r} / s^{n_r + 3/2},
+#   with Gamma(n_r + 3/2) = sqrt(pi) (2 n_r + 1)!! / 2^{n_r+1}.
+# Its ONLY zero in s is s = 1 (the Laguerre orthogonality point). The kernel
+# structurally fixes the weight at s = 3/2 (vacuum density e^{-u} times mode
+# envelope e^{-u/2}), where the n_r-dependent factor ((s-1)/s)^{n_r} = (1/3)^{n_r}
+# > 0 for every n_r: the coupling is strictly nonzero and decays geometrically
+# (successive ratio -> 1/3), never vanishing. The exact zero l-parity supplies
+# ACROSS parity has no analogue WITHIN the reachable even-l class (s = 3/2 != 1).
+# Hence the even-level exclusion is provably ONLY quantitative -- a dephasing
+# rate, not an exact cut -- and an exact selection would require a different kernel.
+
+def _double_factorial(m):
+    r = 1
+    while m > 1:
+        r *= m
+        m -= 2
+    return r
+
+def _laguerre_half(n_r, u):
+    # generalized Laguerre L_{n_r}^{(1/2)}(u) via the standard three-term recurrence
+    a = 0.5
+    Lm1, L = 0.0, 1.0
+    for k in range(n_r):
+        Lm1, L = L, ((2*k + 1 + a - u) * L - (k + a) * Lm1) / (k + 1)
+    return L
+
+def overlap_J(n_r, s):
+    # closed form of int_0^inf L_{n_r}^{(1/2)}(u) e^{-s u} u^{1/2} du
+    #   = Gamma(n_r+3/2)/n_r! * (s-1)^n_r / s^(n_r+3/2),
+    #   Gamma(n_r+3/2) = sqrt(pi)(2 n_r+1)!!/2^(n_r+1)
+    gamma_half = math.sqrt(math.pi) * _double_factorial(2*n_r + 1) / 2.0**(n_r + 1)
+    return gamma_half / math.factorial(n_r) * (s - 1.0)**n_r / s**(n_r + 1.5)
+
+def _overlap_J_numeric(n_r, s, umax=80.0, N=40000):
+    # midpoint quadrature, verifies the closed form without scipy
+    h = umax / N
+    tot = 0.0
+    for i in range(N):
+        u = (i + 0.5) * h
+        tot += _laguerre_half(n_r, u) * math.exp(-s * u) * math.sqrt(u)
+    return tot * h
+
+NONODE_S       = 1.5                       # kernel-fixed weight: e^{-u} (vacuum) x e^{-u/2} (mode)
+nonode_nr      = list(range(0, 7))
+nonode_closed  = {nr: overlap_J(nr, NONODE_S)          for nr in nonode_nr}
+nonode_numeric = {nr: _overlap_J_numeric(nr, NONODE_S) for nr in nonode_nr}
+nonode_relerr  = {nr: abs(nonode_closed[nr] - nonode_numeric[nr]) / abs(nonode_numeric[nr])
+                  for nr in nonode_nr}
+nonode_at_one  = {nr: overlap_J(nr, 1.0) for nr in nonode_nr}          # = 0 for nr >= 1 (sole zero)
+nonode_geom    = {nr: ((NONODE_S - 1.0) / NONODE_S)**nr for nr in nonode_nr}  # (1/3)^{n_r}, never 0
+nonode_no_zero_at_weight = all(abs(nonode_closed[nr]) > 0.0 for nr in nonode_nr)
+
+
+# =============================================================================
+# STEP 1 -- OUTPUT: TOWER CONSTRUCTION
 # =============================================================================
 print("=== TOWER CONSTRUCTION ===")
 print(f"seeds: n_down = 1, n_strange = 4")
@@ -1809,7 +1873,7 @@ print(f"n_H     = n_up + n_charm + n_top = {n_up} + {n_charm} + {n_top} = {n_H}"
 
 
 # =============================================================================
-# STEP 6 -- OUTPUT: COUPLINGS
+# STEP 2 -- OUTPUT: COUPLINGS
 # =============================================================================
 print("\n=== COUPLINGS DERIVED FROM SEEDS ===")
 print("g33 = n_s^2 * sqrt(n_s + n_up) / 2")
@@ -1887,7 +1951,7 @@ print("  C survives only in the quark block {3,4}; W on every fermion pair.")
 
 
 # =============================================================================
-# STEP 7 -- OUTPUT: SECTOR SCALES
+# STEP 3 -- OUTPUT: SECTOR SCALES
 # =============================================================================
 print("\n=== SECTOR SCALES (all derived from m_e and seeds) ===")
 print(f"m_scale_6  = m_e / S(n_e,6)"
@@ -1923,7 +1987,7 @@ print(f"    Lambda to match G_N = {_Lambda_req:.3g} MeV ~ {_Lambda_req/1e3:.3g} 
 
 
 # =============================================================================
-# STEP 8 -- OUTPUT: CORRECTIONS
+# STEP 4 -- OUTPUT: CORRECTIONS
 # =============================================================================
 print("\n=== CORRECTIONS ===")
 print("GTC epsilon = 1 / (280 * sqrt(7))")
@@ -2024,7 +2088,7 @@ hdr = (f"{'particle':<9} {'d':>2} {'n':>4} {'S(n,d)':>10}"
        f" {'pred (MeV)':>12} {'PDG (MeV)':>12} {'err%':>8}")
 sep = "-" * len(hdr)
 
-# STEP 9  -- Uncorrected table
+# STEP 4a -- Uncorrected table
 print("\n=== UNCORRECTED TABLE ===")
 print("  (raw: m = m_scale(d) * S(n,d), no GTC or back-reaction correction applied)")
 print(hdr)
@@ -2036,7 +2100,7 @@ for name, d, n, pdg in particles:
     n_str = str(n) if n is not None else "--"
     print(f"{name:<9} {d:2d} {n_str:>4} {s:10d} {p:12.3f} {pdg:12.3f} {err:+7.2f}%")
 
-# STEP 10 -- Corrected table
+# STEP 4b -- Corrected table
 print("\n=== CORRECTED TABLE (GTC d=4 quarks + back-reaction tau) ===")
 print("  (charm and top: (1-eps)^k correction;  tau: *(1+1/1680))")
 print(hdr)
@@ -2049,7 +2113,7 @@ for name, d, n, pdg in particles:
     print(f"{name:<9} {d:2d} {n_str:>4} {s:10d} {p:12.3f} {pdg:12.3f} {err:+7.2f}%")
 
 # =============================================================================
-# STEP 11 -- ELECTROWEAK AND COUPLING PREDICTIONS
+# STEP 5 -- ELECTROWEAK AND COUPLING PREDICTIONS
 # =============================================================================
 print("\n=== ELECTROWEAK SECTOR ===")
 pdg_vals = {
@@ -2067,7 +2131,7 @@ print(f"  g_1 at d=2 sector scale:   {g1:.6f}  err={err_g1:+.4f}%  [vs self-cons
 
 
 # =============================================================================
-# STEP 12 -- CKM MIXING ANGLES
+# STEP 6 -- CKM MIXING ANGLES
 # =============================================================================
 print("\n=== CKM MIXING ===")
 ckm_vals = {
@@ -2081,7 +2145,7 @@ for label, (pred, pdg, unc, note) in ckm_vals.items():
 
 
 # =============================================================================
-# STEP 13 -- HADRONIC SCALES
+# STEP 7 -- HADRONIC SCALES
 # =============================================================================
 print("\n=== HADRONIC SCALES ===")
 had_vals = {
@@ -2095,7 +2159,7 @@ for label, (pred, pdg, note) in had_vals.items():
 
 
 # =============================================================================
-# STEP 13b -- Z BOSON PRECISION OBSERVABLES
+# STEP 8 -- Z BOSON PRECISION OBSERVABLES
 # =============================================================================
 print("\n=== Z PRECISION OBSERVABLES ===")
 z_vals = {
@@ -2111,7 +2175,7 @@ for label,(pred,pdg_val,note) in z_vals.items():
     print(f"  {label:<10} pred={pred:>8.4f}  PDG={pdg_val:>7.4f}  err={err:>+7.2f}%  [{note}]")
 
 # =============================================================================
-# STEP 13c -- TOP QUARK DECAY
+# STEP 9 -- TOP QUARK DECAY
 # =============================================================================
 print("\n=== TOP QUARK DECAY (tree level) ===")
 print(f"  m_t = {m_top_MeV:.0f} MeV  m_W = {m_scale2*S(n_W,2):.0f} MeV  x_W = {xW_top:.5f}")
@@ -2122,7 +2186,7 @@ print(f"  Gamma(t->Wb) = {Gamma_top:.0f} MeV  PDG: ~1350 MeV  err {(Gamma_top/13
 print(f"  [QCD 1-loop correction reduces Gamma_t by approx 10%]")
 
 # =============================================================================
-# STEP 13d -- CKM MATRIX COMPLETE TREE-LEVEL
+# STEP 19 -- CKM MATRIX COMPLETE TREE-LEVEL
 # =============================================================================
 print("\n=== CKM MATRIX (tree level, rho=eta=0) ===")
 ckm_vals = {
@@ -2145,7 +2209,7 @@ for label,(pred,pdg_val,note) in ckm_vals.items():
 print(f"  Row unitarities: |row1|={_r1_ckm:.6f}  |row2|={_r2_ckm:.6f}  |row3|={_r3_ckm:.6f}")
 
 # =============================================================================
-# STEP 14 -- d=3 HADRONIC RESONANCE SPECTRUM
+# STEP 7c -- d=3 HADRONIC RESONANCE SPECTRUM
 # =============================================================================
 # The d=3 sector supports a tower of hadronic resonances at n > n_strange.
 # These are not co-fixed-points (not stable particles) but
@@ -2195,7 +2259,7 @@ print(f"    d=5 nu_3        = 48.871 meV  (exact; m_scale5*S(22,5), computed in 
 
 
 # =============================================================================
-# STEP 15 -- PMNS LEADING ORDER: TRIBIMAXIMAL MIXING
+# STEP 13a -- PMNS LEADING ORDER: TRIBIMAXIMAL MIXING
 # =============================================================================
 
 print("\n=== PMNS LEADING ORDER: μ–τ SYMMETRIC LIMIT (Part 5 §4) ===")
@@ -2214,7 +2278,7 @@ print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s.")
 
 
 # =============================================================================
-# STEP 16 -- ELECTRIC CHARGE IS DERIVED
+# STEP 5a -- ELECTRIC CHARGE IS DERIVED
 # =============================================================================
 print("\n=== ELECTROMAGNETIC COUPLING ===")
 print(f"  e = g_2 × sin(θ_W) = {g2:.5f} × {math.sqrt(sin2_W):.5f} = {e_charge:.5f}")
@@ -2225,7 +2289,7 @@ print(f"  Residual from sin²θ_W +0.37% structural gap — same source as g_1 r
 
 
 # =============================================================================
-# STEP 17 -- DECAY RATES
+# STEP 11 -- DECAY RATES
 # =============================================================================
 print("\n=== DECAY RATES ===")
 decay_vals = {
@@ -2237,7 +2301,7 @@ for label, (pred, pdg, note) in decay_vals.items():
 
 
 # =============================================================================
-# STEP 18 -- NEUTRINO MASSES FROM SECTOR GEOMETRY
+# STEP 12 -- OUTPUT: NEUTRINO MASSES FROM SECTOR GEOMETRY
 # =============================================================================
 
 print("\n=== NEUTRINO MASSES (derived from m_e and seeds — no neutrino data) ===")
@@ -2270,7 +2334,7 @@ print(f"  m_beta_beta = 0 (exact): Majorana mass forbidden in d=5 by spin struct
 print(f"  Sum m_nu (corrected) = {sum_mnu_corr:.2f} meV is within reach of CMB-S4 (target sensitivity ~30 meV)")
 
 # =============================================================================
-# STEP 19 -- PMNS ANGLES FROM SPECTRAL GEOMETRY  (Part 5 §4–6)
+# STEP 13 -- PMNS ANGLES FROM SPECTRAL GEOMETRY  (Part 5 §4–6)
 # =============================================================================
 
 print("\n=== PMNS ANGLES FROM SPECTRAL GEOMETRY (Part 5 §4–6) ===")
@@ -2284,7 +2348,7 @@ print(f"  sin²θ₁₃ = {sin2_13_pred:.5f}  "
 print(f"  All three PMNS angles determined by g₅₅ and mode indices n_ν, n_α.")
 
 # =============================================================================
-# STEP 20 -- SPECTRAL ACTION: √Tr(D²) VS IDWT EW SCALE  (Part 1 section 0)
+# STEP 14 -- SPECTRAL ACTION: √Tr(D²) VS IDWT EW SCALE  (Part 1 section 0)
 # =============================================================================
 
 print("\n=== SPECTRAL ACTION CHECK (Part 1 §0) ===")
@@ -2295,7 +2359,7 @@ print(f"  err = {(rms_D_val/v_EW_idwt-1)*100:+.3f}%")
 print(f"  → √Tr(D²) = spectral EW scale; consistent with IDWT-derived G_F (Part 1 §0)")
 
 # =============================================================================
-# STEP 21 -- EW PRECISION: Z WIDTHS, R_b, R_c, ρ PARAMETER
+# STEP 15 -- EW PRECISION: Z WIDTHS, R_b, R_c, ρ PARAMETER
 # =============================================================================
 
 print("\n=== EW PRECISION: Z WIDTHS AND RATIOS (Part 5) ===")
@@ -2310,7 +2374,7 @@ print(f"  A_FB^b = {AFBb_ew:.5f}   PDG 0.09920   err {(AFBb_ew/0.0992-1)*100:+.1
 print(f"  ρ = m_W²/(m_Z²cos²θ_W) = {rho_ew:.6f}  (SM tree-level: 1.000000 ✓)")
 
 # =============================================================================
-# STEP 22 -- JARLSKOG INVARIANT AND τ LIFETIME
+# STEP 16 -- JARLSKOG INVARIANT AND τ LIFETIME
 # =============================================================================
 
 print("\n=== JARLSKOG INVARIANT AND τ LIFETIME (Part 5) ===")
@@ -2323,7 +2387,7 @@ print(f"  τ_τ = τ_μ×(m_μ/m_τ)⁵/(1+R_lep+R_had) = {tau_tau_pred*1e15:.0f
 
 
 # =============================================================================
-# STEP 24 -- NEUTRINO SECTOR: Σmν, m_ββ, OSCILLATION TABLE
+# STEP 18 -- NEUTRINO SECTOR: Σmν, m_ββ, OSCILLATION TABLE
 # =============================================================================
 
 print("\n=== NEUTRINO MASSES AND OSCILLATIONS (Part 5) ===")
@@ -2342,7 +2406,7 @@ for nm,L,E in _baselines:
     print(f"  {nm:>38}  {Pee:.4f}    {Pmm:.4f}    {Pme:.4f}")
 
 # =============================================================================
-# STEP 25 -- CKM MATRIX COMPLETE (TREE LEVEL)
+# STEP 6b -- CKM MATRIX COMPLETE (TREE LEVEL)
 # =============================================================================
 
 print("\n=== CKM MATRIX — TREE LEVEL (Part 3) ===")
@@ -2354,7 +2418,7 @@ print(f"  |Vub| = 0.00000   (tree level; CP phase open: Delta_c1=-2 identified, 
 print(f"  Row-1 unitarity = {_r1:.6f}  (PDG tension 0.99880±0.00050)")
 
 # =============================================================================
-# STEP 26 -- HADRONIC SECTOR: f_π, Λ_QCD
+# STEP 7b -- HADRONIC SECTOR: f_π, Λ_QCD
 # =============================================================================
 
 print("\n=== HADRONIC SECTOR (Part 3) ===")
@@ -2365,7 +2429,7 @@ print(f"          matches 3×f_π(PDG) = 276 MeV within +2.1%  ✓")
 print(f"  m_p = N_c×Λ×(1+1/n_u²) = {_mp:.1f} MeV   PDG 938.3   err {(_mp/938.3-1)*100:+.1f}%")
 
 # =============================================================================
-# STEP 26a -- COMPOSITE HADRON MASSES
+# STEP 7a -- OUTPUT: COMPOSITE HADRON MASSES
 # =============================================================================
 
 print("\n=== COMPOSITE HADRON MASSES (Part 2 §8a, Part 5 §3d) ===")
@@ -2414,7 +2478,7 @@ print(f"    → mode index n (eigenvalue rank) invariant under bounded perturbat
 print(f"    → S(n,d) invariant → m(n,d) = m_scale_d*S(n,d) technically natural ✅")
 
 # =============================================================================
-# STEP 27 -- AXIAL COUPLING g_A AND NEUTRON LIFETIME
+# STEP 21 -- OUTPUT: AXIAL COUPLING g_A AND NEUTRON LIFETIME
 # =============================================================================
 print(f"\n=== AXIAL COUPLING AND NEUTRON LIFETIME (Part 5 §3b) ===")
 print(f"  g_A = sqrt(S(n_s+1,3)/S(n_s,3))"
@@ -2428,7 +2492,7 @@ print(f"  τ_n = ℏ / [G_F²|V_ud|²(1+3g_A²) f m_e⁵/(2π³)] = {_tau_n:.0f}
       f"  [g_A +4.0% → (1+3g_A²) ×1.067; Coulomb F_C missing → f low;  combined ~{(_tau_n/878.4-1)*100:+.0f}%]")
 
 # =============================================================================
-# STEP 28 -- SPECTRAL SUM RULES AND EXACT MASS RATIOS
+# STEP 23 -- SPECTRAL SUM RULES AND EXACT MASS RATIOS
 # =============================================================================
 
 _sectors_d = [2, 3, 4, 5, 6, 10]
@@ -2456,7 +2520,7 @@ for _rlabel, _rpred, _rpdg, _rfml in _mass_ratios:
     print(f"  {_rlabel:<15s}  IDWT={_pred_s:<11s}  PDG={_pdg_s:<11s}  err={_err_s:<10s}  [{_rfml}]")
 
 # =============================================================================
-# STEP 29 -- HEAT KERNEL K_d(t) AND SPECTRAL GEOMETRY
+# STEP 22 -- HEAT KERNEL K_d(t) AND SPECTRAL GEOMETRY
 # =============================================================================
 
 _d_all = [2, 3, 4, 5, 6, 10]
@@ -2505,10 +2569,10 @@ for _d, _ms in _scales_all:
 print(f"  Total Tr(e^{{-|D|/m_e}}) = {_S_total:.4g}")
 
 # =============================================================================
-# STEP 26 -- SECTOR EIGENMODE PERTURBATION
+# STEP 24 -- SECTOR EIGENMODE PERTURBATION
 # =============================================================================
 
-print("\n=== STEP 26: SECTOR EIGENMODE PERTURBATION ===")
+print("\n=== STEP 24: SECTOR EIGENMODE PERTURBATION ===")
 print("(Bures metric on coupling moduli space -- Part 9 T8)")
 
 print(f"\n  {'d':>2}  {'lam':>7}  {'cen':>6}  {'E0(box)':>9}  "
@@ -2535,7 +2599,7 @@ for _d in [2, 3, 4, 5, 6, 10]:
     _g, _chain, _ndu, _Gdd = _bures[_d]
     print(f"  {_d:2d}  {_g:9.4f}  {_chain:9.5f}  {_ndu:10.5f}  {_Gdd:12.8f}")
 
-print("\n=== STEP 27: delta_CP BERRY TRIANGLE INTEGRAL ===")
+print("\n=== STEP 24b: delta_CP BERRY TRIANGLE INTEGRAL ===")
 print("(Part 9 T8 -- tree-level spectral phase on lepton coupling triangle)")
 
 print(f"\n  Lepton coupling triangle  (g55, g66, g10):")
@@ -2561,7 +2625,7 @@ print(f"    J_PMNS = J_max * sin(delta_CP)  (IDWT prediction given delta_CP)")
 
 
 # =============================================================================
-# STEP 30 -- T4: SEED UNIQUENESS  n_s(n_s+1)/S(n_s,4) = n_u(n_u+1)/S(n_u,5) = 4/7
+# STEP 25 -- T4: SEED UNIQUENESS  n_s(n_s+1)/S(n_s,4) = n_u(n_u+1)/S(n_u,5) = 4/7
 # =============================================================================
 
 print("\n=== T4: SEED UNIQUENESS (Part 9 §T4) ===")
@@ -2578,7 +2642,7 @@ print(f"     k_0 = n_s² = {k0_aa}  (the resonance site; also used by T5)")
 
 
 # =============================================================================
-# STEP 31 -- T5: AUBRY-ANDRÉ CRITICALITY  b_{{k0}}(d) = 1/2 uniquely at d=10
+# STEP 26 -- T5: AUBRY-ANDRÉ CRITICALITY  b_{{k0}}(d) = 1/2 uniquely at d=10
 # =============================================================================
 
 print("\n=== T5: AUBRY-ANDRÉ CRITICALITY (Part 9 §T5) ===")
@@ -2607,7 +2671,7 @@ print(f"  d ≥ 11 are subcritical: sector chain terminates at d=10. ✓")
 
 
 # =============================================================================
-# STEP 32 -- T15: EULER CHARACTERISTIC CHAIN  N_c = χ(CP²) = 3 → everything
+# STEP 27 -- T15: EULER CHARACTERISTIC CHAIN  N_c = χ(CP²) = 3 → everything
 # =============================================================================
 
 print("\n=== T15: EULER CHARACTERISTIC UNIFICATION (Part 9 §T15) ===")
@@ -2636,7 +2700,7 @@ print(f"  n_top      = N_c(N_c+1)(N_c+3) = {t15_n_top:<4}  (T15b: {t15_Nc}×{t15
 
 
 # =============================================================================
-# STEP 33 -- T9a: BOTH HOPF COUPLING PRODUCTS = 96
+# STEP 28 -- T9a: BOTH HOPF COUPLING PRODUCTS = 96
 # =============================================================================
 
 print("\n=== T9a: HOPF COUPLING PRODUCTS (Part 9 §T9a) ===")
@@ -2651,10 +2715,10 @@ print(f"  -> Both chains yield 96: genuine internal consistency test. ✓")
 
 
 # =============================================================================
-# STEP 34 -- T0.5: CO-FIXED-POINT SELECTION CONDITION
+# STEP 29 -- T0.5: CO-FIXED-POINT SELECTION CONDITION (output)
 # =============================================================================
 
-print("\n=== STEP 16: CONSECUTIVE MATTER QUARTET DERIVATION (Part 1 §3a, App A §19) ===")
+print("\n=== STEP 31: CONSECUTIVE MATTER QUARTET DERIVATION (Part 1 §3a, App A §19) ===")
 print(f"  n_s = {n_strange},  Rule A terminates at d_term = 2*(n_s-1) = {_d_term} (CP^{n_strange-1})")
 print(f"  chi(CP^{n_strange-1}) = {n_strange} = n_s  =>  g_{{d_term}} = 1/n_s (seed ratio, Rule A)")
 print(f"  Matter quartet: d=3 to d={_d_term} = {_quartet}, length = {_quartet_len}")
@@ -2675,7 +2739,7 @@ for _nm, _d, _n, _s2p in t05_rows:
     print(f"  {_nm:>8}  {_d:>2}  {_n:>4}  {_s2str:>14}")
 print(f"\n  Notes:")
 print(f"  * All 15 SM particles are members of Sigma_pairs.")
-print(f"  * Bottom quark: geometric-mean beat at k0={k0_aa}, not a simplex mode — see STEP 14.")
+print(f"  * Bottom quark: geometric-mean beat at k0={k0_aa}, not a simplex mode — see STEP 7c.")
 print(f"\n  d=3 modes that are NOT co-fixed-points (short-lived resonances, not stable):")
 print(f"  {'(n,3)':>6}  {'co-fixed-point':>14}  note")
 print("  " + "-"*50)
@@ -2685,13 +2749,13 @@ for _n, _s2p in t05_hadronic:
     print(f"  ({_n},3):  {_s2str:>14}  {_note}")
 print(f"\n  Sigma_pairs is the complete stable spectrum: the absence of stable particles")
 print(f"  between the quark-sector resonances and the next co-fixed-point mode index in")
-print(f"  each sector follows from the l-parity and dephasing mechanisms (STEP 15).")
+print(f"  each sector follows from the l-parity and dephasing mechanisms (STEP 30).")
 
 
 # =============================================================================
-# STEP 15 -- OUTPUT: CO-FIXED-POINT STABILITY l-PARITY (Part 7 §1.2, App A §22)
+# STEP 30 -- OUTPUT: CO-FIXED-POINT STABILITY l-PARITY (Part 7 §1.2, App A §22)
 # =============================================================================
-print("\n=== STEP 15: CO-FIXED-POINT l-PARITY SELECTION (Part 7 §1.2, App A §22) ===")
+print("\n=== STEP 30: CO-FIXED-POINT l-PARITY SELECTION (Part 7 §1.2, App A §22) ===")
 print("  Kernel (xi.xi')^2 = l=0 + l=2 only  =>  parity of l is conserved.")
 print("  Seeds are l=0 (even). Odd-l modes are permanently unreachable.")
 print()
@@ -2734,10 +2798,10 @@ print(f"    * Even-level modes (n=3,5,...):  off-diagonal ME + infinite-dim deph
 
 
 # =============================================================================
-# STEP 35 -- OUTPUT: DEPTH-RELATIVE MARGINALIZATION (Part 1 section 3i)
+# STEP 32 -- OUTPUT: DEPTH-RELATIVE MARGINALIZATION (Part 1 section 3i)
 # =============================================================================
 print("\n" + "=" * 70)
-print("STEP 35 -- DEPTH-RELATIVE MARGINALIZATION  (Part 1 section 3i)")
+print("STEP 32 -- DEPTH-RELATIVE MARGINALIZATION  (Part 1 section 3i)")
 print("=" * 70)
 print("smeared dims = max(0, d_particle - d_observer)")
 print("0 = observer resolves a sharp object; k>0 = appears as a k-dim cloud.\n")
@@ -2751,10 +2815,10 @@ print("  The cloud is relative to observer depth.")
 
 
 # =============================================================================
-# STEP 36 -- OUTPUT: BOUND WITHIN, FREE WITHOUT (Part 1 section 3i)
+# STEP 33 -- OUTPUT: BOUND WITHIN, FREE WITHOUT (Part 1 section 3i)
 # =============================================================================
 print("\n" + "=" * 70)
-print("STEP 36 -- BOUND WITHIN, FREE WITHOUT  (Part 1 section 3i)")
+print("STEP 33 -- BOUND WITHIN, FREE WITHOUT  (Part 1 section 3i)")
 print("=" * 70)
 print("BOUND WITHIN: the sector ground state is a normalizable Gaussian, width L_d")
 print(f"  {'d':>3}  {'g_dd':>9}  {'lambda_d':>9}  {'L_d=lam^-1/4':>13}")
@@ -2774,6 +2838,23 @@ print()
 print("MASSLESS UPGRADE: dispersion E^2 = p^2 + m^2")
 print("  m>0 (electron): a rest state exists (p=0) -> uniform co-presence.")
 print("  m=0 (photon):   no rest frame -> outer state carries momentum -> PROPAGATION.")
+
+
+# =============================================================================
+# STEP 34 -- OUTPUT: NO-NODE OVERLAP / EVEN-LEVEL EXCLUSION CEILING
+# =============================================================================
+print("\n" + "=" * 70)
+print("STEP 34 -- NO-NODE OVERLAP: even-level exclusion is only quantitative")
+print("=" * 70)
+print("J(n_r,s) = Gamma(n_r+3/2)/n_r! * (s-1)^n_r / s^(n_r+3/2);  sole zero at s=1")
+print(f"kernel-fixed weight s = {NONODE_S} (vacuum e^-u x mode envelope e^-u/2)")
+print(f"  {'n_r':>3}  {'J(closed)':>12}  {'J(quad)':>12}  {'rel.err':>9}  {'(1/3)^nr~':>10}  {'J(s=1)':>9}")
+for nr in nonode_nr:
+    print(f"  {nr:>3}  {nonode_closed[nr]:>12.6f}  {nonode_numeric[nr]:>12.6f}  "
+          f"{nonode_relerr[nr]:>9.2e}  {nonode_geom[nr]:>10.6f}  {nonode_at_one[nr]:>9.6f}")
+print(f"  every even-level overlap nonzero at the kernel weight: {nonode_no_zero_at_weight}")
+print("  => no exact l-parity-style cut for even-level modes under (xi.xi')^2;")
+print("     the dephasing bound is the proven ceiling. An exact cut needs a different kernel.")
 
 
 # =============================================================================

@@ -146,7 +146,7 @@ This is the hockey-stick identity at different (n, d) pairs.
 n_e = (χ(CP³))² − χ(CP²) = n_s² − n_u = 13            [= k₀ − n_u]
 n_τ = n_c + n_u = S(n_s,3) + n_u = 20 + 3 = 23          [charm mode + derived n_u]
 n_ν₃ = n_τ − n_d = 23 − 1 = 22                           [one mode below tau]
-n_Z − n_W = q = S(n_u−1,4) = 5                           [= the q from g₂₂ = p²q/2]
+n_Z − n_W = q = S(n_u−1,4) = 5                           [= the q from g₂₂ = p²q/2]  ✅ (holds for all n_s: n_W = n_top + n_s, n_Z = n_W + (n_s+1), gap = n_s+1 = q)
 ```
 
 The last identity is structurally significant: the d=2 sector gap between W and Z modes equals exactly the q factor in the EW self-coupling formula g₂₂ = p²q/2. The Z-W mass gap and the EW coupling constant come from the same combinatorial quantity.

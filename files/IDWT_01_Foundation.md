@@ -64,7 +64,7 @@ A mode $(n,d)$ of Ψ_∞ is a physical particle if and only if the pair $(n,d)$ 
 **P8 — Co-Fixed-Point Stability 🔶**
 A mode-sector pair $(n,d)$ is a stable resonance if and only if it is an element of $\Sigma_{\rm pairs}$, the co-fixed-point set: the unique finite set of pairs such that applying every generation-tower operation to $\Sigma_{\rm pairs}$ returns only elements already in $\Sigma_{\rm pairs}$ (verified exhaustively, §5c). The generation tower is a finite acyclic DAG with unique source pair $\{(1,3),(4,3)\}$ and trivial automorphism group (Appendix A §13b) — the labeling of all 15 particles is uniquely determined by the DAG structure.
 
-**Sector assignment — fully resolved (✅, 2026-05-29).** The sector assignments were previously recorded as requiring SM input. Two new results substantially change this status:
+**Sector assignment — the rung placements are derived (✅); the routing DAG is the open item (🔶).** Two results carry the assignment without SM input:
 
 *(i) Seed value and seed sector.* The seed value $n_s = 4$ is fixed by T4 (the $4/7$ double-degeneracy equation, Part 9) and confirmed by the muon fixed-point $S(n_s, 4) = S(4,4) = 35 = n_{\rm muon}$ (algebraic, no SM input). The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a) — the natural starting point of the generation tower. No SM particle names are used.
 
@@ -79,9 +79,9 @@ The down seed $n_{\rm down}=1$ shares sector d=3 with $n_s$ because: (a) $S(1,d)
 
 *(iii) Trivial automorphism group closes the argument.* Since the tower DAG has no non-trivial automorphisms, once the seed sector d=3 is established (algebraically) and the Hopf chain determines the sector for each derived particle (geometrically), there is exactly one consistent labeling. No alternative sector assignment scheme preserves the DAG.
 
-**What remains genuinely open.** The EOM derivation of co-fixed-point stability (Part 6, MC-4): the dynamical argument for why the tower $(n,d)$ pairs are stable resonances rather than transient excitations. The sector routing is fully established — the routing rule for $d=4\to d=5$ is a corollary of §3a Step 2 (see Routing Corollary above), and the trivial automorphism theorem closes uniqueness across all sectors. P8 is 🔶 on the dynamical stability mechanism alone.
+**What remains genuinely open.** The EOM derivation of co-fixed-point stability (Part 6, MC-4): the dynamical argument for why the tower $(n,d)$ pairs are stable resonances rather than transient excitations. The geometric routing is established — the routing rule for $d=4\to d=5$ is a corollary of §3a Step 2 (see Routing Corollary above), and the trivial automorphism theorem establishes uniqueness of the labeling up to relabeling. P8 is 🔶 on the dynamical stability mechanism: uniqueness up to relabeling is not yet a derivation of the DAG from the dynamics.
 
-P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. The co-fixed-point condition has the status of an algebraically-seeded, geometrically-propagated selection rule — sector assignments are fully derived (✅); co-fixed-point stability is the one remaining open item.
+P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. The co-fixed-point condition has the status of an algebraically-seeded, geometrically-propagated selection rule — the rung placements are derived (✅); the routing DAG and its dynamical stability are the remaining open item.
 
 ---
 
@@ -285,7 +285,7 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 ### 3b-ii. Sector Assignment Theorem — All 15 Particles Placed Without SM Input ✅
 
-**Theorem (Sector Assignments).** Each of the 15 NS particles has a uniquely determined sector d derivable from IDWT structure alone, without using SM particle names. The derivation uses six rules, each with an independent IDWT origin.
+**Theorem (Sector Assignments).** Each of the 15 NS particles has a uniquely determined sector $d$ derivable from IDWT structure alone, without using SM particle names. The sectors are not assigned one particle at a time. They are the consecutive rungs of a single object — the complex Hopf chain $S^1\to S^{2k+1}\to\mathbb{CP}^k$, which alternates total spaces ($S^3, S^5, S^7$) and base spaces ($\mathbb{CP}^1, \mathbb{CP}^2, \mathbb{CP}^3$) to give the ladder $\{2,3\}\to\{4,5\}\to\{6,10\}$ (§3a). Each particle sits on the rung its generation-tower derivation routes it to, and its mode index falls out of the same step. The six rules below are the one ladder read at each rung: each placement carries an independent IDWT fingerprint — an Euler characteristic, a Hopf coupling identity, or a criticality condition — that fixes that rung. They are corroborations of a single structure, not six separate choices.
 
 | Rule | Sector | Particles | IDWT derivation |
 |------|--------|-----------|-----------------|
@@ -310,7 +310,7 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 **R5.** Proved by the Gegenbauer criticality theorem T5 (§3c below): $b_{k_0}(d) = 1/2$ iff $4k_0 = (d-2)^2$, giving $d=10$ as the unique solution. The tau is the terminal particle at the Gegenbauer critical endpoint.
 
-**Trivial automorphism closure.** The tower DAG has a trivial automorphism group (Appendix A §13b): no non-trivial relabeling preserves the derivation structure. Therefore the sector assignments above — derived from six independent IDWT rules — are the unique consistent labeling. The sector assignment problem is **closed**. **Status: ✅ for R0, R2, R3, R4, R5, R6.**
+**Uniqueness of the labeling.** The tower DAG has a trivial automorphism group (Appendix A §13b): no non-trivial relabeling preserves the derivation structure, so once the seed sector $d=3$ is fixed and the Hopf ladder assigns each rung, there is exactly one consistent labeling. This establishes uniqueness *up to relabeling* — it forbids alternative assignments that preserve the DAG; it does not by itself derive the DAG from the dynamics. The geometric rung placements R2 ($\chi(\mathbb{CP}^2)=N_c$), R3 (Hopf pair $\{4,5\}$), R4 ($\chi(\mathbb{CP}^3)=n_s$), and R5 (Gegenbauer criticality) are each ✅ structural consequences; the boson routing R0 rests on the $g$-rule, whose $-1$ offset is open (🔶, Part 3 §11). The one placement set by a mechanism outside the Hopf ladder is R5: the tau is the third charged lepton, not placed in the lepton base $\mathbb{CP}^3$ (d=6) with the electron and muon but at the Gegenbauer-critical terminal sector d=10. The two are reconciled by the kernel — $g_{10,10}=g_{66}=1/n_s$, so the coupling cannot distinguish the d=6 lepton sector from the d=10 terminal sector, and the muon/tau split is pure sector geometry $S(35,6)$ vs $S(23,10)$ (Part 2 §9b). **Status: ✅ for the geometric rung placements (R2–R5); the assignment as a whole is forced only modulo the open derivation of the tower DAG itself (co-fixed-point stability, MC-4).**
 
 Script: `claude/sector_assignment_proof.py`.
 

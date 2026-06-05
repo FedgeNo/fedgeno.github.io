@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Aharonov–Bohm Effect — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Electromagnetism</div>
+  <h1>The Aharonov–Bohm Effect</h1>
+  <p class="sub">An electron pushed by a field it never touched — until you stop treating three dimensions as the whole stage.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>In classical electromagnetism the real things were the fields — the electric field <strong>E</strong> and the magnetic field <strong>B</strong> at every point in space. The vector potential <strong>A</strong>, from which <strong>B</strong> is built, was treated as a calculational convenience with no reality of its own. Fields push charges; potentials are bookkeeping.</p>
+
+  <p>In 1959 Yakir Aharonov and David Bohm predicted that this was backwards. Send a beam of electrons past a magnetic field that is perfectly shielded — sealed inside a solenoid, so the electrons travel through what looks like field-free space and never come near the field. Classical physics says nothing should happen: no field along the path, no force, no deflection. Aharonov and Bohm predicted the electrons would pick up a measurable phase shift anyway, displacing their interference pattern, because of the potential threading the region they passed around. Electron-interferometer experiments confirmed it; by 1986 Akira Tonomura's group had closed the last loopholes with superconductor-shielded toroidal magnets.</p>
+
+  <p>The standard telling is unsettling. A particle is affected by a field in a region it never entered. The "fiction" turns out to be physical; what matters is the topology of the path. But the strangeness comes entirely from one buried assumption — that our three dimensions are the whole arena, and the electron, the field, and the shield all live inside them. Drop that assumption, which Infinite-Dimensional Wave Theory never makes, and the effect stops being mysterious.</p>
+</section>
+
+<section>
+  <h2>The field was never three-dimensional</h2>
+  <div class="prose">
+    <p>The photon lives in the <a href="/articles/sector-2.html">d=2 sector</a>: it is a two-dimensional object. It oscillates in its two dimensions and moves perpendicular to them. The thing to notice is that "perpendicular to a two-dimensional plane" is not a single direction. In the full sector space it is a whole space of directions, and not one of them is special. We see light travel "one way" only because our three-dimensional slice meets that space of directions in a single line. The one propagation direction we observe was never fundamental — it is our cross-section of something larger.</p>
+    <p>Nothing familiar is lost in saying this. Light is still transverse, still with exactly two polarizations — that is just what a two-dimensional oscillator looks like when you view it from inside three dimensions. The two polarizations are the photon's two directions; the transversality is the photon moving perpendicular to them. The everyday picture is the shadow; the photon is the object casting it.</p>
+    <p>So the electromagnetic field is not a three-dimensional thing that happens to fill space. It is a structure that extends through the manifold, and our three dimensions catch a slice of it. The solenoid's magnetic field is the photon — and the coil that makes it looks three-dimensional only because it is the shadow of a six-dimensional current. Magnetism comes from electrons, and electrons are six-dimensional; the field is no more confined to our three dimensions than its source is.</p>
+  </div>
+</section>
+
+<section>
+  <h2>None of the principals are three-dimensional</h2>
+  <div class="prose">
+    <p>The electron is a six-dimensional object. It is a resonance of the single wave \(\Psi_\infty\) in the <a href="/articles/sector-6.html">d=6 sector</a> (CP³ geometry), inhabiting six macroscopic, flat, equally real spatial dimensions and moving through all six at once. We are located in three of them. The other three are not hidden, frozen, or curled away — they are ordinary spatial directions, no different from ours, that we simply do not occupy. In the interferometer the electron is not orbiting anything, so it follows a six-dimensional <em>trajectory</em>; what the apparatus splits, steers, and recombines is the slice of that trajectory that lands in the three directions we share.</p>
+    <p>So look at what is actually in the room. The electron extends through six dimensions. The photon — the field — extends through its own, well beyond our three. The only thing that is genuinely three-dimensional is the apparatus, because we built it, out of three-dimensional intentions, in the three dimensions we can reach. The electron and the photon are the large objects here. The shielding is the parochial one.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why a three-dimensional wall cannot stop it</h2>
+  <div class="prose">
+    <p>The electron couples to the field through its charge, and the two of them meet across every dimension they share. Now ask what the shield can do. A conductor, a superconductor, a sealed solenoid — these are built in our three dimensions, so those three dimensions are all they can act on. The shield erases the field's presence in our three dimensions, and that is exactly what we measure: <strong>B</strong> near zero in the space the electrons cross. But it cannot reach the dimensions it was not built in. The field is still there, in the directions the wall never covered, and the electron — moving through all six — meets it there.</p>
+    <p>That leftover meeting is the phase shift. The electron passes through the field the entire way; the shield only deleted the part of the field we could see. "Field-free space" is the name a three-dimensional observer gives to the slice the wall managed to wipe. There is no action at a distance and no influence reaching out from a sealed region — only a field larger than the wall built to contain it, touched by a particle larger than the slice we watch it in.</p>
+    <p>This is your first instinct about the experiment, made precise: the shielding blocks only some of the dimensions in which the electron and the field can meet. It blocks the three it can build walls in. It leaves the rest open.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the experiment measures</h2>
+  <div class="prose">
+    <p>Tonomura's decisive version wrapped the magnet in a superconductor, which forces the trapped magnetic flux into whole units. The electron then registers a phase that is an exact whole number of turns, and the interference pattern shows no shift for each complete unit of flux — a clean confirmation that what the electron responds to is the field threading the region it passed around.</p>
+    <p>One honest note, because the framework holds itself to it: IDWT predicts the <em>same</em> Aharonov–Bohm phase as standard electromagnetism. It does not move the number, and there is no new measurable effect here. What changes is the picture behind it — a six-dimensional electron meeting a field that was never confined to the three dimensions the shield could reach.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The electron is not the special case</h2>
+  <div class="prose">
+    <p>None of this is about the electron. It is one excitation of a single wave, \(\Psi_\infty\), and so is everything else. Each particle occupies a definite number of dimensions — the photon two, the down quark three, the up quark four, the neutrino five, the electron six, the tau ten — and each is fully real across all of them. Our measurements are made at the three-dimensional level, so for every particle alike, what any instrument we build can touch is the three-dimensional slice of its full activity. The rest is not missing. It is in directions our instruments are not built from.</p>
+    <p>We already see this everywhere and call it other things. A neutrino crosses a light-year of lead without stopping — a five-dimensional object that a three-dimensional detector meets across only a thin overlap, the geometric side of why it slips through almost everything. The up-type quarks are four-dimensional objects we only ever catch a three-dimensional slice of. And the quantum numbers stamped on every particle — colour, isospin, chirality — are the shape of its sector geometry in the dimensions we cannot resolve as space; unable to see them as directions, we read them as labels. Different names, one fact: a particle is a structure across many dimensions, and we are looking at three of them.</p>
+    <p>The Aharonov–Bohm effect stands out only because it arranges the slice to fail out loud. Shield the field in our three dimensions, send a six-dimensional electron past it, and the dimensions the shield could not reach report themselves as a phase shift you can photograph. Usually those unreached dimensions stay quiet — they surface as a particle that will not be caught, or one that will not be isolated, or a number we cannot picture. It is the same slice every time.</p>
+  </div>
+</section>
+<section>
+  <h2>Three dimensions are not special</h2>
+  <div class="prose">
+    <p>The whole puzzle was built out of one habit: treating our three dimensions as the arena and everything that does not fit inside them as something that needs explaining. The electron was imagined as a point in three-dimensional space, the field as a thing that lives in three-dimensional space, the shield as a wall that therefore seals it away. Each of those is a three-dimensional reading of an object that is not three-dimensional.</p>
+    <p>Let the photon be the two-dimensional thing it is, the electron the six-dimensional thing it is, and the field as large as it actually extends, and there is nothing left to be unsettled by. The electron was always passing through the field. We were only ever watching its shadow.</p>
+    <p>There is one step further down, and the electron and the field take it together: they are not two things either. Both are features of a single wave, and the electron passing through the field is that one wave's structure where its ripples overlap — not two separate objects meeting across a gap. That is where the whole picture finally rests: <a href="/articles/one-wave.html">one wave</a>, sharp across all its dimensions, met by each observer only as deep as it can reach.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

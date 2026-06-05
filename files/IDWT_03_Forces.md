@@ -570,11 +570,9 @@ With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geom
 
 ---
 
-## 9. Colour Coupling Running 🔶
+## 9. Colour Coupling: Geometric, Not Running 🔶
 
-The standard QCD β-function coefficient b₀ = (11N_c − 2n_f)/(48π²) has two structural contributions. IDWT derives N_c = 3 from χ(CP²) (§2) and n_f = 6 from the six occupied quark modes — both solid. However, the 11N_c term originates in the kinetic structure of the QCD gauge field, which IDWT does not have: the IDWT colour coupling is a contact term in the kernel with no quadratic colour-field term (§0.2, §0.6). With only quark sector contributions, b₀ = −2n_f/(48π²) < 0 — infrared freedom, not asymptotic freedom.
-
-**Status 🔶:** Whether and how asymptotic freedom arises in IDWT is an open derivation item. The N_c = 3 result (from CP² Dirac index) and n_f = 6 count (from quark mode indices) are both solid. The question is whether the SU(3)-symmetric quark contact coupling generates an effective running at all — and if so, whether resummation of quark loop insertions in the kernel produces a positive b₀ and asymptotic freedom.
+The IDWT colour coupling is a contact term in the kernel with no quadratic colour-field term (§0.2, §0.6). There is no gauge-field kinetic structure and therefore no coupling evolution to compute: the effective colour coupling varies only through geometric dilution, g_eff(n,d) = g_dd/S(n,d), across the quark mode index. Whether the SU(3)-symmetric quark contact coupling produces a confinement-scale strengthening of the effective coupling is an open derivation item. Its geometric inputs — N_c = 3 from the CP² Dirac index (§2) and the six occupied quark modes — are established.
 
 ---
 
@@ -823,7 +821,7 @@ S¹  →  S⁵  →  CP²
 (d=2 fibre)   (d=5 neutrino total space)   (d=4 up-quark base)
 ```
 
-The d=5 neutrino sector (S⁵) is the total space of this fibration. The base is CP² — the up-quark sector (d=4). The fibre is S¹ — the d=2 sector. The neutrino's S⁵ coordinate space is geometrically circles over the quark sector. The W (d=2 = S¹) is the fibre of S⁵ projected over CP² — the weak vertex is not a coupling constant added separately, it is the geometry of the S¹ → S⁵ → CP² fibration. The coupling between up quarks and neutrinos exists because the neutrino's coordinate space is built from the quark sector and the d=2 fibre. The d=2 fibre direction is always part of the coupling because that is the coordinate direction the d=5 sector shares with d=2; the d=4 base is always involved because it is what the fibre is defined over. There is no S¹ fibre without the CP² base — which is why there is no neutrino without a companion quark coupling.
+The d=5 neutrino sector (S⁵) is the total space of this fibration. The base is CP² — the up-quark sector (d=4). The fibre is S¹ — the d=2 sector. The neutrino's S⁵ coordinate space is geometrically a family of circles fibred over the quark sector. The W (d=2 = S¹) is the fibre of S⁵ projected over CP² — the weak vertex is not a coupling constant added separately, it is the geometry of the S¹ → S⁵ → CP² fibration. The coupling between up quarks and neutrinos exists because the neutrino's coordinate space is built from the quark sector and the d=2 fibre. The d=2 fibre direction is always part of the coupling because that is the coordinate direction the d=5 sector shares with d=2; the d=4 base is always involved because it is what the fibre is defined over. There is no S¹ fibre without the CP² base — which is why there is no neutrino without a companion quark coupling.
 
 | Fibration | Total space | Base | Fibre | Vertex |
 |-----------|-------------|------|-------|--------|
@@ -838,11 +836,11 @@ In d=2, m = m_scale_2 × S(n,2). The photon is n=0: S(0,2) = C(1,2) = 0 → m_ph
 
 ### Transverse Polarization from Sector Dimension
 
-The photon lives in the d=2 sector. Our observable space is d=3 (Part 1 §3i). The photon's 2 dimensions are a proper subspace of our 3 — it is a 2-dimensional entity in a 3-dimensional world. The direction of propagation is the one coordinate our 3D has that the photon's sector does not. The photon cannot oscillate in the propagation direction because that coordinate falls outside its world.
+The photon lives in the d=2 sector: it is a 2-dimensional object, oscillating in its two dimensions and moving perpendicular to them. It has exactly two independent oscillation modes — its two sector dimensions — and these are its two polarization states.
 
-This is why electromagnetic waves are transverse. The two polarization states — the only two independent oscillation modes of the photon field — are exactly the photon's 2 sector dimensions. As the photon travels in different directions through our 3D space, its polarization plane rotates to stay perpendicular to the direction of travel: the missing coordinate is always the propagation direction. Transversality and the requirement that photons travel at exactly the speed of light are both direct consequences of the photon living in the d=2 sector embedded inside our d=3 space. No additional argument from gauge invariance or the Maxwell equations is needed.
+Perpendicular to a 2-plane is a high-dimensional space of directions in M_∞, with none privileged. A d=3 observer resolves a single propagation direction because the observer's three coordinates meet that orthogonal space in one line; the photon cannot oscillate along its direction of travel because travel is, by construction, perpendicular to the plane it oscillates in. So in whichever direction we see a photon move, its oscillation is transverse to that motion and carries exactly two independent states. Electromagnetic waves are transverse with two polarizations because both are what a d=3 observer resolves of a 2-dimensional oscillator moving perpendicular to itself. No additional argument from gauge invariance or the Maxwell equations is needed.
 
-The masslessness (n=0, S(0,2)=0) and the universality (d=2 ⊂ every higher sector) are properties of the photon within its sector. The transversality is a property of the photon relative to our observable space. All three follow from d=2.
+The masslessness (n=0, S(0,2)=0) and the universality (d=2 ⊂ every higher sector) are properties of the photon within its sector. Transversality and the two polarizations are what a d=3 observer resolves of a d=2 object. All follow from d=2.
 
 ### Curvature Unification
 

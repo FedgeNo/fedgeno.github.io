@@ -74,7 +74,7 @@ Three independent resonance conditions add in phase at k₀ (see Part 2 §8 and 
 2. k₀ = n_e + n_u = 13 + 3 = 16 (cross-sector lepton + quark sum)
 3. k₀ = S(n_s,3) − S(2,3) = 20 − 4 = 16 (intra-d=3 gap identity)
 
-These raise the drive D_{16} by a factor of three, making the single-mode solution at n=16 unstable. The off-diagonal quartic coupling K_{16,17} then forces the symmetric fixed point |A₁₆| = |A₁₇|, yielding the geometric-mean beat:
+These raise the drive D_{16} by a factor of three, making the single-mode solution at n=16 unstable. The off-diagonal quartic coupling K_{16,17} sustains a two-mode beat at equal occupation |A₁₆| = |A₁₇|. Because that coupling is a density–density product $|\Psi^{(16)}|^2|\Psi^{(17)}|^2$, its energy scale is the geometric mean $\sqrt{E_{16}E_{17}}$:
 
 ```
 m_b = √(S(16,3) × S(17,3)) × m_scale_3

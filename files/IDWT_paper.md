@@ -109,7 +109,7 @@ The master action on $\mathcal{M}_\infty$ is:
 
 $$\mathcal{L} = \bar{\Psi}_\infty(i\gamma^\mu \partial_\mu - \sum_d \sqrt{V_d(\xi_d)})\Psi_\infty + \sum_{d \leq d'} \frac{g_{dd'}}{2}\int (\xi_d \cdot \xi_{d'})^2 |\Psi^{(d)}|^2 |\Psi^{(d')}|^2 d\mu,$$
 
-where $V_d(\xi) = \lambda_d |\xi|^2/(1+|\xi|^2)$ is the sector potential (harmonic for small $|\xi|$, saturating at $\lambda_d$ for large $|\xi|$) and $g_{dd'} = v_d v_{d'}$ is the rank-1 coupling matrix with $v_d = \sqrt{g_{dd}}$.
+where $V_d(\xi) = \lambda_d |\xi|^2$ is the sector harmonic potential of §2.1 and $g_{dd'} = v_d v_{d'}$ is the rank-1 coupling matrix with $v_d = \sqrt{g_{dd}}$.
 
 The kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the leading quartic term consistent with $U(d) \times U(d')$ symmetry on the sector pair. It decomposes by angular momentum on the sector sphere as $(\xi \cdot \xi')^2 = \frac{1}{d}[\ell=0] + \frac{d-1}{d}\cdot C_2^{(d-2)/2}(\cos\theta)[\ell=2]$, where the $\ell=0$ part generates sector mass scales (Section 5) and the $\ell=2$ part generates the GTC frequency shift (Section 7.1). The rank-1 structure $g_{dd'}g_{d''d'''} = g_{dd'''}g_{d'd''}$ — equivalently $g_{dd'}^2 = g_{dd}g_{d'd'}$ — is not assumed; it follows from $g_{33}g_{44} = g_{34}^2 = 96$ (verified in Section 5.1). Full derivation in Technical Volume 3 [11].
 
@@ -297,7 +297,7 @@ PDG: $m_b = 4180 \pm 10$ MeV. Error: $+0.023\%$. The exhaustive search over $n \
 | $t$ | 4 | 72 | 1,215,450 | 174,000 | 172,690(300) | $+0.76\%$ |
 | $e^-$ | 6 | 13 | 18,564 | 0.51100 | 0.51100 | unit ref. |
 | $\mu^-$ | 6 | 35 | 3,838,380 | 105.657 | 105.6584 | $-0.001\%$ |
-| $\tau^-$ | 10 | 23 | 64,512,240 | 1,776.84 | 1,776.86(12) | $-0.14\sigma$ |
+| $\tau^-$ | 10 | 23 | 64,512,240 | 1,776.84 | 1,776.93(9) | $-1.0\sigma$ |
 
 $^\dagger$ Within PDG $1\sigma$ uncertainties ($\pm10\%$ for $m_d$, $\pm9\%$ for $m_s$, $\pm23\%$ for $m_u$). The uniform offset within each sector is a structural consequence of the rank-1 kernel — any scale error in $m_{\mathrm{scale},d}$ is identical for all modes in that sector — and is consistent with the scheme-conversion residual between the IDWT confinement scale and $\overline{\rm MS}$ at $\mu = 2$ GeV (Section 13).
 

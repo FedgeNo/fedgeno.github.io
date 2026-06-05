@@ -219,7 +219,7 @@ m_scale_d × S(1,d) = m_scale_d (since S(1,d)=1 for all d). This is the hypothet
 | g₁₀,₁₀ | 1/n_s | 1/4 | = g₆₆ (shared) |
 | g₂₂ | p² · q / 2 | 17²·5/2 = 722.5 | S³ Dirac spectrum + d=4 threshold |
 
-**Anti-correlation with isometry dimension (T15f):** g_dd decreases as the isometry group dimension increases. SU(3) (8 generators): g₃₃ ≈ 21.2; SU(4) (15 generators): g₄₄ ≈ 4.5; g₆₆ = 1/4 (SU(4) at d=6). The physically strongest coupling sits in the sector with the smallest symmetry group.
+**Anti-correlation with isometry dimension (T15f):** g_dd decreases as the isometry group dimension increases. SO(4) (6 generators): g₃₃ ≈ 21.2; SU(3) (8 generators): g₄₄ ≈ 4.5; SU(4) (15 generators): g₆₆ = 1/4 (at d=6). The physically strongest coupling sits in the sector with the smallest symmetry group. This is a trend across the three sectors named, not a law: the d=5 sector has isometry SO(6) with 15 generators — the same dimension as the d=6 SU(4) — yet g₅₅ ≈ 0.133 < g₆₆ = 1/4, so equal isometry dimension does not fix equal coupling and the monotonic reading fails at d=5.
 
 **T9a — both Hopf coupling products equal 96:**
 - g₃₃ × g₄₄ = 8√7 × 12/√7 = 96 (the √7 cancels exactly)
@@ -375,8 +375,6 @@ Define g(d, n) = d + n − 1, the row index of mode (n,d) in the Pascal triangle
 
 **Structural reading.** The g-rule alone organises ten of the fifteen particles into a single connected component rooted at the photon. The W and Z sit one and two g-steps from the top quark, making them genuinely "top-anchored" rather than independent generators. Muon and Higgs are g-rule isolated: the muon is a pure depth-1 HS evaluation (S(4,4) = 35) and the Higgs is the empirical closure. Both top and Higgs are presently the un-derived rules of the generation tower, and both are graph sources — suggesting that the open derivation problem (§5, n_top) and the empirical closure (§5, n_H) are at the *structural* source of the spectrum, not anomalies layered on top of it.
 
- Section C.
-
 ### §13b. Confluence of the generation tower — corrected analysis (2026-05-29)
 
 **Two distinct predecessor relations.** The §13b analysis was initially run with the GENERAL additive predecessor: any n = a+b−c with a,b ∈ NS, c ∈ {0,1,3,4}. This was then corrected to examine the TOWER-SPECIFIC directed predecessor: the actual named operations of the generation tower (Part 2 §6). The two give very different results.
@@ -417,7 +415,7 @@ Derivation depths: seeds at 0; up/charm at 1; nu1/nu2 at 2; electron/nu3/muon at
 
 **Why {(1,3),(4,3)} and not some other pair.** n_down=1 is forced by S(1,d)=1 for all d (the universal harmonic oscillator ground state); n_s=4 is fixed by T4 (Part 9) and equals χ(CP³).
 
-**Status.** The tower derivation is a finite acyclic DAG with unique source nodes {(1,3),(4,3)} (⭐, verified). The general additive predecessor graph is cyclic with no source nodes (verified, §15 dead end)..
+**Status.** The tower derivation is a finite acyclic DAG with unique source nodes {(1,3),(4,3)} (⭐, verified). The general additive predecessor graph is cyclic with no source nodes (verified, §15 dead end).
 
 **Seed sector derivation (🔵, 2026-05-29).** The seed sector is d=3: it is the observable spacetime sector and the first total space S³ of the complex Hopf chain, the natural starting point of the generation tower. The seed value n_s=4 is fixed by T4 (Part 9) and confirmed by the muon fixed-point S(4,4)=35. The down seed n=1 is the ground state S(1,d)=1 in d=3. Full sector assignments then propagate via the Hopf chain structure (d=3→4→5→6,10) and trivial automorphism group — see P8 update in Part 1.
 
@@ -655,69 +653,57 @@ Result: the count is meaningless. Stability is a property of the (n,d) pair, not
 **Seed pair uniqueness scan**  
 Conjecture: the seed pair (n_d=1, n_s=4) is the unique pair in the search box n_d ∈ [1..5], n_s ∈ [1..10] (with n_s > n_d) that, when fed through the generation tower, reproduces the 15 known (n,d) pairs.  
 Checked: all 35 candidate seed pairs in the box. Only (1, 4) gives Jaccard = 1.0 with the known spectrum. Next-best pairs give Jaccard well below 0.5.  
-Result: uniqueness confirmed within the search range. Recorded as positive verification of §5.  
-.
+Result: uniqueness confirmed within the search range. Recorded as positive verification of §5.
 
 **Generation tower closure scan up to n ≤ 1000**  
 Conjecture: no (n, d) pair with n ≤ 1000 and d ∈ D, outside the 15 known Σ_pairs, satisfies any of the generation-tower rules using only inputs already in Σ.  
 Checked: every rule (HS evaluations, additive combos, Vandermonde g-rule, eigenmode selection) applied to all combinations of Σ inputs. Result space scanned for n ≤ 1000 per sector.  
 Result: no extras found. The set Σ is closed under the rule system (F(Σ) = Σ) and admits no additional members in the scanned range. Confirms the co-fixed-point property of the selection condition.  
- Section 4.
 
 **Orbit of {1, 4} under simple operations does not equal NS**  
 Conjecture: the seeds {1, 4} together with a small operation set — HS evaluations S(·, d) for d ∈ D and additive combinations a + b − c with c ∈ {0, 1, 2, 3, 4} — closes on NS exactly.  
 Checked: starting from {1, 4} the orbit reaches all of NS but also includes 30+ extras in the range n ≤ 95 ({2, 5, 6, 7, 8, 9, 11, 12, 14, 16, 17, 18, 19, 21, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 36, 37, 38, 39, 40, ...}). Restricting the operation set to {S(·,d), a+b−1, a+b−4, a−b} produced the same outcome — NS ⊂ orbit but ≈80 extras.  
 Result: a purely operational closure does not force NS. The generation tower's selectivity — which specific operations are applied to which specific particles — is structurally essential. NS is not the closed orbit of any small operation set on {1, 4}; it is the image of a *specific sequence* of operations.  
- Section H.
 
 **Cross-Σ HS evaluations with NS treated as both modes and dimensions**  
 Conjecture: treating each element of NS as a candidate sector argument, the set of (n_i, n_j) ∈ NS × NS with S(n_i, n_j) ∈ NS contains structural information beyond the documented generation tower.  
 Checked: enumerated all S(n_i, n_j) with n_i, n_j ∈ NS, n_j ≤ 10. Non-trivial hits are exactly {S(3,3)=10, S(3,4)=15, S(4,3)=20, S(4,4)=35}, plus the trivial S(0, *)=0 and S(1, *)=1 series.  
 Result: the four non-trivial hits are precisely the 2×2 Pascal block at coordinates (n_up, n_s) already documented in §5. No new identities emerge from extending the search to all NS-as-dimension values. The structural content is fully captured by the existing seed-block observation.  
- Section B.
 
 **Cross-Σ Vandermonde g-rule closure**  
 Conjecture: the operation g(d, n) = d + n − 1 closes on NS for some restricted (d, n) pairing.  
 Checked: 19 of 90 (d, n) candidate pairs land in NS (≈21%, vs ≈16% random baseline). The transitions form a directed graph with four sources {0, 35, 72, 95}, so NS is not closed under g-rule alone — there is no path from the connected component of the photon to muon (35) or Higgs (95), and no g-rule predecessor for top (72) within NS.  
 Result: g-rule alone does not close on NS. Promoted to a positive finding (§13a) for its structural content (graph sources align with the open and empirical-closure mode indices), but recorded here as a closure failure.  
- Section C.
 
 **n·d mod k₀ as a selection filter**  
 Conjecture: the quantity t = n·d mod k₀ (k₀ = 16 = n_s²) clusters the 15 particles into a small residue set that selects NS exactly.  
 Checked: computing t for all 15 NS pairs yields 8 distinct residues {0, 2, 3, 6, 8, 11, 12, 14} — half the possible 16 values. On the full lattice (n ≤ 200, d ∈ D), the residue filter passes hundreds of pairs, of which only 11 are in NS (4 NS pairs fail the filter because they don't fall in the 8 residues, when the filter is applied unseen). Cross-check: 4 pairs not in the residue set exist — the filter is not NS-complete. Hundreds of false positives remain in n ≤ 200.  
 Result: n·d mod k₀ has no filtering power beyond the co-fixed-point condition. The 8 residues arise from the specific n-values in NS and carry no independent selection content.  
- Test 1.
 
 **Hopf-pair orbit closure as spectrum-forcing mechanism**  
 Conjecture (from GPT/Grok/Meta): starting from seeds {(1,3),(4,3)}, closing under HS evaluations and additive operations restricted to Hopf-paired sectors ({2,3}, {4,5}, {6,10}) yields exactly NS.  
 Checked: implemented the closure with Hopf-pair restriction on additive steps. Result: orbit contains 458 pairs (n ≤ 150), covers only 9/15 NS pairs, and misses (3,4), (10,5), (15,5), (20,4), (22,5), (72,4).  
 Result: null. Hopf-pair restriction on the operation domain does not force NS — it both under-generates (misses 6 NS pairs) and over-generates (hundreds of extras). The Hopf pairs are a descriptive property of the generation tower, not a closure condition that forces it.  
- Test 2.
 
 **Representation ring closure code (Meta)**  
 Conjecture: the spectrum is the minimal closed set under (i) symmetric powers S(n, d') for d' ∈ {2,3,4} with a d-remapping, and (ii) Hopf-paired sums n₁+n₂−c with output sector max(d₁,d₂)+1. Meta's claim: this produces exactly 15 pairs.  
 Checked: translated Meta's literal code into Python and ran it. Result: 139 pairs produced (n ≤ 150, d ∈ D), of which only 6/15 are in NS. Missing NS pairs: photon, up, ν₁, ν₃, τ, top, W, Z, H. The d-remapping {2→3, 3→4, 4→5} and the output-sector rule max(d₁,d₂)+1 are not grounded in IDWT's sector assignments, and the code does not implement the generation tower.  
 Result: null. Meta's code is incorrect; it does not recover NS. The "representation ring of SU(2)×⋯×SU(10)" framing also imports group-theoretic language (Coxeter numbers, anomaly cancellation) not derived from IDWT postulates P1–P4.  
- Test 2b.
 
 **PG(3,2) flag invariants as n-value source**  
 Conjecture (Grok): the 15 n-values in NS correspond to natural integer invariants of the 15-point projective space PG(3,2) (points, lines, planes, flag counts).  
 Checked: enumerated all 15 points, 35 lines, 15 planes of PG(3,2) over F₂ and computed their combinatorial invariants. Results: n = 1 (trivially: projective ground state), n = 3 (points per line), n = 15 (total points), n = 35 (total lines) match PG(3,2) counts. The remaining 11 n-values (0, 4, 10, 13, 20, 22, 23, 72, 76, 81, 95) have no natural PG(3,2) correspondence. Grok's specific claim that n_top = 72 = C(9,2) is numerically wrong: C(9,2) = 36, not 72.  
 Result: 4/15 hits, all of which are already derivable from the generation tower (n=1 universal ground state, n=3=n_s−1, n=15=S(3,4), n=35=S(4,4)). The four matches arise from the coincidence that S(3,4) = 15 and S(4,4) = 35 happen to equal PG(3,2) point and line counts — a consequence of the binomial formula, not PG(3,2) structure. PG(3,2) is not the source of the NS values.  
- Test 3.
 
 **Spectral curvature minimisation**  
 Conjecture (GPT): physical modes minimise a discrete curvature K(n,d) = [S(n,d)−2S(n−1,d)+S(n−2,d)] + [S(n,d)−2S(n,d−1)+S(n,d−2)].  
 Checked: computed K(n,d) for all 15 NS pairs and compared with K at ±1, ±2 in n (same d). Result: every physical particle has strictly HIGHER curvature than its nearest non-physical neighbor. K grows as a polynomial in n (since S is polynomial) so physical modes are at higher curvature, not lower. Example: charm (n=20, d=4), K = 6195; nearest non-physical neighbor K = 4047. This pattern holds uniformly across all 13 testable particles.  
 Result: null — curvature is higher at physical modes, opposite of GPT's hypothesis. S(n,d) is a degree-d polynomial in n; its second differences K increase monotonically. Curvature minimisation would select n=1 or n=2 in every sector, not the actual NS values.  
- Test 4.
 
 **Adjacent-sector ratio S(n,2)/S(n,d) = 1/2 as a multi-sector seed selector**  
 Conjecture: S(n,2)/S(n,d) = 1/2 has integer solutions for several sectors d, each forcing a candidate seed.  
 Checked: solved S(n,2)/S(n,d) = 1/2 exactly for d ∈ D. d=3: n=4. d=5: n=2 (not a co-fixed-point). d=2,4,6,10: no integer solution.  
 Result: only d=3 gives an integer that coincides with a seed. The ratio condition does not generalise into a sector-wise forcing rule for additional seeds, and (with the visibility interpretation removed) carries no independent selection content. Recorded so it is not re-attempted.
-
- Section F.
 
 **Saturating confining potential as the spectrum-generating operator**  
 Conjecture: the IDWT mode functions are bound states of H_d^sat = −Δ_d + λ_d r²/(1+r²) (Part 4 §3.10), so this operator generates the simplex tower.  
@@ -728,6 +714,39 @@ Result: the saturating potential does **not** host the required tower — fewest
 Conjecture: the kernel self-energy makes non-Σ d=3 modes (e.g. n=3 in d=3) off-shell, explaining co-fixed-point selection perturbatively. The l=0+l=2 kernel selection rule restricts which modes the seeds can couple to.  
 Checked: computed the l=0 kernel matrix element and the 2nd-order self-energy for the n=3 d=3 mode. The resulting mass shift is far smaller than the level spacing to the nearest Σ_pairs mode (strange, n=4), so n=3 is not pushed off-shell.  
 Result: 2nd-order perturbation theory does **not** place non-Σ modes off-shell — the perturbative self-energy is negligible against the level spacing. The co-fixed-point stability mechanism (T0.5; Part 6 MC-4) requires the full non-perturbative fixed-point analysis, not perturbation theory. The l=0+l=2 selection rule is correct but insufficient on its own.  
+
+**Electron gravitational strength α_G = G_N m_e² as a combinatorial IDWT number** (2026-06-04)  
+Conjecture: the dimensionless number α_G = G_N m_e² = 1.752×10⁻⁴⁵ (equivalently M_Pl/m_e = 2.389×10²²) is fixed by the sector combinatorics, i.e. the absolute normalization of Ψ_∞ is pinned by a closure condition ("the one wave is the totality").  
+Checked: (i) species-scale mechanism M_Pl² = N·μ² for every candidate fundamental scale μ ∈ {m_e, m_scale_d} — required N_eff = 5.7×10⁴⁴ matches no natural IDWT mode count (Σ S = 7×10⁷, Π S = 10⁵⁴); (ii) single-power roots R^{1/p}, p=1..12 — none lands on an IDWT quantity; (iii) bounded product search, 14 fundamental atoms, exponents [−3..3], up to 3 factors (≈121k trials, 0.5% tol) — 3 coincidences, fully consistent with the ~10³ false positives expected at that trial count; the closest, (S(23,10)/N_c)³·σ² at 0.006%, has no mechanism and is N_c=4-specific (d=10 exists only because N_c=3), so it dies the n_s test. Script: `claude/explore_gravity_hierarchy.py`.  
+Result: **null for direct combinatorial fits of α_G** — no simple motivated expression reproduces it. *Interpretation (corrected 2026-06-04):* an amplitude-based reading was discarded. A particle is a normalized quantum, so its amplitude is fixed at "one particle"; its gravitating charge is its **frequency** ω = m = the eigenvalue of H_d, not its amplitude. Gravity is therefore frequency-determined and, like mass, geometric — there is no free "wave amplitude" input. The open question is reframed as a frequency relation: does M_Pl emerge as a frequency sum over the spectrum (induced/Sakharov gravity, $1/G_N \sim \sum \omega^2$)? Quick check: the 15 stable modes give $\sum m^2 \sim m_{\rm top}^2 \sim (10^2\,{\rm GeV})^2$, ~17 orders below $M_{\rm Pl}^2$, and no simple combination of the 15 frequencies (sum, sum-of-squares, product) reaches $M_{\rm Pl}=1.2\times10^{22}$ MeV. So any frequency-sum mechanism needs the full admissible $(n,d)$ tower (reintroducing a cutoff) or a specific frequency structure not yet identified. The V_7 dilution ($G_N=G_\infty/V_7$) accounts for a factor ~8, not the $10^{22}$ hierarchy. Status: **open; the correct variable is frequency, not amplitude or bare S(n,d) combinatorics.** (See Part 4 §3.12.4 for the parallel spectral-action result that $\Lambda$ is not fixed by $a_2/a_4$.)  
+*Follow-up — highpass-filter test (2026-06-04, `claude/explore_gravity_filter.py`):* gravity's source is $|\partial\Psi|^2$ (derivative = highpass), giving gravitating charge $=\omega=$ mass; the filter corner must lie outside the particle band (else gravity would not couple universally to mass — equivalence principle). Two corner placements tested. **UV (corner above the band):** $M_{\rm Pl}^2=\sum\omega^2$ over the tower needs $n_{\max}\sim3\times10^8$ ($\omega\sim10^{18}$ MeV) with no natural cap — reproduces the free cutoff $\Lambda$, no prediction. **IR (corner far below the neutrinos):** a seesaw appears — $\sqrt{M_{\rm Pl}\cdot m_{{\rm scale},5}}=95.2$ GeV $\approx m_Z$ (4.4%), i.e. $M_{\rm Pl}\approx m_Z^2/m_{{\rm scale},5}$. Since $m_Z$ and $m_{{\rm scale},5}$ both derive from $m_e+N_c$, an exact version would make $M_{\rm Pl}$ derivable (gravity not a separate input). Status of the seesaw: **tested and closed — null** (`claude/explore_gravity_seesaw.py`, 2026-06-04). Substituting the exact $m_{{\rm scale},5}=(n_u/n_s)m_{{\rm scale},6}^3/m_{{\rm scale},4}^2$ and solving $M_{\rm Pl}=v^2/m_{{\rm scale},5}$ for the demanded partner gives $v=95.24$ GeV, which matches **no** clean IDWT electroweak quantity: nearest is $m_Z$ at $+4.4\%$, it is not an occupied d=2 mode ($n\approx82.8$, between $Z$ at 81 and $H$ at 95), and every other EW scale is $\geq 11\%$ away. As a prediction, $v=m_Z$ gives $M_{\rm Pl}$ $8.2\%$ low (residual factor $1.090\approx12/11$, no mechanism). The seesaw shape is real (corner at the smallest sector scale, reciprocal to $10^{22}$) but does not close at IDWT precision. Interim conclusion (later superseded by the n=1 result below): the seesaw form does not close; the *source-side* picture is confirmed: gravity couples to $|\partial\Psi|^2$ (frequency $\to$ mass via the derivative/highpass), universally to mass because the filter corner lies outside the particle band (equivalence principle).
+
+*Follow-up — the n=1 relation (2026-06-04, `claude/explore_gravity_n1_solve.py`): strongest lead, 🔵.* The corner is the **n=1 mode** $m(1,5)=m_{{\rm scale},5}$ (S(1,d)=1, so $m(1,5)$ is the single lowest-frequency mode in the theory — exactly "way below the neutrinos"). The gravitational scale fits
+
+$$M_{\rm Pl} = \frac{m_e^3}{C'\,m_{{\rm scale},5}^2}.$$
+
+**The power law is uniquely selected, not fitted:** among integer $M_{\rm Pl}=C\,m_e^{a}\,m_{{\rm scale},5}^{b}$ with $a+b=1$ (mass dimension), only $(a,b)=(3,-2)$ gives a coefficient of order $1$–$100$ ($C'=19.80$); every other integer power gives $C$ of order $10^{\pm(10\text{–}34)}$. The demanded $C'=19.800$ matches **$2\pi^2=\mathrm{Vol}(S^3)$** — the volume of the $d=3$ observer sector — to **+0.31%** (next: $S(n_s,3)=20$ at $-1.0\%$). So
+
+$$M_{\rm Pl}\approx \frac{m_e^3}{\mathrm{Vol}(S^3)\,m_{{\rm scale},5}^2},$$
+
+expressing the Planck scale in $m_e+N_c+\mathrm{Vol}(S^3)$ — which *would* mean no second input, **if it had a derivation.** It does not. **Derivation attempted (2026-06-04) and the physical motivation fails:** (i) substituting the exact definitions, $M_{\rm Pl}\propto m_{{\rm scale},4}^4/m_{{\rm scale},6}^3$ — a combination with no physical meaning, i.e. the clean form is algebraic accident, not mechanism; (ii) $\mathrm{Vol}(S^3)=2\pi^2$ is reverse-engineered from the number — no integral in the actual gravity computation produces it (the real spectral action, §3.12.4, gives prefactor $\approx 8.5$ and $\Lambda^{51/10}$, not $1/2\pi^2$); (iii) "$m_{{\rm scale},5}$ because it is the n=1 corner" fixes the corner but not the squared-reciprocal-times-sphere-volume formula; (iv) the only physical-looking thread, $\alpha_G\propto(m_{{\rm scale},5}/m_e)^4$ from the quartic T2 kernel, conflates the matter self-interaction with gravity-as-geometry — different objects. **Status: ❓ numerical near-coincidence (0.31%), no physical derivation; not promoted.** The one solid sub-fact is the dimensional selection of the $(a,b)=(3,-2)$ power law. *Self-binding mechanism tested and rejected (2026-06-04, `claude/` quick calc):* the proposal that the confining well $V_d$ **is** the gravitational well ("mass bends space, mass seeks low spots") fails by 34–45 orders — $\alpha_G=G_N m_e^2=1.75\times10^{-45}$, so gravity is 45 orders weaker than the confinement that sets the masses ($V_d\neq$ gravity), and the self-binding balance (with the genuine 4D Gauss factor $2\pi^2=\mathrm{Vol}(S^3)$) predicts $M_{\rm Pl}=\frac{\pi}{2}m_{{\rm scale},5}\sim10^{-12}$ MeV vs measured $10^{22}$ — wrong by $10^{34}$ and the wrong structure ($\propto m_{{\rm scale},5}$, not $m_e^3/m_{{\rm scale},5}^2$). The $2\pi^2$ has a real home (4D gravity Gauss constant) but cannot rescue a 34-order magnitude miss. **Standing conclusion (all routes — seesaw, n=1, self-binding): $M_{\rm Pl}$ is a second dimensional input** (Part 4 §3.12.4); only the *source-side* gravity picture ($|\partial\Psi|^2\to$ mass, EP from corner outside band) is established.
+
+**Bottom-quark beat: arithmetic mean instead of geometric**
+Conjecture: the b-quark beat at k₀=16 should use the arithmetic mean ½(S(16,3)+S(17,3)) of the two adjacent mode counts rather than the geometric mean √(S(16,3)·S(17,3)), so m_b would carry the same +0.68% offset as the other d=3 quarks (down, strange).
+Checked (2026-06-04):
+- Arithmetic mean → m_b = 4196 MeV (+0.39% vs PDG 4180), not the +0.68% sector offset. No Pythagorean mean of {816,969} reproduces +0.68%: geometric +0.02%, arithmetic +0.39%, RMS +0.76%; the uniform offset needs a beat count of 895.1, between the arithmetic 892.5 and RMS 895.8.
+- The arithmetic mean degrades the downstream heavy-meson family: B±/B⁰/B_s/Υ(1S) move from a tight −0.11…−0.19% (geometric m_b feeding E_bind=√(m_b·Λ_QCD)) to a scattered +0.14…+0.22%.
+Result: rejected. The geometric mean is retained as the energy scale of the quartic density–density beat coupling |Ψ₁₆|²|Ψ₁₇|² (cross-term ∝ E₁₆E₁₇, dimension energy², so the beat sits at its square root). The earlier "equal-weight linear amplitude" justification was a non-sequitur — equal weight in a Hermitian 2-level coupling gives the arithmetic mean — and Part 2 §8 / Part 7 now state the quartic argument. Status 🔶: the dimensional argument is heuristic; a closed derivation from the quartic kernel eigenvalue problem is open.
+
+**Dark sector (velinos / umbrons / liminons)**
+Conjecture: mode indices n∈Σ that pass Stage-2 stability are stable in *any* sector d, producing extra stable particles in unused sectors — a dark sector that passes Stage-2 but fails Stage-1 visibility.
+Checked: Stage-2 selects the *pair* (n,d), not n alone. Σ_pairs (15 elements) is the complete Stage-2 solution set; adding any non-Σ_pairs pair breaks closure, and sector-universal stability is not derivable from P8.
+Result: retracted 2026-05-29 (commit d1f2e5f; Part 1 P8 note + summary table, Part 6, Part 7 §1.3/§2.6). No dark sector exists under the current construction. One would require either extending the coupling construction to d=7,8,9 or a derived sector-universal stability argument from the EOM — neither done. Flag any reappearance of velinos/umbrons/liminons as retracted.
+
+**§18 adjacent-sector ratio as a selection constraint on the mode set**
+Conjecture: the §18 ratio S(n,d)/S(n,d+1) = (d+1)/(n+d), evaluated on the physical {n,d}, surfaces an interlocking pattern or a constraint on which modes are selected.
+Checked (2026-06-04, `claude/explore_s18_ladder.py`): §18 is a ⭐ identity valid for all (n,d), so it is structurally incapable of distinguishing the co-fixed-point set from any other pairs. Selection test in d=3: the step (n+d)/(d+1) runs 1, 5/4, 3/2, 7/4, 2 for n=1..5 — selected (n=1,4) and unselected (n=2,3,5) interleave with no distinguishing value. Only two isolated hits across the 15 particles (down: n+d=4=n_s; tau: step (n+d)/(d+1)=3=n_u), forming no pattern.
+Result: no selection constraint from §18, as expected for a universal identity. The positive content — §18 as the multiplicative across-sector recursion dual to the additive hockey-stick — is recorded at §18.
 
 ### §16. Mass uniqueness test for sector assignments
 
@@ -757,6 +776,8 @@ S(n,d) / S(n,d+1) = (d+1) / (n+d)
 C(n+d−1,d)/C(n+d,d+1) = [(n+d−1)!/(d!(n−1)!)] × [(d+1)!(n−1)!/(n+d)!] = (d+1)/(n+d). □
 
 A clean ⭐ combinatorial identity relating adjacent-sector mode counts.
+
+**Sector-ladder reading and pattern search (2026-06-04, `claude/explore_s18_ladder.py`).** Rearranged, §18 is the multiplicative recursion $S(n,d+1)=S(n,d)\cdot(n+d)/(d+1)$ — the across-sector generator of the simplex table at fixed $n$, dual to the additive hockey-stick $S(n,d)=S(n,d-1)+S(n-1,d)$ (across $n$ at fixed $d$) on which the generation tower is built. Together they are the two Pascal recursions that generate the entire $S(n,d)$ array. Both were verified on all 15 physical $(n,d)$ pairs (14/14 for $d\ge 2$). A search for whether §18 constrains the physical mode set returned null: as an identity valid for every $(n,d)$ it cannot distinguish co-fixed-points from any other pair, and the $d=3$ selection test confirms no separation (the step $(n+d)/(d+1)$ runs $1,\,5/4,\,3/2,\,7/4,\,2$ for $n=1..5$, selected and unselected interleaved). Two isolated coincidences — the down quark has $n+d=4=n_s$, the tau's step is $(n+d)/(d+1)=3=n_u$ — form no pattern. Net positive content: the multiplicative-dual reading above; the null half is recorded in §15.
 
 ### §19. Sector set D as a function of n_s
 
@@ -799,6 +820,8 @@ The $n_s=4$ Hopf chain gives exactly 2 complete Hopf pairs for matter: $(d=3, d=
 2. Matter quartet starts at spacetime: n_s−1 = 3 iff n_s = 4.
 
 No other value of n_s satisfies both simultaneously. Both conditions are not yet derived from IDWT dynamics. (The primary derivation of n_s=4 is T4, Part 9.)
+
+**Candidate: n_s as the d=6 CP³ well ground-state degeneracy (❓).** A further angle on n_s=4. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum near r=0, not global topology (Part 1 Foundation, on the well-shape reading), so the d=6 sector has a CP³-shaped well sitting in flat ℝ⁶. For a CP^n well the ground-state degeneracy (number of fixed points) is χ(CP^n)=n+1; for CP³, χ=4, so n_s=4 records the d=6 well's ground-state degeneracy. Open: the causal link from the d=6 well degeneracy to the d=3 seed — the tower connects them through n_μ=S(n_s,4), but the d=6→d=3 direction needs justification. State as candidate only, not a closed proof. The S(2,3)=4 route is circular (writing S(2,3) presupposes the d=3 sector and 2=n_d+1) — do not use it.
 
 ### §20. Sector mode functions: explicit harmonic forms, and the saturating-potential binding deficit
 
@@ -857,3 +880,11 @@ Recomputed values (L_d = λ_d^{−1/4}): L_2 = 0.375, L_3 = 0.675, L_4 = 0.872, 
 - **KK gap (d+1)/L_d² = (d+1)√λ_d** (21, 9, 6.6, 2.4, 3.5, 5.5 in sector units) — positive and O(few), so excited modes remain gapped; no KK tower. Fine.
 
 L_d = λ_d^{−1/4} and V_7 ≈ 7.74 are now the values used throughout the main documents.
+
+### §20a. T2 kernel overlap of the mode functions, and the nature of the CKM formula (2026-06-04)
+
+First use of the explicit §20 mode functions in a kernel matrix element (`claude/explore_kernel_ckm.py`). The T2 density-density kernel is K = g (ξ·ξ′)² |Ψ|²|Ψ′|². Its overlap between two harmonic modes factorizes under isotropy:
+$$O_{ij} = \int\!\!\int (\xi\cdot\xi')^2\,|\chi_i(\xi)|^2|\chi_j(\xi')|^2\,d\xi\,d\xi' = \frac{\langle r^2\rangle_i\,\langle r^2\rangle_j}{d}, \qquad \langle r^2\rangle_{\text{(shell }N)} = \frac{2N+d}{2\sqrt{\lambda_d}}.$$
+(The ⟨r²⟩ formula is verified against direct numerical integration of the Laguerre×Gaussian modes to machine precision — confirming the §20 functions are correct and usable. ⭐ for the overlap identity.)
+
+**Consequence — the CKM formula is state-counting, not a kernel overlap (🔶).** O_ij scales as the mode index n¹ (it is a wavefunction overlap, set by ⟨r²⟩). The combinatorial CKM formula |V_ij|² = S(n_lighter,d)/S(n_heavier,d) scales as n^d (n⁴ in d=4): for the up-type quarks the kernel ratio and the simplex ratio differ by ×112 (u–c), ×40 (c–t), ×4440 (u–t). Therefore |V_ij|² is **not** the kernel matrix element ⟨χ|K|χ⟩ — it is a mode-count (IDOS / density-of-states) ratio, a phase-space statement (rate ∝ density of final states). This closes the Part 6 item "CKM not derived from kernel" in the negative: the T2 overlap gives n¹, the formula needs n^d. The formula stays empirically good (Part 3 §0.8); its mechanism is counting, not the dynamical overlap. The overlap O_ij itself (∝ ⟨r²⟩_i⟨r²⟩_j) is the genuine kernel object and is what enters dynamical quantities (e.g. the a₄-gauge integrals, Part 4 §3.12.4).

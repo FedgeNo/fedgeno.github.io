@@ -149,7 +149,7 @@ f_π = m_scale_3 × S(n_s, 3) = 4.702 MeV × 20 = 94.04 MeV
 PDG f_π = 92.1 MeV (charged pion).  Error: +2.1%
 ```
 
-f_π is the mass at the confinement mode — the scale where the d=3 running coupling hits O(1). No additional input beyond m_e and the seeds.
+f_π is the mass at the confinement mode — the scale where the d=3 geometric dilution coupling g_eff(n) = g₃₃/S(n,3) reaches unity. No additional input beyond m_e and the seeds.
 
 **The QCD scale from large-N_c:**
 
@@ -405,7 +405,7 @@ $$\sin^2\theta_{12} = \frac{1-g_{55}}{3} + g_{55}\frac{S(n_{\nu_1},5)}{S(n_{\nu_
 
 $$\sin^2\theta_{13} = g_{55}\,\delta_{23}\,\ln\frac{S(n_\tau,10)}{S(n_\mu,6)} = 0.02211 \quad (\text{PDG: }0.022, +0.51\%)$$
 
-where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles are determined by $g_{55}$ and four mode indices; the derivation introduces no loop integrals and no additional parameters beyond those fixed by the mass sector.
+where $\delta_{23} = \sin^2\theta_{23}-1/2$. All three angles are determined by $g_{55}$ and four mode indices, with no additional parameters beyond those fixed by the mass sector.
 
 **Physical interpretation.** The d=5 self-coupling $g_{55}=0.1329$ sets how much the neutrino mass hierarchy displaces the PMNS from the μ–τ symmetric limit toward simplex-ratio dominance. $\theta_{13}$ is the second-order correction: the product of the atmospheric deviation $\delta_{23}$ and the $\mu$–$\tau$ log mass ratio, weighted by $g_{55}$.
 
@@ -438,7 +438,7 @@ $$|n_\tau - n_{\nu_3}| = 23-22 = 1 = n_d, \qquad |n_e - n_{\nu_1}| = 13-10 = 3 =
 
 These follow from the generation law chain — $n_\tau = n_c+n_u = 23$, $n_{\nu_3}=n_\tau-n_d=22$, $n_e=13$, $n_{\nu_1}=S(n_u,3)=10$.
 
-In the Gegenbauer critical-endpoint analogy (§3i), coupling between states at mode-index distance $|\Delta n|$ decays as $1/|\Delta n|$ at the critical point $d=10$. This predicts the PMNS hierarchy:
+In the Gegenbauer critical-endpoint analogy (§7), coupling between states at mode-index distance $|\Delta n|$ decays as $1/|\Delta n|$ at the critical point $d=10$. This predicts the PMNS hierarchy:
 $$\sin^2\theta_{23} : \sin^2\theta_{12} : \sin^2\theta_{13} \;=\; 1 : \tfrac{1}{n_u} : \tfrac{1}{n_e} \;=\; 1 : \tfrac{1}{3} : \tfrac{1}{13}.$$
 
 | Pairing | $|\Delta n|$ | Interpretation | Predicted order | PDG |
@@ -451,7 +451,7 @@ The hierarchy $\theta_{23}>\theta_{12}>\theta_{13}$ is a robust structural predi
 
 ---
 
-## 7. d=10 as the Gegenbauer critical-endpoint Critical Point
+## 7. d=10 as the Gegenbauer Critical Point
 
 The Jacobi coupling $b_{k_0}(d) = \sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ plays the role of the hopping-to-disorder ratio in the Gegenbauer sector-coupling critical-point model. The Gegenbauer critical-endpoint condition occurs at $b=1/2$.
 

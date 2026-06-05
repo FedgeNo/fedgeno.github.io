@@ -173,7 +173,7 @@ states that the mass of a particle equals m_scale_d times the cumulative count o
 
 ### 3.4 Connection to the Dirac Operator D_Ξ
 
-For macroscopic sector extent (sector localization length $L_d$), the CP¹ sector curvature correction curvature correction to D_Ξ² vanishes:
+For macroscopic sector extent (sector localization length $L_d$), the curvature correction to D_Ξ² vanishes:
 
 ```
 D_Ξ² = H_d + R/4,    R/4 = m(m+1)/(4L_d²) → 0   (d = 2m, CP^m sectors)
@@ -639,7 +639,7 @@ Under the subgroup chain SU(4) ⊃ SU(3) ⊃ SO(3), these states split into thre
 
 | Class | Count | Description |
 |---|---|---|
-| Observable | 2L+1 | Harmonic degree-L polynomials in (z₁, z₂, z₃) — the standard s, p, d, f orbits |
+| Observable | 2L+1 | Harmonic degree-L polynomials in (z₁, z₂, z₃) — the standard s, p, d, f orbitals |
 | CP³-hidden | L(L+1)(L+2)/6 | States with z₄ factors — angular momentum in the CP³ fibre direction |
 | Lower-j | L(L−1)/2 | Non-harmonic polynomials in (z₁, z₂, z₃); already counted in lower shells |
 
@@ -671,15 +671,13 @@ The z₄ factor integrates to zero over the CP³ fibre by spherical harmonic ort
 
 **Pauli exclusion.** The fermionic anticommutation of the d=6 sector spinor (established in §2) enforces the exclusion principle across all atomic orbits. No additional input needed.
 
-**Scattering cross sections.** The same electron-photon vertex (∇_μ = ∂_μ − iA_μ Q̂) used to derive the Coulomb potential also generates Compton and Thomson scattering. The Thomson cross section σ_T = (8π/3)r_e² = (8π/3)(α λ_e)² = (8π/3)α⁴a₀² follows from the coupling vertex, no new parameters. This is the first IDWT cross section — the entry point to contact with collider physics.
+**Photon scattering.** The same electron-photon vertex (∇_μ = ∂_μ − iA_μ Q̂) used to derive the Coulomb potential also governs photon scattering by the electron. The vertex — the covariant-derivative coupling with Q = −1 — is the IDWT content; the cross sections that follow from it are standard QED evaluated with the IDWT-derived inputs α and m_e. See §15.
 
 **Proton finite size.** The proton charge radius r_p ~ 0.84 fm contributes a finite-size correction to the hydrogen energy levels at order (r_p/a₀)² ~ 10⁻¹⁰. The Lamb shift (leading QED radiative correction) requires the photon self-energy, which in IDWT is a photon self-energy correction (derivation open). Both are sub-leading to the Bohr spectrum and left for later.
 
 ---
 
-## 15. Thomson Scattering — First IDWT Cross Section ✅
-
-### 15.1 The Vertex
+## 15. The Electron-Photon Vertex
 
 The electron-photon coupling is established in Part 3 §16.1 via the covariant derivative in the IDWT kinetic term:
 
@@ -694,71 +692,13 @@ L_int^(1) = e (Ψ̄∞ Γ^μ Ψ∞) A_μ                  [one-photon vertex]
 L_int^(2) = (e²/2m_e) (Ψ̄∞ Ψ∞) A_μ A^μ           [two-photon seagull]
 ```
 
-The seagull term L_int^(2) is the contact term that dominates in the low-energy (Thomson) limit E_γ << m_e c².
-
-### 15.2 The Thomson Amplitude
-
-In the limit E_γ << m_e c², the electron is non-relativistic and recoil is negligible. The amplitude for photon-electron scattering γ(ε_i, k_i) + e → γ(ε_f, k_f) + e receives contributions from:
-
-1. The seagull term (contact interaction, ∝ e²/m_e)
-2. s-channel: photon absorbed then re-emitted, electron propagates as an intermediate state
-3. u-channel: photon emitted then re-absorbed
-
-In the Thomson limit, terms (2) and (3) are suppressed by E_γ/m_e relative to (1). The leading amplitude is:
-
-```
-M_Thomson = −(e²/m_e)(ε_f* · ε_i) = −(4πα/m_e)(ε_f* · ε_i)
-```
-
-The factors entering this amplitude are: e² = 4πα (from Part 3 §16, no additional parameter), m_e (the sole unit reference), and the polarization inner product.
-
-### 15.3 The Thomson Cross Section ✅
-
-The differential cross section, summing over final polarization states and averaged over initial:
-
-```
-dσ/dΩ = r_e² (ε_f* · ε_i)²    →    ⟨dσ/dΩ⟩ = (r_e²/2)(1 + cos²θ)
-```
-
-where the classical electron radius is:
-
-```
-r_e = α/(m_e c²) × ℏc = α λ_e = α² a₀    (in natural units: r_e = α/m_e)
-```
-
-Integrating over the full sphere:
-
-```
-σ_Thomson = (8π/3) r_e²  =  (8π/3) α² λ_e²  =  (8π/3) α⁴ a₀²
-```
-
-**Everything in this expression is determined by IDWT with no new parameters.** α is derived from the coupling structure (Part 3 §16), λ_e = ℏ/(m_e c) follows from m_e (the unit reference, Part 2), and a₀ = λ_e/α follows from both.
-
-Numerically: σ_T ≈ 6.65 × 10⁻²⁹ m² = 0.665 barn. This is the IDWT prediction for the low-energy photon-electron scattering cross section — the first IDWT cross section.
-
-**Status.** This is a ✅ structural consequence of the vertex established in Part 3 §16.1 and the Coulomb scale separation of §14. No additional postulates, no new free parameters.
-
-### 15.4 What This Opens
-
-The same vertex generates, at higher order in α or E_γ:
-
-- **Compton scattering** (E_γ ~ m_e c²): full relativistic amplitude, cross section falls with energy as 1/E_γ relative to Thomson. The Dirac structure of §2 is what makes the amplitude Lorentz-covariant.
-- **Pair production** γγ → e⁺e⁻: two-photon amplitude from the same vertex, with the positron as the conjugate spinor Ψ̄∞.
-- **Electron-electron scattering** (Møller scattering): two d=6 sector resonances exchanging a d=2 photon. The amplitude is M ∝ e²/q² (t-channel) + e²/(p₁-p₂)² (u-channel, identical particles). This is the next entry point to collider physics after Thomson.
-
-The ladder from Thomson → Compton → pair production → Møller is a single sequence of the same vertex at increasing energy and order. All cross sections in this sequence are IDWT structural consequences.
+with e² = 4πα (Part 3 §16) and m_e the sole unit reference. The seagull term L_int^(2) is the contact term that dominates at low energy E_γ << m_e c²; the one-photon vertex L_int^(1) dominates at E_γ ~ m_e c². The vertex — the covariant derivative coupling with Q = −1 — is the IDWT content. The scattering cross sections that follow from it are standard QED evaluated with the IDWT-derived inputs α and m_e.
 
 ---
 
-## 15a. Compton Scattering — Relativistic Regime ✅
+## 15a. The Compton Wavelength Shift ⭐
 
-### 15a.1 From Thomson to Compton
-
-In the Thomson limit (§15), the electron recoil is negligible and the Compton wavelength shift is zero. At photon energies $E_\gamma \sim m_e c^2$, recoil becomes significant and the relativistic Dirac structure of the d=6 sector mode (§2) determines the full amplitude. Both the energy shift and the angular distribution change relative to Thomson.
-
-### 15a.2 The Compton Wavelength Shift ✅
-
-Four-momentum conservation at the vertex gives the Compton wavelength shift:
+At photon energies $E_\gamma \sim m_e c^2$, the electron recoil becomes significant. Four-momentum conservation at the vertex gives the Compton wavelength shift:
 
 ```
 Δλ = λ_f − λ_i = (h/m_e c)(1 − cos θ) = λ_C (1 − cos θ)
@@ -767,43 +707,6 @@ Four-momentum conservation at the vertex gives the Compton wavelength shift:
 where $\lambda_C = h/(m_e c) = 2\pi\lambda_e = 2\pi\alpha a_0$ is the electron Compton wavelength, with $\lambda_e = \hbar/(m_e c) = \alpha a_0$ the reduced Compton wavelength established in IDWT (Part 2). The shift is a purely kinematic consequence of four-momentum conservation and the photon dispersion relation; no new dynamics enter. Status: ⭐ (kinematic identity).
 
 Numerically: $\lambda_C = 2\pi\alpha a_0 \approx 2.426 \times 10^{-12}$ m (derived from m_e and α, both IDWT outputs).
-
-### 15a.3 The Klein-Nishina Cross Section ✅
-
-The full relativistic amplitude for Compton scattering is obtained from the same vertex $L_{\rm int}^{(1)}$ in §15.1 but with the relativistic electron propagator — i.e. the d=6 sector Dirac propagator $({\not p} + m_e)/(p^2 - m_e^2)$ from the IDWT Dirac operator of §2. The s-channel and u-channel exchange diagrams now contribute at the same order as the seagull contact term.
-
-Define $x = E_\gamma / m_e c^2$ (the dimensionless photon energy). The Klein-Nishina differential cross section is:
-
-```
-dσ_KN/dΩ = (r_e²/2) (E_f/E_i)² [ E_f/E_i + E_i/E_f − sin²θ ]
-```
-
-where $E_f/E_i = 1/(1 + x(1-\cos\theta))$ from the Compton shift. Integrating over solid angle:
-
-```
-σ_KN = σ_T × f(x)
-
-f(x) = (3/4) { (1+x)/x³ [ 2x(1+x)/(1+2x) − ln(1+2x) ] + ln(1+2x)/(2x) − (1+3x)/(1+2x)² }
-```
-
-**Limits:**
-
-```
-x → 0:  f(x) → 1                     → σ_KN → σ_T   [Thomson limit recovered]
-x → ∞:  f(x) → (3/8x)(ln 2x + 1/2)  → σ_KN ~ σ_T × (3/(8x)) ln(2x)  [1/E_γ fall-off]
-```
-
-The high-energy limit confirms the prediction: the cross section falls as $\ln(E_\gamma)/E_\gamma$ relative to Thomson, reaching $\sigma_{KN} \approx \sigma_T/3$ at $E_\gamma = m_e c^2$ and $\approx \sigma_T/(3x)$ for $x \gg 1$.
-
-**Status: ✅ structural consequence.** All factors — $r_e$, $m_e$, $\alpha$ — are IDWT outputs. The only new ingredient is the relativistic propagator, which is the d=6 Dirac structure of §2 applied at energy scales $E_\gamma \sim m_e$. No new parameters.
-
-**Numerical checks:**
-
-```
-x = 0:    σ_KN = σ_T = 0.665 barn                                ✅
-x = 1:    σ_KN ≈ 0.250 barn  (f(1) ≈ 0.375)
-x = E_γ/m_e for X-rays at 100 keV:  x ≈ 0.196,  σ_KN ≈ 0.543 barn
-```
 
 ---
 
@@ -857,9 +760,9 @@ The integral ⟨1s,1s|1/r₁₂|1s,1s⟩ = 5Z/(8a₀) is a standard result compu
 E₀^{(1)} = −108.8 + 34.0 = −74.8 eV
 ```
 
-A variational calculation with effective nuclear charge Z_eff as the variational parameter gives Z_eff = 27/16 and E₀^{var} = −77.5 eV, much closer to the observed −79.0 eV. The residual 1.5 eV difference is from higher-order terms in the electron-electron repulsion.
+The observed ground-state energy is −79.0 eV; the first-order estimate is −74.8 eV, within 6% and in the right direction. The remaining discrepancy comes from higher-order electron-electron repulsion terms.
 
-**The structural point is not the number.** It is that the multi-electron Hamiltonian — including the repulsion term — follows from the same vertex as the hydrogen atom, with no new coupling introduced. Helium requires only: (a) two d=6 resonances, (b) the same Coulomb vertex, (c) antisymmetry from spinor anticommutation.
+**The structural point.** The multi-electron Hamiltonian — including the repulsion term — follows from the same vertex as the hydrogen atom, with no new coupling introduced. Helium requires only: (a) two d=6 resonances, (b) the same Coulomb vertex, (c) antisymmetry from spinor anticommutation.
 
 ### 16.4 The Aufbau Principle and the Periodic Table
 
@@ -907,105 +810,46 @@ An orbit in a two-center potential is not an orbit around either nucleus individ
 
 The antibonding orbit is an orbit whose 3D shadow has a nodal plane between the nuclei (zero density at the midpoint). This orbit is higher in energy than either isolated atomic orbit: the electron is excluded from the region of maximum attraction.
 
-### 17.3 Molecular Orbits from 6D Orbit Superposition
-
-The lowest-energy orbit in H₂⁺ (one electron, two protons — the simplest molecule, accessible before treating H₂) is:
-
-```
-φ_+(r) = (ψ_{1s,A}(r) + ψ_{1s,B}(r)) / √(2(1+S))
-```
-
-where S = ⟨ψ_{1s,A}|ψ_{1s,B}⟩ is the overlap integral (a function of R) and ψ_{1s,A}, ψ_{1s,B} are the 1s hydrogen orbit amplitudes — the observable-sector projections of the electron's 6D orbit — centered on protons A and B respectively.
-
-The overlap integral S quantifies how much of the two atomic 6D orbits overlap in 3D space:
-
-```
-S(R) = e^{−R/a₀} (1 + R/a₀ + R²/3a₀²)
-```
-
-This goes from S=1 at R=0 (complete overlap, both on the same nucleus) to S=0 at R→∞ (no overlap, isolated atoms). The bonding orbit φ_+ has electron density concentrated between the nuclei where |φ_+|² > |ψ_{1s,A}|² + |ψ_{1s,B}|².
-
-For H₂ (two electrons), both occupy φ_+ in a spin singlet (Pauli exclusion from §16.2):
-
-```
-Ψ_H₂ = φ_+(r₁) φ_+(r₂) × (↑↓ − ↓↑)/√2
-```
-
-### 17.4 The Bond Energy and Equilibrium Separation
-
-The potential energy surface E(R) = ⟨Ψ_H₂|H_H₂(R)|Ψ_H₂⟩ determines the molecular geometry. As R decreases from infinity:
-
-- R large: V_{pp} = α/R → 0, electrons in isolated 1s orbits, E(R→∞) = 2 × (−13.6 eV) = −27.2 eV
-- R intermediate: overlap increases, bonding orbit energy decreases (attractive) while V_{pp} increases (repulsive). The competition produces a minimum.
-- R → 0: both protons coincide (He²⁺), E → −4 × 13.6 eV = −54.4 eV, but V_{pp} = α/R → +∞ first
-
-The minimum of E(R) − E(∞) gives the bond dissociation energy D_e and the equilibrium separation R_eq. From the variational LCAO calculation with optimized exponent ζ (effective nuclear charge seen by each electron):
-
-```
-R_eq ≈ 1.40 a₀ ≈ 0.74 Å,    D_e ≈ 4.75 eV
-```
-
-These are outputs of the same Hamiltonian derived from IDWT — no additional parameters. The Coulomb, exchange, and overlap integrals entering this calculation are all computed from the observable-sector projections of the 6D orbit amplitudes established in §14.4.
-
 ### 17.5 General Covalent Bond
 
-The H₂ case generalizes directly. For any homonuclear diatomic bond (N₂, O₂, F₂, ...), the bonding orbits are the symmetric combinations of the relevant atomic orbits (s, p, d according to the (n,l) level occupied). The bond strength is controlled by the overlap integral S, which depends on orbit size (a₀/Z_eff) and bond length R.
+**A covalent bond is a two-center 6D orbit in the combined Coulomb field of two nuclei, whose minimum-energy configuration places the electron density between the nuclei, lowering the total energy relative to two isolated atoms.** The bond forms because the electron's 6D orbit explores a larger region when two nuclei are present — the orbit "finds" both attractors — and the resulting 3D shadow fills the bonding region.
 
-The IDWT statement is: **a covalent bond is a two-center 6D orbit in the combined Coulomb field of two nuclei, whose minimum-energy configuration places the electron density between the nuclei, lowering the total energy relative to two isolated atoms.** The bond forms because the electron's 6D orbit explores a larger region when two nuclei are present — the orbit "finds" both attractors — and the resulting 3D shadow fills the bonding region.
-
-All bond types — σ (overlap along the internuclear axis), π (overlap perpendicular to the axis, from p or d orbits), δ (overlap from two d orbits, side-on) — are determined by which (n,l,m_l) atomic orbits combine and how their 3D shadows overlap. The LCAO construction is the IDWT orbit superposition; the variational principle is the orbit finding its minimum-energy configuration. No new postulates at any stage.
+The H₂ case generalizes to any homonuclear diatomic bond (N₂, O₂, F₂, ...). All bond types — σ (overlap along the internuclear axis), π (overlap perpendicular to the axis, from p or d orbits), δ (overlap from two d orbits, side-on) — are determined by which (n,l,m_l) orbits are occupied and the geometry of their 3D shadows. No new postulates at any stage.
 
 ### 17.6 Status and What Opens
 
-**Status: ✅ Structural consequence.** The H₂ bond follows from: (a) the Coulomb vertex of §14, (b) Pauli exclusion from §16.2, (c) Born-Oppenheimer decoupling of nuclear and electronic motion. All three are established from IDWT structure with no free parameters beyond m_e and α (both derived). The full 6D character of the bond orbit — what the two-center orbit looks like in all six dimensions — is open. 🔶
+**Status: 🔶 Mechanism established; quantitative bond parameters open.** The H₂ bonding mechanism follows from: (a) the Coulomb vertex of §14, (b) Pauli exclusion from §16.2, (c) Born-Oppenheimer decoupling of nuclear and electronic motion. All three are established from IDWT structure with no free parameters beyond m_e and α (both derived). The quantitative bond parameters (D_e, R_eq) and the full 6D character of the bond orbit — what the two-center orbit looks like in all six dimensions — are open. 🔶
 
 **Opens:**
 - **Heteronuclear bonds and bond angles** (HF, CO, H₂O): same Coulomb framework, nuclei with Z ≠ Z'. Bond polarity follows from asymmetric nuclear potentials selecting asymmetric angular momentum configurations. Bond angles (H–O–H = 104.5°, H–N–H = 107°, etc.) are not set by VSEPR repulsion — they are the 3D projections of which 6D angular momentum states are occupied: bonding states project toward nuclei, lone-pair states project away, and the angle between bonding projections is determined by the angular momentum structure of all occupied states together. This is derived from the 6D orbit picture; the detailed calculation is open. 🔶
-- **π bonds and aromaticity**: molecular orbits built from the L=1 (p) states of the SO(3) chain. Benzene's ring orbit is a single 6D orbit coupling to all six nuclear centers simultaneously — not a delocalized superposition of local orbits, but one orbit that naturally goes around the ring (see §17a). Hückel's rule (4n+2 closed shells) is the condition for closed angular momentum shells of the ring orbit.
-- **Van der Waals forces**: second-order Coulomb (dipole-dipole correlation) between charge-neutral molecules. In IDWT: second-order photon exchange between two neutral d=6 systems, giving an attractive potential ~−C₆/R⁶. The C₆ coefficient is determined by the frequency-dependent polarizability α(iω) of each atom integrated over imaginary frequencies — see §17b.
+- **π bonds and aromaticity**: molecular orbits built from the L=1 (p) states of the SO(3) chain. Benzene's ring orbit is a single 6D orbit coupling to all six nuclear centers simultaneously — not a delocalized superposition of local orbitals, but one orbit that naturally goes around the ring (see §17a). Hückel's rule (4n+2 closed shells) is the condition for closed angular momentum shells of the ring orbit.
+- **Van der Waals forces**: second-order Coulomb (dipole-dipole correlation) between charge-neutral molecules. In IDWT: second-order photon exchange between two neutral d=6 systems, giving an attractive potential ~−C₆/R⁶. The R⁻⁶ power law follows from two-photon exchange topology and dipole selection rules — see §17b. The C₆ coefficient is open.
 - **Woodward–Hoffmann rules**: thermal pericyclic reactions conserve hidden-sector angular momentum (ΔL=0); photochemical reactions require a photon to supply ΔL=1. The condition L_HOMO₁ ≡ L_LUMO₂ (mod 2) for thermal allowedness follows from 6D angular momentum conservation across the transition state. This reduces all pericyclic selection rules to one conservation law. Detailed derivation open. 🔶
 - **Molecular spectra**: vibrational and rotational energy levels of H₂. The vibrational frequency ω_vib and rotational constant B_rot follow from E(R) near its minimum, which is fully determined by the Coulomb Hamiltonian. These are IDWT structural predictions with no new input.
 
 ---
 
-## 17a. π Bonds and Hückel Aromaticity ✅
+## 17a. π Bonds and Hückel Aromaticity
 
 ### 17a.1 π Orbits as L=1 Sector States
 
-The s and p orbit shapes are not different objects — they are the L=0 and L=1 angular momentum eigenstates of the same 6D electron orbit, classified by the SU(4) ⊃ SO(3) chain (§14.4). An s orbit is the 3D projection of a 6D orbit with zero angular momentum. A p orbit is the 3D projection of a 6D orbit with one unit of angular momentum, projected along a specific axis. Hybridization is not mixing — it is the 6D orbit occupying the angular momentum configuration that minimises energy in the bonding environment.
+The s and p orbital shapes are not different objects — they are the L=0 and L=1 angular momentum eigenstates of the same 6D electron orbit, classified by the SU(4) ⊃ SO(3) chain (§14.4). An s orbital is the 3D projection of a 6D orbit with zero angular momentum. A p orbital is the 3D projection of a 6D orbit with one unit of angular momentum, projected along a specific axis. Hybridization is not mixing — it is the electron settling into the angular momentum configuration of its 6D orbit that minimises energy in the bonding environment.
 
 The σ bonds of §17 arise from L=0 (s-type) or L=1 (p-type, overlap along the bond axis) angular momentum states. The π bonds arise from L=1 states overlapping *perpendicular* to the internuclear axis — the p_z lobes in a planar molecule.
 
-For a carbon atom in a planar sp² configuration (e.g. benzene), three of the four valence electrons form σ bonds using sp² hybrids; the fourth occupies a p_z orbit perpendicular to the molecular plane. This p_z electron is the π-bond contributor.
+For a carbon atom in a planar sp² configuration (e.g. benzene), three of the four valence electrons form σ bonds using sp² hybrids; the fourth executes a p_z orbit perpendicular to the molecular plane. This p_z electron is the π-bond contributor.
 
-### 17a.2 Benzene — Six π Orbits from Six p_z States ✅
+### 17a.2 Benzene — Ring Orbit as Closed Angular Momentum Shell
 
-Benzene has six carbon atoms in a regular hexagon, each contributing one p_z orbit $\phi_j$ ($j = 0, \ldots, 5$). By translational symmetry around the ring, the six molecular orbits are the discrete Fourier modes:
+Benzene has six carbon atoms in a regular hexagon, each contributing one p_z orbital. By translational symmetry around the ring, the molecular orbitals are the discrete Fourier modes of the ring — one non-degenerate ground mode, then degenerate pairs, exactly the angular momentum shell structure of a cyclic system.
 
-```
-ψ_k = (1/√6) Σ_{j=0}^{5} ω^{jk} φ_j,    ω = e^{2πi/6},    k = 0, 1, 2, 3, 4, 5
-```
+**The 6D picture.** The Fourier modes ψ_k are not a superposition of six separate atomic orbitals — they are the angular momentum eigenstates of a single 6D electron orbit that simultaneously couples to all six nuclear centers. An orbit that couples to six potentials arranged in a hexagon is an orbit that goes around the ring. The k=0 and k=±1 bonding modes correspond to closed angular momentum shells of this ring orbit. The aromatic ring current — a circulating current induced by a perpendicular magnetic field, measurable in NMR as the anomalous chemical shift of aromatic protons — is the direct experimental signature of this: it is exactly what you expect from an electron executing a closed-loop orbit around the ring, not a superposition of Kekulé configurations. Antiaromaticity (4n electrons) is a half-filled angular momentum shell — an orbit that cannot close and distorts to escape the frustrated state.
 
-The Hückel Hamiltonian assigns each orbit an on-site energy α (the Coulomb integral) and a nearest-neighbour coupling −β (the resonance integral, β > 0). The eigenvalues are:
-
-```
-E_k = α − 2β cos(2πk/6)
-
-k=0:   E_0 = α − 2β   [lowest; non-degenerate]
-k=±1:  E_±1 = α − β   [bonding doublet; degenerate]
-k=±2:  E_±2 = α + β   [antibonding doublet; degenerate]
-k=3:   E_3 = α + 2β   [highest; non-degenerate]
-```
-
-The six π electrons of benzene (one per carbon) fill the three lowest levels: k=0 (2 electrons) and k=±1 (2+2 electrons). This accounts for all six π electrons and leaves k=±2 and k=3 empty. The ground state is closed-shell: all bonding π orbits are doubly occupied.
-
-**The 6D picture.** The Fourier modes ψ_k are not a superposition of six separate atomic orbits — they are the angular momentum eigenstates of a single 6D electron orbit that simultaneously couples to all six nuclear centers. An orbit that couples to six potentials arranged in a hexagon is an orbit that goes around the ring. The k=0 and k=±1 bonding modes correspond to closed angular momentum shells of this ring orbit. The aromatic ring current — a circulating current induced by a perpendicular magnetic field, measurable in NMR as the anomalous chemical shift of aromatic protons — is the direct experimental signature of this: it is exactly what you expect from an electron executing a closed-loop orbit around the ring, not a superposition of Kekulé configurations. Antiaromaticity (4n electrons) is a half-filled angular momentum shell — an orbit that cannot close and distorts to escape the frustrated state.
-
-### 17a.3 Hückel 4n+2 Rule as Closed SO(3) Shell ✅
+### 17a.3 4n+2 Rule as Closed SO(3) Shell ✅
 
 The Hückel rule states that a cyclic π system with $4n+2$ π electrons (n=0,1,2,...) is aromatic — anomalously stable. The IDWT reading:
 
-For a regular $N$-gon ring, the MO energies are $E_k = \alpha - 2\beta\cos(2\pi k/N)$, $k = 0, 1, \ldots, N-1$. The k=0 orbit is always non-degenerate; all higher levels come in degenerate pairs $(k, N-k)$ until the top orbit at $k=N/2$ (for even N), which is also non-degenerate.
+For a regular $N$-gon ring, the MO energies are $E_k = \alpha - 2\beta\cos(2\pi k/N)$, $k = 0, 1, \ldots, N-1$. The k=0 orbital is always non-degenerate; all higher levels come in degenerate pairs $(k, N-k)$ until the top orbital at $k=N/2$ (for even N), which is also non-degenerate.
 
 To fill a *closed shell* — every bonding MO doubly occupied, no partially filled level — requires:
 
@@ -1019,66 +863,16 @@ This is the Hückel rule. In IDWT language: $4n+2$ is the condition that the $\e
 
 Anti-aromatic systems (4n electrons, e.g. cyclobutadiene with $n=1$, 4 electrons) have a half-filled degenerate level — an open SO(3) shell — which is geometrically unstable (Jahn-Teller distortion breaks the ring symmetry).
 
-**Status: ✅ structural consequence.** The π MO energies are eigenvalues of the Hückel matrix, which is the restriction of the IDWT d=6 Coulomb Hamiltonian (§14) to the p_z orbit subspace with nearest-neighbour coupling β determined by the orbit overlap integral — the same integral that determines the σ-bond overlap S in §17. No new parameters; β is determined by the same 1s orbit amplitudes already established in §14. The $4n+2$ rule is a combinatorial consequence of the cyclic group structure of the ring, not an independent physical law.
+**Status: ✅ structural consequence.** The $4n+2$ rule is a combinatorial consequence of the cyclic group structure of the ring: one non-degenerate bottom level, then degenerate pairs, so a closed shell requires $2 + 4n$ electrons. The degeneracy pattern is the SO(3) angular-momentum shell sequence, with the ring providing the effective SO(3) symmetry in the molecular plane. This counting is parameter-free.
 
 ---
 
 ## 17b. Van der Waals Forces — Second-Order Photon Exchange ✅
 
-### 17b.1 Setup
-
-Two neutral atoms A and B separated by distance R, each with one electron in the ground-state 6D hydrogen orbit (n=1) established in §14. Both atoms are charge-neutral (Q_total = 0), so there is no first-order Coulomb interaction (the monopole-monopole term vanishes). The leading interaction is second-order in the electron-photon vertex: a virtual photon emitted by atom A is absorbed by atom B, and vice versa — a correlated dipole-dipole interaction.
-
-### 17b.2 The London C₆ Coefficient ✅
-
-The leading long-range interaction between two identical atoms in the non-retarded limit (R << c/ω, where ω is the characteristic transition frequency) is:
-
-```
-V(R) = −C₆ / R⁶
-```
-
-The C₆ coefficient from second-order perturbation theory (London dispersion formula for identical atoms):
-
-```
-C₆(H-H) = (3/4) α_H²  × I_H
-```
-
-Both quantities are IDWT outputs from the Bohr-Rydberg spectrum (§14.4):
-
-```
-I_H = m_e α²/2 = Ry = 13.606 eV    [ground-state ionisation energy]
-α_H = (9/2) a₀³                     [static polarisability of H, from the 1s orbit]
-```
-
-```
-C₆(H-H) = (3/4) × (9/2)² × a₀⁶ × (m_e α²/2)
-         = (243/32) × a₀⁶ × m_e α²
-         ≈ 4.54 eV·Å⁶  = 7.594 a.u.   (London leading-order estimate)
-```
-
-The exact C₆ is given by the Casimir-Polder integral using the full frequency-dependent polarisability:
-
-```
-C₆(H-H) = (3/π) ∫₀^∞ α²(iω) dω
-
-α(iω) = Σ_{n=2}^∞ f_n / (ω_n² + ω²)  +  ∫₀^∞ [df/dε / (ω_ε² + ω²)] dε
-```
-
-where f_n are the discrete 1s→np oscillator strengths (Bethe formula, all from §14.4), and df/dε is the continuum photoionisation oscillator strength density (Stobbe formula). Both inputs are pure IDWT structural outputs — no new parameters beyond m_e and α. The Thomas-Kuhn sum rule $\sum f_n + \int df/d\varepsilon\, d\varepsilon = 1$ is satisfied identically (verified numerically to 5 significant figures).
-
-Computing the Casimir-Polder integral with this spectrum:
-
-```
-C₆(H-H) = 6.4988 a.u.  =  3.883 eV·Å⁶
-Reference (Dalgarno & Davison 1966): 6.4990267 a.u.  [error < 0.003%]
-```
-
-The London estimate (7.594 a.u.) **overestimates** the exact value by +17%: the sum over all excited states, including the continuum, reduces the effective polarisability below the single-frequency London approximation. **Status: 🔵** (numerically verified; the Casimir-Polder integral is evaluated from IDWT spectral inputs). No new parameters beyond m_e and α.
+Two neutral atoms A and B separated by distance R are charge-neutral (Q_total = 0), so there is no first-order Coulomb interaction. The leading interaction is second-order in the electron-photon vertex: a virtual photon emitted by atom A is absorbed by atom B, and vice versa — a correlated dipole-dipole interaction giving an attractive potential ~−C₆/R⁶.
 
 ### 17b.3 The R⁻⁶ Power Law from Photon Propagators ✅
 
-The $1/R^6$ power law follows from counting the photon propagator powers. Each photon exchange contributes a factor $1/q^2$ in momentum space; two propagators give $1/q^4$. Fourier-transforming from momentum to position space in 3D: $\mathcal{F}^{-1}[1/q^4] \propto R$, so with the two dipole vertices (each $\propto 1/R^2$ from the long-wavelength expansion of the photon field) the total goes as $R \times (1/R^2)^2 = 1/R^3$... 
+The dipole-dipole interaction at fixed photon wavevector goes as $\hat{r}^2/R^3$ for each dipole; van der Waals is second order in this coupling, so squaring the dipole-dipole matrix element gives the $R^{-6}$ power in the non-retarded limit. At separations R >> c/ω (retarded limit), the interaction crosses over to $R^{-7}$ (Casimir-Polder). In IDWT terms, the retardation comes from the finite photon propagation time across the d=2-sector photon field — the same d=2 sector that gives rise to the Coulomb interaction of §14.
 
-More precisely: the dipole-dipole interaction at fixed photon wavevector goes as $\hat{r}^2/R^3$ for each dipole; averaging over orientations and summing over virtual photon frequencies gives the $R^{-6}$ power in the non-retarded limit. At separations R >> c/ω (retarded limit), the interaction crosses over to $R^{-7}$ (Casimir-Polder). In IDWT terms, the retardation comes from the finite photon propagation time across the d=2-sector photon field — the same d=2 sector that gives rise to the Coulomb interaction of §14.
-
-**Status: ✅ structural consequence for the R⁻⁶ power law; 🔵 for the C₆ coefficient.** The $R^{-6}$ power is a consequence of the two-photon exchange topology and dipole selection rules — no new parameters. The C₆(H-H) = 3.883 eV·Å⁶ (= 6.499 a.u.) is computed from the full IDWT hydrogen spectrum via the Casimir-Polder integral; it agrees with the exact quantum-mechanical result of Dalgarno & Davison (1966) to better than 0.01%. The retarded crossover to $R^{-7}$ (Casimir-Polder) is fully determined by the same d=2-sector photon propagator but requires the full photon propagator treatment and is left as a follow-on.
+**Status: ✅ structural consequence for the R⁻⁶ power law.** The $R^{-6}$ power is a consequence of the two-photon exchange topology and dipole selection rules — no new parameters. The retarded crossover to $R^{-7}$ at separations R >> c/ω is fully determined by the same d=2-sector photon propagator but requires the full photon propagator treatment and is left as a follow-on.

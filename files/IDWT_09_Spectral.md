@@ -128,8 +128,12 @@ $\ell$-decomposition coefficients on $S^{d-1}$ for every sector:
 
 **Theorem T3 (Sector set from complex Hopf chain).** The sector set $D=\{2,3,4,5,6,10\}$ is uniquely determined by two rules applied to the complex Hopf fibration chain $S^1\to S^{2n+1}\to\mathbb{CP}^n$ for $n=1,2,3,\ldots$:
 
-> **Rule A — Coupling termination at $d=6$.** 🔶
-> $g_{66}=1/n_s$ is the seed ratio, not a kernel fixed-point coupling. The Hopf universality condition that derives $g_{55}$ from $g_{33}$ and $g_{44}$ via $v_3/v_2=v_5/v_4$ cannot extend to $d=7$: no fixed-point formula for $g_{77}$ exists within IDWT. All of $d\in\{7,8,9\}$ are excluded. **Open item (Part 6):** prove that only sectors admitting Gegenbauer fixed-point closure can appear in $D$, or state Rule A formally as a 🔶 selection postulate.
+> **Rule A — Coupling termination at $d=6$, no re-entry before the Gegenbauer endpoint.** 🔶
+> A sector is active only if it carries a constructible self-coupling $g_{dd}$. The construction chain runs through the low Hopf sectors — kernel fixed points fix $g_{33}$ and $g_{44}$, and Hopf universality $v_3/v_2=v_5/v_4$ then fixes $g_{55}$ (T9b) — and terminates at $d=6$, where $\chi(\mathbb{CP}^3)=n_s$ forces $g_{66}=1/n_s$, the seed ratio rather than a fixed-point coupling. The band $d\in\{7,8,9\}$ acquires no coupling, by two routes already established in the framework:
+> - **$d=8$ ($\mathbb{CP}^4$, even base):** $\chi(\mathbb{CP}^4)=N_c+2=5$ is the gap in the Euler-characteristic sequence $\{2,3,4,\_,6\}$ of the active even sectors — there is no kernel fixed point for $g_{88}$ (T15b).
+> - **$d=7$ ($S^7$) and $d=9$ ($S^9$, odd total spaces):** an odd total-space coupling is fixed only by Hopf-universality routing over its base $\mathbb{CP}^k$ (T9b corollary), which requires the base to carry a fixed-point coupling. $S^7$ routes over $\mathbb{CP}^3$ ($d=6$, the seed-ratio terminus) and $S^9$ over $\mathbb{CP}^4$ ($d=8$, the gap); neither base is a fixed point, so no $g_{77}$ or $g_{99}$ is fixed.
+>
+> The only re-entry past the terminus is $d=10$, the Gegenbauer critical endpoint (Rule B), which takes $g_{10,10}=1/n_s$ by $\mu$–$\tau$ symmetry with $d=6$ (T9c). **Open item (Part 6):** the residual step is to prove the coupling-construction routes are exhaustive — specifically that Hopf-universality routing requires a fixed-point base, so the formal chain $v_7/v_6=v_5/v_4$ over the seed-ratio $v_6$ is illegitimate. Until then Rule A stands as a 🔶 selection rule.
 
 > **Rule B — Gegenbauer criticality at $d=10$.**
 > The Jacobi coupling $b_{k_0}(d)=\sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ satisfies $b_{k_0}\geq1/2$ iff $4k_0\leq(d-2)^2$, saturated uniquely at
@@ -146,12 +150,12 @@ Jacobi couplings at $k_0=16$ (all sectors in $D$ must have $b_{k_0}\geq1/2$, by 
 | $d$ | $b_{k_0}(d)$ | Regime | In $D$? |
 |---|---|---|---|
 | 2, 3, 4, 5, 6 | $0.515,\;0.514,\;0.513,\;0.511,\;0.509$ | supercritical | ✓ |
-| 7 | $0.507$ | supercritical, excluded by Rule A (no $g_{77}$) | ✗ |
-| 8, 9 | $0.505,\;0.502$ | supercritical, skipped ($n=4$ Hopf pair not selected) | ✗ |
+| 7 | $0.507$ | supercritical; no coupling — $S^7$ routes over the $d=6$ seed-ratio terminus (Rule A) | ✗ |
+| 8, 9 | $0.505,\;0.502$ | supercritical; no coupling — $d=8$ is the Euler-char gap $\chi{=}5$, $d=9$ routes over it (Rule A) | ✗ |
 | **10** | **0.500000** | **Gegenbauer critical endpoint** | **✓** |
 | 11, 12, … | $0.497,\;0.495,\ldots$ | subcritical | ✗ |
 
-**Two qualitatively distinct types of excluded dimension.** The table makes visible a distinction that matters for the top-down picture of M_∞. Sectors $d\geq11$ are excluded at the most fundamental level: they are subcritical, meaning localization is geometrically impossible — modes cannot bind, they propagate and disperse into the infinite-dimensional bulk. Sectors $d\in\{7,8,9\}$ are supercritical (localization is in principle possible) but are excluded by coupling structure: no valid sector potential exists because the Hopf universality condition has no fixed-point formula at $d=7$ (Rule A). These are qualitatively different failures. $d\geq11$ cannot host bound states at all. $d\in\{7,8,9\}$ could in principle support localized modes, but there is no mechanism in M_∞ to form the sector potential that would trap them.
+**Two qualitatively distinct types of excluded dimension.** The table makes visible a distinction that matters for the top-down picture of M_∞. Sectors $d\geq11$ are excluded at the most fundamental level: they are subcritical, meaning localization is geometrically impossible — modes cannot bind, they propagate and disperse into the infinite-dimensional bulk. Sectors $d\in\{7,8,9\}$ are supercritical (localization is in principle possible) but are excluded by coupling structure: the coupling-construction chain terminates at $d=6$ and none of the band acquires a self-coupling — $d=8$ is the Euler-characteristic gap ($\chi=5$, no $g_{88}$ fixed point), while $d=7$ and $d=9$ are total spaces routing over a non-fixed-point base ($d=6$ and $d=8$), so Hopf universality fixes no $g_{77}$ or $g_{99}$ (Rule A). These are qualitatively different failures. $d\geq11$ cannot host bound states at all. $d\in\{7,8,9\}$ could in principle support localized modes, but there is no mechanism in M_∞ to form the sector potential that would trap them.
 
 **Coordinate subspaces vs active sectors.** The absence of $d\in\{7,8,9\}$ from the sector set $D$ does not mean those coordinate directions are absent from M_∞. M_∞ contains all integer-dimensional coordinate subspaces; the function-space nesting $C^\infty(\Xi_2)\subset C^\infty(\Xi_3)\subset\cdots\subset C^\infty(\Xi_7)\subset C^\infty(\Xi_8)\subset C^\infty(\Xi_9)\subset C^\infty(\Xi_{10})\subset C^\infty(M_\infty)$ is complete (Part 1 §3h). What is absent for $d\in\{7,8,9\}$ is the active sector geometry: there is no sector potential $V_d(r)$ formed by a kernel fixed-point, hence no confining well, no discrete eigenmodes, and no contribution to the observed spectrum. The coordinate subspaces $\Xi_7$, $\Xi_8$, $\Xi_9$ exist as submanifolds of M_∞; they simply carry no bound-state activity.
 
@@ -385,7 +389,7 @@ As derived consequences in oscillation-experiment language, $\Delta m^2_{ij} = (
 
 The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure relation 🔶 (primary derivation Part 2 §9d): $g_{\rm coeff}\times g_{33} = n_s^2 = k_0$ (the $\sqrt{7}$ cancels algebraically), so $\varepsilon\cdot g_{33} = k_0/(k_0\cdot n_{\rm mu}) = 1/35$ — exact given independently-derived $\varepsilon$ and $g_{33}$, but the deeper operator mechanism is not yet derived. The corrected $m_{\nu_3}^{\rm corr} = 50.267$ meV implies $\Delta m^2_{31} = 2.5246\times10^{-3}$ eV$^2$ — within 0.05% of PDG 2023 and within 0.2σ of PDG 2024. Structural source: $n_{\nu_3}$ is the unique inclusion-exclusion mode index, combining the d=3 image ($n_{\nu_1}$) and d=4 image ($n_{\nu_2}$) of the seed $n_u$; the l=2 cross-term (T2) then mixes these via $\varepsilon$ (d=4 GTC coefficient) and $g_{33}$ (d=3 back-reaction). Expressing the correction as $\Delta m^2_{31}$ inflates the apparent significance without adding information.
 
-**T11c** (Majorana forbidden). $d\bmod8=5$ (Clifford algebra mod 8 periodicity) forbids the Majorana condition on $\mathcal{S}_5$-spinors. Neutrinos are strictly Dirac. The $0\nu\beta\beta$ decay rate is exactly zero.
+**T11c** (Majorana forbidden). $d\bmod8=5$ (Clifford algebra mod 8 periodicity) forbids the Majorana condition on $\mathcal{S}_5$-spinors. Neutrinos are strictly Dirac. The $0\nu\beta\beta$ decay rate is therefore zero at all orders: no $C$ exists on the $S^5$ bundle, so no Majorana operator can be constructed at any loop order.
 
 **T11d** (Cosmological sum). $\Sigma m_\nu = 60.39\ \text{meV}$ with the established $\delta_{\nu_3}=1/35$ correction (Part 2 §9d); uncorrected sum $59.00\ \text{meV}$. Normal ordering, no free parameters. Both are within current cosmological bounds; CMB-S4 will distinguish them.
 
@@ -458,7 +462,7 @@ Two exact results follow:
 
 1. **Universal ground state.** $S(1,d)=1$ for every sector; all sectors share the same ground-state energy in units of $m_{\rm scale}_d$. Verified: $K_d(5)\approx e^{-5}=0.006738$ to six figures for all six $d$.
 
-2. **First excitation gap equals sector dimension.** $S(2,d)-S(1,d)=d$ (the mode-spacing identity T13b at $n=1$, $d\to d$: $S(2,d)-S(1,d)=S(2,d-1)\neq d$ — actually $S(2,d)-1=d+1-1=d$). The energy gap to the first excited state is exactly $d$ in dimensionless units.
+2. **First excitation gap equals sector dimension.** $S(2,d)-S(1,d)=(d+1)-1=d$ (equivalently, by the T13b mode-spacing identity, $S(2,d)-S(1,d)=S(2,d-1)=d$). The energy gap to the first excited state is exactly $d$ in dimensionless units.
 
 ### T14d. Pole Structure of the Sector Zeta Function ✅
 
@@ -758,11 +762,11 @@ The common value $N_c(N_c+1)^3/2$ is the Hopf constraint expressed in terms of $
 | $n_u$ | $N_c$ | 3 |
 | $n_s$ | $N_c+1$ | 4 |
 | $n_e$ | $(N_c+1)^2 - N_c = N_c^2+N_c+1$ | 13 |
-| $n_{\nu_1}$ | $n_e - n_u = N_c^2+1$ | 10 |
+| $n_{\nu_1}$ | $S(N_c,3) = C(N_c{+}2,3)$ | 10 |
 | $n_{\nu_2}$ | $S(N_c,4) = C(N_c{+}3,4)$ | 15 |
 | $n_{\rm top}$ | $N_c(N_c+1)(N_c+3) = \chi(\mathbb{CP}^2)\chi(\mathbb{CP}^3)\chi(\mathbb{CP}^5)$ | 72 |
 
-Every particle's mode index traces back to $N_c = \chi(\mathbb{CP}^2)$. Note: $n_{\nu_1} = N_c^2+1$ and $S(N_c,3) = C(N_c{+}2,3)$ both equal 10 at $N_c=3$ but are different functions; the primary derivation of $n_{\nu_1}$ is from the gap $n_e - n_u$ (Part 9 T6), not from $S(N_c,3)$.
+Every particle's mode index traces back to $N_c = \chi(\mathbb{CP}^2)$. The primary derivation of $n_{\nu_1}$ is $n_{\nu_1}=S(n_u,3)=10$, the $d=3$ simplex image of the up-quark seed (the Generation Tower; cf. the mode-spacing form $S(4,3)-S(3,3)=S(4,2)=10$ above), from which the charged-lepton index follows as $n_e = n_{\nu_1}+n_u$. The closed form $N_c^2+1$ coincides with $S(N_c,3)=C(N_c{+}2,3)$ only at $N_c=3$; they are different functions.
 
 **Corollary T15e (Neutrino mass scale and the lepton coupling complement).** T11a states $m_{{\rm scale},5} = (n_u/n_s)\times m_{{\rm scale},6}^3/m_{{\rm scale},4}^2$. Since $n_u/n_s = N_c/(N_c+1)$ and $g_{66} = 1/(N_c+1)$:
 $$\boxed{m_{{\rm scale},5} = (1-g_{66})\times\frac{m_{{\rm scale},6}^3}{m_{{\rm scale},4}^2}.}$$

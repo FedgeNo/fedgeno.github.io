@@ -119,7 +119,7 @@ The question of cross-terms between different sector-space coordinates — δ²S
 
 For macroscopic (non-compact) Ξ, the variation of ∫_Ξ ... dμ_ξ by parts requires boundary conditions as |ξ| → ∞.
 
-Physical modes are bound states of the sector potential V(ξ) = λ_d r²/(1+r²) (Part 4 §3.10). Bound states decay exponentially: |χ_{n,d}(ξ)| ~ exp(−α|ξ|) for |ξ| → ∞. Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
+Physical modes are bound states of the harmonic sector potential V(ξ) = λ_d r² (Part 4 §3.10). Bound states decay as a Gaussian: |χ_{n,d}(ξ)| ~ P(|ξ|) exp(−√λ_d |ξ|²/2) for |ξ| → ∞ (polynomial × Gaussian). Boundary terms in the integration by parts that yields the field equations therefore vanish. The action integral is well-defined despite the non-compact domain.
 
 Non-normalizable (scattering) modes do not satisfy this condition — they are not bound-state eigenmodes of the sector potential and are absent from the physical spectrum. The bound-state normalizability condition automatically selects precisely the modes for which the sector-space integrals converge.
 
@@ -246,9 +246,9 @@ Therefore:
 V_self(r) = g_{dd} × (⟨r'²⟩_d / d) × r²
 ```
 
-where r = |ξ_d| and ⟨r'²⟩_d = ∫_{Ξ_d} r'² |χ_d(ξ')|² dμ_ξ' is the mean-square sector radius of the ground-state mode. This gives a harmonic potential V_self ∝ r² — precisely the near-origin behaviour of V_conf = λ_d r²/(1+r²), with:
+where r = |ξ_d| and ⟨r'²⟩_d = ∫_{Ξ_d} r'² |χ_d(ξ')|² dμ_ξ' is the mean-square sector radius of the ground-state mode. This gives a harmonic potential V_self ∝ r² — which is the confining potential itself, V_d = λ_d r² (the saturating form once posited here is dropped; see the note below), with:
 
-**Note on the potential functional form (MC-2).** The derivation establishes only the near-origin r² behaviour of V_conf. The full potential form V_d(r) = λ_d r²/(1+r²), which saturates to λ_d at large r, is an ansatz: the (1+r²) denominator is chosen to give a bounded potential that reduces to λ_d r² for small r and to λ_d for large r, ensuring a discrete spectrum. This saturation form has not been derived from the IDWT action. Open item (Part 6, MC-2): derive the large-r saturation from the kernel self-energy at large r, or promote the functional form to an explicit postulate (extension of P3).
+**Note on the potential functional form (MC-2, resolved).** The kernel self-energy derives the r² coefficient (above). The earlier saturating form λ_d r²/(1+r²) is dropped: it supports no localized bound state in d=5,6,10 — the neutrino, charged-lepton, and tau sectors (Appendix §20) — so it cannot host the spectrum. The adopted potential is the **pure harmonic** V_d(r) = λ_d r², which is confining (purely discrete spectrum, σ_ess = ∅), reproduces the IDOS S(n,d) exactly in every sector, and makes the §3.10.3 self-consistency exact rather than circular. The narrow residual: the kernel fixes the r² coefficient near a localized source, and extending the pure-harmonic form to all r is adopted on these grounds rather than derived term-by-term from the action.
 
 ```
 λ_d = g_{dd} × ⟨r'²⟩_d / d
@@ -420,7 +420,7 @@ Both arguments give the same result: $V_{\rm vacuum}$ does not appear as a dilut
 
 $$G_N = G_\infty / V_7, \qquad V_7 \approx 7.74$$
 
-**Status.** $V_7\approx7.74$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The single remaining open item is $G_\infty$: fixing the spectral action scale $\Lambda$ and function $f$ determines $G_\infty=f_2\Lambda^2 a_2/(8\pi)$, making $G_N=G_\infty/V_7$ a complete prediction.
+**Status.** $V_7\approx7.74$ is fully derived from sector coupling constants (§3.10). $V_{\rm vacuum}$ does not enter — confirmed by both the Ricci-flat vacuum argument and T5. The spectral-action coefficients are now computed (§3.12.4): the Einstein-Hilbert coefficient $a_2$ has exponent $51/10$ (fixed by $N_c=3$) and the curvature-squared coefficient $a_4^{\rm grav}=0.482$, with the product spectral dimension $D_{\rm tot}=71/10$ giving $a_2/a_4\propto\Lambda^2$. Within the product approximation no ratio of coefficients fixes $\Lambda$, so $G_\infty$ (equivalently $\Lambda$, equivalently $G_N$) is a **second dimensional input** alongside $m_e$; reducing this to one input would require beyond-product cross-sector metric mixing or an independent geometric determination of $\Lambda$.
 
 ---
 
@@ -474,9 +474,23 @@ $$G_N^{-1} = \frac{\prod_{d\in D} a_0^{(d)}\,\Gamma(1+\sigma)}{6\pi}\,\Lambda^{2
 
 The **exponent $51/10$ is exact and fixed by $N_c=3$** (it is determined by the sector set $D$, which T3–T5 fix from $N_c$); the prefactor is $\approx 8.5$ for the exponential cutoff and is cutoff-dependent. The $d=2$ sector contributes $R_2\cdot\mathrm{Vol}_2 = \pi$ exactly — a topological term independent of $g_{22}$.
 
-**Why the a_2/a_4 ratio does not close it.** In standard NCG the ratio $a_2/a_4$ eliminates $\Lambda$ to give $G_N$ in terms of the gauge couplings (which here are fixed by $N_c$, T9). Carrying out the $a_4$ computation defeats this: for constant-curvature sectors the gravitational $a_4$ carries the factor $\beta_d = \tfrac1{20} - \tfrac1{2d} + \tfrac1{d(d-1)}$, and $\beta_5 = \beta_6 = 0$ **exactly** (the neutrino and charged-lepton sectors contribute nothing to the gravitational $a_4$; the $d=10$ sector dominates). Crucially $a_4^{\rm grav}$ is $\Lambda$-independent while $a_2\propto\Lambda^{51/10}$, so the ratio cannot eliminate $\Lambda$. **$\Lambda$ therefore remains a genuine free dimensional input** — matching the measured $G_N$ requires $\Lambda \approx 3\times10^8$ MeV ($\sim 3\times10^5$ GeV), far above every sector mass scale and with no geometric interpretation in the current construction.
+**The $a_4$ coefficient and the sector breakdown. ✅/🔶** Carrying the heat-kernel expansion to curvature-squared order gives $a_4$. For constant-curvature sectors the gravitational channel carries the factor $\beta_d = \tfrac1{20} - \tfrac1{2d} + \tfrac1{d(d-1)}$, and $\beta_5 = \beta_6 = 0$ **exactly** ✅ — the neutrino ($d=5$) and charged-lepton ($d=6$) sectors contribute nothing to the gravitational $a_4$. Evaluated on the canonical sector lengths $L_d$ (§3.10):
 
-**The remaining open item.** A $\Lambda$-dependent $a_4$ could in principle come from the gauge channel, whose cross-sector terms require the overlap integrals $\mathcal{I}_{dd'} = \int(\xi_d\cdot\xi_{d'})^4\,|\chi|^2|\chi'|^2$ — and these need the explicit mode functions $\chi_{n,d}$ (Part 6, foundational open items). The structural form, exponent, and prefactor of $a_2$ are now computed; fixing $\Lambda$ (equivalently $G_N$) is the single remaining open item, blocked on the same mode-function derivation as the hadronic and CP-phase items. The chain to closure is $\chi_{n,d} \to \mathcal{I}_{dd'} \to a_4^{\rm gauge} \to a_2/a_4 \to G_N$. Once $\Lambda$ is fixed, $G_N = G_\infty/V_7$ is a parameter-free prediction.
+$$a_4^{\rm grav} = \frac{1}{16\pi^2}\sum_{d\in D} R_d^2\,\mathrm{Vol}_d\,\beta_d = 0.482,$$
+
+dominated by $d=10$ (75%), just as the Einstein-Hilbert sector sum $\sum_{d\in D} R_d\,\mathrm{Vol}_d = 284.6$ is dominated by $d=10$ (40%), the $d=2$ term being the topological $\pi$. (Per-sector $R_d\cdot\mathrm{Vol}_d$: $d=2{:}\,3.142$, $3{:}\,5.998$, $4{:}\,11.257$, $5{:}\,72.16$, $6{:}\,77.47$, $10{:}\,114.62$.)
+
+**The spectral dimension closes the $\Lambda$ question. ✅** With $K_\Xi(t)\sim t^{-\sigma}$ the total heat trace scales as $t^{-(2+\sigma)}$, fixing the spectral dimension of $M_\infty$:
+
+$$D_{\rm tot} = 4 + 2\sigma = \frac{71}{10}.$$
+
+Every Seeley-DeWitt coefficient $a_{2k}$ enters the spectral action at order $\Lambda^{D_{\rm tot}-2k}$: $a_0$ at $\Lambda^{7.1}$, $a_2$ at $\Lambda^{5.1}=\Lambda^{51/10}$, $a_4$ at $\Lambda^{3.1}=\Lambda^{31/10}$. Therefore
+
+$$\frac{a_2}{a_4}\propto \Lambda^{(2+2\sigma)-2\sigma} = \Lambda^{2},$$
+
+so — exactly as in standard NCG — the ratio retains a residual $\Lambda^2$ and **cannot eliminate the cutoff**. (This corrects an earlier draft that treated $a_4$ as $\Lambda$-independent; the product spectral dimension makes $a_4\propto\Lambda^{31/10}$, and the conclusion that $\Lambda$ survives is unchanged.)
+
+**Conclusion: $G_N$ is a second dimensional input. ✅** Within the product approximation no ratio of spectral-action coefficients fixes $\Lambda$, because the spectral dimension $71/10$ makes $a_2/a_4\propto\Lambda^2$. The framework's dimensional inputs are therefore exactly **two** — $m_e$ (setting all particle masses) and $G_N$, equivalently $\Lambda$ (setting the gravitational scale) — with all dimensionless structure following from $N_c=3$. Matching the measured $G_N$ requires $\Lambda \approx 3\times10^8$ MeV ($\sim 3\times10^5$ GeV), far above every sector mass scale and with no geometric interpretation in the current construction. Reducing the count to one input would require $\Lambda$-dependence from beyond-product cross-sector metric mixing ($G_{\mu a}\neq 0$) or an independent geometric determination of $\Lambda$; neither is available here. The Einstein-Hilbert coefficient ($a_2$: form, exponent $51/10$, prefactor) and the curvature-squared coefficient ($a_4^{\rm grav}$, spectral dimension $71/10$, $a_2/a_4\propto\Lambda^2$) are now computed; the gravitational sector is complete up to this two-input count.
 
 **What does not belong here.** The Kaluza-Klein formula M_Pl^2 = M_∗^9 V_7^{\rm phys} (which would define an "11D fundamental scale" M_∗) is not IDWT. It requires compact extra dimensions, graviton propagation through those dimensions, and a Kaluza-Klein tower of massive graviton modes — all of which are explicitly excluded by Part 4 §1b. IDWT has no compact dimensions (Ξ is non-compact), no graviton quanta (gravity is geometry, not a field), and no KK tower. The formula does not apply, and M_∗ is not a quantity that appears in this framework.
 

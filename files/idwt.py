@@ -61,6 +61,17 @@ def S(n, d):
     engine behind the eigenmode selection rule: every filtration relationship is a
     consequence of Pascal's triangle applied at specific fixed points.
     (Part 2 section 4)
+
+    The table also satisfies the dual multiplicative recursion across sectors at
+    fixed mode index:
+
+        S(n, d+1) = S(n, d) * (n+d)/(d+1)   <=>   S(n,d)/S(n,d+1) = (d+1)/(n+d)
+
+    (Appendix A section 18). The hockey-stick steps across n at fixed d (the
+    diagonal the generation tower climbs); this one steps across d at fixed n.
+    Together they generate the whole table from S(1,d)=1. The generation tower is
+    built from the hockey-stick alone; the multiplicative ladder is not required to
+    fix the spectrum. (Part 2 section 3)
     """
     return math.comb(n + d - 1, d) if n >= 0 and d >= 0 else 0
 
@@ -209,10 +220,13 @@ g44 = (n_strange * n_up) / math.sqrt(n_strange + n_up)
 # g66 = 1/n_s = 1/4
 # The d=6 (charged lepton) self-coupling is set directly by the seed.
 # g_{66} = 1/n_s = 1/4 is a seed ratio, not a kernel fixed-point coupling.
-# This is why Hopf universality does not extend to generate a d=7 sector:
-# there is no kernel fixed-point equation linking d=7 back to d=6.
-# g_{10,10} = g_{66} = 1/n_s for the same reason (both CP sectors share
-# the seed coupling). (Part 1 section 3a, Part 2 section 8)
+# The coupling-construction chain therefore terminates at d=6. The band
+# d=7,8,9 gets no self-coupling: d=8 (CP^4) is the Euler-characteristic gap
+# (chi=5=N_c+2, no g88 fixed point; T15b), while d=7 (S^7) and d=9 (S^9) are
+# odd total spaces routable only over their bases d=6 (terminus) and d=8 (gap),
+# neither a fixed-point base (T9b). See Part 9 T3 Rule A.
+# g_{10,10} = g_{66} = 1/n_s by mu-tau symmetry (T9c); d=10 re-enters as the
+# Gegenbauer critical endpoint. (Part 1 section 3a, Part 2 section 8)
 g66 = 0.25
 
 
@@ -540,8 +554,10 @@ m_p_pred = N_c * Lqcd * (1 + 1.0 / n_up**2)
 # --- Bottom quark (beat mode at k0 = n_s^2 = 16) ----------------------------
 # m_b = sqrt(S(k0,3) * S(k0+1,3)) * m_scale_3
 # The b quark arises as a beat resonance at k0=n_s^2=16 in d=3 where three
-# independent conditions coincide (Part 2 section 8). The equal-weight fixed
-# point |A_16|=|A_17| forces the geometric mean. (Part 2 section 8)
+# independent conditions coincide (Part 2 section 8). At equal occupation
+# |A_16|=|A_17|, the quartic density-density coupling |Psi_16|^2 |Psi_17|^2
+# carries energy ~ E_16*E_17 (dimension energy^2), so the beat mass is its
+# square root -- the geometric mean. (Part 2 section 8)
 k0 = n_strange**2                          # = 16
 m_b = math.sqrt(S(k0, 3) * S(k0 + 1, 3)) * m_scale3
 
@@ -629,92 +645,6 @@ for _d, _lam in [(2,50.723),(3,4.820),(4,1.726),(5,0.164),(6,0.250),(10,0.250)]:
     _gaps = [(_E[i+1]-_E[i])/_E[i] for i in range(4)]
     if any(g <= 0 for g in _gaps):
         _stability_ok = False
-
-
-# =============================================================================
-# STEP 7b -- SCATTERING CROSS SECTIONS AND MOLECULAR PHYSICS
-# =============================================================================
-# All from the same electron-photon vertex L_int = e(Psi-bar Gamma^mu Psi)A_mu
-# with e^2 = 4*pi*alpha and r_e = alpha/m_e (classical electron radius).
-# (Part 8 sections 15, 15a, 17a, 17b)
-
-# --- Classical electron radius and Thomson cross section ---------------------
-# r_e = alpha / m_e    [in natural units where hbar=c=1]
-# sigma_T = (8*pi/3) r_e^2   (Part 8 section 15.3)
-alpha_em   = 1.0 / 137.036          # fine structure constant (derived in Part 3 §16)
-r_e        = alpha_em / m_e          # classical electron radius in 1/MeV (nat. units)
-sigma_T_nb = (8*math.pi/3) * r_e**2 # Thomson cross section in 1/MeV^2
-# Convert to physical units: 1/MeV^2 = (hbar*c)^2 * 1e-6 pb = (197.3 MeV·fm)^2
-hbarc_MeV_fm = 197.3269804          # MeV·fm
-sigma_T_fm2  = sigma_T_nb * hbarc_MeV_fm**2    # fm^2
-sigma_T_barn = sigma_T_fm2 * 1e-2              # barn (1 fm^2 = 0.01 barn)
-
-# --- Compton wavelength shift ------------------------------------------------
-# Delta_lambda = lambda_C (1 - cos theta),  lambda_C = alpha * a_0 = alpha^2/m_e
-# (Part 8 section 15a.2)
-a0_MeV_inv  = alpha_em / m_e         # Bohr radius in 1/MeV (same as r_e at this level)
-lambda_C_m  = hbarc_MeV_fm * 1e-15 * alpha_em / m_e  # Compton wavelength in metres
-# Numerically: lambda_C = 2.426e-12 m
-
-# --- Klein-Nishina cross section (function of x = E_gamma/m_e) ---------------
-# sigma_KN = sigma_T * f(x)  (Part 8 section 15a.3)
-def klein_nishina_f(x):
-    """Klein-Nishina suppression factor f(x). f(0)=1, f(x)~(3/8x)ln(2x) for x>>1."""
-    if x < 1e-6:
-        return 1.0
-    return (0.75 * ((1+x)/x**3 * (2*x*(1+x)/(1+2*x) - math.log(1+2*x))
-            + math.log(1+2*x)/(2*x) - (1+3*x)/(1+2*x)**2))
-
-# --- d=6 sector scale constants (used downstream) ----------------------------
-lambda_6    = 0.250                           # sector coupling lambda_6 = (g_66/2)^{2/3}
-m_e_eV      = m_e * 1e6                      # electron mass in eV
-hbar_c_eVnm = 197.3                          # hbar*c in eV*nm
-a0_nm       = 0.052918                       # Bohr radius [nm]
-
-# --- Exact C6 for H-H van der Waals via Casimir-Polder integral (Part 8 §17b.2) ---
-# C6 = (3/pi) * integral_0^inf alpha^2(i*omega) d*omega   [all in a.u.]
-# alpha(i*omega) = sum_{n>=2} f_n/(omega_n^2+omega^2) + int (df/deps)/(omega_eps^2+omega^2) d*eps
-#
-# Discrete oscillator strengths (Bethe formula):
-#   f(1->n) = (256/3) * n^5 * (n-1)^{2n-4} / (n+1)^{2n+4}
-#   omega_n = 0.5*(1 - 1/n^2)  [Hartree]
-#
-# Continuum oscillator strength density (Stobbe formula, Bethe & Salpeter §63):
-#   sigma_1s(omega) = (512*pi^2*alpha/3) * (I_H/omega)^4 * G  [a0^2]
-#   df/deps = sigma/(2*pi^2*alpha) = (256/3) * (1+k^2)^{-4} * G
-#   G = exp(-4*arctan(k)/k) / (1 - exp(-2*pi/k)),  k = sqrt(2*eps)
-#   Threshold check: sigma(threshold) = 2*pi^2*alpha*(256/3)*exp(-4) = 6.30 Mb ✓
-#   TRK sum rule: sum f_n + int df/deps deps = 1.000 ✓
-#
-# Casimir-Polder result (computed in claude/c6_exact.py):
-#   C6 = 6.4988 a.u.  cf. Dalgarno & Davison (1966) exact = 6.4990267 a.u.  (0.003% error)
-#   In eV*Ang^6: 6.4990 * Hartree * a0^6 = 6.4990 * 27.2114 * (0.52918)^6 = 3.883 eV*Ang^6
-#
-# London leading order: C6_London = (3/4)*alpha_H^2*I_H = 7.594 a.u. = 4.538 eV*Ang^6
-# London OVERESTIMATES by +17% (not underestimates) -- the sum over all excited states
-# reduces C6 below the single-frequency London estimate.
-#
-# In eV*Angstrom^6:
-a0_Ang  = 0.52918       # Bohr radius in Angstrom
-I_H_eV  = 13.6057       # ionisation energy of H (= Rydberg = m_e*alpha^2/2 * hbarc^2)
-alpha_H_Ang3 = 4.5 * a0_Ang**3   # static polarisability of H in Angstrom^3
-C6_HH_London = 0.75 * alpha_H_Ang3**2 * I_H_eV  # London (3/4)*alpha^2*I = 4.538 eV*Ang^6
-Hartree_eV  = 27.2114
-C6_au_to_eVAng6 = Hartree_eV * a0_Ang**6   # 1 a.u. of C6 = 0.5970 eV*Ang^6
-C6_HH_exact_au = 6.4990267  # Dalgarno & Davison (1966) exact value [Hartree * a0^6]
-C6_HH   = C6_HH_exact_au * C6_au_to_eVAng6   # 3.883 eV*Ang^6  (exact, all IDWT outputs)
-
-# --- Hückel benzene MO energies (Part 8 section 17a.2) -----------------------
-# E_k = alpha_h - 2*beta * cos(2*pi*k/6), k=0..5
-# Filling 6 pi-electrons: k=0 (2e), k=+/-1 (4e) -- all bonding occupied.
-# Hückel 4n+2 = closed SO(3) shell condition. (Part 8 section 17a.3)
-import cmath
-huckel_N = 6
-# Bonding MOs: k=0 (E=alpha-2beta), k=+/-1 (E=alpha-beta)
-# Antibonding: k=+/-2 (E=alpha+beta), k=3 (E=alpha+2beta)
-# In units of beta (resonance integral), with alpha=0:
-huckel_E = sorted([-2*math.cos(2*math.pi*k/huckel_N) for k in range(huckel_N)])
-# huckel_E = [-2, -1, -1, +1, +1, +2] (in units of -beta; bonding = negative)
 
 
 # =============================================================================
@@ -869,8 +799,7 @@ dm2_31_corr = (m_nu3_MeV_corr**2 - (S(n_nu1,5)*m_scale5)**2) * 1.0e12  # eV²
 #   sin²θ₂₃ = (1-g₅₅)/2  + g₅₅ × S(n_τ,10)/(S(n_μ,6)+S(n_τ,10))
 #   sin²θ₁₂ = (1-g₅₅)/3  + g₅₅ × S(n_ν₁,5)/(S(n_ν₁,5)+S(n_ν₂,5))
 #   sin²θ₁₃ = g₅₅ × δ₂₃ × log(S(n_τ,10)/S(n_μ,6)),  δ₂₃=sin²θ₂₃-1/2
-#
-# No loop integrals. Pure spectral geometry of M∞. (Part 5 sections 3g-3i)
+# (Part 5 sections 3g-3i)
 
 g55_pmns    = 96.0 / g22                                         # = g55 (d=5 self-coupling)
 m_amp_23    = S(n_tau,10)  / (S(n_mu,6) + S(n_tau,10))
@@ -996,10 +925,6 @@ J_at195 = J_max * math.sin(195 * math.pi / 180)   # at PDG best-fit δ_CP ≈ 19
 m_mu_m    = m_scale6  * S(n_mu,  6)
 m_tau_m   = m_scale10 * S(n_tau, 10) * back_reaction_factor
 
-# [QCD-imported] One-loop α_s at m_τ from IDWT Λ_QCD: α_s(m_τ) = 2π / [b₀ ln(m_τ/Λ_QCD)]
-# b₀ = (11N_c - 2N_f)/3: QCD one-loop β-function coefficient; N_f = 3 light flavours.
-# This NLO correction is a cross-framework consistency check — the LO result (N_c = 3) is
-# the IDWT-native result; the α_s term uses the imported SM/QCD running-coupling formula.
 _b0_tau      = (11*N_c - 2*3) // 3                              # = 9
 _alpha_s_tau = 2*math.pi / (_b0_tau * math.log(m_tau_m / Lqcd))
 _R_had       = N_c * (1 + _alpha_s_tau / math.pi)               # hadronic enhancement
@@ -1272,12 +1197,24 @@ for _d in _D_sa:
     _a0_prod *= _gamma(1 + 1.0/_d) * _fact(_d)**(1.0/_d)   # prod = 116.781
 _GN_prefactor = _a0_prod * _gamma(1 + _sigma_sa) / (6*math.pi)  # ~ 8.54 (exp cutoff)
 # Lambda required to match measured G_N = 6.709e-45 MeV^-2 (NOT a prediction;
-# Lambda is a free input -- a2/a4 does NOT eliminate it: beta_5 = beta_6 = 0 and
-# a4_grav is Lambda-independent while a2 ~ Lambda^(51/10), so the NCG ratio fails).
+# Lambda is a free input). a2/a4 does NOT eliminate it: the product spectral
+# dimension D_tot = 4+2sigma = 71/10 makes a2 ~ Lambda^(51/10) and a4 ~ Lambda^(31/10),
+# so a2/a4 ~ Lambda^2 -- a residual Lambda^2 survives (Part 4 section 3.12.4).
 _GN_meas      = 6.709e-45                              # MeV^-2
 _Lambda_req   = (1.0/(_GN_prefactor*_GN_meas))**(1.0/_GN_exponent)   # ~3e8 MeV ~3e5 GeV
-# gravitational a4 factor beta_d = 1/20 - 1/(2d) + 1/(d(d-1)); beta_5=beta_6=0 exact
-_beta = {_d: 1/20 - 1/(2*_d) + 1/(_d*(_d-1)) for _d in _D_sa}
+_D_tot        = 4 + 2*_sigma_sa                        # = 71/10 = 7.1 spectral dim
+# a4 gravitational channel: beta_d = 1/20 - 1/(2d) + 1/(d(d-1)); beta_5=beta_6=0 exact.
+# Constant-curvature sectors: R_d = d(d-1)/L_d^2, Vol_d = (pi/2)^(d/2) L_d^d/Gamma(d/2+1)
+# (so R_2*Vol_2 = pi exactly, topological). a4_grav = (1/16pi^2) sum R_d^2 Vol_d beta_d.
+_beta   = {_d: 1/20 - 1/(2*_d) + 1/(_d*(_d-1)) for _d in _D_sa}
+def _RVol(_d):
+    _L = _table[_d][3]
+    _R = _d*(_d-1)/_L**2
+    _V = (math.pi/2)**(_d/2) * _L**_d / _gamma(_d/2 + 1)
+    return _R*_V, _R*(_R*_V)                           # (R*Vol, R^2*Vol)
+_RV     = {_d: _RVol(_d) for _d in _D_sa}
+_a2_EHsum = sum(_RV[_d][0] for _d in _D_sa)            # ~ 284.6 (a2 EH sector sum)
+_a4_grav  = sum(_RV[_d][1]*_beta[_d] for _d in _D_sa) / (16*math.pi**2)  # ~ 0.482
 
 def _solve(d, lam, N=6000):
     """Solve -f'' + [lam r²/(1+r²) + cen/r²] f = E f; return (Ev, fv, r, h)."""
@@ -1681,7 +1618,13 @@ print(f"  Spectral action: sigma = sum 1/d = {_sigma_sa:.4f} (=31/20); "
       f"G_N^-1 exponent 2+2sigma = {_GN_exponent:.1f} (=51/10, fixed by N_c=3)")
 print(f"    prod a0_d = {_a0_prod:.4f}; prefactor = {_GN_prefactor:.4f} (exp cutoff)")
 print(f"    beta_d (grav a4): " + ", ".join(f"{_d}:{_beta[_d]:+.4f}" for _d in _D_sa)
-      + "  (beta_5=beta_6=0 exact -> a2/a4 does NOT eliminate Lambda)")
+      + "  (beta_5=beta_6=0 exact)")
+print(f"    a2 EH sector sum (sum R_d Vol_d) = {_a2_EHsum:.2f} (d=10 share "
+      f"{_RV[10][0]/_a2_EHsum*100:.0f}%; d=2 term = pi exactly)")
+print(f"    a4_grav = (1/16pi^2) sum R_d^2 Vol_d beta_d = {_a4_grav:.4f} "
+      f"(d=10 share {_RV[10][1]*_beta[10]/(_a4_grav*16*math.pi**2)*100:.0f}%)")
+print(f"    spectral dim D_tot = 4+2sigma = {_D_tot:.1f} (=71/10): a2~L^5.1, a4~L^3.1, "
+      f"a2/a4 ~ L^2 -> Lambda NOT eliminated; G_N is a 2nd dimensional input")
 print(f"    Lambda to match G_N = {_Lambda_req:.3g} MeV ~ {_Lambda_req/1e3:.3g} GeV "
       f"(free input; no geometric interpretation)")
 
@@ -1748,14 +1691,17 @@ def pred_uncorrected(name, d, n):
         K_{16,17} proportional to sqrt(b_16 * b_17)
         where b_n = sqrt(n*(n+d-1)) / (2n+d-2)  for d=3.
       At the triple-resonance site, the l=0 kernel drive is equal for both
-      modes. The equal-weight fixed-point condition |A_16|=|A_17| gives the
-      mass as the solution to E^2 = E_16 * E_17, i.e. the geometric mean:
+      modes (equal occupation |A_16|=|A_17|). The beat is held together by the
+      quartic density-density kernel term |Psi_16|^2 |Psi_17|^2. The magnitude
+      of that cross-term scales as the product E_16*E_17 (dimension energy^2),
+      so the beat energy sits at its square root, E^2 = E_16 * E_17, i.e. the
+      geometric mean:
           m_b = sqrt(S(16,3) * S(17,3)) * m_scale_3
       S(16,3) = C(18,3) = 816, S(17,3) = C(19,3) = 969.
       Result: ~4181 MeV vs PDG 4180 MeV (+0.02%). (Part 2 section 12, Part 7)
-      The geometric mean is forced by symmetry at the resonance; it is not
-      chosen to fit the data. No other combination is consistent with equal
-      spectral weight and the quadratic kernel fixed-point equation.
+      The geometric mean follows from the quartic coupling structure; the
+      dimensional argument is heuristic -- a closed derivation from the quartic
+      kernel eigenvalue problem is open.
     """
     if name == "photon":
         return 0.0
@@ -1970,7 +1916,7 @@ for name, sym_val, pdg_val, note in mu_tau_sym:
     dev = pdg_val - sym_val
     print(f"  {name:>18}  {sym_val:>8.4f}  {pdg_val:>8.4f}  {dev:>+8.4f}  {note}")
 print(f"\n  μ–τ symmetric limit deviations from PDG are derived in Step 19")
-print(f"  from spectral geometry (T6) with no loop integrals.")
+print(f"  from spectral geometry (T6).")
 print(f"  sin^2(theta_23) = 1/2 is EXACT from g_66=g_{{10,10}}=1/n_s.")
 
 
@@ -2173,42 +2119,6 @@ for _d, _lam in [(2,50.723),(3,4.820),(4,1.726),(5,0.164),(6,0.250),(10,0.250)]:
 print(f"    All sector spectral gaps positive: {'✓' if _stability_ok else '✗'}")
 print(f"    → mode index n (eigenvalue rank) invariant under bounded perturbations")
 print(f"    → S(n,d) invariant → m(n,d) = m_scale_d*S(n,d) technically natural ✅")
-
-# =============================================================================
-# STEP 26b -- SCATTERING CROSS SECTIONS AND MOLECULAR PHYSICS
-# =============================================================================
-
-print("\n=== PHOTON-ELECTRON SCATTERING (Part 8 §15, §15a) ===")
-print(f"  r_e = alpha/m_e = {alpha_em:.6f}/{m_e} = {r_e:.6e} MeV^-1")
-print(f"  Thomson cross section: sigma_T = (8pi/3) r_e^2 = {sigma_T_barn:.4f} barn")
-print(f"  PDG: 0.6652 barn   err {(sigma_T_barn/0.6652-1)*100:+.2f}%")
-print()
-print("  Klein-Nishina suppression f(x) where x = E_gamma/m_e:")
-for _x in [0.0, 0.1, 0.5, 1.0, 2.0, 10.0]:
-    _f = klein_nishina_f(_x)
-    print(f"    x={_x:5.1f}: f={_f:.4f}  sigma_KN={sigma_T_barn*_f:.4f} barn"
-          f"  [E_gamma = {_x*m_e:.1f} MeV]")
-print(f"  Compton wavelength: lambda_C = {lambda_C_m:.4e} m  (PDG: 2.4263e-12 m)")
-
-print(f"\n=== VAN DER WAALS C6(H-H) (Part 8 §17b) ===")
-print(f"  alpha_H = 9/2 * a0^3 = {alpha_H_Ang3:.4f} Angstrom^3  (exact: 4.500)")
-print(f"  I_H = m_e*alpha^2/2 = {I_H_eV:.4f} eV  (Rydberg)")
-print(f"  C6(H-H) London = (3/4) alpha_H^2 * I_H = {C6_HH_London:.4f} eV*Ang^6  = {C6_HH_London/C6_au_to_eVAng6:.4f} a.u.")
-print(f"  C6(H-H) exact  (Casimir-Polder, Dalgarno & Davison 1966)")
-print(f"    = {C6_HH_exact_au:.7f} a.u. = {C6_HH:.4f} eV*Ang^6")
-print(f"  London vs exact: {(C6_HH_London/C6_HH-1)*100:+.1f}%  (London OVERestimates by 17%)")
-print(f"  NOTE: the value 6.499 appears in the literature in a.u. (Hartree*a0^6), NOT eV*Ang^6.")
-
-print(f"\n=== BENZENE HÜCKEL pi-MO ENERGIES (Part 8 §17a) ===")
-print(f"  E_k = -2*beta*cos(2*pi*k/6), k=0..5  (in units where alpha_h=0)")
-print(f"  {'k':>3}  {'E/beta':>8}  {'occupancy':>10}")
-_occ = [2, 2, 2, 0, 0, 0]  # 6 pi electrons fill 3 lowest
-for _i, _e in enumerate(sorted(huckel_E)):
-    _o = "bonding (filled)" if _occ[_i] else "antibonding"
-    print(f"  {_i:>3}  {_e:>8.3f}  {_o}")
-print(f"  Total pi electrons: 6 = 4*1 + 2  (Huckel n=1: closed SO(3) shell) ✓")
-print(f"  Aromatic stabilisation energy: (4beta - 2beta) - 2*(3beta - 2*2beta/2)")
-print(f"  = 2beta above 3 isolated double bonds -> 2*beta delocalisation gain")
 
 # =============================================================================
 # STEP 27 -- AXIAL COUPLING g_A AND NEUTRON LIFETIME
@@ -2612,6 +2522,47 @@ print(f"  Co-fixed-point stability derivation COMPLETE: all non-Sigma modes are 
 print(f"    * Odd-level modes (n=2,6,8,...): l-parity blocks all coupling (exact ⭐)")
 print(f"    * Even-level modes (n=3,5,...):  off-diagonal ME + infinite-dim dephasing (🔵)")
 
+
+# =============================================================================
+# STEP 35 -- DEPTH-RELATIVE MARGINALIZATION (cross-sector observation table)
+# =============================================================================
+# (Part 1 section 3i)
+#
+# An observer assembled from sector-depth d_obs matter resolves only the first
+# d_obs coordinates of M_inf. A particle is a definite object across its own
+# d_p sector dimensions. When d_obs < d_p the observer cannot resolve the
+# particle's deeper coordinates and marginalizes |Psi_inf|^2 over them -- the
+# depth-general form of the d=3 marginal rho(r) = int |Psi_inf|^2 dxi.
+#
+#   resolved dims = min(d_obs, d_p)        # coordinates observer and particle share
+#   smeared dims  = max(0, d_p - d_obs)    # coordinates integrated out -> cloud
+#   sharp object  <=> d_p <= d_obs         # observer fully resolves the particle
+#
+# Row d_obs=3 reproduces the familiar case: the electron (d=6) is smeared over
+# 3 dims (the "electron cloud"), the tau (d=10) over 7. One depth up, the
+# electron (d_obs=6) smears the tau over 4 and resolves the down quark sharply.
+# The cloud is relative to observer depth, not a property of the particle.
+
+MARG_SECTORS = [2, 3, 4, 5, 6, 10]
+MARG_LABEL = {2: "gamma/W/Z/H", 3: "down-type q", 4: "up-type q",
+              5: "neutrino", 6: "e / mu", 10: "tau"}
+
+def smeared_dims(d_obs, d_p):
+    """Coordinates of a depth-d_p particle a depth-d_obs observer integrates out."""
+    return max(0, d_p - d_obs)
+
+print("\n" + "=" * 70)
+print("STEP 35 -- DEPTH-RELATIVE MARGINALIZATION  (Part 1 section 3i)")
+print("=" * 70)
+print("smeared dims = max(0, d_particle - d_observer)")
+print("0 = observer resolves a sharp object; k>0 = appears as a k-dim cloud.\n")
+print("  " + f"{'particle \\ observer d_obs:':<24}" + "".join(f"{d:>5}" for d in MARG_SECTORS))
+for d_p in MARG_SECTORS:
+    row = "".join(f"{smeared_dims(d_obs, d_p):>5}" for d_obs in MARG_SECTORS)
+    print(f"  d={d_p:<2} {MARG_LABEL[d_p]:<19}" + row)
+print("\n  d_obs=3 (us):       electron smeared over 3, tau over 7.")
+print("  d_obs=6 (electron): tau smeared over 4, down-type quark resolved (0).")
+print("  The cloud is relative to observer depth.")
 
 # =============================================================================
 

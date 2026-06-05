@@ -151,6 +151,14 @@ n_Z − n_W = q = S(n_u−1,4) = 5                           [= the q from g₂�
 
 The last identity is structurally significant: the d=2 sector gap between W and Z modes equals exactly the q factor in the EW self-coupling formula g₂₂ = p²q/2. The Z-W mass gap and the EW coupling constant come from the same combinatorial quantity.
 
+⭐ **Complementary recursion — the multiplicative sector ladder (Appendix A §18):**
+
+```
+S(n, d+1) = S(n, d) × (n+d)/(d+1)       [equivalently  S(n,d)/S(n,d+1) = (d+1)/(n+d)]
+```
+
+The hockey-stick is the additive recursion across mode index $n$ at fixed sector $d$ — the diagonal the generation laws climb. This is its vertical partner: at fixed $n$ it steps the mode count from one sector to the next, and the two recursions together generate the entire $S(n,d)$ table from the boundary $S(1,d)=1$. The generation tower is built from the hockey-stick alone, so the multiplicative ladder is not required to fix the spectrum; it completes the account of how the simplex numbers propagate across sectors and fixes the exact ratio of any mode count to its image one sector higher.
+
 ---
 
 ## 4. Why d=6 is Colour-Neutral
@@ -261,14 +269,14 @@ k₀ = S(n_s,3) − S(2,3) = 20 − 4 = 16  (Vandermonde gap from absent n=2 mod
 
 All three hold exactly from seeds; no other site in any sector satisfies all three simultaneously (exhaustive search n ≤ 200, d ∈ D).
 
-**Why the geometric mean is forced.** The Jacobi coupling between adjacent d=3 modes near k₀ is $K_{n,n+1} \propto \sqrt{b_n \cdot b_{n+1}}$ where $b_n = \sqrt{n(n+d-1)}/(2n+d-2)$. At the triple-coincidence site, the $\ell=0$ kernel drive is equal for modes n=16 and n=17. The equal-weight fixed point $|A_{16}| = |A_{17}|$ requires the resonant mass to satisfy $E^2 = E_{16} \times E_{17}$, whose unique positive solution is the geometric mean:
+**Why the geometric mean.** The Jacobi coupling between adjacent d=3 modes near k₀ is $K_{n,n+1} \propto \sqrt{b_n \cdot b_{n+1}}$ where $b_n = \sqrt{n(n+d-1)}/(2n+d-2)$; at the triple-coincidence site the $\ell=0$ kernel drives modes n=16 and n=17 with equal weight. The beat is sustained by the quartic density–density kernel term $|\Psi^{(16)}|^2\,|\Psi^{(17)}|^2$. The magnitude of that cross-term scales as the product $E_{16}E_{17}$ — a quantity of dimension energy-squared — so the resonant beat sits at its square root, $E^2 = E_{16}E_{17}$, the geometric mean:
 
 ```
 m_b = √(S(16,3) × S(17,3)) × m_scale_3
     = √(816 × 969) × 4.7019 MeV = 4,181 MeV    (+0.023% vs PDG 4,180 ± 10 MeV)
 ```
 
-The geometric mean is forced by the symmetry of the equal-weight condition and the quadratic kernel fixed-point equation. The arithmetic mean and harmonic mean are both inconsistent with the equal-weight constraint.
+🔶 This dimensional argument fixes the geometric mean; a closed derivation from the quartic kernel eigenvalue problem remains open.
 
 ### 8a. Composite Hadron Masses from the Beat Structure
 
@@ -924,7 +932,7 @@ For the six active IDWT sectors and the three inactive-but-present sectors: b_{k
 
 **Proof.**  b = 1/2  ↔  4k₀(k₀+d−1) = (2k₀+d−2)².  Expanding: LHS = 4k₀² + 4k₀(d−1), RHS = 4k₀² + 4k₀(d−2) + (d−2)². Subtracting: 4k₀ = (d−2)². With k₀ = n_s² = 16: d = 2 + 2√16 = 2 + 2n_s = 10. □
 
-**Corollary (exact sector phase delayness for d=10).** The leading-order sector phase delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a sector phase delay artifact.
+**Corollary (exact sector phase delay for d=10).** The leading-order sector phase delay τ_d = 1/(2√(k₀+d)) acquires a next-order correction proportional to (b_{k₀}−1/2)/b_{k₀}². For d=10 this correction **vanishes identically**, so the leading-order sector phase delay is exact at the terminal sector. For d=3 through d=6 the corrections are −0.67% to −0.44% and shift the ρ meson prediction in the wrong direction (away from PDG), confirming that the +0.069% residual is a genuine floor, not a sector phase delay artifact.
 
 **Sector summary — two routes to d=10:**
 

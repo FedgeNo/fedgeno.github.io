@@ -52,7 +52,7 @@ For the d=6 sector, an identical perturbation applies with d=6 in place of d=10 
 
 ### 1.2 The Determinant Line Bundle in the IDWT Hilbert Space
 
-The PMNS matrix element U_{e3} = sin θ₁₃ e^{-iδ} is the overlap between the electron flavor state |ν_e⟩ and the third mass eigenstate |ν₃⟩. In the IDWT mode basis:
+The PMNS matrix element U_{e3} = sin θ₁₃ e^{-iδ} is the overlap between the electron flavor state |ν_e⟩ — the electron being the d=6 CP³ sector excitation of Ψ∞ at mode index n=13, a genuine 6D object — and the third mass eigenstate |ν₃⟩. In the IDWT mode basis:
 
 $$U_{e3} = \sum_{d \in \{6,10\}} \langle \chi_{n_e, d} \,|\, K_{d,5}(\theta_{13}) \,|\, \chi_{n_{\nu_1}, 5} \rangle$$
 

@@ -145,7 +145,7 @@ N_d(n−1) = Σ_{k=0}^{n−1} μ_d(k) = C(n+d−1, d) = S(n, d)
 ```
 where the last equality is Pascal's rule. □
 
-**Verification against the IDWT particle spectrum:**
+**Verification against the IDWT particle spectrum** (particles are sector excitations in their respective d-dimensional spaces; the electron is the d=6 CP³ excitation of Ψ∞ at n=13, a genuine 6D object whose observable mass is the 3D projection of its sector eigenvalue):
 
 | Particle | n | d | S(n,d) | Σ μ_d(k), k<n | Match |
 |---|---|---|---|---|---|
@@ -601,7 +601,7 @@ The electron's orbit in CP³ is governed by two potentials:
 H = T_{6D} + V_Coulomb(|r|) + V_6(|ξ|)
 
 T_{6D}        = −(ℏ²/2m_e) Δ_{6D}          [kinetic energy, uniform mass m_e throughout]
-V_Coulomb(|r|) = −α / |r|                   [Coulomb, from d=2 photon exchange]
+V_Coulomb(|r|) = −α / |r|                   [Coulomb, from d=2 U(1) self-coupling on shared coordinates]
 V_6(|ξ|)      = sector confinement potential [CP³ geometry, spherically symmetric in ξ]
 ```
 
@@ -667,7 +667,7 @@ The z₄ factor integrates to zero over the CP³ fibre by spherical harmonic ort
 
 **The full orbit geometry in CP³.** The orbit structure — quantum numbers, energy spectrum, degeneracy counts, selection rules, and the existence and undetectability of hidden states — is fully derived from the CP³ geometry. What has not been worked out is the geometric description of the orbit trajectories themselves: what a 1s, 2p, or 3d orbit looks like as a path in CP³, how it samples the z₄ direction, and what the SU(4) multiplet structure looks like in terms of actual trajectories rather than representation theory. That is the open problem. 🔶
 
-**Multi-electron atoms.** The second electron adds electron-electron Coulomb repulsion, mediated by d=2 sector exchange between two d=6 resonances. Both electrons carry the same vertex (Q=−1, same coupling). Helium is the next target.
+**Multi-electron atoms.** The second electron adds electron-electron Coulomb repulsion — the U(1) self-coupling of the wave on the d=2 coordinates the two d=6 electron resonances share. Both electrons carry the same vertex (Q=−1, same coupling). Helium is the next target.
 
 **Pauli exclusion.** The fermionic anticommutation of the d=6 sector spinor (established in §2) enforces the exclusion principle across all atomic orbits. No additional input needed.
 
@@ -729,7 +729,7 @@ H_i^(Z) = −(ℏ²/2m_e) ∇_i² − Zα/r_i        [single-electron Coulomb, Z
 V₁₂ = +α/r₁₂                                 [electron-electron repulsion]
 ```
 
-The repulsion V₁₂ is mediated by d=2 sector (photon) exchange between the two d=6 resonances — exactly the same vertex as the electron-nucleus attraction, with the same coupling α, but both sources carry Q=−1 so the force is repulsive. This is not an additional coupling; it is the same one.
+The repulsion V₁₂ is the wave's U(1) self-coupling on the shared d=2 coordinates of the two d=6 resonances — exactly the same vertex as the electron-nucleus attraction, with the same coupling α, but both sources carry Q=−1 so the force is repulsive. This is not an additional coupling; it is the same one.
 
 ### 16.2 Pauli Exclusion from Spinor Anticommutation
 

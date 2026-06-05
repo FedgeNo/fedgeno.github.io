@@ -21,8 +21,12 @@
 #                  oscillations, neutron lifetime, heat kernel, scipy eigenmode
 #   STEPS 25-29 -- Theorem verification: T4 seed uniqueness, T5 Gegenbauer criticality,
 #                  T15 Euler characteristic chain, T9a Hopf products, T0.5 filter
-#   STEPS 5-29  -- Output (all print() calls; begin after the STEP 29 calc block)
+#   STEPS 15-16, 35-36 -- Later additions (computation): co-fixed-point l-parity
+#                  stability, consecutive matter quartet, depth-relative
+#                  marginalization, bound-within / free-without (Part 1 §3i)
+#   STEPS 5-29  -- Output (all print() calls; begin after the computation blocks)
 #   STEPS 30-34 -- Output: T4/T5/T15/T9a/T0.5 theorem verification tables
+#   STEPS 15-16, 35-36 -- Output: stability, quartet, marginalization, floating
 #
 # Cross-references use "Part N section M" referring to the IDWT document set.
 # =============================================================================
@@ -447,6 +451,76 @@ g55 = 96.0 / g22
 # and the mu-tau mass difference. They are suppressed by g_{56}^2 ~ 0.033.
 # (Part 5 section 4, Part 8)
 g56_sq = g55 * g66   # cross-coupling squared d=5 ↔ d=6 (or d=10)
+
+
+# =============================================================================
+# STEP 2b -- INTER-SECTOR COUPLING MATRIX  G_{d,d'} = v_d * v_{d'}  (rank 1)
+# =============================================================================
+# Consolidates the six self-couplings into the full inter-sector coupling
+# matrix. v_d = sqrt(g_dd) is the sector coupling vector; G = v (outer) v is
+# rank 1, so its diagonal returns the six self-couplings and its off-diagonal
+# entries are the cross-couplings. No cross-coupling is an independent input:
+# all 21 distinct entries follow from the six diagonal values. Granularity is
+# by sector, not particle: the kernel is sector-separable (Part 1 section 3h),
+# so two particles in the same sector share an identical coupling row.
+# (Part 1 section 3g, Part 2 sections 8-9c)
+#
+# Two off-diagonal entries equal sqrt(96) = 4*sqrt(6) by Hopf universality,
+# reached from two independent sector pairs:
+#   g_{3,4} = v_3 v_4 = sqrt(g33 g44) = sqrt(96)   (S^1->S^5->CP^2, Part 2 s9c)
+#   g_{2,5} = v_2 v_5 = sqrt(g22 g55) = sqrt(96)   (g55 = 96/g22 by construction)
+
+sector_d   = [2, 3, 4, 5, 6, 10]
+g_self     = {2: g22, 3: g33, 4: g44, 5: g55, 6: g66, 10: g66}   # g_{10,10}=g66
+v_sector   = {d: math.sqrt(g_self[d]) for d in sector_d}          # v_d = sqrt(g_dd)
+
+# Rank-1 coupling matrix, and the coordinate-containment (shared-dimension)
+# matrix from the Xi nesting (Part 1 section 3f): shared coords = min(d,d').
+G_cross    = {d: {dp: v_sector[d] * v_sector[dp] for dp in sector_d} for d in sector_d}
+shared_dim = {d: {dp: min(d, dp) for dp in sector_d} for d in sector_d}
+
+# Consistency: diagonal reproduces the self-couplings; the two sqrt(96) checks.
+G_diag_resid = max(abs(G_cross[d][d] - g_self[d]) for d in sector_d)
+g34_resid    = abs(G_cross[3][4] - math.sqrt(96.0))
+g25_resid    = abs(G_cross[2][5] - math.sqrt(96.0))
+
+
+# =============================================================================
+# STEP 2c -- ACTIVE COUPLING STRUCTURES PER SECTOR PAIR (containment AND filter)
+# =============================================================================
+# Which coupling structures of the single wave Psi_inf are active on the
+# coordinates that two sectors SHARE. This is not boson exchange: a cross-sector
+# effect is one wave coupling to itself across the coordinate overlap of two of
+# its strata (Part 1 section 3g). A structure is active on a pair iff (a) it is
+# geometrically present on the shared coordinates [coordinate containment] AND
+# (b) it survives BOTH sectors' coupling filters [Part 3 section 0.8b].
+#
+# The four structures and their geometric origin (all established):
+#   U(1)  electric charge  Q = T3 + Y, Y from T8 of SU(3)=Isom(CP^2)  (Part 3 s6,s13)
+#   SU2L  weak isospin     SU(2) factor of the U(2) holonomy of CP^2; Kahler
+#                          chirality couples it to left-handed parts   (Part 3 s6,s7)
+#   SU3   colour           SU(3) isometry of CP^2; N_c = chi(CP^2) = 3  (Part 3 s2,s6)
+#   grav  gravity          curvature of M_inf; no sector boundary       (Part 3 s0.8)
+#
+# Per-sector participation (matter/fermion sectors), from the established facts:
+#   electric charge Q (Part 3 s6 charge table; Q=0 => no U(1) coupling)
+#   colour: only quark sectors carry a colour triplet; d=3 inherits via g_{3,4};
+#           d=5 is projected to the colour singlet by the S^5 Hopf fibration;
+#           leptons d=6,10 are colour-silent (chi(CP^3)=4, chi(CP^5)=6 != N_c).
+#   weak: every fermion sector has a left-handed component carrying SU(2)_L
+#         (d=4,6,10 Kahler-left; d=3 inherits via g_{3,4}; d=5 Dirac nu_L).
+#   gravity: universal.
+matter_d  = [3, 4, 5, 6, 10]
+sector_Q  = {3: -1.0/3, 4: 2.0/3, 5: 0.0, 6: -1.0, 10: -1.0}   # Part 3 s6/s13
+has_U1    = {d: (sector_Q[d] != 0.0) for d in matter_d}        # electric charge
+has_SU3   = {d: (d in (3, 4))       for d in matter_d}         # colour: quark sectors
+has_SU2L  = {d: True                for d in matter_d}         # all fermion sectors
+has_grav  = {d: True                for d in matter_d}         # universal
+
+# A structure is active on a pair iff BOTH sectors participate (intersection).
+_structs    = [("U1", has_U1), ("SU2L", has_SU2L), ("SU3", has_SU3), ("grav", has_grav)]
+active_pair = {da: {db: [nm for nm, p in _structs if p[da] and p[db]]
+                    for db in matter_d} for da in matter_d}
 
 # g_1 at the d=2 sector scale — purely from sin²θ_W (mode indices 76, 81).
 # IDWT couplings are fixed geometric numbers; there is no running.
@@ -1547,6 +1621,173 @@ t05_hadronic = [(_n, (_n, 3) in Sigma_pairs) for _n in [2, 3, 5]]
 
 
 # =============================================================================
+# STEP 15 -- CO-FIXED-POINT STABILITY: l-PARITY (compute; Part 7 §1.2, App A §22)
+# =============================================================================
+# The kernel (xi_d . xi_{d'})^2 decomposes angularly into l=0 (scalar) and
+# l=2 (tensor) components only. Each kernel application changes angular momentum
+# l by 0 or +-2. Angular momentum parity (even vs odd l) is conserved by all
+# powers of V_kernel.
+#
+# In d=3 (R^4 harmonic oscillator), level N = n-1 contains l values with the
+# same parity as N. The seeds are at level N=0 (l=0, even). Therefore:
+#   - All modes at odd levels (N=1,3,5,..., i.e. n=2,4,6,...) have only odd l.
+#   - Odd-l modes are PERMANENTLY unreachable from l=0 seeds by V_kernel.
+#
+# Implication for the strange quark (n=4, level N=3, l=1 and l=3 only):
+#   The strange quark is protected from intra-sector (V_33) destabilisation.
+#   It is stabilised by the cross-sector coupling V_34 (generation tower).
+#
+# For even-level non-Sigma modes (n=3,5,...): they do have l=0 components
+# and couple to the seeds. Their l=0 kernel matrix elements are computed below.
+# (Part 7 §1.2, Appendix A §22)
+
+from math import lgamma as _lgamma
+from scipy.special import eval_genlaguerre as _genlaguerre
+
+def _l_values_at_level(N):
+    """l values at oscillator level N in R^4 (d=3 sector). Parity = N mod 2."""
+    ls, l = [], N % 2
+    while l <= N:
+        ls.append(l); l += 2
+    return ls
+
+def _norm_harm(d, n_r, l, lam):
+    w = math.sqrt(lam)
+    return math.exp(0.5 * (math.log(2) + (l+d/2)*math.log(w)
+                           + _lgamma(n_r+1) - _lgamma(n_r+l+d/2)))
+
+def _radial_mode(r_arr, d, n_r, l, lam):
+    w = math.sqrt(lam); N = _norm_harm(d, n_r, l, lam)
+    x = w * r_arr**2
+    return N * r_arr**l * _genlaguerre(n_r, l+d/2-1, x) * np.exp(-w*r_arr**2/2)
+
+_lam3  = 4.820  # lambda_d for d=3
+_r3    = np.linspace(1e-6, 6.0/math.sqrt(math.sqrt(_lam3)), 8000)
+_dr3   = _r3[1] - _r3[0]
+_rho3  = _radial_mode(_r3, 3, 0, 0, _lam3)**2 * _r3**2  # vacuum density
+
+def _I3(n_r):
+    """l=0 kernel overlap integral I = int R_{n_r,0}(r) * rho_vac(r) dr."""
+    return float(np.sum(_radial_mode(_r3, 3, n_r, 0, _lam3) * _rho3) * _dr3)
+
+_I3_seed = _I3(0)   # seed (n=1) overlap
+
+# Self-energy of n=3 mode (2nd-order PT): perturbed mass lies between Sigma modes.
+_m_n1 = m_scale3 * S(1,3)   # down quark: 4.702 MeV
+_m_n3 = m_scale3 * S(3,3)   # n=3 mode:  47.02 MeV
+_ME13 = (g33 / 3.0) * _I3_seed * _I3(1)
+_ME33 = (g33 / 3.0) * _I3(1) * _I3(1)
+_delta_E2 = _ME13**2 / (_m_n3 - _m_n1)
+_m_n3_pert = _m_n3 + (_ME33 + _delta_E2) * m_scale3
+
+# Dephasing argument (completes the derivation): the n=3 mode has off-diagonal
+# ME to n=1,5,7,... in d=3 and to modes in d=4,5,6,10 via cross-sector coupling.
+# IDWT is infinite-dimensional (all sectors, countably many modes each), so the
+# n=3 state (not an eigenstate of H) is a superposition of infinitely many
+# eigenstates with slightly different energies. In a finite system this would
+# revive (Poincare recurrence); in an infinite system recurrence time = infinity,
+# so dephasing is permanent, on timescale tau ~ 1/(ME_13 * m_scale3).
+_tau_factor = 1.0 / (_ME13 * m_scale3)   # in 1/MeV units
+
+
+# =============================================================================
+# STEP 16 -- CONSECUTIVE MATTER QUARTET (compute; Part 1 §3a, App A §19)
+# =============================================================================
+# Hopf chain S^1 -> S^{2k+1} -> CP^k produces sectors at d=2k (base) and d=2k+1
+# (total). Rule A terminates the chain at CP^{n_s-1} (real dim d_term=2(n_s-1)):
+#   chi(CP^{n_s-1}) = n_s  =>  g_{d_term} = 1/n_s = seed ratio  =>  chain stops.
+# Matter quartet: d=3 (first total space) to d=2(n_s-1) (terminal base).
+# Length = 2(n_s-1) - 3 + 1 = 2*n_s - 4.
+# Self-consistency requirement: length = n_s (seed = number of matter sectors):
+#   2*n_s - 4 = n_s  =>  n_s = 4  (⭐ independent derivation of the seed)
+
+_d_term = 2 * (n_strange - 1)   # terminal matter sector: 2*(n_s-1) = 6
+_quartet_len = 2 * n_strange - 4  # = 2*4-4 = 4 = n_s
+_quartet = list(range(n_strange - 1, _d_term + 1))  # [3,4,5,6]
+assert _quartet_len == n_strange, f"Quartet length {_quartet_len} != n_s {n_strange}"
+assert _quartet == [3, 4, 5, 6], f"Quartet {_quartet} != expected"
+# Verify for other n_s: only n_s=4 gives length == n_s with d_start=3
+_ok = [(ns, 2*(ns-1)-3+1 == ns, 2*(ns-1)-3+1) for ns in range(2, 8)]
+
+
+# =============================================================================
+# STEP 35 -- DEPTH-RELATIVE MARGINALIZATION (compute; Part 1 section 3i)
+# =============================================================================
+# An observer assembled from sector-depth d_obs matter resolves only the first
+# d_obs coordinates of M_inf. A particle is a definite object across its own
+# d_p sector dimensions. When d_obs < d_p the observer cannot resolve the
+# particle's deeper coordinates and marginalizes |Psi_inf|^2 over them -- the
+# depth-general form of the d=3 marginal rho(r) = int |Psi_inf|^2 dxi.
+#   resolved dims = min(d_obs, d_p)        # coordinates observer and particle share
+#   smeared dims  = max(0, d_p - d_obs)    # coordinates integrated out -> cloud
+#   sharp object  <=> d_p <= d_obs         # observer fully resolves the particle
+# Row d_obs=3 reproduces the familiar case: the electron (d=6) is smeared over
+# 3 dims (the "electron cloud"), the tau (d=10) over 7. One depth up, the
+# electron (d_obs=6) smears the tau over 4 and resolves the down quark sharply.
+# The cloud is relative to observer depth, not a property of the particle.
+
+MARG_SECTORS = [2, 3, 4, 5, 6, 10]
+MARG_LABEL = {2: "gamma/W/Z/H", 3: "down-type q", 4: "up-type q",
+              5: "neutrino", 6: "e / mu", 10: "tau"}
+
+def smeared_dims(d_obs, d_p):
+    """Coordinates of a depth-d_p particle a depth-d_obs observer integrates out."""
+    return max(0, d_p - d_obs)
+
+
+# =============================================================================
+# STEP 36 -- BOUND WITHIN, FREE WITHOUT (compute; a particle beyond its sector)
+# =============================================================================
+# (Part 1 section 3i; Appendix A "Bound within, free without")
+#
+# A particle is confined in its OWN d sector coordinates by the harmonic well
+# V_d(r) = lambda_d r^2 (Part 4 S3.9-S3.10.2); its sector ground state is a
+# normalizable Gaussian of width L_d = lambda_d^{-1/4}. In every dimension
+# BEYOND d it is free: the d=7,8,9 band carries no sector geometry (T3) and
+# V_10 belongs to the tau, not to a d<10 mode. So H_outer = -d^2/dy^2 there.
+#
+#   spectrum(-d^2/dy^2) = [0, inf)  -- no negative eigenvalue, hence NO
+#   normalizable bound state in a free direction. The three solutions are:
+#     E>0 : e^{iky}    (carries momentum)
+#     E=0 : const      (UNIFORM -- the unique zero-momentum rest configuration)
+#     E<0 : e^{+|k|y}  (divergent, unphysical)
+#   => at rest a massive particle is uniform across the outer dims: present
+#      everywhere, pinned to no point. This is "floats freely", made precise.
+#
+# Localizing to width Delta costs kinetic energy E_kin ~ 1/(2 m Delta^2)
+# (uncertainty): the rest limit E->0 forces Delta->inf, i.e. uniformity. So
+# "stay put at a point" is not a rest state and "drift as a lump" needs
+# momentum (an excited outer state); only uniform co-presence is a zero-energy
+# free state.
+#
+# Normalizability lives on Xi_d (int_{Xi_d} |chi|^2 = 1); the uniform outer
+# factor is the nesting embedding C^inf(Xi_d) subset C^inf(Xi_d') (Part 1 S3h).
+# The divergent outer-volume norm is not a defect -- it states "this is a
+# d-object; normalize it on Xi_d."
+#
+# Massless upgrade: dispersion E^2 = p^2 + m^2. A massive mode (m>0) admits a
+# rest state (p=0, uniform); the photon (m=0) has no rest frame, so its free
+# outer state must carry momentum -> propagation. This is the mode-theoretic
+# root of the photon's transverse propagation (Part 3 S14).
+#
+# Status: the normalizability core (no bound state in a free direction; rest =
+# uniform; normalize on Xi_d) is a structural consequence; the reading "uniform
+# presence = floats freely" and the massless->propagation upgrade are structural
+# interpretation. (Part 1 S3i carries the split.)
+
+float_sectors = [2, 3, 4, 5, 6, 10]
+float_g   = {2: g22, 3: g33, 4: g44, 5: g55, 6: g66, 10: g66}   # g_{10,10}=g66
+float_lam = {d: (float_g[d] / 2.0) ** (2.0 / 3.0) for d in float_sectors}  # lambda_d
+float_Ld  = {d: float_lam[d] ** (-0.25) for d in float_sectors}            # L_d=lam^-1/4
+
+# Heisenberg localization cost in a free outer direction: E_kin = 1/(2 m Delta^2),
+# shown on the electron. E_kin -> 0 as Delta -> inf: the rest state is the
+# uniform (Delta -> inf) configuration, not a localized lump.
+float_Delta = [1e-3, 1.0, 1e3, 1e6]                              # widths, MeV^-1
+float_Ekin  = {Dl: 1.0 / (2 * m_e * Dl**2) for Dl in float_Delta}   # MeV
+
+
+# =============================================================================
 # STEP 5 -- OUTPUT: TOWER CONSTRUCTION
 # =============================================================================
 print("=== TOWER CONSTRUCTION ===")
@@ -1591,6 +1832,58 @@ print( "          [d=4 eigenstate increment at up threshold]")
 print(f"    g22   = p^2 * q / 2 = {g22_p}^2 * {g22_q} / 2 = {g22}")
 print("g66 = 1/n_s = 1/4  [seed ratio; d=6 and d=10 share this coupling]")
 print(f"    = {g66}")
+
+
+print()
+print("=== INTER-SECTOR COUPLING MATRIX  G_{d,d'} = v_d v_{d'}  (rank 1) ===")
+print("  v_d = sqrt(g_dd) is the sector coupling vector; every cross-coupling")
+print("  is its outer product. The six diagonal values fix all 21 distinct")
+print("  entries -- no cross-coupling is an independent input. (Part 1 section 3g)")
+print()
+print("  v_d:  " + "   ".join(f"d={_d}: {v_sector[_d]:.4f}" for _d in sector_d))
+print()
+_hdr = "  G   " + "".join(f"{('d='+str(_dp)):>10}" for _dp in sector_d)
+print(_hdr)
+print("  " + "-"*(len(_hdr)-2))
+for _d in sector_d:
+    print(f"  d={_d:<2}" + "".join(f"{G_cross[_d][_dp]:>10.4f}" for _dp in sector_d))
+print()
+print(f"  Hopf universality: g_3,4 = v_3 v_4 = sqrt(96) = {math.sqrt(96.0):.4f}, and")
+print(f"  g_2,5 = v_2 v_5 = sqrt(96) -- the same value from two sector pairs.")
+print(f"  Check: max|diag - g_dd| = {G_diag_resid:.2e};  "
+      f"|g_3,4 - sqrt96| = {g34_resid:.2e};  |g_2,5 - sqrt96| = {g25_resid:.2e}  (v)")
+print()
+print("  Coordinate containment (shared dimensions = min(d,d'); Xi nesting):")
+print("  Every pair shares >= 2 coordinates, so every sector pair can couple")
+print("  through the d=2 plane. Whether a given coupling is nonzero is then set")
+print("  by the sector coupling filter (e.g. neutrino color singlet, S^5 Hopf).")
+_hdr2 = "  shr " + "".join(f"{('d='+str(_dp)):>6}" for _dp in sector_d)
+print(_hdr2)
+print("  " + "-"*(len(_hdr2)-2))
+for _d in sector_d:
+    print(f"  d={_d:<2}" + "".join(f"{shared_dim[_d][_dp]:>6d}" for _dp in sector_d))
+
+
+print()
+print("=== ACTIVE COUPLING STRUCTURES PER SECTOR PAIR (containment AND filter) ===")
+print("  One wave Psi_inf coupling to itself on shared coordinates -- not exchange.")
+print("  Codes: E=U(1) charge, W=SU(2)_L weak, C=SU(3) colour, G=gravity.")
+print()
+print("  Per-sector participation (matter sectors):")
+print(f"  {'d':>3}  {'Q':>6}  {'E':>2}  {'W':>2}  {'C':>2}  {'G':>2}")
+for _d in matter_d:
+    _yn = lambda b: "Y" if b else "-"
+    print(f"  {_d:>3}  {sector_Q[_d]:>+6.3f}  {_yn(has_U1[_d]):>2}  "
+          f"{_yn(has_SU2L[_d]):>2}  {_yn(has_SU3[_d]):>2}  {_yn(has_grav[_d]):>2}")
+print()
+print("  Pairwise active structures (cell = structures on the pair's shared coords):")
+_code = {"U1": "E", "SU2L": "W", "SU3": "C", "grav": "G"}
+print(f"  {'':>4}" + "".join(f"{('d='+str(_dp)):>7}" for _dp in matter_d))
+for _da in matter_d:
+    print(f"  d={_da:<2}" + "".join(
+        f"{''.join(_code[s] for s in active_pair[_da][_db]):>7}" for _db in matter_d))
+print("  Gravity in every cell; E drops on any pair with the neutral nu sector d=5;")
+print("  C survives only in the quark block {3,4}; W on every fermion pair.")
 
 
 # =============================================================================
@@ -2362,26 +2655,11 @@ print(f"  -> Both chains yield 96: genuine internal consistency test. ✓")
 # =============================================================================
 
 print("\n=== STEP 16: CONSECUTIVE MATTER QUARTET DERIVATION (Part 1 §3a, App A §19) ===")
-# Hopf chain S^1 -> S^{2k+1} -> CP^k produces sectors at d=2k (base) and d=2k+1 (total).
-# Rule A terminates chain at CP^{n_s-1} (real dim d_term=2(n_s-1)):
-#   chi(CP^{n_s-1}) = n_s  =>  g_{d_term} = 1/n_s = seed ratio  =>  chain stops.
-# Matter quartet: d=3 (first total space) to d=2(n_s-1) (terminal base).
-# Length = 2(n_s-1) - 3 + 1 = 2*n_s - 4.
-# Self-consistency requirement: length = n_s (seed = number of matter sectors):
-#   2*n_s - 4 = n_s  =>  n_s = 4  (⭐ independent derivation of the seed)
-
-_d_term = 2 * (n_strange - 1)   # terminal matter sector: 2*(n_s-1) = 6
-_quartet_len = 2 * n_strange - 4  # = 2*4-4 = 4 = n_s
-_quartet = list(range(n_strange - 1, _d_term + 1))  # [3,4,5,6]
 print(f"  n_s = {n_strange},  Rule A terminates at d_term = 2*(n_s-1) = {_d_term} (CP^{n_strange-1})")
 print(f"  chi(CP^{n_strange-1}) = {n_strange} = n_s  =>  g_{{d_term}} = 1/n_s (seed ratio, Rule A)")
 print(f"  Matter quartet: d=3 to d={_d_term} = {_quartet}, length = {_quartet_len}")
 print(f"  Self-consistency: length == n_s  =>  2*n_s-4 == n_s  =>  n_s = 4  ✓")
 print(f"  Hopf pairs: (d=3,d=4) quark sectors + (d=5,d=6) lepton sectors = 2 pairs = n_s/2")
-assert _quartet_len == n_strange, f"Quartet length {_quartet_len} != n_s {n_strange}"
-assert _quartet == [3, 4, 5, 6], f"Quartet {_quartet} != expected"
-# Verify for other n_s: only n_s=4 gives length == n_s with d_start=3
-_ok = [(ns, 2*(ns-1)-3+1 == ns, 2*(ns-1)-3+1) for ns in range(2, 8)]
 print(f"  Verification across n_s: only n_s=4 gives quartet_length==n_s AND d_start=3")
 for ns, ok, length in _ok:
     d_start = ns - 1
@@ -2411,57 +2689,8 @@ print(f"  each sector follows from the l-parity and dephasing mechanisms (STEP 1
 
 
 # =============================================================================
-# STEP 15 -- CO-FIXED-POINT STABILITY: l-PARITY SELECTION RULE (Part 7 §1.2, App A §22)
+# STEP 15 -- OUTPUT: CO-FIXED-POINT STABILITY l-PARITY (Part 7 §1.2, App A §22)
 # =============================================================================
-# The kernel (xi_d . xi_{d'})^2 decomposes angularly into l=0 (scalar) and
-# l=2 (tensor) components only. Each kernel application changes angular momentum
-# l by 0 or +-2. Angular momentum parity (even vs odd l) is conserved by all
-# powers of V_kernel.
-#
-# In d=3 (R^4 harmonic oscillator), level N = n-1 contains l values with the
-# same parity as N. The seeds are at level N=0 (l=0, even). Therefore:
-#   - All modes at odd levels (N=1,3,5,..., i.e. n=2,4,6,...) have only odd l.
-#   - Odd-l modes are PERMANENTLY unreachable from l=0 seeds by V_kernel.
-#
-# Implication for the strange quark (n=4, level N=3, l=1 and l=3 only):
-#   The strange quark is protected from intra-sector (V_33) destabilisation.
-#   It is stabilised by the cross-sector coupling V_34 (generation tower).
-#
-# For even-level non-Sigma modes (n=3,5,...): they do have l=0 components
-# and couple to the seeds. Their l=0 kernel matrix elements are computed below.
-# (Part 7 §1.2, Appendix A §22)
-
-from math import lgamma as _lgamma
-from scipy.special import eval_genlaguerre as _genlaguerre
-
-def _l_values_at_level(N):
-    """l values at oscillator level N in R^4 (d=3 sector). Parity = N mod 2."""
-    ls, l = [], N % 2
-    while l <= N:
-        ls.append(l); l += 2
-    return ls
-
-def _norm_harm(d, n_r, l, lam):
-    w = math.sqrt(lam)
-    return math.exp(0.5 * (math.log(2) + (l+d/2)*math.log(w)
-                           + _lgamma(n_r+1) - _lgamma(n_r+l+d/2)))
-
-def _radial_mode(r_arr, d, n_r, l, lam):
-    w = math.sqrt(lam); N = _norm_harm(d, n_r, l, lam)
-    x = w * r_arr**2
-    return N * r_arr**l * _genlaguerre(n_r, l+d/2-1, x) * np.exp(-w*r_arr**2/2)
-
-_lam3  = 4.820  # lambda_d for d=3
-_r3    = np.linspace(1e-6, 6.0/math.sqrt(math.sqrt(_lam3)), 8000)
-_dr3   = _r3[1] - _r3[0]
-_rho3  = _radial_mode(_r3, 3, 0, 0, _lam3)**2 * _r3**2  # vacuum density
-
-def _I3(n_r):
-    """l=0 kernel overlap integral I = int R_{n_r,0}(r) * rho_vac(r) dr."""
-    return float(np.sum(_radial_mode(_r3, 3, n_r, 0, _lam3) * _rho3) * _dr3)
-
-_I3_seed = _I3(0)   # seed (n=1) overlap
-
 print("\n=== STEP 15: CO-FIXED-POINT l-PARITY SELECTION (Part 7 §1.2, App A §22) ===")
 print("  Kernel (xi.xi')^2 = l=0 + l=2 only  =>  parity of l is conserved.")
 print("  Seeds are l=0 (even). Odd-l modes are permanently unreachable.")
@@ -2485,13 +2714,6 @@ for _nr in range(0, 5):
     _sig   = (_n_l0, 3) in {(1,3),(4,3)}
     print(f"  {_nr:>4}  n={_n_l0:>4} (l=0)  I={_I:>8.4f}   ME~{_me:>10.4f}  {'*** SIGMA ***' if _sig else '':>8}")
 
-# Self-energy of n=3 mode (2nd-order)
-_m_n1 = m_scale3 * S(1,3)   # down quark: 4.702 MeV
-_m_n3 = m_scale3 * S(3,3)   # n=3 mode:  47.02 MeV
-_ME13 = (g33 / 3.0) * _I3_seed * _I3(1)
-_ME33 = (g33 / 3.0) * _I3(1) * _I3(1)
-_delta_E2 = _ME13**2 / (_m_n3 - _m_n1)
-_m_n3_pert = _m_n3 + (_ME33 + _delta_E2) * m_scale3
 print(f"\n  Self-energy of n=3 mode (2nd-order PT):")
 print(f"    ME(3->1) = {_ME13:.3f} sector units")
 print(f"    dE^(2)   = ME^2/(m_n3-m_n1) = {_delta_E2:.3f} su  ~{_delta_E2*m_scale3:.1f} MeV")
@@ -2499,18 +2721,6 @@ print(f"    dE^(1)   = ME(3->3) = {_ME33:.3f} su  ~{_ME33*m_scale3:.1f} MeV")
 print(f"    Perturbed m(n=3) ~ {_m_n3_pert:.1f} MeV  (between Sigma modes {_m_n1:.1f} and {m_scale3*S(4,3):.1f} MeV)")
 print(f"  => n=3 is off-resonance with any Sigma_pairs mode.")
 print()
-# --- Dephasing argument (completes the derivation) ---
-# The n=3 mode has non-zero off-diagonal ME to n=1, n=5, n=7, ... in d=3,
-# and to modes in d=4, d=5, d=6, d=10 via cross-sector coupling.
-# IDWT is infinite-dimensional: all five sectors, each with countably many modes.
-# The combined coupled system has infinite dimension.
-# Consequence: the n=3 state (not an eigenstate of H) is a superposition of
-# infinitely many eigenstates of H with slightly different energies.
-# In a finite system this superposition would revive (Poincare recurrence).
-# In an infinite system, recurrence time = infinity: dephasing is permanent.
-# Dephasing timescale: tau ~ hbar / (off-diagonal ME * m_scale_3)
-#                          ~ 1 / (ME_13 * m_scale3)
-_tau_factor = 1.0 / (_ME13 * m_scale3)   # in 1/MeV units
 print(f"  Dephasing argument (Part 7 §1.2, App A §22):")
 print(f"    Off-diagonal ME(n=3,d=3 -> n=1,d=3) = {_ME13:.2f} sector units")
 print(f"    Dephasing time tau ~ 1/(ME * m_scale3) = 1/({_ME13:.2f} * {m_scale3:.3f})")
@@ -2524,33 +2734,8 @@ print(f"    * Even-level modes (n=3,5,...):  off-diagonal ME + infinite-dim deph
 
 
 # =============================================================================
-# STEP 35 -- DEPTH-RELATIVE MARGINALIZATION (cross-sector observation table)
+# STEP 35 -- OUTPUT: DEPTH-RELATIVE MARGINALIZATION (Part 1 section 3i)
 # =============================================================================
-# (Part 1 section 3i)
-#
-# An observer assembled from sector-depth d_obs matter resolves only the first
-# d_obs coordinates of M_inf. A particle is a definite object across its own
-# d_p sector dimensions. When d_obs < d_p the observer cannot resolve the
-# particle's deeper coordinates and marginalizes |Psi_inf|^2 over them -- the
-# depth-general form of the d=3 marginal rho(r) = int |Psi_inf|^2 dxi.
-#
-#   resolved dims = min(d_obs, d_p)        # coordinates observer and particle share
-#   smeared dims  = max(0, d_p - d_obs)    # coordinates integrated out -> cloud
-#   sharp object  <=> d_p <= d_obs         # observer fully resolves the particle
-#
-# Row d_obs=3 reproduces the familiar case: the electron (d=6) is smeared over
-# 3 dims (the "electron cloud"), the tau (d=10) over 7. One depth up, the
-# electron (d_obs=6) smears the tau over 4 and resolves the down quark sharply.
-# The cloud is relative to observer depth, not a property of the particle.
-
-MARG_SECTORS = [2, 3, 4, 5, 6, 10]
-MARG_LABEL = {2: "gamma/W/Z/H", 3: "down-type q", 4: "up-type q",
-              5: "neutrino", 6: "e / mu", 10: "tau"}
-
-def smeared_dims(d_obs, d_p):
-    """Coordinates of a depth-d_p particle a depth-d_obs observer integrates out."""
-    return max(0, d_p - d_obs)
-
 print("\n" + "=" * 70)
 print("STEP 35 -- DEPTH-RELATIVE MARGINALIZATION  (Part 1 section 3i)")
 print("=" * 70)
@@ -2563,6 +2748,33 @@ for d_p in MARG_SECTORS:
 print("\n  d_obs=3 (us):       electron smeared over 3, tau over 7.")
 print("  d_obs=6 (electron): tau smeared over 4, down-type quark resolved (0).")
 print("  The cloud is relative to observer depth.")
+
+
+# =============================================================================
+# STEP 36 -- OUTPUT: BOUND WITHIN, FREE WITHOUT (Part 1 section 3i)
+# =============================================================================
+print("\n" + "=" * 70)
+print("STEP 36 -- BOUND WITHIN, FREE WITHOUT  (Part 1 section 3i)")
+print("=" * 70)
+print("BOUND WITHIN: the sector ground state is a normalizable Gaussian, width L_d")
+print(f"  {'d':>3}  {'g_dd':>9}  {'lambda_d':>9}  {'L_d=lam^-1/4':>13}")
+for _d in float_sectors:
+    print(f"  {_d:>3}  {float_g[_d]:>9.4f}  {float_lam[_d]:>9.4f}  {float_Ld[_d]:>13.4f}")
+print("  normalizable on Xi_d:  int_{Xi_d} |chi|^2 d^d xi = 1.")
+print()
+print("FREE WITHOUT: spectrum(-d^2/dy^2) = [0, inf) -> no bound state in a free dim")
+print("  E>0: e^{iky} (momentum)   E=0: const (UNIFORM rest state)   E<0: divergent")
+print("  the unique zero-momentum configuration is the constant -> uniform co-presence.")
+print()
+print("  localizing the electron to width Delta costs E_kin = 1/(2 m_e Delta^2):")
+for _Dl in float_Delta:
+    print(f"    Delta = {_Dl:>8.0e} MeV^-1  ->  E_kin = {float_Ekin[_Dl]:>10.3e} MeV")
+print("  Delta -> inf  =>  E_kin -> 0:  the rest state IS the uniform state.")
+print()
+print("MASSLESS UPGRADE: dispersion E^2 = p^2 + m^2")
+print("  m>0 (electron): a rest state exists (p=0) -> uniform co-presence.")
+print("  m=0 (photon):   no rest frame -> outer state carries momentum -> PROPAGATION.")
+
 
 # =============================================================================
 

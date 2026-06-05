@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coupling Grid — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<style>
+  table.cgrid { min-width: 0; font-size: 0.74rem; }
+  table.cgrid th, table.cgrid td {
+    padding: 5px 7px; text-align: center; white-space: nowrap;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+  table.cgrid th { text-transform: none; letter-spacing: 0; font-size: 0.74rem; background: rgba(255,255,255,0.03); }
+  table.cgrid td:nth-child(2) { font-family: inherit; color: inherit; }
+  table.cgrid td.c-all { background: rgba(110, 200, 150, 0.22); color: #dffae8; }
+  table.cgrid td.c-em  { background: rgba(120, 165, 235, 0.16); color: #e7efff; }
+  table.cgrid td.c-nu  { background: rgba(212, 166, 96, 0.16);  color: #fff1d9; }
+  table.cgrid th.rh, table.cgrid td.rh { font-weight: 600; background: rgba(255,255,255,0.05); }
+  .swatch { display:inline-block; width:0.9em; height:0.9em; border-radius:3px; vertical-align:-1px; margin-right:4px; }
+  .sw-all { background: rgba(110,200,150,0.5); }
+  .sw-em  { background: rgba(120,165,235,0.45); }
+  .sw-nu  { background: rgba(212,166,96,0.45); }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Coupling</div>
+  <h1>The Coupling Grid</h1>
+  <p class="sub">Two particles can only couple through the directions they both have. Read off the overlap, and every interaction in the table falls out of one fact.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>One wave, not two</h2>
+  <div class="prose">
+    <p>It is natural to picture an interaction as two objects reaching across a gap and trading something between them. That picture is not how IDWT works, and holding onto it makes the grid below look mysterious instead of obvious.</p>
+    <p>There is one wave, \(\Psi_\infty\). What we call particles are excitations of it in different <a href="/articles/sectors.html">sectors</a> — different numbers of the manifold's directions (see <a href="/articles/one-wave.html">One Wave</a>). When two of them "interact," nothing crosses a gap and nothing is exchanged. The single wave couples to itself, through its own kernel \(g_{d,d'}(\xi_d\cdot\xi_{d'})^2\), on the coordinates the two sectors share. An interaction is one object folding back on itself where two of its depths overlap.</p>
+    <p>So the only question for any pair of particles is: <em>which coordinates do they share, and what lives on those coordinates?</em> That is the whole grid.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Four structures, each in specific directions</h2>
+  <div class="prose">
+    <p>IDWT has four coupling structures, and each one resides in particular directions of the manifold. A structure can act on a pair only if it lives on the coordinates that pair shares — and only if neither particle's own geometry switches it off (the <a href="/articles/sector-filters.html">coupling filter</a>).</p>
+    <ul>
+      <li><strong>Electric charge — \(U(1)\).</strong> The charge \(Q = T_3 + Y\) is read from the \(T_8\) direction of the colour symmetry \(\mathrm{SU}(3)=\mathrm{Isom}(\mathbb{CP}^2)\). A particle takes part only if its charge is nonzero — which leaves out the neutrinos.</li>
+      <li><strong>Weak isospin — \(\mathrm{SU}(2)_L\).</strong> The \(\mathrm{SU}(2)\) part of the \(U(2)\) holonomy of \(\mathbb{CP}^2\). The Kähler geometry makes it act only on the left-handed (holomorphic) half of each fermion. Every matter particle has such a half, so every fermion takes part.</li>
+      <li><strong>Colour — \(\mathrm{SU}(3)\).</strong> The isometry of \(\mathbb{CP}^2\), with \(N_c = \chi(\mathbb{CP}^2) = 3\) colours. Only quarks carry it: the neutrino's \(S^5\) geometry averages colour down to a single neutral state, and the charged leptons' \(\mathbb{CP}^3\) and \(\mathbb{CP}^5\) geometries cancel it outright.</li>
+      <li><strong>Gravity.</strong> Curvature of the whole manifold \(M_\infty\). It has no sector boundary and no filter, so it acts on every particle and every pair (see <a href="/articles/gravity-weak.html">Gravity Is Not a Force</a>).</li>
+    </ul>
+  </div>
+
+</section>
+<section>
+
+  <h2>What each sector carries</h2>
+  <div class="prose">
+    <p>Because these structures attach to sectors, every particle in a given sector carries exactly the same set. The five matter sectors:</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Sector</th><th>Particles</th><th>Charge</th><th>EM</th><th>Weak</th><th>Colour</th><th>Gravity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="/articles/sector-3.html">d=3</a></td><td>d, s, b</td><td>−1/3</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td><a href="/articles/sector-4.html">d=4</a></td><td>u, c, t</td><td>+2/3</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+        <tr><td><a href="/articles/sector-5.html">d=5</a></td><td>ν₁, ν₂, ν₃</td><td>0</td><td>–</td><td>✓</td><td>–</td><td>✓</td></tr>
+        <tr><td><a href="/articles/sector-6.html">d=6</a></td><td>e, μ</td><td>−1</td><td>✓</td><td>✓</td><td>–</td><td>✓</td></tr>
+        <tr><td><a href="/articles/sector-10.html">d=10</a></td><td>τ</td><td>−1</td><td>✓</td><td>✓</td><td>–</td><td>✓</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>The d=2 sector — the home of γ, W, Z and H — is not a row here. Those are excitations of the one wave like any other particle, not a matter family with a single charge. The \(U(1)\) and \(\mathrm{SU}(2)_L\) structures are the geometry of \(\mathbb{CP}^2\) itself, not something the d=2 modes carry between particles. The grid below is the matter particles.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>The grid</h2>
+  <div class="prose">
+    <p>Twelve matter particles on each axis. Every cell is just the overlap of the two rows above: a structure appears only when <em>both</em> particles carry it. Nothing else is computed — the grid is an intersection.</p>
+    <p>
+      <span class="swatch sw-all"></span><strong>E W C G</strong> — electromagnetic, weak, colour, gravity &nbsp;·&nbsp;
+      <span class="swatch sw-em"></span><strong>E W G</strong> — electromagnetic, weak, gravity &nbsp;·&nbsp;
+      <span class="swatch sw-nu"></span><strong>W G</strong> — weak, gravity
+    </p>
+  </div>
+
+  <div class="table-wrap">
+    <table class="cgrid">
+      <thead>
+        <tr>
+          <th class="rh"></th>
+          <th>d</th><th>s</th><th>b</th><th>u</th><th>c</th><th>t</th>
+          <th>ν₁</th><th>ν₂</th><th>ν₃</th><th>e</th><th>μ</th><th>τ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="rh">d</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">s</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">b</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">u</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">c</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">t</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-all">EWCG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">ν₁</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td></tr>
+        <tr><td class="rh">ν₂</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td></tr>
+        <tr><td class="rh">ν₃</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td></tr>
+        <tr><td class="rh">e</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">μ</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+        <tr><td class="rh">τ</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-nu">WG</td><td class="c-em">EWG</td><td class="c-em">EWG</td><td class="c-em">EWG</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</section>
+<section>
+
+  <h2>How to read it</h2>
+  <div class="prose">
+    <p><strong>Gravity is in every cell.</strong> It is the curvature of the whole manifold, sourced by whatever mass is present, with no direction it cannot reach. There is no pair of particles it leaves out.</p>
+    <p><strong>The neutrino rows and columns lose electromagnetism.</strong> A neutrino is neutral and colourless — its \(S^5\) geometry keeps only the weak structure (and gravity). So every pairing that includes a neutrino collapses to W·G, the sparse stripe running through the grid.</p>
+    <p><strong>Colour survives only in the quark block.</strong> The top-left 6×6 corner — every down-type with every up-type, and each among themselves — is the only place all four structures act at once, because colour needs both partners to be quarks. The moment one partner is a lepton or a neutrino, colour drops.</p>
+  </div>
+
+</section>
+<section>
+
+  <h2>Why it's blocks, not noise</h2>
+  <div class="prose">
+    <p>The grid is not 144 independent facts. It is five rows of information — one per sector — tiled out across the twelve particles. The down quark and the bottom quark have identical rows because they are the same sector excited at different depths; what couples to them is fixed by the sector, not by the individual particle. Mass is the one thing that separates a down from a bottom, and mass is not on this grid.</p>
+    <p>That tiling is itself the result. In IDWT a particle's interactions are written into the geometry of the directions it occupies, so two particles sharing a sector cannot differ in what couples to them. The blocks are the visible shape of that fact: coupling is a property of sectors, and the particles are just where the sectors are occupied.</p>
+  </div>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

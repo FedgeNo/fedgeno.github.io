@@ -28,7 +28,7 @@ header-includes:
       \noindent\textbf{DOI:} \href{https://doi.org/10.5281/zenodo.20370490}{10.5281/zenodo.20370490}\par
     }
 abstract: |
-  We present Infinite-Dimensional Wave Theory (IDWT), a framework that derives the complete mass spectrum of the Standard Model from two inputs: a single non-trivial integer $n_s = 4$ and a single dimensional reference $m_e$ (the electron mass, used only to convert dimensionless ratios to MeV). The mass of each particle is
+  We present Infinite-Dimensional Wave Theory (IDWT), a framework that derives the complete mass spectrum of the Standard Model from two inputs: a single non-trivial integer $n_s = 4$ and a single dimensional reference $m_e$ (the electron is the d=6 CP³ sector excitation of $\Psi_\infty$ at mode index $n=13$, a genuine 6D object inhabiting six macroscopic spatial dimensions; its mass converts dimensionless ratios to MeV). The mass of each particle is
 
   $$m(n, d) = m_{\mathrm{scale},d} \times S(n,d), \qquad S(n,d) = \binom{n+d-1}{d},$$
 

@@ -581,6 +581,23 @@ Decoherence time: $\tau \sim 1/(\text{ME} \times m_{\rm scale,3})$. For $n=3$: M
 
 ---
 
+### Bound within, free without — a particle in the dimensions beyond its sector (resolves a Fedge question, 2026-06-04)
+
+**Question.** A particle is bound in its $d$ sector dimensions. In the dimensions beyond $d$ (the ones it is "not in"), does it (A) drift freely as a localized lump, (B) stay put at a point, or float in some other sense — and does any of it survive normalizability?
+
+**Setup.** Harmonic sector confinement $V_d = \lambda_d r^2$ (Part 4 §3.9); ground state Gaussian of width $L_d = \lambda_d^{-1/4}$, normalizable on $\Xi_d$ ($\int_{\Xi_d}|\chi|^2 = 1$). A $d$-particle feels $V_d$ in its $d$ coordinates only; in every dimension past $d$ it is **free** ($H_{\rm outer} = -\Delta_{\rm outer}$), since the $d=7,8,9$ band carries no sector geometry (T3) and $V_{10}$ belongs to the tau, not to a $d<10$ mode.
+
+**Result (✅ for the normalizability core).**
+- $-d^2/dy^2$ on a free direction has spectrum $[0,\infty)$: no negative eigenvalue, hence **no normalizable bound state in a free dimension.** Solutions: $e^{iky}$ ($E>0$, momentum), $\text{const}$ ($E=0$, uniform), $e^{+|k|y}$ ($E<0$, divergent — unphysical).
+- The unique zero-momentum (rest) configuration in a free dimension is the **constant.** So a massive particle, in the dimensions beyond its sector, is **uniform — present everywhere, pinned to no point.** This is "floats freely," made precise.
+- Localizing to width $\Delta$ costs $E_{\rm kin}\sim 1/(2m\Delta^2)$ (uncertainty); rest ($E\to0$) $\Leftrightarrow \Delta\to\infty \Leftrightarrow$ uniform. So "stay put at a point" (B) is not a rest state, and "drift as a lump" (A) needs momentum (excited). Neither as posed — the answer is **uniform co-presence.**
+- **Normalizability:** the mode is normalized on $\Xi_d$. Uniformity in the outer dims is the nesting embedding $C^\infty(\Xi_d)\subset C^\infty(\Xi_{d'})$; the divergent "norm over the outer volume" only says "normalize on $\Xi_d$ — it is a $d$-object." Cross-sector coupling is the overlap on the shared coords (Part 1 §3g), consistent with the §3i "already there" framing.
+- **Massless vs massive:** dispersion $E^2 = p_{\rm outer}^2 + m^2$. $m>0$ admits a rest state (uniform); $m=0$ (photon) has no rest frame, so its free state in the outer dims necessarily carries momentum → **propagation.** Same principle; masslessness upgrades uniform presence to propagation. Orientation freedom (rotating $\Xi_d$) is the separate, symmetry-protected, always-normalizable piece.
+
+**Status.** ✅ for the normalizability core (no bound state in a free direction; rest = uniform; normalize on $\Xi_d$). The reading "uniform presence = floats freely" and the massless→propagation upgrade are 🔵 structural interpretation. Placed in Part 1 §3i as the "Bound within, free without" subsection (after "Cross-sector interaction involves no separate objects"), carrying the ✅/🔵 split. Recorded in `files/idwt.py` as STEP 36 (computation block in the compute section, output block at the end). Exploration script: `claude/explore_floating_normalizability.py`.
+
+---
+
 ## Part III — Investigated, no result
 
 Attempted patterns that were checked and returned null. Recorded to prevent repeat searches.

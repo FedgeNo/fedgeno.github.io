@@ -16,7 +16,7 @@ IDWT's macroscopic sector dimensions are consistent with all known gravitational
 
 Every experimental constraint on extra dimensions assumes a KK tower. IDWT has no KK tower. The constraint category does not exist in IDWT.
 
-**The standard argument and why it does not apply.** The Eöt-Wash torsion balance tests Newton's law below 50 microns and sees no deviation. Precision atomic spectroscopy (hydrogen 1S–2S) tests the electron's energy levels to 10⁻¹⁵. Collider experiments search for missing energy from KK graviton emission. All of these null results are taken to exclude macroscopic extra dimensions.
+**The standard argument and why it does not apply.** The Eöt-Wash torsion balance tests Newton's law below 50 microns and sees no deviation. Precision atomic spectroscopy (hydrogen 1S–2S) tests the energy levels of the electron — a d=6 sector excitation of Ψ∞ inhabiting six macroscopic spatial dimensions — to 10⁻¹⁵. Collider experiments search for missing energy from KK graviton emission. All of these null results are taken to exclude macroscopic extra dimensions.
 
 Every one of these exclusions has the same hidden assumption: gravitons can propagate into the sector space, producing a KK tower of massive graviton modes with masses m_n = n/R. At distances r < R, Newton's law changes from 1/r² to 1/r^{2+d}. At colliders, KK gravitons are produced and escape.
 

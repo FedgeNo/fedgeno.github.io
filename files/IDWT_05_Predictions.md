@@ -14,7 +14,7 @@ S(4,3) / S(1,3) = 20 / 1 = 20.000
 ```
 Fixed by the formula before comparing to data. Zero-error prediction.
 
-**Muon/electron ratio**
+**Muon/electron ratio** (both d=6 CP³ sector excitations of Ψ∞, inhabiting six spatial dimensions; n=35 for the muon, n=13 for the electron)
 ```
 S(35,6) / S(13,6) = 3,838,380 / 18,564 = 206.7647   (PDG: 206.7683,  −0.002%)
 ```
@@ -170,7 +170,7 @@ The ratio of successive d=3 mode counts at the seed level — the geometric mean
 The d=5 sector has d mod 8 = 5, the unique Clifford class for which Majorana spinors are geometrically forbidden. More strongly: no charge-conjugation matrix C exists on the S⁵ spinor bundle (d mod 8 = 5 globally), so cross-sector couplings cannot construct ψ^T Cψ at any loop order. 0νββ is forbidden at all orders. Current experiments (KamLAND-Zen 2023: m_ββ < 36 meV) have seen no signal, consistent with this prediction. This is a qualitative, falsifiable prediction independent of the mass spectrum.
 
 **Left-handed weak coupling is geometric**
-The W boson couples only to the left-handed (holomorphic) half of each Kähler sector spinor. The Kähler γ₅ operator on CP² (d=4) and CP³ (d=6) splits each sector spinor into holomorphic left-handed and anti-holomorphic right-handed components; the W is a holomorphic sector-eigenmode and therefore couples exclusively to the left-handed half.
+The SU(2)_L structure acts only on the left-handed (holomorphic) half of each Kähler sector spinor. The Kähler γ₅ operator on CP² (d=4) and CP³ (d=6) splits each sector spinor into holomorphic left-handed and anti-holomorphic right-handed components; only the holomorphic half transforms under SU(2)_L.
 
 ---
 

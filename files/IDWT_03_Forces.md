@@ -180,11 +180,11 @@ Each force couples to a particle through the sector coordinates the particle occ
 | Force | Sector | Dimensions | Coupling structure |
 |---|---|---|---|
 | Electromagnetic | d=2 | 2 | U(1) phase from shared d=2 coordinates |
-| Weak | d=2 | 2 | SU(2)_L from Kähler chirality on d=2 |
+| Weak | d=2 | 2 | SU(2)_L = the SU(2) factor of the U(2) holonomy of CP² (§6); acts on the holomorphic (left) spinor half via the Kähler chirality split (§7) |
 | Strong | d=3, d=4 | 3–4 | SU(3) contact coupling via CP² isometry |
 | Gravity | all | 10 | Curvature of M_∞; no sector boundary |
 
-**Coordinate containment.** A particle couples to a force only when the particle's sector contains the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the Kähler chirality on d=2.
+**Coordinate containment.** A particle couples to a force only when the particle's sector contains the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the SU(2) factor of the U(2) holonomy of CP² (§6, §7).
 
 **Why coordinate containment guarantees coverage — transverse picture.** A lower-d particle's wavefunction is automatically spread across all of a higher-d particle's extra directions. The photon (d=2) illustrates this directly: its wavefunction spans the two transverse directions and need not be aimed at a target in those directions — anything sharing that plane is covered automatically. The same structure repeats at every level of the sector nesting. A d=3 quark's wavefunction is transverse to the one extra direction of a d=4 particle: it covers that full direction without aiming. A d=2 photon interacting with a d=10 tau is transverse to eight of the tau's dimensions simultaneously — no alignment is required or even possible in any of them. This is the geometric reason coordinate containment produces automatic coupling rather than conditional coupling: the lower-d particle does not need to find the higher-d particle in its hidden dimensions because it is already everywhere in those dimensions. The coupling strength is set by the sector geometry as usual; the transversality explains why the coupling fires at all. The same reasoning accounts for the quantum mechanical statement that the electron can be found anywhere in the universe: the electron is a d=6 object, and a d=3 observer detects it only at the intersection of its 6D orbit with our three observable coordinates. The 6D orbit sweeps through our 3D slice freely — no confinement in the d=3 directions — so those intersections fall anywhere across observable space. The apparent delocalization is not uncertainty; it is what a 6D orbit looks like when projected onto a 3D subspace it has no reason to be localized within.
 
@@ -252,7 +252,7 @@ The table below consolidates, for each sector $d \in D$, the geometric, coupling
 | $d$ | Manifold | Isometry | $\chi$ | $g_{dd}$ (exact) | $m_{\rm scale}$ | Hosted particles | Coupling filter consequence |
 |---|---|---|---|---|---|---|---|
 | 2 | $\mathbb{CP}^1$ | $U(1)$ | 2 | $722.5$ | 27.47 MeV | $\gamma,\;W^\pm,\;Z^0,\;H$ | Orientation filter: two helicity states = complete internal geometry; coupling $\propto \varepsilon_\mu j^\mu$, zero for $j^\mu \perp \varepsilon_\mu$ |
-| 3 | $S^3$ | $\mathrm{SO}(4)$ | 0 | $8\sqrt{7}$ | 4.702 MeV | $d,\;s,\;b$ | Weak isospin filter: $\mathrm{SO}(4) = \mathrm{SU}(2)_L\times\mathrm{SU}(2)_R$; only $\mathrm{SU}(2)_L$ active; right-handed quarks decouple from $W$ |
+| 3 | $S^3$ | $\mathrm{SO}(4)$ | 0 | $8\sqrt{7}$ | 4.702 MeV | $d,\;s,\;b$ | No intrinsic chirality: $S^3$ is odd-dimensional, so $\gamma^1\gamma^2\gamma^3 \propto \mathbb{1}$ furnishes no chirality operator and its Dirac spinors are vector-like. The down-type left-handed weak structure is not produced here — it is inherited from the d=4 $\mathbb{CP}^2$ Kähler chirality through $d{=}3\subset d{=}4$ and the cross-coupling $g_{3,4}$; the $(u_L,d_L)$ doublet is a $\mathbb{CP}^2$ object (§6, §7) |
 | 4 | $\mathbb{CP}^2$ | $\mathrm{SU}(3)$ | 3 | $12/\sqrt{7}$ | 0.145 MeV | $u,\;c,\;t$ | Colour filter: $\chi(\mathbb{CP}^2) = N_c = 3$ colour handles from index theorem (§2, Part 8); colour-nonsinglet asymptotic states geometrically impossible |
 | 5 | $S^5$ | $\mathrm{SO}(6)$ | 0 | $96/g_{22}\approx 0.133$ | $7.4\times10^{-13}$ MeV | $\nu_1,\;\nu_2,\;\nu_3$ | Majorana/LNV filter: no $C$ on $S^5$ spinor bundle ($d\bmod8=5$); Hopf $S^1\!\to\!S^5\!\to\!\mathbb{CP}^2$ projects colour to singlet |
 | 6 | $\mathbb{CP}^3$ | $\mathrm{SU}(4)$ | 4 | $1/4$ | $2.75\times10^{-5}$ MeV | $e^-,\;\mu^-$ | Colour-silence filter: $\chi(\mathbb{CP}^3)=4\neq N_c$; colour contributions cancel in $\mathrm{SU}(4)$ representation; zero strong coupling at all energies |
@@ -261,6 +261,45 @@ The table below consolidates, for each sector $d \in D$, the geometric, coupling
 **Column notes.** $\chi$ is the Euler characteristic of the compact local $\mathbb{CP}^k$ model; for odd-sphere sectors ($d=3,5$) the sphere has $\chi(S^d)=0$ and structural counting roles are carried by the CP sector in the Hopf pair. Specifically: $\chi(\mathbb{CP}^2)=N_c=3$, $\chi(\mathbb{CP}^3)=n_s=4$, $\chi(\mathbb{CP}^5)=N_f=6$ (Part 9 T15). The $g_{dd}$ values are exact from seeds $n_s=4$, $n_u=3$; derivations in §0.7 and Part 2 §9. The $m_{\rm scale}$ values use $m_e=0.511$ MeV as the unit reference (Part 2 §10).
 
 **Coordinate containment vs coupling filter.** These are two distinct necessary conditions. Coordinate containment (§0.8) governs which forces can reach a particle: a force couples to a particle only if the particle's sector contains that force's sector. The coupling filter governs what happens within that sector: even with support in the sector, the particle's own sector geometry may project the relevant representation to zero. Both must hold for coupling to occur. Neutrinos ($d=5$): coordinates are nested inside $\Xi_4$ (colour sector), but the $S^5$ Hopf projection selects only the colour singlet — they are colour-neutral despite spatial overlap with the colour sector. Electrons ($d=6$): $\chi(\mathbb{CP}^3)=4\neq 3$; colour contributions cancel in the $\mathrm{SU}(4)$ representation regardless of spatial overlap with $\Xi_4$.
+
+---
+
+### 0.8c Active Coupling Structures by Sector Pair
+
+§0.8 and §0.8b give the two necessary conditions for coupling: coordinate containment (which coordinates a sector pair shares) and the coupling filter (what each sector's geometry permits on those coordinates). This subsection combines them into one map. A cross-sector effect is not an exchange between two objects: it is the single wave $\Psi_\infty$ coupling to itself, through the kernel $g_{d,d'}(\xi_d\!\cdot\!\xi_{d'})^2$, on the coordinates that two of its sectors share (Part 1 §3g). A coupling structure is **active** on a sector pair when it is geometrically present on the shared coordinates and survives both sectors' filters.
+
+The four coupling structures and their geometric origin:
+
+| Structure | Geometric origin | Present on |
+|---|---|---|
+| $U(1)$ — electric charge | $Q = T_3 + Y$, with $Y$ an eigenvalue of $T_8$ of $\mathrm{SU}(3)=\mathrm{Isom}(\mathbb{CP}^2)$ (§6, §13) | sectors whose hosted modes carry $Q \neq 0$ |
+| $\mathrm{SU}(2)_L$ — weak isospin | the $\mathrm{SU}(2)$ factor of the $U(2)$ holonomy of $\mathbb{CP}^2$; Kähler chirality (§7) restricts it to the holomorphic (left) component | the left-handed part of every fermion sector |
+| $\mathrm{SU}(3)$ — colour | the $\mathrm{SU}(3)$ isometry of $\mathbb{CP}^2$; $N_c=\chi(\mathbb{CP}^2)=3$ (§2, §6) | the quark sectors $d=3,4$ |
+| Gravity | curvature of $M_\infty$; no sector boundary (§0.8) | every sector |
+
+**Per-sector participation. ✅** Each entry follows from the established sector geometry: the charges from the $T_8$ eigenvalues (§6), colour from $\chi(\mathbb{CP}^2)=3$ with the $S^5$ Hopf singlet projection ($d=5$) and the $\chi(\mathbb{CP}^3)=4$, $\chi(\mathbb{CP}^5)=6$ colour-silence of the leptons ($d=6,10$), weak isospin from the Kähler chirality of the $\mathbb{CP}$ sectors with $d=3$ inheriting through $g_{3,4}$ and $d=5$ entering as the Dirac $\nu_L$.
+
+| $d$ | Hosted | $Q$ | $U(1)$ | $\mathrm{SU}(2)_L$ | $\mathrm{SU}(3)$ | Gravity |
+|---|---|---|---|---|---|---|
+| 3 | $d,s,b$ | $-\tfrac{1}{3}$ | ✓ | ✓ | ✓ | ✓ |
+| 4 | $u,c,t$ | $+\tfrac{2}{3}$ | ✓ | ✓ | ✓ | ✓ |
+| 5 | $\nu_{1,2,3}$ | $0$ | — | ✓ | — | ✓ |
+| 6 | $e,\mu$ | $-1$ | ✓ | ✓ | — | ✓ |
+| 10 | $\tau$ | $-1$ | ✓ | ✓ | — | ✓ |
+
+**Pairwise map. ⭐** A structure is active on a pair exactly when both sectors carry it — the intersection of their participation rows. In the cells, $\mathrm{EM}=U(1)$, $\mathrm{W}=\mathrm{SU}(2)_L$, $\mathrm{C}=\mathrm{SU}(3)$, $\mathrm{G}=$ gravity.
+
+| | $d{=}3$ | $d{=}4$ | $d{=}5$ | $d{=}6$ | $d{=}10$ |
+|---|---|---|---|---|---|
+| **$d{=}3$** | EM·W·C·G | EM·W·C·G | W·G | EM·W·G | EM·W·G |
+| **$d{=}4$** | EM·W·C·G | EM·W·C·G | W·G | EM·W·G | EM·W·G |
+| **$d{=}5$** | W·G | W·G | W·G | W·G | W·G |
+| **$d{=}6$** | EM·W·G | EM·W·G | W·G | EM·W·G | EM·W·G |
+| **$d{=}10$** | EM·W·G | EM·W·G | W·G | EM·W·G | EM·W·G |
+
+Gravity occupies every cell, sourced by the full $M_\infty$ curvature. $U(1)$ drops from every pair that includes the neutral neutrino sector $d=5$. $\mathrm{SU}(3)$ colour survives only in the quark block $\{d=3,d=4\}$, removed elsewhere by the neutrino Hopf singlet projection and the lepton colour-silence. $\mathrm{SU}(2)_L$ is present on every fermion pair.
+
+The $d=2$ sector hosts $\gamma,\,W^\pm,\,Z^0,\,H$ — themselves sector excitations of $\Psi_\infty$, not a matter family with a single charge. The $U(1)$ and $\mathrm{SU}(2)_L$ structures are the holonomy geometry of $\mathbb{CP}^2$ (§6), not something those modes carry; the pairwise map therefore runs over the matter sectors.
 
 ---
 
@@ -517,7 +556,7 @@ The colour-plus-EW algebra su(3) ⊕ u(2) is the full algebra of CP²'s isometry
 
 ## 7. Chirality from Kähler γ₅
 
-The chiral weak force — the W boson couples to left-handed particles only — follows from the spinor structure of Ψ∞ on the sector manifolds. Three sectors are **Kähler manifolds**: d=2 (CP¹), d=4 (CP²), d=6 (CP³). Each carries a canonical Kähler form ω, which defines a chirality operator on the sector spinor:
+The chirality of the weak structure — the SU(2)_L factor of CP²'s U(2) holonomy acts on left-handed components only — follows from the spinor structure of Ψ∞ on the sector manifolds. Three sectors are **Kähler manifolds**: d=2 (CP¹), d=4 (CP²), d=6 (CP³). Each carries a canonical Kähler form ω, which defines a chirality operator on the sector spinor:
 
 ```
 γ₅^Kähler = i^m × ω_{a₁a₂} ... ω_{a_{2m-1}a_{2m}} γ^{a₁}⋯γ^{a_{2m}}
@@ -525,7 +564,7 @@ The chiral weak force — the W boson couples to left-handed particles only — 
 
 where m is the complex dimension of the sector (m=1,2,3 for d=2,4,6 respectively). This operator anticommutes with all sector gamma matrices γ^a, splitting the sector spinor into **holomorphic** (positive chirality = LEFT) and **anti-holomorphic** (negative chirality = RIGHT) components.
 
-**Why the W couples only to the holomorphic half — the Kähler spinor argument:**
+**Why SU(2)_L acts only on the holomorphic half — the Kähler spinor argument:**
 
 On a Kähler manifold of complex dimension m, the Dirac spinor bundle decomposes as:
 ```
@@ -542,8 +581,8 @@ The U(2) holonomy of CP² acts on T^{*1,0}(CP²) — the holomorphic cotangent b
 - Λ^{0,1} = T^{*1,0}: transforms in the fundamental of U(2) → doublet, LEFT-handed
 - Λ^{0,2} = det(T^{*1,0}): transforms as a character of U(2) → singlet, RIGHT-handed
 
-The d = 2 boson sector particles couple exclusively to left-handed quarks and leptons. This selectivity arises from the Kähler geometry of the d=4 (CP²) and d=6 (CP³) sectors. The Kähler structure naturally divides the spinors into holomorphic (Λ^{0,1}) and anti-holomorphic (Λ^{0,0} and Λ^{0,2}) components. The boson sector particles couple only to the holomorphic part.
-Right-handed quarks and leptons live in geometric singlets under this coupling — not because left-handedness is postulated, but because the Kähler geometry makes the anti-holomorphic components invisible to the boson sector particles.
+The SU(2)_L structure acts exclusively on the left-handed components of quarks and leptons. This selectivity arises from the Kähler geometry of the d=4 (CP²) and d=6 (CP³) sectors. The Kähler structure naturally divides the spinors into holomorphic (Λ^{0,1}) and anti-holomorphic (Λ^{0,0} and Λ^{0,2}) components. Only the holomorphic part transforms under SU(2)_L.
+Right-handed quarks and leptons are geometric singlets under this structure — not because left-handedness is postulated, but because the Kähler geometry makes the anti-holomorphic components invisible to SU(2)_L.
 
 For the d=6 lepton sector (CP³), the Kähler geometry splits the spinor into holomorphic (left-handed, 4 components) and anti-holomorphic (right-handed, 4 components) parts: Λ^{0,1} ⊕ Λ^{0,3} and Λ^{0,0} ⊕ Λ^{0,2}.
 
@@ -664,7 +703,7 @@ This is a theorem of the seed n_s=4 and the Vandermonde structure, determined en
 
 ### Curvature Correction from the Mediating Sector
 
-The Cabibbo mixing is mediated by the W boson, which lives in the d=2 sector (CP¹ = S²). The bare prediction uses a flat-space normalization of the mode functions on CP¹. The actual CP¹ geometry has curvature, which corrects the effective mode density through the sector Dirac curvature correction formula.
+The curvature correction to the Cabibbo angle enters through the d=2 sector (CP¹ = S²), where the W boson mode lives. The bare prediction uses a flat-space normalization of the mode functions on CP¹. The actual CP¹ geometry has curvature, which corrects the effective mode density through the sector Dirac curvature correction formula.
 
 **Step 1 — CP¹ sector curvature correction on CP¹ (d=2 sector):**
 
@@ -718,7 +757,7 @@ sin θ_C = (1 + χ(CP¹)/(24 · S(n_s,3))) / √S(n_s,3)
          = 0.22454
 ```
 
-**Why χ(S³) = 0 does not contribute:** The d=3 quark sector has geometry S³. The Euler characteristic of any odd-dimensional closed manifold is zero: χ(S³) = 0. The curvature correction vanishes for the quark sector. The correction enters exclusively through the mediating d=2 sector (CP¹) through which the W boson propagates.
+**Why χ(S³) = 0 does not contribute:** The d=3 quark sector has geometry S³. The Euler characteristic of any odd-dimensional closed manifold is zero: χ(S³) = 0. The curvature correction vanishes for the quark sector. The correction enters exclusively through the d=2 sector (CP¹), where the SU(2)_L mixing structure lives.
 
 **Result:**
 

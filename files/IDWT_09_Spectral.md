@@ -122,6 +122,8 @@ $\ell$-decomposition coefficients on $S^{d-1}$ for every sector:
 | 6 | $1/6$ | $5/6$ | Electron, muon |
 | 10 | $1/10$ | $9/10$ | Tau (critical) |
 
+The d=6 row covers the electron and muon — both are d=6 CP³ sector excitations of Ψ∞, genuine 6D objects inhabiting six macroscopic spatial dimensions, whose 3D appearances are projections from sector space.
+
 ---
 
 ## T3. The Sector Set Theorem

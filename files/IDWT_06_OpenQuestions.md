@@ -117,7 +117,7 @@ The following items are open derivations or missing foundational elements within
 
 **Measurement theory — absent.** There is no account of how continuous field Ψ∞ produces discrete particle detection events. Open: either provide a decoherence analysis within IDWT (sector localization → effective discreteness) or add an explicit postulate connecting field amplitude to detection probability.
 
-**m_e as unit reference — choice not justified.** Any of the 15 particle masses could serve as the unit reference. The choice of m_e is conventional. Open: either show the electron is geometrically special as the unique lightest co-fixed-point mode in the minimal sector set, or state explicitly that m_e is a conventional unit choice and all ratios are the genuine predictions.
+**m_e as unit reference — choice not justified.** Any of the 15 particle masses could serve as the unit reference. The choice of m_e is conventional. Open: either show the electron (the d=6 CP³ sector excitation of Ψ∞ at mode index n=13, a genuine 6D object whose observable mass is the 3D projection of its 6D sector eigenvalue) is geometrically special as the unique lightest co-fixed-point mode in the minimal sector set, or state explicitly that m_e is a conventional unit choice and all ratios are the genuine predictions.
 
 **Spin-1 bosons (W, Z, photon) from spinor framework — not worked out.** W and Z are spin-1 — how does this emerge from the Dirac spinor Ψ∞? The χ(CP¹)=2 helicity count for the photon is noted, but the spin-1 polarization tensor structure for W and Z is not derived. Open: derive the spin-1 polarization structure of gauge bosons from the d=2 sector Dirac operator spectrum.
 

@@ -297,6 +297,33 @@ g22       = g22_p**2 * g22_q / 2.0          # = 722.5
 m_scale2 = m_e * math.sqrt(g22 / g66)
 
 
+# =============================================================================
+# STEP 2d -- g22 IS A MULTIPLICITY COUNT, NOT A KERNEL TRACE (compute)
+# =============================================================================
+# Tested (claude/g22_operator_trace.py; Part 6 "g22 operator derivation" item):
+# does a genuine (xi.xi')^2 kernel trace yield g22 = p^2 q / 2?  It does NOT.
+#  - literal Tr[G^2_23 + G^2_24] is ADDITIVE ~ p^2 + q -- wrong structure for a product;
+#  - the actual T2 overlap (Appendix A s20a: O ~ <r^2>_i <r^2>_j / d) is O(1), scaling
+#    as the mode index n^1, orders of magnitude below the multiplicity product;
+#  - p^2 q appears only as Tr[IDENTITY] over rank-(p,p,q) eigenspaces -- the
+#    multiplicities are the INPUT, the kernel acts trivially.
+# So g22 = p^2 q / 2 is a state-count (IDOS multiplicity product), NOT a dynamical
+# kernel matrix element -- the same counting-vs-overlap split that closed the CKM
+# formula in the negative. The 1/2 (Bose symmetry of the kernel) is the one piece
+# that is genuinely kernel-derived.
+g22_count = g22_p**2 * g22_q / 2.0                       # 722.5 = the multiplicity count (= g22)
+# representative (xi.xi')^2 ground-state overlap, <r^2>_d = d/(2 sqrt(lam_d)) (Part 4 s3.10.3):
+# two d=3 legs and one d=4 leg -- O(1), nowhere near the count.
+_lam3 = (g33 / 2.0) ** (2.0/3.0)
+_lam4 = (g44 / 2.0) ** (2.0/3.0)
+_r2_d3 = 3 / (2.0 * _lam3**0.5)
+_r2_d4 = 4 / (2.0 * _lam4**0.5)
+g22_kernel_overlap = _r2_d3 * _r2_d3 * _r2_d4           # O(1) representative overlap magnitude
+assert abs(g22_count - 722.5) < 1e-9
+assert abs(g22_count - g22)   < 1e-9                    # consistent with the g22 used in STEP 3
+assert g22_kernel_overlap < 10.0                        # kernel overlap is O(1), NOT the 722.5 count
+
+
 # Collect sector scales keyed by dimension.
 scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 
@@ -1852,6 +1879,173 @@ nonode_no_zero_at_weight = all(abs(nonode_closed[nr]) > 0.0 for nr in nonode_nr)
 
 
 # =============================================================================
+# STEP 35 -- DIRAC-BdG STABILITY OF A MODE (compute; MC-4.2)
+# =============================================================================
+# Linearizing the nonlinear DIRAC EOM about a sector mode (MC-4.2, Fedge ruling)
+# gives the Bogoliubov-de Gennes operator L = [[eps, Delta],[-Delta, -eps]] for a
+# 2-mode (background <-> reachable neighbour) truncation, with eigenvalues
+#   omega = +/- sqrt(eps^2 - Delta^2).
+#   eps   = energy gap to the neighbour = (S(n',d) - S(n,d)) * m_scale_d
+#   Delta = pairing (B-block) coupling  = ME * m_scale_d  (STEP 30 element, sector units)
+# A mode is STABLE (real omega) iff eps^2 >= Delta^2 -- the gap dominates the
+# coupling. Im(omega) > 0 is a dynamical instability (the MC-4.3 question for the
+# full tower; here, the 2-mode check the formal criterion reduces to).
+#
+# KEY spinor-structure fact (invisible in the scalar Schrodinger reduction): in
+# d=5 (S^5, d mod 8 = 5) NO charge-conjugation C exists on the bundle, so the
+# pairing block B = 0 identically -> Delta = 0 -> the neutrino BdG operator is
+# block-diagonal and real. This is the EOM-level shadow of the all-orders 0nubb
+# prohibition. (C exists in d=3 Majorana and d=2,10 Maj-Weyl, where B != 0.)
+
+def _bdg_omega_imag(eps, Delta):
+    # |Im(omega)| for L=[[eps,Delta],[-Delta,-eps]]; 0 if eps^2>=Delta^2 (stable)
+    disc = eps*eps - Delta*Delta
+    return 0.0 if disc >= 0.0 else math.sqrt(-disc)
+
+# seed mode (down, n=1, d=3) coupled to its nearest reachable even-l neighbour (n=3,d=3)
+bdg_eps_seed   = (S(3, 3) - S(1, 3)) * m_scale3        # energy gap, MeV
+bdg_ME_seed    = 6.3                                    # STEP 30 seed-coupling matrix element
+bdg_Delta_seed = bdg_ME_seed * m_scale3                # pairing in energy units, MeV
+bdg_Imw_seed   = _bdg_omega_imag(bdg_eps_seed, bdg_Delta_seed)   # = 0 -> stable
+
+# d=5 neutrino (nu1 n=10 <-> nu2 n=15): pairing B = 0 (no C on S^5) -> Delta = 0
+bdg_eps_d5     = (S(15, 5) - S(10, 5)) * m_scale5
+bdg_Delta_d5   = 0.0                                    # B = 0 identically in d=5
+bdg_Imw_d5     = _bdg_omega_imag(bdg_eps_d5, bdg_Delta_d5)
+
+# contrast: a hypothetical near-resonance (gap < pairing) WOULD be unstable
+bdg_Imw_resonant = _bdg_omega_imag(0.5 * bdg_Delta_seed, bdg_Delta_seed)
+
+assert bdg_Imw_seed == 0.0                              # SEED STABLE: real omega
+assert bdg_eps_seed > bdg_Delta_seed                    # non-trivial: stability holds bc gap dominates
+assert bdg_Imw_d5 == 0.0                                # d=5 B=0 -> stable by no-C structure
+assert bdg_Imw_resonant > 1e-6                          # contrast: near-resonance IS unstable
+
+# =============================================================================
+# STEP 36 -- FULL-TOWER BdG STABILITY OF THE 15 Sigma MODES (compute; MC-4.3)
+# =============================================================================
+# STEP 35 did the 2-mode BdG check for one seed-vs-neighbour pair. MC-4.3 extends
+# it to the reachable-neighbour tower of EACH of the 15 co-fixed-point modes and
+# shows sigma(L_{n,d}) is real for all of them (no Im omega > 0) -> every Sigma
+# mode is a neutrally stable resonance.
+#
+# Reachable-neighbour rule (l-parity, STEP 30): the kernel (xi.xi')^2 = l=0 + l=2
+# only, so within a sector level N=n-1 changes by 0 or +-2 and l-parity (N parity)
+# is CONSERVED. From mode n the reachable same-sector neighbours are n -> n+-2k;
+# the opposite-parity neighbours n -> n+-(2k+1) are UNREACHABLE (coupling EXACTLY 0).
+# The nearest (smallest-gap, most dangerous) same-sector neighbour is always the
+# opposite-parity n+-1 one -- so l-parity decouples exactly the channels that could
+# close a gap. The reachable even-l neighbours couple with
+#   Delta(n,n') = (g_dd/3) * I(n_r) I(n_r'),   n_r=(n-1)//2,
+# where for d=3 I is the STEP 30 integral _I3, and for d != 3 the STEP 34
+# geometric-decay envelope overlap_J(n_r, 3/2) is the proven ceiling on the overlap
+# (sector-universal radial Laguerre structure; 1/3 decay, weight s=3/2 fixed by the
+# kernel). The energy gap is eps = (S(n',d) - S(n,d)) * m_scale_d.
+# Stability of the 2-mode block: omega = +- sqrt(eps^2 - Delta^2) real iff
+# |Delta| <= |eps|, i.e. ratio = |Delta|/|eps| < 1. A mode is stable iff this holds
+# for every reachable neighbour. (For d=5 the pairing block B=0 identically -- no C
+# on S^5, d mod 8 = 5 -- so Delta=0 and the mode is stable by structure: STEP 35.)
+# (Part 6 MC-4.3; Part 7 section 1.2; verification claude/mc4_3_stability.py)
+
+bdg_g_self = {2: g22, 3: g33, 4: g44, 5: g55, 6: g66, 10: g66}   # g_{10,10}=g66
+
+# the 15 co-fixed-point modes (n, d)
+BDG_SIGMA = [(1,3),(4,3),(20,3),(16,3),(3,4),(72,4),(10,5),(15,5),(22,5),
+             (13,6),(35,6),(23,10),(76,2),(81,2),(95,2)]
+BDG_NO_C  = {5}    # no charge-conjugation C on S^5 -> pairing block B = 0
+
+def _bdg_overlap_I(d, n):
+    # l=0 radial overlap of even-level mode n against the vacuum density.
+    # d=3 uses the STEP 30 integral _I3; other sectors use the STEP 34 envelope.
+    n_r = (n - 1)//2
+    return _I3(n_r) if d == 3 else abs(overlap_J(n_r, 1.5))
+
+def _bdg_coupling(d, n, np_):
+    return (bdg_g_self[d]/3.0) * _bdg_overlap_I(d, n) * _bdg_overlap_I(d, np_)
+
+def _bdg_mscale(d):
+    return {2:m_scale2,3:m_scale3,4:m_scale4,5:m_scale5,6:m_scale6,10:m_scale10}[d]
+
+def _bdg_worst_ratio(n, d, kmax=6):
+    # max over reachable same-parity neighbours n -> n+-2k of |Delta|/|eps|.
+    if d in BDG_NO_C:
+        return 0.0                              # B = 0 -> exactly stable
+    worst = 0.0
+    for k in range(1, kmax+1):
+        for np_ in ([n + 2*k] + ([n - 2*k] if n - 2*k >= 1 else [])):
+            eps = (S(np_, d) - S(n, d)) * _bdg_mscale(d)
+            if abs(eps) < 1e-300:
+                return float('inf')
+            worst = max(worst, _bdg_coupling(d, n, np_)/abs(eps))
+    return worst
+
+bdg_ratios      = {(n,d): _bdg_worst_ratio(n,d) for (n,d) in BDG_SIGMA}
+bdg_worst_ratio = max(bdg_ratios.values())                 # = 0.1481, at the seed (1,3)
+bdg_worst_mode  = max(bdg_ratios, key=bdg_ratios.get)      # = (1,3) down quark / seed
+
+# self-checks: every Sigma mode stable (ratio < 1); d=5 exactly 0; seed is the worst.
+assert bdg_worst_ratio < 1.0                               # all 15 modes: sigma(L) real
+assert abs(bdg_worst_ratio - 0.148056) < 1e-4              # worst case = the seed
+assert bdg_worst_mode == (1, 3)                            # seed is closest to boundary
+assert all(bdg_ratios[(n,5)] == 0.0 for (n,d) in BDG_SIGMA if d == 5)  # d=5 B=0
+
+
+# =============================================================================
+# STEP 37 -- DAG SELECTION IS NOT EOM-ENERGETIC: KERNEL REACH ⊋ DAG (compute; MC-4.4)
+# =============================================================================
+# MC-4.3 (STEP 36) showed every Sigma mode is BdG-stable — the NECESSARY filter.
+# MC-4.4 asks: is the SUFFICIENT selection also in the EOM energetics? Verdict: NO.
+#
+# (A) NO ENERGY RESONANCE AT THE DAG ADDITIVE EDGES. The IE edges (n_e=n_nu1+n_up,
+#     n_tau=n_nu3+n_down) are INDEX relations. If the composite formed by an on-shell
+#     cross-sector process, some energy would close additively across the edge. Tested:
+#       mass    m(n,d)  = m_scale_d * S(n,d)              (physical resonance energy)
+#       oscillator E_HO = (2(n-1)+d) * sqrt(lam_d)        (sector Dirac/HO eigenvalue)
+#     Neither closes (ratios far from 1) -> edges are PURE INDEX relations.
+#     Rules out cross-sector resonance-locking and Hartree self-consistency selectors.
+# (B) KERNEL LEVEL-LAW READS THE IE EDGE FORM. The quartic kernel couples two parent
+#     modes; its leading content is at level N1+N2 (l=0+l=2, STEP 34), i.e.
+#     n_comp = n1+n2-1. Adding the ground-state offset S(1,d)=1 gives n1+n2 = the
+#     observed IE index. Motivated form (🔶), not a selection (every pair couples).
+# (C) KERNEL REACH ⊋ DAG. The kernel's exact conserved charge is l-parity P=(n-1) mod 2
+#     (STEP 30). Within a parity class every level is reachable, so the kernel admits
+#     ~half of every sector -- strictly more than the 2-4 Sigma modes per sector.
+#     Selection is a directed index derivation (combinatorial fixed point of a chosen
+#     generator set), not a dynamical fixed point of the EOM energetics.
+# (Part 6 MC-4.4; Appendix A section 15; exploration claude/mc4_4_exploration.py)
+
+def _E_HO(ni, di):
+    # sector harmonic-oscillator / Dirac eigenvalue: (2(n-1)+d)*sqrt(lam_d)
+    lam_d = (g_self[di] / 2.0) ** (2.0 / 3.0)
+    return (2 * (ni - 1) + di) * math.sqrt(lam_d)
+
+# (A) edge energy-closure ratios (1.0 would be an on-shell resonance)
+#     e = nu1 + up :  d_e=6, parents (nu1,d=5),(up,d=4)
+#     tau = nu3 + down : d_tau=10, parents (nu3,d=5),(down,d=3)
+sel_edge_mass_ratio_e   = (_bdg_mscale(6)  * S(n_e,6))   / (_bdg_mscale(5)*S(n_nu1,5) + _bdg_mscale(4)*S(n_up,4))
+sel_edge_EHO_ratio_e    = _E_HO(n_e,6)    / (_E_HO(n_nu1,5) + _E_HO(n_up,4))
+sel_edge_EHO_ratio_tau  = _E_HO(n_tau,10) / (_E_HO(n_nu3,5) + _E_HO(n_down,3))
+
+# (B) kernel level-law: n1+n2-1, +1 ground offset -> n1+n2 = IE index
+sel_kernel_leadlaw_e    = n_nu1 + n_up - 1           # = 12 (leading level N1+N2)
+sel_IE_index_e          = n_nu1 + n_up               # = 13 = n_e (leadlaw + ground offset 1)
+
+# (C) kernel reach vs DAG: same-parity, same-sector count in d=3
+_N_REACH = 120
+_d3_sigma_set  = {1, 4, 20, 16}                      # d=3 Sigma indices (down,strange,charm,k0)
+_d3_parity_reach = sum(1 for nn in range(1, _N_REACH + 1)
+                       if (nn - 1) % 2 == (1 - 1) % 2)  # even-parity (seed down) class size
+sel_reach_ratio = _d3_parity_reach / len(_d3_sigma_set)  # kernel reach / DAG count in d=3
+
+assert abs(sel_edge_mass_ratio_e  - 1.0) > 0.5       # mass does NOT close on the e edge
+assert abs(sel_edge_EHO_ratio_e   - 1.0) > 0.2       # E_HO does NOT close on the e edge
+assert abs(sel_edge_EHO_ratio_tau - 1.0) > 0.04      # E_HO does NOT close on the tau edge
+assert sel_kernel_leadlaw_e + 1 == sel_IE_index_e == n_e  # level-law + ground offset = IE index
+assert _d3_parity_reach >= 60                         # kernel admits >= 60 d=3 modes per parity
+assert sel_reach_ratio > 10.0                         # kernel reach strictly > DAG count
+
+
+# =============================================================================
 # STEP 1 -- OUTPUT: TOWER CONSTRUCTION
 # =============================================================================
 print("=== TOWER CONSTRUCTION ===")
@@ -1948,6 +2142,15 @@ for _da in matter_d:
         f"{''.join(_code[s] for s in active_pair[_da][_db]):>7}" for _db in matter_d))
 print("  Gravity in every cell; E drops on any pair with the neutral nu sector d=5;")
 print("  C survives only in the quark block {3,4}; W on every fermion pair.")
+
+
+# =============================================================================
+# STEP 2d -- OUTPUT: g22 IS A MULTIPLICITY COUNT, NOT A KERNEL TRACE
+# =============================================================================
+print("\n=== g22 = p^2 q / 2 is a multiplicity COUNT, not a kernel trace ===")
+print(f"  g22 = p^2 q / 2 = {int(g22_p)}^2 * {int(g22_q)} / 2 = {g22_count}  (Dirac-eigenspace multiplicity)")
+print(f"  representative (xi.xi')^2 ground-state overlap = {g22_kernel_overlap:.3f}  (O(1), not the count)")
+print("  => state-count (IDOS), like the CKM formula (Appendix s20a); only the 1/2 is kernel-derived.")
 
 
 # =============================================================================
@@ -2855,6 +3058,56 @@ for nr in nonode_nr:
 print(f"  every even-level overlap nonzero at the kernel weight: {nonode_no_zero_at_weight}")
 print("  => no exact l-parity-style cut for even-level modes under (xi.xi')^2;")
 print("     the dephasing bound is the proven ceiling. An exact cut needs a different kernel.")
+
+
+# =============================================================================
+# STEP 35 -- OUTPUT: DIRAC-BdG STABILITY OF A MODE  (MC-4.2)
+# =============================================================================
+print("\n" + "=" * 70)
+print("STEP 35 -- DIRAC-BdG STABILITY: omega = +/- sqrt(eps^2 - Delta^2)  (MC-4.2)")
+print("=" * 70)
+print("  seed mode (down n=1,d=3) <-> nearest reachable neighbour (n=3,d=3):")
+print(f"    gap     eps   = (S(3,3)-S(1,3))*m_scale3 = {bdg_eps_seed:8.3f} MeV")
+print(f"    pairing Delta = ME*m_scale3 (ME=6.3)     = {bdg_Delta_seed:8.3f} MeV   eps/Delta = {bdg_eps_seed/bdg_Delta_seed:.3f}")
+print(f"    |Im omega| = {bdg_Imw_seed:.3e}  -> STABLE (gap dominates the coupling)")
+print(f"  d=5 neutrino: pairing B = 0 (no C on S^5, d mod 8 = 5)  -> |Im omega| = {bdg_Imw_d5:.3e}")
+print(f"    block-diagonal, stable by structure -- the EOM-level shadow of 0nubb.")
+print(f"  contrast (hypothetical gap<pairing): |Im omega| = {bdg_Imw_resonant:.3f} MeV -> UNSTABLE")
+print("  => the seed's stability is not trivial; it holds because eps > Delta.")
+
+# STEP 36 -- OUTPUT: FULL-TOWER BdG STABILITY OF THE 15 Sigma MODES  (MC-4.3)
+print("\n" + "="*66)
+print("STEP 36 -- FULL-TOWER BdG STABILITY OF THE 15 Sigma MODES (MC-4.3)")
+print("="*66)
+print("  reachable neighbours n->n+-2k (l-parity); odd steps coupling = 0 (exact)")
+print("  stable iff max over neighbours |Delta|/|eps| < 1")
+for (n, d) in BDG_SIGMA:
+    tag = " (B=0, no C on S^5)" if d in BDG_NO_C else ""
+    print("    (n=%3d, d=%2d): worst |Delta|/|eps| = %.4f%s" % (n, d, bdg_ratios[(n,d)], tag))
+print("  GLOBAL worst-case = %.4f at mode (n=%d,d=%d) [the seed]  ->  ALL 15 STABLE"
+      % (bdg_worst_ratio, bdg_worst_mode[0], bdg_worst_mode[1]))
+print("  odd-l neighbours decoupled exactly (l-parity); d=5 exactly 0 (0nubb shadow).")
+
+
+# STEP 37 -- OUTPUT: DAG SELECTION IS NOT EOM-ENERGETIC (MC-4.4)
+print("\n" + "="*66)
+print("STEP 37 -- DAG SELECTION IS NOT EOM-ENERGETIC: KERNEL REACH > DAG (MC-4.4)")
+print("="*66)
+print("  (A) no energy resonance at the additive DAG edges (1.0 = on-shell):")
+print("      e=nu1+up   mass ratio  = %.4f   E_HO ratio = %.4f" %
+      (sel_edge_mass_ratio_e, sel_edge_EHO_ratio_e))
+print("      tau=nu3+down            E_HO ratio = %.4f" % sel_edge_EHO_ratio_tau)
+print("      => edges are PURE INDEX relations, not energy resonances.")
+print("  (B) kernel level-law n1+n2-1 (=%d) + ground offset 1 = IE index %d = n_e"
+      % (sel_kernel_leadlaw_e, sel_IE_index_e))
+print("      => the quartic kernel READS the IE edge form (motivated, not selection).")
+print("  (C) kernel reach (same-parity d=3 modes to n=%d) = %d  vs  DAG d=3 count = %d"
+      % (_N_REACH, _d3_parity_reach, len(_d3_sigma_set)))
+print("      reach/DAG = %.1f  => kernel action set STRICTLY > DAG." % sel_reach_ratio)
+print("  VERDICT: the SUFFICIENT selection is a directed index derivation")
+print("           (combinatorial fixed point of a chosen generator set), NOT a")
+print("           dynamical fixed point of the EOM energetics. MC-4.3 stability is")
+print("           the NECESSARY half; the sufficient half is not in the energetics.")
 
 
 # =============================================================================

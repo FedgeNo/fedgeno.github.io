@@ -3,6 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IDWT derives why there are exactly three generations of fermions: each generation law is the Pascal recursion applied at a different closure point in the sector set, and only three such closures exist.">
+<meta name="keywords" content="IDWT, three generations, fermion families, Pascal recursion, generation law, lepton mode indices, neutrino spectrum, quark generations, sector combinatorics">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/three-generations">
+<meta property="og:title" content="Three Generations — IDWT">
+<meta property="og:description" content="IDWT derives why there are exactly three generations of fermions: each generation law is the Pascal recursion applied at a different closure point in the sector set, and only three such closures exist.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Three Generations — IDWT">
+<meta name="twitter:description" content="IDWT derives why there are exactly three generations of fermions: each generation law is the Pascal recursion applied at a different closure point in the sector set, and only three such closures exist.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
 <title>Three Generations — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
@@ -11,6 +26,41 @@
   onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Three Generations — IDWT",
+  "description": "IDWT derives why there are exactly three generations of fermions: each generation law is the Pascal recursion applied at a different closure point in the sector set, and only three such closures exist.",
+  "url": "https://fedgeno.github.io/articles/three-generations",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, three generations, fermion families, Pascal recursion, generation law, lepton mode indices, neutrino spectrum, quark generations, sector combinatorics",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
 </head>
 <body>
 <div class="bg"></div>
@@ -98,7 +148,7 @@
   </div>
 
   <div class="prose">
-    <p>This is the Pascal recursion \(S(4,4) = S(4,3) + S(3,4) = 20 + 15 = 35\) applied directly. The muon mode index is \(S(4,4) = \binom{7}{4} = 35\). The charm mode index is \(S(4,3) = \binom{6}{3} = 20\). The second neutrino mode index is \(S(3,4) = \binom{6}{4} = 15\). All three are simplex numbers, and their relation is a theorem.</p>
+    <p>This is the Pascal recursion \(S(4,4) = S(4,3) + S(3,4) = 20 + 15 = 35\) applied directly. The muon mode index is \(S(4,4) = \binom{7}{4} = 35\). The charm mode index is \(S(4,3) = \binom{6}{3} = 20\). The second neutrino mode index is \(S(3,4) = \binom{6}{4} = 15\). All three are <a href="/articles/simplex-number.html">simplex numbers</a>, and their relation is a theorem.</p>
     <p>This is also the equation that forced \(n_s = 4\): requiring \(S(n_{\text{strange}}, 4) = n_{\text{muon}}\) uniquely selects \(n_{\text{strange}} = 4\), because \(S(4,4) = 35 = n_{\text{muon}}\). The generation 2 law and the seed uniqueness are the same equation viewed from two directions.</p>
   </div>
 

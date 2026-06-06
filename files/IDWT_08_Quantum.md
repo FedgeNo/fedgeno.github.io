@@ -407,6 +407,8 @@ $$V_{\rm kernel} = \sum_{\text{allowed }(d,d')} g_{d,d'}(\xi)\,(ξ_d\cdot\xi_{d'
 
 where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and V_harmonic(ξ) = Σ_d ½ m_scale_d ω_d² |ξ_d|².
 
+**Relation to the fundamental EOM.** The equation above is the squared spectral reduction of the fundamental first-order nonlinear Dirac equation declared in Part 1 P1 and Part 9 T0: $(i\gamma^\mu\partial_\mu + \Sigma_d D_d)\Psi_\infty = V_{\rm kernel}[\Psi_\infty]\cdot\Psi_\infty$, where $D_d$ is the sector Dirac operator with $D_d^2 = H_d^{\rm harm}$ (§3.4). The two forms share the same spectrum $\{(2N+d)\sqrt{\lambda_d}\}$ and the same kernel matrix elements; the Schrödinger form is used here because it makes the harmonic sector structure and the mode counting S(n,d) transparent. The Dirac form is the physically fundamental object — it carries the spinor structure (chirality, particle/antiparticle, the all-orders 0νββ prohibition from the absence of $C$ on $S^5$) that the scalar reduction loses.
+
 **What this single equation yields (all derived, no extra terms):**
 
 - **Particle spectrum:** Local minima after projection select exactly the {1,4} seeds and the full observed set (co-fixed-point uniqueness proved — Part 1 §5)

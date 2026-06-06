@@ -44,21 +44,21 @@ Script: `files/idwt.py`. Verified numerically for $d=3$ modes up to $n=20$.
 
 **Mechanism 2 — infinite-dimensional dephasing. 🔵**
 
-Even-level non-$\Sigma_{\rm pairs}$ modes have non-zero off-diagonal matrix elements to other modes (numerically, ME($n=3 \to n=1$) $\approx 6.3$ sector units; see `files/idwt.py` STEP 30). A state that is not an eigenstate of $H$ but is instead a superposition of nearby eigenstates will dephase: its initial amplitude disperses and does not return.
+Even-level non-$\Sigma_{\rm pairs}$ modes have nonzero off-diagonal matrix elements to other modes (ME($n=3 \to n=1$) $\approx 6.3$ sector units; `files/idwt.py` STEP 30). These off-diagonal elements appear as the pairing block $B_{n,d}$ in the linearised Dirac–Bogoliubov–de Gennes operator $L_{n,d}$ derived from the fundamental nonlinear Dirac EOM (MC-4.2, MC-4.3). From $L_{n,d}$ the coupling, the dephasing timescale, and the monotone initial amplitude loss are all EOM consequences: $\tau \sim 1/(\text{ME} \times m_{\rm scale,3}) \approx 0.034\ \text{MeV}^{-1}$ for $n=3$, matching the kernel-level estimate (`files/idwt.py` STEP 30 `_tau_factor`).
 
-In a finite system, Poincaré recurrence would eventually revive the amplitude. IDWT is infinite-dimensional — five active sectors each with a countably infinite mode tower. In an infinite-dimensional coupled system the recurrence time is infinite, so dephasing is permanent.
+The $\Sigma_{\rm pairs}$ co-fixed-point modes are stable because the most dangerous (nearest-gap) same-sector channels are the odd-level neighbours, killed exactly by Mechanism 1 above; the remaining reachable even-$l$ neighbours are gap-dominated. The full-tower BdG check over all 15 modes confirms this: the worst-case ratio $|\Delta|/|\epsilon|$ is $0.148$ (attained by the seed $n=1$, $d=3$) and every reachable neighbour of every $\Sigma_{\rm pairs}$ mode has ratio $<1$, placing $\sigma(L_{n,d})$ on the real axis for all 15. (`files/idwt.py` STEP 36.)
 
-The decoherence time is $\tau \sim \hbar / (\text{ME} \times m_{\rm scale,3}) \sim 1/m_{\rm scale,3}$. Numerically for $n=3$: $\tau \sim 1/(6.3 \times 4.7\ \text{MeV}) \approx 0.034\ \text{MeV}^{-1}$ — of order $1/m_{\rm scale,3}$ as claimed.
+Non-$\Sigma_{\rm pairs}$ even-level modes are not BdG-unstable (their gaps also exceed their couplings) — they are excluded by dephasing, not exponential growth. The amplitude of an even-level non-member disperses into the infinite mode tower and does not return, because the cross-sector mass scales $m_{\rm scale,d}$ are generically incommensurate, so no common revival period exists. This is motivated by the incommensurate spectrum, not proved: a rigorous demonstration would require showing that the spectral measure of the reduced amplitude is continuous in the infinite-dimensional limit. The status 🔵 records this gap.
 
-**The dephasing cannot be sharpened to an exact cut.** The $l=0$ seed-coupling overlap of an even-level $d=3$ mode (radial number $n_r=(n-1)/2$, $l=0$) against the $l=0$ vacuum is the Laguerre transform $J(n_r,s)=\Gamma(n_r+\tfrac32)/n_r!\cdot(s-1)^{n_r}/s^{n_r+3/2}$, whose only zero in $s$ is $s=1$. The kernel fixes the weight at $s=3/2$ (vacuum density $e^{-u}$ times mode envelope $e^{-u/2}$), where the overlap carries the factor $((s-1)/s)^{n_r}=(1/3)^{n_r}>0$ and never vanishes. The exact zero that $l$-parity supplies *across* parity has no analogue *within* the reachable even-$l$ class. The even-level exclusion is therefore quantitative by construction — a strictly nonzero, geometrically decaying coupling — and 🔵 is its proven ceiling under the $(\xi\cdot\xi')^2$ kernel; an exact upgrade would require a different kernel. (`files/idwt.py` STEP 34; Appendix A §15.)
+**The dephasing cannot be sharpened to an exact cut.** The $l=0$ seed-coupling overlap of an even-level $d=3$ mode (radial number $n_r=(n-1)/2$) against the vacuum is the Laguerre transform $J(n_r,s)=\Gamma(n_r+\tfrac32)/n_r!\cdot(s-1)^{n_r}/s^{n_r+3/2}$, whose only zero in $s$ is $s=1$. The kernel fixes $s=3/2$, where the factor $(1/3)^{n_r}>0$ never vanishes. An exact cut within the reachable even-$l$ class does not exist under the $(\xi\cdot\xi')^2$ kernel. (`files/idwt.py` STEP 34; Appendix A §15.)
 
 **Stability derivation complete. 🔵**
 
-All non-$\Sigma_{\rm pairs}$ modes are unstable by one of two mechanisms:
+All non-$\Sigma_{\rm pairs}$ modes are excluded by one of two mechanisms:
 - **Odd-level modes** ($n=2,6,8,\ldots$): $l$-parity selection blocks all coupling to the seeds permanently — an exact zero. ⭐
-- **Even-level modes** ($n=3,5,7,\ldots$): strictly nonzero off-diagonal coupling to the seeds (the overlap has no node at the kernel weight $s=3/2$), giving permanent dephasing in the infinite-dimensional coupled system. This is the proven ceiling — no exact cut exists for this class under the $(\xi\cdot\xi')^2$ kernel. 🔵
+- **Even-level modes** ($n=3,5,7,\ldots$): nonzero off-diagonal coupling (EOM-derived from $L_{n,d}$, no node at $s=3/2$), giving permanent dephasing in the infinite-dimensional coupled system. The dephasing rate and coupling are EOM consequences; irreversibility is motivated by cross-sector incommensurability, not proved. 🔵
 
-Script: `files/idwt.py` STEP 30.
+Scripts: `files/idwt.py` STEP 30, STEP 34, STEP 35, STEP 36.
 
 ---
 

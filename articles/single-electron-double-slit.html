@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="One electron at a time builds an interference pattern, yet each arrives as a single dot and refuses to answer which slit it took. IDWT reads the pattern as the three-dimensional marginal of a definite six-dimensional electron — the dots are where its trajectory crosses our slice, and which-path is a three-dimensional question asked of a six-dimensional object.">
+<meta name="keywords" content="double slit, single electron, IDWT, infinite-dimensional wave theory, which-path, interference, marginal density, six-dimensional electron, sector geometry, wave-particle">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/single-electron-double-slit">
+<meta property="og:title" content="The Single-Electron Double Slit — IDWT">
+<meta property="og:description" content="One electron at a time builds an interference pattern, yet each arrives as a single dot and refuses to answer which slit it took. IDWT reads the pattern as the three-dimensional marginal of a definite six-dimensional electron.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Single-Electron Double Slit — IDWT">
+<meta name="twitter:description" content="One electron at a time builds an interference pattern, yet each arrives as a single dot and refuses to answer which slit it took. IDWT reads the pattern as the three-dimensional marginal of a definite six-dimensional electron.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Single-Electron Double Slit — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "The Single-Electron Double Slit — IDWT",
+  "description": "One electron at a time builds an interference pattern, yet each arrives as a single dot and refuses to answer which slit it took. IDWT reads the pattern as the three-dimensional marginal of a definite six-dimensional electron.",
+  "url": "https://fedgeno.github.io/articles/single-electron-double-slit",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "double slit, single electron, IDWT, infinite-dimensional wave theory, which-path, interference, marginal density, six-dimensional electron, sector geometry, wave-particle",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Measurement</div>
+  <h1>The Single-Electron Double Slit</h1>
+  <p class="sub">Each electron lands as a single dot, yet the dots assemble into interference — and the electron will not say which slit it took.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>Richard Feynman called the double slit the experiment that holds "the only mystery" of quantum mechanics, and described doing it one electron at a time as a thought experiment he did not expect anyone to perform. It has since been performed. Pier Giorgio Merli's group built up a pattern from single electrons in 1974; in 2013 Roger Bach and collaborators did the controlled version, opening and closing each slit with a movable mask and recording the arrivals one at a time.</p>
+
+  <p>What they see is the mystery in its cleanest form. Each electron strikes the screen at one place and leaves one dot — a particle's mark. But let thousands accumulate and the dots pile into bright and dark bands — a wave's interference. And if you try to settle the obvious question, which slit did each electron go through, the bands vanish; ask the question and the interference is gone. A single electron, sent through alone, somehow lands as a point while behaving as though it sampled both openings.</p>
+
+  <p>The contradiction is real only under one assumption: that the electron is a small thing located somewhere in our three dimensions, so it must have gone through one slit or the other. Infinite-Dimensional Wave Theory does not grant that assumption, and without it the dot, the bands, and the missing answer all fit together.</p>
+</section>
+
+<section>
+  <h2>The electron is a six-dimensional object</h2>
+  <div class="prose">
+    <p>The electron is a resonance of the single wave \(\Psi_\infty\) in the <a href="/articles/sector-6.html">d=6 sector</a>, with CP³ geometry — a definite object spanning six flat, equally real spatial dimensions and moving through all six at once. We occupy three of them. The other three are not hidden away or frozen; they are ordinary spatial directions we simply do not stand in. In the interferometer the electron is not orbiting anything, so it follows a definite six-dimensional <a href="/articles/hidden-sector-dimensions.html">trajectory</a> from source to screen — sharp and particular, not a smear and not a cloud.</p>
+    <p>This is the first thing the standard picture gets backward. It replaces the moving electron with a probability cloud and then calls the cloud the electron. IDWT keeps the electron a real object with a real path. What is six-dimensional about it is exactly what our instruments cannot see directly, so the part of its path we miss is forced to show up some other way.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The screen records a slice</h2>
+  <div class="prose">
+    <p>A detector is built in our three dimensions, so it registers the electron only where its six-dimensional trajectory crosses the three directions we share. That crossing is a single place — one dot. Each electron's mark is sharp because the electron is sharp; nothing here is fuzzy. The dot is not the electron arriving "as a particle this time"; it is the one point where a definite six-dimensional path met our slice.</p>
+    <p>The pattern is what you get when those crossing points accumulate. Integrate the electron's full structure over the three sector coordinates a three-dimensional observer cannot resolve and what remains is a distribution across the screen — the three-dimensional marginal of \(|\Psi_\infty|^2\). That marginal is banded, because the six-dimensional structure it came from is, and so the dots, each one sharp and particular, pile up into bright and dark fringes. The wave behaviour and the particle behaviour are not two modes the electron switches between; they are the slice and the object it is a slice of, recorded at the same time.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why which-path has no answer</h2>
+  <div class="prose">
+    <p>"Which slit?" assumes the electron is the sort of thing that occupies one spot in our three dimensions and so must pass through one opening. The two slits are a three-dimensional feature — a mask we cut in our space. A six-dimensional trajectory meeting that mask does not reduce to "left hole" or "right hole," any more than a plane passing a wall with two doorways must be said to have used one doorway. The question is well posed in three dimensions and simply does not pick out anything about the six-dimensional path. There is no hidden fact being withheld; the answer the question demands is not a feature the object has.</p>
+    <p>This is why forcing an answer destroys the bands. A which-path measurement is an interaction that pins the electron's structure down in the three dimensions where the slits live — it acts on the coordinates the apparatus can reach and flattens the part of the path that those coordinates were standing in for. Remove what the interference was the shadow of, and the shadow goes with it. You have not caught the electron choosing; you have replaced the six-dimensional crossing with a three-dimensional one, and a three-dimensional crossing has no fringes to cast.</p>
+  </div>
+</section>
+
+<section>
+  <h2>One electron at a time</h2>
+  <div class="prose">
+    <p>The single-electron version is what makes the standard story strain hardest: with only one electron in the apparatus, there is nothing for it to interfere with. In IDWT there is nothing to strain. Each electron is a complete six-dimensional object carrying its own banded structure; its lone dot is its own crossing of our slice, and the fringes are already implicit in that one electron's marginal. The pattern does not require many electrons to talk to each other — it only requires enough crossings to fill in a distribution each of them already carries. The buildup is statistics revealing a shape, not a crowd creating one.</p>
+    <p>So nothing waits for company and nothing collapses from possibility into actuality. Every electron was a definite path the whole way; the screen just needs many of them before the shape of the marginal those paths share becomes visible to a three-dimensional eye.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the experiment measures</h2>
+  <div class="prose">
+    <p>One honest note, as elsewhere: IDWT predicts the same pattern and the same loss of fringes under which-path measurement as standard quantum mechanics. It moves no number. What it removes is the wave–particle paradox behind the number — the dot and the bands are the slice and the six-dimensional object together, not a particle that is somehow also a wave.</p>
+    <p>And the famous statement that an electron can turn up anywhere on the screen is, in this reading, not irreducible chance. The electron follows a definite six-dimensional path; where that path intersects our three dimensions is unconstrained because the localisation lives in the six sector dimensions, not in our three. The spread on the screen is the shadow of a sharp object, cast wide because the object is larger than the surface catching it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Related reading</h2>
+  <div class="prose">
+    <p><a href="/articles/hidden-sector-dimensions.html">The Electron's Hidden Orbit</a> — the six-dimensional electron and the three directions we cannot see.</p>
+    <p><a href="/articles/sector-6.html">Sector 6 — Charged Leptons</a> — the CP³ geometry the electron lives in.</p>
+    <p><a href="/articles/delayed-choice-eraser.html">The Delayed-Choice Quantum Eraser</a> — the which-path question pushed to its strangest, with entangled pairs.</p>
+    <p><a href="/articles/aharonov-bohm.html">The Aharonov–Bohm Effect</a> — another experiment where the three-dimensional slice comes up short.</p>
+    <p><a href="/articles/one-wave.html">One Wave</a> — why the electron is a sharp object and the cloud is only how a shallower observer sees it.</p>
+    <p><a href="/visualizations/6d-orbit-slice.html">Atomic Orbits as CP³ Projection</a> — an interactive view of a six-dimensional path met by a three-dimensional slice.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

@@ -439,7 +439,7 @@ The $m_{\beta\beta} = 0$ prediction holds at all orders: the $d=5$ sector has $d
 
 ## 11. Dynamical Picture: How Sector Geometry Determines Observable Physics
 
-The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
+The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
 
 The absence of light unstable quark states follows from the co-fixed-point condition: a mode $(n,d)$ is a physical particle only if the pair belongs to the co-fixed-point spectrum of the generation tower. The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) are not co-fixed-points — they are not stable particles, consistent with observation.
 

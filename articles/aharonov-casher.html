@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Aharonov–Casher effect is the electric twin of Aharonov–Bohm: a magnetic moment circling a line charge picks up a phase even where the electric field is zero. IDWT reads it as the same geometry with charge and moment swapped — a field that was never confined to three dimensions, met by a six-dimensional electron in the directions a field-free region cannot reach.">
+<meta name="keywords" content="Aharonov-Casher effect, Aharonov-Bohm, IDWT, infinite-dimensional wave theory, magnetic moment, electron spin, quantum phase, sector geometry, electromagnetic duality">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/aharonov-casher">
+<meta property="og:title" content="The Aharonov–Casher Effect — IDWT">
+<meta property="og:description" content="The electric twin of Aharonov–Bohm: a magnetic moment circling a line charge picks up a phase even where the electric field is zero. IDWT reads it as the same geometry with charge and moment swapped.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Aharonov–Casher Effect — IDWT">
+<meta name="twitter:description" content="The electric twin of Aharonov–Bohm: a magnetic moment circling a line charge picks up a phase even where the electric field is zero. IDWT reads it as the same geometry with charge and moment swapped.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Aharonov–Casher Effect — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "The Aharonov–Casher Effect — IDWT",
+  "description": "The electric twin of Aharonov–Bohm: a magnetic moment circling a line charge picks up a phase even where the electric field is zero. IDWT reads it as the same geometry with charge and moment swapped.",
+  "url": "https://fedgeno.github.io/articles/aharonov-casher",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "Aharonov-Casher effect, Aharonov-Bohm, IDWT, infinite-dimensional wave theory, magnetic moment, electron spin, quantum phase, sector geometry, electromagnetic duality",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Electromagnetism</div>
+  <h1>The Aharonov–Casher Effect</h1>
+  <p class="sub">Swap the charge and the field, and the Aharonov–Bohm puzzle reappears in a mirror — with the same answer.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>The <a href="/articles/aharonov-bohm.html">Aharonov–Bohm effect</a> sends a charged electron around a confined magnetic field and finds a phase shift where there was no field to feel. In 1984 Yakir Aharonov and Aharon Casher pointed out that electromagnetism has a symmetry, and the symmetry has a consequence: run the experiment with the roles exchanged and the same thing must happen.</p>
+
+  <p>Take a particle with a magnetic moment — a little magnetic orientation — and send it around a line of electric charge. Arrange things so the particle travels where the electric field is zero. Classically nothing should happen: no field on the path, no force, no torque, no shift. Aharonov and Casher predicted the particle's interference pattern would shift anyway, picking up a phase set by the charge it circled but never touched. The effect was confirmed in interferometers — first with neutrons, then with electron-spin systems in semiconductor rings and with atoms and molecules carrying a moment.</p>
+
+  <p>It is the Aharonov–Bohm puzzle reflected in a mirror. There a charge meets a hidden magnetic field; here a magnetic moment meets a hidden electric one. And the resolution is the mirror image too. The whole sense of paradox comes from assuming the charge, the moment, and the field all live inside our three dimensions. Infinite-Dimensional Wave Theory never assumes that, and once it is dropped the mirror puzzle dissolves exactly as the original did.</p>
+</section>
+
+<section>
+  <h2>The electric field was never three-dimensional</h2>
+  <div class="prose">
+    <p>The source here is a line of charge, and its electric field is the same object the magnetic case was: the photon, a resonance of the single wave in the <a href="/articles/sector-2.html">d=2 sector</a>. Whether we call its presence electric or magnetic is a question of how our three-dimensional frame is moving through it; the underlying thing is one two-dimensional structure threaded through the manifold. We catch a slice of it and name that slice "the field around the wire."</p>
+    <p>So the electric field is not a three-dimensional fog filling the lab. It is a structure that extends through the sector space, with our three dimensions cutting across it. The wire looks three-dimensional because it is the shadow of a six-dimensional current — charge is carried by electrons, and electrons are six-dimensional objects. The field is no more sealed inside our three dimensions than the electrons that source it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The magnetic moment is a six-dimensional structure</h2>
+  <div class="prose">
+    <p>The particle doing the circling is an electron — a resonance of \(\Psi_\infty\) in the <a href="/articles/sector-6.html">d=6 sector</a>, with CP³ geometry, living in six flat, equally real spatial dimensions and moving through all six at once. Its magnetic moment is not a small arrow attached to a point in our three dimensions. It is the orientation built into the electron's sector geometry — the way the CP³ structure is turned — and that orientation is a feature of the whole six-dimensional object, not of the three-dimensional slice we can see.</p>
+    <p>This is the same lesson the <a href="/articles/sector-filters.html">quantum numbers as coupling filters</a> carry: spin and magnetic moment are the shape of the electron's sector geometry, read by a three-dimensional observer who cannot see that shape as a direction and so records it as a property. The moment is large in the same sense the electron is large — it extends through dimensions our instruments are not built from.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why a field-free path is not a moment-free path</h2>
+  <div class="prose">
+    <p>Now ask what "the electric field is zero on the path" actually accomplishes. The path is laid out in our three dimensions, and the field is arranged to cancel there — in those three dimensions. But the field is not confined to them. It is uniformly present through the directions our slice does not cover, and the electron, moving through all six of its dimensions, meets it in exactly those directions. The cancellation we engineered is a three-dimensional cancellation; it leaves the rest of the field standing.</p>
+    <p>That standing remainder is the phase. The magnetic moment passes through the electric field the whole way around; the zero-field region only deletes the part of the field a three-dimensional setup could reach. "Field-free path" is the name a three-dimensional observer gives to the slice the apparatus managed to wipe. There is nothing reaching out from the charged wire across empty space — only a field larger than the region built to keep it out, met by a moment that is larger than the slice we watch.</p>
+    <p>It is the same structure as <a href="/articles/aharonov-bohm.html">Aharonov–Bohm</a>, coordinate for coordinate. There, a three-dimensional shield blocked the magnetic field in the three dimensions it could be built in and left the rest for the electron to meet. Here, a three-dimensional arrangement zeroes the electric field in three dimensions and leaves the rest for the moment to meet. Two experiments, one geometry: the slice fails in the same place both times.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the experiment measures</h2>
+  <div class="prose">
+    <p>The phase the interferometer records depends on the charge enclosed by the loop and on the particle's magnetic moment, and not on the speed or the detailed path — the signature of a topological effect rather than a local force. That is what marks it as the dual of Aharonov–Bohm rather than some ordinary deflection.</p>
+    <p>One honest note, the same one the magnetic case carries: IDWT predicts the <em>same</em> Aharonov–Casher phase as standard electromagnetism. It moves no number and adds no new measurable effect. What it changes is the picture standing behind the number — a six-dimensional electron, its moment built into its sector geometry, meeting an electric field that was never confined to the three dimensions in which the path was kept field-free.</p>
+  </div>
+</section>
+
+<section>
+  <h2>One geometry, swapped roles</h2>
+  <div class="prose">
+    <p>Aharonov–Bohm and Aharonov–Casher look like two effects because electromagnetism is usually told as two fields. In IDWT there is one two-dimensional photon structure and one six-dimensional electron, and the two experiments are two ways of letting them overlap: once with the electron's charge circling the field, once with the electron's moment circling the charge. The mirror symmetry between them is electromagnetic duality seen from inside the geometry — not a coincidence between two separate phenomena, but one configuration viewed from two sides.</p>
+    <p>And one step further down, the charge and the field are not two things meeting across a gap. Both are features of a single wave, and the phase is that one wave's structure where its own ripples overlap, read off by an observer who reaches only three of the dimensions the overlap occupies. That is where both effects rest: <a href="/articles/one-wave.html">one wave</a>, sharp across all its dimensions, touched by each observer only as deep as it can reach.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Related reading</h2>
+  <div class="prose">
+    <p><a href="/articles/aharonov-bohm.html">The Aharonov–Bohm Effect</a> — the magnetic original this article mirrors.</p>
+    <p><a href="/articles/shared-space.html">One Space, Six Depths</a> — why a field uniformly present in higher dimensions cannot be sealed off by a three-dimensional region.</p>
+    <p><a href="/articles/sector-filters.html">Quantum Numbers Are Coupling Filters</a> — why spin and magnetic moment are sector geometry read as a property.</p>
+    <p><a href="/articles/photon-vs-electron.html">Photon vs Electron</a> — the d=2 and d=6 objects that meet in this experiment.</p>
+    <p><a href="/articles/one-wave.html">One Wave</a> — the single-field picture both Aharonov effects rest on.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

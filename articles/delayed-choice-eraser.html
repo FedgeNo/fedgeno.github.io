@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The delayed-choice quantum eraser seems to let a choice made now reach back and change the past. IDWT reads it as sector-locality, not retrocausality: an entangled pair shares sector-space coordinates that carry no three-dimensional distance or time ordering, so erasing which-path information acts on a state that was never separated.">
+<meta name="keywords" content="delayed-choice quantum eraser, quantum entanglement, IDWT, infinite-dimensional wave theory, retrocausality, sector locality, which-path, sector coordinates, nonlocality">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/delayed-choice-eraser">
+<meta property="og:title" content="The Delayed-Choice Quantum Eraser — IDWT">
+<meta property="og:description" content="A choice made now seems to reach back and change the past. IDWT reads it as sector-locality, not retrocausality: an entangled pair shares sector-space coordinates that carry no three-dimensional distance or time ordering.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Delayed-Choice Quantum Eraser — IDWT">
+<meta name="twitter:description" content="A choice made now seems to reach back and change the past. IDWT reads it as sector-locality, not retrocausality: an entangled pair shares sector-space coordinates that carry no three-dimensional distance or time ordering.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Delayed-Choice Quantum Eraser — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "The Delayed-Choice Quantum Eraser — IDWT",
+  "description": "A choice made now seems to reach back and change the past. IDWT reads it as sector-locality, not retrocausality: an entangled pair shares sector-space coordinates that carry no three-dimensional distance or time ordering.",
+  "url": "https://fedgeno.github.io/articles/delayed-choice-eraser",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "delayed-choice quantum eraser, quantum entanglement, IDWT, infinite-dimensional wave theory, retrocausality, sector locality, which-path, sector coordinates, nonlocality",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Entanglement</div>
+  <h1>The Delayed-Choice Quantum Eraser</h1>
+  <p class="sub">A decision made after the fact seems to rewrite the past — until you notice the connection was never in our three dimensions to begin with.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>Send one of an entangled pair of particles through a two-path interferometer toward a screen. Whether it builds an interference pattern depends on whether anyone could know which path it took. Keep the which-path information and the pattern washes out; erase it and the pattern returns. So far this is the ordinary strangeness of the double slit.</p>
+
+  <p>The eraser adds one twist. The decision to keep or erase the which-path information is made using the <em>other</em> particle — the partner — and it is made after the first particle has already reached the screen. Sort the screen detections afterward by what was later done to the partner, and the two subsets look completely different: one carries interference, one does not. The choice appears to reach back in time and set whether the first particle behaved like a wave or like a particle when it landed.</p>
+
+  <p>Read literally, that is retrocausality — the present editing the past. But the appearance rests on two assumptions that Infinite-Dimensional Wave Theory does not share: that the two particles are separate objects, and that the distance and the timing between them are the whole story. Drop both and the effect stops reaching backward.</p>
+</section>
+
+<section>
+  <h2>The pair was never two objects</h2>
+  <div class="prose">
+    <p>In IDWT there is one field, \(\Psi_\infty\), and every particle is an excitation of it. An entangled pair is not two things that were tied together by a connection running between them. It is one structure in the single wave with correlated sector states — a single feature of \(\Psi_\infty\) that a three-dimensional observer encounters at two separate places. The "two particles" are where that one structure meets our slice, the way two crests of one ripple meet a shoreline at two points.</p>
+    <p>This is the same single-wave picture that resolves the <a href="/articles/aharonov-bohm.html">Aharonov–Bohm effect</a> and underlies <a href="/articles/one-wave.html">every particle interaction</a>: what looks like two objects coupling across a gap is one wave overlapping itself. For an entangled pair there is no gap at all — the correlation is not carried from one particle to the other, because there are not two separated things for it to travel between.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Distance and timing are three-dimensional facts</h2>
+  <div class="prose">
+    <p>The separation between the two detection events is a distance in our three dimensions — a distance in \(\Xi_3\), the sector that coincides with the space we occupy. The order in which the events happen is a three-dimensional time ordering, read in the same slice. Both are real, and both belong entirely to the three dimensions we measure in.</p>
+    <p>The correlation does not. It lives in the sector coordinates the pair shares — the deeper directions of \(\Xi_{10}\) that <a href="/articles/shared-space.html">no three-dimensional measurement can resolve</a>. Those coordinates carry no three-dimensional distance and no three-dimensional clock. Two detections can sit far apart in our space and far apart in our time while being, in the shared sector coordinates, one undivided state. The separation we measure is a fact about the slice, not about the structure the slice is cutting.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why the late choice changes nothing in the past</h2>
+  <div class="prose">
+    <p>Now the delayed choice is no longer mysterious. Acting on the partner — keeping or erasing the which-path information — is acting on the one shared sector state, because the partner is that state met at another place. The action does not have to chase the first particle backward through our time, and nothing travels from the choice to the screen. The two are the same structure; reaching it through one end reaches all of it, because it was never divided along the three-dimensional distance or the three-dimensional time that separate the two ends.</p>
+    <p>What looks like the present rewriting the past is the present and the past being two slices of a single object that has no internal "before" and "after" in the coordinates that matter. The retrocausal story is an artifact of insisting the connection lives in our three dimensions, where it would indeed have to run backward to do its work. In the sector coordinates it does not run anywhere. Sort the detections by the later choice and you are sorting one state by a property it always had in those coordinates — not discovering that a decision edited the past.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the experiment does and does not allow</h2>
+  <div class="prose">
+    <p>Two honest notes hold the reading in place. First, IDWT reproduces the standard quantum statistics here exactly; it predicts the same interference and the same correlations as ordinary quantum mechanics, and changes the picture behind them rather than any number. Second, the experiment sends no usable signal into the past, and IDWT keeps it that way. The interference only appears once the two records are brought together and sorted, and bringing them together is an ordinary three-dimensional process that respects the usual order of events. Sector-locality removes the appearance of retrocausality without smuggling in a way to message backward — there is one state to read, but reading it builds no channel through our time.</p>
+    <p>Calling this an interpretation is fair: it is IDWT's reading of an experiment whose numbers are not in dispute. What it offers is a geometry in which the result needs no backward causation and no influence crossing a gap — only a connection that was never in our three dimensions to be puzzled by.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Sector-locality, not spooky action</h2>
+  <div class="prose">
+    <p>Entanglement is usually filed under "action at a distance," and the distance is what makes it spooky. IDWT removes the distance rather than the action. Two entangled particles can be a light-year apart in our three dimensions and completely overlapping in their shared sector coordinates, because sector space is not our space. There is nothing acting across the light-year; the connection is local in the coordinates it actually occupies, and only looks nonlocal when projected onto the three dimensions where the particles sit far apart.</p>
+    <p>The delayed-choice eraser is the sharpest version of this, because it arranges the projection to fail in time as well as space — the choice lands "too late" only in our clock. Underneath, it is the same lesson as every other place the slice comes up short: <a href="/articles/one-wave.html">one wave</a>, whole across all its dimensions, met by each observer only as deep, and as early, as its three dimensions reach.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Related reading</h2>
+  <div class="prose">
+    <p><a href="/articles/one-wave.html">One Wave</a> — why an entangled pair is one structure, not two objects joined by a connection.</p>
+    <p><a href="/articles/shared-space.html">One Space, Six Depths</a> — the sector coordinates that carry no three-dimensional distance.</p>
+    <p><a href="/articles/single-electron-double-slit.html">The Single-Electron Double Slit</a> — where the which-path question comes from, for one particle at a time.</p>
+    <p><a href="/articles/aharonov-bohm.html">The Aharonov–Bohm Effect</a> — another case where the three-dimensional slice fails out loud.</p>
+    <p><a href="/articles/coupling-grid.html">The Coupling Grid</a> — particles meeting only through the coordinates they share.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

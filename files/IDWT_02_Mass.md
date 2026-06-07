@@ -756,7 +756,7 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 | m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
 | m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,200 MeV | +0.053% |
 
-**IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, gauge bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
+**IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and the seed n_s = 4. □
 
 
 

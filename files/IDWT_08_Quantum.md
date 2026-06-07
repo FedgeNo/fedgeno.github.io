@@ -41,7 +41,7 @@ The Clifford algebra $\mathrm{Cl}(d)$ has periodicity 8 (mod 8 class). The class
 
 | $d$ | Manifold | $d\bmod8$ | Weyl | Majorana | Maj-Weyl | Spin structure | Spinor dim | Physical consequence |
 |---|---|---|---|---|---|---|---|---|
-| 2 | $\mathbb{CP}^1$ | 2 | ✓ | ✓ | ✓ | Spin | 2 | Photon helicity; $W^\pm$ gauge bosons |
+| 2 | $\mathbb{CP}^1$ | 2 | ✓ | ✓ | ✓ | Spin | 2 | Photon helicity; $W^\pm$ bosons |
 | 3 | $S^3$ | 3 | ✗ | ✓ | ✗ | Spin | 2 | Majorana: quark$\leftrightarrow$antiquark self-conjugacy under QCD |
 | 4 | $\mathbb{CP}^2$ | 4 | ✓ | ✓ | ✗ | spin$^c$ only ($w_2\neq0$; $U(1)$ bundle $= U(1)_Y$) | 4 | Weyl: Kähler $\gamma_5$ splits $u_L,d_L$ from $u_R,d_R$ |
 | **5** | $S^5$ | **5** | **✗** | **✗** | **✗** | Spin (odd spheres always spin) | **4** | **Dirac only: no $C$ on $S^5$ bundle $\to$ no $\psi^TC\psi$ at any order $\to$ $0\nu\beta\beta$ forbidden; neutrinos are Dirac** |

@@ -53,7 +53,7 @@ Forces couple through two complementary geometric principles. Both are required;
 A particle with coordinate support in a force sector may still have zero coupling to that force if its sector geometry projects the relevant representation to zero (as neutrinos are colour-neutral despite their S⁵ coordinates containing Ξ_4).
 
 **P5 — Gravity as Curvature of M_∞**
-Gravity is not a gauge force — it is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; gravity cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 7.74 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
+Gravity is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; gravity cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 7.74 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
 
 **P6 — Rank-1 Coupling 🔶**
 The inter-sector coupling strength matrix factorizes as $g_{dd'} = v_d \times v_{d'}$ — rank-1 as an outer product of a coupling vector $v = (v_2, v_3, v_4, v_5, v_6, v_{10})$. All six components $v_d$ are derived from two seeds $\{1,4\}$ and $N_c = 3$ (Part 2 §10, Part 3 §0.1). The rank-1 factorization itself — why the coupling matrix is an outer product rather than a general matrix — is an open item 🔶: T2 (Part 9) proves uniqueness of the kernel form $(\xi_d \cdot \xi_{d'})^2$ within the rank-1 ansatz, but does not independently force rank-1 over higher-rank coupling. Physical consequences: universal correlated coupling scales across sectors, constrained inter-sector mixing, the Wolfenstein angle from a single ratio $v_3/v_4$.
@@ -129,7 +129,7 @@ The sector space decomposes into sectors with distinct potential well symmetries
 
 | d | Geometry | Symmetry | Spinor type | Spinor dim | Physical content |
 |---|---|---|---|---|---|
-| 2 | CP¹ | U(1) | Majorana-Weyl | 2 | Gauge bosons (γ, W, Z, H) |
+| 2 | CP¹ | U(1) | Majorana-Weyl | 2 | Bosons (γ, W, Z, H) |
 | 3 | S³ | SO(4) | Majorana | 2 | Down-type quarks (d, s, b) |
 | 4 | CP² | SU(3) | Weyl (spin^c) | 4 | Up-type quarks (u, c, t) |
 | 5 | S⁵ | SO(6) | Dirac only | 4 | Neutrinos (ν_e, ν_μ, ν_τ) |
@@ -298,7 +298,7 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 **Proof sketch for each rule:**
 
-**R0.** The d=2 sector is the reference sector (CP¹, carrying U(1)_EM; the photon is the d=2 n=0 ground state). Gauge bosons (W, Z, H) land in d=2 via the Vandermonde g-rule: $g(d_\nu=5, n_{\rm top}) = 5+72-1 = 76 = n_W$; $g(d_\ell=6, n_W) = 6+76-1 = 81 = n_Z$. No SM particle names needed — only the sector dimensions d=5 and d=6 (derived below) and the already-derived mode indices.
+**R0.** The d=2 sector is the reference sector (CP¹, carrying U(1)_EM; the photon is the d=2 n=0 ground state). Bosons (W, Z, H) land in d=2 via the Vandermonde g-rule: $g(d_\nu=5, n_{\rm top}) = 5+72-1 = 76 = n_W$; $g(d_\ell=6, n_W) = 6+76-1 = 81 = n_Z$. No SM particle names needed — only the sector dimensions d=5 and d=6 (derived below) and the already-derived mode indices.
 
 **R1.** The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a), the natural starting point of the generation tower. The seed value $n_s=4$ is fixed by T4 (Part 9) and the muon fixed-point $S(4,4)=35$; the down seed $n_{\rm down}=1$ is the universal ground state $S(1,d)=1$, sharing d=3 so that the tower subtraction $n_u=n_s-n_{\rm down}$ is a same-sector operation.
 

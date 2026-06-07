@@ -126,6 +126,10 @@ a {
 .corner-orb.right { right: 18px; }
 .corner-orb canvas { width: 100%; height: 100%; display: block; }
 
+@media (max-width: 1279px) {
+  .corner-orb { display: none; }
+}
+
 @media (max-width: 720px) {
   .corner-orb { width: 140px; height: 140px; }
   .corner-orb.left  { left: 12px; }

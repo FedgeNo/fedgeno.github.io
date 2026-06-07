@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages — with their status labels intact — plus topic shortcuts for the main results.">
+<meta name="keywords" content="IDWT notebook, IDWT search, Infinite-Dimensional Wave Theory, full-text search, sector geometry, simplex mass formula, status labels">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/notebook/">
+<meta property="og:title" content="Notebook — Search the IDWT notes">
+<meta property="og:description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages, with their status labels intact.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notebook — Search the IDWT notes">
+<meta name="twitter:description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages, with their status labels intact.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Notebook — Search the IDWT notes</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<style>
+/* ── Notebook search UI ─────────────────────────────── */
+.nb-search { margin: 8px 0 18px; }
+.nb-input-wrap { position: relative; }
+#nbq {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.05rem;
+  color: var(--text);
+  background: rgba(8,12,24,0.6);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 46px 16px 18px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  backdrop-filter: blur(8px);
+}
+#nbq:focus {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 3px rgba(139,156,255,0.12);
+}
+#nbq::placeholder { color: var(--muted-2); }
+.nb-clear {
+  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; color: var(--muted-2);
+  font-size: 1.3rem; cursor: pointer; line-height: 1; padding: 4px;
+  display: none;
+}
+.nb-clear:hover { color: var(--text); }
+
+.nb-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.chip {
+  appearance: none; cursor: pointer;
+  font-family: inherit; font-size: 0.86rem; font-weight: 500;
+  color: var(--muted); background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border); border-radius: 999px;
+  padding: 7px 14px; transition: all 0.16s ease;
+}
+.chip:hover { color: var(--text); border-color: var(--border-hover); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+
+.nb-controls {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin: 18px 0 8px; font-size: 0.9rem; color: var(--muted);
+}
+.nb-controls label { color: var(--muted-2); }
+#nbpart {
+  font-family: inherit; font-size: 0.9rem; color: var(--text);
+  background: rgba(8,12,24,0.6); border: 1px solid var(--border);
+  border-radius: 10px; padding: 7px 10px; outline: none;
+}
+.nb-meta { margin-left: auto; color: var(--muted-2); font-size: 0.85rem; }
+
+.nb-results { margin-top: 10px; display: grid; gap: 14px; }
+.nb-empty { color: var(--muted); padding: 28px 4px; font-size: 1.0rem; }
+
+.nb-result {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid var(--border); border-radius: 14px;
+  backdrop-filter: blur(8px); overflow: hidden;
+  transition: border-color 0.2s;
+}
+.nb-result[open], .nb-result:hover { border-color: var(--border-hover); }
+.nb-result > summary {
+  list-style: none; cursor: pointer; padding: 16px 18px;
+  display: block;
+}
+.nb-result > summary::-webkit-details-marker { display: none; }
+.nb-cite {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.nb-part {
+  font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+  font-weight: 600; color: var(--accent-3);
+}
+.nb-title { font-size: 1.02rem; font-weight: 600; color: var(--text); }
+.nb-snippet { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
+.nb-snippet .hl { color: #fff; background: rgba(139,156,255,0.28); border-radius: 3px; padding: 0 2px; }
+.nb-expand { color: var(--accent-1); font-size: 0.84rem; margin-top: 10px; display: inline-block; }
+.nb-result[open] .nb-expand { display: none; }
+.nb-body {
+  padding: 0 18px 18px; border-top: 1px solid rgba(139,156,255,0.08);
+  margin-top: 2px;
+}
+.nb-body .nb-foot {
+  margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem; color: var(--muted-2);
+}
+.nb-body table { min-width: 0; }
+.nb-body .katex-display { overflow-x: auto; overflow-y: hidden; }
+
+.badges { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+.badge {
+  font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+  border: 1px solid transparent; white-space: nowrap;
+}
+.badge.identity   { color: #ffe08a; background: rgba(255,221,0,0.10); border-color: rgba(255,221,0,0.28); }
+.badge.structural { color: #8ef0b0; background: rgba(0,255,68,0.08);  border-color: rgba(0,255,68,0.26); }
+.badge.numeric    { color: #93c5fd; background: rgba(96,165,250,0.10);border-color: rgba(96,165,250,0.30); }
+.badge.motivated  { color: #fdba74; background: rgba(255,102,0,0.10); border-color: rgba(255,102,0,0.30); }
+.badge.conjecture { color: #d8b4fe; background: rgba(204,0,255,0.08); border-color: rgba(204,0,255,0.28); }
+
+.nb-note { color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/" aria-current="page">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Search · The Ten Parts</div>
+  <h1>IDWT Notebook</h1>
+  <p class="sub">Full-text search across all ten parts of the technical notes. Every result is the exact passage from the documents, with its status label intact — nothing paraphrased.</p>
+</header>
+
+<main>
+<section style="padding-top: 0;">
+
+  <div class="nb-search">
+    <div class="nb-input-wrap">
+      <input id="nbq" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Search the notes — e.g. simplex formula, neutrino mass, why gravity is curvature…" aria-label="Search the IDWT notes">
+      <button class="nb-clear" id="nbclear" aria-label="Clear search" title="Clear">×</button>
+    </div>
+
+    <div class="nb-chips" id="nbchips"></div>
+
+    <div class="nb-controls">
+      <label for="nbpart">Part:</label>
+      <select id="nbpart"><option value="0">All ten parts</option></select>
+      <span class="nb-meta" id="nbmeta"></span>
+    </div>
+  </div>
+
+  <div class="nb-results" id="nbresults">
+    <div class="nb-empty" id="nbempty">Loading the notes…</div>
+  </div>
+
+  <p class="nb-note" id="nbfooter" style="margin-top: 28px;"></p>
+
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Topic shortcuts: label -> search query that surfaces the key passages.
+  var TOPICS = [
+    ["Simplex mass formula",   "simplex hockey-stick mass formula S(n,d)"],
+    ["The six sectors",        "active sectors geometry CP2 CP3 S5 hopf"],
+    ["The seed n_s = 4",       "seed n_s = 4 forced chi CP3"],
+    ["Three generations",      "three generations tower"],
+    ["Coupling constants",     "coupling constants geometric dilution g_dd"],
+    ["Gravity as curvature",   "gravity curvature not a force spectral action"],
+    ["Neutrino mass & mixing", "neutrino mass PMNS mixing Dirac"],
+    ["CP-violating phase",     "CP violation phase delta spectral flow"],
+    ["Colour & confinement",   "colour kernel contact SU(3) confinement"],
+    ["Electron 6D orbit",      "electron 6D orbit projection orbital shape"],
+    ["Neutrinoless 2-beta",    "neutrinoless double beta decay Majorana"],
+    ["Falsifiability",         "falsifiability what would falsify"],
+    ["Status taxonomy",        "status key identity structural verified"]
+  ];
+
+  var STATUS = {
+    "⭐": ["Identity", "identity"],
+    "✅": ["Structural", "structural"],
+    "🔵": ["Numerically verified", "numeric"],
+    "🔶": ["Motivated / open", "motivated"],
+    "❓": ["Conjecture", "conjecture"]
+  };
+
+  var DATA = null, READY = false;
+  var q = document.getElementById("nbq");
+  var partSel = document.getElementById("nbpart");
+  var results = document.getElementById("nbresults");
+  var meta = document.getElementById("nbmeta");
+  var clearBtn = document.getElementById("nbclear");
+  var footer = document.getElementById("nbfooter");
+
+  function esc(s) {
+    return s.replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  // Strip markdown/math to readable plain text for snippets.
+  function stripMd(md) {
+    return md
+      .replace(/^#{1,6}\s+/gm, "")
+      .replace(/\$\$[\s\S]*?\$\$/g, " ")
+      .replace(/\\\[[\s\S]*?\\\]/g, " ")
+      .replace(/\$[^$\n]*\$/g, " ")
+      .replace(/\\\([^)]*?\\\)/g, " ")
+      .replace(/```[\s\S]*?```/g, " ")
+      .replace(/`([^`]*)`/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1")
+      .replace(/\*([^*]+)\*/g, "$1")
+      .replace(/\|/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  // Markdown -> HTML with KaTeX, protecting math from the markdown pass.
+  function renderMd(md) {
+    var store = [];
+    function keep(tex, display) {
+      store.push({ tex: tex, display: display });
+      return "@@NBM" + (store.length - 1) + "@@";
+    }
+    var s = md
+      .replace(/\$\$([\s\S]+?)\$\$/g, function (m, t) { return keep(t, true); })
+      .replace(/\\\[([\s\S]+?)\\\]/g, function (m, t) { return keep(t, true); })
+      .replace(/\\\(([\s\S]+?)\\\)/g, function (m, t) { return keep(t, false); })
+      .replace(/\$([^$\n]+?)\$/g, function (m, t) { return keep(t, false); });
+    var html = window.marked ? window.marked.parse(s) : esc(s);
+    html = html.replace(/@@NBM(\d+)@@/g, function (m, i) {
+      var it = store[+i];
+      try {
+        return window.katex.renderToString(it.tex, {
+          displayMode: it.display, throwOnError: false
+        });
+      } catch (e) { return esc(it.tex); }
+    });
+    return html;
+  }
+
+  function tokenize(str) {
+    return (str.toLowerCase().match(/[a-z0-9]+/g) || [])
+      .filter(function (t) { return t.length >= 2; });
+  }
+
+  function score(sec, terms, phrase) {
+    var sc = 0, matched = 0, txt = sec.text, ttl = sec.title.toLowerCase();
+    for (var i = 0; i < terms.length; i++) {
+      var t = terms[i], inTxt = txt.split(t).length - 1;
+      var inTtl = ttl.indexOf(t) !== -1;
+      if (inTxt > 0 || inTtl) matched++;
+      sc += Math.min(inTxt, 8);          // cap so one word can't dominate
+      if (inTtl) sc += 6;
+    }
+    if (matched === 0) return 0;
+    sc += matched * matched * 2;          // reward covering more distinct terms
+    if (phrase.length > 3 && txt.indexOf(phrase) !== -1) sc += 40;
+    if (sec.level === 2) sc += 1;
+    return sc;
+  }
+
+  function badgesHtml(status) {
+    if (!status || !status.length) return "";
+    var out = '<span class="badges">';
+    for (var i = 0; i < status.length; i++) {
+      var s = STATUS[status[i]];
+      if (s) out += '<span class="badge ' + s[1] + '">' + status[i] + " " + s[0] + "</span>";
+    }
+    return out + "</span>";
+  }
+
+  function snippet(md, terms) {
+    var plain = stripMd(md), low = plain.toLowerCase(), at = -1;
+    for (var i = 0; i < terms.length; i++) {
+      var p = low.indexOf(terms[i]);
+      if (p !== -1 && (at === -1 || p < at)) at = p;
+    }
+    var start = at > 90 ? at - 80 : 0;
+    var frag = plain.slice(start, start + 260);
+    if (start > 0) frag = "…" + frag;
+    if (start + 260 < plain.length) frag += "…";
+    var html = esc(frag);
+    if (terms.length) {
+      var re = new RegExp("(" + terms.map(function (t) {
+        return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      }).join("|") + ")", "gi");
+      html = html.replace(re, '<span class="hl">$1</span>');
+    }
+    return html;
+  }
+
+  function partMd(sec) {
+    var f = "/files/IDWT_" + ("0" + sec.partNum).slice(-2) + "_" + ({
+      1: "Foundation", 2: "Mass", 3: "Forces", 4: "Gravity", 5: "Predictions",
+      6: "OpenQuestions", 7: "Observability", 8: "Quantum", 9: "Spectral",
+      10: "CP_Completion"
+    })[sec.partNum] + ".md";
+    return f;
+  }
+
+  function render(list, terms) {
+    results.innerHTML = "";
+    if (!list.length) {
+      results.innerHTML = '<div class="nb-empty">No passages match. Try fewer or different words, or pick a topic above.</div>';
+      return;
+    }
+    var frag = document.createDocumentFragment();
+    list.forEach(function (sec) {
+      var d = document.createElement("details");
+      d.className = "nb-result";
+      var sum = document.createElement("summary");
+      sum.innerHTML =
+        '<div class="nb-cite"><span class="nb-part">' + esc(sec.part) +
+        " &middot; " + esc(sec.partTitle) + '</span>' + badgesHtml(sec.status) +
+        '</div><div class="nb-title">' + esc(sec.title) + "</div>" +
+        '<div class="nb-snippet">' + snippet(sec.md, terms) + "</div>" +
+        '<span class="nb-expand">Show full passage →</span>';
+      d.appendChild(sum);
+      var body = document.createElement("div");
+      body.className = "nb-body prose";
+      d.appendChild(body);
+      d.addEventListener("toggle", function () {
+        if (d.open && !body.dataset.done) {
+          body.dataset.done = "1";
+          body.innerHTML = renderMd(sec.md) +
+            '<div class="nb-foot">Source: ' + esc(sec.part) + " (" +
+            esc(sec.partTitle) + ') &middot; <a class="dl" href="' +
+            partMd(sec) + '" download>Download this part (.md)</a></div>';
+        }
+      });
+      frag.appendChild(d);
+    });
+    results.appendChild(frag);
+  }
+
+  function run() {
+    if (!READY) return;
+    var raw = q.value.trim();
+    clearBtn.style.display = raw ? "block" : "none";
+    var part = +partSel.value;
+    var pool = part ? DATA.sections.filter(function (s) { return s.partNum === part; })
+                    : DATA.sections;
+    syncUrl(raw, part);
+    if (!raw) {
+      results.innerHTML = '<div class="nb-empty">Type a query above, or tap a topic. Searching ' +
+        pool.length + " sections across " +
+        (part ? "Part " + part : "all ten parts") + ".</div>";
+      meta.textContent = "";
+      return;
+    }
+    var terms = tokenize(raw), phrase = raw.toLowerCase();
+    var scored = [];
+    for (var i = 0; i < pool.length; i++) {
+      var sc = score(pool[i], terms, phrase);
+      if (sc > 0) scored.push([sc, pool[i]]);
+    }
+    scored.sort(function (a, b) { return b[0] - a[0]; });
+    var top = scored.slice(0, 40).map(function (x) { return x[1]; });
+    meta.textContent = scored.length + (scored.length === 1 ? " passage" : " passages");
+    render(top, terms);
+  }
+
+  function syncUrl(raw, part) {
+    var p = new URLSearchParams();
+    if (raw) p.set("q", raw);
+    if (part) p.set("part", part);
+    var qs = p.toString();
+    history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+  }
+
+  function debounce(fn, ms) {
+    var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); };
+  }
+
+  // ── build chips & part options ──
+  var chips = document.getElementById("nbchips");
+  TOPICS.forEach(function (t) {
+    var b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = t[0];
+    b.addEventListener("click", function () { q.value = t[1]; q.focus(); run(); });
+    chips.appendChild(b);
+  });
+
+  q.addEventListener("input", debounce(run, 120));
+  partSel.addEventListener("change", run);
+  clearBtn.addEventListener("click", function () { q.value = ""; q.focus(); run(); });
+
+  // ── load index ──
+  fetch("/notebook/idwt-search-index.json")
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      DATA = data; READY = true;
+      data.parts.forEach(function (p) {
+        var o = document.createElement("option");
+        o.value = p.num; o.textContent = "Part " + p.num + " — " + p.title;
+        partSel.appendChild(o);
+      });
+      footer.innerHTML = "Searching " + data.sections.length +
+        " sections from the ten parts (index built " + esc(data.generated) +
+        "). Same documents you can download on the " +
+        '<a href="/notes/">Notes</a> page or explore in the NotebookLM.';
+      // deep-link support: ?q=...&part=...
+      var qs = new URLSearchParams(location.search);
+      if (qs.get("part")) partSel.value = qs.get("part");
+      if (qs.get("q")) q.value = qs.get("q");
+      run();
+      q.focus();
+    })
+    .catch(function () {
+      results.innerHTML = '<div class="nb-empty">The search index could not be loaded. Please reload the page.</div>';
+    });
+})();
+</script>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

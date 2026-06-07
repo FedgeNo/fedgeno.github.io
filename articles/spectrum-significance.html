@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Could any integer formula fit the particle masses? IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. A null-model estimate puts the joint coincidence near one in a billion.">
+<meta name="keywords" content="IDWT, infinite-dimensional wave theory, statistical significance, null model, particle mass spectrum, simplex number, overfitting, mass ratios, look-elsewhere">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/spectrum-significance">
+<meta property="og:title" content="Is the Spectrum a Fit? — IDWT">
+<meta property="og:description" content="IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Is the Spectrum a Fit? — IDWT">
+<meta name="twitter:description" content="IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Is the Spectrum a Fit? — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Is the Spectrum a Fit? — IDWT",
+  "description": "IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. A null-model estimate puts the joint coincidence near one in a billion.",
+  "url": "https://fedgeno.github.io/articles/spectrum-significance",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, infinite-dimensional wave theory, statistical significance, null model, particle mass spectrum, simplex number, overfitting, mass ratios, look-elsewhere",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Method</div>
+  <h1>Is the Spectrum a Fit?</h1>
+  <p class="sub">The honest worry about any "masses from integers" theory — and what the numbers say when you put it to the test.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>Here is the first objection a careful skeptic raises about IDWT, and it is the right one. The theory writes each particle's mass as a simplex number \(S(n,d)\) times a sector scale. Integers are flexible. Give yourself a formula with an adjustable integer per particle and a scale to tune, and you can land near almost any set of masses. So is the agreement with experiment real, or is it the kind of thing any sufficiently loose integer formula produces for free?</p>
+
+  <p>This is worth taking seriously rather than waving away, because the answer is checkable. The question is not "is IDWT true" — no calculation settles that — but the sharper one: <em>how surprised should we be that it works this well?</em> If the answer is "not very," the mass success is hollow. If the answer is "extremely," then whatever else is unsettled, the combinatorial structure is tracking something real about the spectrum.</p>
+
+  <p>Two facts turn the worry into a calculation. The scales are not free, and the grid is not fine.</p>
+</section>
+
+<section>
+  <h2>The scale is derived, not refit</h2>
+  <div class="prose">
+    <p>The escape hatch in most number games is a tunable scale: fit one continuous knob per sector and the integers only have to get close. IDWT does not have that knob. Each sector's mass scale is fixed by the electron mass and the seed \(n_s=4\) through the coupling chain — the same two inputs everywhere, not refit sector by sector. Once those are set, a particle's mass is \(S(n,d)\) times a number the theory already owns, and the only remaining freedom is the choice of the integer \(n\).</p>
+    <p>That single fact changes the game. With the scale fixed, predicting a mass is choosing one integer from a fixed ladder of allowed values. There is no continuous dial to slide the prediction onto the measurement. Either an integer lands near the measured mass or it does not.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The grid is coarse</h2>
+  <div class="prose">
+    <p>And the ladder is widely spaced. The simplex numbers grow fast — at the muon's level in the \(d=6\) sector, neighbouring rungs differ by 17%; at the tau's level in \(d=10\), by 43%. So picking the nearest integer does not guarantee a close hit. If the measured value fell at a random spot between two rungs, you would expect the nearest rung to miss by something like a quarter of the gap — several percent, not several parts per million.</p>
+    <p>This gives a clean way to score each prediction. Take the fractional error \(\varepsilon\) between IDWT and experiment, and compare it to the grid spacing \(g\) at that rung. The ratio \(2\varepsilon/g\) is, roughly, the chance that the nearest available integer would land that close to a randomly placed target. Small means lucky — a measured value sitting almost exactly on a rung, which a flexible fit has no reason to produce.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The numbers</h2>
+  <div class="prose">
+    <p>To keep this honest, restrict to quantities that are both precisely measured and free of any continuous parameter: dimensionless mass ratios, where the sector scale cancels entirely. Each is fixed by a single integer. Treat every mode index as if it were a free choice — the most skeptical possible stance, granting the theory no help from its claim that the indices are forced.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Quantity</th><th>IDWT</th><th>Measured</th><th>\(\varepsilon\)</th><th>Grid \(g\)</th><th>Luck \(2\varepsilon/g\)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>\(m_\mu/m_e = S(35,6)/S(13,6)\)</td><td>206.765</td><td>206.768</td><td>\(1.7\times10^{-5}\)</td><td>0.17</td><td>\(2.0\times10^{-4}\)</td></tr>
+          <tr><td>\(m_\tau/m_e = \frac{S(23,10)}{S(13,6)}(1{+}\tfrac{1}{1680})\)</td><td>3477.19</td><td>3477.23</td><td>\(9.7\times10^{-6}\)</td><td>0.43</td><td>\(3.1\times10^{-4}\)</td></tr>
+          <tr><td>\(m_Z/m_W = S(81,2)/S(76,2)\)</td><td>1.13500</td><td>1.13461</td><td>\(3.4\times10^{-4}\)</td><td>0.025</td><td>\(2.7\times10^{-2}\)</td></tr>
+          <tr><td>\(m_H/m_W = S(95,2)/S(76,2)\)</td><td>1.55844</td><td>1.55781</td><td>\(4.1\times10^{-4}\)</td><td>0.021</td><td>\(8.5\times10^{-2}\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Multiplying the four independent luck factors gives a joint figure of about \(1.5\times10^{-10}\) — roughly one in seven billion. Allow a generous correction for the fact that we singled these quantities out — say a hundred quantities we might have looked at instead — and it is still around \(10^{-8}\), the kind of number physicists call a five-sigma result. The lepton ratios carry most of the weight: a hit to better than one part in \(10^5\) on a grid spaced by tens of percent is the part that a loose fit cannot manufacture.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What this does and does not show</h2>
+  <div class="prose">
+    <p>It does not prove IDWT. The luck score is an order-of-magnitude estimate, not a rigorous likelihood; a proper version draws random alternative theories and counts how often they match the whole dataset as well, and that calculation is still to be done. The result is conditional on the scales genuinely being derived rather than quietly refit — which they are, in the published computation. And the clean quantities were chosen by a principled rule (precisely measured, parameter-free), not by closeness; the theory also has looser predictions, and those stand alongside these rather than being hidden.</p>
+    <p>What it does show is enough to retire the first objection. The spectrum is not a "fit anything" structure. Even handed every index for free, the precisely-measured dimensionless ratios sit on the simplex grid far too tightly for a flexible formula, by something like nine orders of magnitude past chance.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Where the real weight sits</h2>
+  <div class="prose">
+    <p>There is a sharper conclusion underneath the number, and it points at the one thing still open. The whole estimate above bent over backwards to treat each mode index as a free choice. But IDWT's actual claim is stronger: the indices are not chosen at all — they are forced from \(n_s=4\) by the <a href="/articles/generation-tower.html">generation-tower</a> arithmetic. If that forcing holds, the accounting collapses to two inputs producing the entire spectrum, and the significance is no longer one in a billion but essentially total. If it does not, the masses are a constrained fit and only the tight grid hits carry weight — still the \(10^{-8}\) above, but no more.</p>
+    <p>So the entire evidential weight of the framework funnels into a single question: are the mode indices forced, or fitted? That is exactly the part IDWT marks as not yet fully derived. This analysis does not answer it — but it shows why it is the question worth everything. Settle the index-forcing and an already-improbable postdiction becomes a theory of the spectrum with almost nothing put in by hand. Everything else is commentary next to that.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Related reading</h2>
+  <div class="prose">
+    <p><a href="/articles/generation-tower.html">The Generation Tower</a> — how the mode indices are built from the two seeds, the forcing this analysis hinges on.</p>
+    <p><a href="/articles/simplex-number.html">The Simplex Number</a> — what \(S(n,d)\) counts and why its ladder grows fast.</p>
+    <p><a href="/articles/seed.html">Why \(n_s = 4\)</a> — the single integer the scales and indices descend from.</p>
+    <p><a href="/articles/particle-map.html">The Particle Map</a> — the full spectrum these ratios are drawn from.</p>
+    <p><a href="/articles/predictions.html">Mass &amp; Neutrino Predictions</a> — the measured quantities, with errors.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

@@ -2253,6 +2253,37 @@ assert sel_reach_ratio > 10.0       # kernel reach strictly > DAG count
 
 
 # =============================================================================
+# STEP 38 -- NULL-MODEL SIGNIFICANCE OF PARAMETER-FREE RATIOS (Part 5 sec 2a)
+# =============================================================================
+# Each precisely-measured dimensionless ratio is one simplex ratio fixed by a
+# single mode index (the sector scale cancels). eps = |pred-obs|/obs, FLOORED
+# at the measurement error sig/obs (cannot claim a fit tighter than measured);
+# grid spacing g = S(n+1,d)/S(n,d)-1; luck L = min(1, 2 eps/g) ~ chance the
+# nearest grid point lands within eps of a random target. Indices treated as
+# FREE (maximally skeptical). Joint = product over 4 independent quantities.
+# (Part 5 sec 2a; Appendix A section 24; script claude/significance_audit.py)
+def _luck(pred, obs, sig, n, d):
+    eps = max(abs(pred - obs) / obs, sig / obs)
+    g = S(n + 1, d) / S(n, d) - 1.0
+    return min(1.0, 2.0 * eps / g)
+
+_me = 0.51099895
+sig_mu_e  = _luck(S(35, 6) / S(13, 6), 206.7682827, 3e-6, 35, 6)
+sig_tau_e = _luck(S(23, 10) / S(13, 6) * (1 + 1 / 1680),
+                  1776.86 / _me, 0.12 / _me, 23, 10)
+_zw = 91.1880 / 80.3692
+_hw = 125.20 / 80.3692
+sig_Z_W = _luck(S(81, 2) / S(76, 2), _zw,
+                _zw * ((0.0133/80.3692)**2 + (0.0020/91.1880)**2)**0.5, 81, 2)
+sig_H_W = _luck(S(95, 2) / S(76, 2), _hw,
+                _hw * ((0.11/125.20)**2 + (0.0133/80.3692)**2)**0.5, 95, 2)
+sig_joint = sig_mu_e * sig_tau_e * sig_Z_W * sig_H_W
+
+assert sig_joint < 1e-8                 # spectrum is not a flexible fit
+assert sig_mu_e < 1e-3 and sig_tau_e < 1e-3
+
+
+# =============================================================================
 # STEP 1 -- OUTPUT: TOWER CONSTRUCTION
 # =============================================================================
 print("=== TOWER CONSTRUCTION ===")
@@ -3525,6 +3556,23 @@ print("           dynamical fixed point of the EOM energetics."
       " MC-4.3 stability is")
 print("           the NECESSARY half;"
       " the sufficient half is not in the energetics.")
+
+
+# =============================================================================
+# STEP 38 -- OUTPUT: NULL-MODEL SIGNIFICANCE OF PARAMETER-FREE RATIOS
+# =============================================================================
+print("\n" + "="*66)
+print("STEP 38 -- NULL-MODEL SIGNIFICANCE OF PARAM-FREE RATIOS (Part 5 2a)")
+print("="*66)
+print("  dimensionless ratio        luck L = 2*eps/g (index FREE)")
+print(f"    m_mu/m_e   = {sig_mu_e:.2e}")
+print(f"    m_tau/m_e  = {sig_tau_e:.2e}")
+print(f"    m_Z/m_W    = {sig_Z_W:.2e}")
+print(f"    m_H/m_W    = {sig_H_W:.2e}")
+print(f"  joint (4 independent) = {sig_joint:.2e}"
+      f"   (~1 in {1/sig_joint:.1e})")
+print("  => spectrum is not a flexible fit; ~5sigma after look-elsewhere.")
+print("  Full weight hinges on index-forcing (T0.5): forced => total.")
 
 
 # =============================================================================

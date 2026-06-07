@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Interactive 3D coupling web of the IDWT sectors: one wave coupling to itself across shared coordinates. Edge strands show which structures (electromagnetism, weak isospin, colour) are active on each sector pair; thickness scales with the rank-1 coupling magnitude.">
-<meta name="keywords" content="IDWT couplings, sector coupling, kernel self-coupling, U(1) SU(2) SU(3), rank-1 cross-coupling, Infinite-Dimensional Wave Theory, three.js visualization">
+<meta name="description" content="Interactive 3D coupling web of the IDWT sectors: which sectors couple, and through which interaction. Electromagnetism and the weak coupling run to the d=2 boson sector; colour is a direct quark-sector contact; gravity couples every sector. Toggle each force on and off.">
+<meta name="keywords" content="IDWT couplings, sector coupling, which sectors couple, electromagnetism weak colour gravity, U(1) SU(2) SU(3), Infinite-Dimensional Wave Theory, three.js visualization">
 <meta name="author" content="Fedge No">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fedgeno.github.io/visualizations/coupling-web">
 <meta property="og:title" content="The Coupling Web — IDWT">
-<meta property="og:description" content="One wave coupling to itself across shared coordinates. Edge strands show which structures are active on each sector pair; thickness scales with the rank-1 coupling magnitude.">
+<meta property="og:description" content="Which IDWT sectors couple, and through which interaction. Toggle electromagnetism, weak, colour and gravity to see who couples with whom.">
 <meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="2000">
 <meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Coupling Web — IDWT">
-<meta name="twitter:description" content="One wave coupling to itself across shared coordinates — the active coupling structures by sector pair.">
+<meta name="twitter:description" content="Which IDWT sectors couple, and through which interaction.">
 <meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
 <title>The Coupling Web — IDWT</title>
 <link rel="stylesheet" href="/styles/main.css">
@@ -37,6 +37,7 @@ html, body { margin: 0; height: 100%; overflow: hidden; }
 #cwInfo dl { display: grid; grid-template-columns: 96px 1fr; gap: 5px 12px; margin: 0; font-size: 0.88rem; }
 #cwInfo dt { color: #7a8499; } #cwInfo dd { margin: 0; color: #d6daf0; }
 #cwInfo .ci-note { margin: 10px 0 0; color: #9aa3b8; font-size: 0.85rem; line-height: 1.55; }
+#cwInfo .fpill { display: inline-block; font-size: 0.78rem; padding: 2px 9px; border-radius: 999px; margin: 2px 4px 2px 0; border: 1px solid transparent; }
 
 .legend { margin-top: 18px; }
 .legend .lh { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7a8499; font-weight: 600; margin-bottom: 8px; }
@@ -46,9 +47,13 @@ html, body { margin: 0; height: 100%; overflow: hidden; }
 
 .viz-panel { position: relative; overflow: hidden; }
 .viz-panel canvas { display: block; }
-.controls { position: absolute; left: 16px; bottom: 16px; z-index: 10; background: rgba(8,12,24,0.78); border: 1px solid rgba(139,156,255,0.16); border-radius: 12px; padding: 12px 14px; backdrop-filter: blur(10px); font-size: 0.82rem; color: #c4cae2; }
-.controls .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; color: #9aa3b8; }
+.controls { position: absolute; left: 16px; bottom: 16px; z-index: 10; background: rgba(8,12,24,0.8); border: 1px solid rgba(139,156,255,0.16); border-radius: 12px; padding: 12px 14px; backdrop-filter: blur(10px); font-size: 0.82rem; color: #c4cae2; }
+.controls .ttl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7a8499; font-weight: 600; margin-bottom: 8px; }
+.controls .row { display: flex; align-items: center; gap: 8px; margin: 6px 0; }
+.controls label { cursor: pointer; }
 .controls input[type=checkbox] { accent-color: #8b9cff; width: 15px; height: 15px; }
+.controls .dotc { width: 18px; height: 5px; border-radius: 3px; display: inline-block; }
+.controls hr { border: none; border-top: 1px solid rgba(139,156,255,0.14); margin: 9px 0; }
 .hint { position: absolute; right: 16px; top: 14px; z-index: 10; font-size: 0.76rem; color: #7a8499; background: rgba(8,12,24,0.6); border: 1px solid rgba(139,156,255,0.12); border-radius: 8px; padding: 6px 10px; }
 </style>
 </head>
@@ -70,29 +75,33 @@ html, body { margin: 0; height: 100%; overflow: hidden; }
   <div class="text-panel">
     <div class="eyebrow">Visualization · Couplings</div>
     <h1>The Coupling Web</h1>
-    <p class="sub">There is one wave. Every link here is Ψ∞ coupling to itself, through the kernel, on the coordinates two of its sectors share — never an exchange between separate objects.</p>
+    <p class="sub">Which sectors couple, and through which interaction. There is one wave — every line is Ψ∞ coupling to itself on the coordinates the sectors share.</p>
 
     <div id="cwInfo"><!-- filled by JS --></div>
 
     <div class="legend">
-      <div class="lh">Edge strands — active structure</div>
-      <div class="legrow"><span class="swatch" style="background:#4ea8ff"></span> U(1) — electric charge</div>
-      <div class="legrow"><span class="swatch" style="background:#56e08a"></span> SU(2)_L — weak isospin</div>
-      <div class="legrow"><span class="swatch" style="background:#ff9a4d"></span> SU(3) — colour (quark block only)</div>
-      <div class="legrow" style="color:#7a8499;">Gravity couples every pair (it is omitted from the strands as universal).</div>
-      <div class="legrow" style="color:#7a8499;">Node size scales with the sector self-coupling g_dd; edge thickness with the rank-1 cross-coupling.</div>
+      <div class="lh">Interactions</div>
+      <div class="legrow"><span class="swatch" style="background:#4ea8ff"></span> Electromagnetism — charged sectors couple to the photon (d=2)</div>
+      <div class="legrow"><span class="swatch" style="background:#56e08a"></span> Weak — fermion sectors couple to the W/Z (d=2)</div>
+      <div class="legrow"><span class="swatch" style="background:#ff9a4d"></span> Colour — direct contact between the quark sectors d=3, d=4</div>
+      <div class="legrow"><span class="swatch" style="background:#8a93ad"></span> Gravity — every sector, through the curvature of M∞</div>
     </div>
 
-    <p class="hintline">U(1) drops from any pair touching the neutral neutrino sector d=5; colour survives only in the quark block {d=3, d=4}; weak isospin is on every matter pair. The d=2 boson sector supplies the U(1) and SU(2)_L geometry rather than entering the matter pairings, with one exception: its Hopf-universal link g₂₅ to the neutrinos that fixes their mixing.</p>
+    <p class="hintline">Electromagnetism and the weak coupling run through the d=2 boson sector: a charged sector couples to the photon, and a fermion sector to the W and Z, in the d=2 coordinates they share — not by a boson carried between two other sectors. Colour needs no boson sector (it is a kernel contact term), so it joins the two quark sectors directly. Gravity is the curvature of M∞ and reaches every sector. Toggle a force to see exactly which sectors it links; click any node or line for detail.</p>
 
     <p style="margin-top:16px;"><a href="/articles/coupling-grid.html">The coupling grid →</a> &nbsp;·&nbsp; <a href="/visualizations/">All visualizations →</a></p>
   </div>
 
   <div class="viz-panel" id="vizPanel">
-    <div class="hint">drag · scroll · click a node or link</div>
+    <div class="hint">drag · scroll · click a node or line</div>
     <div class="controls">
+      <div class="ttl">Show interaction</div>
+      <div class="row"><input id="fEM" type="checkbox" checked> <span class="dotc" style="background:#4ea8ff"></span> <label for="fEM">Electromagnetism</label></div>
+      <div class="row"><input id="fWEAK" type="checkbox" checked> <span class="dotc" style="background:#56e08a"></span> <label for="fWEAK">Weak</label></div>
+      <div class="row"><input id="fCOLOUR" type="checkbox" checked> <span class="dotc" style="background:#ff9a4d"></span> <label for="fCOLOUR">Colour</label></div>
+      <div class="row"><input id="fGRAVITY" type="checkbox" checked> <span class="dotc" style="background:#8a93ad"></span> <label for="fGRAVITY">Gravity</label></div>
+      <hr>
       <div class="row"><input id="cSpin" type="checkbox" checked> <label for="cSpin">Auto-rotate</label></div>
-      <div class="row"><input id="cFlow" type="checkbox" checked> <label for="cFlow">Pulse couplings</label></div>
     </div>
   </div>
 </div>
@@ -105,45 +114,41 @@ import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
 
-// ── sector data ───────────────────────────────────────────────
 const G = { 2: 722.5, 3: 21.1660, 4: 4.5356, 5: 0.13287, 6: 0.25, 10: 0.25 };
 const SECT = {
-  2:  { color: 0x00aaff, geo: 'CP¹', host: 'γ, W±, Z⁰, H', struct: 'source of U(1) & SU(2)_L geometry',
-        note: 'The boson sector. Its U(1) and SU(2)_L are the holonomy geometry the matter sectors couple through, not charges these modes carry.' },
-  3:  { color: 0x00ff44, geo: 'S³',  host: 'down, strange, bottom', struct: 'EM · W · C · G',
-        note: 'Down-type quarks. Carries colour (SU(3)) and so joins the quark block.' },
-  4:  { color: 0xff6600, geo: 'CP²', host: 'up, charm, top', struct: 'EM · W · C · G',
-        note: 'Up-type quarks. χ(CP²)=3=N_c — the colour structure originates in this sector.' },
-  5:  { color: 0xcc00ff, geo: 'S⁵',  host: 'ν_e, ν_μ, ν_τ', struct: 'W · G',
-        note: 'Neutrinos. Neutral (no U(1)) and colourless — only weak isospin and gravity remain.' },
-  6:  { color: 0xff0000, geo: 'CP³', host: 'electron, muon', struct: 'EM · W · G',
-        note: 'Charged leptons. Charged and colourless.' },
-  10: { color: 0xffdd00, geo: 'CP⁵', host: 'tau', struct: 'EM · W · G',
-        note: 'Tau sector. Charged, colourless, and the endpoint that touches every sector.' }
+  2:  { color: 0x00aaff, geo: 'CP¹', host: 'γ, W±, Z⁰, H',
+        note: 'The boson sector. Charged sectors couple to its photon, and fermion sectors to its W and Z, in the shared d=2 coordinates.' },
+  3:  { color: 0x00ff44, geo: 'S³',  host: 'down, strange, bottom',
+        note: 'Down-type quarks: charged (couple to the photon), weak, and colour-carrying — so they join the d=4 quarks directly through colour.' },
+  4:  { color: 0xff6600, geo: 'CP²', host: 'up, charm, top',
+        note: 'Up-type quarks: charged, weak, and colour-carrying. χ(CP²)=3=N_c — colour originates in this sector.' },
+  5:  { color: 0xcc00ff, geo: 'S⁵',  host: 'ν_e, ν_μ, ν_τ',
+        note: 'Neutrinos: neutral and colourless, so only the weak coupling and gravity reach them.' },
+  6:  { color: 0xff0000, geo: 'CP³', host: 'electron, muon',
+        note: 'Charged leptons: charged and weak, but colourless.' },
+  10: { color: 0xffdd00, geo: 'CP⁵', host: 'tau',
+        note: 'Tau sector: charged and weak, colourless, and the endpoint that shares coordinates with every sector.' }
 };
-const ORDER = [2, 3, 4, 5, 6, 10];
+const ORDER = [3, 4, 5, 6, 10];   // ring; d=2 sits at the centre
 
-// active structures per matter pair (EM/W/C; gravity universal, omitted)
-const PAIRS = [
-  [3, 4, ['EM', 'W', 'C']],
-  [3, 5, ['W']],
-  [3, 6, ['EM', 'W']],
-  [3, 10, ['EM', 'W']],
-  [4, 5, ['W']],
-  [4, 6, ['EM', 'W']],
-  [4, 10, ['EM', 'W']],
-  [5, 6, ['W']],
-  [5, 10, ['W']],
-  [6, 10, ['EM', 'W']],
-  [2, 5, ['HOPF']]   // Hopf-universal g25 link that sets neutrino mixing
-];
-const STRUCT_COLOR = { EM: 0x4ea8ff, W: 0x56e08a, C: 0xff9a4d, HOPF: 0xffd166 };
-const STRUCT_NAME = { EM: 'U(1) electric charge', W: 'SU(2)_L weak isospin', C: 'SU(3) colour', HOPF: 'Hopf universality (g₂₅)' };
-
-function crossG(a, b) { return Math.sqrt(G[a] * G[b]); }
+// per-force coupling lists (which sectors each interaction links)
+const FORCES = {
+  EM:      { color: 0x4ea8ff, name: 'Electromagnetism — U(1)', pairs: [[2,3],[2,4],[2,6],[2,10]], off:  0.13, bow:  0.30 },
+  WEAK:    { color: 0x56e08a, name: 'Weak — SU(2)_L',          pairs: [[2,3],[2,4],[2,5],[2,6],[2,10]], off: -0.13, bow: -0.30 },
+  COLOUR:  { color: 0xff9a4d, name: 'Colour — SU(3)',          pairs: [[3,4]], off: 0, bow: 0.55 },
+  GRAVITY: { color: 0x8a93ad, name: 'Gravity — M∞ curvature',  pairs: allPairs([2,3,4,5,6,10]), off: 0, bow: 0, faint: true }
+};
+function allPairs(a) { const out = []; for (let i=0;i<a.length;i++) for (let j=i+1;j<a.length;j++) out.push([a[i],a[j]]); return out; }
 function fmt(x) { return x >= 10 ? x.toFixed(1) : x.toFixed(x < 1 ? 3 : 2); }
 
-// ── three.js scaffold ─────────────────────────────────────────
+// which forces touch a given sector
+function forcesOf(d) {
+  const list = [];
+  for (const k in FORCES) if (FORCES[k].pairs.some(p => p[0] === d || p[1] === d)) list.push(k);
+  return list;
+}
+
+// ── scaffold ──────────────────────────────────────────────────
 const panel = document.getElementById('vizPanel');
 let W = Math.max(80, panel.clientWidth || (window.innerWidth - 400));
 let H = Math.max(80, panel.clientHeight || (window.innerHeight - 56));
@@ -160,14 +165,14 @@ panel.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(50, W / H, 0.05, 200);
-camera.position.set(0.5, 3.2, 6.4);
+camera.position.set(4.8, 2.6, 5.6);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true; controls.dampingFactor = 0.06;
 controls.minDistance = 3.5; controls.maxDistance = 24;
 
 const renderPass = new RenderPass(scene, camera);
-const bloomPass = new UnrealBloomPass(new THREE.Vector2(W, H), 0.6, 0.55, 0.05);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(W, H), 0.55, 0.55, 0.05);
 const composer = new EffectComposer(renderer);
 composer.addPass(renderPass); composer.addPass(bloomPass);
 
@@ -177,101 +182,109 @@ const key = new THREE.DirectionalLight(0xffffff, 0.9); key.position.set(3, 6, 4)
 const web = new THREE.Group();
 scene.add(web);
 
-// node positions on a ring
-const R = 2.7;
-const pos = {};
-ORDER.forEach((d, i) => {
-  const a = (i / ORDER.length) * Math.PI * 2 - Math.PI / 2;
-  pos[d] = new THREE.Vector3(Math.cos(a) * R, 0, Math.sin(a) * R);
-});
+// node positions: a 3D diamond (octahedron) so lines separate in depth.
+// d=2 (boson hub) at the top apex; the five matter sectors fill the rest,
+// with d=3 and d=4 adjacent on the equator for a clean colour edge.
+const Rd = 2.7;
+const pos = {
+  2:  new THREE.Vector3(0,  Rd, 0),   // top apex — boson hub
+  3:  new THREE.Vector3( Rd, 0, 0),   // equator
+  4:  new THREE.Vector3(0, 0,  Rd),   // equator (adjacent to d=3)
+  6:  new THREE.Vector3(-Rd, 0, 0),   // equator
+  10: new THREE.Vector3(0, 0, -Rd),   // equator
+  5:  new THREE.Vector3(0, -Rd, 0)    // bottom apex — neutrinos
+};
 
 // ── nodes ─────────────────────────────────────────────────────
 const nodeMeshes = [];
-function nodeRadius(d) { return 0.16 + 0.11 * (Math.log10(G[d]) + 1.0); }
-ORDER.forEach(d => {
+function nodeRadius(d) { return 0.17 + 0.11 * (Math.log10(G[d]) + 1.0); }
+[2, ...ORDER].forEach(d => {
   const col = new THREE.Color(SECT[d].color);
   const r = nodeRadius(d);
   const m = new THREE.Mesh(
-    new THREE.SphereGeometry(r, 28, 28),
+    new THREE.SphereGeometry(r, 30, 30),
     new THREE.MeshStandardMaterial({ color: col, emissive: col.clone().multiplyScalar(0.45), roughness: 0.4, metalness: 0.2 }));
   m.position.copy(pos[d]); m.userData = { kind: 'node', d };
   web.add(m); nodeMeshes.push(m);
   const halo = new THREE.Mesh(
-    new THREE.SphereGeometry(r * 1.35, 20, 20),
+    new THREE.SphereGeometry(r * 1.4, 20, 20),
     new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.10 }));
   halo.position.copy(pos[d]); web.add(halo);
-  // label
   const c = document.createElement('canvas'); c.width = 256; c.height = 128;
   const ctx = c.getContext('2d');
   ctx.fillStyle = '#' + col.getHexString(); ctx.font = 'bold 60px Inter, sans-serif';
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText('d=' + d, 128, 64);
   const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true }));
   spr.scale.set(0.8, 0.4, 1);
-  spr.position.copy(pos[d]).add(new THREE.Vector3(0, nodeRadius(d) + 0.34, 0));
+  spr.position.copy(pos[d]).add(new THREE.Vector3(0, r + 0.32, 0));
   web.add(spr);
 });
 
-// ── edges (strands) ───────────────────────────────────────────
+// ── edges, grouped per force for toggling ─────────────────────
+const forceGroups = {};
 const edgeMeshes = [];
-PAIRS.forEach(([a, b, structs]) => {
+function buildEdge(a, b, F, key) {
   const pa = pos[a], pb = pos[b];
-  const dir = new THREE.Vector3().subVectors(pb, pa);
-  const len = dir.length();
-  const mid = new THREE.Vector3().addVectors(pa, pb).multiplyScalar(0.5);
+  const mid = pa.clone().add(pb).multiplyScalar(0.5);
+  const dir = pb.clone().sub(pa).normalize();
   let perp = new THREE.Vector3().crossVectors(dir, new THREE.Vector3(0, 1, 0));
   if (perp.lengthSq() < 1e-6) perp.set(1, 0, 0);
   perp.normalize();
-  const g = a === 2 ? crossG(2, 5) : crossG(a, b);
-  const rad = 0.012 + 0.02 * Math.max(0, Math.log10(g) + 1.0) / 2.0;
-  const n = structs.length;
-  structs.forEach((st, k) => {
-    const off = (k - (n - 1) / 2) * 0.055;
-    const oMid = mid.clone().add(perp.clone().multiplyScalar(off)).add(new THREE.Vector3(0, off * 0.4 + (a === 2 ? 0.5 : 0), 0));
-    const curve = new THREE.QuadraticBezierCurve3(pa.clone(), oMid, pb.clone());
-    const geo = new THREE.TubeGeometry(curve, 36, st === 'HOPF' ? rad * 0.8 : rad, 7, false);
-    const col = new THREE.Color(STRUCT_COLOR[st]);
-    const mat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: st === 'HOPF' ? 0.55 : 0.7 });
-    const mesh = new THREE.Mesh(geo, mat);
-    mesh.userData = { kind: 'edge', a, b, structs, g, curve };
-    web.add(mesh); edgeMeshes.push(mesh);
-  });
-});
+  const ctrl = mid.clone().add(perp.multiplyScalar(F.off)).add(new THREE.Vector3(0, F.bow, 0));
+  const curve = new THREE.QuadraticBezierCurve3(pa.clone(), ctrl, pb.clone());
+  const geo = new THREE.TubeGeometry(curve, 44, F.faint ? 0.007 : 0.024, 8, false);
+  const mat = new THREE.MeshBasicMaterial({ color: F.color, transparent: true, opacity: F.faint ? 0.13 : 0.8 });
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.userData = { kind: 'edge', a, b, force: key, curve };
+  return mesh;
+}
+for (const key in FORCES) {
+  const F = FORCES[key];
+  const grp = new THREE.Group();
+  F.pairs.forEach(([a, b]) => { const e = buildEdge(a, b, F, key); grp.add(e); edgeMeshes.push(e); });
+  web.add(grp); forceGroups[key] = grp;
+}
 
-// pulse dots travelling along edges
+// travelling pulses on the bright forces
 const pulses = [];
-edgeMeshes.forEach(em => {
-  if (em.userData.structs[0] === 'HOPF') return;
-  const col = new THREE.Color(em.material.color);
-  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.035, 8, 8), new THREE.MeshBasicMaterial({ color: col }));
-  dot.userData = { curve: em.userData.curve, t: Math.random(), speed: 0.18 + Math.random() * 0.18 };
+edgeMeshes.forEach(e => {
+  if (e.userData.force === 'GRAVITY') return;
+  const col = new THREE.Color(FORCES[e.userData.force].color);
+  const dot = new THREE.Mesh(new THREE.SphereGeometry(0.04, 8, 8), new THREE.MeshBasicMaterial({ color: col }));
+  dot.userData = { curve: e.userData.curve, t: Math.random(), speed: 0.2 + Math.random() * 0.2, force: e.userData.force };
   web.add(dot); pulses.push(dot);
 });
 
 // ── info panel ────────────────────────────────────────────────
+function fpill(key) {
+  const F = FORCES[key]; const hex = '#' + new THREE.Color(F.color).getHexString();
+  return '<span class="fpill" style="color:' + hex + ';border-color:' + hex + '55;background:' + hex + '14">' + F.name.split(' — ')[0] + '</span>';
+}
 function showNode(d) {
   const s = SECT[d];
   document.getElementById('cwInfo').innerHTML =
     '<div class="ci-head">Sector d = ' + d + ' &nbsp;<span style="font-family:monospace;color:#c9d4ff">' + s.geo + '</span></div>' +
     '<dl><dt>Hosts</dt><dd>' + s.host + '</dd>' +
     '<dt>Self-coupling</dt><dd>g_' + d + ',' + d + ' = ' + fmt(G[d]) + '</dd>' +
-    '<dt>Structures</dt><dd>' + s.struct + '</dd></dl>' +
+    '<dt>Couples via</dt><dd>' + forcesOf(d).map(fpill).join(' ') + '</dd></dl>' +
     '<p class="ci-note">' + s.note + '</p>';
 }
 function showEdge(u) {
-  const names = u.structs.map(s => STRUCT_NAME[s]).join(', ');
-  const isHopf = u.structs[0] === 'HOPF';
+  const F = FORCES[u.force];
+  const desc = {
+    EM: 'The d=' + (u.a === 2 ? u.b : u.a) + ' sector’s charged particles couple to the photon in the d=2 coordinates they share.',
+    WEAK: 'The d=' + (u.a === 2 ? u.b : u.a) + ' sector couples to the W and Z in the shared d=2 coordinates.',
+    COLOUR: 'Colour is a kernel contact term on the coordinates the quark sectors d=3 and d=4 share — no separate gluon sector.',
+    GRAVITY: 'Gravity is the curvature of M∞ and couples sectors d=' + u.a + ' and d=' + u.b + ' like every other pair.'
+  }[u.force];
   document.getElementById('cwInfo').innerHTML =
-    '<div class="ci-head">d=' + u.a + ' ↔ d=' + u.b + '</div>' +
-    '<dl><dt>Active here</dt><dd>' + names + (isHopf ? '' : ', gravity') + '</dd>' +
-    '<dt>Cross-coupling</dt><dd>g_' + u.a + ',' + u.b + ' = √(g_' + u.a + ',' + u.a + '·g_' + u.b + ',' + u.b + ') = ' + fmt(u.g) + '</dd></dl>' +
-    '<p class="ci-note">' + (isHopf
-      ? 'g₂₅ = √(g₂₂·g₅₅) = √96. Hopf universality ties the boson sector to the neutrinos and fixes the PMNS mixing scale.'
-      : 'One wave coupling to itself on the coordinates sectors ' + u.a + ' and ' + u.b + ' share — the listed structures survive both sectors’ filters.') + '</p>';
+    '<div class="ci-head">' + fpill(u.force) + '&nbsp; d=' + u.a + ' ↔ d=' + u.b + '</div>' +
+    '<p class="ci-note">' + desc + '</p>';
 }
-showNode(3);
+showNode(2);
 
 // raycast
-const ray = new THREE.Raycaster(); ray.params.Line = { threshold: 0.1 };
+const ray = new THREE.Raycaster();
 const ndc = new THREE.Vector2();
 renderer.domElement.addEventListener('pointerdown', e => {
   const r = renderer.domElement.getBoundingClientRect();
@@ -280,9 +293,22 @@ renderer.domElement.addEventListener('pointerdown', e => {
   ray.setFromCamera(ndc, camera);
   const hitN = ray.intersectObjects(nodeMeshes, false);
   if (hitN.length) { showNode(hitN[0].object.userData.d); return; }
-  const hitE = ray.intersectObjects(edgeMeshes, false);
-  if (hitE.length) { showEdge(hitE[0].object.userData); }
+  const visEdges = edgeMeshes.filter(m => m.parent.visible);
+  const hitE = ray.intersectObjects(visEdges, false);
+  if (hitE.length) showEdge(hitE[0].object.userData);
 });
+
+// ── force toggles ─────────────────────────────────────────────
+function bindToggle(id, key) {
+  const el = document.getElementById(id);
+  const apply = () => {
+    forceGroups[key].visible = el.checked;
+    pulses.forEach(p => { if (p.userData.force === key) p.visible = el.checked; });
+  };
+  el.addEventListener('change', apply); apply();
+}
+bindToggle('fEM', 'EM'); bindToggle('fWEAK', 'WEAK');
+bindToggle('fCOLOUR', 'COLOUR'); bindToggle('fGRAVITY', 'GRAVITY');
 
 // ── resize / animate ──────────────────────────────────────────
 function resize() {
@@ -295,19 +321,16 @@ window.addEventListener('resize', resize);
 resize();
 
 const cSpin = document.getElementById('cSpin');
-const cFlow = document.getElementById('cFlow');
 const clock = new THREE.Clock();
 function animate() {
   requestAnimationFrame(animate);
   const dt = clock.getDelta();
   if (cSpin.checked) web.rotation.y += 0.0022;
-  if (cFlow.checked) {
-    pulses.forEach(p => {
-      p.visible = true;
-      p.userData.t = (p.userData.t + dt * p.userData.speed) % 1;
-      p.position.copy(p.userData.curve.getPoint(p.userData.t));
-    });
-  } else { pulses.forEach(p => p.visible = false); }
+  pulses.forEach(p => {
+    if (!p.visible) return;
+    p.userData.t = (p.userData.t + dt * p.userData.speed) % 1;
+    p.position.copy(p.userData.curve.getPoint(p.userData.t));
+  });
   controls.update();
   composer.render();
 }

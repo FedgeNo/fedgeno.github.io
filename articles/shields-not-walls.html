@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The hidden dimensions let a field slip around a three-dimensional shield (Aharonov–Bohm), but they do not let a particle slip around a barrier (tunnelling). IDWT draws a sharp line: hidden dimensions carry an influence past a shield, but are transverse to a wall and offer no detour through it.">
+<meta name="keywords" content="IDWT, infinite-dimensional wave theory, Aharonov-Bohm, quantum tunnelling, Hartman effect, hidden dimensions, sector geometry, shielding, projection theorem">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/shields-not-walls">
+<meta property="og:title" content="Shields, Not Walls — IDWT">
+<meta property="og:description" content="The hidden dimensions let a field slip around a three-dimensional shield, but not a particle around a barrier. IDWT draws a sharp line between the two.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shields, Not Walls — IDWT">
+<meta name="twitter:description" content="The hidden dimensions let a field slip around a three-dimensional shield, but not a particle around a barrier. IDWT draws a sharp line between the two.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Shields, Not Walls — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Shields, Not Walls — IDWT",
+  "description": "The hidden dimensions let a field slip around a three-dimensional shield (Aharonov–Bohm), but they do not let a particle slip around a barrier (tunnelling). IDWT draws a sharp line: hidden dimensions carry an influence past a shield, but are transverse to a wall and offer no detour through it.",
+  "url": "https://fedgeno.github.io/articles/shields-not-walls",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, infinite-dimensional wave theory, Aharonov-Bohm, quantum tunnelling, Hartman effect, hidden dimensions, sector geometry, shielding, projection theorem",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Geometry</div>
+  <h1>Shields, Not Walls</h1>
+  <p class="sub">The hidden dimensions let a field slip past a three-dimensional shield. They do not let a particle slip past a barrier. The difference turns out to be sharp.</p>
+</header>
+
+<main>
+<section id="core">
+  <p>The <a href="/articles/aharonov-bohm.html">Aharonov–Bohm effect</a> teaches a striking lesson: a three-dimensional shield cannot keep a magnetic field away from an electron. Seal the field inside a superconductor, route the electron through field-free space, and it still registers the field as a phase shift. In IDWT the reason is that the electron is a <a href="/articles/sector-6.html">six-dimensional</a> object and the shield is a three-dimensional wall — the field reaches the electron through the dimensions the wall was never built in.</p>
+
+  <p>Once that lesson lands, it is tempting to expect the hidden dimensions to help everywhere. If a six-dimensional electron can meet a field a wall was built to block, surely it can also slip <em>around</em> a wall — tunnel through a barrier by detouring through the dimensions the barrier does not occupy. Quantum tunnelling even has a long-standing puzzle that would seem to invite the idea: the time a particle spends crossing a barrier comes out strangely short, and for a thick barrier it stops growing with thickness at all (the Hartman effect). A detour through hidden dimensions looks like an explanation waiting to happen.</p>
+
+  <p>It is not. The same principle that makes the shield fail makes the detour fail. Working out why draws a clean line around what the extra dimensions can and cannot do — and it is worth drawing, because the line marks where IDWT says something new and where it simply agrees with ordinary physics.</p>
+</section>
+
+<section>
+  <h2>Uniform in the hidden directions</h2>
+  <div class="prose">
+    <p>Start from the principle both cases share. A particle has structure only in its own sector dimensions; in every dimension beyond them it is uniform — present everywhere, at constant amplitude, pinned to no point. A lower-dimensional structure is therefore spread evenly across the hidden directions of every higher sector. The photon, a <a href="/articles/sector-2.html">two-dimensional</a> object, is uniformly present throughout the electron's six dimensions, not confined to the two it nominally occupies.</p>
+    <p>This is "bound within, free without," and it is the engine of the Aharonov–Bohm result. But it is even-handed: it applies just as much to a barrier as to a field. So before deciding the hidden dimensions offer a way around a wall, we have to ask what, exactly, is uniform in them — and what that uniformity does.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why a shield fails</h2>
+  <div class="prose">
+    <p>In the Aharonov–Bohm setup the electron moves freely; nothing is blocking its path. What the apparatus tries to do is keep a field's influence away from it. The shield removes the field in our three dimensions — that part succeeds, and the measured field along the path really is zero. What the shield cannot do is confine the field's influence to those three dimensions, because the influence was never a three-dimensional thing. It reaches the electron through the hidden coordinates the electron and the field hold in common.</p>
+    <p>So the hidden dimensions here carry an influence <em>around</em> the shield. A three-dimensional operation acts on the three-dimensional slice; it can erase the field there, but it cannot fence off a structure that extends past the slice. Three dimensions are enough to wipe a field locally, never enough to contain one. The <a href="/articles/aharonov-casher.html">Aharonov–Casher effect</a> is the same story with charge and magnetic moment exchanged: a field-free region in three dimensions does not mean an influence-free path through six.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Why a wall does not</h2>
+  <div class="prose">
+    <p>Tunnelling asks the hidden dimensions to do something different, and the difference is everything. A barrier is a region along one observable direction — call it \(z\) — where the electron's energy falls short of the potential. To get past it, the electron must advance in \(z\) through the forbidden stretch. The question is whether moving in the hidden directions can substitute for that.</p>
+    <p>It cannot, and IDWT's own geometry says so. A barrier is built from ordinary three-dimensional matter, and the potential it presents is set by three-dimensional sources. By the projection theorem that governs static interactions in IDWT, the potential an electron feels is a function of the observable position alone — it takes the same value at every hidden-coordinate value. The barrier is, in effect, the same wall at every depth into the hidden dimensions. Sliding along a hidden direction does not lower it and does not carry the electron forward in \(z\). The hidden directions are transverse to the wall: they run alongside it, not through it.</p>
+    <p>Write the problem out and the hidden coordinates simply separate off as free directions, decoupled from the barrier entirely. What remains is the ordinary one-dimensional tunnelling problem in \(z\) — the same one standard quantum mechanics solves. IDWT inherits its answer unchanged, including the short, thickness-independent crossing time of the Hartman effect. There is no extra-dimensional shortcut, and IDWT predicts no tunnelling time different from the standard one. On this experiment the framework simply agrees with what is already known.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The rule: hidden dimensions bypass shields, not walls</h2>
+  <div class="prose">
+    <p>The two cases look similar — a three-dimensional apparatus, a six-dimensional electron, a hidden remainder — but they ask opposite questions. A shield tries to keep something <em>out</em>; a wall tries to keep something <em>from getting across</em>. The hidden dimensions defeat the first and are powerless against the second, for one reason: they are transverse. A transverse dimension can carry an influence around an obstacle that sits in the slice, because the influence does not need to travel along the blocked direction. It cannot carry a particle across an obstacle that stands in the direction the particle actually has to go, because moving sideways is not moving forward.</p>
+    <p>So the rule is short. The extra dimensions bypass shields, not walls. Whenever an experiment depends on confining a field or an influence inside a three-dimensional region, IDWT expects the confinement to leak — the influence reaches through the hidden coordinates, and something measurable survives. Whenever an experiment depends on crossing a barrier laid out along an observable direction, the hidden coordinates offer no help, and IDWT returns the ordinary answer.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the line marks off</h2>
+  <div class="prose">
+    <p>This is worth stating plainly because it tells you which puzzles the dimensional picture genuinely speaks to. The Aharonov–Bohm and Aharonov–Casher phases, the <a href="/articles/single-electron-double-slit.html">electron cloud as a three-dimensional shadow</a> of a six-dimensional path, and <a href="/articles/delayed-choice-eraser.html">entanglement as shared sector coordinates</a> are all containment failures of one kind or another — cases where a three-dimensional view cannot fence in, localize, or separate a structure that extends further, and the leftover reaches us anyway. There the extra dimensions carry the explanation.</p>
+    <p>Tunnelling times are not on that list. The barrier is a wall along an observable direction, the hidden dimensions are transverse to it, and the framework reduces to the standard problem with nothing to add. Marking that boundary is not a concession; it is what keeps the rest honest. A picture that explained everything equally would explain nothing in particular. This one explains shields and declines walls, and the reason it declines is the same reason it explains — the hidden dimensions are real, the particle truly occupies them, and they run transverse to the directions we measure in. That single fact, read in two directions, is <a href="/articles/one-wave.html">one wave</a> seen from a slice that is sometimes the whole story and sometimes not.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Related reading</h2>
+  <div class="prose">
+    <p><a href="/articles/aharonov-bohm.html">The Aharonov–Bohm Effect</a> — the shield that cannot contain a field, the case this principle generalizes.</p>
+    <p><a href="/articles/aharonov-casher.html">The Aharonov–Casher Effect</a> — the same containment failure with charge and moment exchanged.</p>
+    <p><a href="/articles/shared-space.html">One Space, Six Depths</a> — the nesting of sectors and the "free without" uniformity the rule rests on.</p>
+    <p><a href="/articles/single-electron-double-slit.html">The Single-Electron Double Slit</a> — a containment failure of a different kind: the cloud as a slice of a sharp path.</p>
+    <p><a href="/articles/one-wave.html">One Wave</a> — the single-field picture underneath both the shields and the walls.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

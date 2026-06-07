@@ -1,8 +1,11 @@
 # Infinite Dimensional Wave Theory — Part 1: Foundations
 
 ## Status Key
-- ✅ Derived or confirmed
-- 🔶 Consistent but not fully derived
+- ⭐ Identity — pure combinatorial or algebraic fact, valid with or without the IDWT postulates
+- ✅ Structural consequence — rigorously proved from the IDWT postulates P1–P4
+- 🔵 Numerically verified — matches observation; mechanism not yet proved
+- 🔶 Motivated / open — selection rule, ansatz, or empirical constraint beyond P1–P4; derivation open
+- ❓ Conjecture — plausible structure; unproved
 
 ---
 

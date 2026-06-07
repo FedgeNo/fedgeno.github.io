@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive 3D tower of the six active IDWT sectors d=2,3,4,5,6,10 — each with its geometry, symmetry group, spinor type, coupling, and the particles that live in it. The inactive d=7,8,9 gap is shown explicitly.">
+<meta name="keywords" content="IDWT sectors, sector set, CP1 CP2 CP3 CP5, S3 S5, particle assignment, coupling constants, Infinite-Dimensional Wave Theory, three.js visualization">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/visualizations/sector-tower">
+<meta property="og:title" content="The Sector Tower — IDWT">
+<meta property="og:description" content="The six active IDWT sectors as a 3D tower — geometry, symmetry, spinor type, coupling and particles for each, with the inactive d=7,8,9 gap shown.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Sector Tower — IDWT">
+<meta name="twitter:description" content="The six active IDWT sectors as a 3D tower, with geometry, symmetry, spinor type, coupling and particles for each.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Sector Tower — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+html, body { margin: 0; height: 100%; overflow: hidden; }
+.split-root { display: grid; grid-template-columns: 400px 1fr; height: 100vh; padding-top: 56px; box-sizing: border-box; }
+@media (orientation: portrait), (max-width: 760px) { .split-root { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; } }
+
+.text-panel { overflow-y: auto; padding: 30px 32px 60px; border-right: 1px solid rgba(139,156,255,0.12); color: #c4cae2; font-size: 0.92rem; line-height: 1.7; scrollbar-width: thin; scrollbar-color: rgba(139,156,255,0.2) transparent; }
+@media (orientation: portrait), (max-width: 760px) { .text-panel { border-right: none; border-bottom: 1px solid rgba(139,156,255,0.12); padding: 22px 20px 30px; } }
+.text-panel .eyebrow { font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8b9cff; margin-bottom: 10px; }
+.text-panel h1 { font-size: 1.5rem; font-weight: 700; color: #e8ecf8; margin: 0 0 8px; line-height: 1.2; }
+.text-panel .sub { color: #9aa3b8; font-size: 0.9rem; margin: 0 0 20px; border-bottom: 1px solid rgba(139,156,255,0.1); padding-bottom: 16px; }
+.text-panel a { color: #8b9cff; text-decoration: none; } .text-panel a:hover { text-decoration: underline; }
+
+#secInfo { border: 1px solid rgba(139,156,255,0.18); border-radius: 14px; padding: 16px 18px; background: rgba(139,156,255,0.05); }
+#secInfo .si-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+#secInfo .si-dot { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 12px currentColor; }
+#secInfo .si-d { font-size: 1.25rem; font-weight: 700; color: #e8ecf8; }
+#secInfo .si-geo { font-family: "JetBrains Mono", monospace; color: #c9d4ff; font-size: 1.0rem; }
+#secInfo dl { display: grid; grid-template-columns: 92px 1fr; gap: 6px 12px; margin: 0; font-size: 0.88rem; }
+#secInfo dt { color: #7a8499; }
+#secInfo dd { margin: 0; color: #d6daf0; }
+#secInfo .si-parts { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+#secInfo .pchip { font-size: 0.8rem; padding: 3px 9px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(139,156,255,0.16); }
+#secInfo .si-note { margin: 12px 0 0; color: #9aa3b8; font-size: 0.86rem; line-height: 1.6; }
+.hintline { color: #7a8499; font-size: 0.84rem; margin: 16px 0 0; }
+
+.viz-panel { position: relative; overflow: hidden; }
+.viz-panel canvas { display: block; }
+.controls { position: absolute; left: 16px; bottom: 16px; z-index: 10; background: rgba(8,12,24,0.78); border: 1px solid rgba(139,156,255,0.16); border-radius: 12px; padding: 12px 14px; backdrop-filter: blur(10px); font-size: 0.82rem; color: #c4cae2; }
+.controls .ttl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7a8499; font-weight: 600; margin-bottom: 8px; }
+.secbtns { display: flex; gap: 6px; flex-wrap: wrap; max-width: 230px; }
+.secbtn { cursor: pointer; font-family: inherit; font-size: 0.8rem; font-weight: 600; color: #c4cae2; background: rgba(255,255,255,0.04); border: 1px solid rgba(139,156,255,0.2); border-radius: 8px; padding: 6px 10px; }
+.secbtn:hover { background: rgba(255,255,255,0.08); }
+.controls .row { display: flex; align-items: center; gap: 8px; margin-top: 10px; color: #9aa3b8; }
+.controls input[type=checkbox] { accent-color: #8b9cff; width: 15px; height: 15px; }
+.hint { position: absolute; right: 16px; top: 14px; z-index: 10; font-size: 0.76rem; color: #7a8499; background: rgba(8,12,24,0.6); border: 1px solid rgba(139,156,255,0.12); border-radius: 8px; padding: 6px 10px; }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/" aria-current="page">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="split-root">
+  <div class="text-panel">
+    <div class="eyebrow">Visualization · Architecture</div>
+    <h1>The Sector Tower</h1>
+    <p class="sub">The six active sectors of M∞, the particles that live in each, and the inactive band that the chain skips. Click a sector — in the panel or the scene.</p>
+
+    <div id="secInfo"><!-- filled by JS --></div>
+
+    <p class="hintline">Each sector is an infinite, flat, macroscopic space; the geometry label (CP¹, S³, …) names the local symmetry of that sector's potential minimum, not a compact shape. The tower orders them by sector dimension d. The greyed rungs are d=7,8,9 — supercritical but unreached by the coupling chain, so no active geometry forms there.</p>
+
+    <p style="margin-top:16px;"><a href="/articles/sectors.html">The six sectors →</a> &nbsp;·&nbsp; <a href="/visualizations/">All visualizations →</a></p>
+  </div>
+
+  <div class="viz-panel" id="vizPanel">
+    <div class="hint">drag · scroll · click a sector</div>
+    <div class="controls">
+      <div class="ttl">Jump to sector</div>
+      <div class="secbtns" id="secbtns"></div>
+      <div class="row"><input id="cSpin" type="checkbox" checked> <label for="cSpin">Auto-rotate</label></div>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+const SECTORS = [
+  { d:2, geo:'CP¹', sym:'U(1)', spin:'Majorana–Weyl · dim 2', color:0x00aaff,
+    parts:['photon γ','W±','Z⁰','Higgs H'], g:'g₂₂ = 722.5', scale:'m_scale₂ = m_e·√(g₂₂/g₆₆)',
+    note:'Universal reference sector. Its U(1) is the geometry of electromagnetism, and its two coordinates nest inside every higher sector.' },
+  { d:3, geo:'S³', sym:'SO(4)', spin:'Majorana · dim 2', color:0x00ff44,
+    parts:['down','strange','bottom'], g:'g₃₃ = 8√7 ≈ 21.17', scale:'m_scale₃ ≈ 4.70 MeV',
+    note:'Down-type quark sector — the level at which the observer is located.' },
+  { d:4, geo:'CP²', sym:'SU(3)', spin:'Weyl, spinᶜ · dim 4', color:0xff6600,
+    parts:['up','charm','top'], g:'g₄₄ = 12/√7 ≈ 4.54', scale:'m_scale₄ ≈ 0.145 MeV',
+    note:'Up-type quark sector. χ(CP²) = 3 = N_c: the three colours are the geometry of this sector, with SU(3) as its isometry.' },
+  { d:5, geo:'S⁵', sym:'SO(6)', spin:'Dirac only · dim 4', color:0xcc00ff,
+    parts:['ν_e','ν_μ','ν_τ'], g:'g₅₅ = 96/g₂₂ ≈ 0.133', scale:'sub-eV (neutrinos)',
+    note:'Neutrino sector. d mod 8 = 5 forbids a Majorana spinor — Dirac neutrinos are a geometric consequence, not a choice.' },
+  { d:6, geo:'CP³', sym:'SU(4)', spin:'Weyl · dim 8', color:0xff0000,
+    parts:['electron','muon'], g:'g₆₆ = 1/4', scale:'m_scale₆ ≈ 2.75×10⁻⁵ MeV',
+    note:'Charged-lepton sector. The electron executes a genuine 6D orbit here; the s/p/d/f shapes are its 3D projection.' },
+  { d:10, geo:'CP⁵', sym:'SU(6)', spin:'spin structure', color:0xffdd00,
+    parts:['tau'], g:'g₁₀,₁₀ = 1/4 (= g₆₆)', scale:'m_scale₁₀ = m_scale₆',
+    note:'Tau sector and the Gegenbauer-critical endpoint (b_{k₀}=½ at d=10). It contains every lower coordinate — the one particle that touches all sectors. Flavour count N_f = 6.' }
+];
+
+const panel = document.getElementById('vizPanel');
+let W = Math.max(80, panel.clientWidth || (window.innerWidth - 400));
+let H = Math.max(80, panel.clientHeight || (window.innerHeight - 56));
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setClearColor(0x000000, 0);
+renderer.setSize(W, H);
+renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+panel.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(50, W / H, 0.05, 200);
+camera.position.set(4.6, 1.0, 6.2);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.06;
+controls.minDistance = 3; controls.maxDistance = 26;
+controls.target.set(0, 0, 0);
+
+const renderPass = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(W, H), 0.55, 0.6, 0.05);
+const composer = new EffectComposer(renderer);
+composer.addPass(renderPass); composer.addPass(bloomPass);
+
+scene.add(new THREE.AmbientLight(0x223055, 0.5));
+const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(4, 6, 5); scene.add(key);
+
+const tower = new THREE.Group();
+scene.add(tower);
+
+const yOf = d => (d - 6) * 0.82;
+
+// ── spine (ladder) + inactive gap ─────────────────────────────
+(function spine() {
+  const yLo = yOf(2), yHi = yOf(10);
+  const mat = new THREE.LineBasicMaterial({ color: 0x4a5680, transparent: true, opacity: 0.5 });
+  const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, yLo, 0), new THREE.Vector3(0, yHi, 0)]);
+  tower.add(new THREE.Line(g, mat));
+  // inactive d=7,8,9 markers
+  for (const d of [7, 8, 9]) {
+    const y = yOf(d);
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(0.12, 0.012, 6, 24),
+      new THREE.MeshBasicMaterial({ color: 0x55607a, transparent: true, opacity: 0.5 }));
+    ring.position.set(0, y, 0); ring.rotation.x = Math.PI / 2; tower.add(ring);
+  }
+})();
+
+// ── sector nodes ──────────────────────────────────────────────
+const nodes = [];
+const pickables = [];
+SECTORS.forEach((s, idx) => {
+  const grp = new THREE.Group();
+  grp.position.set(0, yOf(s.d), 0);
+  const col = new THREE.Color(s.color);
+
+  const core = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.34, 0),
+    new THREE.MeshStandardMaterial({ color: col, emissive: col.clone().multiplyScalar(0.5), metalness: 0.2, roughness: 0.35, transparent: true, opacity: 0.92 }));
+  core.userData.idx = idx; grp.add(core); pickables.push(core);
+
+  const wire = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.46, 1),
+    new THREE.MeshBasicMaterial({ color: col, wireframe: true, transparent: true, opacity: 0.35 }));
+  grp.add(wire);
+
+  // gauge ring (shown when selected)
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(0.7, 0.02, 8, 60),
+    new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0 }));
+  ring.rotation.x = Math.PI / 2.3; grp.add(ring);
+
+  // particle satellites on an orbit
+  const sat = new THREE.Group();
+  const n = s.parts.length;
+  for (let i = 0; i < n; i++) {
+    const m = new THREE.Mesh(
+      new THREE.SphereGeometry(0.06, 12, 12),
+      new THREE.MeshBasicMaterial({ color: col }));
+    m.userData.ang = (i / n) * Math.PI * 2;
+    m.userData.rad = 0.92;
+    sat.add(m);
+  }
+  grp.add(sat);
+
+  tower.add(grp);
+  nodes.push({ grp, core, wire, ring, sat, s, baseScale: 1 });
+});
+
+// label sprites (d=N) via canvas texture
+function makeLabel(text, color) {
+  const c = document.createElement('canvas'); c.width = 256; c.height = 128;
+  const ctx = c.getContext('2d');
+  ctx.fillStyle = '#' + new THREE.Color(color).getHexString();
+  ctx.font = 'bold 64px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(text, 128, 64);
+  const tex = new THREE.CanvasTexture(c); tex.anisotropy = 4;
+  const spr = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true }));
+  spr.scale.set(0.9, 0.45, 1);
+  return spr;
+}
+nodes.forEach(nd => {
+  const lab = makeLabel('d=' + nd.s.d, nd.s.color);
+  lab.position.set(-1.15, yOf(nd.s.d), 0);
+  tower.add(lab);
+});
+
+// ── selection ─────────────────────────────────────────────────
+let selected = -1;
+function select(idx) {
+  selected = idx;
+  nodes.forEach((nd, i) => {
+    const on = i === idx;
+    nd.ring.material.opacity = on ? 0.85 : 0.0;
+  });
+  const s = SECTORS[idx];
+  const hex = '#' + new THREE.Color(s.color).getHexString();
+  document.getElementById('secInfo').innerHTML =
+    '<div class="si-head"><span class="si-dot" style="color:' + hex + ';background:' + hex + '"></span>' +
+    '<span class="si-d">d = ' + s.d + '</span><span class="si-geo">' + s.geo + '</span></div>' +
+    '<dl><dt>Symmetry</dt><dd>' + s.sym + '</dd>' +
+    '<dt>Spinor</dt><dd>' + s.spin + '</dd>' +
+    '<dt>Coupling</dt><dd>' + s.g + '</dd>' +
+    '<dt>Mass scale</dt><dd>' + s.scale + '</dd></dl>' +
+    '<div class="si-parts">' + s.parts.map(p => '<span class="pchip">' + p + '</span>').join('') + '</div>' +
+    '<p class="si-note">' + s.note + '</p>';
+}
+
+// sector buttons
+const btns = document.getElementById('secbtns');
+SECTORS.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.className = 'secbtn'; b.textContent = 'd=' + s.d;
+  b.style.color = '#' + new THREE.Color(s.color).getHexString();
+  b.addEventListener('click', () => { select(i); focusOn(i); });
+  btns.appendChild(b);
+});
+
+function focusOn(idx) {
+  controls.target.set(0, yOf(SECTORS[idx].d), 0);
+}
+
+// raycast click
+const ray = new THREE.Raycaster();
+const ndc = new THREE.Vector2();
+renderer.domElement.addEventListener('pointerdown', e => {
+  const r = renderer.domElement.getBoundingClientRect();
+  ndc.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+  ndc.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+  ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObjects(pickables, false);
+  if (hit.length) { const i = hit[0].object.userData.idx; select(i); focusOn(i); }
+});
+
+select(0);
+
+// ── resize / animate ──────────────────────────────────────────
+function resize() {
+  W = Math.max(80, panel.clientWidth); H = Math.max(80, panel.clientHeight);
+  camera.aspect = W / H; camera.updateProjectionMatrix();
+  renderer.setSize(W, H); composer.setSize(W, H); bloomPass.setSize(W, H);
+}
+if (window.ResizeObserver) new ResizeObserver(resize).observe(panel);
+window.addEventListener('resize', resize);
+resize();
+
+const cSpin = document.getElementById('cSpin');
+const clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+  if (cSpin.checked) tower.rotation.y += 0.0025;
+  nodes.forEach((nd, i) => {
+    nd.sat.children.forEach(m => {
+      const a = m.userData.ang + t * 0.6;
+      m.position.set(Math.cos(a) * m.userData.rad, Math.sin(a * 0.7) * 0.12, Math.sin(a) * m.userData.rad);
+    });
+    const target = i === selected ? 1.28 : 1.0;
+    nd.grp.scale.lerp(new THREE.Vector3(target, target, target), 0.12);
+    nd.ring.rotation.z += 0.01;
+  });
+  controls.update();
+  composer.render();
+}
+animate();
+</script>
+</body>
+</html>

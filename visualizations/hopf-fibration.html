@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive 3D Hopf fibration: the S¹ → S³ → CP¹ chain that opens the IDWT sector set. The circle fiber is the U(1) of electromagnetism; the base CP¹ is the d=2 sector; the total space S³ is the d=3 geometry.">
+<meta name="keywords" content="Hopf fibration, S3, CP1, U(1), electromagnetism, IDWT visualization, sector set, Infinite-Dimensional Wave Theory, three.js">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/visualizations/hopf-fibration">
+<meta property="og:title" content="The Hopf Fibration — IDWT">
+<meta property="og:description" content="The S¹ → S³ → CP¹ chain that opens the IDWT sector set, as linked circles in 3D. The fiber is the U(1) of electromagnetism; the base is the d=2 sector.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Hopf Fibration — IDWT">
+<meta name="twitter:description" content="The S¹ → S³ → CP¹ chain that opens the IDWT sector set, as linked circles in 3D.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Hopf Fibration — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<style>
+html, body { margin: 0; height: 100%; overflow: hidden; }
+.split-root { display: grid; grid-template-columns: 380px 1fr; height: 100vh; padding-top: 56px; box-sizing: border-box; }
+@media (orientation: portrait), (max-width: 760px) { .split-root { grid-template-columns: 1fr; grid-template-rows: 0.9fr 1.1fr; } }
+
+.text-panel {
+  overflow-y: auto; padding: 30px 32px 60px;
+  border-right: 1px solid rgba(139,156,255,0.12);
+  color: #c4cae2; font-size: 0.92rem; line-height: 1.72;
+  scrollbar-width: thin; scrollbar-color: rgba(139,156,255,0.2) transparent;
+}
+@media (orientation: portrait), (max-width: 760px) {
+  .text-panel { border-right: none; border-bottom: 1px solid rgba(139,156,255,0.12); padding: 22px 20px 32px; }
+}
+.text-panel .eyebrow { font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8b9cff; margin-bottom: 10px; }
+.text-panel h1 { font-size: 1.5rem; font-weight: 700; color: #e8ecf8; margin: 0 0 8px; line-height: 1.2; }
+.text-panel .sub { color: #9aa3b8; font-size: 0.9rem; margin: 0 0 22px; border-bottom: 1px solid rgba(139,156,255,0.1); padding-bottom: 18px; }
+.text-panel h2 { font-size: 1.02rem; font-weight: 600; color: #d6daf0; margin: 24px 0 9px; }
+.text-panel p { margin: 0 0 12px; }
+.text-panel a { color: #8b9cff; text-decoration: none; }
+.text-panel a:hover { text-decoration: underline; }
+.chain { font-family: "JetBrains Mono", monospace; font-size: 1.05rem; text-align: center; color: #c9d4ff; background: rgba(139,156,255,0.07); border: 1px solid rgba(139,156,255,0.16); border-radius: 12px; padding: 14px; margin: 16px 0; }
+.tag { display: inline-block; font-size: 0.72rem; padding: 2px 8px; border-radius: 999px; font-weight: 600; border: 1px solid transparent; vertical-align: middle; }
+.tag.id { color: #ffe08a; background: rgba(255,221,0,0.10); border-color: rgba(255,221,0,0.28); }
+.tag.st { color: #8ef0b0; background: rgba(0,255,68,0.08); border-color: rgba(0,255,68,0.26); }
+.legrow { display: flex; align-items: center; gap: 10px; margin: 7px 0; font-size: 0.86rem; }
+.swatch { width: 26px; height: 8px; border-radius: 4px; flex-shrink: 0; }
+
+.viz-panel { position: relative; overflow: hidden; }
+.viz-panel canvas { display: block; }
+.controls {
+  position: absolute; left: 16px; bottom: 16px; z-index: 10;
+  background: rgba(8,12,24,0.78); border: 1px solid rgba(139,156,255,0.16);
+  border-radius: 12px; padding: 14px 16px; backdrop-filter: blur(10px);
+  font-size: 0.82rem; color: #c4cae2; min-width: 210px;
+}
+.controls .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 8px 0; }
+.controls label { color: #9aa3b8; }
+.controls input[type=range] { width: 110px; accent-color: #8b9cff; }
+.controls input[type=checkbox] { accent-color: #8b9cff; width: 16px; height: 16px; }
+.controls .ttl { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: #7a8499; font-weight: 600; margin-bottom: 4px; }
+.hint { position: absolute; right: 16px; top: 14px; z-index: 10; font-size: 0.76rem; color: #7a8499; background: rgba(8,12,24,0.6); border: 1px solid rgba(139,156,255,0.12); border-radius: 8px; padding: 6px 10px; }
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/">Articles</a>
+    <a href="/visualizations/" aria-current="page">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="split-root">
+  <div class="text-panel">
+    <div class="eyebrow">Visualization · Geometry</div>
+    <h1>The Hopf Fibration</h1>
+    <p class="sub">The first rung of the chain that builds the IDWT sector set — drawn as linked circles in 3D.</p>
+
+    <div class="chain">S¹ &nbsp;→&nbsp; S³ &nbsp;→&nbsp; CP¹</div>
+
+    <p>Every circle you see is a <strong>fiber</strong> — a copy of S¹ sitting over one point of the base sphere CP¹ (which is S²). No two fibers touch, yet every pair is linked. Together the circles fill the 3-sphere S³, shown here by stereographic projection into ordinary 3D space.</p>
+
+    <h2>What it means in IDWT</h2>
+    <p>The fiber S¹ is the <strong>U(1)</strong> circle — the gauge structure of electromagnetism. In IDWT this U(1) is the geometry of the d=2 sector, not something a particle carries between others. <span class="tag id">⭐ identity</span></p>
+    <p>The base CP¹ is the <strong>d=2 sector</strong> geometry; the total space S³ is the <strong>d=3 sector</strong> geometry. The complex Hopf chain continues CP¹ → CP² → CP³ → CP⁵, generating the even sectors, while the odd spheres S³ and S⁵ sit at d=3 and d=5. This chain is what fixes the active sector set D = {2,3,4,5,6,10}. <span class="tag st">✅ structural (Part 9 T3)</span></p>
+
+    <h2>Reading the picture</h2>
+    <div class="legrow"><span class="swatch" style="background:#00aaff"></span> The highlighted bright fiber is the U(1) / electromagnetic circle.</div>
+    <div class="legrow"><span class="swatch" style="background:linear-gradient(90deg,#00aaff,#a78bfa,#ff0055)"></span> Fiber colour runs with its latitude on the base sphere.</div>
+    <p style="margin-top:14px;color:#7a8499;font-size:0.84rem;">Drag to rotate · scroll to zoom. The fibers are circles in S³; the projection sends one point of S³ to infinity, which is why fibers near it open into the large sweeping arcs.</p>
+
+    <p style="margin-top:18px;"><a href="/articles/seed.html">The seed &amp; the chain →</a> &nbsp;·&nbsp; <a href="/visualizations/">All visualizations →</a></p>
+  </div>
+
+  <div class="viz-panel" id="vizPanel">
+    <div class="hint">drag · scroll</div>
+    <div class="controls">
+      <div class="ttl">Hopf fibration</div>
+      <div class="row"><label for="cFib">Fibers per ring</label><input id="cFib" type="range" min="6" max="28" step="1" value="16"></div>
+      <div class="row"><label for="cRings">Base rings</label><input id="cRings" type="range" min="3" max="9" step="1" value="6"></div>
+      <div class="row"><label for="cEM">Highlight U(1) fiber</label><input id="cEM" type="checkbox" checked></div>
+      <div class="row"><label for="cSpin">Auto-rotate</label><input id="cSpin" type="checkbox" checked></div>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+const panel = document.getElementById('vizPanel');
+let W = Math.max(80, panel.clientWidth || Math.floor(window.innerWidth - 380));
+let H = Math.max(80, panel.clientHeight || (window.innerHeight - 56));
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.setClearColor(0x000000, 0);
+renderer.setSize(W, H);
+renderer.domElement.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;';
+panel.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(48, W / H, 0.05, 200);
+camera.position.set(5.0, 3.2, 6.8);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.minDistance = 2;
+controls.maxDistance = 30;
+
+const renderPass = new RenderPass(scene, camera);
+const bloomPass = new UnrealBloomPass(new THREE.Vector2(W, H), 0.5, 0.5, 0.0);
+const composer = new EffectComposer(renderer);
+composer.addPass(renderPass);
+composer.addPass(bloomPass);
+
+scene.add(new THREE.AmbientLight(0x223055, 0.4));
+const grp = new THREE.Group();
+scene.add(grp);
+
+// ── Hopf fiber geometry ───────────────────────────────────────
+// Base point (theta,phi) on S^2; its fiber is a circle in S^3,
+// stereographically projected R^4 -> R^3.
+function fiberCurve(theta, phi, segs) {
+  const c = Math.cos(theta / 2), s = Math.sin(theta / 2);
+  const pts = [];
+  for (let k = 0; k <= segs; k++) {
+    const t = (k / segs) * Math.PI * 2;
+    const a = c * Math.cos(t);          // Re z1
+    const b = c * Math.sin(t);          // Im z1
+    const u = s * Math.cos(t + phi);    // Re z2
+    const w = s * Math.sin(t + phi);    // Im z2  (projection pole coord)
+    const denom = 1 - w;
+    pts.push(new THREE.Vector3(a / denom, b / denom, u / denom));
+  }
+  return new THREE.CatmullRomCurve3(pts, true, 'catmullrom', 0.0);
+}
+
+function hueColor(h) { const col = new THREE.Color(); col.setHSL(h, 0.85, 0.58); return col; }
+
+let tubes = [];
+let emTube = null;
+
+function buildFibers(rings, perRing, showEM) {
+  for (const t of tubes) { t.geometry.dispose(); t.material.dispose(); grp.remove(t); }
+  tubes = [];
+  if (emTube) { emTube.geometry.dispose(); emTube.material.dispose(); grp.remove(emTube); emTube = null; }
+
+  for (let i = 0; i < rings; i++) {
+    // latitudes spread across the base sphere, avoiding the poles
+    const theta = Math.PI * (0.16 + 0.62 * (i / Math.max(1, rings - 1)));
+    const hue = 0.58 - 0.62 * (i / Math.max(1, rings - 1)); // blue -> purple -> red
+    const col = hueColor((hue + 1) % 1);
+    for (let j = 0; j < perRing; j++) {
+      const phi = (j / perRing) * Math.PI * 2;
+      const curve = fiberCurve(theta, phi, 140);
+      const geo = new THREE.TubeGeometry(curve, 140, 0.014, 7, true);
+      const mat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.82 });
+      const mesh = new THREE.Mesh(geo, mat);
+      grp.add(mesh);
+      tubes.push(mesh);
+    }
+  }
+  // the U(1) / EM fiber: a single distinguished circle, bright d=2 blue
+  if (showEM) {
+    const curve = fiberCurve(Math.PI * 0.5, 0.0, 160);
+    const geo = new THREE.TubeGeometry(curve, 160, 0.04, 10, true);
+    const mat = new THREE.MeshBasicMaterial({ color: 0x66ccff });
+    emTube = new THREE.Mesh(geo, mat);
+    grp.add(emTube);
+  }
+}
+
+buildFibers(6, 16, true);
+
+// ── controls ──────────────────────────────────────────────────
+const cFib = document.getElementById('cFib');
+const cRings = document.getElementById('cRings');
+const cEM = document.getElementById('cEM');
+const cSpin = document.getElementById('cSpin');
+function rebuild() { buildFibers(+cRings.value, +cFib.value, cEM.checked); }
+cFib.addEventListener('input', rebuild);
+cRings.addEventListener('input', rebuild);
+cEM.addEventListener('change', rebuild);
+
+// ── resize ────────────────────────────────────────────────────
+function resize() {
+  W = Math.max(80, panel.clientWidth);
+  H = Math.max(80, panel.clientHeight);
+  camera.aspect = W / H; camera.updateProjectionMatrix();
+  renderer.setSize(W, H);
+  composer.setSize(W, H);
+  bloomPass.setSize(W, H);
+}
+if (window.ResizeObserver) new ResizeObserver(resize).observe(panel);
+window.addEventListener('resize', resize);
+resize();
+
+// ── animate ───────────────────────────────────────────────────
+function animate() {
+  requestAnimationFrame(animate);
+  if (cSpin.checked) grp.rotation.y += 0.0024;
+  controls.update();
+  composer.render();
+}
+animate();
+</script>
+</body>
+</html>

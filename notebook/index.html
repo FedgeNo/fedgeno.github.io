@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages — with their status labels intact — plus topic shortcuts for the main results.">
-<meta name="keywords" content="IDWT notebook, IDWT search, Infinite-Dimensional Wave Theory, full-text search, sector geometry, simplex mass formula, status labels">
+<meta name="description" content="Read and search all ten parts of the IDWT technical notes in your browser. A full reader with a section-by-section table of contents, rendered equations and tables, status labels, and instant full-text search.">
+<meta name="keywords" content="IDWT notebook, IDWT reader, IDWT search, Infinite-Dimensional Wave Theory, technical notes, sector geometry, simplex mass formula, status labels">
 <meta name="author" content="Fedge No">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://fedgeno.github.io/notebook/">
-<meta property="og:title" content="Notebook — Search the IDWT notes">
-<meta property="og:description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages, with their status labels intact.">
+<meta property="og:title" content="Notebook — Read & search the IDWT notes">
+<meta property="og:description" content="Read and search all ten parts of the IDWT technical notes in your browser — a full reader with a table of contents, rendered equations and tables, and instant full-text search.">
 <meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
 <meta property="og:image:width" content="2000">
 <meta property="og:image:height" content="2000">
 <meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Notebook — Search the IDWT notes">
-<meta name="twitter:description" content="Search the full text of all ten parts of the IDWT technical notes. Instant in-browser search returns the exact passages, with their status labels intact.">
+<meta name="twitter:title" content="Notebook — Read & search the IDWT notes">
+<meta name="twitter:description" content="Read and search all ten parts of the IDWT technical notes in your browser — a full reader with a table of contents, rendered equations and tables, and instant full-text search.">
 <meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
-<title>Notebook — Search the IDWT notes</title>
+<title>Notebook — Read & search the IDWT notes</title>
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -26,108 +26,165 @@
 <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
 <style>
-/* ── Notebook search UI ─────────────────────────────── */
-.nb-search { margin: 8px 0 18px; }
+/* ── Notebook reader layout ─────────────────────────── */
+main.nb-main { max-width: 1240px; padding-top: 8px; }
+.nb-tophead { text-align: center; padding: calc(var(--nav-h) + 28px) 0 22px; }
+.nb-tophead .eyebrow { margin-bottom: 14px; }
+.nb-tophead h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.08; filter: none; margin: 0 0 12px; }
+.nb-tophead .sub { margin: 0 auto; }
+
+.nb-toggle {
+  display: none; align-items: center; gap: 8px;
+  font-family: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer;
+  color: var(--text); background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border); border-radius: 10px; padding: 9px 14px;
+  margin-bottom: 16px;
+}
+
+.nb-layout { display: grid; grid-template-columns: 312px 1fr; gap: 34px; align-items: start; }
+
+/* ── Sidebar ────────────────────────────────────────── */
+.nb-side {
+  position: sticky; top: calc(var(--nav-h) + 14px);
+  max-height: calc(100vh - var(--nav-h) - 28px);
+  overflow: auto; padding-right: 6px;
+}
 .nb-input-wrap { position: relative; }
 #nbq {
-  width: 100%;
-  font-family: inherit;
-  font-size: 1.05rem;
-  color: var(--text);
-  background: rgba(8,12,24,0.6);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 16px 46px 16px 18px;
-  outline: none;
-  transition: border-color 0.18s, box-shadow 0.18s;
-  backdrop-filter: blur(8px);
+  width: 100%; font-family: inherit; font-size: 1rem; color: var(--text);
+  background: rgba(8,12,24,0.6); border: 1px solid var(--border);
+  border-radius: 12px; padding: 13px 40px 13px 15px; outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s; backdrop-filter: blur(8px);
 }
-#nbq:focus {
-  border-color: var(--border-hover);
-  box-shadow: 0 0 0 3px rgba(139,156,255,0.12);
-}
+#nbq:focus { border-color: var(--border-hover); box-shadow: 0 0 0 3px rgba(139,156,255,0.12); }
 #nbq::placeholder { color: var(--muted-2); }
 .nb-clear {
-  position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
   background: none; border: none; color: var(--muted-2);
-  font-size: 1.3rem; cursor: pointer; line-height: 1; padding: 4px;
-  display: none;
+  font-size: 1.25rem; cursor: pointer; line-height: 1; padding: 4px; display: none;
 }
 .nb-clear:hover { color: var(--text); }
 
-.nb-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.nb-topics { margin: 12px 0 4px; }
+.nb-topics > summary {
+  cursor: pointer; color: var(--muted); font-size: 0.85rem; font-weight: 500;
+  list-style: none; padding: 4px 2px;
+}
+.nb-topics > summary::-webkit-details-marker { display: none; }
+.nb-topics > summary::before { content: "▸ "; color: var(--muted-2); }
+.nb-topics[open] > summary::before { content: "▾ "; }
+.nb-chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 4px; }
 .chip {
-  appearance: none; cursor: pointer;
-  font-family: inherit; font-size: 0.86rem; font-weight: 500;
-  color: var(--muted); background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border); border-radius: 999px;
-  padding: 7px 14px; transition: all 0.16s ease;
+  appearance: none; cursor: pointer; font-family: inherit;
+  font-size: 0.8rem; font-weight: 500; color: var(--muted);
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+  border-radius: 999px; padding: 6px 11px; transition: all 0.16s ease;
 }
-.chip:hover { color: var(--text); border-color: var(--border-hover); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+.chip:hover { color: var(--text); border-color: var(--border-hover); background: rgba(255,255,255,0.06); }
 
-.nb-controls {
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  margin: 18px 0 8px; font-size: 0.9rem; color: var(--muted);
+.nb-side-label {
+  font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted-2); font-weight: 600; margin: 18px 2px 8px;
 }
-.nb-controls label { color: var(--muted-2); }
-#nbpart {
-  font-family: inherit; font-size: 0.9rem; color: var(--text);
-  background: rgba(8,12,24,0.6); border: 1px solid var(--border);
-  border-radius: 10px; padding: 7px 10px; outline: none;
+#nbmeta { font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--muted-2); }
+
+/* ── Table of contents tree ─────────────────────────── */
+.nb-tpart { margin-bottom: 2px; }
+.nb-tpart-head {
+  width: 100%; text-align: left; cursor: pointer; font-family: inherit;
+  font-size: 0.92rem; color: var(--text); background: none;
+  border: none; border-radius: 8px; padding: 9px 8px;
+  display: flex; align-items: baseline; gap: 8px; transition: background 0.15s;
 }
-.nb-meta { margin-left: auto; color: var(--muted-2); font-size: 0.85rem; }
+.nb-tpart-head:hover { background: rgba(255,255,255,0.04); }
+.nb-tpart.active > .nb-tpart-head { background: rgba(139,156,255,0.10); }
+.nb-tpart-head::after { content: "▸"; margin-left: auto; color: var(--muted-2); font-size: 0.8rem; }
+.nb-tpart.open > .nb-tpart-head::after { content: "▾"; }
+.nb-tnum { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-3); }
+.nb-tsecs { display: none; margin: 2px 0 8px; border-left: 1px solid var(--border); }
+.nb-tpart.open > .nb-tsecs { display: block; }
+.nb-tsec {
+  display: block; text-decoration: none; color: var(--muted);
+  font-size: 0.85rem; line-height: 1.35; padding: 6px 8px 6px 14px;
+  border-left: 2px solid transparent; margin-left: -1px; transition: color 0.15s, border-color 0.15s;
+}
+.nb-tsec:hover { color: var(--text); border-left-color: var(--border-hover); }
+.nb-tsec.lvl3 { padding-left: 26px; font-size: 0.82rem; color: var(--muted-2); }
+.nb-tsec.active { color: var(--accent-1); border-left-color: var(--accent-1); }
 
-.nb-results { margin-top: 10px; display: grid; gap: 14px; }
-.nb-empty { color: var(--muted); padding: 28px 4px; font-size: 1.0rem; }
-
+/* ── Search results (sidebar) ───────────────────────── */
+.nb-results { display: grid; gap: 8px; }
 .nb-result {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-  border: 1px solid var(--border); border-radius: 14px;
-  backdrop-filter: blur(8px); overflow: hidden;
-  transition: border-color 0.2s;
+  text-align: left; cursor: pointer; font-family: inherit;
+  background: rgba(255,255,255,0.025); border: 1px solid var(--border);
+  border-radius: 11px; padding: 11px 13px; transition: border-color 0.16s, transform 0.16s;
 }
-.nb-result[open], .nb-result:hover { border-color: var(--border-hover); }
-.nb-result > summary {
-  list-style: none; cursor: pointer; padding: 16px 18px;
-  display: block;
-}
-.nb-result > summary::-webkit-details-marker { display: none; }
-.nb-cite {
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.nb-part {
-  font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
-  font-weight: 600; color: var(--accent-3);
-}
-.nb-title { font-size: 1.02rem; font-weight: 600; color: var(--text); }
-.nb-snippet { color: var(--muted); font-size: 0.95rem; line-height: 1.7; }
-.nb-snippet .hl { color: #fff; background: rgba(139,156,255,0.28); border-radius: 3px; padding: 0 2px; }
-.nb-expand { color: var(--accent-1); font-size: 0.84rem; margin-top: 10px; display: inline-block; }
-.nb-result[open] .nb-expand { display: none; }
-.nb-body {
-  padding: 0 18px 18px; border-top: 1px solid rgba(139,156,255,0.08);
-  margin-top: 2px;
-}
-.nb-body .nb-foot {
-  margin-top: 16px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06);
-  font-size: 0.85rem; color: var(--muted-2);
-}
-.nb-body table { min-width: 0; }
-.nb-body .katex-display { overflow-x: auto; overflow-y: hidden; }
+.nb-result:hover { border-color: var(--border-hover); transform: translateY(-1px); }
+.nb-result .nb-rcite { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; color: var(--accent-3); }
+.nb-result .nb-rtitle { font-size: 0.9rem; font-weight: 600; color: var(--text); margin: 3px 0 4px; }
+.nb-result .nb-rsnip { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+.nb-result .nb-rsnip .hl { color: #fff; background: rgba(139,156,255,0.3); border-radius: 3px; padding: 0 2px; }
+.nb-nohit { color: var(--muted); font-size: 0.9rem; padding: 14px 4px; }
 
-.badges { display: inline-flex; gap: 6px; flex-wrap: wrap; }
-.badge {
-  font-size: 0.72rem; font-weight: 600; padding: 2px 8px; border-radius: 999px;
-  border: 1px solid transparent; white-space: nowrap;
-}
+/* ── Status badges ──────────────────────────────────── */
+.badges { display: inline-flex; gap: 6px; flex-wrap: wrap; vertical-align: middle; }
+.badge { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid transparent; white-space: nowrap; }
 .badge.identity   { color: #ffe08a; background: rgba(255,221,0,0.10); border-color: rgba(255,221,0,0.28); }
 .badge.structural { color: #8ef0b0; background: rgba(0,255,68,0.08);  border-color: rgba(0,255,68,0.26); }
 .badge.numeric    { color: #93c5fd; background: rgba(96,165,250,0.10);border-color: rgba(96,165,250,0.30); }
 .badge.motivated  { color: #fdba74; background: rgba(255,102,0,0.10); border-color: rgba(255,102,0,0.30); }
 .badge.conjecture { color: #d8b4fe; background: rgba(204,0,255,0.08); border-color: rgba(204,0,255,0.28); }
 
-.nb-note { color: var(--muted); font-size: 0.92rem; margin-top: 4px; }
+/* ── Reading pane ───────────────────────────────────── */
+.nb-content { min-width: 0; }
+.nb-docbar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  flex-wrap: wrap; padding: 16px 20px; margin-bottom: 22px;
+  background: linear-gradient(135deg, rgba(139,156,255,0.11), rgba(167,139,250,0.07));
+  border: 1px solid rgba(139,156,255,0.26); border-radius: 14px;
+}
+.nb-docbar .nb-dpart { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; color: var(--accent-1); }
+.nb-docbar h2 { margin: 2px 0 0; font-size: 1.25rem; }
+.nb-docbar h2::before { display: none; }
+.dl { align-self: center; font-size: 0.85rem; padding: 8px 14px; border-radius: 10px; background: rgba(139,156,255,0.1); color: #c7d2fe; text-decoration: none; border: 1px solid rgba(139,156,255,0.18); transition: all 0.18s ease; font-weight: 500; white-space: nowrap; }
+.dl:hover { background: rgba(139,156,255,0.18); color: #fff; }
+
+.nb-docsec {
+  padding: 4px 2px 8px; scroll-margin-top: calc(var(--nav-h) + 18px);
+  border-radius: 12px;
+}
+.nb-docsec .nb-secbadges { margin: 4px 0 -6px; }
+@keyframes nbflash { 0% { background: rgba(139,156,255,0.16); } 100% { background: transparent; } }
+.nb-docsec.flash { animation: nbflash 1.9s ease-out; }
+
+/* rendered markdown */
+.nb-doc { color: #c4cae2; font-size: 1.02rem; line-height: 1.82; }
+.nb-doc h2 { font-size: 1.5rem; font-weight: 650; color: var(--text); margin: 1.6em 0 0.5em; display: block; }
+.nb-doc h2::before { display: none; }
+.nb-doc h3 { font-size: 1.18rem; font-weight: 600; color: var(--text); margin: 1.5em 0 0.4em; }
+.nb-doc p { margin: 0 0 1.2em; }
+.nb-doc strong { color: var(--text); font-weight: 600; }
+.nb-doc em { color: #dbe2ff; }
+.nb-doc a { color: var(--accent-1); }
+.nb-doc ul, .nb-doc ol { padding-left: 1.4em; margin: 0 0 1.2em; }
+.nb-doc li { margin-bottom: 0.4em; }
+.nb-doc code { font-family: "JetBrains Mono", ui-monospace, monospace; background: var(--code-bg); color: #c7d2fe; padding: 0.16em 0.42em; border-radius: 6px; font-size: 0.9em; border: 1px solid rgba(139,156,255,0.12); }
+.nb-doc pre { background: rgba(8,12,24,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; overflow-x: auto; }
+.nb-doc pre code { background: none; border: none; padding: 0; }
+.nb-doc blockquote { border-left: 3px solid var(--border-hover); margin: 0 0 1.2em; padding: 2px 0 2px 16px; color: var(--muted); }
+.nb-doc table { width: 100%; border-collapse: collapse; margin: 18px 0; display: block; overflow-x: auto; }
+.nb-doc th, .nb-doc td { padding: 9px 13px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.07); font-size: 0.92rem; }
+.nb-doc th { color: var(--muted-2); text-transform: uppercase; font-size: 0.74rem; letter-spacing: 0.06em; }
+.nb-doc .katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.nb-loading { color: var(--muted); padding: 30px 4px; }
+.nb-foot { margin-top: 36px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); color: var(--muted-2); font-size: 0.85rem; }
+
+@media (max-width: 880px) {
+  .nb-layout { grid-template-columns: 1fr; gap: 0; }
+  .nb-toggle { display: inline-flex; }
+  .nb-side { display: none; position: static; max-height: none; margin-bottom: 26px; }
+  .nb-layout.side-open .nb-side { display: block; }
+}
 </style>
 </head>
 <body>
@@ -147,38 +204,41 @@
 <div class="corner-orb left"><canvas id="orbL"></canvas></div>
 <div class="corner-orb right"><canvas id="orbR"></canvas></div>
 
-<header class="page-hero">
-  <div class="eyebrow">Search · The Ten Parts</div>
+<header class="nb-tophead">
+  <div class="eyebrow">Read &amp; Search · The Ten Parts</div>
   <h1>IDWT Notebook</h1>
-  <p class="sub">Full-text search across all ten parts of the technical notes. Every result is the exact passage from the documents, with its status label intact — nothing paraphrased.</p>
+  <p class="sub">The complete technical notes, readable in your browser. Browse part by part, or search the full text — every passage is the exact document, with its status labels intact.</p>
 </header>
 
-<main>
-<section style="padding-top: 0;">
+<main class="nb-main">
 
-  <div class="nb-search">
-    <div class="nb-input-wrap">
-      <input id="nbq" type="search" autocomplete="off" spellcheck="false"
-             placeholder="Search the notes — e.g. simplex formula, neutrino mass, why gravity is curvature…" aria-label="Search the IDWT notes">
-      <button class="nb-clear" id="nbclear" aria-label="Clear search" title="Clear">×</button>
-    </div>
+  <button class="nb-toggle" id="nbtoggle" type="button" aria-expanded="false">☰ Contents &amp; search</button>
 
-    <div class="nb-chips" id="nbchips"></div>
+  <div class="nb-layout" id="nblayout">
+    <aside class="nb-side" id="nbside">
+      <div class="nb-input-wrap">
+        <input id="nbq" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Search all ten parts…" aria-label="Search the IDWT notes">
+        <button class="nb-clear" id="nbclear" aria-label="Clear search" title="Clear">×</button>
+      </div>
 
-    <div class="nb-controls">
-      <label for="nbpart">Part:</label>
-      <select id="nbpart"><option value="0">All ten parts</option></select>
-      <span class="nb-meta" id="nbmeta"></span>
-    </div>
+      <details class="nb-topics">
+        <summary>Quick topics</summary>
+        <div class="nb-chips" id="nbchips"></div>
+      </details>
+
+      <div class="nb-side-label" id="nbsidelabel">Contents</div>
+      <div class="nb-results" id="nbresults" hidden></div>
+      <nav class="nb-tree" id="nbtree"></nav>
+
+      <p class="nb-foot" id="nbsidefoot" style="margin-top:22px;"></p>
+    </aside>
+
+    <article class="nb-content" id="nbcontent">
+      <div class="nb-loading">Loading the notes…</div>
+    </article>
   </div>
 
-  <div class="nb-results" id="nbresults">
-    <div class="nb-empty" id="nbempty">Loading the notes…</div>
-  </div>
-
-  <p class="nb-note" id="nbfooter" style="margin-top: 28px;"></p>
-
-</section>
 </main>
 
 <footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
@@ -187,7 +247,6 @@
 (function () {
   "use strict";
 
-  // Topic shortcuts: label -> search query that surfaces the key passages.
   var TOPICS = [
     ["Simplex mass formula",   "simplex hockey-stick mass formula S(n,d)"],
     ["The six sectors",        "active sectors geometry CP2 CP3 S5 hopf"],
@@ -200,25 +259,31 @@
     ["Colour & confinement",   "colour kernel contact SU(3) confinement"],
     ["Electron 6D orbit",      "electron 6D orbit projection orbital shape"],
     ["Neutrinoless 2-beta",    "neutrinoless double beta decay Majorana"],
-    ["Falsifiability",         "falsifiability what would falsify"],
-    ["Status taxonomy",        "status key identity structural verified"]
+    ["Falsifiability",         "falsifiability what would falsify"]
   ];
 
   var STATUS = {
-    "⭐": ["Identity", "identity"],
-    "✅": ["Structural", "structural"],
-    "🔵": ["Numerically verified", "numeric"],
-    "🔶": ["Motivated / open", "motivated"],
+    "⭐": ["Identity", "identity"], "✅": ["Structural", "structural"],
+    "🔵": ["Numerically verified", "numeric"], "🔶": ["Motivated / open", "motivated"],
     "❓": ["Conjecture", "conjecture"]
   };
 
-  var DATA = null, READY = false;
+  var PARTFILE = {
+    1: "01_Foundation", 2: "02_Mass", 3: "03_Forces", 4: "04_Gravity",
+    5: "05_Predictions", 6: "06_OpenQuestions", 7: "07_Observability",
+    8: "08_Quantum", 9: "09_Spectral", 10: "10_CP_Completion"
+  };
+
+  var DATA = null, READY = false, curPart = null, cache = {};
+  var byId = {}, secsByPart = {};
   var q = document.getElementById("nbq");
-  var partSel = document.getElementById("nbpart");
-  var results = document.getElementById("nbresults");
-  var meta = document.getElementById("nbmeta");
+  var tree = document.getElementById("nbtree");
+  var resultsBox = document.getElementById("nbresults");
+  var content = document.getElementById("nbcontent");
   var clearBtn = document.getElementById("nbclear");
-  var footer = document.getElementById("nbfooter");
+  var sideLabel = document.getElementById("nbsidelabel");
+  var sideFoot = document.getElementById("nbsidefoot");
+  var layout = document.getElementById("nblayout");
 
   function esc(s) {
     return s.replace(/[&<>"]/g, function (c) {
@@ -226,66 +291,29 @@
     });
   }
 
-  // Strip markdown/math to readable plain text for snippets.
   function stripMd(md) {
-    return md
-      .replace(/^#{1,6}\s+/gm, "")
-      .replace(/\$\$[\s\S]*?\$\$/g, " ")
-      .replace(/\\\[[\s\S]*?\\\]/g, " ")
-      .replace(/\$[^$\n]*\$/g, " ")
-      .replace(/\\\([^)]*?\\\)/g, " ")
-      .replace(/```[\s\S]*?```/g, " ")
-      .replace(/`([^`]*)`/g, "$1")
-      .replace(/\*\*([^*]+)\*\*/g, "$1")
-      .replace(/\*([^*]+)\*/g, "$1")
-      .replace(/\|/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
+    return md.replace(/^#{1,6}\s+/gm, "")
+      .replace(/\$\$[\s\S]*?\$\$/g, " ").replace(/\\\[[\s\S]*?\\\]/g, " ")
+      .replace(/\$[^$\n]*\$/g, " ").replace(/\\\([^)]*?\\\)/g, " ")
+      .replace(/```[\s\S]*?```/g, " ").replace(/`([^`]*)`/g, "$1")
+      .replace(/\*\*([^*]+)\*\*/g, "$1").replace(/\*([^*]+)\*/g, "$1")
+      .replace(/\|/g, " ").replace(/\s+/g, " ").trim();
   }
 
-  // Markdown -> HTML with KaTeX, protecting math from the markdown pass.
   function renderMd(md) {
     var store = [];
-    function keep(tex, display) {
-      store.push({ tex: tex, display: display });
-      return "@@NBM" + (store.length - 1) + "@@";
-    }
+    function keep(t, d) { store.push({ tex: t, display: d }); return "@@NBM" + (store.length - 1) + "@@"; }
     var s = md
       .replace(/\$\$([\s\S]+?)\$\$/g, function (m, t) { return keep(t, true); })
       .replace(/\\\[([\s\S]+?)\\\]/g, function (m, t) { return keep(t, true); })
       .replace(/\\\(([\s\S]+?)\\\)/g, function (m, t) { return keep(t, false); })
       .replace(/\$([^$\n]+?)\$/g, function (m, t) { return keep(t, false); });
     var html = window.marked ? window.marked.parse(s) : esc(s);
-    html = html.replace(/@@NBM(\d+)@@/g, function (m, i) {
+    return html.replace(/@@NBM(\d+)@@/g, function (m, i) {
       var it = store[+i];
-      try {
-        return window.katex.renderToString(it.tex, {
-          displayMode: it.display, throwOnError: false
-        });
-      } catch (e) { return esc(it.tex); }
+      try { return window.katex.renderToString(it.tex, { displayMode: it.display, throwOnError: false }); }
+      catch (e) { return esc(it.tex); }
     });
-    return html;
-  }
-
-  function tokenize(str) {
-    return (str.toLowerCase().match(/[a-z0-9]+/g) || [])
-      .filter(function (t) { return t.length >= 2; });
-  }
-
-  function score(sec, terms, phrase) {
-    var sc = 0, matched = 0, txt = sec.text, ttl = sec.title.toLowerCase();
-    for (var i = 0; i < terms.length; i++) {
-      var t = terms[i], inTxt = txt.split(t).length - 1;
-      var inTtl = ttl.indexOf(t) !== -1;
-      if (inTxt > 0 || inTtl) matched++;
-      sc += Math.min(inTxt, 8);          // cap so one word can't dominate
-      if (inTtl) sc += 6;
-    }
-    if (matched === 0) return 0;
-    sc += matched * matched * 2;          // reward covering more distinct terms
-    if (phrase.length > 3 && txt.indexOf(phrase) !== -1) sc += 40;
-    if (sec.level === 2) sc += 1;
-    return sc;
   }
 
   function badgesHtml(status) {
@@ -298,145 +326,216 @@
     return out + "</span>";
   }
 
+  function tokenize(str) {
+    return (str.toLowerCase().match(/[a-z0-9]+/g) || []).filter(function (t) { return t.length >= 2; });
+  }
+
+  function score(sec, terms, phrase) {
+    var sc = 0, matched = 0, txt = sec.text, ttl = sec.title.toLowerCase();
+    for (var i = 0; i < terms.length; i++) {
+      var t = terms[i], inTxt = txt.split(t).length - 1, inTtl = ttl.indexOf(t) !== -1;
+      if (inTxt > 0 || inTtl) matched++;
+      sc += Math.min(inTxt, 8);
+      if (inTtl) sc += 6;
+    }
+    if (matched === 0) return 0;
+    sc += matched * matched * 2;
+    if (phrase.length > 3 && txt.indexOf(phrase) !== -1) sc += 40;
+    if (sec.level === 2) sc += 1;
+    return sc;
+  }
+
   function snippet(md, terms) {
     var plain = stripMd(md), low = plain.toLowerCase(), at = -1;
     for (var i = 0; i < terms.length; i++) {
       var p = low.indexOf(terms[i]);
       if (p !== -1 && (at === -1 || p < at)) at = p;
     }
-    var start = at > 90 ? at - 80 : 0;
-    var frag = plain.slice(start, start + 260);
+    var start = at > 70 ? at - 60 : 0;
+    var frag = plain.slice(start, start + 190);
     if (start > 0) frag = "…" + frag;
-    if (start + 260 < plain.length) frag += "…";
+    if (start + 190 < plain.length) frag += "…";
     var html = esc(frag);
     if (terms.length) {
-      var re = new RegExp("(" + terms.map(function (t) {
-        return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      }).join("|") + ")", "gi");
+      var re = new RegExp("(" + terms.map(function (t) { return t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }).join("|") + ")", "gi");
       html = html.replace(re, '<span class="hl">$1</span>');
     }
     return html;
   }
 
-  function partMd(sec) {
-    var f = "/files/IDWT_" + ("0" + sec.partNum).slice(-2) + "_" + ({
-      1: "Foundation", 2: "Mass", 3: "Forces", 4: "Gravity", 5: "Predictions",
-      6: "OpenQuestions", 7: "Observability", 8: "Quantum", 9: "Spectral",
-      10: "CP_Completion"
-    })[sec.partNum] + ".md";
-    return f;
-  }
+  // ── Reader ──
+  function partFile(n) { return "/files/IDWT_" + PARTFILE[n] + ".md"; }
 
-  function render(list, terms) {
-    results.innerHTML = "";
-    if (!list.length) {
-      results.innerHTML = '<div class="nb-empty">No passages match. Try fewer or different words, or pick a topic above.</div>';
-      return;
-    }
-    var frag = document.createDocumentFragment();
-    list.forEach(function (sec) {
-      var d = document.createElement("details");
-      d.className = "nb-result";
-      var sum = document.createElement("summary");
-      sum.innerHTML =
-        '<div class="nb-cite"><span class="nb-part">' + esc(sec.part) +
-        " &middot; " + esc(sec.partTitle) + '</span>' + badgesHtml(sec.status) +
-        '</div><div class="nb-title">' + esc(sec.title) + "</div>" +
-        '<div class="nb-snippet">' + snippet(sec.md, terms) + "</div>" +
-        '<span class="nb-expand">Show full passage →</span>';
-      d.appendChild(sum);
-      var body = document.createElement("div");
-      body.className = "nb-body prose";
-      d.appendChild(body);
-      d.addEventListener("toggle", function () {
-        if (d.open && !body.dataset.done) {
-          body.dataset.done = "1";
-          body.innerHTML = renderMd(sec.md) +
-            '<div class="nb-foot">Source: ' + esc(sec.part) + " (" +
-            esc(sec.partTitle) + ') &middot; <a class="dl" href="' +
-            partMd(sec) + '" download>Download this part (.md)</a></div>';
-        }
-      });
-      frag.appendChild(d);
+  function buildPartHtml(n) {
+    if (cache[n]) return cache[n];
+    var title = "";
+    DATA.parts.forEach(function (p) { if (p.num === n) title = p.title; });
+    var html =
+      '<div class="nb-docbar"><div><div class="nb-dpart">Part ' + n +
+      '</div><h2>' + esc(title) + '</h2></div>' +
+      '<a class="dl" href="' + partFile(n) + '" download>Download Part ' + n + ' (.md)</a></div>' +
+      '<div class="nb-doc">';
+    (secsByPart[n] || []).forEach(function (s) {
+      html += '<section id="' + s.id + '" class="nb-docsec">' +
+        (s.status.length ? '<div class="nb-secbadges">' + badgesHtml(s.status) + "</div>" : "") +
+        renderMd(s.md) + "</section>";
     });
-    results.appendChild(frag);
+    html += '<div class="nb-foot">Part ' + n + " — " + esc(title) +
+      ' · <a class="dl" href="' + partFile(n) + '" download>Download (.md)</a></div></div>';
+    cache[n] = html;
+    return html;
   }
 
-  function run() {
+  function openPart(n, secId, push) {
     if (!READY) return;
+    if (curPart !== n) {
+      content.innerHTML = buildPartHtml(n);
+      curPart = n;
+      markTreePart(n);
+    }
+    if (secId) {
+      var el = document.getElementById(secId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+      }
+      markTreeSec(secId);
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    if (push !== false) syncUrl(n, secId);
+  }
+
+  function markTreePart(n) {
+    var wraps = tree.querySelectorAll(".nb-tpart");
+    wraps.forEach(function (w) {
+      var on = +w.dataset.part === n;
+      w.classList.toggle("active", on);
+      if (on) w.classList.add("open");
+    });
+  }
+  function markTreeSec(id) {
+    tree.querySelectorAll(".nb-tsec.active").forEach(function (a) { a.classList.remove("active"); });
+    var a = tree.querySelector('.nb-tsec[data-id="' + id + '"]');
+    if (a) a.classList.add("active");
+  }
+
+  // ── Table of contents ──
+  function buildTree() {
+    tree.innerHTML = "";
+    DATA.parts.forEach(function (p) {
+      var wrap = document.createElement("div");
+      wrap.className = "nb-tpart"; wrap.dataset.part = p.num;
+      var head = document.createElement("button");
+      head.className = "nb-tpart-head"; head.type = "button";
+      head.innerHTML = '<span class="nb-tnum">Part ' + p.num + "</span> " + esc(p.title);
+      head.addEventListener("click", function () {
+        var open = wrap.classList.contains("open");
+        if (open && curPart === p.num) { wrap.classList.remove("open"); }
+        else { openPart(p.num); closeDrawer(); }
+      });
+      var list = document.createElement("div");
+      list.className = "nb-tsecs";
+      (secsByPart[p.num] || []).forEach(function (s) {
+        var a = document.createElement("a");
+        a.className = "nb-tsec lvl" + s.level; a.dataset.id = s.id;
+        a.href = "?part=" + p.num + "&sec=" + s.id; a.textContent = s.title;
+        a.addEventListener("click", function (e) {
+          e.preventDefault(); openPart(p.num, s.id); closeDrawer();
+        });
+        list.appendChild(a);
+      });
+      wrap.appendChild(head); wrap.appendChild(list);
+      tree.appendChild(wrap);
+    });
+  }
+
+  // ── Search ──
+  function runSearch() {
     var raw = q.value.trim();
     clearBtn.style.display = raw ? "block" : "none";
-    var part = +partSel.value;
-    var pool = part ? DATA.sections.filter(function (s) { return s.partNum === part; })
-                    : DATA.sections;
-    syncUrl(raw, part);
     if (!raw) {
-      results.innerHTML = '<div class="nb-empty">Type a query above, or tap a topic. Searching ' +
-        pool.length + " sections across " +
-        (part ? "Part " + part : "all ten parts") + ".</div>";
-      meta.textContent = "";
+      resultsBox.hidden = true; tree.hidden = false;
+      sideLabel.textContent = "Contents";
       return;
     }
-    var terms = tokenize(raw), phrase = raw.toLowerCase();
-    var scored = [];
-    for (var i = 0; i < pool.length; i++) {
-      var sc = score(pool[i], terms, phrase);
-      if (sc > 0) scored.push([sc, pool[i]]);
+    var terms = tokenize(raw), phrase = raw.toLowerCase(), scored = [];
+    for (var i = 0; i < DATA.sections.length; i++) {
+      var sc = score(DATA.sections[i], terms, phrase);
+      if (sc > 0) scored.push([sc, DATA.sections[i]]);
     }
     scored.sort(function (a, b) { return b[0] - a[0]; });
-    var top = scored.slice(0, 40).map(function (x) { return x[1]; });
-    meta.textContent = scored.length + (scored.length === 1 ? " passage" : " passages");
-    render(top, terms);
+    var top = scored.slice(0, 40);
+    sideLabel.innerHTML = "Results <span id='nbmeta'>· " + scored.length +
+      (scored.length === 1 ? " passage" : " passages") + "</span>";
+    resultsBox.innerHTML = "";
+    if (!top.length) {
+      resultsBox.innerHTML = '<div class="nb-nohit">No passages match. Try fewer or different words.</div>';
+    } else {
+      top.forEach(function (pair) {
+        var sec = pair[1];
+        var b = document.createElement("button");
+        b.className = "nb-result"; b.type = "button";
+        b.innerHTML = '<div class="nb-rcite">' + esc(sec.part) + " · " + esc(sec.partTitle) + "</div>" +
+          '<div class="nb-rtitle">' + esc(sec.title) + "</div>" +
+          '<div class="nb-rsnip">' + snippet(sec.md, terms) + "</div>";
+        b.addEventListener("click", function () { openPart(sec.partNum, sec.id); });
+        resultsBox.appendChild(b);
+      });
+    }
+    resultsBox.hidden = false; tree.hidden = true;
   }
 
-  function syncUrl(raw, part) {
+  // ── URL + drawer ──
+  function syncUrl(part, sec) {
     var p = new URLSearchParams();
-    if (raw) p.set("q", raw);
     if (part) p.set("part", part);
+    if (sec) p.set("sec", sec);
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
   }
-
-  function debounce(fn, ms) {
-    var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); };
+  function closeDrawer() {
+    layout.classList.remove("side-open");
+    document.getElementById("nbtoggle").setAttribute("aria-expanded", "false");
   }
+  function debounce(fn, ms) { var t; return function () { clearTimeout(t); t = setTimeout(fn, ms); }; }
 
-  // ── build chips & part options ──
+  // ── wire chips, inputs ──
   var chips = document.getElementById("nbchips");
   TOPICS.forEach(function (t) {
     var b = document.createElement("button");
     b.className = "chip"; b.type = "button"; b.textContent = t[0];
-    b.addEventListener("click", function () { q.value = t[1]; q.focus(); run(); });
+    b.addEventListener("click", function () { q.value = t[1]; runSearch(); q.focus(); });
     chips.appendChild(b);
   });
-
-  q.addEventListener("input", debounce(run, 120));
-  partSel.addEventListener("change", run);
-  clearBtn.addEventListener("click", function () { q.value = ""; q.focus(); run(); });
+  q.addEventListener("input", debounce(runSearch, 120));
+  clearBtn.addEventListener("click", function () { q.value = ""; runSearch(); q.focus(); });
+  document.getElementById("nbtoggle").addEventListener("click", function () {
+    var open = layout.classList.toggle("side-open");
+    this.setAttribute("aria-expanded", open ? "true" : "false");
+  });
 
   // ── load index ──
   fetch("/notebook/idwt-search-index.json")
     .then(function (r) { return r.json(); })
     .then(function (data) {
       DATA = data; READY = true;
-      data.parts.forEach(function (p) {
-        var o = document.createElement("option");
-        o.value = p.num; o.textContent = "Part " + p.num + " — " + p.title;
-        partSel.appendChild(o);
+      data.sections.forEach(function (s) {
+        byId[s.id] = s;
+        (secsByPart[s.partNum] = secsByPart[s.partNum] || []).push(s);
       });
-      footer.innerHTML = "Searching " + data.sections.length +
-        " sections from the ten parts (index built " + esc(data.generated) +
-        "). Same documents you can download on the " +
-        '<a href="/notes/">Notes</a> page or explore in the NotebookLM.';
-      // deep-link support: ?q=...&part=...
+      buildTree();
+      sideFoot.innerHTML = data.sections.length + " sections · index built " +
+        esc(data.generated) + ". Also on the <a href='/notes/'>Notes</a> page.";
       var qs = new URLSearchParams(location.search);
-      if (qs.get("part")) partSel.value = qs.get("part");
-      if (qs.get("q")) q.value = qs.get("q");
-      run();
-      q.focus();
+      var secId = qs.get("sec");
+      var startPart = +qs.get("part") || 1;
+      if (secId && byId[secId]) startPart = byId[secId].partNum;
+      if (!PARTFILE[startPart]) startPart = 1;
+      openPart(startPart, (secId && byId[secId]) ? secId : null, false);
     })
     .catch(function () {
-      results.innerHTML = '<div class="nb-empty">The search index could not be loaded. Please reload the page.</div>';
+      content.innerHTML = '<div class="nb-loading">The notes could not be loaded. Please reload the page.</div>';
     });
 })();
 </script>

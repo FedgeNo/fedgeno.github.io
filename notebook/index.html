@@ -330,12 +330,16 @@ main.nb-main { max-width: 1240px; padding-top: 8px; }
   function score(sec, terms, phrase) {
     var sc = 0, matched = 0, txt = sec.text, ttl = sec.title.toLowerCase();
     for (var i = 0; i < terms.length; i++) {
-      var t = terms[i], inTxt = txt.split(t).length - 1, inTtl = ttl.indexOf(t) !== -1;
+      var t = terms[i];
+      var reStr = '\\b' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b';
+      var re = new RegExp(reStr, 'i');
+      var inTxt = (txt.match(re) || []).length;
+      var inTtl = re.test(ttl);
       if (inTxt > 0 || inTtl) matched++;
       sc += Math.min(inTxt, 8);
       if (inTtl) sc += 6;
     }
-    if (matched === 0) return 0;
+    if (matched < terms.length) return 0;
     sc += matched * matched * 2;
     if (phrase.length > 3 && txt.indexOf(phrase) !== -1) sc += 40;
     if (sec.level === 2) sc += 1;
@@ -452,7 +456,9 @@ main.nb-main { max-width: 1240px; padding-top: 8px; }
     var raw = q.value.trim();
     clearBtn.style.display = raw ? "block" : "none";
     if (!raw) {
-      resultsBox.hidden = true; tree.hidden = false;
+      resultsBox.style.display = "none";
+      resultsBox.innerHTML = "";
+      tree.style.display = "";
       sideLabel.textContent = "Contents";
       return;
     }
@@ -480,7 +486,8 @@ main.nb-main { max-width: 1240px; padding-top: 8px; }
         resultsBox.appendChild(b);
       });
     }
-    resultsBox.hidden = false; tree.hidden = true;
+    resultsBox.style.display = "";
+    tree.style.display = "none";
   }
 
   // ── URL + drawer ──

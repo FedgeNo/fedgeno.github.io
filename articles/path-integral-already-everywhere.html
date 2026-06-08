@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="In IDWT the Feynman path integral is not a sum over histories a particle might take — it is the statement that the master field Ψ∞ is already present across the entire configuration space. Every possible path is already encoded in the sector modes; the observed amplitude is simply the projection that matches the boundary conditions.">
+<meta name="keywords" content="IDWT, Feynman path integral, path integral, already everywhere, free without, infinite-dimensional wave theory, quantum mechanics, double slit, superposition">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/path-integral-already-everywhere.html">
+<meta property="og:title" content="Already Everywhere — The Path Integral in IDWT">
+<meta property="og:description" content="In IDWT the Feynman path integral is not a sum over histories a particle might take — it is the statement that the master field Ψ∞ is already present across the entire configuration space.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Already Everywhere — The Path Integral in IDWT">
+<meta name="twitter:description" content="In IDWT the Feynman path integral is not a sum over histories a particle might take — it is the statement that the master field Ψ∞ is already present across the entire configuration space.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Already Everywhere — The Path Integral in IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Already Everywhere — The Path Integral in IDWT",
+  "description": "In IDWT the Feynman path integral is not a sum over histories a particle might take — it is the statement that the master field Ψ∞ is already present across the entire configuration space.",
+  "url": "https://fedgeno.github.io/articles/path-integral-already-everywhere.html",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png"
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, Feynman path integral, already everywhere, free without, quantum superposition, double slit",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Quantum Foundations</div>
+  <h1>Already Everywhere</h1>
+  <p class="sub">The Feynman path integral is not a sum over histories a particle might take. In IDWT the master field \(\Psi_\infty\) is already present across all of configuration space. Every possible path is already encoded in the sector modes; the observed amplitude is simply the projection that matches the boundary conditions.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The usual story vs. the already-present field</h2>
+  <div class="prose">
+    <p>In the textbook derivation a particle is imagined to explore every possible path from A to B; the amplitude for each path is \(e^{iS/\hbar}\) and the total amplitude is their coherent sum. This beautifully reproduces the double-slit pattern and the Schrödinger equation, but it leaves an ontological discomfort: how does the particle “know” about all the other paths?</p>
+    <p>In IDWT there is no particle zig-zagging through spacetime. There is only the single master Dirac spinor field \(\Psi_\infty\) on the infinite-dimensional manifold \(M_\infty = \mathbb{R}_t \times \Xi_\infty\). Every possible configuration of the field — every “path” in the usual language — is already an eigenmode of the sector Laplacian localized in one of the sectors \(d \in \{2,3,4,5,6,10\}\). The field is <em>already everywhere</em>.</p>
+  </div>
+
+  <div class="callout">
+    The path integral is not a computational trick. It is the statement that the wave function does not travel — it simply selects the already-present sector mode that satisfies the boundary conditions.
+  </div>
+
+</section>
+
+<section>
+
+  <h2>“Free without” — the d=2 photon example</h2>
+  <div class="prose">
+    <p>Consider a photon traveling from a laser to a screen. In ordinary language we say the photon takes all paths at once. In IDWT the \(d=2\) sector mode (the photon) is already present throughout the entire experimental region because its two coordinates are nested inside every higher sector. There is no packet that must “choose” a path. The field \(\Psi^{(2)}\) is co-located with every point in the apparatus.</p>
+    <p>The observed interference is the projection onto the detector of the already-present field configuration that satisfies the phase-matching condition at both source and detector. The kernel couples the different geometric contributions, but the field itself never “goes” anywhere — it is free without ever having to travel.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>The double-slit in sector geometry</h2>
+  <div class="prose">
+    <p>Both slits are open. The electron (a \(d=6\) mode on \(\mathbb{CP}^3\)) is not a point particle choosing left or right. Its six-dimensional sector excitation is already present across the entire downstream region. The two slits simply impose different boundary conditions on the already-present field. The interference pattern on the screen is the natural beating between the two phase contributions that the geometry already supports.</p>
+    <p>This is why closing one slit instantly changes the pattern: it removes one of the already-present geometric constraints, not because information raced from the slit to the screen, but because the global mode structure of \(\Psi_\infty\) changed instantaneously across the whole space.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Path integral as mode selection</h2>
+  <div class="prose">
+    <p>Formally, the Feynman path integral emerges in IDWT as the overlap between the already-present eigenmodes of the master field and the boundary projectors at initial and final times:</p>
+  </div>
+
+  <div class="formula">
+    \[ \langle \phi_f | e^{-iHt/\hbar} | \phi_i \rangle = \int \mathcal{D}\phi \, e^{iS[\phi]/\hbar} \]
+  </div>
+
+  <div class="prose">
+    <p>In IDWT this is realized through integration over the sector space:</p>
+  </div>
+
+  <div class="formula">
+    \[ K = \int_{\Xi} \chi_n^*(\xi) \chi_n(\xi) e^{iS_{\rm eff}[x,\xi]/\hbar} \, d\mu_\xi \]
+  </div>
+
+  <div class="prose">
+    <p>The functional integral is not over new trajectories in 3D space; it is the sum over the already-existing sector modes (eigenfunctions \(\chi_n(\xi)\) of the sector Laplacian) whose collective phase accumulation matches the effective action \(S_{\rm eff}\). The “sum over histories” is the statement that every history is already an excitation of \(\Psi_\infty\) somewhere in the infinite-dimensional sector space. The physical amplitude is the coefficient of the particular linear combination that satisfies the experimental boundaries.</p>
+    <p>This is “free without”: the field does not need to propagate information about alternative paths because all paths are already encoded in the global geometry of the master field.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Consistency with the rest of IDWT</h2>
+  <div class="prose">
+    <p>This picture dovetails directly with <a href="/articles/speed-of-light.html">refraction without slowing</a> (the \(d=2\) field is already present in the medium) and with <a href="/articles/single-electron-double-slit.html">single-electron interference</a> (the electron mode is already present across both slits). It also explains why the path integral works even for macroscopic objects: the higher-sector modes are still present, just with enormous phase density that makes classical paths dominate.</p>
+    <p>The measurement problem is likewise softened: collapse is not a physical process happening to a traveling packet, but the selection of one already-present sector-mode projection when the apparatus entangles with the system (see \(\rho(\mathbf{r},t) = \int |\Psi_\infty|^2 d\xi\)).</p>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="article-footer">
+  <p><a href="/articles/">← Back to Articles</a></p>
+</footer>
+
+</body>
+</html>

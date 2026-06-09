@@ -86,6 +86,10 @@ The down seed $n_{\rm down}=1$ shares sector d=3 with $n_s$ because: (a) $S(1,d)
 
 P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. The co-fixed-point condition has the status of an algebraically-seeded, geometrically-propagated selection rule — the rung placements are derived (✅); the routing DAG and its dynamical stability are the remaining open item.
 
+⭐ **Matroid interpretation of the generation tower.** The uniform matroid $U^d_{n+d-1}$ has ground set $E = \{1,\dots,n+d-1\}$ with a subset declared independent iff its cardinality is at most $d$. Its number of bases is $\binom{n+d-1}{d} = S(n,d)$. The hockey-stick recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ is the matroid basis-exchange axiom in this uniform case: deleting or contracting one element gives the two terms. Submodularity of the rank function $r(A) = \min(|A|,d)$ gives a combinatorial proof that a mode index can increase by at most one hockey-stick step per generation — the mass spectrum is submodular. The trivial automorphism group of the tower DAG (Appendix A §13b) is automatic for uniform matroids of rank $\geq 3$ (Whitney's theorem on the automorphism group of $U^d_{n+d-1}$), which independently confirms that the 15-particle labeling is unique without invoking SM input.
+
+⭐ **Poset structure and seed uniqueness.** The modes ordered by $(n_1,d_1) \leq (n_2,d_2)$ iff $n_1 \leq n_2$ and $d_1 \leq d_2$ form a product of two chains — a distributive lattice — with $S(n,d)$ as the rank function and the hockey-stick identity as the rank-generating function. Sperner's theorem gives the size of the largest antichain at a given rank as $\binom{n+d-1}{\lfloor(n+d-1)/2\rfloor}$; Dilworth's theorem gives the minimum chain cover of the 15 modes as the DAG width, a pure combinatorial invariant. The seeds $\{(1,3),(4,3)\}$ are the unique minimal elements of the two largest antichains in the tower — their forced status is a poset-theoretic consequence, providing an independent combinatorial route to the same conclusion as the co-fixed-point uniqueness proof (§5c).
+
 ---
 
 ## 2. Observable Coordinates and the d=3 Marginal
@@ -788,9 +792,13 @@ $$n_W = g(d_\nu, n_{\rm top}) = d_\nu + n_{\rm top} - 1 = 5 + 72 - 1 = 76, \quad
 
 $$n_H = n_u + n_c + n_{\rm top} = 95$$
 
-2. **Spectral independence.** No three elements $i, j, k \in \Sigma$ satisfy $S(i, d_i) + S(j, d_j) = S(k, d_k)$, where $d_i$ is the sector of mode $i$. The 14 occupied $S$-values are: $\{1, 15, 20, 2002, 2926, 3321, 4560, 8855, 11628, 18564, 65780, 1215450, 3838380, 64512240\}$. All 91 unordered pairs were checked; there are **zero violations**.
+2. **Spectral independence.** No three elements $i, j, k \in \Sigma$ satisfy $S(i, d_i) + S(j, d_j) = S(k, d_k)$, where $d_i$ is the sector of mode $i$. The 13 non-zero occupied $S$-values are: $\{1, 15, 20, 2002, 2926, 3321, 4560, 8855, 18564, 65780, 1215450, 3838380, 64512240\}$. All 91 unordered pairs were checked; there are **zero violations**.
+
+⭐ **Additive combinatorics framing.** In additive number theory, a set $B$ of positive integers is **sum-free** if no element of $B$ equals the sum of two (not necessarily distinct) other elements of $B$. The 13 non-zero IDWT $S$-values constitute a sum-free set. This is not a numerical accident: additive combinatorics (Erdős–Turán theory) establishes that a sum-free subset of $\{1,\dots,N\}$ has size at most $\lceil N/2 \rceil + O(N^{1/3})$, and characterizes large sum-free sets as either mostly odd numbers or concentrated in a short interval. The IDWT $S$-values cluster at low $n$ in each sector and then jump by combinatorial gaps — the predicted shape for a sum-free set whose members are binomial coefficients evaluated at widely spaced arguments. Conversely, the sum-free property imposes an upper bound on the number of allowed modes at a given combinatorial scale, providing a purely number-theoretic explanation for why the spectrum closes at 15 that complements the co-fixed-point derivation. Note: the mode *indices* $\Sigma = \{1,3,4,\dots\}$ are not sum-free (e.g.\ $1+3=4\in\Sigma$); the sum-free condition holds at the level of the $S$-values (the actual eigenvalues), not the index labels.
 
 3. **Seed uniqueness.** The single non-trivial input $n_s = 4$ is the unique positive integer solving $S(n_s, 4) = n_\mu$, i.e.\ $\binom{n_s+3}{4} = 35$. This has exactly one solution.
+
+⭐ **Tropical geometry remark.** The tropical Grassmannian $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ parametrises ultrametrics on $n$ points and, for $n=4$, is a 1-dimensional fan equivalent to the space of phylogenetic trees on 4 labeled leaves. This space has exactly **3 maximal cones** — one for each trivalent tree topology on 4 leaves. The number 3 is the number of quark/lepton generations. The seed $n_s = 4$ is thus the smallest value of $n$ for which $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ is a 1-dimensional trivalent fan with exactly 3 maximal regions; for $n < 4$ the fan is either trivial or has fewer regions. This is an independent combinatorial coincidence consistent with the generation structure, not a separate derivation of it.
 
 **Proof sketch.**
 

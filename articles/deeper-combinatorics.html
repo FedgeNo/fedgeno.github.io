@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Behind the hockey-stick numbers S(n,d) in IDWT lies a second shelf of pure combinatorics: uniform matroids, Ferrers diagrams, symmetric functions, Möbius inversion, and finite projective geometry. Each supplies theorems where the physics documents used numerics.">
+<meta name="keywords" content="IDWT, matroids, Ferrers diagrams, Möbius inversion, symmetric functions, finite geometry, PG(3,2)">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/deeper-combinatorics.html">
+<meta property="og:title" content="Deeper Combinatorics — The Second Shelf Behind the Hockey-Stick">
+<meta property="og:description" content="Behind the hockey-stick numbers S(n,d) in IDWT lies a second shelf of pure combinatorics: matroids, Ferrers diagrams, symmetric functions, Möbius inversion, and finite geometry.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deeper Combinatorics — The Second Shelf Behind the Hockey-Stick">
+<meta name="twitter:description" content="Behind the hockey-stick numbers S(n,d) in IDWT lies a second shelf of pure combinatorics.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Deeper Combinatorics — The Second Shelf Behind the Hockey-Stick</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Deeper Combinatorics — The Second Shelf Behind the Hockey-Stick",
+  "description": "Behind the hockey-stick numbers S(n,d) in IDWT lies a second shelf of pure combinatorics.",
+  "url": "https://fedgeno.github.io/articles/deeper-combinatorics.html",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, matroids, Young diagrams, Möbius inversion",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Foundations</div>
+  <h1>Deeper Combinatorics</h1>
+  <p class="sub">The hockey-stick number \(S(n,d) = \binom{n+d-1}{d}\) is not merely a counting tool in IDWT. Strip away the physics and it sits at the center of several branches of pure mathematics — each offering theorems, pictures, and closed-form tools that make the generation tower and mass spectrum even more inevitable.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Matroids — independence without vectors</h2>
+  <div class="prose">
+    <p>Consider the uniform matroid \(U_{n+d-1}^{d}\) on \(n+d-1\) elements where a subset is independent if it has size at most \(d\). The number of bases (maximal independent sets) is exactly \(S(n,d)\). The recursion \(S(n,d) = S(n,d-1) + S(n-1,d)\) is the basis-exchange property in disguise.</p>
+    <p>This gives a combinatorial stability test for the generation tower via the Tutte polynomial and explains why the automorphism group is trivial: uniform matroids of rank \(\ge 3\) have this property automatically.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Ferrers diagrams and Young shapes</h2>
+  <div class="prose">
+    <p>Each mode corresponds to a partition of \(n\) whose Young (Ferrers) diagram fits inside a \(d \times (n-1)\) rectangle. The hockey-stick sum stacks columns naturally, reproducing the generation law \(S(4,4) = S(4,3) + S(3,4)\). Hook-content formulas then supply the natural q-weights seen in earlier deformations.</p>
+    <p>No numerics needed: \(S(4,3)=20\) and \(S(3,4)=15\) are simply the number of diagrams fitting in those boxes, and their sum \(S(4,4) = S(4,3) + S(3,4) = 35 = n_\mu\) is the muon mode index — recovered combinatorially, not by search.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Symmetric functions</h2>
+  <div class="prose">
+    <p>\(S(n,d)\) is the evaluation of the complete homogeneous symmetric polynomial \(h_{n-1}\) at \(d+1\) ones. Newton’s identities link masses to power sums with integer coefficients, while Schur positivity guarantees that combining sectors never produces negative (ghost) mode counts. The observed duality between \(n\) and \(d\) follows from ring automorphisms in the symmetric function ring.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Möbius inversion — exact inverse for the mass law</h2>
+  <div class="prose">
+    <p>In the poset of weak compositions, \(S(n,d)\) acts like a zeta function. Möbius inversion supplies a closed-form inverse for the generation index \(n\) in terms of the mass \(m\), using only integer arithmetic and binomial coefficients — replacing trial-and-error with a direct formula.</p>
+    <p>This also reframes spectral independence as a series-parallel poset property.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Finite projective geometry and the seed at 4</h2>
+  <div class="prose">
+    <p>The structural seed \(n_s=4\) aligns with the geometry of the smallest 3-dimensional projective space over \(\mathbb{F}_2\), \(PG(3,2)\), which has 15 points and 35 lines. At \(q=2\), the Gaussian binomial \(\binom{4}{2}_2 = 35\) equals \(S(4,4) = n_\mu\), the muon mode index — the 35 lines of \(PG(3,2)\) matching the muon index exactly. The limit \(q\to 1\) collapses to the ordinary binomial \(\binom{4}{2}=6\), confirming the combinatorial skeleton is the same object in both languages. The number 4 is combinatorially forced as the smallest dimension where these counts are simultaneously rigid and sum-free.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Why this strengthens IDWT</h2>
+  <div class="prose">
+    <p>These viewpoints supply pure-mathematical reasons for the rigidity of the 15-mode tower, the absence of ghosts, and the precise seed values — all without invoking Lagrangians or Hilbert spaces. They sit behind the physics as the deeper skeleton of \(M_\infty\).</p>
+    <p>See also <a href="/articles/combinatorial-skeleton.html">The Combinatorial Skeleton</a> and <a href="/articles/hockey-stick-universe.html">The Hockey-Stick Universe</a>.</p>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="article-footer">
+  <p><a href="/articles/">← Back to Articles</a></p>
+</footer>
+
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

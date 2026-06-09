@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The generation tower and mass spectrum in IDWT are not ad-hoc. They emerge from the deep combinatorial structure of the hockey-stick numbers S(n,d) — q-analogs, lattice paths, sum-free sets, posets, and umbral calculus all point to the same rigid geometry of M_∞.">
+<meta name="keywords" content="IDWT, hockey-stick, combinatorial skeleton, q-binomial, Sperner, umbral calculus, lattice paths">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/combinatorial-skeleton.html">
+<meta property="og:title" content="The Combinatorial Skeleton — Why IDWT Had to Look This Way">
+<meta property="og:description" content="The generation tower and mass spectrum in IDWT emerge from the deep combinatorial structure of the hockey-stick numbers.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Combinatorial Skeleton — Why IDWT Had to Look This Way">
+<meta name="twitter:description" content="The generation tower and mass spectrum in IDWT emerge from the deep combinatorial structure of the hockey-stick numbers.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Combinatorial Skeleton — Why IDWT Had to Look This Way</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "The Combinatorial Skeleton — Why IDWT Had to Look This Way",
+  "description": "The generation tower and mass spectrum in IDWT emerge from the deep combinatorial structure of the hockey-stick numbers.",
+  "url": "https://fedgeno.github.io/articles/combinatorial-skeleton.html",
+  "author": {
+    "@type": "Person",
+    "name": "Fedge No",
+    "email": "fedge-no@hotmail.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png",
+    "width": 2000,
+    "height": 2000
+  },
+  "keywords": "IDWT, combinatorial skeleton, hockey-stick",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "IDWT — Infinite-Dimensional Wave Theory",
+    "url": "https://fedgeno.github.io"
+  }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Foundations</div>
+  <h1>The Combinatorial Skeleton</h1>
+  <p class="sub">The 15 stable modes and their precise masses in IDWT are not an accident of physics. They are the inevitable consequence of a single combinatorial object — the hockey-stick number \(S(n,d) = \binom{n+d-1}{d}\) — read through the lens of lattice paths, q-deformations, posets, and more.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>The central object</h2>
+  <div class="prose">
+    <p>Every generation law, mass ratio, and stability condition in IDWT traces back to \(S(n,d)\), the number of ways to distribute \(n\) excitations across \(d\) sector directions. This is stars-and-bars in its simplest form, but the same numbers appear throughout pure combinatorics with surprising depth.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>q-Analogs and weighted resonances</h2>
+  <div class="prose">
+    <p>The natural q-deformation replaces \(S(n,d)\) with the Gaussian binomial coefficient \({n+d-1 \choose d}_q\). At \(q=1\) it recovers the ordinary count. For other \(q\), coefficients weight lattice paths by area or inversions, giving a one-parameter family of spectra. The q-Pascal identities mirror the recursions used to build the generation tower, suggesting a natural regularization built into the manifold’s geometry.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Lattice paths and Catalan structure</h2>
+  <div class="prose">
+    <p>The hockey-stick identity itself counts cumulative lattice paths. These paths live in the Catalan triangle and obey ballot theorems. The structural seed at \(n_s=4\) and the co-fixed-point closures become visible as natural gluings and closures of these paths — geometric necessities rather than choices.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Additive rigidity — sum-free and Sidon</h2>
+  <div class="prose">
+    <p>The set of \(S\)-values for the stable modes is strongly sum-free (no three satisfy \(S_i + S_j = S_k\)) and nearly Sidon (distinct pairwise sums). Additive combinatorics explains why only 15 modes appear and why they cluster at low \(n\) before jumping: this is the generic shape of large rigid sum-free sets. The observed spectrum is not fine-tuned; it is combinatorially forced.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Poset structure and Sperner bounds</h2>
+  <div class="prose">
+    <p>Ordering modes by \((n,d)\) yields a product of two chains — a distributive lattice. Sperner’s theorem bounds the largest antichain of mutually incomparable generations, while Dilworth’s theorem decomposes the tower into the observed number of chains. The trivial automorphism group of the generation DAG follows directly from this lattice structure.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Umbral calculus and generating functions</h2>
+  <div class="prose">
+    <p>The ordinary generating function of \(S(n,d)\) is \[P_d(t) = \sum_{n \geq 1} S(n,d)\,t^n = \frac{1}{(1-t)^d}.\] This rational function has a single pole of order \(d\) at \(t=1\). Singularity analysis recovers the large-\(n\) asymptotics \(S(n,d) \sim n^{d-1}/(d-1)!\) with explicit error terms, giving the large-mass expansion of the spectrum without numerics. The shift operator \(E\colon n \mapsto n+1\) reproduces the hockey-stick recursion algebraically, and solving the mass equation for generation index \(n\) reduces to inverting this rational function — no numerical search required.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>From combinatorics to physics</h2>
+  <div class="prose">
+    <p>These structures are not decorations. They are the skeleton on which the wave geometry of \(M_\infty\) is built. The same object that counts lattice points in a simplex dictates which resonances are stable, which masses are allowed, and why the tower closes at exactly 15 modes. See also <a href="/articles/hockey-stick-universe.html">The Hockey-Stick Universe</a> and <a href="/articles/hidden-depths.html">The Hidden Depths</a>.</p>
+    <p>The physics is the combinatorics made real through waves.</p>
+  </div>
+
+</section>
+
+</main>
+
+<footer class="article-footer">
+  <p><a href="/articles/">← Back to Articles</a></p>
+</footer>
+
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

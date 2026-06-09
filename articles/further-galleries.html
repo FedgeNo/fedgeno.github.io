@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The hockey-stick number S(n,d) continues to reveal deeper mathematical galleries: braid arrangements, noncrossing partitions, permutohedra, Hall-Littlewood/Macdonald polynomials, and discrete integrable systems (box-ball). Each supplies new metrics, fusion rules, dynamics, and positivity theorems for IDWT.">
+<meta name="keywords" content="IDWT, braid arrangement, noncrossing partitions, permutohedron, Hall-Littlewood, box-ball system, integrable systems">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/further-galleries.html">
+<meta property="og:title" content="Further Galleries of the Binomial Lattice">
+<meta property="og:description" content="Deeper structures on S(n,d): braid arrangements, noncrossing partitions, permutohedra, Hall-Littlewood polynomials, and box-ball integrable systems.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Further Galleries of the Binomial Lattice">
+<meta name="twitter:description" content="Even deeper galleries on the hockey-stick lattice provide new tools for IDWT.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Further Galleries of the Binomial Lattice</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Foundations</div>
+  <h1>Further Galleries of the Binomial Lattice</h1>
+  <p class="sub">We have only walked the first few floors of the hockey-stick number \(S(n,d)\). Deeper galleries reveal braid arrangements, noncrossing partitions, permutohedra, Hall-Littlewood polynomials, and discrete integrable systems. Each supplies concrete new tools and theorems for the IDWT generation tower.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Braid arrangements and natural metrics</h2>
+  <div class="prose">
+    <p>The braid arrangement consists of hyperplanes \(x_i = x_j\) in \(\mathbb{R}^{d+1}\). Intersecting with the simplex \(x_1 + \dots + x_{d+1} = n-1\), \(x_i \ge 0\) yields exactly \(S(n,d)\) regions.</p>
+    <p>The distance between two modes is the minimum number of hyperplanes crossed. This gives a natural metric on the generation graph. Decays that cross few hyperplanes become combinatorially favored, matching observed hierarchies without extra coupling constants.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Noncrossing partitions and the Coxeter-Catalan world</h2>
+  <div class="prose">
+    <p>Refining noncrossing partitions of \(\{1,\dots,d+1\}\) by total weight \(n-1\) recovers \(S(n,d)\). The generation tower is the lattice of noncrossing partitions under refinement and noncrossing closure.</p>
+    <p>This lattice has a known Möbius function and EL-labeling, supplying canonical shortest paths and a structural explanation for spectral independence.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Permutohedron and associahedron</h2>
+  <div class="prose">
+    <p>Modes embed naturally as vertices or faces of the permutohedron. The hockey-stick recursion corresponds to walking along edges in the weak order. Graph distance equals inversion number, directly explaining the \(q\)-weights in deformations.</p>
+    <p>For \(d=3\), the permutohedron gives a beautiful 3D visualization of the \(d=3\) generation levels.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Hall-Littlewood and Macdonald polynomials</h2>
+  <div class="prose">
+    <p>The Hall-Littlewood polynomial \(P_{(n-1)}(1^{d+1};t)\) at \(t=0\) recovers \(S(n,d)\). The full Macdonald \((q,t)\)-version supplies a two-parameter family of deformations that remains integral and log-concave for all positive parameters.</p>
+    <p>This is a ready-made, positivity-preserving regulator for any proposed mass adjustments.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Discrete integrable systems and box-ball</h2>
+  <div class="prose">
+    <p>Each mode corresponds to a soliton configuration in the box-ball system on a chain of length \(n+d-1\). Time evolution is governed by the combinatorial \(R\)-matrix at \(q=0\).</p>
+    <p>The conserved quantities match Kummer valuations. Collisions such as \(5+6=11\) become clean two-soliton scattering. Stable modes are those that return to themselves after evolution — a dynamical definition of stability.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Practical tools for IDWT</h2>
+  <div class="prose">
+    <ul>
+      <li>Use braid distance (inversion count) as a cheap proxy for transition amplitudes.</li>
+      <li>Enumerate sum-free subsets using the noncrossing lattice structure.</li>
+      <li>Visualize the tower on the permutohedron for \(d=3\).</li>
+      <li>Turn on Hall-Littlewood \(t\) to gently resolve minor collisions while preserving positivity.</li>
+      <li>Run box-ball evolution to test dynamical stability of candidate modes.</li>
+    </ul>
+    <p>These structures continue to shrink the physics input: the single scale \(m_{\rm scale}\) plus the geometry of the lattice is increasingly sufficient.</p>
+    <p>See also <a href="/articles/deeper-floors.html">Deeper Floors of the Binomial Lattice</a>, <a href="/articles/inevitable-structure.html">Inevitable Structure</a>, and <a href="/articles/combinatorial-skeleton.html">The Combinatorial Skeleton</a>.</p>
+  </div>
+
+</section>
+</main>
+
+<footer class="article-footer">
+  <p><a href="/articles/">← Back to Articles</a></p>
+</footer>
+
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

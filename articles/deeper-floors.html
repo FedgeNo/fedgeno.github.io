@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The hockey-stick number S(n,d) lives in even deeper mathematical structures: Ehrhart theory, order complexes, RSK correspondence, A_d root systems, and the binomial Hopf algebra. Each provides powerful theorems for the IDWT generation tower.">
+<meta name="keywords" content="IDWT, Ehrhart polynomial, order complex, RSK, root systems, binomial Hopf algebra, combinatorial geometry">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/deeper-floors.html">
+<meta property="og:title" content="Deeper Floors of the Binomial Lattice">
+<meta property="og:description" content="S(n,d) lives in Ehrhart theory, order complexes, RSK tableaux, A_d root systems, and the binomial Hopf algebra.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Deeper Floors of the Binomial Lattice">
+<meta name="twitter:description" content="Even deeper mathematical structures underlie the hockey-stick lattice in IDWT.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>Deeper Floors of the Binomial Lattice</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · Foundations</div>
+  <h1>Deeper Floors of the Binomial Lattice</h1>
+  <p class="sub">We have pressed the hockey-stick number \(S(n,d)\) through many floors of combinatorics. Below them lie still richer structures — Ehrhart theory, topological order complexes, RSK tableaux, \(A_d\) root systems, and the binomial Hopf algebra — each supplying clean theorems for the generation tower and mass spectrum.</p>
+</header>
+
+<main>
+<section>
+
+  <h2>Ehrhart \(h^*\)-vectors and lattice polytopes</h2>
+  <div class="prose">
+    <p>\(S(n,d)\) is the Ehrhart polynomial of the standard \(d\)-simplex. Its \(h^*\)-vector is the trivial \((1,0,0,\dots,0)\). This triviality is why the mass formula is so remarkably clean.</p>
+    <p>Any proposed modification of the spectrum must keep the \(h^*\)-vector nonnegative and unimodal to remain geometrically meaningful. Negative coefficients immediately flag that one has left the world of lattice polytopes.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Order complexes — spherical topology</h2>
+  <div class="prose">
+    <p>The poset of weak compositions has an order complex homeomorphic to a \((d-1)\)-sphere, with \(S(n,d)\) facets. The generation tower therefore triangulates a sphere.</p>
+    <p>This explains the trivial automorphism group (spheres have highly constrained symmetries) and the absence of loops in decay chains via vanishing higher Betti numbers.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>RSK correspondence and fusion rules</h2>
+  <div class="prose">
+    <p>\(S(n,d)\) counts semistandard Young tableaux of shape \((n-1)\) with entries \(\le d+1\). The Robinson–Schensted–Knuth algorithm gives a deterministic combinatorial fusion rule for combining modes.</p>
+    <p>The \(5+6=11\) collision is revealed as the natural Pieri rule acting on tableaux — geometrically expected rather than accidental.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Root systems of type \(A_d\)</h2>
+  <div class="prose">
+    <p>Each mode corresponds to a weight in the \(A_d\) root lattice. The hockey-stick recursion is the Kostant partition function. The Weyl group \(S_{d+1}\) explains the observed symmetry across sectors.</p>
+    <p>The full Lie-theoretic toolkit (Weyl character formula, Kostant multiplicity) now becomes available for degeneracies and generating functions.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>The binomial Hopf algebra</h2>
+  <div class="prose">
+    <p>The divided-power Hopf algebra with basis \(x_{n,d}\) has structure constants given by the hockey-stick numbers. Its antipode yields the algebraic inverse of the mass law via signed Möbius inversion.</p>
+    <p>This gives a closed-form, search-free inverse and explains the lack of preferred direction in the generation graph via cocommutativity.</p>
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Implications for IDWT</h2>
+  <div class="prose">
+    <p>These deeper floors show that the rigid 15-mode tower is not a numerical accident but the natural realization of structures that appear across polytopes, topology, tableaux, Lie theory, and Hopf algebras.</p>
+    <p>We now have powerful new levers: Ehrhart tests for integrality, RSK for fusion, Hopf antipodes for exact inverses, and root-system methods for symmetries — all purely combinatorial.</p>
+    <p>See also <a href="/articles/inevitable-structure.html">Inevitable Structure</a>, <a href="/articles/further-shelves.html">Further Shelves</a>, and <a href="/articles/combinatorial-skeleton.html">The Combinatorial Skeleton</a>.</p>
+  </div>
+
+</section>
+</main>
+
+<footer class="article-footer">
+  <p><a href="/articles/">← Back to Articles</a></p>
+</footer>
+
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

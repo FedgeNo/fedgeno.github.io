@@ -241,6 +241,15 @@ The seed n_s = 4 and the trivially-forced ground state n_d = 1 are algebraically
 
 At the vacuum stability coupling g₃₃ = 8√7, the effective energy has local minima at exactly n=1 and n=4 and nowhere else. The seeds are not chosen — they are the fixed points.
 
+⭐ **Kummer p-adic characterization of the seed.** Kummer's theorem states that the 2-adic valuation $v_2\!\bigl(\binom{n+d-1}{d}\bigr)$ equals the number of carries when adding $d$ and $n-1$ in binary. Applied to the two seed evaluations:
+
+| Seed evaluation | Binary addition | Carries | $v_2$ |
+|---|---|---|---|
+| $S(n_s,3) = S(4,3) = 20 = 4\times5$ | $3+3$ (011+011) | **2** | $v_2(20)=2$ |
+| $S(n_u,4) = S(3,4) = 15 = 3\times5$ | $4+2$ (100+010) | **0** | $v_2(15)=0$ |
+
+The seed pair $(n_s=4,\,d=3)$ is the unique pair for which the d=3 evaluation has carry-count 2 (divisible by 4 but not 8) while the d=4 evaluation has carry-count 0 (odd). In d=3, the initial segment $n=1,2,3$ has strictly distinct $v_2$ values $\{0,2,1\}$; $n_s=4$ is the first index where $v_2$ repeats ($v_2(S(4,3))=2 = v_2(S(2,3))$), marking the seed as the boundary of the distinct-valuation segment. This gives a p-adic characterization of $n_s=4$ complementary to the topological route ($\chi(\mathbb{CP}^3)=4$) and the algebraic route ($S(n,4)=35$ unique solution). It also predicts which sector masses are odd: $m_u\propto S(3,4)=15$ (odd), $m_d\propto S(1,3)=1$ (odd), while $m_s\propto S(4,3)=20$ (divisible by 4), and $m_e\propto S(13,6)=18564$ (divisible by 4 since $v_2(18564)=2$).
+
 ---
 
 ## 6. The Complete Index Derivation — Hockey-Stick All the Way Down

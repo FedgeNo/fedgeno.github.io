@@ -1312,10 +1312,10 @@ _mass_ratios = [
      _Ss["mu"]/_Ss["e"], 206.7683,
      f"S(n_μ,6)/S(n_e,6) = {_Ss['mu']}/{_Ss['e']}"),
     ("m_τ / m_μ",
-     _Ss["tau"]/_Ss["mu"]*_dy, 16.8171,
+     _Ss["tau"]/_Ss["mu"]*_dy, 16.8177,    # PDG 2024: 1776.93/105.6584
      f"S(n_τ,10)/S(n_μ,6)xBR = {_Ss['tau']}/{_Ss['mu']}xBR"),
     ("m_τ / m_e",
-     _Ss["tau"]/_Ss["e"]*_dy, 3477.22,
+     _Ss["tau"]/_Ss["e"]*_dy, 3477.37,     # PDG 2024: 1776.93/m_e
      f"S(n_τ,10)/S(n_e,6)xBR = {_Ss['tau']}/{_Ss['e']}xBR"),
     ("m_ν₃ / m_ν₁",
      _Ss["n3"]/_Ss["n1"], None,
@@ -2270,7 +2270,7 @@ def _luck(pred, obs, sig, n, d):
 _me = 0.51099895
 sig_mu_e  = _luck(S(35, 6) / S(13, 6), 206.7682827, 3e-6, 35, 6)
 sig_tau_e = _luck(S(23, 10) / S(13, 6) * (1 + 1 / 1680),
-                  1776.86 / _me, 0.12 / _me, 23, 10)
+                  1776.93 / _me, 0.09 / _me, 23, 10)  # PDG 2024
 _zw = 91.1880 / 80.3692
 _hw = 125.20 / 80.3692
 sig_Z_W = _luck(S(81, 2) / S(76, 2), _zw,
@@ -2281,6 +2281,215 @@ sig_joint = sig_mu_e * sig_tau_e * sig_Z_W * sig_H_W
 
 assert sig_joint < 1e-8                 # spectrum is not a flexible fit
 assert sig_mu_e < 1e-3 and sig_tau_e < 1e-3
+
+
+# =============================================================================
+# STEP 39 -- SIGNIFICANCE: EXACT JOINT p + RANDOM-THEORY MC (Part 5 sec 2a)
+# =============================================================================
+# Upgrade of STEP 38's heuristic product into two proper null models.
+#
+# NULL A (random target position): H0 = each measured value is unrelated
+# to the simplex grid, i.e. sits at a uniformly random position in its
+# local inter-rung cell.  Normalized distance to the nearest rung is then
+# p ~ U(0,1); with measurement floor f the per-quantity luck is
+# L = max(p, f).  Statistic X = -sum ln L_i.  Joint p = P(X >= X_obs),
+# computed two ways: Fisher's closed form P(Gamma(k,1) >= X) (exact with
+# no floors; floors only thin the tail, so Fisher is CONSERVATIVE), and
+# the exact tail of the convolution of the per-quantity densities
+# (exp(-x) on (0,-ln f) plus an atom of mass f at -ln f).
+#
+# Headline set -- pre-stated inclusion rule, not closeness: dimensionless,
+# parameter-free, and the measurement RESOLVES the grid (sigma < g/2).
+# The 4 STEP-38 ratios pass, plus sin th_C, m_s/m_d, m_t/m_c, and
+# dm2_31/dm2_21.  The three PMNS angles and m_c/m_u FAIL the resolution
+# test (effective grid finer than current errors): they carry no
+# evidential weight either way under NULL A and are consistency checks.
+# Each ratio is scored on the grid of ONE free index, the other being
+# the anchor/unit (e = global unit; W anchors d=2; d anchors s/d; c
+# anchors t/c).  Grid convention: conservative local spacing
+# min over n -> n+-1 (STEP 38 uses the upward gap d/n; both stated).
+#
+# NULL B (random theories): every mode index drawn uniformly from its
+# window (all n with sector mass <= 1 TeV at the seed-chain scales;
+# d=5: <= 1 eV); all 12 quantities recomputed per draw (g55 fixed by the
+# seeds); score T = sum ln eps_eff and count draws doing at least as
+# well as IDWT.  Fixed seed, 10^6 draws here; 8x10^6 total in
+# claude/significance_mc.py give p_B < 5e-7 (95% CL) and best random
+# T = -29.8 vs IDWT -65.7, robust to halving/doubling the windows.
+#
+# Measured inputs: PDG 2024 (m_tau 1776.93(9); m_W 80369.2(133);
+# m_Z 91188.0(20); m_H 125200(110); V_us 0.2245(8); m_t 172760(300);
+# m_c 1270(20); dm2_31 2.530(28)e-3; dm2_21 7.42(20)e-5) and FLAG 2024
+# m_s/m_d = 19.81(13) from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8).
+# (Part 5 sec 2a; Appendix A sec 24; script claude/significance_mc.py)
+
+def _s39_cab(n):                         # Cabibbo, free d=3 strange index
+    return (1 + 1.0 / (12 * S(n, 3))) / math.sqrt(S(n, 3))
+
+def _s39_dm2(n):                         # dm2_31/dm2_21, free n_nu3
+    _m2 = S(15, 5) / S(10, 5)
+    _m3 = S(n, 5) / S(10, 5) * (1 + delta_nu3)
+    return (_m3 ** 2 - 1) / (_m2 ** 2 - 1)
+
+# (name, obs, sigma_rel, free index n, prediction fn)
+_s39_q = [
+    ("m_mu/m_e ", 206.7682830, 2.2e-8, 35,
+     lambda n: S(n, 6) / S(13, 6)),
+    ("m_tau/m_e", 1776.93 / _me, 0.09 / 1776.93, 23,
+     lambda n: S(n, 10) / S(13, 6) * (1 + 1 / 1680.0)),
+    ("m_Z/m_W  ", 91188.0 / 80369.2,
+     math.hypot(2.0 / 91188.0, 13.3 / 80369.2), 81,
+     lambda n: S(n, 2) / S(76, 2)),
+    ("m_H/m_W  ", 125200.0 / 80369.2,
+     math.hypot(110.0 / 125200.0, 13.3 / 80369.2), 95,
+     lambda n: S(n, 2) / S(76, 2)),
+    ("sin th_C ", 0.2245, 0.0008 / 0.2245, 4, _s39_cab),
+    ("m_s/m_d  ", 19.81, 0.13 / 19.81, 4,
+     lambda n: S(n, 3) / S(1, 3)),
+    ("m_t/m_c  ", 172760.0 / 1270.0,
+     math.hypot(300.0 / 172760.0, 20.0 / 1270.0), 72,
+     lambda n: S(n, 4) / S(20, 4) * (1 - epsilon) ** 7),
+    ("dm231/221", 2.530e-3 / 7.42e-5,
+     math.hypot(0.028 / 2.530, 0.20 / 7.42), 22, _s39_dm2),
+]
+
+_s39_rows, _s39_lucks, _s39_floors = [], [], []
+for _nm, _ob, _sg, _n, _fn in _s39_q:
+    _pr = _fn(_n)
+    _ef = abs(_pr - _ob) / _ob
+    _ee = max(_ef, _sg)
+    _g = min(abs(_fn(_n + 1) / _pr - 1), abs(_fn(_n - 1) / _pr - 1))
+    assert _sg < _g / 2          # inclusion rule: measurement resolves grid
+    _f = min(1.0, 2 * _sg / _g)
+    _L = min(1.0, 2 * _ee / _g)
+    _s39_rows.append((_nm, _pr, _ob, _ef, _g, _L))
+    _s39_lucks.append(_L)
+    _s39_floors.append(_f)
+
+s39_prod = math.prod(_s39_lucks)
+s39_X = -math.log(s39_prod)
+_k39 = len(_s39_lucks)
+s39_p_fisher = math.exp(-s39_X) * sum(s39_X ** _j / math.factorial(_j)
+                                      for _j in range(_k39))
+
+# exact tail: convolve per-quantity densities of x = -ln L (numpy FFT)
+_s39_dx, _s39_nb = 0.0005, int(90.0 / 0.0005)
+_s39_xs = np.arange(_s39_nb) * _s39_dx
+_s39_pmf = None
+for _f in _s39_floors:
+    _xc = -math.log(_f)
+    _p = np.exp(-_s39_xs) * _s39_dx
+    _p[_s39_xs >= _xc] = 0.0
+    _p[min(int(_xc / _s39_dx), _s39_nb - 1)] += _f
+    _p /= _p.sum()
+    if _s39_pmf is None:
+        _s39_pmf = _p
+    else:
+        _no = len(_s39_pmf) + len(_p) - 1
+        _nf = 1 << (_no - 1).bit_length()
+        _s39_pmf = np.fft.irfft(np.fft.rfft(_s39_pmf, _nf) *
+                                np.fft.rfft(_p, _nf), _nf)[:_no]
+        _s39_pmf = np.maximum(_s39_pmf, 0.0)
+s39_p_exact = float(_s39_pmf[int(s39_X / _s39_dx):].sum())
+
+def _s39_sigma(p):                       # one-sided p -> sigma equivalent
+    _lo, _hi = 0.0, 40.0
+    for _ in range(200):
+        _md = (_lo + _hi) / 2
+        if 0.5 * math.erfc(_md / math.sqrt(2)) > p:
+            _lo = _md
+        else:
+            _hi = _md
+    return (_lo + _hi) / 2
+
+# core-4 subset (the STEP 38 set) under the same combination
+_s39_X4 = -math.log(math.prod(_s39_lucks[:4]))
+s39_p4 = math.exp(-_s39_X4) * sum(_s39_X4 ** _j / math.factorial(_j)
+                                  for _j in range(4))
+
+# consistency checks (grid not resolved by measurement; pulls only)
+_s39_s23 = (1 - g55) / 2 + g55 * S(23, 10) / (S(35, 6) + S(23, 10))
+_s39_s12 = (1 - g55) / 3 + g55 * S(10, 5) / (S(10, 5) + S(15, 5))
+_s39_s13 = g55 * (_s39_s23 - 0.5) * math.log(S(23, 10) / S(35, 6))
+_s39_cu = S(20, 4) / S(3, 4) * (1 - epsilon) ** 3
+_s39_checks = [
+    ("sin2th23", _s39_s23, 0.553, 0.020),
+    ("sin2th12", _s39_s12, 0.307, 0.012),
+    ("sin2th13", _s39_s13, 0.0220, 0.0006),
+    ("m_c/m_u ", _s39_cu, 1270.0 / 2.16,
+     (1270.0 / 2.16) * math.hypot(20.0 / 1270.0, 0.38 / 2.16)),
+]
+
+# NULL B -- random-theory MC (fixed seed; deterministic)
+_s39_rng = np.random.default_rng(20260609)
+_s39_ms = {2: 80369.2 / S(76, 2), 3: 4.702, 4: 2.177 / S(3, 4),
+           6: _me / S(13, 6), 10: _me / S(13, 6),
+           5: 1.487e-9 / S(10, 5)}        # d=5 scale in MeV; cap 1e-6
+_s39_cap = {2: 1e6, 3: 1e6, 4: 1e6, 6: 1e6, 10: 1e6, 5: 1e-6}
+_s39_nmx = {}
+for _d in _s39_ms:
+    _n = 1
+    while S(_n + 1, _d) * _s39_ms[_d] <= _s39_cap[_d]:
+        _n += 1
+    _s39_nmx[_d] = _n
+_s39_tab = {_d: np.array([0.0] + [float(S(_n, _d))
+                                  for _n in range(1, _s39_nmx[_d] + 1)])
+            for _d in _s39_nmx}
+
+_s39_obs = [(_q[1], _q[2]) for _q in _s39_q] + \
+           [(c[2], c[3] / c[2]) for c in _s39_checks]
+
+def _s39_T(preds):
+    _T = np.zeros(preds[0].shape)
+    for (_ob, _sg), _pr in zip(_s39_obs, preds):
+        _T += np.log(np.maximum(np.abs(_pr - _ob) / _ob, _sg))
+    return _T
+
+_s39_pidwt = [np.array([float(v)]) for v in (
+    S(35, 6) / S(13, 6), S(23, 10) / S(13, 6) * (1 + 1 / 1680.0),
+    S(81, 2) / S(76, 2), S(95, 2) / S(76, 2), _s39_cab(4),
+    S(4, 3) / S(1, 3), S(72, 4) / S(20, 4) * (1 - epsilon) ** 7,
+    _s39_dm2(22), _s39_s23, _s39_s12, _s39_s13, _s39_cu)]
+s39_T_idwt = float(_s39_T(_s39_pidwt)[0])
+
+s39_NB = 1_000_000
+def _s39_draw(d, m):
+    return _s39_rng.integers(1, _s39_nmx[d] + 1, m)
+_ne, _nmu, _nta = (_s39_draw(6, s39_NB), _s39_draw(6, s39_NB),
+                   _s39_draw(10, s39_NB))
+_nw, _nz, _nh = (_s39_draw(2, s39_NB), _s39_draw(2, s39_NB),
+                 _s39_draw(2, s39_NB))
+_nsq, _ndq = _s39_draw(3, s39_NB), _s39_draw(3, s39_NB)
+_nc, _nt, _nu_ = (_s39_draw(4, s39_NB), _s39_draw(4, s39_NB),
+                  _s39_draw(4, s39_NB))
+_n1, _n2, _n3 = (_s39_draw(5, s39_NB), _s39_draw(5, s39_NB),
+                 _s39_draw(5, s39_NB))
+_T2, _T3, _T4 = _s39_tab[2], _s39_tab[3], _s39_tab[4]
+_T5, _T6, _T10 = _s39_tab[5], _s39_tab[6], _s39_tab[10]
+_m2r, _m3r = _T5[_n2] / _T5[_n1], _T5[_n3] / _T5[_n1]
+_s23r = (1 - g55) / 2 + g55 * _T10[_nta] / (_T6[_nmu] + _T10[_nta])
+_s12r = (1 - g55) / 3 + g55 * _T5[_n1] / (_T5[_n1] + _T5[_n2])
+with np.errstate(divide="ignore", invalid="ignore"):
+    _s13r = g55 * (_s23r - 0.5) * np.log(_T10[_nta] / _T6[_nmu])
+    _dm2r = (_m3r ** 2 - 1) / np.where(_m2r == 1.0, np.nan,
+                                       _m2r ** 2 - 1)
+_s39_pr = [_T6[_nmu] / _T6[_ne], _T10[_nta] / _T6[_ne],
+           _T2[_nz] / _T2[_nw], _T2[_nh] / _T2[_nw],
+           (1 + 1 / (12 * _T3[_nsq])) / np.sqrt(_T3[_nsq]),
+           _T3[_nsq] / _T3[_ndq], _T4[_nt] / _T4[_nc],
+           np.nan_to_num(_dm2r, nan=1e9), _s23r, _s12r,
+           np.abs(_s13r), _T4[_nc] / _T4[_nu_]]
+_s39_Tr = _s39_T(_s39_pr)
+s39_nB_hits = int((_s39_Tr <= s39_T_idwt).sum())
+s39_T_best = float(_s39_Tr.min())
+del (_s39_Tr, _s39_pr, _ne, _nmu, _nta, _nw, _nz, _nh, _nsq, _ndq,
+     _nc, _nt, _nu_, _n1, _n2, _n3, _m2r, _m3r, _s23r, _s12r, _s13r,
+     _dm2r)
+
+assert s39_p_exact < 1e-9            # joint coincidence beyond 6 sigma
+assert s39_p_fisher < 1e-6           # conservative bound still > 4.8 sig
+assert s39_nB_hits == 0              # no random theory matches as well
+assert s39_T_best > s39_T_idwt + 20  # ... by a margin > e^20
 
 
 # =============================================================================
@@ -3573,6 +3782,48 @@ print(f"  joint (4 independent) = {sig_joint:.2e}"
       f"   (~1 in {1/sig_joint:.1e})")
 print("  => spectrum is not a flexible fit; ~5sigma after look-elsewhere.")
 print("  Full weight hinges on index-forcing (T0.5): forced => total.")
+
+
+# =============================================================================
+# STEP 39 -- OUTPUT: EXACT JOINT p + RANDOM-THEORY MC
+# =============================================================================
+print("\n" + "="*66)
+print("STEP 39 -- SIGNIFICANCE: EXACT JOINT p + RANDOM-THEORY MC")
+print("="*66)
+print("NULL A -- random target position; headline set (rule: param-free,")
+print("dimensionless, measurement resolves grid sigma < g/2):")
+print(f"  {'quantity':10s} {'IDWT':>10s} {'obs':>10s}"
+      f" {'eps_fit':>9s} {'grid g':>7s} {'L':>9s}")
+for _nm, _pr, _ob, _ef, _g, _L in _s39_rows:
+    print(f"  {_nm:10s} {_pr:10.4f} {_ob:10.4f}"
+          f" {_ef:9.2e} {_g:7.4f} {_L:9.2e}")
+print(f"  product = {s39_prod:.2e}   X_obs = -ln(prod) = {s39_X:.2f}")
+print(f"  joint p (exact convolution) = {s39_p_exact:.2e}"
+      f"  ({_s39_sigma(s39_p_exact):.1f} sigma)")
+print(f"  joint p (Fisher, conservative) = {s39_p_fisher:.2e}"
+      f"  ({_s39_sigma(s39_p_fisher):.1f} sigma)")
+_s39_le = 1 - (1 - s39_p_exact) ** 100
+print(f"  look-elsewhere x100: p ~ {_s39_le:.1e}"
+      f"  ({_s39_sigma(_s39_le):.1f} sigma)")
+print(f"  core-4 subset (STEP 38 set): Fisher p = {s39_p4:.2e}"
+      f"  ({_s39_sigma(s39_p4):.1f} sigma)")
+print("consistency checks (grid finer than current errors -- no NULL-A")
+print("weight either way; pulls in sigma):")
+for _nm, _pr, _ob, _sg in _s39_checks:
+    print(f"  {_nm}: pred {_pr:9.4f}  obs {_ob:9.4f}"
+          f"  pull {(_pr - _ob) / _sg:+.2f}")
+print("NULL B -- random theories (indices uniform in windows, scales")
+print("fixed by seed chain; 12 quantities recomputed per draw):")
+print("  windows: " + "  ".join(f"d={_d}:1..{_s39_nmx[_d]}"
+                                for _d in sorted(_s39_nmx)))
+print(f"  draws = {s39_NB:.0e} (fixed seed);"
+      f" T <= T_IDWT: {s39_nB_hits}  => p_B < {3.0/s39_NB:.0e}")
+print(f"  best random T = {s39_T_best:.1f} vs T_IDWT = {s39_T_idwt:.1f}"
+      f"  (gap {s39_T_best - s39_T_idwt:.1f} ln units)")
+print("  8e6 draws (claude/significance_mc.py): p_B < 5e-7 (95% CL),")
+print("  robust to halving/doubling the index windows.")
+print("  => no random index assignment reproduces the measured set;")
+print("     the residual question is index-FORCING (T0.5), not fit.")
 
 
 # =============================================================================

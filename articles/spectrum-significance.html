@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Could any integer formula fit the particle masses? IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. A null-model estimate puts the joint coincidence near one in a billion.">
+<meta name="description" content="Could any integer formula fit the particle masses? IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. An exact joint p-value and a random-theory Monte Carlo put the coincidence past five sigma.">
 <meta name="keywords" content="IDWT, infinite-dimensional wave theory, statistical significance, null model, particle mass spectrum, simplex number, overfitting, mass ratios, look-elsewhere">
 <meta name="author" content="Fedge No">
 <meta property="og:type" content="website">
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "Article",
   "name": "Is the Spectrum a Fit? — IDWT",
-  "description": "IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. A null-model estimate puts the joint coincidence near one in a billion.",
+  "description": "IDWT's scales are derived, not refit, so each mass is a single-integer choice on a coarse grid — and the precisely-measured dimensionless ratios sit on that grid far too tightly to be a flexible fit. An exact joint p-value and a random-theory Monte Carlo put the coincidence past five sigma.",
   "url": "https://fedgeno.github.io/articles/spectrum-significance",
   "author": {
     "@type": "Person",
@@ -121,28 +121,36 @@
         </thead>
         <tbody>
           <tr><td>\(m_\mu/m_e = S(35,6)/S(13,6)\)</td><td>206.765</td><td>206.768</td><td>\(1.7\times10^{-5}\)</td><td>0.17</td><td>\(2.0\times10^{-4}\)</td></tr>
-          <tr><td>\(m_\tau/m_e = \frac{S(23,10)}{S(13,6)}(1{+}\tfrac{1}{1680})\)</td><td>3477.19</td><td>3477.23</td><td>\(9.7\times10^{-6}\)</td><td>0.43</td><td>\(3.1\times10^{-4}\)</td></tr>
+          <tr><td>\(m_\tau/m_e = \frac{S(23,10)}{S(13,6)}(1{+}\tfrac{1}{1680})\)</td><td>3477.19</td><td>3477.37</td><td>\(5.1\times10^{-5}\)</td><td>0.43</td><td>\(2.3\times10^{-4}\)</td></tr>
           <tr><td>\(m_Z/m_W = S(81,2)/S(76,2)\)</td><td>1.13500</td><td>1.13461</td><td>\(3.4\times10^{-4}\)</td><td>0.025</td><td>\(2.7\times10^{-2}\)</td></tr>
           <tr><td>\(m_H/m_W = S(95,2)/S(76,2)\)</td><td>1.55844</td><td>1.55781</td><td>\(4.1\times10^{-4}\)</td><td>0.021</td><td>\(8.5\times10^{-2}\)</td></tr>
         </tbody>
       </table>
     </div>
-    <p>Multiplying the four independent luck factors gives a joint figure of about \(1.5\times10^{-10}\) — roughly one in seven billion. Allow a generous correction for the fact that we singled these quantities out — say a hundred quantities we might have looked at instead — and it is still around \(10^{-8}\), the kind of number physicists call a five-sigma result. The lepton ratios carry most of the weight: a hit to better than one part in \(10^5\) on a grid spaced by tens of percent is the part that a loose fit cannot manufacture.</p>
+    <p>The tau row uses the current PDG measurement (\(1776.93\pm0.09\) MeV), and its \(\varepsilon\) is the measurement's own error bar — the prediction lands inside it, on a grid rung spaced 43% from its neighbours. Multiplying the four independent luck factors gives a joint figure of about \(1.1\times10^{-10}\) — roughly one in nine billion. The lepton ratios carry most of the weight: a hit to better than one part in \(10^4\) on a grid spaced by tens of percent is the part that a loose fit cannot manufacture.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The full test</h2>
+  <div class="prose">
+    <p>Multiplying luck factors is an estimate, not a likelihood, so the claim is put through two proper statistical tests (computed in <code>idwt.py</code> STEP 39). The first makes the "luck" idea exact. If the measured values had nothing to do with the simplex grid, each would sit at a random position between two rungs — that is the null hypothesis, and the probability of the whole set sitting as close to the rungs as it does can be computed exactly. The quantity list is also widened by a rule fixed in advance: every dimensionless, parameter-free quantity whose measurement is precise enough to tell neighbouring rungs apart. That brings in the Cabibbo angle, the strange-to-down quark mass ratio, the top-to-charm ratio, and the neutrino mass-splitting ratio, for eight quantities in all. The verdict: a joint probability of \(9\times10^{-11}\) — six sigma — or \(1.5\times10^{-7}\) (five sigma) under the most conservative treatment of the measurement errors. Allowing generously for a hundred quantities that might have been examined instead still leaves about \(10^{-8}\).</p>
+    <p>The second test is the direct one: build random rival theories and let them compete. Each rival keeps everything IDWT derives — the sectors, the scales, the coupling structure — but has its mode indices drawn at random from all values that keep the particles below 1 TeV (neutrinos below 1 eV). Every quantity is then recomputed for the rival, including the three neutrino-mixing angles, and the rival's overall agreement with experiment is scored against IDWT's. In 8.4 million random theories, none came close: the best fell short by a factor of about \(10^{15}\) in joint residual, and the result is unchanged when the index windows are halved or doubled. The tau-to-electron ratio alone was never matched in any draw.</p>
   </div>
 </section>
 
 <section>
   <h2>What this does and does not show</h2>
   <div class="prose">
-    <p>It does not prove IDWT. The luck score is an order-of-magnitude estimate, not a rigorous likelihood; a proper version draws random alternative theories and counts how often they match the whole dataset as well, and that calculation is still to be done. The result is conditional on the scales genuinely being derived rather than quietly refit — which they are, in the published computation. And the clean quantities were chosen by a principled rule (precisely measured, parameter-free), not by closeness; the theory also has looser predictions, and those stand alongside these rather than being hidden.</p>
-    <p>What it does show is enough to retire the first objection. The spectrum is not a "fit anything" structure. Even handed every index for free, the precisely-measured dimensionless ratios sit on the simplex grid far too tightly for a flexible formula, by something like nine orders of magnitude past chance.</p>
+    <p>It does not prove IDWT. The result is conditional on the scales genuinely being derived rather than quietly refit — which they are, in the published computation. The clean quantities were chosen by a principled rule (precisely measured, parameter-free), not by closeness; the theory also has looser predictions, and those stand alongside these rather than being hidden. And the set contains real tension as well as agreement: the strange-to-down ratio sits 1.5 sigma from the lattice value, and it is scored as found.</p>
+    <p>What it does show is enough to retire the first objection. The spectrum is not a "fit anything" structure. Even handed every index for free, the precisely-measured dimensionless ratios sit on the simplex grid far too tightly for a flexible formula — and random integer assignments from the same family never reproduce the data at all.</p>
   </div>
 </section>
 
 <section>
   <h2>Where the real weight sits</h2>
   <div class="prose">
-    <p>There is a sharper conclusion underneath the number, and it points at the one thing still open. The whole estimate above bent over backwards to treat each mode index as a free choice. But IDWT's actual claim is stronger: the indices are not chosen at all — they are forced from \(n_s=4\) by the <a href="/articles/generation-tower.html">generation-tower</a> arithmetic. If that forcing holds, the accounting collapses to two inputs producing the entire spectrum, and the significance is no longer one in a billion but essentially total. If it does not, the masses are a constrained fit and only the tight grid hits carry weight — still the \(10^{-8}\) above, but no more.</p>
+    <p>There is a sharper conclusion underneath the number, and it points at the one thing still open. The whole estimate above bent over backwards to treat each mode index as a free choice. But IDWT's actual claim is stronger: the indices are not chosen at all — they are forced from \(n_s=4\) by the <a href="/articles/generation-tower.html">generation-tower</a> arithmetic. If that forcing holds, the accounting collapses to two inputs producing the entire spectrum, and the significance is no longer one in billions but essentially total. If it does not, the masses are a constrained fit and only the tight grid hits carry weight — still the six-sigma result above, but no more.</p>
     <p>So the entire evidential weight of the framework funnels into a single question: are the mode indices forced, or fitted? That is exactly the part IDWT marks as not yet fully derived. This analysis does not answer it — but it shows why it is the question worth everything. Settle the index-forcing and an already-improbable postdiction becomes a theory of the spectrum with almost nothing put in by hand. Everything else is commentary next to that.</p>
   </div>
 </section>

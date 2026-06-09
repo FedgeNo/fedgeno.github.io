@@ -216,20 +216,49 @@ Using m_e = 0.511 MeV as the sole unit reference:
 
 The standard objection to any mass formula built from integers is that integers are flexible: with a tunable integer per particle and an adjustable scale, almost any spectrum can be reached. Two facts of the IDWT construction answer it quantitatively. First, the sector scales are not free — each is fixed by m_e and n_s through the coupling chain (Part 2 §10), not refit per sector — so once they are set, predicting a mass is choosing one integer on a fixed ladder, with no continuous dial. Second, the simplex ladder is coarse: neighbouring rungs differ by S(n+1,d)/S(n,d) − 1, which is ≈17% at the muon (d=6) and ≈43% at the tau (d=10). A measured value at a random position between rungs would put the nearest rung off by ~¼ of the gap; landing within parts per million is not generic.
 
-This scores each prediction. For a parameter-free dimensionless ratio (sector scale cancels) fixed by one mode index, let ε = |IDWT − obs|/obs and let g = S(n+1,d)/S(n,d) − 1 be the grid spacing at that rung; the luck factor L = min(1, 2ε/g) estimates the chance the nearest available integer lands within ε of a randomly placed target. Every mode index is treated as a free integer — the maximally conservative stance, granting nothing to the claim that the indices are forced.
+This scores each prediction. For a parameter-free dimensionless ratio (sector scale cancels) fixed by one mode index, let ε = |IDWT − obs|/obs, floored at the relative measurement error (a fit cannot be claimed tighter than the measurement resolves), and let g = S(n+1,d)/S(n,d) − 1 be the grid spacing at that rung; the luck factor L = min(1, 2ε/g) estimates the chance the nearest available integer lands within ε of a randomly placed target. Every mode index is treated as a free integer — the maximally conservative stance, granting nothing to the claim that the indices are forced.
 
 | Quantity | IDWT | Measured | ε | grid g | L = 2ε/g |
 |---|---|---|---|---|---|
 | m_μ/m_e = S(35,6)/S(13,6) | 206.765 | 206.768 | 1.7×10⁻⁵ | 0.17 | 2.0×10⁻⁴ |
-| m_τ/m_e = $\frac{S(23,10)}{S(13,6)}(1{+}\frac{1}{1680})$ | 3477.19 | 3477.23 | 9.7×10⁻⁶ | 0.43 | 3.1×10⁻⁴ |
+| m_τ/m_e = $\frac{S(23,10)}{S(13,6)}(1{+}\frac{1}{1680})$ | 3477.19 | 3477.37 | 5.1×10⁻⁵ | 0.43 | 2.3×10⁻⁴ |
 | m_Z/m_W = S(81,2)/S(76,2) | 1.13500 | 1.13461 | 3.4×10⁻⁴ | 0.025 | 2.7×10⁻² |
 | m_H/m_W = S(95,2)/S(76,2) | 1.55844 | 1.55781 | 4.1×10⁻⁴ | 0.021 | 8.5×10⁻² |
 
-The four independent luck factors multiply to ≈ 1.5×10⁻¹⁰ (≈ 1 in 7×10⁹); a generous look-elsewhere correction (×100 candidate quantities) leaves ≈ 1.5×10⁻⁸, a ~5σ-scale result. The lepton ratios dominate: a sub-10⁻⁵ hit on a 17–43% grid is what a flexible fit cannot manufacture. (Computed in `idwt.py` STEP 38; exploratory script `claude/significance_audit.py`.)
+The τ row uses PDG 2024 (m_τ = 1776.93 ± 0.09 MeV); its ε is the measurement floor — the fit residual is 4.9×10⁻⁵ (−0.9σ). The four independent luck factors multiply to ≈ 1.1×10⁻¹⁰ (≈ 1 in 9×10⁹). The lepton ratios dominate: a sub-10⁻⁴ hit on a 17–43% grid is what a flexible fit cannot manufacture. (Computed in `idwt.py` STEP 38; exploratory script `claude/significance_audit.py`.)
 
-**Honest scope.** The L = 2ε/g luck model is an order-of-magnitude estimate, not a rigorous likelihood (a Monte-Carlo null drawing random allowed index sets is the airtight version, not yet done). The figure is conditional on the scales being derived, not refit (they are). The quantities were selected by a principled rule — precisely measured and parameter-free — not by closeness; looser predictions exist (g_A +4%, f_π +2.1%, nucleon moments using fitted parameters, §3) and stand alongside these. The result retires the "fit anything" objection: the spectrum is not a flexible structure.
+**Honest scope.** The L = 2ε/g luck model treats each quantity separately; multiplying the four L values overstates the joint significance because a proper combination must account for the many ways a set of quantities can be jointly "this lucky." §2b does the combination properly and adds the Monte-Carlo null over random index sets. The figure is conditional on the scales being derived, not refit (they are). The quantities were selected by a principled rule — precisely measured and parameter-free — not by closeness; looser predictions exist (g_A +4%, f_π +2.1%, nucleon moments using fitted parameters, §3) and stand alongside these. The result retires the "fit anything" objection: the spectrum is not a flexible structure.
 
-**Where the weight sits.** The estimate above treats every mode index as free. IDWT's actual claim is that the indices are forced from n_s by the generation-tower arithmetic (Part 9). If that forcing holds, the accounting collapses to two inputs (m_e, n_s) producing the whole spectrum and the significance becomes essentially total; if it does not, the masses are a constrained fit and only the tight grid hits carry weight (the 10⁻⁸ above). Either way, the index-forcing — the one piece still marked open (T0.5, Part 9) — is where the entire evidential weight funnels, and closing it converts an already-improbable postdiction into a near-parameter-free account of the spectrum.
+**Where the weight sits.** The estimate above treats every mode index as free. IDWT's actual claim is that the indices are forced from n_s by the generation-tower arithmetic (Part 9). If that forcing holds, the accounting collapses to two inputs (m_e, n_s) producing the whole spectrum and the significance becomes essentially total; if it does not, the masses are a constrained fit and only the tight grid hits carry weight (the joint improbability quantified in §2b). Either way, the index-forcing — the one piece still marked open (T0.5, Part 9) — is where the entire evidential weight funnels, and closing it converts an already-improbable postdiction into a near-parameter-free account of the spectrum.
+
+### 2b. Joint p-value and random-theory Monte Carlo 🔵
+
+Two null models make the §2a estimate a defensible joint p-value. Both are computed in `idwt.py` STEP 39 (full runs in `claude/significance_mc.py`).
+
+**Null A — random target position.** The hypothesis being tested: the measured values are unrelated to the simplex grid, so each sits at a uniformly random position inside its local inter-rung cell. The normalized distance from a measured value to its nearest rung is then uniform on [0,1]; with the measurement floor f = min(1, 2σ/g) the per-quantity luck is L = max(p, f), and the joint statistic is X = −Σ ln Lᵢ. The joint p-value P(X ≥ X_obs) is computed two ways: exactly, as the tail of the convolution of the per-quantity densities, and by Fisher's closed form P(χ²₂ₖ ≥ 2X_obs), which ignores the floors and is therefore conservative (floors only thin the null tail).
+
+The quantity set is fixed by a rule stated in advance, not by closeness: a quantity enters if it is dimensionless, parameter-free, and its measurement resolves the grid (σ < g/2 — the experiment can distinguish adjacent rungs, so the test can fail). Eight quantities pass: the four ratios of §2a plus sin θ_C, m_s/m_d, m_t/m_c, and Δm²₃₁/Δm²₂₁. Each is scored on the grid of one free index, the other index being the anchor (e is the global mass unit; W anchors the d=2 ratios; d anchors s/d; c anchors t/c); the grid is the conservative local spacing min over n → n±1. The "both indices free" objection is exactly what Null B answers.
+
+| Quantity | IDWT | Measured | ε_eff | grid g | L |
+|---|---|---|---|---|---|
+| m_μ/m_e | 206.765 | 206.768 | 1.7×10⁻⁵ | 0.150 | 2.3×10⁻⁴ |
+| m_τ/m_e | 3477.19 | 3477.37 ± 0.18 | 5.1×10⁻⁵ | 0.313 | 3.2×10⁻⁴ |
+| m_Z/m_W | 1.13500 | 1.13461 ± 0.00019 | 3.4×10⁻⁴ | 0.024 | 2.8×10⁻² |
+| m_H/m_W | 1.55844 | 1.55781 ± 0.00139 | 8.9×10⁻⁴ | 0.021 | 8.6×10⁻² |
+| sin θ_C | 0.22454 | 0.2245 ± 0.0008 | 3.6×10⁻³ | 0.245 | 2.9×10⁻² |
+| m_s/m_d | 20.000 | 19.81 ± 0.13 | 9.6×10⁻³ | 0.500 | 3.8×10⁻² |
+| m_t/m_c | 135.97 | 136.03 ± 2.15 | 1.6×10⁻² | 0.053 | 5.9×10⁻¹ |
+| Δm²₃₁/Δm²₂₁ | 34.86 | 34.10 ± 0.99 | 2.9×10⁻² | 0.348 | 1.7×10⁻¹ |
+
+Measured inputs: PDG 2024 (m_τ = 1776.93 ± 0.09 MeV; m_W = 80369.2 ± 13.3 MeV; m_Z = 91188.0 ± 2.0 MeV; m_H = 125200 ± 110 MeV; V_us = 0.2245 ± 0.0008; m_t = 172760 ± 300 MeV; m_c = 1270 ± 20 MeV; Δm²₃₁ = 2.530(28)×10⁻³ eV²; Δm²₂₁ = 7.42(20)×10⁻⁵ eV²) and FLAG 2024 (m_s/m_d = 19.81 ± 0.13 from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8)). ε_eff is |IDWT − obs|/obs floored at the relative measurement error. The m_s/m_d entry is the largest pull in the set (+1.5σ against the lattice ratio); it is scored as found.
+
+The result: X_obs = 31.56, joint p = 8.9×10⁻¹¹ (6.4σ) exact; 1.5×10⁻⁷ (5.1σ) under the conservative Fisher treatment; a ×100 look-elsewhere allowance leaves 8.9×10⁻⁹ (5.6σ). The §2a core set alone gives 3.8×10⁻⁷ (4.9σ) under the same combination. The exact convolution was validated against Monte Carlo at every tail depth the simulation can resolve.
+
+The three PMNS angles and m_c/m_u fail the resolution rule — their effective grids are finer than current measurement errors, so under Null A they cannot carry evidence either way. As consistency checks they sit at +0.30σ (sin²θ₂₃), +0.13σ (sin²θ₁₂), +0.19σ (sin²θ₁₃), and −0.00σ (m_c/m_u).
+
+**Null B — random theories.** This is the direct version: draw every mode index independently and uniformly from its allowed window (all n placing the sector mass below 1 TeV at the seed-chain scales; below 1 eV for d=5), recompute all twelve quantities — the eight above plus the PMNS angles and m_c/m_u, with g₅₅ fixed by the seeds — and score each random theory by T = Σ ln ε_eff,ᵢ against the same measured set. No random index assignment in 8.4×10⁶ draws (6×10⁶ at the stated windows, the rest at halved and doubled windows) scored as well as IDWT; at the stated windows this gives p_B < 5×10⁻⁷ (95% CL). The best random theory fell short by 36 ln-units (a factor ~10¹⁵ in joint residual). Per quantity, random draws match the lepton ratios essentially never (m_μ/m_e: ~3×10⁻⁵ per draw; m_τ/m_e: zero in all draws) and the remaining quantities at the 10⁻⁴–10⁻² level, so the joint match is far beyond reach of the family of integer assignments the skeptic's objection invokes.
+
+Both nulls leave the conclusion of §2a in place with the arithmetic now rigorous: the spectrum is not a flexible fit, and the open question that carries the remaining evidential weight is the index-forcing (T0.5, Part 9), not the statistics.
 
 ---
 

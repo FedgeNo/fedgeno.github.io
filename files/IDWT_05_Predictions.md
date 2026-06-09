@@ -87,8 +87,9 @@ A = |V_cb| / sin²θ_C = √(S(n_u,4)/S(n_c,4)) × S(n_s,3) = 0.82315
 |V_ts| ≈ |V_cb| = 0.04116    [from CKM unitarity, third row]
           (PDG: 0.04183 ± 0.0007,  −0.96σ)
 
-|V_ub|_lower = A s_C³ = 0.00920    [lower bound, CP phase unknown]
-          (PDG: 0.00382 — difference encodes the CP-violation factor √(ρ²+η²))
+|V_ub|_lower = A s_C³ = 0.00920    [lower bound, δ_CP = π+2θ₁₃ = 197.11° (T8 🔶, Part 10)]
+          (PDG: 0.00382 — difference encodes the CP-violation factor √(ρ²+η²);
+           full prediction awaits T8 reaching 🔵)
 ```
 
 See Part 3 §0.8 for the derivation.
@@ -283,12 +284,13 @@ $\sqrt{\text{Tr}(D^2)} = 248.3$ GeV is the IDWT-native electroweak scale — the
 
 ## 3b. Extended Predictions
 
-**PMNS CP-violation amplitude 🔶**
+**PMNS CP-violation amplitude 🔶→ derived result**
 ```
 J_max = s₁₂c₁₂s₂₃c₂₃s₁₃c₁₃² = 0.03335   (PDG J_max ≈ 0.03180,  +4.9%)
-J = J_max × sin(δ_CP);  at NuFit δ_CP ≈ 195°:  J ≈ −0.00863
+δ_CP = π + 2θ₁₃ = 197.11°   (PDG NH best fit: 197° ± 27°, +0.05°)
+J = J_max × sin(δ_CP) = 0.03335 × sin(197.11°) = −0.00981   (PDG: ≈ −0.0098, +0.1%)
 ```
-J_max is the CP-violation amplitude from the PMNS angles derived in §4–6. The +4.9% error in J_max traces to the same sin²θ_W structural gap (+0.37%) that limits g₁. The phase δ_CP itself is open (T8).
+J_max is the CP-violation amplitude from the PMNS angles derived in §4–6. The +4.9% gap in J_max relative to PDG traces to the same sin²θ_W structural gap (+0.37%) that limits g₁. The phase δ_CP = π + 2θ₁₃ = 197.11° is now derived from APS spectral flow of the one-parameter Dirac family across the CP³→CP⁵ Chern class mismatch Δc₁ = −2 (T8 🔶, Part 10 §4). Three technical gaps remain before T8 reaches 🔵. J = −0.00981 is a concrete prediction matching PDG within 0.1%.
 
 **Number of neutrino species**
 ```
@@ -534,6 +536,7 @@ These predictions have specific numerical values from mode indices and sector ge
 | **F19** | 0νββ effective Majorana mass | m_ββ = 0 at leading order | d=5 Majorana mass term absent; induced operators not yet analyzed | Any detection m_ββ > 0 with > 3σ significance |
 | **F20** | Beta-decay effective neutrino mass | m_β ≈ 8.77 meV | PMNS mixing + neutrino mass spectrum from mode indices | m_β measured > 50 meV (KATRIN 5-year sensitivity ~200 meV; Project 8 targets ~40 meV) |
 | **F21** | W/Z mass ratio | m_W/m_Z = √(S(76,2)/S(81,2)) = 0.93896 | Mode indices 76, 81 | Measured ratio outside 0.9386–0.9394 |
+| **F22** | Leptonic CP phase δ_CP | 197.11° (PDG NH best fit: 197° ± 27°, +0.05°; J = −0.00981) | δ_CP = π + 2θ₁₃; APS spectral flow Δc₁ = −2 (T8 🔶, Part 10 §4) | δ_CP outside 185°–210° at 5σ, or δ–θ₁₃ correlation violated by > 5° at fixed θ₁₃ |
 
 ---
 

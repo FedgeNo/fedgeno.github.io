@@ -337,7 +337,7 @@ PDG |V_cb| = 0.04100 ± 0.0014 (exclusive). Tension: +0.11σ.
 
 **|V_ts| from unitarity:** The third row of the CKM matrix has |V_tb| ≈ 1, so |V_ts|² ≈ |V_cb|². IDWT predicts |V_ts| ≈ |V_cb| = 0.04116. PDG: 0.04183 ± 0.0007. Tension: −0.96σ.
 
-**|V_ub|:** Requires the CP-violating phase δ_CP, which is not yet derived (T8, Part 5 §9). SM cross-reference: the Wolfenstein parameter A = |V_cb|/sin²θ_C = 0.82315 matches PDG A = 0.8230 ± 0.0046 at +0.03σ.
+**|V_ub|:** The full |V_ub| prediction requires the complete CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° (T8 🔶, Part 10 §4), which is now structurally derived. With δ_CP = 197.11°: |V_ub| = A s_C³ √(ρ² + η²) where the unitarity triangle parameters follow from the CKM phase. Full numerical prediction awaits T8 reaching 🔵 (three technical gaps in the APS spectral flow proof). Lower bound: |V_ub|_lower = A s_C³ = 0.00920 (setting the CP-phase factor to its minimum). SM cross-reference: the Wolfenstein parameter A = |V_cb|/sin²θ_C = 0.82315 matches PDG A = 0.8230 ± 0.0046 at +0.03σ.
 
 ### 0.10 Pure Sector Identities from the Lagrangian
 

@@ -96,7 +96,7 @@ Separating the sector eigenmode χ_n(ξ) from the spacetime part ψ(x) via Ψ∞
 H_d χ_n = m_eff χ_n                  [sector eigenvalue problem]
 ```
 
-The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) has eigenvalues m_eff = m_scale_d × S(n,d) by the spectral counting theorem (Part 8 §3). The mass formula is a consequence of the action.
+The sector Hamiltonian H_d = −Δ_Ξ + V_d(r) fixes the mode mass by the spectral counting theorem (Part 8 §3): m_eff = m_scale_d × S(n,d), where S(n,d) is the cumulative count of sector oscillator states at levels k = 0, 1, …, n−1 — the integrated density of states — not an individual eigenvalue of H_d (Part 8 §5.1). The mass formula is a consequence of the action.
 
 ### 0.6 Effective Colour Coupling from the Kernel
 
@@ -983,6 +983,8 @@ Therefore the photon self-energy from kernel diagrams:
 The photon mass m_γ² = Π_kernel(0) = 0 exactly, to all orders in the kernel. □
 
 This is stronger than gauge invariance alone (which only requires Π(q²) to be transverse). The L-parity argument shows the kernel CANNOT produce a photon mass even if gauge invariance were broken — the photon is protected by the parity of the coupling tensor.
+
+Condensate-linearized vertices — the degree-1 effective terms produced when the quartic kernel is expanded about a non-zero sector condensate ⟨ξ_{d'}⟩ ≠ 0 (Part 1 P6) — are odd only in the fluctuation leg δξ_{d'} and remain even (degree 2) in the photon's own d=2 variable ξ. The L=1 component in the photon's own variable remains exactly zero, so m_γ = 0 survives in the presence of condensate backgrounds without modification to this proof.
 
 ### 16.3 The Running of α
 

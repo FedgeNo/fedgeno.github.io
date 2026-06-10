@@ -115,7 +115,7 @@ The net count of left-chiral zero modes (the holomorphic Euler characteristic) a
 
 ### 3.1 Spectral Independence
 
-The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: no particle's S(n,d) value is a linear combination (with rational coefficients) of other occupied S values within the same sector, and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the eigenmode selection rule.
+The occupied mode indices {n_d, n_s, n_u, n_c, n_e, n_mu, n_tau, n_nu1, n_nu2, n_nu3, n_top, n_W, n_Z, n_H} are **spectrally independent**: the occupied S-values within each sector form a sum-free set — no S-value equals the sum of two (not necessarily distinct) other occupied S-values from the same sector — and no cross-sector simplex identities hold beyond those forced by the Vandermonde coupling and the eigenmode selection rule.
 
 This was verified computationally for all pairwise and triple combinations. The independence theorem rules out redundancy in the spectrum — every assigned mode index carries independent physical content.
 

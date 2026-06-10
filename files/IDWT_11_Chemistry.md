@@ -155,7 +155,7 @@ The comparison is made in hartree units, where α and m_e cancel: the IDWT-deriv
 
 ### 3.3 What the deficit is
 
-The trial state is an uncorrelated product in the d=3 marginal. The 1.9% deficit is the energy the two-electron correlation must supply — and in IDWT that correlation has more room than the d=3 projection shows: the two d=6 electrons can correlate through the CP³ sector coordinates as well as the observable ones. Whether the 6D correlation structure reproduces the measured helium energy where d=3 correlation methods do, or differs from them, is the sharpest open question of this Part (§2). No claim is made here beyond the bound.
+The trial state is an uncorrelated product in the d=3 marginal. The 1.9% deficit is the energy the two-electron correlation must supply. Under the established potentials this correlation is fixed by the d=3 marginal problem — the repulsion α/r₁₂ is supported on the observable coordinates, so the marginal exactness theorem (§6.1) applies and the exact answer is the standard correlated one. The open 6D question is therefore not whether correlation differs under the established potentials (it cannot), but whether the cross-sector kernel contact terms leave any residue at chemical scales (§6.1 scope condition). No claim is made here beyond the bound.
 
 ---
 
@@ -189,9 +189,67 @@ The loop then closes on itself: the derived angles realize exactly the direction
 
 Centers with lone pairs sit outside the loop deliberately: there the full four-state space is occupied (bonds plus lone pairs), completeness holds over all four states, and the share asymmetry δ of §1.4 — not yet derived — sets the geometry.
 
-### 4.5 What remains open after this section
+### 4.5 What remains open after §4
 
 - The energetics: that n identical ligands adopt the symmetric arrangement (the input of §4.3), and the nuclear positions themselves, follow from minimising the total energy over the Born–Oppenheimer surface (Part 8 §17). Not yet computed for any polyatomic case.
 - The promotion-energy crossover of §4.2 (degenerate-shell idealization vs the real s–p splitting of carbon, nitrogen, oxygen).
 - The lone-pair share asymmetry δ (§1.4).
 - The full 6D character of the two-center orbit (Part 8 §17.6).
+
+---
+
+## §5. Aromatic Ring Current: Closed-Shell Scaling 🔶
+
+Part 8 §17a establishes the benzene π system as one 6D orbit coupling to all six centers, with the 4n+2 closed-shell rule as a structural consequence, and names the ring current as its direct experimental signature. This section adds the leading quantitative scaling, in the rigid-ring model.
+
+⭐ **Within the model.** The angular modes of the ring orbit on a ring of radius R, threaded by applied flux φ, have energies ε_m = (m − φ/φ₀)² E_R with E_R = ℏ²/(2m_e R²); the level current is I_m = −∂ε_m/∂φ, linear in (m − φ/φ₀). For a closed shell — m = −n … n, doubly occupied — the m-linear parts cancel in the sum and the field-induced parts add over all 2(2n+1) electrons:
+
+```
+I_induced ∝ 2(2n+1) = N_π,
+```
+
+the π-electron count, independent of R (the flux φ = BπR² cancels the R² in E_R). The top filled level is m_max = n = (N_π − 2)/4. The induced dipole field opposes the applied field inside the loop and reinforces it in the outer plane: inner protons shielded, outer protons deshielded — the observed annulene pattern ([18]annulene: outer 9.28 ppm, inner −2.99 ppm). A half-filled top level (4n electron systems) breaks the cancellation and reverses the response, the antiaromatic paramagnetic current. (`files/idwt.py` STEP 46.)
+
+🔶 **Status.** The scaling I ∝ N_π and the sign geometry are exact within the rigid-ring model; the model itself is the approximation. Real annulenes relax geometrically with size, and the proton shifts depend on position relative to the loop, so the testable consequence — inner-proton shielding of large annulenes growing stepwise with N_π — requires the geometric refinement before it is a sharp number. Open.
+
+---
+
+## §6. Marginal Exactness: What 6D Chemistry Is
+
+### 6.1 The theorem ✅
+
+✅ **Theorem (marginal exactness of chemistry).** Let a system of bound electrons be governed by potentials that separate per Part 8 Lemma 1 — nuclear Coulomb terms supported on the observable coordinates **r**, sector confinement supported on the CP³ coordinates ξ — and let O be any observable supported on the observable coordinates. This covers every chemical probe: energies, geometries, spectra, electric and magnetic response, including the electron–photon vertex (Part 8 §15), since the d=2 coupling acts on shared observable coordinates. Then for product eigenstates ψ ⊗ χ,
+
+```
+⟨ψ ⊗ χ_a | O | ψ′ ⊗ χ_b⟩ = ⟨ψ|O|ψ′⟩ δ_ab,
+```
+
+so every expectation value and transition amplitude is fixed by the d=3 marginal dynamics alone; the sector factor drops out, and CP³-hidden components contribute nothing (Lemma 2). Since the d=3 marginal Hamiltonian is the standard molecular Hamiltonian with IDWT-derived inputs (Part 8 §14.2, §16.1, §17.1), IDWT reproduces standard molecular structure and response theory for every chemistry observable measured by a d=3 apparatus — vibrational and isotopic effects included, since nuclear motion is likewise a d=3 structure. (`files/idwt.py` STEP 47.)
+
+This is the chemistry-wide form of the Coulomb projection consistency of Part 3 §0.8a: the framework does not disturb tested chemistry. A corollary cuts in the other direction: no chirality, spectroscopy, or kinetics experiment performed with 3D apparatus can deviate from the standard-theory result within the established structure. Proposals of such deviations are not open items — they are excluded.
+
+🔶 **Scope condition.** The theorem covers the established potentials. Whether the cross-sector kernel contact terms contribute any residue at chemical energy scales is the one stated caveat. §6.3 bounds it.
+
+### 6.2 What 6D chemistry consists of
+
+Given §6.1, the content of 6D chemistry is three things, none of which is a deviating lab number:
+
+- **Foundation.** What standard chemistry postulates, IDWT derives: Pauli exclusion from spinor anticommutation (Part 8 §16.2); the 2L+1 degeneracies, shell counts, and selection rules from the SU(4) ⊃ SU(3) ⊃ SO(3) chain and ξ-orthogonality (Part 8 §14.3); the bond mechanism (Part 8 §17); the bond angles from orbit-state orthogonality with the premises derived (§1, §4); the Hückel rule and ring-current scaling (Part 8 §17a, §5). The observed numbers are unchanged; their status changes from axiom to theorem of the sector geometry.
+- **Ontology and falsifier.** The CP³-hidden orbit states exist at every shell L ≥ 1 and are strictly inaccessible to 3D apparatus at any order (Part 8 §14.3, Lemma 2). Standard QM has no counterpart states. Any measured coupling to one falsifies the d=6 sector identification — a standing, permanent discriminator.
+- **Frontier.** The one place a quantitative residue could appear is the cross-sector kernel contact contribution at chemical scales (§6.1 scope condition); §6.3 bounds it at the 10⁻¹⁰ level — nil for all chemistry. Independent of observables, the orbit trajectory geometry in the CP³ coordinates (Part 8 §14.4) remains the structural frontier. 6D chemistry is the foundation and the ontology.
+
+### 6.3 The kernel residue bound 🔶
+
+The scope condition of §6.1 closes in two steps.
+
+✅ **Cancellation lemma.** Any kernel component supported on the sector factor alone shifts every atomic and molecular state by the same amount: by Lemma 1, all chemistry states of an electron share one sector eigenstate, so the component's expectation is state-independent and cancels in every measurable difference — spectra, bond energies, barriers are all energy differences. Only kernel components with observable-coordinate support can leave a residue.
+
+🔶 **Bound on the remainder.** The kernel is a contact structure (the colour coupling is its clearest case, Part 3 §0.6), with observable-coordinate range set by the sector length scale: L_6 = 1.414 fm (Part 1 §3e). A contact term of range L and depth V₀ shifts an s-state by ΔE ≈ V₀ |ψ(0)|² (4π/3)L³ with |ψ(0)|² = 1/(πa₀³), and shifts non-s states only at higher order in L/a₀ (their orbit-state density vanishes at contact). The depth premise: the kernel's entire l=0 output in the d=6 sector is the sector eigenvalue m_e, so a residual contact piece is bounded by the scale it generates, V₀ ≤ m_e — a deliberately generous bound. Then
+
+```
+ΔE / (α²m_e) ≤ (4/3)(L_6/a₀)³ × m_e/(α²m_e) = 4.8 × 10⁻¹⁰.
+```
+
+The kernel residue on any chemistry observable is at most a few parts in 10¹⁰ — the same order as the proton-finite-size correction already catalogued in Part 8 §14.4, three orders below Lamb-scale effects, and far below any chemical measurement. (`files/idwt.py` STEP 48.)
+
+**Consequence.** With the cancellation lemma exact and the remainder bounded at 10⁻¹⁰, the §6.1 caveat closes: within the established framework, 6D chemistry has no measurable quantitative residue. Its content is the foundation and the ontology of §6.2. The premise that carries the 🔶 is the depth bound V₀ ≤ m_e; deriving the actual contact amplitude from the kernel normalization would convert the bound into a value, and is the remaining refinement.

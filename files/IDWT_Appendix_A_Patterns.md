@@ -680,6 +680,11 @@ Attempted patterns that were checked and returned null. Recorded to prevent repe
 
 ### §15. Dead ends
 
+**m_scale_6 vs the hartree (S(13,6) vs 1/α²)**  
+Conjecture: the d=6 sector scale m_scale_6 = m_e/S(13,6) = 27.53 eV coincides with the atomic energy unit α²m_e = 27.21 eV, i.e. S(13,6) = 18564 ≈ 1/α² = 18778.9.  
+Checked (2026-06-09, during the Part 11 §6.3 kernel-residue bound): ratio (1/α²)/S(13,6) = 1.0116 — a 1.2% proximity, far outside the precision of both quantities (α derived to 0.03% class in Part 3; S exact). No mechanism connects the electron's simplex count to α⁻²; α is fixed by the d=2/d=4 coupling structure, independent of S(13,6).  
+Result: treated as numerical coincidence. Recorded so the 27.5 eV ≈ 27.2 eV proximity is not rediscovered and over-read.
+
 **Pion mass from sector scale arithmetic**  
 Conjecture: m_π ≈ some geometric or arithmetic combination of sector scales or mode indices.  
 Checked:  

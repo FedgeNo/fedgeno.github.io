@@ -4134,5 +4134,120 @@ print("  => directed zonal hybrid (|s>+|p_n>)/sqrt2: P1' derived"
       " at this order.")
 
 
+# =============================================================================
+# STEP 46 -- AROMATIC RING CURRENT: CLOSED-SHELL SCALING (RIGID RING)
+# (Part 11 section 5; Part 8 section 17a)
+#
+# The benzene ring orbit is one 6D orbit coupling to all six centers
+# (Part 8 sec 17a); its angular modes on a ring of radius R have
+#   eps_m = (m - phi/phi0)^2 E_R,   E_R = hbar^2/(2 m_e R^2),
+# with phi the applied flux. The level current is I_m = -d eps/d phi,
+# linear in (m - phi/phi0). A closed shell fills m = -n..n twice
+# (spin), so the m-linear parts cancel and the field-induced part
+# adds over 2(2n+1) electrons:
+#   I_induced  prop to  2(2n+1) = N_pi   [pi-electron count]
+# and is independent of R (phi = B pi R^2 cancels R^2 in E_R).
+# The top filled level is m_max = n = (N-2)/4 for a [4n+2]annulene.
+# Shielding sign: the induced dipole field is opposed inside the
+# loop and along its axis, reinforcing in the outer plane -- inner
+# protons shielded, outer deshielded (Part 8 sec 17a observation).
+# NOTE: the scaling is N_pi = 2(2 m_max + 1), NOT m_max -- this
+# corrects the I prop-to m_max claim formerly in the chemistry
+# article. Rigid-ring model: real annulene geometry relaxation is
+# the open refinement.
+# =============================================================================
+
+print("\n=== STEP 46: RING CURRENT -- CLOSED-SHELL SCALING"
+      " (Part 11 sec 5) ===")
+for _n in (1, 2, 4, 5):
+    _Npi = 4*_n + 2
+    _lev = 2*(2*_n + 1)                      # 2 e- per level, 2n+1 levels
+    print(f"  n={_n}: [{_Npi}]annulene-class shell, m_max={_n},"
+          f"  I prop to 2(2n+1)={_lev} = N_pi ({_lev == _Npi})")
+print("  => induced ring current scales with the pi-electron count,")
+print("     not with m_max; R-independent in the rigid-ring model.")
+
+
+# =============================================================================
+# STEP 47 -- MARGINAL EXACTNESS: 3D PROBES FIX ALL CHEMISTRY
+# (Part 11 section 6)
+#
+# Corollary of Part 8 Lemma 1 (exact separability V = V_C(r)+V_6(xi))
+# and Lemma 2 (xi-orthogonality): for any observable O(r) supported
+# on the observable coordinates -- which includes every chemical
+# probe and the EM vertex (Part 8 sec 15) --
+#   <psi_r x chi_a| O(r) |psi_r' x chi_b> = <psi_r|O|psi_r'> delta_ab
+# so expectations and transition amplitudes are fixed by the d=3
+# marginal alone, and the sector factor drops out. IDWT therefore
+# reproduces standard molecular structure and response theory for
+# every 3D-measured chemistry observable. Demonstrated below on a
+# separable toy H = H_r x 1 + 1 x H_xi: states differing only in
+# the sector factor give identical <O_r>, and O_r induces no
+# transitions between sector levels.
+# =============================================================================
+
+print("\n=== STEP 47: MARGINAL EXACTNESS -- 3D PROBES"
+      " (Part 11 sec 6) ===")
+_rng = np.random.default_rng(7)
+_Nr, _Nx = 8, 6
+_Hr = _rng.normal(size=(_Nr, _Nr)); _Hr = (_Hr + _Hr.T)/2
+_Hx = _rng.normal(size=(_Nx, _Nx)); _Hx = (_Hx + _Hx.T)/2
+_Or = _rng.normal(size=(_Nr, _Nr)); _Or = (_Or + _Or.T)/2
+_er, _vr = np.linalg.eigh(_Hr)
+_ex, _vx = np.linalg.eigh(_Hx)
+_psi = _vr[:, 0]                          # one marginal state
+_d1 = np.kron(_psi, _vx[:, 0])            # sector ground
+_d2 = np.kron(_psi, _vx[:, 3])            # sector excited
+_O = np.kron(_Or, np.eye(_Nx))            # 3D-supported probe
+_g1 = _d1 @ _O @ _d1; _g2 = _d2 @ _O @ _d2
+_tr = abs(np.kron(_psi, _vx[:, 0]) @ _O @ np.kron(_vr[:, 2], _vx[:, 3]))
+print(f"  <O_r> sector-ground vs sector-excited:"
+      f" {_g1:+.6f} vs {_g2:+.6f} (diff {abs(_g1-_g2):.1e})")
+print(f"  3D-probe transition between sector levels: {_tr:.1e}")
+print("  => 3D-measured chemistry is fixed by the d=3 marginal;")
+print("     sector structure enters as foundation, not as deviation.")
+
+
+# =============================================================================
+# STEP 48 -- KERNEL RESIDUE BOUND AT CHEMICAL SCALES
+# (Part 11 section 6.3)
+#
+# Closes the Part 11 sec 6.1 scope condition. Two pieces:
+# (a) CANCELLATION (exact): kernel components supported on the
+# sector factor alone shift every atomic/molecular state equally --
+# by Lemma 1 all chemistry states share one sector eigenstate -- so
+# they cancel in every measurable difference. Only kernel components
+# with observable-coordinate support can leave a residue.
+# (b) BOUND on the remainder: the kernel is a contact structure
+# (colour analogy, Part 3 sec 0.6) with observable-coordinate range
+# set by the sector length scale L_6 = 1.414 fm (Part 1 sec 3e).
+# A contact term of range L and depth V0 shifts an s-state by
+#   dE ~ V0 |psi(0)|^2 (4pi/3) L^3,  |psi(0)|^2 = 1/(pi a0^3).
+# Conservative depth premise V0 <= m_e (the kernel's entire l=0
+# output in d=6 is the sector eigenvalue m_e; any residual contact
+# piece cannot exceed the scale it generates). Then
+#   dE/hartree <= (4/3) (L_6/a0)^3 m_e / (alpha^2 m_e)
+# Non-s states: |psi(0)|^2 = 0, residue higher order in L/a0.
+# Result ~5e-10 -- the same order as the proton-finite-size
+# correction Part 8 sec 14.4 already catalogues, three orders below
+# Lamb-scale effects, far below any chemical measurement.
+# =============================================================================
+
+print("\n=== STEP 48: KERNEL RESIDUE BOUND"
+      " (Part 11 sec 6.3) ===")
+_L6_fm = 1.414                               # Part 1 sec 3e table
+_a0_fm = 0.529177e5                          # Bohr radius in fm
+_ratio = _L6_fm/_a0_fm
+_me_eV = m_e*1.0e6
+_ha_eV2 = 27.211386
+_dE = (4.0/3.0)*(_ratio**3)*_me_eV           # eV, depth = m_e bound
+print(f"  L_6/a0 = {_ratio:.3e};  (L_6/a0)^3 = {_ratio**3:.3e}")
+print(f"  dE <= (4/3)(L_6/a0)^3 m_e = {_dE:.2e} eV")
+print(f"  fractional vs hartree: {_dE/_ha_eV2:.1e}"
+      "  (s-states; 0 at this order otherwise)")
+print("  => same order as the proton-size correction (Part 8");
+print("     sec 14.4, ~1e-10); chemistry residue closes at nil.")
+
+
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")
 print("https://fedgeno.github.io/")

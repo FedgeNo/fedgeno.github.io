@@ -330,7 +330,7 @@ k₀ = n_e + n_u = 13 + 3 = 16           (lepton–quark additive closure)
 k₀ = S(n_s,3) − S(2,3) = 20 − 4 = 16  (Vandermonde gap from absent n=2 mode)
 ```
 
-All three hold exactly from seeds; no other site in any sector satisfies all three simultaneously (exhaustive search n ≤ 200, d ∈ D).
+All three hold exactly from seeds; no other site in any sector satisfies all three simultaneously (exhaustive search n ≤ 200, d ∈ D). Of the three, the first is the definition of k₀; the second and third are independent coincidences whose solution sets in n_s meet only at n_s = 4, so neither follows from the other and each fixes the seed on its own. The index arithmetic is sector-blind, so all three stand as equal characterizations of k₀; among them the lepton–quark closure n_e + n_u is the one whose two indices lie in different sectors, the simplex gap S(n_s,3) − S(2,3) being internal to d=3.
 
 **Why the geometric mean.** The Jacobi coupling between adjacent d=3 modes near k₀ is $K_{n,n+1} \propto \sqrt{b_n \cdot b_{n+1}}$ where $b_n = \sqrt{n(n+d-1)}/(2n+d-2)$; at the triple-coincidence site the $\ell=0$ kernel drives modes n=16 and n=17 with equal weight. The beat is sustained by the quartic density–density kernel term $|\Psi^{(16)}|^2\,|\Psi^{(17)}|^2$. The magnitude of that cross-term scales as the product $E_{16}E_{17}$ — a quantity of dimension energy-squared — so the resonant beat sits at its square root, $E^2 = E_{16}E_{17}$, the geometric mean:
 

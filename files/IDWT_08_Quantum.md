@@ -585,7 +585,13 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 *Depth — measured. 🔵* With reduced mass m_N/2, the measured deuteron binding energy 2.2246 MeV requires V₀ = 289 MeV = 1.02 Λ at the L_3 gate and V₀ = 280 MeV = 0.99 Λ at the r_p gate, where Λ = N_c f_π = 282 MeV: the required depth equals the IDWT hadronic scale within 2% on both gates. Run forward with V₀ = Λ exactly and no free parameters, the two gates bracket the measurement — E_B = 1.6 MeV (L_3) and 2.4 MeV (r_p) around the measured 2.22; a shallow bound state is exponentially sensitive to depth, so the inverse statement is the robust one. The solved mode's rms half-separation is 1.7 fm against the measured deuteron matter radius ≈ 1.97 fm.
 
-*Open. 🔶* Deriving κ and Δ (equivalently λ_c) from the kernel — the same problem as the confinement level above — and the spin-tensor structure: the deuteron is spin-1, and this check is the central s-wave channel. (`files/idwt.py` STEP 61–62; Appendix A §29.)
+*κ and Δ — large-N_c power counting. 🔶* The IDWT colour structure (N_c = χ(CP²) = 3) determines the leading-order identification. Each of the N_c quarks in a baryon contributes colour amplitude Λ at the hadronic threshold (the scale at which g_eff = 1 in the d=3 sector), and their contributions add coherently at the baryon level with the standard √N_c large-N_c enhancement: κ = √N_c × Λ = √3 × 282 MeV ≈ 489 MeV. The colour excitation gap follows from the energy law E_conf = λ_c|N⃗| (§5.3): one quark changing colour gives |ΔN⃗| = 2 (root-vector length from |n⃗|² = 4/3 per quark), and the baryon confinement energy ≈ N_c Λ (proton mass formula above) requires Δ = λ_c × 2 = N_c Λ = 846 MeV. Therefore:
+
+$$V_0 = \frac{\kappa^2}{\Delta} = \frac{N_c\Lambda^2}{N_c\Lambda} = \Lambda \qquad \text{(exact in large-}N_c\text{)}$$
+
+This also fixes the colour energy scale: λ_c = N_c Λ/2 = N_c² f_π/2 ≈ 423 MeV. The O(1) coefficients in κ and Δ are fixed by the leading large-N_c structure; exact kernel matrix elements require identifying the collective d=3 ⊕ d=4 mode of the colour-singlet baryon — the same open problem as §5.3. (`files/idwt.py` STEP 63; Appendix A §29.)
+
+*Spin-tensor channel. 🔶* The deuteron has spin-1 (³S₁–³D₁ channel); this section checks only the central s-wave. The tensor component of the N–N kernel and the resulting ³S₁–³D₁ mixing require expanding the gated kernel in baryon spin operators, which in turn requires the collective-mode identification above. (`files/idwt.py` STEP 61–62; Appendix A §29.)
 
 ---
 

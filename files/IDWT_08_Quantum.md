@@ -342,9 +342,9 @@ Section 59 establishes that the spin^c Dirac operator on CP² with Hopf flux k=1
 ```
 |r⟩ = [1,0,0],  |g⟩ = [0,1,0],  |b⟩ = [0,0,1]
 ```
-with SU(3) acting on this space via its standard 3-dimensional representation.
+with SU(3) acting on these three zero-modes via the CP² isometry action.
 
-### The 8-Dimensional Colour Vector
+### The Colour Charge Vector
 
 Quantify colour charge by the expectation vector n⃗_a = ⟨ψ|λ_a|ψ⟩ (a=1,…,8, CP² su(3) isometry generators). **Verified numerically:**
 
@@ -416,7 +416,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
 - **Meson masses:** Binding shifts from kernel overlap integrals (derivation open — §12 not yet written)
 - **Nucleon properties:** μ_p, μ_n, g_A from l=1 spin-orbit admixture in the d=3 sector (§10 below)
-- **QCD running:** β(α_s) from vacuum polarization of unoccupied modes
+- **Coupling dilution:** g_eff(n,d) = g_dd/S(n,d) — the geometric power-law decrease of the effective coupling across mode indices (Part 5 §1; IDWT couplings do not run and there is no β-function)
 - **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes — smallness is an open problem (§13; Part 4 §4)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
 
@@ -577,6 +577,16 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723
 
 **Status:** The kernel contributes zero extra energy for colour-singlet configurations at leading order (§8), so the 929 MeV is NOT kernel binding — it is the sector oscillator energy of the quarks in the colour-singlet configuration. In QCD language, this is the confinement energy (kinetic + potential energy of quarks in the confining field). In IDWT, computing it requires determining which collective mode of the combined d=3 ⊕ d=4 sector the colour-singlet uud corresponds to. The current quark masses 2m_u + m_d = 9.06 MeV are the free-quark energies at levels (n=3,d=4), (n=3,d=4), (n=1,d=3); the confined proton is at a much higher effective level in the joint sector. Identifying that level from the colour-singlet constraint equations is the open problem. The N-P mass difference 1.29 MeV follows from the quark mass difference alone and does not require the confinement energy.
 
+**The internucleon contact: structure, range, and the deuteron.** Kernel covariance fixes both the range and the functional form of the nucleon–nucleon kernel interaction; what remains free is one depth scale, and the deuteron measures it.
+
+*Range. ✅* Nucleons are d=3 colour-singlet composites (Part 1 §2.4), so the N–N contact gate carries the derived same-sector range L_3 = λ_3^{−1/4} = 0.675 in sector units (Part 4 §3.10.1 covariance note). A gate computed instead from the measured proton charge radius (σ² = r_p²/3, r_p = 0.8409 fm) gives 0.687 — the d=3 sector width and the measured nucleon size agree to 2%.
+
+*Form. ✅* Two colour singlets have N⃗_A = N⃗_B = 0, so the first-order inter-singlet colour energy vanishes by the energy law E_conf = λ_c|N⃗| (§5.3). The leading N–N kernel interaction is therefore second order in the gated contact — the colour analogue of the van der Waals mechanism of §17b. Second order squares the gate: the central well is V(R) = −V₀ Ω(R)² = −V₀ exp(−R²/(2R_c²)) with R_c = L_3/√2 = 0.477, and depth V₀ = κ²/Δ, where κ is the singlet→non-singlet contact matrix element and Δ the non-singlet excitation gap — the quantities of the open colour-scale problem (λ_c class, §5.3). The profile and range carry no freedom.
+
+*Depth — measured. 🔵* With reduced mass m_N/2, the measured deuteron binding energy 2.2246 MeV requires V₀ = 289 MeV = 1.02 Λ at the L_3 gate and V₀ = 280 MeV = 0.99 Λ at the r_p gate, where Λ = N_c f_π = 282 MeV: the required depth equals the IDWT hadronic scale within 2% on both gates. Run forward with V₀ = Λ exactly and no free parameters, the two gates bracket the measurement — E_B = 1.6 MeV (L_3) and 2.4 MeV (r_p) around the measured 2.22; a shallow bound state is exponentially sensitive to depth, so the inverse statement is the robust one. The solved mode's rms half-separation is 1.7 fm against the measured deuteron matter radius ≈ 1.97 fm.
+
+*Open. 🔶* Deriving κ and Δ (equivalently λ_c) from the kernel — the same problem as the confinement level above — and the spin-tensor structure: the deuteron is spin-1, and this check is the central s-wave channel. (`files/idwt.py` STEP 61–62; Appendix A §29.)
+
 ---
 
 ## 13. Cosmological Constant from Unoccupied-Mode Vacuum Energy 🔶
@@ -620,6 +630,8 @@ Because the potential separates exactly, the Schrödinger equation on CP³ is ex
 ```
 H_eff = −(ℏ²/2m_e) ∇_r² − α/|r| + m_e
 ```
+
+**What anchors the r/ξ split. ✅** The decomposition into r and ξ is anchored by the nucleus, not by the electron. The nucleus is the d=3 structure in the problem, and its Coulomb term selects the three coordinates it has structure in; the sector well itself binds the electron's structure about the mode's own centroid, equally in all six of its dimensions, and travels with the mode (Part 4 §3.10.2 covariance note) — no three of the electron's six dimensions are marked out by anything in the electron. The V_6 factor above is the spectating sector structure written in the nucleus's split. The compact internal structure (width L_6) corrects the point-center treatment only through its smearing of the Coulomb term, ΔE/|E_{1s}| = 4(L_6/a₀)² ≈ 2.9×10⁻⁹ — the same order as the proton-finite-size correction catalogued in §14.4. (`files/idwt.py` STEP 58; Appendix A §27.)
 
 ### 14.3 The Hydrogen Spectrum and Orbit Structure ✅
 
@@ -669,9 +681,9 @@ The z₄ factor integrates to zero over the CP³ fibre by spherical harmonic ort
 
 **The full orbit geometry in CP³.** The orbit structure — quantum numbers, energy spectrum, degeneracy counts, selection rules, and the existence and undetectability of hidden states — is fully derived from the CP³ geometry. What has not been worked out is the geometric description of the orbit trajectories themselves: what a 1s, 2p, or 3d orbit looks like as a path in CP³, how it samples the z₄ direction, and what the SU(4) multiplet structure looks like in terms of actual trajectories rather than representation theory. That is the open problem. 🔶
 
-**Multi-electron atoms.** The second electron adds electron-electron Coulomb repulsion — the U(1) self-coupling of the wave on the d=2 coordinates the two d=6 electron resonances share. Both electrons carry the same vertex (Q=−1, same coupling). Helium is the next target.
+**Multi-electron atoms.** The second electron adds electron-electron Coulomb repulsion — the U(1) self-coupling of the wave on the d=2 coordinates the two d=6 electron resonances share. Both electrons carry the same vertex (Q=−1, same coupling). The two-electron Hamiltonian, helium ground state, and Aufbau principle are worked out in §16; the hydrogen molecule and covalent bond follow in §17.
 
-**Pauli exclusion.** The fermionic anticommutation of the d=6 sector spinor (established in §2) enforces the exclusion principle across all atomic orbits. No additional input needed.
+**Pauli exclusion.** The fermionic anticommutation of the d=6 sector spinor (established in §2) enforces the exclusion principle across all atomic orbits; the derivation is in §16.2.
 
 **Photon scattering.** The same electron-photon vertex (∇_μ = ∂_μ − iA_μ Q̂) used to derive the Coulomb potential also governs photon scattering by the electron. The vertex — the covariant-derivative coupling with Q = −1 — is the IDWT content; the cross sections that follow from it are standard QED evaluated with the IDWT-derived inputs α and m_e. See §15.
 

@@ -232,6 +232,30 @@ The self-coupling term (d' = d) dominates for modes that are well-localised in s
 V_self(ξ_d) = g_{dd} ∫_{Ξ_d} |χ_d(ξ')|² (ξ_d · ξ')² dμ_ξ'
 ```
 
+**Covariance note — the cross-sector terms are contact terms.** The covariance question settled for the self-term in §3.10.2 applies equally to the cross terms g_{dd'}(ξ_d·ξ_{d'})², and here the answer is forced rather than chosen. For two modes A (sector d, centroid X_A, per-component shared-subspace variance a²) and B (sector d', centroid X_B, variance b², separation R = X_A−X_B, shared subspace dimension d_sh), every two-point covariant reading of the cross term fails on established physics ✅:
+
+```
+absolute:        U_0/g = (X_A·X_B)² + b²|X_A|² + a²|X_B|² + d_sh a²b²   [changes under global translation]
+pair-centroid:   U_1/g = |R/2|⁴ + (a²+b²)|R/2|² + d_sh a²b²             [mutual quartic confinement of every pair]
+each-own-frame:  U_2/g = d_sh a²b²                                       [R-independent: clustering fails]
+```
+
+The absolute reading is not a function of the separation at all; the pair-centroid reading would give the electron–proton pair a kernel energy ~10¹⁸ in sector units at R = a₀, against the observed Coulomb-only interaction; the each-own-frame reading leaves every pair in the universe coupled at full contact strength at any distance. The only covariant reading that survives is contact-gated:
+
+```
+U(R) = g_{dd'} × Ω(R) × d_sh a²b²,    Ω(0) = 1,  Ω decaying on the mode-width scale
+```
+
+The (ξ_d·ξ_{d'})² factor is the local geometry of the coupling at a contact event, evaluated in the contact frame — which is exactly how every coupling computation in these documents uses it, so all established values are Ω(0) = 1 evaluations and unchanged. The contact structure of the kernel (Part 3 §0.6; Part 11 §6.3) is therefore a structural consequence of covariance, not an assertion.
+
+The gate profile follows from the established structure as well ✅. Three inputs fix it uniquely: the kernel term is bilinear in the kernel currents (L_{dd'} = (g_{dd'}/2)∫(ξ_d·ξ_{d'})² J^d J^{d'}, Part 3 §0.6) — linear in each mode's intensity — so the pair energy is a bilinear functional U = ∬ρ_A(x)ρ_B(y)F(x−y); covariance and the exclusions above force F to decay; and the action supplies no length constant of its own — the g_{dd'} are dimensionless seed-built numbers — so F has zero intrinsic range, the scale-free point contact. The gate is therefore the normalized density overlap:
+
+```
+Ω(R) = [ρ_A ⋆ ρ̃_B](R) / [ρ_A ⋆ ρ̃_B](0)
+```
+
+For Gaussian sector ground modes, Ω(R) = exp(−R²/(2(a²+b²))), contact range √(a²+b²). Corollary, exact: a same-sector pair has contact range √(2σ_d²) = λ_d^{−1/4} = L_d — the sector localization length is the same-sector contact range (e–e: L_6, the range of Part 11 §6.3; nucleon–nucleon at d=3: L_3 = 0.675, taken up quantitatively in Part 8 §11). The d=3–d=4 quark pair has range 0.78 in sector units, the sub-femtometre strong-force scale. Long-range physics is untouched: electromagnetism is carried by the massless, non-compact d=2 zero mode (Part 3 §16, §0.8a), to which no width gate applies, and gravity is M∞ curvature (§1). At A = B, R = 0 the gated form reduces to the §3.10.2 self-term. (`files/idwt.py` STEP 59, STEP 60; Appendix A §28.)
+
 ### 3.10.2 Evaluating the Self-Coupling
 
 By rotational symmetry in Ξ_d, the angular average of the dot product satisfies:
@@ -253,6 +277,20 @@ where r = |ξ_d| and ⟨r'²⟩_d = ∫_{Ξ_d} r'² |χ_d(ξ')|² dμ_ξ' is the
 ```
 λ_d = g_{dd} × ⟨r'²⟩_d / d
 ```
+
+**Covariance note — the well rides with the mode.** The self-coupling integral above is written in absolute sector coordinates. Read literally — the well anchored at the origin of Ξ_d — it assigns a mode of internal spread s whose centroid sits at X the displacement energy
+
+```
+U_A(X)/g_{dd} = |X|⁴ + (2s²/d)|X|² + s⁴/d
+```
+
+(exact for an isotropic mode density), a quartic pinning to the sector origin. That reading is excluded by the framework's own established results ✅: it forbids macroscopic motion outright, and at hydrogen's Bohr radius the pinning term (~10¹⁸ in sector units, against E_0 = 3) would obliterate the Bohr spectrum of Part 8 §14.2. The physical evaluation is in the mode's frame: displacements in the self-term are taken relative to the mode centroid,
+
+```
+V_self(ξ) = g_{dd} ∫ |χ_d(ξ')|² ((ξ−X)·(ξ'−X))² dμ_ξ',   X = mode centroid
+```
+
+This is the minimal covariant completion of the kernel's written form 🔶. It leaves the derivation above and every number in §3.10.3–§3.10.4 unchanged — the computation in this section is carried out at X = 0, in the mode frame, so all published values are frame-local — while restoring translation covariance on the flat sector space. The well then travels with the excitation: the displacement energy is U_B = g_{dd} s⁴/d, independent of X, the centroid propagates freely with E² = P² + m² (Part 1 §3i), and a boosted self-bound mode translates rigidly with the well co-moving (verified dynamically; the absolute-kernel counterpart oscillates pinned about the origin). Bound within, free without (Part 1 §3i) accordingly reads: bound about its center in all d sector dimensions; the center free in all of them. The compact internal structure corrects the point-center hydrogen Hamiltonian only through its smearing, ΔE/|E_{1s}| = 4(L_6/a₀)² ≈ 2.9×10⁻⁹ — the order of the proton-finite-size items of Part 8 §14.4. (`files/idwt.py` STEP 58; Appendix A §27.)
 
 ### 3.10.3 The Self-Consistency Equation
 
@@ -450,7 +488,7 @@ Once G is fixed by one measurement, all gravitational forces F = G m₁m₂/r² 
 
 ### 3.12.4 G_∞ Numerically and the Spectral Action Closure Condition
 
-**Note on the spectral action formalism.** The Connes-Marcolli spectral action Tr(f(D/Λ)) is used here as a mathematical tool to connect the IDWT Dirac operator to the Einstein-Hilbert term. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense — the operator algebra, Hilbert space, and spectral triple structure of IDWT are distinct from the NCG Standard Model. The spectral action provides a convenient expression for how the gravitational coefficient G_∞ relates to the spectrum of D; the mechanism producing that spectrum (sector geometry, mode index selection, kernel coupling) is entirely native to IDWT.
+**Note on the spectral action formalism.** The Connes-Marcolli spectral action Tr(f(D/Λ)) is used here as a mathematical tool to connect the IDWT Dirac operator to the Einstein-Hilbert term. IDWT is not a noncommutative geometry (NCG) model in the Connes-Marcolli sense — the sector geometry, Dirac operator on M_∞, and mode-index structure of IDWT are distinct from the NCG Standard Model. The spectral action provides a convenient expression for how the gravitational coefficient G_∞ relates to the spectrum of D; the mechanism producing that spectrum (sector geometry, mode index selection, kernel coupling) is entirely native to IDWT.
 
 **The numerical value of G_∞.** The relation G_N = G_∞/V_7 immediately gives G_∞ once G_N and V_7 are known. Using the measured Newton's constant G_N = 6.674 × 10^{−11} m³ kg^{−1} s^{−2} and V_7 = 7.74 (fully derived in §3.12.2):
 
@@ -590,6 +628,8 @@ T_μν^{Dirac}(x,ξ) = |χ_{n,d}(ξ)|² × T_μν^{obs}[ψ](x)
 ## 4. Cosmological Constant
 
 The vacuum energy that sources Λ_eff would come from the sector mode tower. Its observed smallness is not currently derived: an existing mode gravitates whether or not a d=3 observer can resolve it, so the relevant question is which modes are persistent physical excitations — only the co-fixed-point modes are stable resonances of M_∞, while the rest are not persistent states. Whether that distinction, together with the sector radii and coupling strengths that fix particle masses, yields a naturally small Λ_eff is an open problem. ❓
+
+The contribution of the dimensions beyond d=10 is fixed: it is zero. ✅ The cosmological term is the $a_0$ Seeley–DeWitt coefficient of the spectral action ${\rm Tr}(f(D/\Lambda))$, and by T5 every d>10 mode lies in the essential spectrum — an extended scattering state, not L²-normalisable, contributing no discrete eigenvalue to the trace. This is the same trace-exclusion established for Newton's constant in §3.12.2; it is coefficient-blind, so it removes the d>10 vacuum dimensions from $a_0$ (the cosmological term) exactly as it removes them from $a_2$ (the Einstein–Hilbert term). Extending the sector self-coupling $g_{dd}$ naively into d>10 instead gives an exponentially divergent vacuum volume (§3.12.2) — the divergence T5 excludes. The same conclusion follows from the mass-scale condition $m_{\rm scale,d}^2 = g_{dd}\langle|\Psi^{(d)}|^2\rangle$ (Part 2 §12): the d>10 scattering states support no localised condensate, so the vacuum dimensions carry no sector scale and source no vacuum energy density. The open problem is thereby confined to the finite occupied tower d≤10, whose condensed modes carry real vacuum energy. ❓
 
 ---
 

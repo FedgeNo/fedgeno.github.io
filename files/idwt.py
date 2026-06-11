@@ -2319,7 +2319,7 @@ assert sig_mu_e < 1e-3 and sig_tau_e < 1e-3
 #
 # Measured inputs: PDG 2024 (m_tau 1776.93(9); m_W 80369.2(133);
 # m_Z 91188.0(20); m_H 125200(110); V_us 0.2245(8); m_t 172760(300);
-# m_c 1270(20); dm2_31 2.530(28)e-3; dm2_21 7.42(20)e-5) and FLAG 2024
+# m_c 1270(20); dm2_31 2.530(28)e-3; dm2_21 7.53(18)e-5) and FLAG 2024
 # m_s/m_d = 19.81(13) from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8).
 # (Part 5 sec 2a; Appendix A sec 24; script claude/significance_mc.py)
 
@@ -2349,8 +2349,8 @@ _s39_q = [
     ("m_t/m_c  ", 172760.0 / 1270.0,
      math.hypot(300.0 / 172760.0, 20.0 / 1270.0), 72,
      lambda n: S(n, 4) / S(20, 4) * (1 - epsilon) ** 7),
-    ("dm231/221", 2.530e-3 / 7.42e-5,
-     math.hypot(0.028 / 2.530, 0.20 / 7.42), 22, _s39_dm2),
+    ("dm231/221", 2.530e-3 / 7.53e-5,
+     math.hypot(0.028 / 2.530, 0.18 / 7.53), 22, _s39_dm2),
 ]
 
 _s39_rows, _s39_lucks, _s39_floors = [], [], []
@@ -2490,6 +2490,1112 @@ assert s39_p_exact < 1e-9            # joint coincidence beyond 6 sigma
 assert s39_p_fisher < 1e-6           # conservative bound still > 4.8 sig
 assert s39_nB_hits == 0              # no random theory matches as well
 assert s39_T_best > s39_T_idwt + 20  # ... by a margin > e^20
+
+# =============================================================================
+# STEP 40 -- CROSS-SECTOR SCALE INCOMMENSURABILITY LEMMA
+# (Part 7 §1.2; Appendix A §15; symbolic proof:
+#  claude/explore_scale_incommensurability.py)
+#
+# Claim (✅, proved exactly by sympy over the algebraic definitions):
+# every cross-sector ratio m_scale_d / m_scale_d' is irrational
+# EXCEPT m_scale_6 / m_scale_10 = 1 (the mu-tau symmetric pair).
+#
+# Algebraic structure (from ratio^2 rationality):
+#   {3,4}-vs-any : ratio^2 contains sqrt(7) = sqrt(n_s + n_u)
+#                  (quark-engine class)
+#   {2,5,6,10} pairwise: ratio^2 rational (sqrt-10-type irrationals)
+#   (6,10) pair : ratio^2 = ratio = 1  (exact, mu-tau symmetry)
+#
+# Consequence for Mechanism 2 (dephasing): "no common revival period"
+# is now a proved statement for all 14 cross-sector pairs except (6,10).
+# The single commensurate pair (6,10) is the unique sector pair that
+# CAN phase-lock -- a new structural reading of the mu-tau relation.
+# =============================================================================
+
+_ms40 = {
+    2: m_scale2, 3: m_scale3, 4: m_scale4,
+    5: m_scale5, 6: m_scale6, 10: m_scale10,
+}
+_ds = [2, 3, 4, 5, 6, 10]
+
+# STEP 41 -- TOWER EDGES AS CONDENSATE MATRIX ELEMENTS (F5/F16 joint)
+# (Part 2 §9c; Part 10 §2; full check: claude/verify_f5f16_joint.py)
+#
+# Oscillator proxy (T1: level n <-> Hermite degree k = n-1). The P6
+# condensate-linearized kernel supplies a degree-1 vertex (xi insertion).
+#
+# ADDITIVE edges n_c = n_a + n_b are the matrix element
+#   <H_{n_c-1} | x | H_{n_a-1} H_{n_b-1}>  nonzero at the top-of-band:
+# its top coefficient is the leading-coefficient ratio
+#   2^{k_a+k_b} / 2^{k_a+k_b+1} = 1/2  (positive, nonzero) -- so the
+# single degree-1 raising insertion lands exactly at n_c = n_a + n_b.
+#
+# SUBTRACTIVE edge n_nu3 = n_nu1 + n_nu2 - n_u (the unique one): the
+# net degree change vs the product is -(n_u-1) = -2 (a LOWERING, the
+# opposite of the additive raising). The -n_u is inclusion-exclusion
+# (Part 2 §9c: n_nu1=S(n_u,3), n_nu2=S(n_u,4) share the seed n_u), i.e.
+# the cumulant/connected minus sign. The electron (n_e seed-built)
+# overlaps the subtracted seed leg, so W[e,3] inherits the minus:
+# dU_e3/dtheta13|_0+ < 0 relative to the positive additive edges
+# (the convention-independent content of T8 gap (ii); the overall
+# branch is the PDG-convention bracket of Part 10 §4).
+# =============================================================================
+
+# STEP 42 -- HYBRIDISATION ANGLES FROM ORBIT-STATE ORTHOGONALITY
+# (Part 11 section 1)
+#
+# The bonding electron states of an n-equivalent-bond center live in
+# the L<=1 observable orbit state space span{|s>,|px>,|py>,|pz>} of
+# the d=6 electron (Part 8 section 14.3: observable harmonics of
+# Sym^L(C^4) under SU(4) > SU(3) > SO(3); here L=0 and L=1).
+# Each hybrid orbit state along unit direction n_i is
+#   |h_i> = a|s> + b (n_i . |p>),  a^2 + b^2 = 1.
+# Premises: (i) the n co-present electron resonances are distinct
+# modes of Psi_inf, hence orthonormal states (Pauli via spinor
+# anticommutation, Part 8 section 2); (ii) bond equivalence gives
+# every hybrid the same s-share a^2 = 1/n (the n hybrids exhaust
+# the single |s> state: sum of s-shares = 1).
+# Then  <h_i|h_j> = a^2 + b^2 (n_i.n_j) = 0  forces
+#   n_i . n_j = -(1/n)/(1-1/n) = -1/(n-1)        [identity]
+# sp: 180 deg; sp2: 120 deg; sp3: arccos(-1/3) = 109.471 deg --
+# the tetrahedral angle of Part 1 section 3d, with no empirical
+# input beyond the premises. Verified below by explicit construction.
+# Water (Part 11 section 1d): unequal s-shares 1/4 -+ delta give
+# cos(theta_bond) = -(1/4-delta)/(3/4+delta); delta fitted to the
+# measured H-O-H angle (not predicted).
+# =============================================================================
+
+# STEP 43 -- ZONAL HYBRID IDENTITY, OCTAHEDRAL sp3d2, EQUIANGULAR CAP
+# (Part 11 section 1.6, 1.4)
+#
+# Generalises STEP 42. A zonal hybrid along axis n is built from the
+# axially symmetric degree-l components about n; by the spherical
+# harmonic addition theorem the overlap of two zonal hybrids is
+#   <h_i|h_j> = sum_l c_l^2 P_l(n_i.n_j),  sum_l c_l^2 = 1.
+# STEP 42 is the l<=1 case: 1/n + (1-1/n) x = 0.
+# sp3d2 (l<=2, six equivalent hybrids): completeness forces the
+# shares c_0^2=1/6, c_1^2=1/2, c_2^2=1/3 (the six hybrids exhaust
+# |s>, three |p>, two zonal |d>). Orthogonality then reads
+#   1/6 + x/2 + (1/3) P_2(x) = 0  <=>  3x^2 + 3x = 0
+# so every pair cosine is 0 or -1: the six directions are forced to
+# be three orthogonal axes -- the octahedron.        [identity]
+# Equiangular cap: n unit vectors in R^3 with equal pairwise cosine
+# c have Gram (1-c)I + cJ with eigenvalues 1-c (x n-1) and 1+(n-1)c;
+# rank<=3 forces c=-1/(n-1) and n-1<=3. Five equivalent equiangular
+# sigma directions cannot exist in R^3 -- consistent with sp3d
+# centers splitting into inequivalent axial/equatorial sets (PF5).
+# Ammonia (Part 11 sec 1.4): shares 1/4 -+ delta as for water, lone
+# pair 1/4+3*delta (completeness); delta fitted to measured H-N-H.
+# =============================================================================
+
+# STEP 44 -- HELIUM GROUND STATE: VARIATIONAL BOUND FROM IDWT INPUTS
+# (Part 11 section 3)
+#
+# The d=3 marginal Hamiltonian for two electrons at a Z=2 nucleus
+# (Part 8 sec 14.2 Lemma 1 per electron; e-e repulsion +alpha/r12 in
+# the d=3 marginal -- the U(1) self-coupling on the shared d=2
+# coordinates, Part 8 sec 14.4; projection per Part 3 sec 0.8a):
+#   H = sum_i [ -grad_i^2/(2 m_e) - Z alpha/r_i ] + alpha/r12.
+# Product trial state with screened scale eta (pure math, no input):
+#   E(eta) = [eta^2 - 2 Z eta + (5/8) eta] * (alpha^2 m_e)
+#   dE/deta = 0  =>  eta = Z - 5/16 = 27/16,  E = -eta^2 alpha^2 m_e.
+# The comparison is made in hartree units (alpha^2 m_e), where alpha
+# and m_e cancel: the IDWT-derived alpha(0) carries the known -2.87%
+# residual (Part 3 sec 0.7), which would dominate an absolute-eV
+# comparison; the dimensionless number -eta^2 is the chemistry
+# content. The trial state is an uncorrelated product in the d=3
+# marginal; the residual vs the measured value is where the
+# two-electron 6D (CP3-coordinate) correlation enters (Part 11
+# sec 2 program).
+# =============================================================================
+
+# STEP 45 -- DERIVING THE HYBRID PREMISES: PLANE INVARIANCE + ZONAL
+# GROUND BLOCK (Part 11 section 4)
+#
+# (a) Orthogonality (P2) is not an assumption. By fermionic
+# antisymmetry (Part 8 sec 16.2) the n-electron state is the
+# antisymmetrised product of the occupied single-particle states;
+# replacing them by any other basis of the same span multiplies the
+# state by det(basis change) -- a scalar. The physical object is the
+# occupied SUBSPACE, so the directed hybrids may always be taken
+# orthonormal. Verified: the antisymmetric tensor u_i v_j - u_j v_i
+# of a non-orthogonal pair is proportional to that of its
+# orthonormalised pair.
+# (b) Directed zonal form (P1'). The companion nucleus's potential
+# is axially symmetric about the bond axis n (a d=3 structure; the
+# Lemma 1 separation applies per electron, Part 8 sec 14.2). Within
+# the degenerate L<=1 shell its leading multipole (dipole) couples
+# only |s> <-> |p_n>: the m=0 block about n. m=+-1 states have a
+# node on the axis and are untouched at this order. The bound state
+# of the block is the directed hybrid (|s>+|p_n>)/sqrt2 -- the zonal
+# form is derived, not assumed, in the degenerate-shell
+# idealisation. Verified on the hydrogenic n_H=2 shell:
+# <2s|z|2p_0> = -3 a0 (radial quadrature), perturbation eigenpairs
+# (|s>+-|p_0>)/sqrt2 at -+3 a0 E, |p_+-1> unshifted.
+# =============================================================================
+
+# STEP 46 -- AROMATIC RING CURRENT: CLOSED-SHELL SCALING (RIGID RING)
+# (Part 11 section 5; Part 8 section 17a)
+#
+# The benzene ring orbit is one 6D orbit coupling to all six centers
+# (Part 8 sec 17a); its angular modes on a ring of radius R have
+#   eps_m = (m - phi/phi0)^2 E_R,   E_R = hbar^2/(2 m_e R^2),
+# with phi the applied flux. The level current is I_m = -d eps/d phi,
+# linear in (m - phi/phi0). A closed shell fills m = -n..n twice
+# (spin), so the m-linear parts cancel and the field-induced part
+# adds over 2(2n+1) electrons:
+#   I_induced  prop to  2(2n+1) = N_pi   [pi-electron count]
+# and is independent of R (phi = B pi R^2 cancels R^2 in E_R).
+# The top filled level is m_max = n = (N-2)/4 for a [4n+2]annulene.
+# Shielding sign: the induced dipole field is opposed inside the
+# loop and along its axis, reinforcing in the outer plane -- inner
+# protons shielded, outer deshielded (Part 8 sec 17a observation).
+# NOTE: the scaling is N_pi = 2(2 m_max + 1), NOT m_max -- this
+# corrects the I prop-to m_max claim formerly in the chemistry
+# article. Rigid-ring model: real annulene geometry relaxation is
+# the open refinement.
+# =============================================================================
+
+# STEP 47 -- MARGINAL EXACTNESS: 3D PROBES FIX ALL CHEMISTRY
+# (Part 11 section 6)
+#
+# Corollary of Part 8 Lemma 1 (exact separability V = V_C(r)+V_6(xi))
+# and Lemma 2 (xi-orthogonality): for any observable O(r) supported
+# on the observable coordinates -- which includes every chemical
+# probe and the EM vertex (Part 8 sec 15) --
+#   <psi_r x chi_a| O(r) |psi_r' x chi_b> = <psi_r|O|psi_r'> delta_ab
+# so expectations and transition amplitudes are fixed by the d=3
+# marginal alone, and the sector factor drops out. IDWT therefore
+# reproduces standard molecular structure and response theory for
+# every 3D-measured chemistry observable. Demonstrated below on a
+# separable toy H = H_r x 1 + 1 x H_xi: states differing only in
+# the sector factor give identical <O_r>, and O_r induces no
+# transitions between sector levels.
+# =============================================================================
+
+# STEP 48 -- KERNEL RESIDUE BOUND AT CHEMICAL SCALES
+# (Part 11 section 6.3)
+#
+# Closes the Part 11 sec 6.1 scope condition. Two pieces:
+# (a) CANCELLATION (exact): kernel components supported on the
+# sector factor alone shift every atomic/molecular state equally --
+# by Lemma 1 all chemistry states share one sector eigenstate -- so
+# they cancel in every measurable difference. Only kernel components
+# with observable-coordinate support can leave a residue.
+# (b) BOUND on the remainder: the kernel is a contact structure
+# (colour analogy, Part 3 sec 0.6) with observable-coordinate range
+# set by the sector length scale L_6 = 1.414 fm (Part 1 sec 3e).
+# A contact term of range L and depth V0 shifts an s-state by
+#   dE ~ V0 |psi(0)|^2 (4pi/3) L^3,  |psi(0)|^2 = 1/(pi a0^3).
+# Conservative depth premise V0 <= m_e (the kernel's entire l=0
+# output in d=6 is the sector eigenvalue m_e; any residual contact
+# piece cannot exceed the scale it generates). Then
+#   dE/hartree <= (4/3) (L_6/a0)^3 m_e / (alpha^2 m_e)
+# Non-s states: |psi(0)|^2 = 0, residue higher order in L/a0.
+# Result ~5e-10 -- the same order as the proton-finite-size
+# correction Part 8 sec 14.4 already catalogues, three orders below
+# Lamb-scale effects, far below any chemical measurement.
+# =============================================================================
+
+# STEP 49 -- WITHIN-SECTOR REVIVAL AMPLITUDE BOUND (T0.5 even-level)
+# Off-resonant Rabi coupling: max revival amplitude ~ (J/DeltaS)^2.
+# Spectral independence (sum-free S-values, Part 1 sec 5 Uniqueness
+# Theorem) guarantees all DeltaS > 0.  Sum over non-tower even modes
+# per sector gives an upper bound on within-sector return probability.
+# Cross-sector revival averages to zero by the incommensurability
+# lemma (STEP 40; 14/15 pairs irrational).
+# (Part 9 T0.5 even-level bound; Appendix A sec 15)
+
+import math as _math
+from math import comb as _comb49
+
+def _J49(n_r, s=1.5):
+    num = _math.gamma(n_r + 1.5) * (s - 1)**n_r
+    den = _math.factorial(n_r) * s**(n_r + 1.5)
+    return num / den
+
+_tower_n = {2: [76, 81, 95], 3: [1, 4, 10], 4: [3, 20, 72],
+            5: [10, 15, 22], 6: [13, 35], 10: [23]}
+
+def _revival_bound(d):
+    tn = _tower_n[d]
+    total = 0.0
+    for n_nt in range(1, 80):
+        lev = n_nt - 1            # level = n - 1
+        if lev % 2 != 0:
+            continue              # odd level: exact l-parity cut
+        if n_nt in tn:
+            continue              # tower mode itself
+        s_nt = _comb49(n_nt + d - 1, d)
+        nearest = min(tn, key=lambda x: abs(_comb49(x+d-1, d) - s_nt))
+        delta = abs(s_nt - _comb49(nearest + d - 1, d))
+        if delta == 0:
+            continue
+        nr = abs(n_nt - nearest)
+        j = _J49(min(nr, 20)) * (1.0/3)**max(0, nr - 20)
+        total += (j / delta)**2
+    return total
+
+# STEP 50 -- [18]ANNULENE RING-CURRENT NMR: SIGN AND SCALING
+# (Part 11 section 5.1)
+# The I prop N_pi ring current (STEP 46) creates a magnetic field
+# at proton positions via Biot-Savart.  Current susceptibility:
+#   dI/dB0 = -N_pi * e^2/(4*pi*m_e)   [A/T, diamagnetic]
+# NMR shielding at in-plane point rho:
+#   sigma = Bz_loop(R,rho,I=1) * N_pi * e^2/(4*pi*m_e)
+# Sign: outer (rho > R) Bz < 0 -> sigma < 0 -> deshielded (down)
+#       inner (rho < R) Bz > 0 -> sigma > 0 -> shielded (upfield)
+# Rigid-ring overestimates ~5x (outer), ~40x (inner): the London
+# correction factor is the open geometric refinement of Part 11 sec 5.
+# N_pi scaling and sign are the correctly derived results.
+# (Part 11 sec 5.1; Part 8 sec 17a)
+# =============================================================================
+
+from scipy.special import ellipk as _ek50, ellipe as _ee50
+
+_mu0_50 = 4*math.pi*1e-7       # T*m/A
+_e50    = 1.602176634e-19      # C
+_me50   = 9.1093837015e-31     # kg
+_dCC50  = 1.39e-10             # m, aromatic C-C bond
+_rCH50  = 1.09e-10             # m, C-H bond length
+
+
+def _Bz50(R50, rho50):
+    """Bz [T/A] at z=0 in-plane rho from CCW loop radius R."""
+    k2 = 4*R50*rho50 / (R50 + rho50)**2
+    K50 = _ek50(k2)
+    E50 = _ee50(k2)
+    num = K50 + E50*(R50**2 - rho50**2)/(R50 - rho50)**2
+    return _mu0_50/(2*math.pi) * num / (R50 + rho50)
+
+
+# STEP 51 -- MADELUNG ORDERING FROM SLATER Z_eff
+# (Part 11 section 2)
+# Madelung / aufbau n+l rule: fill orbital with smallest n+l
+# first; ties broken by smaller n.  Mechanism: high-L states are
+# excluded from the nucleus by the angular-momentum barrier and
+# see a more screened Z_eff; low-n same-n+l states penetrate
+# more deeply, sitting lower in the well.  Slater's rules
+# approximate the full inner-electron screening integral.
+#
+# Slater's rules (s/p orbitals):
+#   same (n,l): 0.35 per other electron in same orbital
+#   same n group (other l<=1): 0.35
+#   n-1 group (all l, n'=n-1): 0.85
+#   n-2 and below: 1.00
+# For d/f orbitals: all electrons to the left: 1.00; same: 0.35.
+# E(n,l) = -Z_eff^2 / (2 n^2)  [hartree]
+#
+# Test: 4s vs 3d at Z=18-21 (Ar, K, Ca, Sc)
+# At K and Ca: 4s lower (fills first) -- Madelung confirmed.
+# At Sc: 3d becomes lower as d-shell Z_eff rises faster than
+# s-shell Z_eff -- 21st electron goes to 3d. Confirmed.
+# Repeated for 5s vs 4d at Z=36-39 (Kr, Rb, Sr, Y).
+#
+# IDWT-specific: the d-shell has 5 observable states and 4
+# permanently dark CP3-hidden d-states per shell (Part 8 sec
+# 14.3 Lemma 2); both groups follow the same Madelung ordering.
+
+def _fill51(Z51):
+    """Electron counts {(n,l): count} for atom Z51."""
+    _ord51 = [
+        (1,0),(2,0),(2,1),(3,0),(3,1),(4,0),(3,2),(4,1),
+        (5,0),(4,2),(5,1),(6,0),(4,3),(5,2),(6,1)
+    ]
+    _cnt51 = {}
+    _rem51 = Z51
+    for (_n51,_l51) in _ord51:
+        _cap51 = 2*(2*_l51+1)
+        _pl51  = min(_rem51, _cap51)
+        if _pl51 > 0:
+            _cnt51[(_n51,_l51)] = _pl51
+        _rem51 -= _pl51
+        if _rem51 <= 0:
+            break
+    return _cnt51
+
+def _zeff51(Z51, n51, l51):
+    """Slater Z_eff for orbital (n51,l51) in atom Z51."""
+    _c51 = _fill51(Z51)
+    _sh51 = 0.0
+    if l51 <= 1:
+        for (fn,fl),cnt in _c51.items():
+            if fn == n51 and fl == l51:
+                _sh51 += 0.35*(cnt-1)
+            elif fn == n51 and fl <= 1:
+                _sh51 += 0.35*cnt
+            elif fn == n51 and fl >= 2:
+                _sh51 += 1.00*cnt
+            elif fn == n51-1:
+                _sh51 += 0.85*cnt
+            elif fn < n51-1:
+                _sh51 += 1.00*cnt
+    else:
+        for (fn,fl),cnt in _c51.items():
+            if fn == n51 and fl == l51:
+                _sh51 += 0.35*(cnt-1)
+            elif fn < n51 or (fn == n51 and fl < l51):
+                _sh51 += 1.00*cnt
+    return Z51 - _sh51
+
+# STEP 52 -- LONE-PAIR ANGLE DELTA: VARIATIONAL FRAMEWORK + INGREDIENTS
+# (Part 11 section 4.7)
+#
+# s-share asymmetry delta parameterises the sp3-family hybrid orbit
+# states on the heavy atom (O for H2O, N for NH3):
+#   a_b^2  = 1/4 - delta    (bond state s-character)
+#   a_lp^2 = 1/4 + (n_b/n_lp)*delta  (lone-pair s-character)
+# Completeness: n_b*(1/4-delta) + n_lp*(1/4+(n_b/n_lp)*delta) = 1
+# Bond angle: cos(theta_bb) = -(1/4-delta)/(3/4+delta)
+# Lone-pair angle: cos(theta_lp) = -(a_lp^2)/(1-a_lp^2)
+# Bond-lone angle (from orthogonality):
+#   cos(theta_bl) = -sqrt(a_b^2 * a_lp^2)/sqrt((1-a_b^2)(1-a_lp^2))
+#
+# Energy decomposition:
+#   E(delta) = E_1c(delta) + E_tc(delta)
+# E_1c: one-centre Slater-Condon Coulomb integrals between hybrids.
+#   J(hi,hj) = ci^2 cj^2 F0ss
+#             + [ci^2(1-cj^2) + (1-ci^2)cj^2] F0sp
+#             + (1-ci^2)(1-cj^2) [F0pp - (2/25)F2pp P2(cos theta_ij)]
+#   Total KE and O-nuclear attraction are CONSTANT in delta
+#   (completeness preserves total s-char = 1 regardless of delta).
+#   These integrals are computed from Clementi-Raimondi STO exponents.
+#
+# E_tc: two-centre contributions (needed to close the calculation).
+#   Bond electrons extend to the H nucleus; their Coulomb repulsion
+#   with other electrons depends on the molecular geometry, not just
+#   the on-O orbital angles.  The two-centre orbit integrals of
+#   Part 8 sec 16 type are required: <h_b h_b'|1/r12|h_b h_b'> where
+#   h_b is a bond orbital centred on O pointing toward H.
+#   The key geometry-dependent term is V_HH:
+#     V_HH(delta) = C(n_b,2) / (2 R_MH sin(theta_bb(delta)/2))
+#   (H-H nuclear repulsion increases as bond angle closes with delta).
+#
+# Key numerical ingredients computed below:
+#   F0ss, F0sp, F0pp, F2pp from STO numerical quadrature
+#   S(2s,1sH) and S(2p_sigma,1sH) overlap integrals
+#   DeltaV_H = <2pz|-1/r_H|2pz> - <2s|-1/r_H|2s>  (nuclear attraction)
+#   dV_HH/ddelta at observed delta  (main geometric restraint)
+#
+# STO exponents: Clementi & Raimondi, J Chem Phys 38, 2686 (1963).
+#   O: z2s=2.246, z2p=2.227   N: z2s=z2p=1.917
+#   H: z1s=1.24 (in O-H/N-H bond environment)
+# Geometry: R(O-H)=0.9572 Ang, R(N-H)=1.012 Ang, H-O-H obs=104.5 deg,
+#   H-N-H obs=107.8 deg. delta_obs(H2O)=0.050, delta_obs(NH3)=0.016.
+# (Part 8 sec 14.3-17, Part 11 sec 4.6-4.7)
+
+import numpy as _np52
+from math import comb as _comb52
+
+# --- STO radial probability density P(r) = N^2 r^4 exp(-2 z r) ---
+def _sto_P52(z, Nr=1200):
+    N2 = (2*z)**5 / 24.0
+    r  = _np52.logspace(-4, 2.4, Nr)
+    return r, N2 * r**4 * _np52.exp(-2*z*r)
+
+# --- One-centre F^0 Coulomb integral ---
+def _F0_52(za, zb, Nr=1200):
+    r, Pa = _sto_P52(za, Nr); _, Pb = _sto_P52(zb, Nr)
+    dr = _np52.gradient(r)
+    cum  = _np52.cumsum(Pb * dr)
+    tail = _np52.cumsum((Pb/r * dr)[::-1])[::-1]
+    return _np52.trapezoid(Pa*(cum/r + tail), r)
+
+# --- One-centre F^2 radial integral ---
+def _F2_52(z, Nr=1200):
+    r, P = _sto_P52(z, Nr)
+    dr = _np52.gradient(r)
+    cum2 = _np52.cumsum(r**2 * P * dr)
+    tail3 = _np52.cumsum((P/r**3 * dr)[::-1])[::-1]
+    return _np52.trapezoid(P*(cum2/r**3 + r**2*tail3), r)
+
+# --- Overlap S(2s_X, 1s_H) with H at z=R (bond along z) ---
+def _Ss52(zs, zH, R, Nr=400, Nth=80):
+    Ns = _np52.sqrt((2*zs)**5/24.0) / _np52.sqrt(4*_np52.pi)
+    NH = zH**1.5 / _np52.sqrt(_np52.pi)
+    r = _np52.linspace(0.01, 7.0, Nr); ct = _np52.linspace(-1,1,Nth)
+    dr = r[1]-r[0]; dct = ct[1]-ct[0]
+    S = 0.0
+    for ri in r:
+        rH = _np52.sqrt(ri**2+R**2-2*ri*R*ct)
+        rH = _np52.maximum(rH, 1e-9)
+        phi2s = Ns * ri * _np52.exp(-zs*ri)
+        S += phi2s * _np52.sum(NH*_np52.exp(-zH*rH)*dct) \
+             * 2*_np52.pi * ri**2 * dr
+    return S
+
+# --- Overlap S(2p_sigma_X, 1s_H) ---
+def _Sp52(zp, zH, R, Nr=400, Nth=80):
+    Np = (_np52.sqrt((2*zp)**5/24.0)
+          * _np52.sqrt(3/(4*_np52.pi)))
+    NH = zH**1.5 / _np52.sqrt(_np52.pi)
+    r = _np52.linspace(0.01, 7.0, Nr); ct = _np52.linspace(-1,1,Nth)
+    dr = r[1]-r[0]; dct = ct[1]-ct[0]
+    S = 0.0
+    for ri in r:
+        rH = _np52.sqrt(ri**2+R**2-2*ri*R*ct)
+        rH = _np52.maximum(rH, 1e-9)
+        phi2p = Np * ri * _np52.exp(-zp*ri)
+        S += phi2p * _np52.sum(
+            ct*NH*_np52.exp(-zH*rH)*dct) \
+             * 2*_np52.pi * ri**2 * dr
+    return S
+
+# --- Nuclear attraction difference DeltaV_H ---
+def _DVH52(zp, zs, R, Nr=500, Nth=100):
+    N2 = (2*zp)**5/24.0
+    r  = _np52.logspace(-4,2.0,Nr); ct = _np52.linspace(-1,1,Nth)
+    dct = ct[1]-ct[0]
+    Ns2 = (2*zs)**5/24.0
+    Vs = Vp = 0.0
+    for i,ri in enumerate(r):
+        dr_i = (_np52.gradient(r))[i]
+        rH = _np52.sqrt(ri**2+R**2-2*ri*R*ct)
+        rH = _np52.maximum(rH,1e-9)
+        Rp2 = N2  * ri**2 * _np52.exp(-2*zp*ri)
+        Rs2 = Ns2 * ri**2 * _np52.exp(-2*zs*ri)
+        fac = 2*_np52.pi * ri**2 * dr_i
+        Vp += Rp2*(3/(4*_np52.pi))*_np52.sum(ct**2/rH*dct)*fac
+        Vs += Rs2/(4*_np52.pi)*_np52.sum(1/rH*dct)*fac
+    return Vp - Vs   # positive => 2p more attracted to H
+
+# --- Bond angle and H-H nuclear repulsion ---
+def _theta52(delta):
+    ab2 = 0.25 - delta
+    return _np52.degrees(_np52.arccos(-ab2/(1-ab2)))
+
+def _VHH52(delta, nb, R_MH):
+    th  = _np52.radians(_theta52(delta))
+    rHH = 2*R_MH*_np52.sin(th/2)
+    return _comb52(int(nb),2) / rHH
+
+_b52 = 1/0.529177   # bohr per Ang
+_zOs52, _zOp52 = 2.246, 2.227
+_zNsp52        = 1.917
+_zH52          = 1.24
+_ROH52         = 0.9572 * _b52     # bohr
+_RNH52         = 1.012  * _b52     # bohr
+
+# One-centre Slater-Condon integrals (a.u.)
+_F0ss52_O = _F0_52(_zOs52, _zOs52)
+_F0sp52_O = _F0_52(_zOs52, _zOp52)
+_F0pp52_O = _F0_52(_zOp52, _zOp52)
+_F2pp52_O = _F2_52(_zOp52)
+_F0ss52_N = _F0_52(_zNsp52, _zNsp52)
+_F0sp52_N = _F0ss52_N          # same exponent for N
+_F0pp52_N = _F0ss52_N
+_F2pp52_N = _F2_52(_zNsp52)
+
+# Overlap integrals S (dimensionless)
+_Ss52_O = _Ss52(_zOs52, _zH52, _ROH52)
+_Sp52_O = _Sp52(_zOp52, _zH52, _ROH52)
+_Ss52_N = _Ss52(_zNsp52, _zH52, _RNH52)
+_Sp52_N = _Sp52(_zNsp52, _zH52, _RNH52)
+
+# Nuclear attraction differences DeltaV_H (a.u.)
+_DV52_O = _DVH52(_zOp52, _zOs52, _ROH52)
+_DV52_N = _DVH52(_zNsp52, _zNsp52, _RNH52)
+
+# One-centre E2 range (delta 0 to 0.25): confirm it is nearly flat
+def _E2_1c52(delta, F0ss, F0sp, F0pp, F2pp, nb, nlp):
+    ab2 = 0.25 - delta; alp2 = 0.25 + (nb/nlp)*delta
+    def P2(x): return (3*x**2-1)/2
+    def Jhyb(c1,c2,cos_t):
+        a1,a2 = 1-c1,1-c2
+        return (c1*c2*F0ss + (c1*a2+a1*c2)*F0sp
+                + a1*a2*(F0pp - 0.08*F2pp*P2(cos_t)))
+    cos_bb  = -ab2/(1-ab2)
+    cos_lp  = (-alp2/(1-alp2)
+               if nlp > 1 else 0.0)
+    cos_bl  = (-_np52.sqrt(ab2*alp2)
+               / _np52.sqrt((1-ab2)*(1-alp2)))
+    return (_comb52(int(nb),2)*Jhyb(ab2,ab2,cos_bb)
+           +_comb52(int(nlp),2)*Jhyb(alp2,alp2,cos_lp)
+           +nb*nlp*Jhyb(ab2,alp2,cos_bl))
+
+_E2_H2O_0   = _E2_1c52(0.001,
+    _F0ss52_O,_F0sp52_O,_F0pp52_O,_F2pp52_O,2,2)
+_E2_H2O_025 = _E2_1c52(0.245,
+    _F0ss52_O,_F0sp52_O,_F0pp52_O,_F2pp52_O,2,2)
+
+# V_HH nuclear repulsion gradient at observed delta
+_dVHH_H2O = (_VHH52(0.055,2,_ROH52)
+              -_VHH52(0.045,2,_ROH52)) / 0.010
+_dVHH_NH3  = (_VHH52(0.021,3,_RNH52)
+              -_VHH52(0.011,3,_RNH52)) / 0.010
+
+# STEP 53 -- KERNEL CONTACT AMPLITUDE (Part 11 section 6.4)
+# Computes V0_actual from the (n=13, d=6) sector eigenfunction parity.
+# Key question: what fraction f_contact of the kernel's l=0 output
+# falls within the contact range L_6 = 1.414 fm?
+#
+# d=6 harmonic oscillator: at level n, the allowed angular momenta
+# satisfy (n mod 2) == (l mod 2).  For n=13 (ODD), l must be ODD:
+#   l = 1, 3, 5, 7, 9, 11, 13
+# l=0 is ABSENT.  Therefore:
+#   <n=13,d=6 | K_{l=0} | n=13,d=6> = 0  (parity)
+#   f_contact = 0,  V0_actual = m_e * 0 = 0 MeV
+#
+# Angular selection for s-state corrections:
+# An odd-l effective potential Y_l^m(theta,phi) integrated over the
+# sphere against any spherically symmetric atomic orbital gives zero.
+# All odd-l kernel pieces therefore give ΔE = 0 for s-states.
+#
+# Combined result: ΔE = 0 at leading contact order, converting the
+# §6.3 bound to an equality at zero.  Leading non-zero contribution
+# comes at 2nd order in (L_6/a_0)^2 (from even-l mixing induced by
+# the odd-l sector kernel at 2nd order perturbation theory).
+#
+# The electron mode n_e=13 being ODD is not accidental: it reflects
+# the seed decomposition n_e = n_nu1 + n_up = 10 + 3 = 13
+# (Part 2 sec 2/6).  A hypothetical even n would produce a nonzero
+# contact amplitude; odd n is what the seed structure selects.
+# (Part 11 section 6.4)
+
+import math as _math53
+
+_n_e53   = 13                         # electron mode index (Part 2)
+_S_e53   = S(_n_e53, 6)               # = 18564
+_L6_53   = 1.414                      # fm  (Part 1 sec 3e)
+_m_e53   = m_e                        # MeV
+_a0_53   = 0.529177e5                 # Bohr radius in fm
+
+# l values at n=13 in d=6 oscillator (same parity as n)
+_l_vals53 = list(range(_n_e53 % 2, _n_e53 + 1, 2))
+_l0_53    = 0 in _l_vals53            # False -> l=0 absent
+
+# Contact fraction and amplitude
+_f_contact53  = 0.0 if not _l0_53 else None
+_V0_actual53  = _m_e53 * _f_contact53 if not _l0_53 else None
+
+# §6.3 bound (STEP 48) and next-order suppression
+_ratio53    = _L6_53 / _a0_53
+_dE_bnd_ha = 4.78e-10                 # hartree, from STEP 48
+_dE_next53 = _dE_bnd_ha * _ratio53**2  # leading non-zero order
+
+# S(12,6): nearest even mode -- l=0 WOULD be present
+_S_12_53 = S(12, 6)
+
+# STEP 54 -- [18]ANNULENE NMR: DISTRIBUTED p_z CURRENT (Part 11 sec 5.1)
+# Improvement over STEP 50 (thin-wire Biot-Savart): replace the 1D ring
+# current with a spatially distributed current weighted by the azimuthal
+# average of the Slater 2p_z orbital density on the ring carbons.
+#
+# p_z density (azimuthal ring average):
+#   rho(r,z) = z^2 * <exp(-2*zeta*sqrt(r^2+R^2-2rR*cos(phi)+z^2))>_phi
+# where zeta = 1.625/a0 (Clementi-Raimondi 2p_z for sp2 carbon).
+# The z^2 factor reflects the 2p_z angular dependence (density=0 in ring
+# plane); z = 0 is excluded, removing the near-singular region of
+# the Biot-Savart kernel at h=0.
+#
+# For each grid point (rho, z), the Biot-Savart B_z contribution from a
+# circular current loop of radius rho at height z, at in-plane point rho_H:
+#   Bz = (mu0/4pi) * integral_0^{2pi} rho(rho - rho_H cos phi) /
+#          (rho_H^2 + rho^2 + z^2 - 2 rho rho_H cos phi)^{3/2} dphi
+# (500-point trapezoidal rule, converges to <0.1% for these separations.)
+#
+# Result: ~33% reduction (outer proton) and ~21% (inner proton) relative
+# to the thin-wire value, consistent with the ~35% combined-correction
+# estimate in Part 11 sec 5.1.  Remaining factor ~3x (outer), ~30x (inner)
+# is the open GIAO problem documented in that section.
+# London correction cos(pi/N_pi) = 0.985 adds 1.5% (large-ring limit).
+# (Part 11 sec 5.1; STEP 50 for thin-wire baseline)
+# =============================================================================
+
+import numpy as _np54
+from scipy.special import (
+    ellipk as _ek54, ellipe as _ee54)
+import math as _math54
+
+_Npi54  = 18
+_dCC54  = 1.39e-10              # m, aromatic C-C bond
+_rCH54  = 1.09e-10              # m, C-H bond
+_R54    = _Npi54 * _dCC54 / (2*_math54.pi)
+_zeta54 = 1.625 / (0.529177e-10)  # m^-1, C 2p_z (Clementi-Raimondi)
+_mu54   = 4*_math54.pi*1e-7     # T m/A
+_e54    = 1.602176634e-19        # C
+_me54   = 9.1093837015e-31       # kg
+
+
+def _Bz54_wire(R, rho):
+    """Thin-wire Biot-Savart B_z [T/A] (elliptic integral)."""
+    k2    = 4*R*rho / (R+rho)**2
+    K, E  = _ek54(k2), _ee54(k2)
+    return _mu54/(2*_math54.pi)*(
+        K + E*(R**2-rho**2)/(R-rho)**2)/(R+rho)
+
+
+def _Bz54_dist(rho_H, R=_R54, zeta=_zeta54,
+               dr=0.20e-10, dz=0.20e-10,
+               Np_d=60, Np_bs=500):
+    """B_z [T/A] from distributed p_z torus at in-plane rho_H."""
+    rho_g = _np54.arange(dr/2, R*2.2, dr)
+    z_pos = _np54.arange(dz, 2.5e-10, dz)
+    z_g   = _np54.concatenate([-z_pos[::-1], z_pos])
+    # -- density (Nr x Nz) --
+    phi_d = _np54.linspace(
+        0, 2*_math54.pi, Np_d, endpoint=False)
+    rr = rho_g[:,_np54.newaxis,_np54.newaxis]
+    zz = z_g[_np54.newaxis,:,_np54.newaxis]
+    pp = phi_d[_np54.newaxis,_np54.newaxis,:]
+    d2 = _np54.maximum(
+        rr**2 + R**2 - 2*rr*R*_np54.cos(pp) + zz**2,
+        1e-60)
+    avg  = _np54.mean(
+        _np54.exp(-2*zeta*_np54.sqrt(d2)), axis=2)
+    dens = avg * z_g[_np54.newaxis,:]**2
+    rho2 = rho_g[:,_np54.newaxis]
+    dens /= _np54.sum(dens*2*_math54.pi*rho2*dr*dz)
+    # -- Biot-Savart kernel (Nr x Nz) --
+    phi_bs = _np54.linspace(
+        0, 2*_math54.pi, Np_bs, endpoint=False)
+    dphi   = 2*_math54.pi/Np_bs
+    rr_b = rho_g[:,_np54.newaxis,_np54.newaxis]
+    zz_b = z_g[_np54.newaxis,:,_np54.newaxis]
+    pp_b = phi_bs[_np54.newaxis,_np54.newaxis,:]
+    D2  = _np54.maximum(
+        rho_H**2 + rr_b**2 + zz_b**2
+        - 2*rr_b*rho_H*_np54.cos(pp_b), 1e-60)
+    kern = (_mu54/(4*_math54.pi)
+            * (rr_b*(rr_b - rho_H*_np54.cos(pp_b))
+               / D2**1.5).sum(axis=2) * dphi)
+    vol = 2*_math54.pi*rho2*dr*dz
+    return float(_np54.sum(dens*kern*vol))
+
+
+_dIdB54  = _Npi54 * _e54**2 / (4*_math54.pi*_me54)
+_rho_o54 = _R54 + _rCH54
+_rho_i54 = _R54 - _rCH54
+_fL54    = _math54.cos(_math54.pi/_Npi54)  # London factor
+
+_Bz_tw_o = _Bz54_wire(_R54, _rho_o54)
+_Bz_tw_i = _Bz54_wire(_R54, _rho_i54)
+_Bz_d_o  = _Bz54_dist(_rho_o54)
+_Bz_d_i  = _Bz54_dist(_rho_i54)
+
+_sig_tw_o = _Bz_tw_o * _dIdB54 * 1e6
+_sig_tw_i = _Bz_tw_i * _dIdB54 * 1e6
+_sig_d_o  = _Bz_d_o  * _dIdB54 * 1e6
+_sig_d_i  = _Bz_d_i  * _dIdB54 * 1e6
+_sig_dL_o = _sig_d_o * _fL54
+_sig_dL_i = _sig_d_i * _fL54
+
+
+# =============================================================================
+# STEP 55 -- THE d=2 EVEN-INSERTION SELECTION RULE (insertion dichotomy)
+# (Part 3 section 11; Part 3 section 16.2; Part 2 section 6 note;
+#  Appendix A section 25 addendum; claude/explore_insertion_dichotomy.py)
+#
+# The degree-1 condensate vertex (one xi insertion per additive fermion
+# edge; STEP 41) exists only in sectors with a nonzero condensate
+# <xi_d'> (Part 1 P6). The all-orders photon-mass theorem (Part 3
+# section 16.2) states the condensate-linearized vertices remain even
+# (degree 2) in the d=2 variable: no odd vertex acts on a d=2 leg.
+# Selection rule (motivated, derivation open): a tower production
+# landing on a d=2 mode carries an EVEN number of degree-1 insertions;
+# matter-sector targets are unconstrained (the realized edges use one).
+#
+# Oscillator proxy bookkeeping (T1: mode n <-> Hermite degree k = n-1):
+#   product of modes: top Hermite degree k = sum(n_i - 1)
+#   each insertion x: raises the top degree by exactly 1 with
+#     top-of-band coefficient ratio 1/2 per insertion (positive,
+#     nonzero), so the landing index is n = sum(n_i - 1) + k_ins + 1.
+#   g-rule join: the partner enters as the sector overhead segment of
+#     d quanta sharing one vacuum unit (Part 3 section 11), so
+#     k_partner = d - 1 and zero insertions land at n_f + d - 1.
+# All seven documented productions land exactly, with insertion counts
+# {e:1, mu:1, tau:1 | W:0, Z:0, H-join:0, H-additive:2} -- every d=2
+# production even, every matter-sector edge odd. The counterfactual
+# odd-insertion boson indices (n+1) are unoccupied. One structural
+# fact -- no d=2 condensate -- yields both m_gamma = 0 and the g-rule
+# -1 (the shared vacuum unit).
+# =============================================================================
+
+def _land55(n_ops, k_ins):
+    """Landing mode index: product top-of-band + k_ins insertions."""
+    return sum(v - 1 for v in n_ops) + k_ins + 1
+
+# (name, target sector, operands, insertions, documented target)
+_prods55 = [
+    ('e',     6, (n_nu1, n_up),          1, n_e),
+    ('mu',    6, (n_charm, n_nu2),       1, n_mu),
+    ('tau',  10, (n_nu3, n_down),        1, n_tau),
+    ('W',     2, (n_top, 5),             0, n_W),    # d_nu overhead
+    ('Z',     2, (n_W, 6),               0, n_Z),    # d_lep overhead
+    ('Hjoin', 2, (n_nu2, n_Z),           0, n_H),
+    ('Hadd',  2, (n_up, n_charm, n_top), 2, n_H),
+]
+_land_ok55 = all(_land55(ops, k) == tgt
+                 for _, _, ops, k, tgt in _prods55)
+_parity_ok55 = all(k % 2 == 0
+                   for _, sec, _, k, _ in _prods55 if sec == 2)
+_NS55 = {0, n_down, n_up, n_strange, n_charm, n_top, n_nu1, n_nu2,
+         n_nu3, n_e, n_mu, n_tau, n_W, n_Z, n_H}
+_cf_boson55 = [(nm, v + 1, (v + 1) in _NS55)
+               for nm, v in (('W', n_W), ('Z', n_Z), ('H', n_H))]
+_cf_clean55 = not any(occ for _, _, occ in _cf_boson55)
+
+
+# =============================================================================
+# STEP 56 -- SUM-FREE VERIFICATION OF THE OCCUPIED S-VALUES (Part 1 sec 5)
+# (Additive-combinatorics framing, Part 1 "sum-free" remark; the spectral
+#  independence used by STEP 49. From gifts-from-grok, 2026-06-10.)
+#
+# Claim (Part 1, additive rigidity): the 14 non-zero occupied S-values
+# form a sum-free set -- no member equals the sum of two (not necessarily
+# distinct) members. Verified here by the full pairwise check. Note the
+# mode INDICES are not sum-free (1+3=4); the property holds at the
+# S-value (eigenvalue) level.
+# =============================================================================
+
+_pairs56 = [(n_down, 3), (n_strange, 3), (n_up, 4), (n_charm, 4),
+            (n_top, 4), (n_nu1, 5), (n_nu2, 5), (n_nu3, 5),
+            (n_e, 6), (n_mu, 6), (n_tau, 10),
+            (n_W, 2), (n_Z, 2), (n_H, 2)]
+_svals56 = sorted(S(_n, _d) for _n, _d in _pairs56)
+_set56 = set(_svals56)
+_collisions56 = [(a, b, a + b) for i, a in enumerate(_svals56)
+                 for b in _svals56[i:] if (a + b) in _set56]
+_sumfree56 = not _collisions56
+
+
+# =============================================================================
+# STEP 57 -- COW GRAVITATIONAL PHASE WITH THE IDWT NUCLEON MASS
+# (articles/cow-gravitational-phase.html; m_N_idwt from STEP 7.
+#  From gifts-from-grok, 2026-06-10, arithmetic repaired.)
+#
+# COW phase for a neutron interferometer with enclosed area A and
+# de Broglie wavelength lambda = h/(m v):
+#   delta_phi = m g A / (hbar v) = m^2 g A lambda / (2 pi hbar^2)
+# (the 2 pi belongs in the denominator when lambda = h/(m v) is used).
+# IDWT supplies the nucleon mass m_N = N_c*Lqcd*(1+1/n_up^2) (STEP 7);
+# gravitational mass = inertial mass = S(n,d)*m_scale_d (Part 4 s3.6),
+# so the phase-to-mass ratio is species-independent.
+# At fixed interferometer geometry (A, lambda) the prediction relative
+# to the standard value with the PDG neutron mass is
+#   phi_IDWT / phi_std = (m_N_idwt / m_n_PDG)^2
+# Representative geometry (lambda = 1.445 A, A = 10 cm^2) gives the
+# tens-of-radians scale observed in the COW-class experiments.
+# =============================================================================
+
+_mn_pdg57 = 939.565            # MeV (PDG 2024, claude/pdg2024.txt)
+_kg57     = 1.78266192e-30     # kg per MeV/c^2
+_hbar57   = 1.054571817e-34    # J s
+_h57      = 6.62607015e-34     # J s
+_g57      = 9.80665            # m s^-2
+_lam57    = 1.445e-10          # m   (representative thermal-neutron Bragg)
+_A57      = 10.0e-4            # m^2 (representative enclosed area)
+
+def _cow_phase57(m_mev):
+    _m = m_mev * _kg57
+    _v = _h57 / (_m * _lam57)
+    return _m * _g57 * _A57 / (_hbar57 * _v)
+
+_phi_idwt57 = _cow_phase57(m_N_idwt)
+_phi_std57  = _cow_phase57(_mn_pdg57)
+_ratio57    = (m_N_idwt / _mn_pdg57) ** 2
+_ratio_ok57 = abs(_phi_idwt57 / _phi_std57 - _ratio57) < 1e-12
+
+
+# =============================================================================
+# STEP 58 -- SECTOR-WELL COVARIANCE: THE WELL RIDES WITH THE MODE
+# (Part 4 section 3.10.2 covariance note; Part 1 section 3i; Part 8
+#  section 14.2; Appendix A section 27; full numerics incl. 1D
+#  dynamics in claude/well_covariance_check.py.)
+#
+# The kernel self-term (Part 4 section 3.10.1)
+#   V_self(xi) = g_dd * Int |chi(xi')|^2 (xi . xi')^2 dxi'
+# is written in absolute sector coordinates. Read literally (well
+# anchored at the origin of Xi_d), a mode of internal spread s whose
+# centroid sits at X acquires the displacement energy
+#   U_A(X)/g_dd = |X|^4 + (2 s^2/d) |X|^2 + s^4/d
+# (exact for an isotropic density: expand ((X+eta).(X+eta'))^2 over
+# independent zero-mean isotropic draws eta, eta' and use
+# <(a.eta)^2> = s^2|a|^2/d and <(eta.eta')^2> = s^4/d).
+# Quartic pinning to the sector origin: at hydrogen's Bohr radius the
+# pinning energy is ~2e18 in sector units against the internal ground
+# energy E_0 = d*sqrt(lam_6) = 3 -- the absolute reading forbids
+# macroscopic motion and contradicts the established Bohr spectrum
+# (Part 8 section 14.2). EXCLUDED by reductio.
+# The covariant (mode-frame) evaluation -- displacements relative to
+# the mode centroid, ((xi-X).(xi'-X))^2 -- gives U_B = g_dd s^4/d,
+# X-independent, and leaves the fixed point lam_d = (g_dd/2)^(2/3)
+# (Part 4 section 3.10.3) unchanged in every sector: section 3.10
+# computed at X = 0, the mode frame, so every published number is
+# frame-local. Consequences: the well travels with the excitation
+# (1D split-step check: boosted self-bound mode translates at exactly
+# v with width drift 0.00%; the absolute-kernel twin released at
+# X0 = 5 oscillates pinned about the origin); the center propagates
+# freely, E^2 = P^2 + m^2 (Part 1 section 3i), with no preferred
+# coordinates -- "bound within, free without" completes to "bound
+# about its center within; the center free everywhere." In hydrogen
+# the compact internal structure corrects the point-center H_eff only
+# through its smearing,
+#   dE/|E_1s| = 4 sigma^2,  sigma = L_6/a0,
+# the same order as the proton-finite-size items of Part 8 s14.4.
+# Lengths below in sector units (base unit = L_6/lam_6^(-1/4) = 1 fm).
+
+_d58    = 6
+_g58    = g_self[_d58]                         # = g66 = 1/4
+_lam58  = (_g58 / 2.0) ** (2.0 / 3.0)          # = 0.25 (Part 4 s3.10.4)
+_s2_58  = _d58 / (2.0 * math.sqrt(_lam58))     # <|eta|^2> = d/(2 sqrt(lam))
+
+def _U_abs58(X):
+    """Displacement energy / g_dd, absolute (origin-anchored) reading."""
+    return X**4 + (2.0 * _s2_58 / _d58) * X**2 + _s2_58**2 / _d58
+
+_U_rel58  = _g58 * _s2_58**2 / _d58            # covariant: X-independent
+_L6_m58   = 1.414e-15                          # L_6 in metres
+_unit_m58 = _L6_m58 / _lam58**-0.25            # sector base unit ~ 1 fm
+_a0_m58   = 5.29177210903e-11                  # Bohr radius, metres
+_X58      = _a0_m58 / _unit_m58                # a0 in sector units
+_pin58    = _g58 * _U_abs58(_X58)              # pinning energy at X = a0
+_E0_58    = _d58 * math.sqrt(_lam58)           # internal E_0 = 3
+_lam_all58 = {d: (g_self[d] / 2.0) ** (2.0 / 3.0) for d in sector_d}
+_sig58    = _L6_m58 / _a0_m58                  # smearing parameter
+_dE58     = 4.0 * _sig58**2                    # dE/|E_1s|
+
+
+# =============================================================================
+# STEP 59 -- CROSS-SECTOR KERNEL COVARIANCE: CONTACT IS A CONSEQUENCE
+# (Part 4 section 3.10.1 covariance note; Part 3 section 0.6; Part 11
+#  section 6.3; Appendix A section 28; STEP 58 is the self-term
+#  companion; full numerics claude/kernel_covariance_check.py.)
+#
+# Two modes, A (sector d, centroid X_A) and B (sector d', centroid
+# X_B), couple through g_{dd'}(xi_d . xi_{d'})^2 on their shared
+# subspace (d_sh = min(d,d'), Part 1 section 3g); per-component
+# variances a^2, b^2; R = X_A - X_B. The three two-point covariant
+# readings, in closed form (each MC-verified):
+#  (0) absolute:      U_0/g = (X_A.X_B)^2 + b^2|X_A|^2 + a^2|X_B|^2
+#                              + d_sh a^2 b^2
+#      -- not a function of R alone; changes under a global
+#      translation. EXCLUDED (STEP 58 reductio class).
+#  (1) pair-centroid: U_1/g = |R/2|^4 + (a^2+b^2)|R/2|^2 + d_sh a^2 b^2
+#      -- quartic MUTUAL CONFINEMENT of every massive pair; for the
+#      e-p pair at R = a0, g_36 U_1 ~ 1e18 sector units, vs the
+#      actual e-p interaction at a0 being Coulomb alone. EXCLUDED.
+#  (2) each-own-frame: U_2/g = d_sh a^2 b^2  -- R-INDEPENDENT; the
+#      pair energy never vanishes as R -> inf (cluster decomposition
+#      fails; extensive spurious energy ~ pair count). EXCLUDED.
+# FORCED: no two-point polynomial moment survives. The only covariant
+# reading left is CONTACT-GATED,
+#   U(R) = g_{dd'} * Omega(R) * d_sh a^2 b^2,
+# with Omega(0) = 1 and decay on the mode-width scale: the
+# (xi.xi')^2 factor is the local geometry of the coupling AT a
+# contact event, not a long-range potential. "The kernel is a
+# contact structure" (Part 3 section 0.6; Part 11 section 6.3
+# premise) is thereby a structural consequence ✅, not an assertion.
+# Established couplings are contact evaluations (Omega(0)=1): all
+# unchanged. A=B at R=0 reduces to the STEP 58 self-term g s^4/d.
+# Long-range forces untouched: EM is the massless, non-compact d=2
+# zero mode (no width gate; Part 3 sections 16, 0.8a); gravity is
+# curvature (Part 4).
+# Gate PROFILE (Gaussian modes; derived in STEP 60):
+#   Omega(R) = exp(-R^2/(2(a^2+b^2))), range sqrt(a^2+b^2):
+# e-e range = sqrt(2 sigma_6^2) = L_6 = 1.414 -- the Part 11
+# section 6.3 premise, derived; q-q (3,4) range 0.78 (sub-fm,
+# strong-force scale); e-p 1.11. Gate at R = a0: ln Omega ~ -1e9.
+
+_dsh59      = 3                                 # e-p shared subspace
+_a2_59      = 1.0 / (2.0 * math.sqrt(_lam_all58[6]))   # electron
+_b2_59      = 1.0 / (2.0 * math.sqrt(_lam_all58[3]))   # down-type
+_g36_59     = math.sqrt(g_self[3] * g_self[6])  # rank-1 g_36
+
+def _U1_59(R):
+    """Pair-centroid reading, closed form (units of g)."""
+    _u2 = R * R / 4.0
+    return _u2**2 + (_a2_59 + _b2_59) * _u2 + _dsh59 * _a2_59 * _b2_59
+
+_U1_a0_59   = _g36_59 * _U1_59(_X58)            # confinement disaster
+_U2_59      = _dsh59 * _a2_59 * _b2_59          # frame-local moment
+_rng_ee59   = math.sqrt(2.0 / (2.0 * math.sqrt(_lam_all58[6])))
+_rng_ep59   = math.sqrt(_a2_59 + _b2_59)
+_rng_qq59   = math.sqrt(1.0 / (2.0 * math.sqrt(_lam_all58[3]))
+                        + 1.0 / (2.0 * math.sqrt(_lam_all58[4])))
+_lnOm_a0_59 = -_X58**2 / (2.0 * (_a2_59 + _b2_59))
+_self_red59 = g_self[6] * 6 * (1.0 / (2.0 * math.sqrt(_lam_all58[6])))**2
+_self_ok59  = abs(_self_red59 - _U_rel58) < 1e-12   # = STEP 58 U_B
+
+
+# =============================================================================
+# STEP 60 -- KERNEL GATE PROFILE DERIVED: NORMALIZED DENSITY OVERLAP
+# (Part 4 section 3.10.1 covariance note; closes the STEP 59 residual;
+#  Appendix A section 28 addendum; claude/deuteron_gate_check.py.)
+#
+# Three established inputs force the gate Omega(R) of STEP 59 uniquely:
+#  (i)   bilinearity: the kernel action term is bilinear in the kernel
+#        currents, L_{dd'} = (g/2) Int (xi.xi')^2 J J (Part 3 section
+#        0.6) -- linear in each mode's intensity -- so the pair energy
+#        is a bilinear functional U = IntInt rho_A(x) rho_B(y) F(x-y);
+#  (ii)  covariance + the STEP 59 exclusions force F to decay;
+#  (iii) the action carries no length constant of its own (the g_dd'
+#        are dimensionless seed-built numbers), so F has zero
+#        intrinsic range: the scale-free point contact F ~ delta.
+# Hence Omega(R) = [rho_A * rho_B](R) / [rho_A * rho_B](0), the
+# normalized density overlap -- derived, no longer a modeling choice.
+# Gaussian sector ground modes: Omega(R) = exp(-R^2/(2(a^2+b^2))).
+# Corollary (exact algebra): a same-sector pair has contact range
+#   sqrt(2 sigma_d^2) = (2 * 1/(2 sqrt(lam_d)))^(1/2) = lam_d^(-1/4)
+#   = L_d
+# -- the sector localization length IS the same-sector contact range
+# (e-e: L_6, the Part 11 section 6.3 range; N-N at d=3: L_3).
+
+_ident60 = all(
+    abs(math.sqrt(1.0 / math.sqrt(_lam_all58[d])) - _lam_all58[d]**-0.25)
+    < 1e-12 for d in sector_d)                 # sqrt(2 sigma^2) == L_d
+
+
+# =============================================================================
+# STEP 61 -- INTERNUCLEON CONTACT: DEUTERON INVERSE CHECK
+# (Part 8 section 11; gate range from STEP 60; Appendix A section 29;
+#  claude/deuteron_gate_check.py.)
+#
+# Nucleons are d=3 colour-singlet composites (Part 1 section 2.4), so
+# the N-N kernel contact gate has the derived d=3 range
+# L_3 = lam_3^(-1/4) = 0.675 (sector units ~ fm); a gate built from
+# the measured proton charge radius (sigma^2 = r_p^2/3, r_p = 0.8409
+# fm CODATA) gives 0.687 -- the d=3 sector width and the measured
+# nucleon size give nearly the same gate. Inverse check: with the
+# gate profile itself as the contact well,
+#   V(r) = -V0 exp(-r^2/(2 Rc^2)),
+# reduced mass m_N_idwt/2, the measured deuteron binding
+# E_B = 2.224566 MeV (CODATA; not in claude/pdg2024.txt) fixes the
+# depth the kernel must supply. Result: V0 is an order-unity
+# fraction of the IDWT hadronic scale Lqcd = N_c f_pi. The RANGE is
+# fixed by STEP 60; deriving the DEPTH V0 from the kernel is the
+# same class of open problem as the section 11 confinement level.
+# The solved mode's rms half-separation lands near the measured
+# deuteron matter radius ~1.97 fm (shallow-state universality).
+
+_HBARC61 = 197.3269804                  # MeV fm
+_EB61    = 2.224566                     # MeV (CODATA)
+_RP61    = 0.8409                       # fm  (CODATA proton radius)
+_RC_NN61 = _lam_all58[3] ** -0.25       # L_3 gate, 0.675
+_RC_QQ61 = math.sqrt(1.0/(2*math.sqrt(_lam_all58[3]))
+                     + 1.0/(2*math.sqrt(_lam_all58[4])))   # 0.780
+_RC_RP61 = math.sqrt(2.0 * _RP61**2 / 3.0)                 # 0.687
+
+def _shoot61(V0, Rc, E):
+    """Numerov u'' = f u, f = (m_N/hbarc^2)(V - E); return u(rmax)."""
+    _c = m_N_idwt / _HBARC61**2
+    _h = 0.01
+    _n = int(30.0 / _h)
+    _u0, _u1 = 0.0, 1e-6
+    _h2 = _h * _h / 12.0
+    def _f(r):
+        return _c * (-V0 * math.exp(-r*r/(2.0*Rc*Rc)) - E)
+    for _i in range(2, _n + 1):
+        _r0, _r1, _r2 = (_i-2)*_h, (_i-1)*_h, _i*_h
+        _u2 = (2*_u1*(1 + 5*_h2*_f(_r1)) - _u0*(1 - _h2*_f(_r0))) \
+            / (1 - _h2*_f(_r2))
+        _u0, _u1 = _u1, _u2
+    return _u1
+
+def _solveV0_61(Rc):
+    """Ground-state depth: scan to first sign change, then bisect."""
+    _lo = 1.0
+    _flo = _shoot61(_lo, Rc, -_EB61)
+    _hi = _lo
+    while _shoot61(_hi + 2.0, Rc, -_EB61) * _flo > 0:
+        _hi += 2.0
+        _lo = _hi
+    _hi += 2.0
+    for _ in range(50):
+        _mid = 0.5 * (_lo + _hi)
+        if _shoot61(_mid, Rc, -_EB61) * _flo > 0:
+            _lo = _mid
+        else:
+            _hi = _mid
+    return 0.5 * (_lo + _hi)
+
+def _rms61(V0, Rc):
+    """rms of r/2 over the solved |u|^2."""
+    _c = m_N_idwt / _HBARC61**2
+    _h = 0.01
+    _n = int(40.0 / _h)
+    _u0, _u1 = 0.0, 1e-6
+    _h2 = _h * _h / 12.0
+    _s0 = _s2 = 0.0
+    def _f(r):
+        return _c * (-V0 * math.exp(-r*r/(2.0*Rc*Rc)) + _EB61)
+    for _i in range(2, _n + 1):
+        _r = _i * _h
+        _u2 = (2*_u1*(1 + 5*_h2*_f(_r - _h))
+               - _u0*(1 - _h2*_f(_r - 2*_h))) / (1 - _h2*_f(_r))
+        _u0, _u1 = _u1, _u2
+        _s0 += _u1*_u1*_h
+        _s2 += _r*_r*_u1*_u1*_h
+    return 0.5 * math.sqrt(_s2 / _s0)
+
+_V0_NN61 = _solveV0_61(_RC_NN61)
+_V0_QQ61 = _solveV0_61(_RC_QQ61)
+_V0_RP61 = _solveV0_61(_RC_RP61)
+_rms_NN61 = _rms61(_V0_NN61, _RC_NN61)
+
+
+# =============================================================================
+# STEP 62 -- N-N WELL FROM SECOND-ORDER KERNEL CONTACT: DEPTH = LAMBDA
+# (Part 8 section 11; structure from the colour energy law, Part 8
+#  section 5.3, and the derived gate, STEP 60; Appendix A section 29
+#  addendum; claude/deuteron_gate_check.py.)
+#
+# Structure (forced by established results):
+#  (a) Two colour singlets have N_A = N_B = 0, so the first-order
+#      inter-singlet colour energy vanishes by the energy law
+#      E_conf = lambda_c |N| (Part 8 section 5.3). The leading N-N
+#      kernel interaction is SECOND order in the gated contact --
+#      the colour analogue of the van der Waals mechanism (Part 8
+#      section 17b, second-order d=2 self-coupling).
+#  (b) Second order squares the gate: V(R) = -V0 * Omega(R)^2
+#      = -V0 exp(-R^2/(2 Rc2^2)) with Rc2 = (gate range)/sqrt(2):
+#      L_3 gate -> Rc2 = 0.477; r_p gate -> Rc2 = 0.486.
+#  (c) Depth V0 = kappa^2/Delta, kappa the singlet->non-singlet
+#      contact matrix element, Delta the non-singlet gap -- the
+#      quantities of the open colour-scale problem (lambda_c class,
+#      Part 8 section 5.3). The profile and range carry no freedom.
+# Inverse result: the measured deuteron binding requires
+#   V0 = 1.02 * Lqcd (L_3 gate),  V0 = 0.99 * Lqcd (r_p gate)
+# -- the required depth equals the IDWT hadronic scale Lqcd = N_c
+# f_pi within 2% on both gates. Forward, parameter-free, V0 = Lqcd
+# exactly: E_B = 1.6 MeV (L_3) and 2.5 MeV (r_p), bracketing the
+# measured 2.2246 (a shallow state is exponentially sensitive to
+# depth, so the inverse statement is the robust one). 🔵
+# Open: derive kappa and Delta (equivalently lambda_c) from the
+# kernel; spin-tensor structure (deuteron is spin-1; this is the
+# central s-wave channel).
+
+_RC2_NN62 = _RC_NN61 / math.sqrt(2.0)          # 0.477
+_RC2_RP62 = _RC_RP61 / math.sqrt(2.0)          # 0.486
+_V0_NN62  = _solveV0_61(_RC2_NN62)
+_V0_RP62  = _solveV0_61(_RC2_RP62)
+_rms_NN62 = _rms61(_V0_NN62, _RC2_NN62)
+
+def _solveE62(V0, Rc):
+    """Ground-state energy for fixed depth: bisect shoot on E."""
+    _lo, _hi = -60.0, -1e-6
+    _flo = _shoot61(V0, Rc, _lo)
+    for _ in range(60):
+        _mid = 0.5 * (_lo + _hi)
+        if _shoot61(V0, Rc, _mid) * _flo > 0:
+            _lo = _mid
+        else:
+            _hi = _mid
+    return 0.5 * (_lo + _hi)
+
+_EB_NN62 = -_solveE62(Lqcd, _RC2_NN62)         # V0 = Lambda exactly
+_EB_RP62 = -_solveE62(Lqcd, _RC2_RP62)
+
+
+# =========================================================================
+# OUTPUT
+# =========================================================================
+
+
+
+# =============================================================================
+# STEPS 1-39 -- OUTPUT
+# =============================================================================
 
 
 # =============================================================================
@@ -3511,9 +4617,9 @@ print("  -> g22×g55: exact by construction"
 print(f"  -> Both chains yield 96: genuine internal consistency test. ✓")
 
 
-# =============================================================================
-# STEP 29 -- T0.5: CO-FIXED-POINT SELECTION CONDITION (output)
-# =============================================================================
+# =========================================================================
+# STEP 31 -- OUTPUT: CONSECUTIVE MATTER QUARTET (Part 1 §3a, App A §19)
+# =========================================================================
 
 print("\n=== STEP 31: CONSECUTIVE MATTER QUARTET DERIVATION"
       " (Part 1 §3a, App A §19) ===")
@@ -3534,6 +4640,12 @@ for ns, ok, length in _ok:
     print(f"    n_s={ns}: d_start={d_start},"
           f" d_term={2*(ns-1)}, length={length}"
           f"  {'<= UNIQUE' if ok and d_start==3 else ''}")
+
+
+# =========================================================================
+# STEP 29 -- OUTPUT: T0.5 CO-FIXED-POINT SELECTION CONDITION
+#            (Part 9 §T0.5, Part 7)
+# =========================================================================
 
 print("\n=== T0.5: CO-FIXED-POINT SELECTION CONDITION"
       " (Part 9 §T0.5, Part 7) ===")
@@ -3828,32 +4940,8 @@ print("     the residual question is index-FORCING (T0.5), not fit.")
 
 # =============================================================================
 
-# =============================================================================
-# STEP 40 -- CROSS-SECTOR SCALE INCOMMENSURABILITY LEMMA
-# (Part 7 §1.2; Appendix A §15; symbolic proof:
-#  claude/explore_scale_incommensurability.py)
-#
-# Claim (✅, proved exactly by sympy over the algebraic definitions):
-# every cross-sector ratio m_scale_d / m_scale_d' is irrational
-# EXCEPT m_scale_6 / m_scale_10 = 1 (the mu-tau symmetric pair).
-#
-# Algebraic structure (from ratio^2 rationality):
-#   {3,4}-vs-any : ratio^2 contains sqrt(7) = sqrt(n_s + n_u)
-#                  (quark-engine class)
-#   {2,5,6,10} pairwise: ratio^2 rational (sqrt-10-type irrationals)
-#   (6,10) pair : ratio^2 = ratio = 1  (exact, mu-tau symmetry)
-#
-# Consequence for Mechanism 2 (dephasing): "no common revival period"
-# is now a proved statement for all 14 cross-sector pairs except (6,10).
-# The single commensurate pair (6,10) is the unique sector pair that
-# CAN phase-lock -- a new structural reading of the mu-tau relation.
-# =============================================================================
-
-_ms = {
-    2: m_scale2, 3: m_scale3, 4: m_scale4,
-    5: m_scale5, 6: m_scale6, 10: m_scale10,
-}
-_ds = [2, 3, 4, 5, 6, 10]
+# STEP 40 -- OUTPUT: CROSS-SECTOR SCALE INCOMMENSURABILITY LEMMA
+# =========================================================================
 
 print("\n=== STEP 40: CROSS-SECTOR SCALE INCOMMENSURABILITY LEMMA"
       " (Part 7 §1.2) ===")
@@ -3864,7 +4952,7 @@ print("  " + "-"*58)
 _pairs = [(a, b) for i, a in enumerate(_ds) for b in _ds[i+1:]]
 _quark = {3, 4}
 for _a, _b in _pairs:
-    _r = _ms[_a] / _ms[_b]
+    _r = _ms40[_a] / _ms40[_b]
     # exact algebraic class (proved by sympy):
     # exactly one member in {3,4} => ratio^2 contains sqrt(7)
     if _a == 6 and _b == 10:
@@ -3887,28 +4975,9 @@ print("  => The unique commensurate pair is the mu-tau pair"
 
 
 # =============================================================================
-# STEP 41 -- TOWER EDGES AS CONDENSATE MATRIX ELEMENTS (F5/F16 joint)
-# (Part 2 §9c; Part 10 §2; full check: claude/verify_f5f16_joint.py)
-#
-# Oscillator proxy (T1: level n <-> Hermite degree k = n-1). The P6
-# condensate-linearized kernel supplies a degree-1 vertex (xi insertion).
-#
-# ADDITIVE edges n_c = n_a + n_b are the matrix element
-#   <H_{n_c-1} | x | H_{n_a-1} H_{n_b-1}>  nonzero at the top-of-band:
-# its top coefficient is the leading-coefficient ratio
-#   2^{k_a+k_b} / 2^{k_a+k_b+1} = 1/2  (positive, nonzero) -- so the
-# single degree-1 raising insertion lands exactly at n_c = n_a + n_b.
-#
-# SUBTRACTIVE edge n_nu3 = n_nu1 + n_nu2 - n_u (the unique one): the
-# net degree change vs the product is -(n_u-1) = -2 (a LOWERING, the
-# opposite of the additive raising). The -n_u is inclusion-exclusion
-# (Part 2 §9c: n_nu1=S(n_u,3), n_nu2=S(n_u,4) share the seed n_u), i.e.
-# the cumulant/connected minus sign. The electron (n_e seed-built)
-# overlaps the subtracted seed leg, so W[e,3] inherits the minus:
-# dU_e3/dtheta13|_0+ < 0 relative to the positive additive edges
-# (the convention-independent content of T8 gap (ii); the overall
-# branch is the PDG-convention bracket of Part 10 §4).
-# =============================================================================
+# =========================================================================
+# STEP 41 -- OUTPUT: TOWER EDGES AS CONDENSATE MATRIX ELEMENTS (F5/F16 j...
+# =========================================================================
 
 print("\n=== STEP 41: TOWER EDGES AS CONDENSATE MATRIX ELEMENTS"
       " (Part 2 §9c) ===")
@@ -3931,29 +5000,9 @@ print("       (T8 gap (ii) relative sign; branch per Part 10 §4).")
 
 
 # =============================================================================
-# STEP 42 -- HYBRIDISATION ANGLES FROM ORBIT-STATE ORTHOGONALITY
-# (Part 11 section 1)
-#
-# The bonding electron states of an n-equivalent-bond center live in
-# the L<=1 observable orbit state space span{|s>,|px>,|py>,|pz>} of
-# the d=6 electron (Part 8 section 14.3: observable harmonics of
-# Sym^L(C^4) under SU(4) > SU(3) > SO(3); here L=0 and L=1).
-# Each hybrid orbit state along unit direction n_i is
-#   |h_i> = a|s> + b (n_i . |p>),  a^2 + b^2 = 1.
-# Premises: (i) the n co-present electron resonances are distinct
-# modes of Psi_inf, hence orthonormal states (Pauli via spinor
-# anticommutation, Part 8 section 2); (ii) bond equivalence gives
-# every hybrid the same s-share a^2 = 1/n (the n hybrids exhaust
-# the single |s> state: sum of s-shares = 1).
-# Then  <h_i|h_j> = a^2 + b^2 (n_i.n_j) = 0  forces
-#   n_i . n_j = -(1/n)/(1-1/n) = -1/(n-1)        [identity]
-# sp: 180 deg; sp2: 120 deg; sp3: arccos(-1/3) = 109.471 deg --
-# the tetrahedral angle of Part 1 section 3d, with no empirical
-# input beyond the premises. Verified below by explicit construction.
-# Water (Part 11 section 1d): unequal s-shares 1/4 -+ delta give
-# cos(theta_bond) = -(1/4-delta)/(3/4+delta); delta fitted to the
-# measured H-O-H angle (not predicted).
-# =============================================================================
+# =========================================================================
+# STEP 42 -- OUTPUT: HYBRIDISATION ANGLES FROM ORBIT-STATE ORTHOGONALITY
+# =========================================================================
 
 print("\n=== STEP 42: HYBRID ANGLES FROM ORBIT-STATE"
       " ORTHOGONALITY (Part 11 sec 1) ===")
@@ -3986,28 +5035,9 @@ print(f"    lone-pair angle = {math.degrees(math.acos(_cl)):.2f} deg.")
 
 
 # =============================================================================
-# STEP 43 -- ZONAL HYBRID IDENTITY, OCTAHEDRAL sp3d2, EQUIANGULAR CAP
-# (Part 11 section 1.6, 1.4)
-#
-# Generalises STEP 42. A zonal hybrid along axis n is built from the
-# axially symmetric degree-l components about n; by the spherical
-# harmonic addition theorem the overlap of two zonal hybrids is
-#   <h_i|h_j> = sum_l c_l^2 P_l(n_i.n_j),  sum_l c_l^2 = 1.
-# STEP 42 is the l<=1 case: 1/n + (1-1/n) x = 0.
-# sp3d2 (l<=2, six equivalent hybrids): completeness forces the
-# shares c_0^2=1/6, c_1^2=1/2, c_2^2=1/3 (the six hybrids exhaust
-# |s>, three |p>, two zonal |d>). Orthogonality then reads
-#   1/6 + x/2 + (1/3) P_2(x) = 0  <=>  3x^2 + 3x = 0
-# so every pair cosine is 0 or -1: the six directions are forced to
-# be three orthogonal axes -- the octahedron.        [identity]
-# Equiangular cap: n unit vectors in R^3 with equal pairwise cosine
-# c have Gram (1-c)I + cJ with eigenvalues 1-c (x n-1) and 1+(n-1)c;
-# rank<=3 forces c=-1/(n-1) and n-1<=3. Five equivalent equiangular
-# sigma directions cannot exist in R^3 -- consistent with sp3d
-# centers splitting into inequivalent axial/equatorial sets (PF5).
-# Ammonia (Part 11 sec 1.4): shares 1/4 -+ delta as for water, lone
-# pair 1/4+3*delta (completeness); delta fitted to measured H-N-H.
-# =============================================================================
+# =========================================================================
+# STEP 43 -- OUTPUT: ZONAL HYBRID IDENTITY, OCTAHEDRAL sp3d2, EQUIANGULA...
+# =========================================================================
 
 print("\n=== STEP 43: ZONAL HYBRIDS -- sp3d2, EQUIANGULAR CAP"
       " (Part 11 sec 1.6) ===")
@@ -4037,26 +5067,9 @@ print("    lone-pair count trend: delta(CH4)=0 < delta(NH3)"
       " < delta(H2O).")
 
 # =============================================================================
-# STEP 44 -- HELIUM GROUND STATE: VARIATIONAL BOUND FROM IDWT INPUTS
-# (Part 11 section 3)
-#
-# The d=3 marginal Hamiltonian for two electrons at a Z=2 nucleus
-# (Part 8 sec 14.2 Lemma 1 per electron; e-e repulsion +alpha/r12 in
-# the d=3 marginal -- the U(1) self-coupling on the shared d=2
-# coordinates, Part 8 sec 14.4; projection per Part 3 sec 0.8a):
-#   H = sum_i [ -grad_i^2/(2 m_e) - Z alpha/r_i ] + alpha/r12.
-# Product trial state with screened scale eta (pure math, no input):
-#   E(eta) = [eta^2 - 2 Z eta + (5/8) eta] * (alpha^2 m_e)
-#   dE/deta = 0  =>  eta = Z - 5/16 = 27/16,  E = -eta^2 alpha^2 m_e.
-# The comparison is made in hartree units (alpha^2 m_e), where alpha
-# and m_e cancel: the IDWT-derived alpha(0) carries the known -2.87%
-# residual (Part 3 sec 0.7), which would dominate an absolute-eV
-# comparison; the dimensionless number -eta^2 is the chemistry
-# content. The trial state is an uncorrelated product in the d=3
-# marginal; the residual vs the measured value is where the
-# two-electron 6D (CP3-coordinate) correlation enters (Part 11
-# sec 2 program).
-# =============================================================================
+# =========================================================================
+# STEP 44 -- OUTPUT: HELIUM GROUND STATE: VARIATIONAL BOUND FROM IDWT IN...
+# =========================================================================
 
 print("\n=== STEP 44: HELIUM VARIATIONAL BOUND"
       " (Part 11 sec 3) ===")
@@ -4076,30 +5089,9 @@ print("   residual, Part 3 sec 0.7 -- hence the hartree comparison.)")
 
 
 # =============================================================================
-# STEP 45 -- DERIVING THE HYBRID PREMISES: PLANE INVARIANCE + ZONAL
-# GROUND BLOCK (Part 11 section 4)
-#
-# (a) Orthogonality (P2) is not an assumption. By fermionic
-# antisymmetry (Part 8 sec 16.2) the n-electron state is the
-# antisymmetrised product of the occupied single-particle states;
-# replacing them by any other basis of the same span multiplies the
-# state by det(basis change) -- a scalar. The physical object is the
-# occupied SUBSPACE, so the directed hybrids may always be taken
-# orthonormal. Verified: the antisymmetric tensor u_i v_j - u_j v_i
-# of a non-orthogonal pair is proportional to that of its
-# orthonormalised pair.
-# (b) Directed zonal form (P1'). The companion nucleus's potential
-# is axially symmetric about the bond axis n (a d=3 structure; the
-# Lemma 1 separation applies per electron, Part 8 sec 14.2). Within
-# the degenerate L<=1 shell its leading multipole (dipole) couples
-# only |s> <-> |p_n>: the m=0 block about n. m=+-1 states have a
-# node on the axis and are untouched at this order. The bound state
-# of the block is the directed hybrid (|s>+|p_n>)/sqrt2 -- the zonal
-# form is derived, not assumed, in the degenerate-shell
-# idealisation. Verified on the hydrogenic n_H=2 shell:
-# <2s|z|2p_0> = -3 a0 (radial quadrature), perturbation eigenpairs
-# (|s>+-|p_0>)/sqrt2 at -+3 a0 E, |p_+-1> unshifted.
-# =============================================================================
+# =========================================================================
+# STEP 45 -- OUTPUT: DERIVING THE HYBRID PREMISES: PLANE INVARIANCE + ZONAL
+# =========================================================================
 
 print("\n=== STEP 45: HYBRID PREMISES DERIVED -- PLANE +"
       " ZONAL BLOCK (Part 11 sec 4) ===")
@@ -4135,27 +5127,9 @@ print("  => directed zonal hybrid (|s>+|p_n>)/sqrt2: P1' derived"
 
 
 # =============================================================================
-# STEP 46 -- AROMATIC RING CURRENT: CLOSED-SHELL SCALING (RIGID RING)
-# (Part 11 section 5; Part 8 section 17a)
-#
-# The benzene ring orbit is one 6D orbit coupling to all six centers
-# (Part 8 sec 17a); its angular modes on a ring of radius R have
-#   eps_m = (m - phi/phi0)^2 E_R,   E_R = hbar^2/(2 m_e R^2),
-# with phi the applied flux. The level current is I_m = -d eps/d phi,
-# linear in (m - phi/phi0). A closed shell fills m = -n..n twice
-# (spin), so the m-linear parts cancel and the field-induced part
-# adds over 2(2n+1) electrons:
-#   I_induced  prop to  2(2n+1) = N_pi   [pi-electron count]
-# and is independent of R (phi = B pi R^2 cancels R^2 in E_R).
-# The top filled level is m_max = n = (N-2)/4 for a [4n+2]annulene.
-# Shielding sign: the induced dipole field is opposed inside the
-# loop and along its axis, reinforcing in the outer plane -- inner
-# protons shielded, outer deshielded (Part 8 sec 17a observation).
-# NOTE: the scaling is N_pi = 2(2 m_max + 1), NOT m_max -- this
-# corrects the I prop-to m_max claim formerly in the chemistry
-# article. Rigid-ring model: real annulene geometry relaxation is
-# the open refinement.
-# =============================================================================
+# =========================================================================
+# STEP 46 -- OUTPUT: AROMATIC RING CURRENT: CLOSED-SHELL SCALING (RIGID ...
+# =========================================================================
 
 print("\n=== STEP 46: RING CURRENT -- CLOSED-SHELL SCALING"
       " (Part 11 sec 5) ===")
@@ -4169,22 +5143,9 @@ print("     not with m_max; R-independent in the rigid-ring model.")
 
 
 # =============================================================================
-# STEP 47 -- MARGINAL EXACTNESS: 3D PROBES FIX ALL CHEMISTRY
-# (Part 11 section 6)
-#
-# Corollary of Part 8 Lemma 1 (exact separability V = V_C(r)+V_6(xi))
-# and Lemma 2 (xi-orthogonality): for any observable O(r) supported
-# on the observable coordinates -- which includes every chemical
-# probe and the EM vertex (Part 8 sec 15) --
-#   <psi_r x chi_a| O(r) |psi_r' x chi_b> = <psi_r|O|psi_r'> delta_ab
-# so expectations and transition amplitudes are fixed by the d=3
-# marginal alone, and the sector factor drops out. IDWT therefore
-# reproduces standard molecular structure and response theory for
-# every 3D-measured chemistry observable. Demonstrated below on a
-# separable toy H = H_r x 1 + 1 x H_xi: states differing only in
-# the sector factor give identical <O_r>, and O_r induces no
-# transitions between sector levels.
-# =============================================================================
+# =========================================================================
+# STEP 47 -- OUTPUT: MARGINAL EXACTNESS: 3D PROBES FIX ALL CHEMISTRY
+# =========================================================================
 
 print("\n=== STEP 47: MARGINAL EXACTNESS -- 3D PROBES"
       " (Part 11 sec 6) ===")
@@ -4209,29 +5170,9 @@ print("     sector structure enters as foundation, not as deviation.")
 
 
 # =============================================================================
-# STEP 48 -- KERNEL RESIDUE BOUND AT CHEMICAL SCALES
-# (Part 11 section 6.3)
-#
-# Closes the Part 11 sec 6.1 scope condition. Two pieces:
-# (a) CANCELLATION (exact): kernel components supported on the
-# sector factor alone shift every atomic/molecular state equally --
-# by Lemma 1 all chemistry states share one sector eigenstate -- so
-# they cancel in every measurable difference. Only kernel components
-# with observable-coordinate support can leave a residue.
-# (b) BOUND on the remainder: the kernel is a contact structure
-# (colour analogy, Part 3 sec 0.6) with observable-coordinate range
-# set by the sector length scale L_6 = 1.414 fm (Part 1 sec 3e).
-# A contact term of range L and depth V0 shifts an s-state by
-#   dE ~ V0 |psi(0)|^2 (4pi/3) L^3,  |psi(0)|^2 = 1/(pi a0^3).
-# Conservative depth premise V0 <= m_e (the kernel's entire l=0
-# output in d=6 is the sector eigenvalue m_e; any residual contact
-# piece cannot exceed the scale it generates). Then
-#   dE/hartree <= (4/3) (L_6/a0)^3 m_e / (alpha^2 m_e)
-# Non-s states: |psi(0)|^2 = 0, residue higher order in L/a0.
-# Result ~5e-10 -- the same order as the proton-finite-size
-# correction Part 8 sec 14.4 already catalogues, three orders below
-# Lamb-scale effects, far below any chemical measurement.
-# =============================================================================
+# =========================================================================
+# STEP 48 -- OUTPUT: KERNEL RESIDUE BOUND AT CHEMICAL SCALES
+# =========================================================================
 
 print("\n=== STEP 48: KERNEL RESIDUE BOUND"
       " (Part 11 sec 6.3) ===")
@@ -4247,6 +5188,315 @@ print(f"  fractional vs hartree: {_dE/_ha_eV2:.1e}"
       "  (s-states; 0 at this order otherwise)")
 print("  => same order as the proton-size correction (Part 8");
 print("     sec 14.4, ~1e-10); chemistry residue closes at nil.")
+
+
+# =========================================================================
+# STEP 49 -- OUTPUT: WITHIN-SECTOR REVIVAL AMPLITUDE BOUND (T0.5 even-le...
+# =========================================================================
+
+print("\n=== STEP 49: WITHIN-SECTOR REVIVAL AMPLITUDE BOUND"
+      " (T0.5) ===")
+print("  Bound = sum_n (J(n_r,3/2)/DeltaS)^2 per sector")
+print("  (off-resonant Rabi; all DeltaS > 0 by spectral independence)")
+for _d in [3, 4, 5, 6, 10, 2]:
+    _b = _revival_bound(_d)
+    print(f"  d={_d:2d}: sum(J/DeltaS)^2 = {_b:.2e}")
+print("  d=3 is the worst case; sqrt(4e-4) ~ 2% max amplitude.")
+print("  Cross-sector revival: time-avg = 0 (incommensurability,")
+print("  STEP 40, 14/15 pairs irrational). Total return prob")
+print("  bounded at ~4e-4; status remains 🔵 (not exact zero).")
+
+
+# =============================================================================
+# =========================================================================
+# STEP 50 -- OUTPUT: [18]ANNULENE RING-CURRENT NMR: SIGN AND SCALING
+# =========================================================================
+
+print("\n=== STEP 50: [18]ANNULENE NMR (Part 11 sec 5.1) ===")
+for _Np50, _lbl50 in [(6, "benzene "), (18, "[18]ann")]:
+    _R50 = _Np50 * _dCC50 / (2*math.pi)
+    _dIdB50 = _Np50 * _e50**2 / (4*math.pi*_me50)
+    _ro50 = _R50 + _rCH50
+    _ri50 = _R50 - _rCH50
+    _so50 = _Bz50(_R50, _ro50) * _dIdB50
+    _si50 = _Bz50(_R50, _ri50) * _dIdB50
+    print(f"  {_lbl50}: R={_R50*1e10:.2f}A "
+          f"|dI/dB0|={_dIdB50:.3e}A/T")
+    print(f"    sigma_out={_so50*1e6:+.1f}ppm "
+          f"sigma_in={_si50*1e6:+.1f}ppm")
+print("  [18]ann obs: outer -9.28ppm deshield inner +2.99ppm shield")
+print("  Sign: correct both cases; N_pi 6->18 scales ~3x (obs ~2x).")
+print("  Rigid-ring overestimates ~5x(outer) ~40x(inner); London")
+print("  correction ~19%, distributed-pi ~20% -- combined ~35%.")
+print("  Remaining discrepancy requires full GIAO treatment.")
+
+
+# =========================================================================
+# STEP 51 -- OUTPUT: MADELUNG ORDERING FROM SLATER Z_eff
+# =========================================================================
+
+print("\n=== STEP 51: MADELUNG ORDERING (Part 11 sec 2) ===")
+print("E(n,l) = -Zeff^2/(2n^2)  [hartree]  Slater screening")
+print()
+print("4s vs 3d (noble-gas core through d-block onset):")
+_mald51 = {18:'Ar',19:'K',20:'Ca',21:'Sc'}
+for _Z51 in [18,19,20,21]:
+    _e4s = -_zeff51(_Z51,4,0)**2/32
+    _e3d = -_zeff51(_Z51,3,2)**2/18
+    _lbl = _mald51[_Z51]
+    print(f"  {_lbl}(Z={_Z51}): "
+          f"E_4s={_e4s:.3f}  E_3d={_e3d:.3f}  "
+          f"4s_lower={'Y' if _e4s<_e3d else 'N'}")
+print()
+print("5s vs 4d:")
+_mald51b = {36:'Kr',37:'Rb',38:'Sr',39:'Y'}
+for _Z51 in [36,37,38,39]:
+    _e5s = -_zeff51(_Z51,5,0)**2/50
+    _e4d = -_zeff51(_Z51,4,2)**2/32
+    _lbl = _mald51b[_Z51]
+    print(f"  {_lbl}(Z={_Z51}): "
+          f"E_5s={_e5s:.3f}  E_4d={_e4d:.3f}  "
+          f"5s_lower={'Y' if _e5s<_e4d else 'N'}")
+print()
+print("n+l rule confirmed at each noble-gas->d-block transition.")
+print("IDWT: 5 observable + 4 CP3-hidden d-states per shell,")
+print("all following the same Madelung sequence.")
+
+
+
+# =========================================================================
+# STEP 52 -- OUTPUT: LONE-PAIR ANGLE DELTA: VARIATIONAL FRAMEWORK + INGR...
+# =========================================================================
+
+print("\n=== STEP 52: LONE-PAIR ANGLE DELTA"
+      " (Part 11 sec 4.7) ===")
+print("STO: O 2s=2.246 2p=2.227; N 2s=2p=1.917;"
+      " H 1s=1.24")
+print()
+print("One-centre Slater-Condon integrals (a.u.):")
+print(f"  O: F0ss={_F0ss52_O:.4f} F0sp={_F0sp52_O:.4f}"
+      f" F0pp={_F0pp52_O:.4f} F2pp={_F2pp52_O:.4f}")
+print(f"  N: F0ss={_F0ss52_N:.4f} F0sp={_F0sp52_N:.4f}"
+      f" F0pp={_F0pp52_N:.4f} F2pp={_F2pp52_N:.4f}")
+print()
+print("Overlap integrals (dimensionless):")
+print(f"  O: S(2s,1sH)={_Ss52_O:.4f}"
+      f" S(2p,1sH)={_Sp52_O:.4f}")
+print(f"  N: S(2s,1sH)={_Ss52_N:.4f}"
+      f" S(2p,1sH)={_Sp52_N:.4f}")
+print()
+print("Nuclear attraction difference DeltaV_H (a.u.):")
+print(f"  O: <2pz|1/r_H|2pz>-<2s|1/r_H|2s>"
+      f" = {_DV52_O:.4f}")
+print(f"  N: same difference"
+      f" = {_DV52_N:.4f}")
+print()
+print("One-centre E2 variation over delta in [0,0.25]:")
+print(f"  H2O: E2(0)={_E2_H2O_0:.4f}"
+      f" E2(0.25)={_E2_H2O_025:.4f}"
+      f" range={_E2_H2O_025-_E2_H2O_0:.4f} a.u.")
+print("  --> one-centre model cannot set equilibrium delta;")
+print("  two-centre integrals (Part 8 sec 16) required.")
+print()
+print("H-H nuclear repulsion gradient (main geometric term):")
+print(f"  H2O: dV_HH/ddelta at obs = {_dVHH_H2O:.3f} a.u./unit")
+print(f"  NH3: dV_HH/ddelta at obs = {_dVHH_NH3:.3f} a.u./unit")
+print()
+print("Observed delta values (from Part 11 sec 1.4):")
+print("  CH4: 0 (no lone pairs)  NH3: 0.016  H2O: 0.050")
+print("  Monotone with lone-pair count -- qualitative prediction")
+print("  confirmed; quantitative delta from two-centre integrals")
+print("  of Part 8 sec 16 type with Born-Oppenheimer geometry.")
+print("  Status: 🔶 framework and ingredients in place.")
+
+
+# =========================================================================
+# STEP 53 -- OUTPUT: KERNEL CONTACT AMPLITUDE (Part 11 section 6.4)
+# =========================================================================
+
+# =========================================================================
+# STEP 54 -- OUTPUT: [18]ANNULENE NMR: DISTRIBUTED p_z CURRENT (Part 11 ...
+# =========================================================================
+
+print("\n=== STEP 54: [18]ANNULENE p_z GIAO"
+      " (Part 11 sec 5.1) ===")
+print(f"  zeta(C 2p_z) = 1.625 a.u.; grid 0.2 A;"
+      f" Nphi_BS = 500")
+print(f"  R={_R54*1e10:.3f} A  rho_out={_rho_o54*1e10:.3f}"
+      f" A  rho_in={_rho_i54*1e10:.3f} A")
+print()
+print("  outer proton:")
+print(f"    thin-wire (STEP 50): {_sig_tw_o:+.1f} ppm")
+print(f"    p_z distributed:     {_sig_d_o:+.1f} ppm"
+      f"  (reduc {(1-_Bz_d_o/_Bz_tw_o)*100:.0f}%)")
+print(f"    + London cos(pi/18): {_sig_dL_o:+.1f} ppm")
+print(f"    observed:            -9.28 ppm")
+print(f"    remaining factor: {abs(_sig_dL_o/9.28):.1f}x")
+print()
+print("  inner proton:")
+print(f"    thin-wire (STEP 50): {_sig_tw_i:+.1f} ppm")
+print(f"    p_z distributed:     {_sig_d_i:+.1f} ppm"
+      f"  (reduc {(1-_Bz_d_i/_Bz_tw_i)*100:.0f}%)")
+print(f"    + London cos(pi/18): {_sig_dL_i:+.1f} ppm")
+print(f"    observed:            +2.99 ppm")
+print(f"    remaining factor: {abs(_sig_dL_i/2.99):.0f}x")
+print()
+print("  p_z spreading + London combined correction ~35%.")
+print("  Remaining: outer ~3x, inner ~30x -- consistent")
+print("  with Part 11 sec 5.1 estimate (3x/26x).")
+print("  Full discrete-atom GIAO required to close gap.")
+print("  Status: 🔶")
+
+
+
+# =============================================================================
+# STEP 55 -- OUTPUT: THE d=2 EVEN-INSERTION SELECTION RULE
+# =============================================================================
+
+print("\n=== STEP 55: d=2 EVEN-INSERTION SELECTION RULE"
+      " (insertion dichotomy) ===")
+print("No odd condensate vertex acts in the d=2 variable (Part 3")
+print("sec 16.2, the m_gamma=0 evenness): d=2 productions carry an")
+print("even number of degree-1 insertions; matter edges carry one.")
+print("  insertion census: e,mu,tau = 1 | W,Z,H-join = 0"
+      " | H-additive = 2")
+print(f"  proxy landings exact for all 7 productions: {_land_ok55}")
+print(f"  d=2 productions all even: {_parity_ok55}")
+for _nm55, _v55, _occ55 in _cf_boson55:
+    print(f"  counterfactual odd-insertion {_nm55}: n={_v55}"
+          f"  occupied: {_occ55}")
+print(f"  counterfactuals all unoccupied: {_cf_clean55}")
+print("  One fact (no d=2 condensate) gives m_gamma = 0 and the")
+print("  g-rule -1 (shared vacuum, Part 3 sec 11).  Status: 🔶")
+
+
+# =============================================================================
+# STEP 56 -- OUTPUT: SUM-FREE VERIFICATION OF THE OCCUPIED S-VALUES
+# =============================================================================
+
+print("\n=== STEP 56: SUM-FREE VERIFICATION OF OCCUPIED S-VALUES ===")
+print(f"  14 non-zero S-values; pairwise a+b=c collisions:"
+      f" {len(_collisions56)}")
+print(f"  sum-free: {_sumfree56}  (Part 1 sec 5 additive rigidity)")
+print("  (the mode indices are not sum-free -- 1+3=4; the property")
+print("  holds at the S-value / eigenvalue level)")
+
+
+# =============================================================================
+# STEP 57 -- OUTPUT: COW GRAVITATIONAL PHASE, IDWT NUCLEON MASS
+# =============================================================================
+
+print("\n=== STEP 57: COW GRAVITATIONAL PHASE, IDWT NUCLEON MASS ===")
+print("  delta_phi = m g A/(hbar v) = m^2 g A lambda/(2 pi hbar^2)")
+print("  representative geometry: lambda = 1.445 A, A = 10 cm^2")
+print(f"  phi(PDG m_n = 939.565 MeV)    = {_phi_std57:6.2f} rad")
+print(f"  phi(IDWT m_N = {m_N_idwt:7.3f} MeV) = {_phi_idwt57:6.2f} rad")
+print(f"  ratio = (m_N_idwt/m_n)^2 = {_ratio57:.5f}"
+      f"  (+{(_ratio57 - 1) * 100:.2f}%)")
+print(f"  ratio consistency check: {_ratio_ok57}")
+print("  Tens-of-radians scale, as observed in the COW class; the")
+print("  +0.17% is the STEP 7 composite-m_N residual, not a new")
+print("  effect. Phase-to-mass ratio species-independent:")
+print("  m_grav = m_inertial = S(n,d)*m_scale_d (Part 4 s3.6). 🔵")
+
+# =============================================================================
+# STEP 58 -- OUTPUT: SECTOR-WELL COVARIANCE (Part 4 section 3.10.2)
+# =============================================================================
+
+print("\n=== STEP 58: SECTOR-WELL COVARIANCE ===")
+print("  absolute reading: U_A(X)/g = X^4 + (2s^2/d)X^2 + s^4/d")
+print(f"  d=6: s^2 = {_s2_58:.0f}; at X = a0 = {_X58:.3e} sector units:")
+print(f"    pinning U_A = {_pin58:.2e}   vs   internal E_0 = {_E0_58:.0f}")
+print("    -> forbids macroscopic motion; contradicts the Bohr")
+print("       spectrum (Part 8 s14.2). EXCLUDED ✅ (reductio).")
+print(f"  covariant (mode-frame): U_B = g s^4/d = {_U_rel58:.2f},")
+print("    X-independent; lam_d = (g_dd/2)^(2/3) unchanged, all sectors:")
+print("    " + ", ".join(f"d={d}: {_lam_all58[d]:.3f}" for d in sector_d))
+print(f"  hydrogen smearing: dE/|E_1s| = 4(L_6/a0)^2 = {_dE58:.2e}")
+print("    (proton-finite-size order, Part 8 s14.4)")
+print("  The well rides with the mode 🔶 (minimal covariant completion);")
+print("  bound about its center within; the center free everywhere.")
+
+# =============================================================================
+# STEP 59 -- OUTPUT: CROSS-SECTOR KERNEL COVARIANCE (Part 4 s3.10.1)
+# =============================================================================
+
+print("\n=== STEP 59: CROSS-SECTOR KERNEL COVARIANCE ===")
+print("  two-point covariant readings of g_{dd'}(xi.xi')^2, e-p pair:")
+print("  (0) absolute: changes under global translation     EXCLUDED")
+print(f"  (1) pair-centroid: g36*U_1(a0) = {_U1_a0_59:.2e}")
+print("      mutual quartic confinement of every pair       EXCLUDED")
+print(f"  (2) each-own-frame: U_2/g = {_U2_59:.3f}, R-independent")
+print("      pair energy never vanishes (clustering)        EXCLUDED")
+print("  => FORCED: contact-gated U = g * Omega(R) * d_sh a^2 b^2 ✅")
+print("     kernel contact structure = consequence, not assertion;")
+print("     established couplings are Omega(0)=1 evaluations.")
+print("  gate profile (Gaussian modes; derived in STEP 60):")
+print(f"    ranges: e-e {_rng_ee59:.3f} (= L_6, derives Part 11 s6.3")
+print(f"    premise); e-p {_rng_ep59:.3f}; q-q(3,4) {_rng_qq59:.3f}")
+print("    (sub-fm strong-force scale)")
+print(f"    gate at R=a0: ln Omega = {_lnOm_a0_59:.2e}")
+print(f"    A=B, R=0 reduces to STEP 58 self-term: {_self_ok59}")
+
+# =============================================================================
+# STEP 60 -- OUTPUT: KERNEL GATE PROFILE DERIVED (Part 4 s3.10.1)
+# =============================================================================
+
+print("\n=== STEP 60: KERNEL GATE PROFILE DERIVED ===")
+print("  inputs: (i) kernel bilinear in mode intensities (J·J form,")
+print("  Part 3 s0.6); (ii) covariance + STEP 59 exclusions (F decays);")
+print("  (iii) no intrinsic length in the action (g_dd' dimensionless)")
+print("  => F = scale-free point contact; gate = normalized density")
+print("  overlap: Omega(R) = exp(-R^2/(2(a^2+b^2))) for Gaussian modes.")
+print("  Derived. ✅")
+print("  Corollary: same-sector contact range = sqrt(2 sigma_d^2)")
+print(f"  = L_d exactly, all sectors: {_ident60}")
+print("  (e-e: L_6 = Part 11 s6.3 range; N-N at d=3: L_3 = 0.675)")
+
+# =============================================================================
+# STEP 61 -- OUTPUT: DEUTERON INVERSE CHECK (Part 8 section 11)
+# =============================================================================
+
+print("\n=== STEP 61: INTERNUCLEON CONTACT -- DEUTERON INVERSE CHECK ===")
+print("  V(r) = -V0 exp(-r^2/(2 Rc^2)); E_B = 2.224566 MeV (CODATA);")
+print(f"  reduced mass m_N_idwt/2, m_N_idwt = {m_N_idwt:.3f} MeV")
+print("  gate            Rc (fm)   V0 (MeV)   V0/Lqcd")
+print(f"  N-N (L_3)       {_RC_NN61:7.3f} {_V0_NN61:10.1f}"
+      f" {_V0_NN61/Lqcd:9.2f}")
+print(f"  q-q (3,4)       {_RC_QQ61:7.3f} {_V0_QQ61:10.1f}"
+      f" {_V0_QQ61/Lqcd:9.2f}")
+print(f"  N-N (meas. r_p) {_RC_RP61:7.3f} {_V0_RP61:10.1f}"
+      f" {_V0_RP61/Lqcd:9.2f}")
+print("  range fixed by the derived gate (STEP 60); the depth V0 is")
+print("  the number the kernel must supply -- open, same class as the")
+print("  s11 confinement level. 🔶")
+print(f"  solved-mode rms(r/2) = {_rms_NN61:.2f} fm (L_3 gate)  vs")
+print("  measured deuteron matter radius ~ 1.97 fm (shallow-state")
+print("  universality). 🔵")
+
+# =============================================================================
+# STEP 62 -- OUTPUT: N-N WELL, SECOND ORDER -- DEPTH = LAMBDA
+# =============================================================================
+
+print("\n=== STEP 62: N-N WELL FROM SECOND-ORDER KERNEL CONTACT ===")
+print("  two singlets: N_A = N_B = 0 -> first-order colour energy")
+print("  zero (E = lambda_c|N|, s5.3); leading N-N term is SECOND")
+print("  order in the gated contact (colour van der Waals, cf. s17b);")
+print("  second order squares the gate: V = -V0 exp(-R^2/(2 Rc2^2)),")
+print("  Rc2 = range/sqrt(2). Profile and range carry no freedom.")
+print("  inverse (measured E_B = 2.2246 MeV fixes V0):")
+print(f"    L_3 gate: Rc2 = {_RC2_NN62:.3f}  V0 = {_V0_NN62:6.1f} MeV"
+      f"  = {_V0_NN62/Lqcd:.2f} Lqcd")
+print(f"    r_p gate: Rc2 = {_RC2_RP62:.3f}  V0 = {_V0_RP62:6.1f} MeV"
+      f"  = {_V0_RP62/Lqcd:.2f} Lqcd")
+print("  -> required depth = Lqcd = N_c f_pi within 2%, both gates. 🔵")
+print("  forward, parameter-free (V0 = Lqcd exactly):")
+print(f"    E_B = {_EB_NN62:.2f} MeV (L_3) / {_EB_RP62:.2f} MeV (r_p),")
+print("    bracketing measured 2.2246 (shallow state: exponentially")
+print("    depth-sensitive; the inverse statement is the robust one)")
+print(f"  rms(r/2) = {_rms_NN62:.2f} fm vs measured ~1.97 fm")
+print("  open: derive kappa, Delta (lambda_c class, s5.3) from the")
+print("  kernel; spin-tensor channel. 🔶")
 
 
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")

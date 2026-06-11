@@ -110,7 +110,7 @@ These are exact from the mode indices alone. As a cross-check in oscillation-exp
              = 131,202,380 / 4,191,798,016 = 0.03130
 ```
 
-PDG (normal hierarchy): 7.42×10⁻⁵/2.510×10⁻³ = 0.02956 ± 0.001. The code block above uses the bare (uncorrected) mode values; with δ_ν₃ = 1/35 applied (Part 2 §9d), the corrected ratio is 0.02953 — matching PDG to −0.11%. The ~5.9% gap belongs to the bare m_ν₃ only.
+PDG 2024 (normal hierarchy): 7.53×10⁻⁵/2.455×10⁻³ = 0.03067 ± 0.001. The code block above uses the bare (uncorrected) mode values; with δ_ν₃ = 1/35 applied (Part 2 §9d), the corrected ratio is 0.02953 — a −3.7% discrepancy from PDG 2024, driven by the solar-splitting tension in Δm²₂₁ (the Δm²₃₂ denominator matches at +0.1%). The ~5.9% gap in the bare ratio belongs to the bare m_ν₃ only; the remaining gap reflects the open Δm²₂₁ question (Part 2 §9).
 
 
 **f_π and Λ_QCD from the IDWT geometric dilution function**
@@ -250,7 +250,7 @@ The quantity set is fixed by a rule stated in advance, not by closeness: a quant
 | m_t/m_c | 135.97 | 136.03 ± 2.15 | 1.6×10⁻² | 0.053 | 5.9×10⁻¹ |
 | Δm²₃₁/Δm²₂₁ | 34.86 | 34.10 ± 0.99 | 2.9×10⁻² | 0.348 | 1.7×10⁻¹ |
 
-Measured inputs: PDG 2024 (m_τ = 1776.93 ± 0.09 MeV; m_W = 80369.2 ± 13.3 MeV; m_Z = 91188.0 ± 2.0 MeV; m_H = 125200 ± 110 MeV; V_us = 0.2245 ± 0.0008; m_t = 172760 ± 300 MeV; m_c = 1270 ± 20 MeV; Δm²₃₁ = 2.530(28)×10⁻³ eV²; Δm²₂₁ = 7.42(20)×10⁻⁵ eV²) and FLAG 2024 (m_s/m_d = 19.81 ± 0.13 from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8)). ε_eff is |IDWT − obs|/obs floored at the relative measurement error. The m_s/m_d entry is the largest pull in the set (+1.5σ against the lattice ratio); it is scored as found.
+Measured inputs: PDG 2024 (m_τ = 1776.93 ± 0.09 MeV; m_W = 80369.2 ± 13.3 MeV; m_Z = 91188.0 ± 2.0 MeV; m_H = 125200 ± 110 MeV; V_us = 0.2245 ± 0.0008; m_t = 172760 ± 300 MeV; m_c = 1270 ± 20 MeV; Δm²₃₁ = 2.530(28)×10⁻³ eV²; Δm²₂₁ = 7.53(18)×10⁻⁵ eV²) and FLAG 2024 (m_s/m_d = 19.81 ± 0.13 from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8)). ε_eff is |IDWT − obs|/obs floored at the relative measurement error. The m_s/m_d entry is the largest pull in the set (+1.5σ against the lattice ratio); it is scored as found.
 
 The result: X_obs = 31.56, joint p = 8.9×10⁻¹¹ (6.4σ) exact; 1.5×10⁻⁷ (5.1σ) under the conservative Fisher treatment; a ×100 look-elsewhere allowance leaves 8.9×10⁻⁹ (5.6σ). The §2a core set alone gives 3.8×10⁻⁷ (4.9σ) under the same combination. The exact convolution was validated against Monte Carlo at every tail depth the simulation can resolve.
 
@@ -289,7 +289,7 @@ m_ν₁ = 1.487 meV,  m_ν₂ = 8.639 meV,  m_ν₃ = 50.27 meV,  Σm_ν = 60.39
 m_ν₂/m_ν₁ = S(15,5)/S(10,5) = 5.808,  m_ν₃/m_ν₁ = S(22,5)/S(10,5) = 32.86
 (Bare: m_ν₃ = 48.87 meV, Σm_ν = 59.00 meV. Corrected by δ_ν₃ = ε×g_{33} = 1/35, Part 2 §9d.)
 ```
-The primary predictions are the absolute masses and their ratios — derived entirely from mode indices and m_scale_5, with no neutrino oscillation data entering. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
+The primary predictions are the absolute masses and their ratios — derived entirely from mode indices and m_scale_5, with no neutrino oscillation data entering. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2024 within 0.21% (0.2σ).
 
 **Absent high-energy states** — observation of either falsifies the framework:
 ```
@@ -360,7 +360,7 @@ m_ββ (0νββ) = 0                              (no C on S⁵ bundle → no ψ
 
 Σm_ν = 60.39 meV is a concrete, falsifiable prediction within reach of CMB-S4 (target sensitivity ~30 meV). Normal hierarchy confirmed.
 
-**On oscillation comparisons.** Δm² values are derived consequences of the absolute masses expressed in oscillation-experiment language (which measures interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is a closure relation (🔶, primary derivation Part 2 §9d): algebraically exact given ε and g_{33}, but the deeper operator mechanism is not yet derived. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2023 within 0.05%.
+**On oscillation comparisons.** Δm² values are derived consequences of the absolute masses expressed in oscillation-experiment language (which measures interference, not absolute masses). They are not native IDWT quantities. The correction δ_ν₃ = ε×g_{33} = 1/35 is a closure relation (🔶, primary derivation Part 2 §9d): algebraically exact given ε and g_{33}, but the deeper operator mechanism is not yet derived. The corrected m_ν₃ = 50.27 meV implies Δm²₃₁ = 2.524×10⁻³ eV², matching PDG 2024 within 0.21% (0.2σ).
 
 ## 3c. Deep Predictions
 

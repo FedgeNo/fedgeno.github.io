@@ -106,7 +106,7 @@ The d=4 self-coupling L_{44} = (g_{44}/2) ∫ (ξ_4·ξ_4')² J^4(ξ) J^4(ξ') d
 g²_eff = 2g_{44}/π²
 ```
 
-The SU(3) invariance of this coupling follows from the CP² isometry group acting on the quark colour states. The colour interaction is a direct contact term in the kernel — the CP² isometry acts on quark colour states through g_{44} with no intermediate colour-exchange field.
+The SU(3) invariance of this coupling follows from the CP² isometry group acting on the quark colour states. The colour interaction is a direct contact term in the kernel — the CP² isometry acts on quark colour states through g_{44} with no intermediate colour-exchange field. The contact property itself is a structural consequence of kernel covariance: every non-contact covariant reading of the kernel terms is excluded by established physics (Part 4 §3.10.1 covariance note; `files/idwt.py` STEP 59).
 
 ### 0.7 Coupling Constants from the Action
 
@@ -159,17 +159,17 @@ From g₂ and m_W (the confinement mass of the W in the d=2 sector):
 ```
 G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²  (PDG: 1.1664×10⁻⁵,  −0.05%)
 g₁ = g₂ × tan θ_W = 0.35044         (PDG: 0.35740,  −1.95% at d=2 sector scale)
-g₁(m_Z) after 1-loop U(1)_Y running = 0.35067  (PDG: 0.35740,  −1.88%)
-sin²θ_eff(m_Z) from running g₁ = 0.22397        (PDG: 0.23153,  −3.3%)
+g₁ translated to m_Z (SM 1-loop U(1)_Y formula, IDWT input) = 0.35067  (PDG: 0.35740,  −1.88%)
+sin²θ_eff(m_Z) from the translated g₁ = 0.22397   (PDG: 0.23153,  −3.3%)
 ```
 
-The g₁ error of −2% reflects the difference between the d=2-sector-scale U(1)_Y coupling and its value at m_Z after EW running. The α prediction from g₁,g₂:
+IDWT couplings are fixed geometric numbers defined at the d=2 sector scale (≈m_W); they do not run. The PDG quotes its values at m_Z under an SM renormalization prescription, so comparison requires a scale translation; the translation used here is the SM 1-loop formula applied to the IDWT input — a cross-framework comparison, not an IDWT mechanism. The g₁ gap of −2% is the difference between the d=2-sector-scale U(1)_Y coupling and the differently-defined m_Z-scale PDG quantity. The α prediction from g₁,g₂:
 
 ```
 α = g₁²g₂²/(4π(g₁²+g₂²)) = 1/131.8   (PDG α(m_Z)=1/127.9, +3.1%)
 ```
 
-The +3% is the EW running from the d=2 sector scale (≈m_W) to m_Z.
+The +3% gap corresponds to the SM scale translation between the d=2 sector scale (≈m_W) and m_Z; IDWT supplies the sector-scale value only.
 
 
 
@@ -572,8 +572,8 @@ S = Λ^{0,*}(T^{*1,0}) = Λ^{0,0} ⊕ Λ^{0,1} ⊕ ... ⊕ Λ^{0,m}
 ```
 
 The Kähler chirality operator γ₅^Kähler splits this into:
-- **S₊ (LEFT)** = Λ^{0,0} ⊕ Λ^{0,2} ⊕ ... (even-degree anti-holomorphic forms)
-- **S₋ (RIGHT)** = Λ^{0,1} ⊕ Λ^{0,3} ⊕ ... (odd-degree anti-holomorphic forms)
+- **S₊ (LEFT)** = Λ^{0,1} ⊕ Λ^{0,3} ⊕ ... (odd-degree anti-holomorphic forms)
+- **S₋ (RIGHT)** = Λ^{0,0} ⊕ Λ^{0,2} ⊕ ... (even-degree anti-holomorphic forms)
 
 The U(2) holonomy of CP² acts on T^{*1,0}(CP²) — the holomorphic cotangent bundle. This means U(2) acts on Λ^{0,1} but not on Λ^{0,0}. For d=4 (CP², m=2):
 
@@ -678,6 +678,8 @@ n_W + S(2,3) = n_s × S(n_s,3):  76+4 = 80 = 4×20
 The coupling-conservation identity is equivalent to any of: g(d=5, n_top) = n_W; n_W = 4×19 = 76; n_W + n_ν₂ = S(n_e,2) = 91. All three are algebraically equivalent and all proved.
 
 **Derivation of the −1 offset.** The Vandermonde rule g(a,b) = a+b−1 follows from the **lattice join of mode indices** and a stars-and-bars counting argument. A boson is a two-sector composite: it couples a fermionic mode at index $n_{\rm ferm}$ in sector $d_{\rm sect}$ to the EM base sector ($d=2$). Placing $n_{\rm ferm}$ quanta from the fermionic sector and $(d_{\rm sect}-1)$ quanta representing the sector-coordinate overhead into a single $d=2$ mode requires placing $n_{\rm ferm} + (d_{\rm sect}-1)$ objects into 2 bins with each bin receiving at least 1 object. By stars-and-bars, the minimum composite index is $n_{\rm ferm} + (d_{\rm sect}-1) = n_{\rm ferm} + d_{\rm sect} - 1$. The $-1$ is the **shared vacuum**: both the fermionic tower and the sector-dimension overhead share exactly one ground-state unit $S(1,d)=1$ (universal for any $d$), which must be subtracted to avoid double-counting. Equivalently, $g(a,b) = a+b-1$ is the join operation in the ranked mode-index lattice: the smallest mode index $m$ such that $S(m,2) \geq \max(S(a,1), S(b,1))$ satisfies $m = a+b-1$, verified by $S(a+b-1,2) = (a+b-1)(a+b)/2$, the first triangular number that covers both $a$ and $b$. The $-1$ offset is load-bearing — g(d=5, n_top=72) = 76 = n_W; the Jacobi boundary identity $b_{16}^2 = 76$ provides an independent confirmation. All three boson applications check: $n_W = 72 + 5 - 1 = 76$, $n_Z = 76 + 6 - 1 = 81$, $n_H = 15 + 81 - 1 = 95$. **Status: ✅ (combinatorial derivation).**
+
+**The even-insertion selection rule. 🔶** The g-rule's insertion-free character follows from the kernel parity of the d=2 variable. The additive fermion edges of the generation tower each carry one degree-1 condensate insertion above exact level addition (Part 2 §9c; `idwt.py` STEP 41); such a vertex exists only in a sector with a non-zero condensate $\langle\xi_{d'}\rangle$ to supply the linearization (Part 1 P6). The condensate-linearized vertices remain even (degree 2) in the d=2 variable (§16.2), so no odd insertion can act on a d=2 leg, and a production landing on a d=2 mode must carry an even number of insertions. The W, Z, and H joins carry zero — exact level addition, with the $-1$ as the shared vacuum unit derived above — while the additive Higgs closure $n_H = n_u + n_{\rm charm} + n_{\rm top}$ carries two, making the two documented Higgs routes channels of one parity rule rather than competing derivations. The fermion edges carry one insertion, available only off d=2. One structural fact — no d=2 condensate — therefore yields both $m_\gamma = 0$ (§16.2) and the $-1$ offset. The oscillator proxy verifies the landing for all seven productions, and the odd-insertion counterfactual indices 77, 82, 96 are unoccupied (`idwt.py` STEP 55). The 🔶 gap: the bridge from the single-variable proxy insertion count to the multi-leg vertex parity is stated, not derived; the rule constrains channel parity, not route selection.
 
 ---
 
@@ -892,7 +894,7 @@ Both gravity and electromagnetism are curvature 2-forms in IDWT:
 
 The statement from P4 — all physics follows from the geometry of M_∞ — is concrete for both forces.
 
-**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the d=2 sector scale — the natural coupling scale of the d=2 sector, ≈m_W, where IDWT couplings are defined before QED/QCD running — is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. After 1-loop QED running to $q\to0$, $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
+**Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the d=2 sector scale — the natural coupling scale of the d=2 sector, ≈m_W, where the IDWT couplings are defined as fixed geometric numbers — is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. Translating to $q\to0$ with the SM 1-loop vacuum-polarisation formula applied to the IDWT inputs (a cross-framework comparison; IDWT couplings themselves do not run), $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
 
 **Open item — charge quantization from fiber topology.** The derivation above computes the numerical value of e from g_2 and sinθ_W. A separate question is why charge is quantized — why all observable charges are rational multiples of e. The U(1) Hopf fiber S¹ → S³ → S² has integer first Chern class (winding number), which naturally produces quantized couplings to the fiber. Whether this topological integer structure is the IDWT mechanism for charge quantization — and how it yields the fractional quark charges e/3, 2e/3 alongside the integer lepton charges — has not been shown in closed form. The fractional values follow from anomaly cancellation (§13), but the connection between the integer Chern class of the Hopf bundle and the observed charge spectrum is an open derivation.
 
@@ -986,12 +988,14 @@ This is stronger than gauge invariance alone (which only requires Π(q²) to be 
 
 Condensate-linearized vertices — the degree-1 effective terms produced when the quartic kernel is expanded about a non-zero sector condensate ⟨ξ_{d'}⟩ ≠ 0 (Part 1 P6) — are odd only in the fluctuation leg δξ_{d'} and remain even (degree 2) in the photon's own d=2 variable ξ. The L=1 component in the photon's own variable remains exactly zero, so m_γ = 0 survives in the presence of condensate backgrounds without modification to this proof.
 
-### 16.3 The Running of α
+The same evenness acts on the production side: with no odd condensate vertex available in the d=2 variable, a generation-tower production landing on a d=2 mode carries an even number of degree-1 insertions — zero for the W, Z, H g-rule joins, two for the additive Higgs closure (🔶, the even-insertion selection rule, §11; `idwt.py` STEP 55).
 
-The kernel does not contribute to the photon self-energy (§16.2). Therefore α runs only via standard fermion loops:
+### 16.3 Scale Dependence of α — Cross-Framework Comparison
+
+IDWT assigns α a single fixed geometric value at the d=2 sector scale; couplings do not run in IDWT — the IDWT scale-dependence mechanism is geometric dilution, g_eff = g_dd/S(n,d) (Part 5). The kernel does not contribute to the photon self-energy (§16.2). The PDG quotes α at q² = m_Z² under the SM prescription, where the scale dependence is vacuum polarisation from fermion loops. The comparison below is therefore the SM 1-loop formula with the IDWT fermion content as input — a cross-framework comparison, not an IDWT derivation:
 
 ```
-1/α(q²) = 1/α(m_e²) + Σ_f (Q_f² N_f^c)/(3π) × ln(q²/m_f²)
+1/α(q²) = 1/α(m_e²) + Σ_f (Q_f² N_f^c)/(3π) × ln(q²/m_f²)   [SM formula, IDWT inputs]
 ```
 
 The IDWT fermion content has three generations with:
@@ -1000,10 +1004,10 @@ The IDWT fermion content has three generations with:
 Σ_f Q_f² N_f^c = 3 × [1 + 3×(1/9 + 4/9)] = 3 × (1 + 5/3) = 8
 ```
 
-Running from α(0) = 1/137.036 to m_Z = 91.2 GeV (1-loop, above each threshold):
+Translating α(0) = 1/137.036 to m_Z = 91.2 GeV (SM 1-loop, above each threshold):
 
 ```
-α(m_Z) = 1/131.8   [IDWT 1-loop]
+α(m_Z) = 1/131.8   [SM 1-loop with IDWT fermion content]
 PDG:     1/127.9   [includes hadronic vacuum polarisation + 2-loop]
 ```
 
@@ -1015,7 +1019,7 @@ The Ward identity establishes:
 1. ∂^μ J_μ^{EM} = 0 exactly
 2. Photon mass = 0 exactly (L-parity protection)
 3. α is not renormalized by the kernel
-4. The running α(q²) is correctly reproduced at 1-loop
+4. The measured scale dependence of α(q²) is reproduced at 1-loop in the cross-framework comparison (SM formula with IDWT fermion content, §16.3)
 
-The d=2-sector-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. The hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α, and leptonic running adds 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent unit reference — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
+The d=2-sector-scale α from g₁ and g₂: 1/α = 131.8 at ≈m_W. In the SM translation, the hadronic vacuum polarisation between m_W and m_Z contributes ≈3.8 units of 1/α and the leptonic loops add 0.1 units, giving 1/α(m_Z) ≈ 127.9 (PDG: 127.9). α is not an independent unit reference — it follows from g₂ = (2/3)√g_s and sin²θ_W from mode indices. See Part 3 §0.7 for the derivation of g₂.
 

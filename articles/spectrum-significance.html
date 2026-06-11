@@ -132,6 +132,129 @@
 </section>
 
 <section>
+  <h2>The mass spectrum — twelve orders of magnitude</h2>
+  <div class="prose">
+    <p>The IDWT predictions span from sub-meV neutrinos to the 174 GeV top quark — twelve orders of magnitude from a single formula \(m(n,d)=S(n,d)\times m_{\text{scale},d}\). The chart below shows each predicted mass as a solid bar (log scale); the tick mark at the right end of each bar is the PDG measured value. At this scale the two are visually indistinguishable — the agreement is at the sub-percent level for every particle.</p>
+  </div>
+  <figure style="margin:1.8rem 0 0.5rem">
+    <canvas id="specChart" style="width:100%;max-width:800px;display:block;margin:0 auto;border-radius:10px;border:1px solid rgba(139,156,255,0.12);background:rgba(7,10,20,0.82)" width="800" height="470"></canvas>
+    <figcaption style="margin-top:.7rem;text-align:center;font-size:.8rem;color:var(--muted)">Log₁₀(mass / MeV) for all 15 IDWT modes plus the bottom quark beat. Solid bar = IDWT prediction; white tick = PDG value. Neutrino masses (dashed bars) have no direct PDG measurement; the IDWT predictions await confirmation. Error percentage shown on the right.</figcaption>
+  </figure>
+  <script>
+  (function(){
+    const CV=document.getElementById('specChart');
+    const cx=CV.getContext('2d');
+    const DPR=Math.min(window.devicePixelRatio||1,2);
+    const CW=800,CH=470;
+    CV.width=CW*DPR; CV.height=CH*DPR; cx.scale(DPR,DPR);
+
+    const PAD={l:56,r:86,t:28,b:44};
+    const PW=CW-PAD.l-PAD.r, PH=CH-PAD.t-PAD.b;
+
+    const COL={2:'#8b9cff',3:'#60a5fa',4:'#a78bfa',5:'#34d399',6:'#f472b6',10:'#fb923c'};
+
+    // particles ordered lightest → heaviest
+    const PS=[
+      {lbl:'ν₁',    d:5,  pred:1.487e-6, pdg:null,       nu:1},
+      {lbl:'ν₂',    d:5,  pred:8.639e-6, pdg:null,       nu:1},
+      {lbl:'ν₃',    d:5,  pred:5.027e-5, pdg:null,       nu:1},
+      {lbl:'e',     d:6,  pred:0.511,    pdg:0.511},
+      {lbl:'u',     d:4,  pred:2.177,    pdg:2.16},
+      {lbl:'d',     d:3,  pred:4.702,    pdg:4.67},
+      {lbl:'s',     d:3,  pred:94.04,    pdg:93.4},
+      {lbl:'μ',     d:6,  pred:105.66,   pdg:105.658},
+      {lbl:'c',     d:4,  pred:1279.7,   pdg:1270},
+      {lbl:'τ',     d:10, pred:1776.84,  pdg:1776.93},
+      {lbl:'b',     d:3,  pred:4181,     pdg:4180,       beat:1},
+      {lbl:'W',     d:2,  pred:80379,    pdg:80377},
+      {lbl:'Z',     d:2,  pred:91230,    pdg:91188},
+      {lbl:'H',     d:2,  pred:125266,   pdg:125200},
+      {lbl:'t',     d:4,  pred:173999,   pdg:172760},
+    ];
+
+    const LOG_MIN=-7, LOG_MAX=5.5;
+    const xS=l=>PAD.l+(l-LOG_MIN)/(LOG_MAX-LOG_MIN)*PW;
+
+    const N=PS.length;
+    const rowH=PH/N;
+    const barH=Math.min(14,rowH-6);
+    const yC=i=>PAD.t+(i+0.5)*rowH;
+
+    // x-axis grid and labels
+    cx.font='10.5px Inter,sans-serif'; cx.textAlign='center'; cx.textBaseline='alphabetic';
+    for(let l=LOG_MIN+1;l<=LOG_MAX;l++){
+      const x=xS(l);
+      cx.beginPath(); cx.moveTo(x,PAD.t); cx.lineTo(x,CH-PAD.b);
+      cx.strokeStyle='rgba(139,156,255,0.07)'; cx.lineWidth=1; cx.stroke();
+      const labels={'-6':'0.001 meV','-5':'0.01 meV','-4':'0.1 meV','-3':'1 meV','-2':'10 meV','-1':'0.1 MeV','0':'1 MeV','1':'10 MeV','2':'0.1 GeV','3':'1 GeV','4':'10 GeV','5':'100 GeV'};
+      if(labels[String(l)]){
+        cx.fillStyle='rgba(154,163,184,0.55)';
+        cx.fillText(labels[String(l)],x,CH-PAD.b+15);
+      }
+    }
+    cx.fillStyle='rgba(154,163,184,0.7)'; cx.font='italic 11px Inter,sans-serif';
+    cx.fillText('mass (log scale)  →',PAD.l+PW/2,CH-PAD.b+30);
+
+    // bars
+    PS.forEach((p,i)=>{
+      const y=yC(i), c=COL[p.d];
+      const l=Math.log10(p.pred);
+      const x0=xS(LOG_MIN), x1=xS(l);
+
+      // bar fill
+      cx.fillStyle=c+(p.nu?'30':p.beat?'28':'22');
+      if(p.nu) cx.setLineDash([4,3]);
+      cx.fillRect(x0,y-barH/2,x1-x0,barH);
+      cx.setLineDash([]);
+
+      // bar stroke
+      cx.strokeStyle=c+(p.nu?'66':p.beat?'99':'cc');
+      cx.lineWidth=p.nu?1:1.5;
+      if(p.nu) cx.setLineDash([4,3]);
+      cx.strokeRect(x0,y-barH/2,x1-x0,barH);
+      cx.setLineDash([]);
+
+      // PDG tick mark
+      if(p.pdg){
+        const xpdg=xS(Math.log10(p.pdg));
+        cx.beginPath(); cx.moveTo(xpdg,y-barH/2-3); cx.lineTo(xpdg,y+barH/2+3);
+        cx.strokeStyle='rgba(230,232,240,0.9)'; cx.lineWidth=2; cx.stroke();
+      }
+
+      // particle label left
+      cx.fillStyle=c; cx.font='bold 11.5px Inter,sans-serif';
+      cx.textAlign='right'; cx.textBaseline='middle';
+      cx.fillText(p.lbl,PAD.l-6,y);
+
+      // error% right
+      if(p.pdg){
+        const err=((p.pred-p.pdg)/p.pdg*100);
+        const sign=err>=0?'+':'';
+        cx.fillStyle='rgba(154,163,184,0.7)'; cx.font='10px JetBrains Mono,monospace';
+        cx.textAlign='left'; cx.textBaseline='middle';
+        cx.fillText(sign+err.toFixed(2)+'%',CW-PAD.r+4,y);
+      } else {
+        cx.fillStyle='rgba(154,163,184,0.4)'; cx.font='10px Inter,sans-serif';
+        cx.textAlign='left'; cx.textBaseline='middle';
+        cx.fillText('pred',CW-PAD.r+4,y);
+      }
+    });
+
+    // sector colour legend
+    const legX=PAD.l+10, legY=PAD.t+8;
+    [[2,'bosons'],[3,'d quarks'],[4,'u quarks'],[5,'neutrinos'],[6,'leptons'],[10,'tau']].forEach(([d,name],i)=>{
+      const lx=legX+i*108;
+      if(lx+100>CW-PAD.r) return;
+      cx.fillStyle=COL[d]+'cc'; cx.fillRect(lx,legY,10,10);
+      cx.fillStyle='rgba(154,163,184,0.75)'; cx.font='10px Inter,sans-serif';
+      cx.textAlign='left'; cx.textBaseline='middle';
+      cx.fillText('d='+d+' '+name,lx+14,legY+5);
+    });
+  })();
+  </script>
+</section>
+
+<section>
   <h2>The full test</h2>
   <div class="prose">
     <p>Multiplying luck factors is an estimate, not a likelihood, so the claim is put through two proper statistical tests (computed in <code>idwt.py</code> STEP 39). The first makes the "luck" idea exact. If the measured values had nothing to do with the simplex grid, each would sit at a random position between two rungs — that is the null hypothesis, and the probability of the whole set sitting as close to the rungs as it does can be computed exactly. The quantity list is also widened by a rule fixed in advance: every dimensionless, parameter-free quantity whose measurement is precise enough to tell neighbouring rungs apart. That brings in the Cabibbo angle, the strange-to-down quark mass ratio, the top-to-charm ratio, and the neutrino mass-splitting ratio, for eight quantities in all. The verdict: a joint probability of \(9\times10^{-11}\) — six sigma — or \(1.5\times10^{-7}\) (five sigma) under the most conservative treatment of the measurement errors. Allowing generously for a hundred quantities that might have been examined instead still leaves about \(10^{-8}\).</p>

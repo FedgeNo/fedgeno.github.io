@@ -160,7 +160,7 @@ The d=6 row covers the electron and muon — both are d=6 CP³ sector excitation
 > The only re-entry past the terminus is $d=10$, the Gegenbauer critical endpoint (Rule B), which takes $g_{10,10}=1/n_s$ by $\mu$–$\tau$ symmetry with $d=6$ (T9c). **Open item (Part 6):** the residual step is to prove the coupling-construction routes are exhaustive — specifically that Hopf-universality routing requires a fixed-point base, so the formal chain $v_7/v_6=v_5/v_4$ over the seed-ratio $v_6$ is illegitimate. Until then Rule A stands as a 🔶 selection rule.
 
 > **Rule B — Gegenbauer criticality at $d=10$.**
-> The Jacobi coupling $b_{k_0}(d)=\sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ satisfies $b_{k_0}\geq1/2$ iff $4k_0\leq(d-2)^2$, saturated uniquely at
+> The Jacobi coupling $b_{k_0}(d)=\sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ satisfies $b_{k_0}\geq1/2$ iff $(d-2)^2\leq 4k_0$ (equivalently $d\leq 2+2\sqrt{k_0}$), saturated uniquely at
 > $$4k_0 = (d-2)^2 \;\Longleftrightarrow\; 4\times16 = 64 = (10-2)^2.$$
 > Sector $d=10$ is the Gegenbauer critical endpoint (T5); all $d\geq11$ are subcritical and excluded.
 
@@ -829,6 +829,12 @@ The coupling decreases as the symmetry group grows. A larger isometry group impo
 - The neutrino sector ($SO(6)$, most constrained: Majorana-forbidden, color-projected, $B{-}L$ specific) has the weakest self-coupling ($g_{55}\approx0.133$) and the lightest masses.
 
 This is the coupling filter principle operating at the level of the self-coupling: the geometry that specifies what quantum numbers a particle carries also specifies, through the same Euler characteristic $N_c$, how strongly that sector couples and therefore how heavy those particles are. Coupling filter and mass scale are not two separate outputs of the geometry — they are one quantity read in two different units.
+
+**Corollary T15g (The complete mass spectrum from $N_c$). ⭐** Every one of the fifteen Standard-Model masses is $m_e\times f(N_c)$ for an exact closed form $f$ built from $N_c=\chi(\mathbb{CP}^2)=3$ alone. The chain closes through three layers, each already $N_c$-determined above: the mode indices $S(n,d)$ (T15d), the six sector scales $m_{{\rm scale},d}/m_e$ (T9, T11, T15c–e), and the four corrections. The corrections carry no constant outside the $N_c$-chain:
+
+$$\varepsilon = \frac{2/\sqrt{2N_c+1}}{(N_c+1)^2\,S(N_c{+}1,4)}, \qquad \delta_\tau = \frac{1}{N_c(N_c+1)^2\,S(N_c{+}1,4)}, \qquad \delta_{\nu_3} = \frac{1}{S(N_c{+}1,4)},$$
+
+evaluating at $N_c=3$ to $\varepsilon = 1/(280\sqrt7)$, $\delta_\tau = 1/1680$, $\delta_{\nu_3} = 1/35$. The electron is the anchor ($f_e\equiv1$); representative closed forms are $f_{\rm up} = \sqrt{N_c}\,(N_c+1)/(2N_c+1)^{1/4}$ and $f_{\rm strange} = \sqrt2\,(N_c+1)^{5/2}(N_c+2)(N_c+3)(2N_c+1)^{1/4}/12$. Substituting $N_c=3$ reproduces the canonical masses to machine precision (maximum relative deviation $5.7\times10^{-16}$ across all fifteen; `claude/explore_t15_symbolic.py`). The single dimensional input is $m_e$; mass *ratios* are fixed by the one integer $N_c$. This is the spectrum-level statement of T15: not only the indices and couplings but the masses themselves trace to $\chi(\mathbb{CP}^2)$. $\square$
 
 ---
 

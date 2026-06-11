@@ -195,6 +195,124 @@
 
 </section>
 <section>
+  <h2>Cross-sector coupling strengths</h2>
+  <div class="prose">
+    <p>The kernel self-coupling \(g_{dd'}\) between any two sectors is not independent — it equals the product of the two sector coupling amplitudes \(v_d\,v_{d'}\), giving a rank-1 matrix. The heatmap below shows all 21 distinct entries of \(G_{dd'}\) on a logarithmic colour scale. The d=2 row and column dominate because \(v_2 = \sqrt{g_{22}} \approx 26.9\) — the photon/W/Z/Higgs sector couples most strongly to everything.</p>
+  </div>
+  <figure style="margin:1.8rem 0 0.5rem">
+    <canvas id="coupHM" style="width:100%;max-width:560px;display:block;margin:0 auto;border-radius:10px;border:1px solid rgba(139,156,255,0.12);background:rgba(7,10,20,0.82)" width="560" height="420"></canvas>
+    <figcaption style="margin-top:.7rem;text-align:center;font-size:.8rem;color:var(--muted)">Log-scale colour intensity: bright = strong coupling, dark = weak. Diagonal cells (self-couplings \(g_{dd}\)) are framed. Values shown are \(G_{dd'} = v_d v_{d'}\).</figcaption>
+  </figure>
+  <script>
+  (function(){
+    const CV=document.getElementById('coupHM');
+    const cx=CV.getContext('2d');
+    const DPR=Math.min(window.devicePixelRatio||1,2);
+    const CW=560,CH=420;
+    CV.width=CW*DPR; CV.height=CH*DPR; cx.scale(DPR,DPR);
+
+    const DIMS=[2,3,4,5,6,10];
+    const G=[
+      [722.5,  123.663, 57.245,  9.798,  13.440, 13.440],
+      [123.663,  21.166,  9.798,  1.677,   2.300,  2.300],
+      [ 57.245,   9.798,  4.536,  0.776,   1.065,  1.065],
+      [  9.798,   1.677,  0.776,  0.1329,  0.1823, 0.1823],
+      [ 13.440,   2.300,  1.065,  0.1823,  0.250,  0.250],
+      [ 13.440,   2.300,  1.065,  0.1823,  0.250,  0.250],
+    ];
+
+    const COL={2:'#8b9cff',3:'#60a5fa',4:'#a78bfa',5:'#34d399',6:'#f472b6',10:'#fb923c'};
+    const PAD={l:52,r:16,t:52,b:36};
+    const N=6;
+    const CellW=(CW-PAD.l-PAD.r)/N;
+    const CellH=(CH-PAD.t-PAD.b)/N;
+
+    const LOG_MIN=Math.log10(0.1329);
+    const LOG_MAX=Math.log10(722.5);
+
+    function heatRGB(v){
+      const t=Math.max(0,Math.min(1,(Math.log10(v)-LOG_MIN)/(LOG_MAX-LOG_MIN)));
+      // dark navy → mid blue-violet → bright accent
+      const stops=[
+        {t:0,   r:5,   g:8,   b:22 },
+        {t:0.35,r:24,  g:38,  b:140},
+        {t:0.65,r:80,  g:94,  b:210},
+        {t:1.0, r:192, g:202, b:255},
+      ];
+      let lo=stops[0],hi=stops[1];
+      for(let i=0;i<stops.length-1;i++){if(t<=stops[i+1].t){lo=stops[i];hi=stops[i+1];break;}}
+      const f=(t-lo.t)/(hi.t-lo.t);
+      const lr=(a,b)=>Math.round(a+f*(b-a));
+      return `rgb(${lr(lo.r,hi.r)},${lr(lo.g,hi.g)},${lr(lo.b,hi.b)})`;
+    }
+
+    function txtCol(v){
+      const t=(Math.log10(v)-LOG_MIN)/(LOG_MAX-LOG_MIN);
+      return t>0.6?'rgba(5,7,14,0.95)':'rgba(230,232,240,0.95)';
+    }
+
+    function fmtG(v){
+      if(v>=100) return v.toFixed(1);
+      if(v>=10)  return v.toFixed(2);
+      if(v>=1)   return v.toFixed(3);
+      return v.toFixed(4);
+    }
+
+    // column labels (top)
+    cx.font='11px Inter,sans-serif'; cx.textAlign='center'; cx.textBaseline='alphabetic';
+    DIMS.forEach((d,j)=>{
+      const x=PAD.l+j*CellW+CellW/2;
+      cx.fillStyle=COL[d]+'cc';
+      cx.fillText('d='+d,x,PAD.t-8);
+    });
+
+    // row labels (left)
+    cx.textAlign='right'; cx.textBaseline='middle';
+    DIMS.forEach((d,i)=>{
+      const y=PAD.t+i*CellH+CellH/2;
+      cx.fillStyle=COL[d]+'cc';
+      cx.fillText('d='+d,PAD.l-7,y);
+    });
+
+    // cells
+    DIMS.forEach((d,i)=>{
+      DIMS.forEach((d2,j)=>{
+        const v=G[i][j];
+        const x=PAD.l+j*CellW, y=PAD.t+i*CellH;
+        cx.fillStyle=heatRGB(v);
+        cx.fillRect(x,y,CellW-1,CellH-1);
+
+        // diagonal frame
+        if(i===j){
+          cx.strokeStyle='rgba(255,255,255,0.35)';
+          cx.lineWidth=2;
+          cx.strokeRect(x+1,y+1,CellW-3,CellH-3);
+        }
+
+        // value
+        cx.fillStyle=txtCol(v);
+        cx.font='10.5px JetBrains Mono,monospace';
+        cx.textAlign='center'; cx.textBaseline='middle';
+        cx.fillText(fmtG(v),x+CellW/2,y+CellH/2);
+      });
+    });
+
+    // colour scale bar (bottom)
+    const barX=PAD.l, barY=CH-22, barW=CW-PAD.l-PAD.r, barH2=10;
+    for(let px=0;px<barW;px++){
+      const t=px/barW;
+      const v=Math.pow(10,LOG_MIN+t*(LOG_MAX-LOG_MIN));
+      cx.fillStyle=heatRGB(v);
+      cx.fillRect(barX+px,barY,1,barH2);
+    }
+    cx.fillStyle='rgba(154,163,184,0.55)'; cx.font='9.5px Inter,sans-serif';
+    cx.textAlign='left'; cx.textBaseline='top'; cx.fillText('0.13',barX,barY+12);
+    cx.textAlign='right'; cx.fillText('722.5',barX+barW,barY+12);
+    cx.textAlign='center'; cx.fillText('G_{d,d\'} →',barX+barW/2,barY+12);
+  })();
+  </script>
+</section>
+<section>
 
   <h2>How to read it</h2>
   <div class="prose">

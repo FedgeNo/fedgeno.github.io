@@ -231,6 +231,82 @@
 
 </section>
 <section>
+  <h2>The three closure diagrams</h2>
+  <div class="prose">
+    <p>Each generation law is the Pascal recursion \(S(n,d) = S(n,d-1)+S(n-1,d)\) applied at a specific node in the combinatorial lattice. The diagram below shows the three closure points: which quark mode, which neutrino mode, and which lepton mode the identity pins together, and which algebraic identity does the pinning.</p>
+  </div>
+  <figure style="margin:1.8rem 0 0.5rem;overflow-x:auto">
+    <svg viewBox="0 0 680 218" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:680px;display:block;margin:0 auto;font-family:Inter,system-ui,sans-serif">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+          <polygon points="0 0,8 3,0 6" fill="rgba(154,163,184,0.55)"/>
+        </marker>
+      </defs>
+
+      <!-- Gen 1 row  y=18..68 -->
+      <!-- up quark d=4 -->
+      <rect x="2" y="18" width="126" height="50" rx="7" fill="rgba(167,139,250,0.13)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="65" y="40" text-anchor="middle" fill="#a78bfa" font-size="17" font-weight="700">u</text>
+      <text x="65" y="58" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="10.5">n = 3,  d = 4</text>
+      <!-- + -->
+      <text x="140" y="47" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">+</text>
+      <!-- ν₁ d=5 -->
+      <rect x="152" y="18" width="126" height="50" rx="7" fill="rgba(52,211,153,0.11)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="215" y="40" text-anchor="middle" fill="#34d399" font-size="17" font-weight="700">ν₁</text>
+      <text x="215" y="58" text-anchor="middle" fill="rgba(52,211,153,0.7)" font-size="10.5">n = 10,  d = 5</text>
+      <!-- = -->
+      <text x="290" y="47" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">=</text>
+      <!-- e d=6 -->
+      <rect x="302" y="18" width="126" height="50" rx="7" fill="rgba(244,114,182,0.13)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="365" y="40" text-anchor="middle" fill="#f472b6" font-size="17" font-weight="700">e</text>
+      <text x="365" y="58" text-anchor="middle" fill="rgba(244,114,182,0.7)" font-size="10.5">n = 13,  d = 6</text>
+      <!-- identity label -->
+      <text x="444" y="35" text-anchor="start" fill="rgba(154,163,184,0.85)" font-size="11" font-weight="600">Gen 1</text>
+      <text x="444" y="52" text-anchor="start" fill="rgba(154,163,184,0.5)" font-size="10" font-style="italic">hockey-stick S(3,3)=10</text>
+      <text x="444" y="65" text-anchor="start" fill="rgba(154,163,184,0.4)" font-size="9.5" font-style="italic">n_e = n_ν₁ + n_u</text>
+
+      <!-- Gen 2 row  y=86..136 -->
+      <!-- charm d=4 -->
+      <rect x="2" y="86" width="126" height="50" rx="7" fill="rgba(167,139,250,0.13)" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="65" y="108" text-anchor="middle" fill="#a78bfa" font-size="17" font-weight="700">c</text>
+      <text x="65" y="126" text-anchor="middle" fill="rgba(167,139,250,0.7)" font-size="10.5">n = 20,  d = 4</text>
+      <text x="140" y="115" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">+</text>
+      <!-- ν₂ d=5 -->
+      <rect x="152" y="86" width="126" height="50" rx="7" fill="rgba(52,211,153,0.11)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="215" y="108" text-anchor="middle" fill="#34d399" font-size="17" font-weight="700">ν₂</text>
+      <text x="215" y="126" text-anchor="middle" fill="rgba(52,211,153,0.7)" font-size="10.5">n = 15,  d = 5</text>
+      <text x="290" y="115" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">=</text>
+      <!-- μ d=6 -->
+      <rect x="302" y="86" width="126" height="50" rx="7" fill="rgba(244,114,182,0.13)" stroke="#f472b6" stroke-width="1.5"/>
+      <text x="365" y="108" text-anchor="middle" fill="#f472b6" font-size="17" font-weight="700">μ</text>
+      <text x="365" y="126" text-anchor="middle" fill="rgba(244,114,182,0.7)" font-size="10.5">n = 35,  d = 6</text>
+      <text x="444" y="103" text-anchor="start" fill="rgba(154,163,184,0.85)" font-size="11" font-weight="600">Gen 2</text>
+      <text x="444" y="120" text-anchor="start" fill="rgba(154,163,184,0.5)" font-size="10" font-style="italic">Pascal S(4,4)=S(4,3)+S(3,4)</text>
+      <text x="444" y="133" text-anchor="start" fill="rgba(154,163,184,0.4)" font-size="9.5" font-style="italic">n_μ = n_c + n_ν₂ = 35</text>
+
+      <!-- Gen 3 row  y=154..204 -->
+      <!-- down d=3 -->
+      <rect x="2" y="154" width="126" height="50" rx="7" fill="rgba(96,165,250,0.13)" stroke="#60a5fa" stroke-width="1.5"/>
+      <text x="65" y="176" text-anchor="middle" fill="#60a5fa" font-size="17" font-weight="700">d</text>
+      <text x="65" y="194" text-anchor="middle" fill="rgba(96,165,250,0.7)" font-size="10.5">n = 1,  d = 3</text>
+      <text x="140" y="183" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">+</text>
+      <!-- ν₃ d=5 -->
+      <rect x="152" y="154" width="126" height="50" rx="7" fill="rgba(52,211,153,0.11)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="215" y="176" text-anchor="middle" fill="#34d399" font-size="17" font-weight="700">ν₃</text>
+      <text x="215" y="194" text-anchor="middle" fill="rgba(52,211,153,0.7)" font-size="10.5">n = 22,  d = 5</text>
+      <text x="290" y="183" text-anchor="middle" fill="rgba(154,163,184,0.7)" font-size="22" font-weight="300">=</text>
+      <!-- τ d=10 -->
+      <rect x="302" y="154" width="126" height="50" rx="7" fill="rgba(251,146,60,0.13)" stroke="#fb923c" stroke-width="1.5"/>
+      <text x="365" y="176" text-anchor="middle" fill="#fb923c" font-size="17" font-weight="700">τ</text>
+      <text x="365" y="194" text-anchor="middle" fill="rgba(251,146,60,0.7)" font-size="10.5">n = 23,  d = 10</text>
+      <text x="444" y="171" text-anchor="start" fill="rgba(154,163,184,0.85)" font-size="11" font-weight="600">Gen 3</text>
+      <text x="444" y="188" text-anchor="start" fill="rgba(154,163,184,0.5)" font-size="10" font-style="italic">base case  S(1, d) = 1</text>
+      <text x="444" y="201" text-anchor="start" fill="rgba(154,163,184,0.4)" font-size="9.5" font-style="italic">n_τ = n_ν₃ + 1 = 23</text>
+    </svg>
+    <figcaption style="margin-top:.7rem;text-align:center;font-size:.8rem;color:var(--muted)">Each generation closes when the Pascal recursion connects a lepton mode to a neutrino and a quark partner. Three such closures exist in the sector set \(D=\{2,3,4,5,6,10\}\).</figcaption>
+  </figure>
+</section>
+<section>
 
   <h2>Why exactly three</h2>
   <div class="prose">

@@ -6,7 +6,7 @@
 
 The mass ratios below are not fitted. Within each sector, S(n,d)/S(m,d) is a ratio of binomial coefficients — fixed the moment the mode indices are assigned. The eigenmode selection rule identities (muon = charm + ν₂, etc.) are consequences of the Pascal recursion S(n,d) = S(n,d−1) + S(n−1,d), not separate postulates.
 
-The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seed n_s=4 (n_u = n_s−1 = 3 derived) and anomaly cancellation respectively. Full derivation in Part 2 §10.
+The absolute scale for the d=3 sector is fixed by the kernel vacuum fixed-point: m_scale_3 = m_e × √(g₃₃/g₆₆) = 4.702 MeV, with g₃₃ = 8√7 and g₆₆ = 1/4 derived from seed pair {n_u=3, n_s=4} and anomaly cancellation respectively. Full derivation in Part 2 §10.
 
 **Strange/down ratio = 20 exactly**
 ```
@@ -57,7 +57,7 @@ sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
 ```
 Im[Γ₃₄₆(ω)] peak = 775.8 MeV   (PDG: 775.3 MeV,  +0.07%)
 ```
-All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 — come from seeds {1,4} and m_e alone. This is a cross-check of the coupling geometry, not an independent mass prediction.
+All inputs — g₃₃=8√7, g₄₄=12/√7, g₆₆=1/4, delays from k₀=16 — come from seeds {n_d=1, n_u=3} and composite n_s=4, with m_e alone. This is a cross-check of the coupling geometry, not an independent mass prediction.
 
 **Cabibbo angle**
 ```
@@ -135,13 +135,13 @@ The coupling decreases as 1/S(n,3) ~ 1/n³ with mode index — this is not RG ru
 S(n_conf, 3) = g₃₃ = 8√7 = 21.166
 ```
 
-The unique integer n satisfying this: S(4,3) = 20, S(5,3) = 35. The nearest mode is n_conf = n_s = 4 — the seed itself. The coupling at the seed level:
+The unique integer n satisfying this: S(4,3) = 20, S(5,3) = 35. The nearest mode is n_conf = n_s = 4 — the composite itself. The coupling at the composite level:
 
 ```
 g_eff(n_s) = g₃₃ / S(n_s,3) = 8√7/20 = 1.058
 ```
 
-just above 1 (confined). At n_s+1=5, g_eff = 0.605 (free). The seed n_s = 4 is the mode where the QCD coupling crosses 1 — the physical meaning of the seed is that it is the confinement mode.
+just above 1 (confined). At n_s+1=5, g_eff = 0.605 (free). The composite n_s = 4 is the mode where the QCD coupling crosses 1 — the physical meaning of the composite is that it is the confinement mode.
 
 **The pion decay constant:**
 
@@ -166,7 +166,7 @@ g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229
 PDG: 1.2723 ± 0.0023.  Error: +4.0%
 ```
 
-The ratio of successive d=3 mode counts at the seed level — the geometric mean of the mode density transition at the confinement boundary.
+The ratio of successive d=3 mode counts at the composite level n_s=4 — the geometric mean of the mode density transition at the confinement boundary.
 
 The d=5 sector has d mod 8 = 5, the unique Clifford class for which Majorana spinors are geometrically forbidden. More strongly: no charge-conjugation matrix C exists on the S⁵ spinor bundle (d mod 8 = 5 globally), so cross-sector couplings cannot construct ψ^T Cψ at any loop order. 0νββ is forbidden at all orders. Current experiments (KamLAND-Zen 2023: m_ββ < 36 meV) have seen no signal, consistent with this prediction. This is a qualitative, falsifiable prediction independent of the mass spectrum.
 
@@ -210,7 +210,7 @@ Using m_e = 0.511 MeV as the sole unit reference:
 | Z | 91,230 | 91,188 | +0.047% | — |
 | H | 125,266 | 125,200 | +0.053% | — |
 
-† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (PDG 2024: 1776.93 ± 0.09 MeV; −1.0σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (forced by n_u=n_s−1). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seed n_s (with n_u = n_s−1 derived).
+† **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (PDG 2024: 1776.93 ± 0.09 MeV; −1.0σ, inside 1σ).** The correction 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. Physical mechanism: (1) g_{6,10}/(k₀×n_mu) = 1/2240 is the leading back-reaction from the isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/4; (2) the correction feeds back via the d=10 self-coupling g_{10,10}=1/n_s, giving resummation factor n_s/(n_s−1) = n_s/n_u (since n_u = n_s−1 by T15). Combined: 1/2240 × 4/3 = 1/1680. No inputs beyond m_e and seed pair {n_u=3, n_s=4}.
 
 ### 2a. Is the spectrum a fit? — null-model significance 🔵
 
@@ -380,11 +380,11 @@ In IDWT the Higgs is a confinement mode of the d=2 sector — there is no quarti
 
 Hadrons — mesons and baryons — are composite bound states of the fundamental d=3 and d=4 sector eigenmodes. They are not sector eigenmodes and carry no IDWT mode indices. The correlation between hadronic masses and the d=3 sector scale has a direct explanation.
 
-**The confinement scale.** The d=3 geometric dilution function $g_{\rm eff}(n) = g_{33}/S(n,3)$ passes through $O(1)$ at the seed mode $n_s = 4$:
+**The confinement scale.** The d=3 geometric dilution function $g_{\rm eff}(n) = g_{33}/S(n,3)$ passes through $O(1)$ at the composite mode $n_s = 4$:
 
 $$g_{\rm eff}(n_s) = \frac{g_{33}}{S(n_s,3)} = \frac{8\sqrt{7}}{20} = 1.058$$
 
-just above 1 (confined); at $n_s+1=5$, $g_{\rm eff} = 0.605$ (free). The d=3 coupling crosses the confinement threshold at the seed. The energy scale there is:
+just above 1 (confined); at $n_s+1=5$, $g_{\rm eff} = 0.605$ (free). The d=3 coupling crosses the confinement threshold at the composite mode n_s=4. The energy scale there is:
 
 ```
 f_π = m_scale_3 × S(n_s,3) = 4.702 × 20 = 94.04 MeV   (PDG: 92.1 MeV, +2.1%)
@@ -431,7 +431,7 @@ The J/ψ residual (+2.0%) reflects the expansion parameter $\Lambda_{\rm QCD}/m_
 
 ## 4. PMNS Mixing
 
-**The μ–τ interchange symmetry.** The d=6 (electron, muon) and d=10 (tau) sectors carry identical self-couplings: $g_{66} = g_{10,10} = 1/n_s = 1/4$ (shared seed coupling). Therefore $v_6 = \sqrt{g_{66}} = v_{10} = \sqrt{g_{10,10}} = 1/2$ **exactly**. The coupling of each charged lepton to the d=5 neutrino sector is:
+**The μ–τ interchange symmetry.** The d=6 (electron, muon) and d=10 (tau) sectors carry identical self-couplings: $g_{66} = g_{10,10} = 1/n_s = 1/4$ (shared composite coupling). Therefore $v_6 = \sqrt{g_{66}} = v_{10} = \sqrt{g_{10,10}} = 1/2$ **exactly**. The coupling of each charged lepton to the d=5 neutrino sector is:
 
 $$g_{5,6} = v_5 v_6 = \frac{v_5}{2}, \qquad g_{5,10} = v_5 v_{10} = \frac{v_5}{2}.$$
 
@@ -575,7 +575,7 @@ These follow from the IDWT framework geometry and differ qualitatively from Stan
 
 **C1 — No hierarchy problem. ✅** The ratio m_H/m_e = √(g₂₂/g₆₆) × S(95,2) = 245,140 is determined by integer mode indices n_H = 95 and n_e = 13. The Mode Index Stability Theorem (Part 8 §3a) proves that radiative corrections cannot shift integer mode indices: $n$ is the rank of an eigenvalue in a purely discrete spectrum, a topological invariant preserved under any bounded perturbation. The Higgs mass is technically natural without supersymmetry — not because corrections cancel, but because the integer $S(95,2) = 4560$ cannot receive a fractional additive renormalization. The hierarchy problem does not arise; it presupposes that mass is an action coefficient, which it is not in IDWT. If supersymmetric partners, WIMPs, or other hierarchy-solving particles are discovered, they are absent from the IDWT closed spectrum (F3, F6) — their existence would simultaneously require reopening the spectrum and explaining why the Uniqueness Theorem is wrong.
 
-**C2 — Higgs is a confinement mode, not a condensate.** In IDWT the Higgs is mode n=95 of the d=2 sector potential V₂(r) = λ₂r²/(1+r²). There is no quartic scalar self-coupling, no Higgs VEV, no spontaneous symmetry breaking, and no vacuum metastability from RG running of λ_H. If vacuum instability is established at high confidence — the electroweak vacuum confirmed metastable with a cosmologically short lifetime — this contradicts the IDWT Higgs interpretation, since there is no λ_H to run negative.
+**C2 — Higgs is a confinement mode, not a condensate.** In IDWT the Higgs is mode n=95 of the d=2 sector potential V₂(r) = λ₂r². There is no quartic scalar self-coupling, no Higgs VEV, no spontaneous symmetry breaking, and no vacuum metastability from RG running of λ_H. If vacuum instability is established at high confidence — the electroweak vacuum confirmed metastable with a cosmologically short lifetime — this contradicts the IDWT Higgs interpretation, since there is no λ_H to run negative.
 
 **C3 — No seesaw mechanism.** Neutrino masses are small because m_scale_5 is set by the cross-sector Hopf fixed-point equation m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³, not by a seesaw with a heavy right-handed neutrino. No lepton-number-violating operator appears at leading order from this structure. Discovery of a right-handed neutrino mass term, lepton-number-violating interactions at any scale, or any operator that generates a Majorana mass for SM neutrinos would falsify C3 and F1/F2 simultaneously.
 

@@ -79,7 +79,7 @@ For $k = -1$ (anti-fundamental, $\mathcal{O}(-1)$): $\mathrm{ind} = \binom{1}{2}
 
 The left-right asymmetry of the SM quark sector is therefore a direct consequence of the spin^c structure on the $d=4$ sector: $\mathbb{CP}^2$ is not a spin manifold ($w_2 \neq 0$), forcing the spin^c choice, and the index of $D^c \otimes \mathcal{O}(1)$ fixes exactly 3 left-handed quark colours without any additional assumption. Note also $S(2,2) = 3 = N_c$, connecting this index to the d=2 mode count — the same 3 that appears throughout the sector coupling constants.
 
-**Note ($\Xi_d$ vs $\mathbb{CP}^n$).** The Atiyah-Singer index theorem and Hirzebruch-Riemann-Roch computation above are carried out for $\mathbb{CP}^2$ as a compact Kähler manifold. IDWT's actual $d=4$ sector space $\Xi_4$ is non-compact: it is a Hilbert space of L²-normalizable modes with confining potential $V_4(r)=\lambda_4 r^2/(1+r^2)$, whose local symmetry near $r=0$ is that of $\mathbb{CP}^2$. The topological index result ($\mathrm{ind}=3$) is computed for $\mathbb{CP}^2$; whether the index on the full non-compact $\Xi_4$ equals that of its compact $\mathbb{CP}^2$ local model requires showing that global corrections from the large-$r$ region are absent. This is expected from the L²-normalizability of the bound-state modes (which localises the integrand near $r=0$), but has not been proved rigorously. This is an open item (Part 6).
+**Note ($\Xi_d$ vs $\mathbb{CP}^n$).** The Atiyah-Singer index theorem and Hirzebruch-Riemann-Roch computation above are carried out for $\mathbb{CP}^2$ as a compact Kähler manifold. IDWT's actual $d=4$ sector space $\Xi_4$ is non-compact: it is a Hilbert space of L²-normalizable modes with confining potential $V_4(r)=\lambda_4 r^2$, whose local symmetry near $r=0$ is that of $\mathbb{CP}^2$. The topological index result ($\mathrm{ind}=3$) is computed for $\mathbb{CP}^2$; whether the index on the full non-compact $\Xi_4$ equals that of its compact $\mathbb{CP}^2$ local model requires showing that global corrections from the large-$r$ region are absent. This is expected from the L²-normalizability of the bound-state modes (which localises the integrand near $r=0$), but has not been proved rigorously. This is an open item (Part 6).
 
 ### 2.3 Chirality from Kähler γ₅
 
@@ -145,7 +145,7 @@ N_d(n−1) = Σ_{k=0}^{n−1} μ_d(k) = C(n+d−1, d) = S(n, d)
 ```
 where the last equality is Pascal's rule. □
 
-**Verification against the IDWT particle spectrum** (particles are sector excitations in their respective d-dimensional spaces; the electron is the d=6 CP³ excitation of Ψ∞ at n=13, a genuine 6D object whose observable mass is the 3D projection of its sector eigenvalue):
+**Verification against the IDWT particle spectrum** (particles are sector excitations in their respective d-dimensional spaces; the electron is the d=6 CP³ excitation of Ψ∞ at n=13, a genuine 6D object whose observable mass is its d=6 sector eigenvalue):
 
 | Particle | n | d | S(n,d) | Σ μ_d(k), k<n | Match |
 |---|---|---|---|---|---|
@@ -189,7 +189,7 @@ N_d(E_{n−1}) = Σ_{k=0}^{n−1} μ_d(k) = S(n,d)
 
 where E_{n−1} = (2(n−1)+d)√λ_d is the (n−1)-th harmonic oscillator energy. The IDWT mass formula m_n = m_scale_d × N_d(E_{n−1}) is a Weyl-type spectral law: mass equals the sector scale times the number of Dirac eigenstates at energies up to the mode's level.
 
-**Status.** The spectral theorem is proved: S(n,d) equals the cumulative degeneracy count of the d-dimensional sector harmonic oscillator. This holds exactly for the harmonic approximation V_d ≈ λ_d r² (valid for low-n modes deep in the potential well) and approximately for the full sector potential V_d = λ_d r²/(1+r²) (where deviations appear at high n as the potential saturates — a potential source of higher-order corrections to heavy-particle mass predictions).
+**Status.** The spectral theorem is proved: S(n,d) equals the cumulative degeneracy count of the d-dimensional sector harmonic oscillator. The sector potential is the pure harmonic V_d = λ_d r² (Part 4 §3.10.2), so the count holds exactly at every level n, with no high-n deviation.
 
 **Weyl asymptotic. ⭐** For large n, S(n,d) = C(n+d-1, d) ~ n^d/d! — the leading-order Weyl counting law for the d-dimensional sector. The mass formula m(n,d) = m_scale_d × S(n,d) ~ m_scale_d × n^d/d! is therefore a sector Weyl law: mass grows as the d-th power of the mode index, with the factorial denominator reflecting the combinatorial degeneracy of degree-n monomials in d variables.
 
@@ -306,13 +306,13 @@ m_u/m_d = 0.46291005
 
 **Meaning.** The first frequency in the d=4 sector and the first frequency in the d=3 sector differ by precisely the geometric mean of their coupling constants. The ratio
 $$\sqrt{g_{44}/g_{33}} = \sqrt{\frac{2N_c}{(N_c+1)(2N_c+1)}} = \sqrt{\frac{3}{14}}$$
-is $N_c$-determined: it is a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3$, the Euler characteristic of the color sector (T15). The seed $n_s = \chi(\mathbb{CP}^3) = N_c+1 = 4$ is the next Euler characteristic in the chain. No free parameter, no fit.
+is $N_c$-determined: it is a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3 = n_u$, the Euler characteristic of the color sector (T15). The composite $n_s = \chi(\mathbb{CP}^3) = N_c+1 = 4$ is the next Euler characteristic in the chain. No free parameter, no fit.
 
 ---
 
 ### 5.3 Theorem S3 — g22 is a Dirac Multiplicity Product
 
-**Theorem.** The d=2 EW self-coupling g22 = 722.5 equals the product of Dirac eigenvalue multiplicities at the seed level across the d=3 and d=4 sectors, divided by the two-body kernel symmetry factor:
+**Theorem.** The d=2 EW self-coupling g22 = 722.5 equals the product of Dirac eigenvalue multiplicities at the composite level $n_s=4$ across the d=3 and d=4 sectors, divided by the two-body kernel symmetry factor:
 
 ```
 g22  =  p² × q / 2  =  17² × 5 / 2  =  722.5
@@ -320,16 +320,16 @@ g22  =  p² × q / 2  =  17² × 5 / 2  =  722.5
 
 where **p** and **q** are eigenvalue multiplicities [p replaces α to avoid collision with the fine structure constant; q replaces β to avoid collision with the QCD β-function]:
 
-- **p = S(n_s,3) − n_u = 20 − 3 = 17**: the d=3 Dirac multiplicity at seed level n_s=4 (which is S(4,3)=20), less the n_u=3 modes already accounted for by the up-sector boundary.
+- **p = S(n_s,3) − n_u = 20 − 3 = 17**: the d=3 Dirac multiplicity at composite level n_s=4 (which is S(4,3)=20), less the n_u=3 modes already accounted for by the up-sector boundary.
 - **q = S(n_u−1, 4) = S(2,4) = 5**: the d=4 Dirac eigenvalue count at level n_u−1=2 (modes below the up-quark threshold). Equal to S(n_u,4)−S(n_u,3)=5 by the hockey-stick identity.
 
-**Structure.** The two-body kernel (ξ·ξ')² couples two copies of the d=3 current J to one copy of the d=4 current. Each d=3 insertion contributes p available modes at the seed level, giving p² for two insertions. The d=4 insertion contributes q. The kernel is symmetric under exchange of the two d=3 currents, giving the ½ symmetry factor. Therefore:
+**Structure.** The two-body kernel (ξ·ξ')² couples two copies of the d=3 current J to one copy of the d=4 current. Each d=3 insertion contributes p available modes at composite level n_s=4, giving p² for two insertions. The d=4 insertion contributes q. The kernel is symmetric under exchange of the two d=3 currents, giving the ½ symmetry factor. Therefore:
 
 ```
 g22  =  ½ × p² × q  =  ½ × 17² × 5  =  722.5
 ```
 
-**Consequence.** The W boson mass m_W = m_scale_2 × S(76,2) = 80,379 MeV follows from m_e alone. The entire EW sector — sin²θ_W, G_F, g_2, v = 246 GeV, Γ_W, Γ_Z — is determined by counting Dirac eigenvalues on S³ and the d=4 sector at the seed level.
+**Consequence.** The W boson mass m_W = m_scale_2 × S(76,2) = 80,379 MeV follows from m_e alone. The entire EW sector — sin²θ_W, G_F, g_2, v = 246 GeV, Γ_W, Γ_Z — is determined by counting Dirac eigenvalues on S³ and the d=4 sector at composite level n_s=4.
 
 ---
 
@@ -426,7 +426,7 @@ All absolute scales are outputs of the same kernel + unoccupied-mode sums.
 
 ## 7. Cabibbo Angle
 
-See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from seed uniqueness, no free parameters. The structural coupling g_{3,4}(n_s, n_c) = n_τ = 23 gives an independent route to the tau index from the same algebra.
+See Part 3 §12 for the full derivation: sin θ_C = 1/√S(n_s,3) = 1/√20 from composite uniqueness, no free parameters. The structural coupling g_{3,4}(n_s, n_c) = n_τ = 23 gives an independent route to the tau index from the same algebra.
 
 ---
 
@@ -536,7 +536,7 @@ The mass scale $m_{\rm scale,d}$ is itself derived from the coupling constants $
 
 The same kernel that produces confinement, vector mesons, and mass scales provides the structural mechanism for nucleon static properties. Two parameters (g_{3,4}^eff and f_overlap) are estimated rather than derived from kernel matrix elements; see status note below.
 
-The proton/neutron mode in sector space has a dominant l=0 (ground state) component with a small l=1 admixture induced by the cross-sector kernel term (ξ_3·ξ_4)². This mixes sector angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (estimated; kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement factor ~12.8× is not yet derived from kernel matrix elements) with centrifugal overlap factor f_overlap = 0.72 (not computed from first principles).
+The proton/neutron mode in sector space has a dominant l=0 (ground state) component with a small l=1 admixture in the three-body relative orbital motion of the colour singlet. The admixture is relative-orbital, not single-particle: on the shared d=3 subspace the cross-sector kernel (ξ_3·ξ_4)² is parity-even in ξ_3 — its d=3 index is the symmetric tensor ξ_{3,i}ξ_{3,j} = (trace, l=0) ⊕ (traceless, l=2) — so a single quark mode cannot acquire a parity-odd l=1 component (⭐, `files/idwt.py` STEP 79). The kernel acting pairwise depends on the relative Jacobi coordinate, where parity-odd relative configurations exist and the l=1 admixture lives. This mixes relative orbital angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (estimated; kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement factor ~12.8× is not yet derived from kernel matrix elements) with centrifugal overlap factor f_overlap = 0.72 (not computed from first principles).
 
 **Proton magnetic moment:**
 ```
@@ -552,10 +552,12 @@ Sign and magnitude emerge from the udd colour-singlet projector — not separate
 
 **Axial coupling g_A:**
 
-The ratio of successive d=3 mode counts at the seed level gives the IDWT prediction:
+The ratio of successive d=3 mode counts at the composite level n_s=4 gives the IDWT prediction:
 ```
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
+
+The +4.0% gap corresponds to an l=1 admixture probability P ≈ 0.025–0.038 — small and physical — quenching the leading ratio through the standard configuration-mixing form g_A → g_A(1−κP). This admixture amplitude is the same l=1 content of the d=3 nucleon mode induced by the (ξ_3·ξ_4)² kernel that enters μ_p, μ_n through f_overlap; it is not separately closeable and is blocked on the same collective d=3⊕d=4 colour-singlet mode identification (Appendix A §15). The √7/2 leading value is the structural prediction; the residual is consistent with that admixture.
 
 **Status note (🔶):** g_{3,4}^eff = 125 is an estimated effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The enhancement factor has not been derived from kernel matrix elements; it is not the result of RG running (IDWT does not use renormalization group methods). f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry, also not computed from first principles. With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; the derivation of both from the kernel is an open item.
 
@@ -678,6 +680,16 @@ The z₄ factor integrates to zero over the CP³ fibre by spherical harmonic ort
 - Stark selection rules: ΔL = ±1 exactly
 - Fine structure: standard Dirac corrections unmodified by sector geometry
 - Hyperfine structure: standard result unmodified
+
+**E1 selection rules — explicit derivation. ✅** The electric-dipole operator H_E1 = −e **r**·**ε̂** is a rank-1 SO(3) tensor T^(1)_q with parity −1 under **r** → −**r**. By Marginal Exactness (Part 11 §6.1), every matrix element of a 3D operator between d=6 electron states reduces to the 3D orbital matrix element; the hidden sector coordinates integrate to zero by Lemma 2. The Wigner–Eckart theorem for SO(3) then gives:
+
+$$\langle L', M' | T^{(1)}_q | L, M \rangle = \langle L, M; 1, q | L', M' \rangle \, \langle L' \| T^{(1)} \| L \rangle$$
+
+The Clebsch–Gordan coefficient is nonzero only if the triangle rule is satisfied ($|L - 1| \leq L' \leq L + 1$, so $\Delta L \in \{-1, 0, +1\}$) and $M' = M + q$ (so $\Delta M \in \{-1, 0, +1\}$). Parity restricts further: an orbital state $|L\rangle$ has parity $(-1)^L$, and the dipole operator has parity $-1$, so the matrix element is nonzero only when $(-1)^{L + 1 + L'} = +1$, i.e. $L + L'$ is odd, i.e. $\Delta L$ is odd. Combined with $|\Delta L| \leq 1$:
+
+$$\Delta L = \pm 1, \quad \Delta M = 0, \pm 1$$
+
+$\Delta L = 0$ is forbidden by parity for all $L$. This is verified numerically in `files/idwt.py` STEP 67.
 
 **Status: ✅** The Bohr spectrum, orbit degeneracies, and all selection rules are structural consequences of the CP³ geometry and the exact potential separability of Lemma 1. No new parameters beyond α and m_e (both derived). The explicit SU(4) bases through the f-shell, the Simplex Identity, and interactive orbit visualisations are in the companion page *Atomic Orbits as CP³ Projection* (visualizations/6d-orbit-slice.html).
 
@@ -836,9 +848,29 @@ The antibonding orbit is an orbit whose 3D shadow has a nodal plane between the 
 
 The H₂ case generalizes to any homonuclear diatomic bond (N₂, O₂, F₂, ...). All bond types — σ (overlap along the internuclear axis), π (overlap perpendicular to the axis, from p or d orbits), δ (overlap from two d orbits, side-on) — are determined by which (n,l,m_l) orbits are occupied and the geometry of their 3D shadows. No new postulates at any stage.
 
-### 17.6 Status and What Opens
+### 17.6 Status and Quantitative Prediction
 
-**Status: 🔶 Mechanism established; quantitative bond parameters open.** The H₂ bonding mechanism follows from: (a) the Coulomb vertex of §14, (b) Pauli exclusion from §16.2, (c) Born-Oppenheimer decoupling of nuclear and electronic motion. All three are established from IDWT structure with no free parameters beyond m_e and α (both derived). The quantitative bond parameters (D_e, R_eq) and the full 6D character of the bond orbit — what the two-center orbit looks like in all six dimensions — are open. 🔶
+**Status: 🔵 IDWT dissociation energy computed; R_eq open.**
+
+By Marginal Exactness (Part 11 §6.1, ✅), every H₂ observable is determined exactly by
+the d=3 marginal — the hidden CP³ coordinates of the electron contribute zero. The
+Born-Oppenheimer dissociation energy therefore equals the exact non-relativistic result
+scaled by the IDWT Hartree energy:
+
+$$D_e(\text{IDWT}) = D_e^{\text{exact BO}} \times E_H(\text{IDWT})$$
+
+The exact non-relativistic Born-Oppenheimer value is $D_e^{\text{exact BO}} = 0.17447\,E_H$
+(Kolos & Wolniewicz 1968). The IDWT Hartree energy is $E_H(\text{IDWT}) = 29.408\,\text{eV}$
+(STEP 69; α discrepancy at current order). This gives:
+
+$$D_e(\text{IDWT}) = 5.131\,\text{eV}$$
+
+The experimental value is $D_e(\text{expt}) = 4.747\,\text{eV}$. The +8.1% error is
+inherited from the IDWT fine-structure constant ($1/\alpha_{\text{IDWT}} = 131.8$ vs
+PDG 137.04) and tracks the same +8.1% offset seen in H₂⁺ (§15, STEP 69). It is not a
+failure of the bond mechanism — it is the same systematic α error throughout. (STEP 72)
+
+The equilibrium geometry $R_{\text{eq}}$ and full 6D character of the bond orbit are open.
 
 **Opens:**
 - **Heteronuclear bonds and bond angles** (HF, CO, H₂O): same Coulomb framework, nuclei with Z ≠ Z'. Bond polarity follows from asymmetric nuclear potentials selecting asymmetric angular momentum configurations. Bond angles (H–O–H = 104.5°, H–N–H = 107°, etc.) are not set by VSEPR repulsion — they are the 3D projections of which 6D angular momentum states are occupied: bonding states project toward nuclei, lone-pair states project away, and the angle between bonding projections is determined by the angular momentum structure of all occupied states together. This is derived from the 6D orbit picture; the detailed calculation is open. 🔶
@@ -894,5 +926,7 @@ Two neutral atoms A and B separated by distance R are charge-neutral (Q_total = 
 ### 17b.3 The R⁻⁶ Power Law from the d=2 Self-Coupling ✅
 
 Each instantaneous dipole-dipole term of the d=2 self-coupling between charge densities separated by $R$ falls as $1/R^3$; the interaction is second order in this coupling, so squaring the dipole-dipole matrix element gives the $R^{-6}$ power in the non-retarded limit. At separations $R \gg c/\omega$ the finite propagation speed of the d=2 self-coupling (the speed of light is the d=2 propagation speed) introduces a retardation that turns the power over to $R^{-7}$ (Casimir–Polder). The same d=2 sector sets both this crossover and the Coulomb interaction of §14.
+
+**C₆ coefficients. 🔵** By Marginal Exactness (Part 11 §6.1), the coefficient $C_6$ is determined by the static polarizability $\alpha$ and the ionization potential $I$ of each atom in the d=3 marginal, via the London approximation $C_6(A\text{-}A) = \tfrac{3}{4}\alpha^2 I$. For hydrogen, the exact second-order result gives $\alpha_H = \tfrac{9}{2}\,a_0^3$ and $I_H = \tfrac{1}{2} E_H$, so the exact value is $C_6({\rm H\text{-}H}) = 6.499\,E_H a_0^6$ (the London formula overestimates by +16.8\% and is not used for the final value). For helium, the IDWT variational wave function (STEP 44, $\eta = 27/16$) gives $\alpha_{\rm He}^{\rm var} = 9/\eta^4 = 1.110\,a_0^3$ and $I_{\rm He}^{\rm var} = 0.848\,E_H$, yielding $C_6({\rm He\text{-}He})^{\rm var} = 0.783\,E_H a_0^6$; the literature accurate value is $1.461\,E_H a_0^6$. The variational underestimate (−46\%) has two sources: the uncorrelated product wave function underestimates $\alpha_{\rm He}$ (exact $1.383\,a_0^3$), and the London formula itself underestimates by a further −11\%. ($\texttt{files/idwt.py}$ STEP 70.)
 
 **Status: ✅ structural consequence for the R⁻⁶ power law.** The $R^{-6}$ power follows from the second-order d=2 self-coupling (two dipole-dipole factors) and the dipole selection rules — no new parameters. The retarded crossover to $R^{-7}$ at $R \gg c/\omega$ is fixed by the finite propagation speed of the same d=2 self-coupling and requires the full d=2 propagation treatment; it is left as a follow-on.

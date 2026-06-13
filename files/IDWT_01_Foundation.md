@@ -13,13 +13,13 @@
 
 The mass tables in this document invite an immediate reaction: this must be curve-fitting. The reaction is understandable and wrong, in ways that are not obvious on a first pass. Three specific misconceptions are worth addressing before proceeding.
 
-**The mode indices are not fitted.** Every mode index $n$ in the particle spectrum is generated algebraically by the Hockey-Stick identity $S(n,d) = \binom{n+d-1}{d}$ applied to the single seed $n_s = 4$. The full derivation chain is in §5 and Part 2 §6. As one example: $n_\mu = S(4,4) = 35$ because that is Pascal's recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ evaluated at $(n=4, d=4)$ — not because the muon happens to have that index. The seed $n_s = 4$ is itself topologically forced by $\chi(\mathbb{CP}^3) = 4$ (§3b), independently of any mass data.
+**The mode indices are not fitted.** Every mode index $n$ in the particle spectrum is generated algebraically by the Hockey-Stick identity $S(n,d) = \binom{n+d-1}{d}$ applied to the two seeds $n_d = 1$ and $n_u = 3$ (composite $n_s = 4$). The full derivation chain is in §5 and Part 2 §6. As one example: $n_\mu = S(4,4) = 35$ because that is Pascal's recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ evaluated at $(n=4, d=4)$ — not because the muon happens to have that index. The non-trivial seed $n_u = 3$ is forced by $\chi(\mathbb{CP}^2) = N_c = 3$ (§3b); the composite $n_s = n_u + n_d = 4$ is confirmed topologically by $\chi(\mathbb{CP}^3) = 4$, independently of any mass data.
 
 **The sector assignments are not arbitrary.** Each sector imparts specific physical properties through its spinor geometry. $d=5$ ($S^5$, $d \bmod 8 = 5$) forbids Majorana spinors by Clifford algebra periodicity — Dirac neutrinos are not a choice, they are a geometric consequence. $d=4$ ($\mathbb{CP}^2$) generates colour charge from its $SU(3)$ isometry group; $\chi(\mathbb{CP}^2) = 3 = N_c$. $d=6$ ($\mathbb{CP}^3$) produces colour-neutral chiral fermions through its Kähler structure. Moving a particle to a different sector does not produce a different prediction — it produces the wrong quantum numbers entirely. The assignments are locked by geometry.
 
-**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from $n_s = 4$ alone ($g_{33} = 8\sqrt{7}$) and from the complex geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
+**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from seed pair $\{n_d=1,\,n_u=3\}$ and composite $n_s=4$ ($g_{33} = 8\sqrt{7}$) and from the complex geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
 
-The particle physics sector of the framework has one unit of mass ($m_e = 0.511$ MeV) and one seed integer ($n_s = 4$). Everything else in the particle sector — the sector set, all mode indices, all coupling constants, all sector scales, all particle masses, the Cabibbo angle, and the three PMNS magnitudes — is derived from these two. The CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° is derived via APS spectral flow of the one-parameter Dirac family across the CP³→CP⁵ Chern class mismatch Δc₁ = −2 (T8 🔶, Part 10 §4). The derivation carries three technical gaps before reaching 🔵 (see Part 10 §4 status note). The one current exception is gravity: $G_N$ is a measured external input pending derivation from the spectral action scale $\Lambda$ (P5, Part 4 §3.12.4). When $G_\infty$ is derived, $G_N = G_\infty/V_7$ will follow from the same geometry with no additional input. The structural evidence against numerology is the cross-referencing: the same numbers arriving independently from different directions. The quantity $q = S(n_u-1, 4) = 5$ appears in both the EW coupling derivation $g_{22} = p^2 q/2$ and the boson mass gap $n_Z - n_W = 5$. The resonance site $k_0 = 16$ satisfies three independent conditions simultaneously. The Higgs mode index $n_H = 95$ is reached by two separate cross-sector routes. Numerological schemes are flexible enough to always find a match. This framework is rigid enough that these convergences are non-trivial.
+The particle physics sector of the framework has one unit of mass ($m_e = 0.511$ MeV) and two seed integers ($n_d = 1$, $n_u = 3$) with composite $n_s = 4$. Everything else in the particle sector — the sector set, all mode indices, all coupling constants, all sector scales, all particle masses, the Cabibbo angle, and the three PMNS magnitudes — is derived from these. The CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° is derived via APS spectral flow of the one-parameter Dirac family across the CP³→CP⁵ Chern class mismatch Δc₁ = −2 (T8 🔶, Part 10 §4). The derivation carries three technical gaps before reaching 🔵 (see Part 10 §4 status note). The one current exception is gravity: $G_N$ is a measured external input pending derivation from the spectral action scale $\Lambda$ (P5, Part 4 §3.12.4). When $G_\infty$ is derived, $G_N = G_\infty/V_7$ will follow from the same geometry with no additional input. The structural evidence against numerology is the cross-referencing: the same numbers arriving independently from different directions. The quantity $q = S(n_u-1, 4) = 5$ appears in both the EW coupling derivation $g_{22} = p^2 q/2$ and the boson mass gap $n_Z - n_W = 5$. The resonance site $k_0 = 16$ satisfies three independent conditions simultaneously. The Higgs mode index $n_H = 95$ is reached by two separate cross-sector routes. Numerological schemes are flexible enough to always find a match. This framework is rigid enough that these convergences are non-trivial.
 
 ---
 
@@ -32,9 +32,9 @@ The particle physics sector of the framework has one unit of mass ($m_e = 0.511$
 
 The sector space Ξ_∞ contains all dimensions d ≥ 1. The active sectors — those whose geometry supports stable bound-state eigenmodes — are D = {2,3,4,5,6,10}. Sectors d=7,8,9 exist as coordinates of M_∞ but their geometry does not support stable eigenmodes (Rule A, §3a); sectors d≥11 are subcritical and cannot localize modes at all (Rule B, §3a). The label Ξ_{10} used in earlier versions of this document referred to the highest active sector, not to a truncation of M_∞.
 
-**Dependency structure.** In the current formulation, where the sector potential V_d(r) = λ_d r²/(1+r²) is postulated rather than derived from the action, the logical chain is one-directional: M_∞ topology determines the active sector set D (via the Gegenbauer criticality condition and Hopf fibration pairing, Part 9 T3), the sector geometries {M_d}_{d∈D} determine the projection operators Π_d, and observables are the projected fields Π_d Ψ_∞. Given fixed sector geometry, S(n,d), m_scale_d, and g_{dd'} are derived quantities; they do not feed back into the determination of which d are active.
+**Dependency structure.** In the current formulation, where the sector potential V_d(r) = λ_d r² is fixed by the kernel mean-field self-consistency (Part 4 §3.10) rather than derived directly from the action, the logical chain is one-directional: M_∞ topology determines the active sector set D (via the Gegenbauer criticality condition and Hopf fibration pairing, Part 9 T3), the sector geometries {M_d}_{d∈D} determine the projection operators Π_d, and observables are the projected fields Π_d Ψ_∞. Given fixed sector geometry, S(n,d), m_scale_d, and g_{dd'} are derived quantities; they do not feed back into the determination of which d are active.
 
-This one-directionality is a property of the current postulated-V_d formulation, not of the complete theory. When V_d is derived from the IDWT action (open item MC-2, Part 6), the sector geometry will itself become a functional of the vacuum structure of Ψ_∞, making the full problem a coupled fixed-point system (Ψ_∞, {M_d}) ∈ Fix(T). At that level D = {2,3,4,5,6,10} should emerge as stable solution branches of the joint field-geometry system, not solely from M_∞ topology. This is precisely the content of Theorems A and B in Part 6 §Open.
+This one-directionality is a property of the current mean-field V_d formulation, not of the complete theory. When V_d is derived from the IDWT action (open item MC-2, Part 6), the sector geometry will itself become a functional of the vacuum structure of Ψ_∞, making the full problem a coupled fixed-point system (Ψ_∞, {M_d}) ∈ Fix(T). At that level D = {2,3,4,5,6,10} should emerge as stable solution branches of the joint field-geometry system, not solely from M_∞ topology. This is precisely the content of Theorems A and B in Part 6 §Open.
 
 ### 1.1 The temporal structure of M_∞
 
@@ -58,7 +58,7 @@ We are at d=3 — inside M_∞, at the coordinate level where the first stable h
 The observer's position determines which modes are easy to resolve but not which modes exist. The physical spectrum is closed at exactly 15 states: those mode-sector pairs (n,d) satisfying the co-fixed-point condition — the pair (n,d) is an element of Σ_pairs, the closed set produced by the generation tower (the sector comb filtration from n_s = 4). All observers at any ξ⁰ see the same 15-particle spectrum.
 
 **P3 — Non-Compact Sector Spaces**
-The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2/(1+r^2)$ that supports exponentially localized bound states via the sector mode localization theorem (Part 4 §3.13). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of sector mode amplitudes near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. Scattering states (modes that propagate freely through sector space) are non-normalizable — not bound states — and so are not physical modes (Part 4 §3.13). The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
+The sector spaces Ξ_d are infinite Riemannian spaces — not rolled up or compactified. Each sector carries a potential well $V_d(r) = \lambda_d r^2$ — the kernel self-binding potential (Part 4 §3.10) — whose eigenmodes are Gaussian-localized bound states (sector mode localization theorem, Part 4 §3.13 Part I). The particles are these bound states. The geometry labels (CP^n, S^n) describe the local symmetry of the potential minimum — the symmetry of sector mode amplitudes near r=0 — not the global topology of Ξ_d. This is analogous to a hydrogen atom: the electron occupies infinite ℝ³ but the ground state has S² symmetry from the spherically symmetric potential. No sector is curled up. The sector spectrum is purely discrete (σ_ess = ∅, Part 4 §3.13 Part I): no freely propagating sector modes exist, and every physical mode is a normalizable bound state. The standard KK exclusions presuppose graviton propagation into compact dimensions and do not apply here (Part 4 §1b, §3.9).
 
 **P4 — Two Force Principles**
 Forces couple through two complementary geometric principles. Both are required; neither alone is sufficient.
@@ -73,24 +73,24 @@ A particle with coordinate support in a force sector may still have zero couplin
 Gravity is the curvature of M_∞ sourced by mass, operating across all sector coordinates without a sector boundary. There are no gravitons; gravity cannot be quantized because there is no gravitational field — only geometry. The observed G_N = G_∞/V_7, where V_7 ≈ 7.74 is the product of sector localization lengths, fully derived from the sector coupling constants. G_∞ — the ∞D Newton constant — requires fixing the spectral action scale Λ and is not yet derived; G_N is currently an external input. Once the a₂ Seeley-DeWitt integral over M_∞ is computed, G_N = G_∞/V_7 becomes a parameter-free prediction 🔶 (Part 4 §3.12).
 
 **P6 — Rank-1 Coupling 🔶**
-The inter-sector coupling strength matrix factorizes as $g_{dd'} = v_d \times v_{d'}$ — rank-1 as an outer product of a coupling vector $v = (v_2, v_3, v_4, v_5, v_6, v_{10})$. All six components $v_d$ are derived from two seeds $\{1,4\}$ and $N_c = 3$ (Part 2 §10, Part 3 §0.1). The rank-1 factorization follows as a **necessary consequence of the sector-separable mass formula (P1)**: if $g_{dd'} = \sum_k v_d^{(k)} v_{d'}^{(k)}$ had rank $r > 1$, the mean-field kernel $V[\Psi](x,\xi) = \sum_k (\sum_d v_d^{(k)}\xi_d)\cdot(\sum_{d'} v_{d'}^{(k)}\xi_{d'} J_{d'}(x))$ would introduce cross-sector entanglement that prevents the sector-by-sector eigenvalue separation $m = m_{\rm scale,d} \times S(n,d)$. Rank-1 ($r=1$) is the unique structure for which the condensate $C(x) = \sum_{d'} v_{d'}\langle\xi_{d'}\rangle(x)$ is common to all sectors, allowing each sector $d$ to see a local harmonic potential $V_d = v_d^2|\xi_d|^2|C(x)|^2$ and reproduce the simplex eigenvalue. **Status: ✅ as a consequence of P1.** Physical consequences: universal correlated coupling scales across sectors, constrained inter-sector mixing, the Wolfenstein angle from a single ratio $v_3/v_4$.
+The inter-sector coupling strength matrix factorizes as $g_{dd'} = v_d \times v_{d'}$ — rank-1 as an outer product of a coupling vector $v = (v_2, v_3, v_4, v_5, v_6, v_{10})$. All six components $v_d$ are derived from seeds $\{n_d=1,\,n_u=3\}$ and composite $n_s=4$ (Part 2 §10, Part 3 §0.1). The rank-1 factorization follows as a **necessary consequence of the sector-separable mass formula (P1)**: if $g_{dd'} = \sum_k v_d^{(k)} v_{d'}^{(k)}$ had rank $r > 1$, the mean-field kernel $V[\Psi](x,\xi) = \sum_k (\sum_d v_d^{(k)}\xi_d)\cdot(\sum_{d'} v_{d'}^{(k)}\xi_{d'} J_{d'}(x))$ would introduce cross-sector entanglement that prevents the sector-by-sector eigenvalue separation $m = m_{\rm scale,d} \times S(n,d)$. Rank-1 ($r=1$) is the unique structure for which the condensate $C(x) = \sum_{d'} v_{d'}\langle\xi_{d'}\rangle(x)$ is common to all sectors, allowing each sector $d$ to see a local harmonic potential $V_d = v_d^2|\xi_d|^2|C(x)|^2$ and reproduce the simplex eigenvalue. **Status: ✅ as a consequence of P1.** Physical consequences: universal correlated coupling scales across sectors, constrained inter-sector mixing, the Wolfenstein angle from a single ratio $v_3/v_4$.
+
+Two algebraic corollaries of the factorization ⭐: *(i)* $G$ has exactly one nonzero eigenvalue, $|v|^2 = \mathrm{tr}\,G = \sum_d g_{dd}$, with eigenvector $v$ — the wave has a single independent interaction channel, and every cross-sector coupling is the projection of that one coupling direction. *(ii)* Writing $(\xi_d\cdot\xi_{d'})^2 = Q^{(d)}_{ij}Q^{(d')}_{ij}$ with $Q^{(d)}_{ij} = \xi_{d,i}\xi_{d,j}$, the quartic kernel term is a sum of squares, $V_{\rm kernel} = \tfrac12\sum_{ij}\big(\sum_d v_d\,Q^{(d)}_{ij} J_d\big)^2 \geq 0$, for any real sector densities $J_d$. The positivity is not termwise — $J_d J_{d'}$ can be negative — it is guaranteed by the rank-1 structure. The kernel self-coupling only adds energy: it penalizes configurations and never lowers a mode's energy. (`files/idwt.py` STEP 2b.)
 
 **P7 — Mode Selection by the Co-fixed-point Condition 🔶**
-A mode $(n,d)$ of Ψ_∞ is a physical particle if and only if the pair $(n,d)$ is an element of $\Sigma_{\rm pairs}$ — the unique finite closed set of mode-sector pairs produced by the generation tower from seeds $(n_{\rm down},d) = (1,3)$ and $(n_s,d) = (4,3)$. The generation tower assigns both the mode index and the sector; a mode at index $n$ in sector $d$ is stable only if the specific pair $(n,d)$ appears as a tower output, not merely if $n$ appears as a tower output in some other sector. This is semi-structural: the instability of non-co-fixed-point modes (l-parity disconnection for odd levels, infinite-dimensional dephasing on timescale $1/m_{\rm scale,d}$ for even levels) is established at the kernel level (Part 7 §1.2) but not yet derived from the EOM. The detailed co-fixed-point set and its DAG structure are given in P8. Status: 🔶 (Part 7 §1, Part 9 T0.5).
+A mode $(n,d)$ of Ψ_∞ is a physical particle if and only if the pair $(n,d)$ is an element of $\Sigma_{\rm pairs}$ — the unique finite closed set of mode-sector pairs produced by the generation tower from seeds $(n_{\rm down},d) = (1,3)$ and $(n_u,d) = (3,4)$, together with their offset-additive composite $(n_s,d) = (4,3)$. The generation tower assigns both the mode index and the sector; a mode at index $n$ in sector $d$ is stable only if the specific pair $(n,d)$ appears as a tower output, not merely if $n$ appears as a tower output in some other sector. This is semi-structural: the instability of non-co-fixed-point modes (l-parity disconnection for odd levels, infinite-dimensional dephasing on timescale $1/m_{\rm scale,d}$ for even levels) is established at the kernel level (Part 7 §1.2) but not yet derived from the EOM. The detailed co-fixed-point set and its DAG structure are given in P8. Status: 🔶 (Part 7 §1, Part 9 T0.5).
 
 **P8 — Co-Fixed-Point Stability 🔶**
-A mode-sector pair $(n,d)$ is a stable resonance if and only if it is an element of $\Sigma_{\rm pairs}$, the co-fixed-point set: the unique finite set of pairs such that applying every generation-tower operation to $\Sigma_{\rm pairs}$ returns only elements already in $\Sigma_{\rm pairs}$ (verified exhaustively, §5c). The generation tower is a finite acyclic DAG with unique source pair $\{(1,3),(4,3)\}$ and trivial automorphism group (Appendix A §13b) — the labeling of all 15 particles is uniquely determined by the DAG structure.
+A mode-sector pair $(n,d)$ is a stable resonance if and only if it is an element of $\Sigma_{\rm pairs}$, the co-fixed-point set: the unique finite set of pairs such that applying every generation-tower operation to $\Sigma_{\rm pairs}$ returns only elements already in $\Sigma_{\rm pairs}$ (verified exhaustively, §5c). The generation tower is a finite acyclic DAG with seeds $\{(1,3),(3,4)\}$ (composite $(4,3)$ at depth 1) and trivial automorphism group (Appendix A §13b) — the labeling of all 15 particles is uniquely determined by the DAG structure.
 
 **Sector assignment — the rung placements are derived (✅); the routing DAG is the open item (🔶).** Two results carry the assignment without SM input:
 
-*(i) Seed value and seed sector.* The seed value $n_s = 4$ is fixed by T4 (the $4/7$ double-degeneracy equation, Part 9) and confirmed by the muon fixed-point $S(n_s, 4) = S(4,4) = 35 = n_{\rm muon}$ (algebraic, no SM input). The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a) — the natural starting point of the generation tower. No SM particle names are used.
-
-The down seed $n_{\rm down}=1$ shares sector d=3 with $n_s$ because: (a) $S(1,d)=1$ for all $d$ (it is the ground state in any sector), and (b) the tower subtraction $n_u = n_s - n_{\rm down}$ must be a same-sector operation for it to produce a well-defined mode index — this forces both seeds into the same sector.
+*(i) Seed values and seed sector.* The primitive seeds are $n_d = 1$ (ground seed: $S(1,d) = 1$ in every sector) and $n_u = 3$ (geometric seed: $\chi(\mathbb{CP}^2) = N_c = 3$, T15, ✅-grade). The composite $n_s = 4 = 1+3$ is sourced from these seeds via the offset-additive channel (🔶 MC-4.4 kernel reading); T4 (the $4/7$ double-degeneracy equation, Part 9), the muon fixed-point $S(4,4) = 35$, the Gegenbauer crossing, and the matter-quartet identity $2n_s - 4 = n_s$ are uniqueness certificates confirming the composite. The seed sector is d=3: the observable spacetime sector and the first Hopf total space $S^3$ of the complex Hopf chain (§3a). Both seeds occupy d=3 independently by R1 — no cross-seed argument is required for their shared sector placement.
 
 *(ii) Remaining sector assignments follow from Hopf chain geometry.* Given seeds in d=3, the subsequent sector assignments propagate via the Hopf fibration chain $\{2,3\} \to \{4,5\} \to \{6,10\}$:
 - d=4 (CP²): the first Hopf base space over S³ (d=3). All modes derived by direct HS from d=3 seeds land here. $N_c = \chi(\text{CP}^2) = 3$ identifies this as the colour sector (T15, §3a) — no SM name needed.
 - d=5 (S⁵): the Hopf total space over CP² (d=4). Modes derived by HS from d=4 modes land here.
-- d=6 (CP³): the next Hopf base above S⁵. $\chi(\text{CP}^3) = 4 = n_s$ links it to the seed (T15).
+- d=6 (CP³): the next Hopf base above S⁵. $\chi(\text{CP}^3) = 4 = n_s$ links it to the composite (T15).
 - d=10 (CP⁵): the Gegenbauer-critical endpoint, fully proved by T5 without SM input.
 - d=2 (CP¹): the EM reference sector, base of the full chain; the g-rule routes W, Z, H to d=2.
 
@@ -102,30 +102,30 @@ P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. T
 
 ⭐ **Matroid interpretation of the generation tower.** The uniform matroid $U^d_{n+d-1}$ has ground set $E = \{1,\dots,n+d-1\}$ with a subset declared independent iff its cardinality is at most $d$. Its number of bases is $\binom{n+d-1}{d} = S(n,d)$. The hockey-stick recursion $S(n,d) = S(n,d-1) + S(n-1,d)$ is the matroid basis-exchange axiom in this uniform case: deleting or contracting one element gives the two terms. Submodularity of the rank function $r(A) = \min(|A|,d)$ gives a combinatorial proof that a mode index can increase by at most one hockey-stick step per generation — the mass spectrum is submodular. The trivial automorphism group of the tower DAG (Appendix A §13b) is automatic for uniform matroids of rank $\geq 3$ (Whitney's theorem on the automorphism group of $U^d_{n+d-1}$), which independently confirms that the 15-particle labeling is unique without invoking SM input.
 
-⭐ **Poset structure and seed uniqueness.** The modes ordered by $(n_1,d_1) \leq (n_2,d_2)$ iff $n_1 \leq n_2$ and $d_1 \leq d_2$ form a product of two chains — a distributive lattice — with $S(n,d)$ as the rank function and the hockey-stick identity as the rank-generating function. Sperner's theorem gives the size of the largest antichain at a given rank as $\binom{n+d-1}{\lfloor(n+d-1)/2\rfloor}$; Dilworth's theorem gives the minimum chain cover of the 15 modes as the DAG width, a pure combinatorial invariant. The seeds $\{(1,3),(4,3)\}$ are the unique minimal elements of the two largest antichains in the tower — their forced status is a poset-theoretic consequence, providing an independent combinatorial route to the same conclusion as the co-fixed-point uniqueness proof (§5c).
+⭐ **Poset structure and seed uniqueness.** The modes ordered by $(n_1,d_1) \leq (n_2,d_2)$ iff $n_1 \leq n_2$ and $d_1 \leq d_2$ form a product of two chains — a distributive lattice — with $S(n,d)$ as the rank function and the hockey-stick identity as the rank-generating function. Sperner's theorem gives the size of the largest antichain at a given rank as $\binom{n+d-1}{\lfloor(n+d-1)/2\rfloor}$; Dilworth's theorem gives the minimum chain cover of the 15 modes as the DAG width, a pure combinatorial invariant. The seeds $\{(1,3),(3,4)\}$ are the unique minimal elements of the two largest antichains in the tower — their forced status is a poset-theoretic consequence, providing an independent combinatorial route to the same conclusion as the co-fixed-point uniqueness proof (§5c).
 
-⭐ **Minimal derivation depths — generation tower word lengths.** The derivation depth of each mode is the minimal number of licensed operations (hockey-stick operators $H_{d\to d\pm1}$, additive eigenmode operators $A$, Vandermonde g-rule operators $G_d$) required to reach it from the seeds $\{(1,3),(4,3)\}$. These depths are simultaneously the height in the ranked distributive lattice, the RSK insertion length for the corresponding semistandard Young tableau (Part 2 §1 ⭐ Ferrers diagram depth), and the tropical distance in the min-plus linearization of the Pascal relations. The complete depth table:
+⭐ **Minimal derivation depths — generation tower word lengths.** The derivation depth of each mode is the minimal number of licensed operations (hockey-stick operators $H_{d\to d\pm1}$, additive eigenmode operators $A$, Vandermonde g-rule operators $G_d$) required to reach it from the seeds $\{(1,3),(3,4)\}$. These depths are simultaneously the height in the ranked distributive lattice, the RSK insertion length for the corresponding semistandard Young tableau (Part 2 §1 ⭐ Ferrers diagram depth), and the tropical distance in the min-plus linearization of the Pascal relations. The complete depth table:
 
 | Mode index $n$ | Particle | Depth | Construction |
 |---|---|---|---|
 | 1 | down | 0 | Seed |
-| 4 | strange | 0 | Seed |
-| 3 | up | 1 | $n_s - n_d$: subtraction from seeds |
-| 20 | charm | 1 | $S(4,3)$: one HS step from seed |
-| 10 | $\nu_1$ | 2 | $S(3,3)$: HS from up (depth 1) |
-| 15 | $\nu_2$ | 2 | $S(3,4)$: HS from up in d=4 (depth 1) |
-| 13 | electron | 3 | $n_{\nu_1}+n_u$: additive rule on depth-2 + depth-1 |
-| 35 | muon | 3 | $S(4,4)=n_c+n_{\nu_2}$: Pascal on depth-1 + depth-2 |
-| 22 | $\nu_3$ | 3 | $n_{\nu_1}+n_{\nu_2}-n_u$: inclusion-exclusion on depth-2 modes |
-| 23 | tau | 4 | $n_{\nu_3}+n_d$: generation law from depth-3 |
-| 72 | top | 4 | Eigenmode chain from electron (depth 3) |
-| 76 | $W$ | 5 | g-rule on top (depth 4) |
-| 95 | Higgs | 5 | $n_u+n_c+n_{\rm top}$: sum of up-type, max depth 4 |
-| 81 | $Z$ | 6 | g-rule on $W$ (depth 5) |
+| 3 | up | 0 | Seed: $\chi(\mathbb{CP}^2) = N_c = 3$ (T15) |
+| 4 | strange | 1 | $b = 1+a$: offset-additive composite (🔶) |
+| 10 | $\nu_1$ | 1 | $S(3,3)$: HS from up (depth 0) |
+| 15 | $\nu_2$ | 1 | $S(3,4)$: HS from up in d=4 (depth 0) |
+| 13 | electron | 2 | $n_{\nu_1}+n_u$: additive rule on depth-1 + depth-0 |
+| 20 | charm | 2 | $S(4,3)$: HS from strange (depth 1) |
+| 22 | $\nu_3$ | 2 | $n_{\nu_1}+n_{\nu_2}-n_u$: inclusion-exclusion on depth-1 modes |
+| 23 | tau | 3 | $n_{\nu_3}+n_d$: generation law from depth-2 |
+| 35 | muon | 3 | $S(4,4)=n_c+n_{\nu_2}$: Pascal on depth-2 + depth-1 |
+| 72 | top | 3 | Eigenmode chain from electron (depth 2) |
+| 76 | $W$ | 4 | g-rule on top (depth 3) |
+| 95 | Higgs | 4 | $n_u+n_c+n_{\rm top}$: sum of up-type, max depth 3 |
+| 81 | $Z$ | 5 | g-rule on $W$ (depth 4) |
 
-The bosons systematically carry the highest depths because they are built by the g-rule chain on top of the fermion tower. The GTC exponents $k\in\{0,3,10\}$ for up-type quarks are not identical to depths but are monotonically related: $k_c = n_u = 3$ (the depth-1 charm's Ferrers box count) and $k_t = S(n_u,3) = 10$ (the depth-4 top's Ferrers box count through the neutrino sector) — see Part 2 §11.3 for the derivation.
+The bosons systematically carry the highest depths because they are built by the g-rule chain on top of the fermion tower. The GTC exponents $k\in\{0,3,10\}$ for up-type quarks are not identical to depths but are monotonically related: $k_c = n_u = 3$ (the depth-2 charm's Ferrers box count) and $k_t = S(n_u,3) = 10$ (the depth-3 top's Ferrers box count through the neutrino sector) — see Part 2 §11.3 for the derivation.
 
-⭐ **Generation tower as a finitely presented semigroup.** The generation tower is the action of a finitely presented semigroup on the binomial lattice of pairs $(n,d)$. The **generators** are three families: hockey-stick operators $H_{d\to d\pm1}$ (the two Pascal directions $S(n,d)=S(n,d-1)+S(n-1,d)$), additive eigenmode operators $A$ (the selection rule $n_{\rm lepton}=n_{\rm neutrino}+n_{\rm quark}$), and Vandermonde g-rule operators $G_d$ for bosons. The **relations** are the full hockey-stick identities, distributive lattice commutativity, spectral independence (the occupied $S$-values form a sum-free set), and co-fixed-point closure. The **seeds** $\{(1,3),(4,3)\}$ are the unique minimal generators. The **physical spectrum** $\Sigma_{\rm pairs}$ is the minimal closed orbit of the seeds under this semigroup. The derivation depth of each mode (table above) is the minimal word length in the semigroup from the seeds. This framing makes the generation tower's rigidity explicit: $\Sigma_{\rm pairs}$ is not a collection of algebraic choices but the unique closed orbit of two elements under three families of forced operations.
+⭐ **Generation tower as a finitely presented semigroup.** The generation tower is the action of a finitely presented semigroup on the binomial lattice of pairs $(n,d)$. The **generators** are three families: hockey-stick operators $H_{d\to d\pm1}$ (the two Pascal directions $S(n,d)=S(n,d-1)+S(n-1,d)$), additive eigenmode operators $A$ (the selection rule $n_{\rm lepton}=n_{\rm neutrino}+n_{\rm quark}$), and Vandermonde g-rule operators $G_d$ for bosons. The **relations** are the full hockey-stick identities, distributive lattice commutativity, spectral independence (the occupied $S$-values form a sum-free set), and co-fixed-point closure. The **seeds** $\{(1,3),(3,4)\}$ are the unique minimal generators, with composite $(4,3)$ derived at depth 1. The **physical spectrum** $\Sigma_{\rm pairs}$ is the minimal closed orbit of the seeds under this semigroup. The derivation depth of each mode (table above) is the minimal word length in the semigroup from the seeds. This framing makes the generation tower's rigidity explicit: $\Sigma_{\rm pairs}$ is not a collection of algebraic choices but the unique closed orbit of two elements under three families of forced operations.
 
 ---
 
@@ -141,7 +141,7 @@ Particles with d > 3 are not separate from us. Their modes include the d=3 coord
 
 The down-type quarks (d=3) have sector dimensions that are exactly our three: all of their vibrational activity is in our dimensions, with no component eluding measurement. The photon (d=2) has exactly two directions — fewer than our three — but it is not pinned to our three coordinates: it oscillates in its two and moves perpendicular to them, and that perpendicular motion runs through the full manifold, not only the one leftover direction our three dimensions provide (§3i, Part 3 §14).
 
-For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 observable dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 observable and 7 sector dimensions beyond d=3. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy. This is the projection picture: what a d=3 observer resolves is a slice of a higher-dimensional object (the electron's 6D orbit and its 3D projection, Part 8).
+For particles with d > 3, the mode vibrates across d dimensions, of which only 3 are ours. The electron (d=6) has 3 observable dimensions and 3 sector dimensions we do not occupy. The tau (d=10) has 3 observable and 7 sector dimensions beyond d=3. We measure the d=3 component of their activity; the rest vibrates in coordinates we do not occupy. What a d=3 observer resolves is the d=3 cross-section of the full mode — for the electron, the 3D shadow of its 6D orbit (Part 8).
 
 What an observer at ξ⁰ can resolve does not affect what the particle is. Mass and coupling are eigenvalues of each particle's sector manifold (T0, Part 9) — intrinsic, and independent of observer position.
 
@@ -181,13 +181,13 @@ The sector space decomposes into sectors with distinct potential well symmetries
 | 7,8,9 | — | — | — | — | *Coordinates of M_∞; supercritical (b > 1/2), but IDWT's coupling construction does not reach these sectors (Rule A, §3a). No active sector geometry is established; whether eigenmodes could form under an extended coupling is open.* |
 | 10 | CP⁵ | SU(6) | Majorana-Weyl | 16 | Tau lepton; d mod 8=2 Maj-Weyl (16 real components) |
 
-This list is derived from the seed $n_s = 4$ and the Generation Tower. See §3a below.
+This list is derived from seeds $n_d = 1$ and $n_u = 3$ (composite $n_s = 4$) and the Generation Tower. See §3a below.
 
 ### 3a. Sector Set Theorem
 
-**Theorem.** The sector set $D = \{2, 3, 4, 5, 6, 10\}$ is uniquely determined within IDWT by the complex Hopf fibration chain $S^1 \to S^{2n+1} \to \mathbb{CP}^n$ together with two termination rules, both derivable from the single seed $n_s = 4$:
+**Theorem.** The sector set $D = \{2, 3, 4, 5, 6, 10\}$ is uniquely determined within IDWT by the complex Hopf fibration chain $S^1 \to S^{2n+1} \to \mathbb{CP}^n$ together with two termination rules, both derivable from the non-trivial seed $n_u = 3$ and composite $n_s = 4$:
 
-**Step 1 — CP base sectors from the seed.** The seed $n_s = 4$ and the colour index $N_c = 3$ (from the CP² spin$^c$ index, Part 8 §2.2) identify three complex projective spaces by their Euler characteristics:
+**Step 1 — CP base sectors from the seeds.** The non-trivial seed $n_u = 3$ (colour index $N_c = 3$ from the CP² spin$^c$ index, Part 8 §2.2) and composite $n_s = 4$ identify three complex projective spaces by their Euler characteristics:
 
 $$\chi(\mathbb{CP}^{N_c-1}) = N_c = 3, \quad d = 4; \qquad \chi(\mathbb{CP}^{n_s-1}) = n_s = 4, \quad d = 6; \qquad \chi(\mathbb{CP}^1) = 2, \quad d = 2.$$
 
@@ -202,7 +202,7 @@ $d = 2$ (CP¹) is the $U(1)$ Hopf fiber base required by the chain. This gives $
 
 **Step 3 — Termination rules exclude all remaining spaces.**
 
-*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the seed ratio — a direct output of the seed ($\chi(\mathbb{CP}^3)=n_s$), not a kernel fixed-point coupling — so the coupling-construction chain terminates at $d=6$. The band $d=7,8,9$ acquires no self-coupling and is excluded, by two routes: $d=8$ ($\mathbb{CP}^4$) is the gap in the Euler-characteristic sequence of the active even sectors ($\chi=N_c+2=5$, no fixed point for $g_{88}$; Part 9 T15b), while $d=7$ ($S^7$) and $d=9$ ($S^9$) are odd total spaces that Hopf universality can route only over their bases $\mathbb{CP}^3$ ($d=6$, the terminus) and $\mathbb{CP}^4$ ($d=8$, the gap) — neither a fixed-point base. Note this is a statement about the reach of the construction, not a geometric proof that eigenmodes cannot form: the Gegenbauer values for $d=7,8,9$ are all supercritical ($b_{k_0} > 1/2$), so localization would be geometrically permissible if a coupling were present. The residual lemma — that routing requires a fixed-point base — is an open item (Part 6).
+*Rule A (coupling termination).* $g_{66} = 1/n_s$ is the composite ratio — a direct output of the seed ($\chi(\mathbb{CP}^3)=n_s$), not a kernel fixed-point coupling — so the coupling-construction chain terminates at $d=6$. The band $d=7,8,9$ acquires no self-coupling and is excluded, the three cases standing on different footings: $d=8$ ($\mathbb{CP}^4$) is the gap in the Euler-characteristic sequence of the active even sectors ($\chi=N_c+2=5$, no fixed point for $g_{88}$; Part 9 T15b); $d=9$ ($S^9$) inherits that gap — its $S^1$-invariant block carries a $\mathbb{CP}^4$-symmetric kernel self-consistency with no admissible coupling; $d=7$ ($S^7$) has no activation route — Hopf universality (T9b) is a consistency relation between active sector pairs, not an activation mechanism, and any route treating the $d=6$ and $d=10$ bases symmetrically (their coupling rows are exactly equal, T9c) would equally activate $S^{11}$ over $\mathbb{CP}^5$, which the $d=11$ endpoint excludes. Note this is a statement about the reach of activation, not a geometric proof that eigenmodes cannot form: the Gegenbauer values for $d=7,8,9$ are all supercritical ($b_{k_0} > 1/2$), so localization would be geometrically permissible if a coupling were present. The residual — an activation law underdetermined by the two real activation instances — is an open item (Part 6); Rule A stands 🔶. The arbitration is not a mean-field object: the §3.10 condensate self-consistency $2\lambda_d^{3/2}=g_{dd}$ is solvable for any coupling in any dimension (the dimension cancels), so it cannot distinguish $d=7$ from the active set (Appendix A §3; `files/idwt.py` STEP 76). It lives in the coupled $(\Psi_\infty,\{M_d\})$ fixed point — Part 6 Open Theorem A, the ground-state covariance operator whose spectral plateaux should fall at exactly $d\in D$.
 
 *Rule B (Gegenbauer criticality).* The Jacobi coupling $b_{k_0}(d) = \sqrt{k_0(k_0+d-1)}/(2k_0+d-2)$ must satisfy $b_{k_0} \geq 1/2$ for a sector to support stable bound-state modes. The unique solution to $b_{k_0}(d) = 1/2$ on the complex Hopf chain is:
 $$4k_0 = (d-2)^2 \quad \Longrightarrow \quad 4\times 16 = 64 = (10-2)^2, \quad d = 10.$$
@@ -211,13 +211,13 @@ Sector $d=10$ is the critical endpoint; all $d \geq 11$ are subcritical — loca
 The sector set is therefore:
 $$D = \underbrace{\{2,3,4,5\}}_{\text{Hopf pairs } n=1,2} \cup \underbrace{\{6\}}_{n=3 \text{ base, Rule A}} \cup \underbrace{\{10\}}_{n=5 \text{ base, Rule B}} = \{2,3,4,5,6,10\} \quad \square$$
 
-**Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the seed alone — no hypercharge assignment enters.
+**Remark.** The lepton sector coupling $g_{66} = 1/n_s = 1/4$ is derived from the composite $n_s=4$ alone — no hypercharge assignment enters.
 
 **Remark — two qualitatively distinct types of inactive dimension.** $d\geq11$ and $d\in\{7,8,9\}$ are inactive for fundamentally different reasons, and the distinction matters.
 
 Sectors $d\geq11$ are **subcritical** ($b_{k_0} < 1/2$): localization is geometrically impossible regardless of any coupling. Modes cannot bind; they disperse into the infinite-dimensional bulk. This is the stronger exclusion — it holds unconditionally.
 
-Sectors $d\in\{7,8,9\}$ are **supercritical** ($b_{k_0} > 1/2$): localization would be geometrically permissible if a coupling were present. They are absent from the active sector set because IDWT's coupling construction terminates at $d=6$ — Rule A shows that $g_{66} = 1/n_s$ is a seed ratio rather than a Hopf fixed-point coupling, so the chain that generated $g_{55}$ from $g_{33}$ and $g_{44}$ has no continuation to $d=7$. No active sector geometry is established there, so no eigenmodes are generated. But this is a gap in the construction, not a geometric prohibition: the Gegenbauer criterion does not exclude these sectors, and whether they could host modes under an extended coupling theory remains open.
+Sectors $d\in\{7,8,9\}$ are **supercritical** ($b_{k_0} > 1/2$): localization would be geometrically permissible if a coupling were present. They are absent from the active sector set because IDWT's coupling construction terminates at $d=6$ — no activation route reaches the band: $d=8$ and $d=9$ are blocked by the $\chi=5$ gap, and $d=7$ by the $d=6$/$d=10$ row-equality argument of Rule A. No active sector geometry is established there, so no eigenmodes are generated. But this is a gap in the construction, not a geometric prohibition: the Gegenbauer criterion does not exclude these sectors, and whether they could host modes under an extended coupling theory remains open.
 
 **Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
 
@@ -266,10 +266,10 @@ The Euler characteristics of the IDWT sectors are:
 | d=3 | S³ | 0 | Odd sphere — vector-like QCD (correct: no γ₅) |
 | d=4 | CP² | 3 | **N_c = 3 colours** (index = number of zero modes = colours) |
 | d=5 | S⁵ | 0 | Odd sphere — no Majorana (Dirac neutrinos forced) |
-| d=6 | CP³ | 4 | **n_s = 4 = seed** (index = n_s, the filtration seed) |
+| d=6 | CP³ | 4 | **n_s = 4 = composite** (index = n_s = n_u + n_d; n_u = 3 is the primitive seed) |
 | d=10 | CP⁵ | 6 | **N_f = 6 flavours** (index = quark family count) |
 
-**The seed n_s = 4 is topologically forced.** The d=6 lepton sector lives on CP³, with χ(CP³) = 4 (cells in dimensions 0, 2, 4, 6). The seed n_s must equal this Euler characteristic for the d=6 spectrum to be self-consistent — it counts the available topological modes before gauge fixing removes one, leaving three generations (e, μ, τ). Therefore n_s = 4 is not chosen: it equals χ(CP³).
+**The composite n_s = 4 is topologically confirmed.** The d=6 lepton sector lives on CP³, with χ(CP³) = 4 (cells in dimensions 0, 2, 4, 6). The composite n_s = n_u + n_d must equal this Euler characteristic for the d=6 spectrum to be self-consistent — it counts the available topological modes before gauge fixing removes one, leaving three generations (e, μ, τ). The Euler characteristic independently confirms the composite value: n_s = χ(CP³) = 4.
 
 **The top quark mode index from geometry:**
 
@@ -321,11 +321,11 @@ S¹ → S⁵  → CP²   complex Hopf     →  d=4 (base CP²), d=5 (total S⁵)
 S³ → S⁷  → S⁴    quaternionic     →  d=4 also as S⁴≅HP¹ (consistent)
 ```
 
-d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6. d=7 (the total space S⁷) is excluded from the IDWT sector set for two consistent reasons: (i) geometrically, S⁷ is the total space of the quaternionic Hopf fibration S³→S⁷→S⁴ and is fully accounted for by the d=4 and d=3 sectors already present; (ii) algebraically, g_{66} = 1/n_s is a seed ratio rather than a kernel fixed-point coupling, so Hopf universality cannot determine a coupling formula for a hypothetical d=7 sector over d=6. Both routes reach the same conclusion.
+d=6 arises as CP³, the base space of the next complex Hopf fibration S¹→S⁷→CP³. CP³ has real dimension 6. d=7 (the total space S⁷) is excluded from the IDWT sector set for two consistent reasons: (i) geometrically, S⁷ is the total space of the quaternionic Hopf fibration S³→S⁷→S⁴ and is fully accounted for by the d=4 and d=3 sectors already present; (ii) algebraically, Hopf universality (T9b) is a consistency relation between active sector pairs, not an activation mechanism, and any activation route treating the d=6 and d=10 bases symmetrically would equally activate S¹¹ over CP⁵, which the d=11 endpoint excludes (Part 9 T3 Rule A; the open residual is recorded in Part 6). Both routes reach the same conclusion.
 
 d=10 arises as CP⁵ = SU(6)/U(5), the next step in the complex projective chain beyond CP³. Its sector dimension d=10 is fixed by the Sector Set Theorem (§3a) — $d=10 = 2(N_f-1)$ where $N_f = n_{\rm top}/(N_c \times n_s) = 6$ — and confirmed independently by the Gegenbauer criticality condition (§3b), which shows that $b_{k_0}(d) = 1/2$ is achieved uniquely at d=10.
 
-The sequence terminates at d=10 because any d > 10 puts the seed resonance site $k_0$ in the evanescent (subcritical) regime — stable eigenmodes cannot form.
+The sequence terminates at d=10 because any d > 10 puts the composite resonance site $k_0 = n_s^2$ in the evanescent (subcritical) regime — stable eigenmodes cannot form.
 
 ### 3b-ii. Sector Assignment Theorem — All 15 Particles Placed Without SM Input ✅
 
@@ -344,7 +344,7 @@ The sequence terminates at d=10 because any d > 10 puts the seed resonance site 
 
 **R0.** The d=2 sector is the reference sector (CP¹, carrying U(1)_EM; the photon is the d=2 n=0 ground state). Bosons (W, Z, H) land in d=2 via the Vandermonde g-rule: $g(d_\nu=5, n_{\rm top}) = 5+72-1 = 76 = n_W$; $g(d_\ell=6, n_W) = 6+76-1 = 81 = n_Z$. No SM particle names needed — only the sector dimensions d=5 and d=6 (derived below) and the already-derived mode indices.
 
-**R1.** The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a), the natural starting point of the generation tower. The seed value $n_s=4$ is fixed by T4 (Part 9) and the muon fixed-point $S(4,4)=35$; the down seed $n_{\rm down}=1$ is the universal ground state $S(1,d)=1$, sharing d=3 so that the tower subtraction $n_u=n_s-n_{\rm down}$ is a same-sector operation.
+**R1.** The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a), the natural starting point of the generation tower. Both seeds share d=3: the down seed $n_{\rm down}=1$ is the universal ground state $S(1,d)=1$; the up seed $n_u=3$ has $\chi(\mathbb{CP}^2)=N_c=3$ (T15, ✅) and lands in d=4 via R2. The composite $n_s=1+3=4$ is confirmed by T4 and $S(4,4)=35$; it sits in d=3 as the strange quark. The χ-consecutiveness identity $n_u=n_s-1$ (T15) records a geometric fact about the Hopf chain, not a derivation from $n_s$.
 
 **R2.** From T15 (§3a): $\chi(\mathbb{CP}^2) = N_c = 3 = n_u$. The up quark mode index equals the Euler characteristic of d=4 — the unique sector in $D$ with $\chi = n_u$. All up-type quarks share d=4: charm via $n_{\rm charm} = S(n_s,3)$ (HS from seed), top via $n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\mathbb{CP}^5) = 72$ (T15).
 
@@ -406,7 +406,7 @@ Two routes, one answer. The IDWT framework is over-determined on the terminal se
 
 ### 3d. Per-Sector Profiles
 
-Every particle is a bound eigenmode of V_d(r) = λ_d r²/(1+r²) with mass m(n,d) = m_scale_d × S(n,d), S(n,d) = C(n+d−1,d). The following profiles collect each sector's coupling, particle content, quantum properties, and spectral data.
+Every particle is a bound eigenmode of V_d(r) = λ_d r² with mass m(n,d) = m_scale_d × S(n,d), S(n,d) = C(n+d−1,d). The following profiles collect each sector's coupling, particle content, quantum properties, and spectral data.
 
 ---
 
@@ -482,13 +482,13 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 | Particle | n | GTC order k | Predicted mass | PDG |
 |---|---|---|---|---|
 | u quark | 3 | 0 | 0.1451 × 15 = 2.177 MeV | ~2.2 MeV ✅ |
-| c quark | 20 | 3 | m_scale_4 × S(20,4) × (1−ε)³ | 1279.7 MeV | 1270 MeV ✅ |
-| t quark | 72 | 10 | m_scale_4 × S(72,4) × (1−ε)^{10} | 174.0 GeV | 172.69 GeV ✅ |
+| c quark | 20 | 3 | m_scale_4 × S(20,4) × (1−ε)³ = 1279.7 MeV | 1270 MeV ✅ |
+| t quark | 72 | 10 | m_scale_4 × S(72,4) × (1−ε)^{10} = 174.0 GeV | 172.69 GeV ✅ |
 
 Note: S(n,4) = n(n+1)(n+2)(n+3)/24. ε = 1/(280√7) ≈ 0.001348.
 
 **Quantum properties.**
-- **SU(3) color:** Up-type quarks share color with d=3 via the cross-sector seed coupling g₃₃ × g₄₄.
+- **SU(3) color:** Up-type quarks share color with d=3 via the cross-sector tower coupling g₃₃ × g₄₄.
 - **Electric charge +2/3:** From Kähler index and U(2) representation theory (Part 3 §4).
 - **Chirality:** CP² Kähler γ₅ → W couples to left-handed component only.
 - **GTC:** The topological correction (1−ε)^k accounts for the compression of up-type masses relative to naive mode scaling; without it the top is overestimated by ~1.35%.
@@ -535,7 +535,7 @@ Note: S(n,5) = n(n+1)(n+2)(n+3)(n+4)/120. Σm_ν = 60.39 meV (corrected; δ_ν�
 
 | Parameter | Value |
 |---|---|
-| g₆₆ | 1/4 (seed ratio 1/n_s) |
+| g₆₆ | 1/4 (composite ratio 1/n_s) |
 | m_scale_6 | m_e / S(13,6) ≈ 2.75 × 10⁻⁵ MeV |
 | L_6 | 1.414 fm |
 
@@ -557,7 +557,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 
 **Orbit hybridization as a basis choice.** The sp, sp², sp³ hybridization of chemistry is usually presented as a mixing of s and p orbitals that requires energy to set up. But the electron is a d=6 mode executing a 6D orbit, and s, p, d, f orbitals are different d=3 projections of that same 6-dimensional orbit — angular momentum eigenstates (L=0, 1, 2, 3) of the same SU(4) angular momentum tower. The CP³ isometry group SU(4) rotates between these d=3 projections exactly — there is no energy cost, no approximation, no mixing. What looks like ad hoc mixing to a d=3 observer is the electron settling into the lowest-energy angular momentum configuration of its 6D orbit for its bonding environment. Carbon's sp³ bonds form a perfect tetrahedron because the SU(4) isometry acting on the 6D orbit projects to the tetrahedral rotation group in d=3; the tetrahedral angle (arccos(−1/3) = 109.47°) is derivable from the CP³ geometry alone, with no empirical input.
 
-**The 3D position is a projection, not a location.** The electron executes a definite 6D orbit in CP³. A d=3 observer detects it only where that orbit intersects our three observable coordinates. The 6D orbit sweeps through our 3D slice carrying no confinement in the d=3 directions — only the d=6 sector potential localises the electron, and that localisation is in the 6D sector space, not in our 3D coordinates. The intersections of the 6D orbit with our 3D slice therefore fall anywhere across observable space. This is the IDWT reading of the standard quantum statement that the electron can be found anywhere in the universe: not uncertainty, not a smeared probability cloud, but the 3D shadow of the definite 6D orbit the electron follows — a shadow unlocalized by construction. The orbit is definite; the apparent position in d=3 is a projection of it, and projections do not inherit the localization of the object being projected.
+**The electron's apparent d=3 position is where its 6D orbit intersects our coordinates.** The electron executes a definite 6D orbit in CP³. A d=3 observer detects it only where that orbit intersects our three observable coordinates. The 6D orbit sweeps through our 3D slice carrying no confinement in the d=3 directions — only the d=6 sector potential localises the electron, and that localisation is in the 6D sector space, not in our 3D coordinates. The intersections of the 6D orbit with our 3D slice therefore fall anywhere across observable space. This is the IDWT reading of the standard quantum statement that the electron can be found anywhere in the universe: not uncertainty, not a smeared probability cloud, but the 3D shadow of the definite 6D orbit the electron follows — a shadow unlocalized by construction. The orbit is definite; the apparent position in d=3 is the shadow of that orbit in our three coordinates, and a shadow does not inherit the localization of the object that casts it.
 
 **Spectral.** ζ₆(1) = 6/5, ζ₆(0) = −3, a₀₆ ≈ 2.777.
 
@@ -565,7 +565,7 @@ Note: S(n,6) = n(n+1)(n+2)(n+3)(n+4)(n+5)/720. Ratio m_μ/m_e = S(35,6)/S(13,6) 
 
 #### d = 10 — Tau Sector
 
-**Geometry.** CP⁵ = SU(6)/U(5); local symmetry U(5). V_{10}(r) sits at the Gegenbauer critical endpoint (b_{k₀}=1/2), making the sector phase delay exact. Shares coupling and mass scale with d=6 — unified lepton seed.
+**Geometry.** CP⁵ = SU(6)/U(5); local symmetry U(5). V_{10}(r) sits at the Gegenbauer critical endpoint (b_{k₀}=1/2), making the sector phase delay exact. Shares coupling $g=1/n_s$ and mass scale with d=6 — unified lepton composite coupling.
 
 | Parameter | Value |
 |---|---|
@@ -602,7 +602,7 @@ Back-reaction factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Gegen
 | 6 | CP³ (lepton) | e, μ | 1/4 | 2.75×10⁻⁵ MeV | 1.414 | 6/5 | −3 | 2.777 |
 | 10 | CP⁵ (tau) | τ | 1/4 | = m_scale_6 | 1.414 | 10/9 | −5 | 4.308 |
 
-ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, geometric back-reaction correction for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from the seed n_s = 4.
+ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, geometric back-reaction correction for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from seeds {n_d=1, n_u=3} and composite n_s = 4.
 
 ### 3e-ii. The Particle Map — All Fifteen Modes
 
@@ -634,7 +634,7 @@ The bottom quark is not in the table: it is not a single (n,d) mode but the geom
 
 M∞ is one coordinate system extended step by step: the two coordinates of d=2 are contained in d=3, the three of d=3 are contained in d=4, and so on without bound. The sectors D = {2, 3, 4, 5, 6, 10} are the stable levels at which this extension produces observable eigenmodes.
 
-At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, χ is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
+At each new dimension d, the stability condition is whether the self-coupling equation has a solution consistent with the seed pair {n_d=1, n_u=3} and composite n_s = 4. For d ∈ {2, 3, 4, 6, 10} the Kähler geometry (for even d) or the isometry group (for d=3) closes on itself, χ is nonzero, and the Gegenbauer threshold falls within the vacuum stability window. For d=5, S⁵ has χ(S⁵) = 0, no Kähler form, and no self-coupling fixed point; m_scale_5 is fixed by the cross-sector constraint m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ (Part 2 §9c).
 
 M∞ is genuinely infinite-dimensional. Beyond d=10 χ = 0 (odd spheres) or the Gegenbauer threshold exceeds the vacuum stability bound, or no cross-sector pairing satisfies the Vandermonde coupling rule. The window for self-consistent eigenmodes closes at d=10; M∞ continues. D = {2, 3, 4, 5, 6, 10} are the primes of the extension — the levels at which the coordinate system locks into a stable sector.
 
@@ -742,7 +742,7 @@ The cross-sector interaction is the unique leading term compatible with U(d) × 
 V_kernel = Σ_{d,d'∈D} g_{d,d'} (ξ_d · ξ_{d'})² |Ψ^(d)|² |Ψ^(d')|²
 ```
 
-The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is set by the seed n_s=4 (with n_u = n_s−1 = 3 derived) — the same integers from which the entire particle spectrum is selected. "Vacuum stability" is the physical condition that fixes the gap; n_s=4 (seed) and n_u=n_s−1 (derived) supply the numbers. No particle mass appears in the determination of g₃₃.
+The overall coupling strength g₃₃ = 8√7 = n_s²√(n_s+n_u)/2 is determined by the seed pair {n_d=1, n_u=3} and their composite n_s = 4 — the same integers from which the entire particle spectrum is selected. "Vacuum stability" is the physical condition that fixes the gap; seeds and composite supply the numbers. No particle mass appears in the determination of g₃₃.
 
 ---
 
@@ -757,7 +757,7 @@ Derived sector scales (coupling self-consistency; see Part 2 §10):
 m_scale_6  = m_e / S(13,6)                        = 2.7526 × 10⁻⁵ MeV  [unit reference: sets the MeV scale for d=6]
 m_scale_3  = m_e × √(g₃₃/g₆₆)                    = 4.702 MeV
 m_scale_4  = m_scale_3 × √(g₄₄/g₃₃) / S(3,4)    = 0.1451 MeV
-m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆ = 1/n_s: shared seed coupling]
+m_scale_10 = m_scale_6                             [g₁₀,₁₀ = g₆₆ = 1/n_s: shared composite coupling]
 m_scale_2  = m_e × √(g₂₂/g₆₆)                     = 27.47 MeV           [derived from seeds; gives m_W = 80,379 MeV]
 ```
 
@@ -770,11 +770,11 @@ G_F = g₂²/(4√2 m_W²) = 1.1658×10⁻⁵ GeV⁻²        (PDG: 1.1664×10�
 **Complete coupling vector** {v_d = √g_dd}, determined by seeds and m_e:
 ```
 v₂ = 26.879  [derived: v₂ = √g₂₂ = √(p²q/2), p=S(n_s,3)−n_u=17, q=S(n_u−1,4)=5]
-v₃ = 4.601   [seed n_s; derived n_u=n_s−1]
-v₄ = 2.130   [seed n_s; derived n_u=n_s−1]
+v₃ = 4.601   [seeds {n_d=1, n_u=3}; composite n_s=4]
+v₄ = 2.130   [seeds {n_d=1, n_u=3}; composite n_s=4]
 v₅ = 0.3645  [Hopf fiber universality: g₅₅ = g₃₃×g₄₄/g₂₂ = 96/g₂₂]
 v₆ = 0.500   [g₆₆ = 1/n_s = 1/4]
-v₁₀= 0.500   [g₁₀,₁₀ = g₆₆ = 1/n_s: sectors d=6 and d=10 share the seed coupling]
+v₁₀= 0.500   [g₁₀,₁₀ = g₆₆ = 1/n_s: sectors d=6 and d=10 share the composite coupling 1/n_s]
 ```
 The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hopf pairs) uniquely fixes v₅ given v₂. No third unit reference is needed for any sector coupling.
 
@@ -802,7 +802,7 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 
 **Co-fixed-point uniqueness**
 
-As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$) and $n_s = 4$ is forced by the topological constraint $S(4,4) = 35$ (Part 2 §3). There is one non-trivial seed.
+As a uniqueness verification, the generation map was run over all 1,600 pairs $(n_d, n_s) \in [1..40]^2$, computing Jaccard similarity against the observed spectrum $\{1,3,4,10,13,15,20,22,23,35,72,76,81,95\}$. Jaccard $= 1.0$ at exactly one pair: **(1, 4)**. The next-closest is $(19,4)$ at $0.375$. $n_d = 1$ is trivially forced ($S(1,d)=1$ for all $d$). The non-trivial seed is $n_u = 3$ ($\chi(\mathbb{CP}^2) = N_c = 3$, T15); the composite $n_s = 4 = 1+3$ is confirmed by the topological constraint $S(4,4) = 35$ (Part 2 §3). The search is parametrised over $(n_d, n_s)$; within that parametrisation the pair $(1,4)$ is the unique match.
 
 ---
 
@@ -812,7 +812,7 @@ As a uniqueness verification, the generation map was run over all 1,600 pairs $(
 
 1. **Generation law closure.** Every element of $\Sigma$ is the eigenfrequency selected by the following closed chain of sector comb conditions (all verified exactly):
 
-$$n_u = n_s - 1 = 3 \quad \text{[g-rule: } S(n_u,3) = 10 \text{ uniquely solves } n_{\nu_1} = n_e - d_u + 1\text{; Pascal describes the lattice position, g-rule selects it]}$$
+$$n_u = 3 \quad \text{[seed: } \chi(\mathbb{CP}^2) = N_c = 3 \text{ (T15); g-rule certificate: } S(3,3) = 10 \text{ uniquely solves } n_{\nu_1} = n_e - d_u + 1 \text{]}$$
 
 $$n_c = S(n_s, 3) = 20$$
 
@@ -833,9 +833,9 @@ $$n_H = n_u + n_c + n_{\rm top} = 95$$
 
 ⭐ **Additive combinatorics framing.** In additive number theory, a set $B$ of positive integers is **sum-free** if no element of $B$ equals the sum of two (not necessarily distinct) other elements of $B$. The 14 non-zero IDWT $S$-values constitute a sum-free set. This is not a numerical accident: additive combinatorics (Erdős–Turán theory) establishes that a sum-free subset of $\{1,\dots,N\}$ has size at most $\lceil N/2 \rceil + O(N^{1/3})$, and characterizes large sum-free sets as either mostly odd numbers or concentrated in a short interval. The IDWT $S$-values cluster at low $n$ in each sector and then jump by combinatorial gaps — the predicted shape for a sum-free set whose members are binomial coefficients evaluated at widely spaced arguments. Conversely, the sum-free property imposes an upper bound on the number of allowed modes at a given combinatorial scale, providing a purely number-theoretic explanation for why the spectrum closes at 15 that complements the co-fixed-point derivation. Note: the mode *indices* $\Sigma = \{1,3,4,\dots\}$ are not sum-free (e.g.\ $1+3=4\in\Sigma$); the sum-free condition holds at the level of the $S$-values (the actual eigenvalues), not the index labels.
 
-3. **Seed uniqueness.** The single non-trivial input $n_s = 4$ is the unique positive integer solving $S(n_s, 4) = n_\mu$, i.e.\ $\binom{n_s+3}{4} = 35$. This has exactly one solution.
+3. **Seed and composite uniqueness.** The primitive seeds are $n_d = 1$ and $n_u = 3$. The composite $n_s = 4 = 1+3$ is the unique positive integer solving $S(n_s, 4) = n_\mu$, i.e.\ $\binom{n_s+3}{4} = 35$ — exactly one solution — confirming the composite value.
 
-⭐ **Tropical geometry remark.** The tropical Grassmannian $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ parametrises ultrametrics on $n$ points and, for $n=4$, is a 1-dimensional fan equivalent to the space of phylogenetic trees on 4 labeled leaves. This space has exactly **3 maximal cones** — one for each trivalent tree topology on 4 leaves. The number 3 is the number of quark/lepton generations. The seed $n_s = 4$ is thus the smallest value of $n$ for which $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ is a 1-dimensional trivalent fan with exactly 3 maximal regions; for $n < 4$ the fan is either trivial or has fewer regions. This is an independent combinatorial coincidence consistent with the generation structure, not a separate derivation of it.
+⭐ **Tropical geometry remark.** The tropical Grassmannian $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ parametrises ultrametrics on $n$ points and, for $n=4$, is a 1-dimensional fan equivalent to the space of phylogenetic trees on 4 labeled leaves. This space has exactly **3 maximal cones** — one for each trivalent tree topology on 4 leaves. The number 3 is the number of quark/lepton generations. The composite $n_s = 4$ is thus the smallest value of $n$ for which $\mathrm{Trop}\,\mathrm{Gr}(2,n)$ is a 1-dimensional trivalent fan with exactly 3 maximal regions; for $n < 4$ the fan is either trivial or has fewer regions. This is an independent combinatorial coincidence consistent with the generation structure, not a separate derivation of it.
 
 **Proof sketch.**
 
@@ -853,7 +853,7 @@ $$n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\math
 
 $$n_Z - n_W = q = S(n_u{-}1,4) = 5 \;\; \text{(same } q \text{ as in } g_{22} = p^2 q/2 \text{)}$$
 
-No mode index is chosen to match a mass. Each is the unique output of an algebraic rule applied to $n_s = 4$.
+No mode index is chosen to match a mass. Each is the unique output of an algebraic rule applied to the seed pair $\{n_d = 1,\, n_u = 3\}$ and composite $n_s = 4$.
 
 ---
 

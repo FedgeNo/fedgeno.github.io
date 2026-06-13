@@ -105,14 +105,15 @@
 </section>
 <section>
 
-  <h2>Two seeds, nothing else</h2>
+  <h2>Two seeds and their composite, nothing else</h2>
   <div class="prose">
-    <p>The entire tower is built from two integers:</p>
+    <p>The entire tower is built from three integers:</p>
     <ul>
       <li>\(n_{\text{down}} = 1\) — the down quark mode index, forced because \(S(1,d)=1\) for every sector \(d\). The ground state of any sector is uniquely \(n=1\). No other value is consistent.</li>
-      <li>\(n_s = 4\) — the strange quark mode index, forced by the fixed-point condition \(S(n_s,\,4) = n_\mu\). The muon mode index must equal the \(d=4\) simplex image of the strange quark seed. The unique positive integer satisfying this is \(n_s = 4\), because \(S(4,4) = \binom{7}{4} = 35\), and the equation \(S(n,4) = 35\) has exactly one solution. The full uniqueness argument is at <a href="/articles/seed.html">Why \(n_s = 4\)</a>.</li>
+      <li>\(n_u = 3\) — the up quark seed: \(\chi(\mathbb{CP}^2) = N_c = 3\) (T15). The Euler characteristic of the \(d=4\) sector directly fixes this value.</li>
+      <li>\(n_s = 1 + 3 = 4\) — the strange quark mode index, the composite of the two seeds. Certified by the fixed-point condition \(S(n_s,\,4) = n_\mu\): only \(n_s = 4\) satisfies \(S(4,4) = 35\). The full uniqueness argument is at <a href="/articles/seed.html">Why \(n_s = 4\)</a>.</li>
     </ul>
-    <p>Neither seed is chosen. Both are forced. Everything above them in the tower is derived by addition — no further choices are made at any step.</p>
+    <p>None of these values is chosen. All are forced. Everything above them in the tower is derived by addition — no further choices are made at any step.</p>
   </div>
 
 </section>
@@ -235,10 +236,10 @@
     <dd>The universal ground state. \(S(1,d) = \binom{d}{d} = 1\) for every sector \(d\), so the lowest occupied mode in any sector is always \(n=1\). The down quark sits at the ground state of the \(d=3\) sector (\(S^3\)). No other assignment is possible.</dd>
 
     <dt class="d3">\(n_s = 4\)</dt>
-    <dd>The strange quark seed — the one non-trivial input to the entire tower. Forced by the self-referential fixed point: the muon mode index must satisfy \(n_\mu = S(n_s, 4)\). Only \(n_s = 4\) works, because \(S(4,4) = \binom{7}{4} = 35\) and \(S(n,4) = 35\) has no other positive-integer solution. See <a href="/articles/seed.html">Why \(n_s = 4\)</a> for the full argument.</dd>
+    <dd>The strange quark — the composite \(b = n_{\rm down} + n_u = 1 + 3 = 4\). Confirmed by the self-referential fixed point: the muon mode index must satisfy \(n_\mu = S(n_s, 4)\). Only \(n_s = 4\) works, because \(S(4,4) = \binom{7}{4} = 35\) and \(S(n,4) = 35\) has no other positive-integer solution. \(S(4,4) = 35\) is a uniqueness certificate of the composite — it does not define the value. See <a href="/articles/seed.html">Why \(n_s = 4\)</a> for the full argument.</dd>
 
-    <dt class="d4">\(n_{\text{up}} = n_s - 1 = 3\)</dt>
-    <dd>The up quark index is not a seed — it is derived. The \(d=10\) sector self-consistency equation requires the back-reaction ratio \(n_s / n_{\text{up}}\) to be the ratio of consecutive integers \(4/3\). This forces \(n_{\text{up}} = n_s - 1 = 3\). Equivalently, the ground state of the \(d=4\) sector (\(\mathbb{CP}^2\)) sits one level below the strange seed in the <a href="/articles/simplex-number.html">simplex tower</a>.</dd>
+    <dt class="d4">\(n_{\text{up}} = 3\)</dt>
+    <dd>The up quark seed: \(n_u = \chi(\mathbb{CP}^2) = N_c = 3\) (T15). The Euler characteristic of the \(d=4\) sector geometry directly fixes the up quark mode index — it is a seed, not derived from \(n_s\). The χ-consecutiveness identity \(n_u = n_s - 1\) (T15: \(\chi(\mathbb{CP}^k) = k+1\)) records the Hopf-chain geometry; it does not generate \(n_u\) from \(n_s\).</dd>
 
     <dt class="d5">\(n_{\nu_1} = S(n_{\text{up}},\, 3) = S(3,3) = 10\)</dt>
     <dd>The first neutrino mode index. Neutrinos live in the \(d=5\) sector (\(S^5\)), which couples to \(d=3\) via the Vandermonde rule. The lightest \(d=5\) resonance lands at the \(d=3\) <a href="/articles/simplex-number.html">simplex image</a> of the up quark seed: \(S(3,3) = \binom{5}{3} = 10\). The first neutrino is entirely determined by \(n_{\text{up}}\).</dd>
@@ -247,16 +248,16 @@
     <dd>The second neutrino mode index: the up quark seed imaged into \(d=4\). \(S(3,4) = \binom{6}{4} = 15\). By binomial symmetry \(\binom{6}{4} = \binom{6}{2}\), this index is also connected to the W boson: \(n_W = S(n_e, 2) - n_{\nu_2} = 91 - 15 = 76\). The neutrino and the W boson share a combinatorial root.</dd>
 
     <dt class="d6">\(n_e = n_{\nu_1} + n_{\text{up}} = 10 + 3 = 13\)</dt>
-    <dd>The electron mode index. The eigenmode selection rule — a lepton mode index equals the corresponding neutrino mode index plus the quark partner mode index — is the <a href="/articles/simplex-number.html">hockey-stick identity</a> \(S(n,d) = S(n,d-1) + S(n-1,d)\) applied at generation 1. The electron is the unique \(d=6\) (\(\mathbb{CP}^3\)) mode consistent with the <a href="/articles/mode-selection.html">sector comb filtration</a> at this stage — a sector excitation of \(\Psi_\infty\) inhabiting six macroscopic spatial dimensions, whose 3D appearance is a projection from its 6D sector space.</dd>
+    <dd>The electron mode index. The eigenmode selection rule — a lepton mode index equals the corresponding neutrino mode index plus the quark partner mode index — is the <a href="/articles/simplex-number.html">hockey-stick identity</a> \(S(n,d) = S(n,d-1) + S(n-1,d)\) applied at generation 1. The electron is the unique \(d=6\) (\(\mathbb{CP}^3\)) mode consistent with the <a href="/articles/mode-selection.html">sector comb filtration</a> at this stage — a sector excitation of \(\Psi_\infty\) inhabiting six macroscopic spatial dimensions, whose 3D appearance is what a d=3 observer measures of its 6D sector activity.</dd>
 
     <dt class="d4">\(n_{\text{charm}} = S(n_s,\, 3) = S(4,3) = 20\)</dt>
-    <dd>The charm quark mode index: the strange seed \(n_s = 4\) imaged into \(d=3\). \(S(4,3) = \binom{6}{3} = 20\). The charm quark is the second rung of the \(d=4\) (\(\mathbb{CP}^2\)) tower, selected by the <a href="/articles/mode-selection.html">sector comb</a> at the second comb step. Its index is forced by the same seed that forced the strange quark.</dd>
+    <dd>The charm quark mode index: the composite \(n_s = 4\) imaged into \(d=3\). \(S(4,3) = \binom{6}{3} = 20\). The charm quark is the second rung of the \(d=4\) (\(\mathbb{CP}^2\)) tower, selected by the <a href="/articles/mode-selection.html">sector comb</a> at the second comb step. Its index is forced by the same composite that defines the strange quark.</dd>
 
     <dt class="d5">\(n_{\nu_3} = n_{\nu_1} + n_{\nu_2} - n_{\text{up}} = 10 + 15 - 3 = 22\)</dt>
     <dd>The third neutrino mode index, selected by an inclusion-exclusion identity. Both \(n_{\nu_1}\) and \(n_{\nu_2}\) are <a href="/articles/simplex-number.html">simplex images</a> of the same up quark seed, one into \(d=3\) and one into \(d=4\). Adding them counts the shared seed once too many; subtracting \(n_{\text{up}}\) removes the overlap. Cross-check: \(n_{\nu_3} = n_\tau - n_{\text{down}} = 23 - 1 = 22\) — the same value from two independent paths.</dd>
 
     <dt class="d6">\(n_\mu = n_{\text{charm}} + n_{\nu_2} = 20 + 15 = 35\)</dt>
-    <dd>The muon mode index — eigenmode selection rule at generation 2. This is simultaneously \(n_{\text{charm}} + n_{\nu_2}\) and \(S(4,4) = \binom{7}{4} = 35\), the \(d=4\) self-image of the strange seed. These two facts coinciding is a theorem from the <a href="/articles/simplex-number.html">hockey-stick identity</a>. Read in reverse, it is also the equation that originally forced \(n_s = 4\): the fixed point and the generation-2 law are the same equation viewed from opposite directions.</dd>
+    <dd>The muon mode index — eigenmode selection rule at generation 2. This is simultaneously \(n_{\text{charm}} + n_{\nu_2}\) and \(S(4,4) = \binom{7}{4} = 35\), the \(d=4\) self-image of the composite \(n_s = 4\). These two facts coinciding is a theorem from the <a href="/articles/simplex-number.html">hockey-stick identity</a>. Read in reverse, it is also the equation that confirms \(n_s = 4\): the fixed point and the generation-2 law are the same equation viewed from opposite directions.</dd>
 
     <dt class="d10">\(n_\tau = n_{\nu_3} + n_{\text{down}} = 22 + 1 = 23\)</dt>
     <dd>The tau lepton mode index — eigenmode selection rule at generation 3, closing onto the \(d=10\) sector (\(\mathbb{CP}^5\)). The closing term is \(n_{\text{down}} = 1\), the universal ground state from the very first step. Since \(S(1,d) = 1\) for every sector, the \(+1\) that closes the third generation is the base case of every hockey-stick sum in the tower. The third generation closes by adding the minimum possible increment. See <a href="/articles/three-generations.html">Three Generations</a>.</dd>
@@ -294,8 +295,8 @@
       </thead>
       <tbody>
         <tr><td>down</td><td>1</td><td>3</td><td>\(S^3\)</td><td>Seed — \(S(1,d)=1\) for all \(d\)</td></tr>
-        <tr><td>strange</td><td>4</td><td>3</td><td>\(S^3\)</td><td>Seed — unique solution to \(S(n,4)=35\)</td></tr>
-        <tr><td>up</td><td>3</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>\(n_s - 1\)</td></tr>
+        <tr><td>strange</td><td>4</td><td>3</td><td>\(S^3\)</td><td>Composite \(b = 1+3\) — certified by \(S(4,4)=35\)</td></tr>
+        <tr><td>up</td><td>3</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>Seed — \(\chi(\mathbb{CP}^2) = N_c = 3\) (T15)</td></tr>
         <tr><td>\(\nu_1\)</td><td>10</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},3)\)</td></tr>
         <tr><td>\(\nu_2\)</td><td>15</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},4)\)</td></tr>
         <tr><td>electron</td><td>13</td><td>6</td><td>\(\mathbb{CP}^3\)</td><td>\(n_{\nu_1} + n_{\text{up}}\)</td></tr>
@@ -317,8 +318,8 @@
 
   <h2>The structure of the tower</h2>
   <div class="prose">
-    <p>The tower is not a list of coincidences. Every step is a consequence of either the <a href="/articles/simplex-number.html">hockey-stick identity</a> or the Vandermonde coupling rule, applied to the indices already established. The derivation is one-directional: once the two seeds are fixed, every subsequent entry is forced. There are no branch points, no choices, and no parameters introduced after \(n_s = 4\).</p>
-    <p>The tower is also self-consistent in a non-trivial way. The muon equation \(S(4,4) = 35\) is both a step in the tower (generating \(n_\mu\)) and the fixed-point condition that forced \(n_s = 4\) in the first place. The tower closes on itself: the equation that justifies the seed is the same equation that uses it.</p>
+    <p>The tower is not a list of coincidences. Every step is a consequence of either the <a href="/articles/simplex-number.html">hockey-stick identity</a> or the Vandermonde coupling rule, applied to the indices already established. The derivation is one-directional: once the two seeds \(n_d=1\) and \(n_u=3\) are fixed, every subsequent entry is forced — including the composite \(n_s = n_d + n_u = 4\). There are no branch points, no choices, and no free parameters.</p>
+    <p>The tower is also self-consistent in a non-trivial way. The muon equation \(S(4,4) = 35\) is both a step in the tower (generating \(n_\mu\)) and the fixed-point condition that confirms \(n_s = 4\). The tower closes on itself: the equation that confirms the composite is the same equation that uses it.</p>
     <p>A final cross-check: the Higgs mode index satisfies \(n_H = n_u + n_c + n_t = 3 + 20 + 72 = 95\) and simultaneously \(n_H = n_Z + n_{\nu_2} - 1\). The Vandermonde construction and the sum of up-type modes are two descriptions of the same combinatorial fact. The tower is not a sequence of separate results — it is one interlocking structure.</p>
   </div>
 

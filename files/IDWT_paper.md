@@ -66,7 +66,7 @@ The sector manifolds $\Xi_d$ are the complex projective spaces $\mathbb{CP}^{(d/
 
 The mode spectrum is discrete because the bound states of $V_d$ are discrete — just as bound states of the hydrogen potential are discrete even though $\mathbb{R}^3$ is infinite. The sectors are not compactified extra dimensions in any sense. The observable 3D universe does not couple to gravitational modes propagating through $\Xi_d$; the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric enters only through the d=3-coordinate component of the energy-momentum tensor $T_{\mu\nu}^{\rm obs} = \int |\Psi_\infty|^2 d\xi$.
 
-**How $\xi^0$ relates to the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by the seed $n_s = 4$ independently of $\xi^0$. The SM spectrum is the set of mode-sector pairs selected by the co-fixed-point condition (Section 11), the same for every observer address in $\mathcal{M}_\infty$. What $\xi^0$ affects is only how each already-existing mode projects onto the observer's three resolvable coordinates, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
+**How $\xi^0$ relates to the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by seeds $\{n_d=1,\,n_u=3\}$ and composite $n_s = 4$ independently of $\xi^0$. The SM spectrum is the set of mode-sector pairs selected by the co-fixed-point condition (Section 11), the same for every observer address in $\mathcal{M}_\infty$. What $\xi^0$ affects is only how each already-existing mode projects onto the observer's three resolvable coordinates, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
 
 **Core postulates.** (P1) $\Psi_\infty$ satisfies a wave equation on $\mathcal{M}_\infty$ with a quartic cross-sector kernel (Section 2.4). (P2) Mass is the resonant frequency of a mode: $m(n,d) = m_{\mathrm{scale},d} \times S(n,d)$. (P3) The sector set $D = \{2,3,4,5,6,10\}$ is determined by $n_s = 4$ (Theorem S4). Full derivation of the kernel from the spinor geometry is in Technical Volume 8 [11].
 
@@ -101,7 +101,7 @@ The condition is self-referential: the $d=4$ simplex image of the strange-quark 
 
 \*The full 14-rule filtration chain (all mode indices derived in sequence from $n_s$) gives Jaccard $=1.0$ exactly for $(n_d,n_s)=(1,4)$; the table above uses a simplified 6-rule subset for legibility. The exhaustive verification over all $(n_d,n_s)\in[1..40]^2$ is implemented in `idwt.py` (Step 1, lines 65–195), where each of the 14 derivation rules is applied in order and the resulting set compared against the observed spectrum by Jaccard score. All other pairs produce Jaccard $\leq 0.375$. The 14 rules and the derivation chain are also listed in full in Table (Section 4) and proved algebraically in Technical Volume 1 §5c [11].
 
-**Note on $n_d = 1$ and $n_u = 3$.** The down-quark index $n_d = 1$ is trivially forced: $S(1,d) = 1$ for all $d$. The up-quark index $n_u = n_s - 1 = 3$ is derived, not a second input: it follows from the kernel self-consistency equation at the resonance site $k_0 = n_s^2 = 16$ (Section 5.1).
+**Note on $n_d = 1$ and $n_u = 3$.** The down-quark index $n_d = 1$ is trivially forced: $S(1,d) = 1$ for all $d$. The up-quark index $n_u = 3$ is a seed grounded by the Euler characteristic of the $d=4$ sector manifold: $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15). An independent algebraic certificate — the double $4/7$ self-consistency condition of Section 5.1 — shows that no other positive integer pair $(n_u, n_s)$ with $n_s = n_u + 1$ satisfies the fixed-point equation simultaneously in both sectors.
 
 ### 2.4 The Master Action and Quartic Kernel
 
@@ -178,7 +178,7 @@ $$\chi(\mathbb{CP}^{N_c-1}) = 3,\; d=4. \quad \chi(\mathbb{CP}^{n_s-1}) = 4,\; d
 
 **Step 3.** $d=2$ (CP¹) is the $U(1)$ Hopf base. $d=3$ ($S^3$ over $\mathbb{CP}^1$) has coupling $g_{33} = n_s^2\sqrt{n_s+n_u}/2$ from the kernel fixed-point. $d=5$ ($S^5$ over $\mathbb{CP}^2$) has coupling $g_{55} = 96/g_{22}$ from Hopf universality $v_3/v_2 = v_5/v_4$.
 
-**Step 4.** $d=7$ is excluded: $g_{66} = 1/n_s$ is a seed ratio, not a kernel fixed-point coupling; Hopf universality cannot determine $g_{77}$. $d=8$: $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$. $d \geq 11$: no mode index in the occupied range. $\square$
+**Step 4.** $d=7$ is excluded: Hopf universality is a consistency relation between active sector pairs, not an activation mechanism, and any activation route treating the $d=6$ and $d=10$ bases symmetrically (their coupling rows are exactly equal) would equally activate $S^{11}$ over $\mathbb{CP}^5$, which the $d=11$ endpoint excludes (the residual is an open item; Part 9 T3 Rule A, Part 6). $d=8$: $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$, and $d=9$ inherits that gap on its $S^1$-invariant block. $d \geq 11$: no mode index in the occupied range. $\square$
 
 **Completeness Theorem.** The IDWT spectrum consists of exactly 15 states ($\Sigma \cup \{b\text{-quark}\}$). Any new stable particle requires either a new sector (excluded by S4) or a new derivable mode index (excluded by the uniqueness theorem). No such states exist. Any new particle discovery at any energy falsifies IDWT immediately.
 
@@ -191,16 +191,16 @@ Every mode index is determined by the hockey-stick filtration chain — no index
 | Particle | $d$ | $n$ | Derivation |
 |---|---|---|---|
 | $d$ quark | 3 | 1 | $n_d=1$: universal ground state $S(1,d)=1$ for all $d$ |
-| $s$ quark | 3 | 4 | seed $n_s$ |
+| $s$ quark | 3 | 4 | composite $n_s$ |
 | $c$ quark | 4 | 20 | $S(n_s,3)$ |
 | $b$ quark | 3 | 16–17 | resonance at $k_0=n_s^2$ (Section 5.2) |
-| $u$ quark | 4 | 3 | $n_u = n_s-1$ (Section 5.1) |
+| $u$ quark | 4 | 3 | seed: $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15); certified by §5.1 |
 | $t$ quark | 4 | 72 | $S(n_e,2) - n_c + 1 = 91-20+1$ |
 | $\nu_1$ | 5 | 10 | $S(n_u,3)$ |
 | $\nu_2$ | 5 | 15 | $S(n_u,4)$ |
 | $\nu_3$ | 5 | 22 | $n_\tau - n_d = 23-1$ |
 | $e^-$ | 6 | 13 | $n_{\nu_1} + n_u = 10+3$ (generation law) |
-| $\mu^-$ | 6 | 35 | $S(n_s,4)$ (seed fixed point) |
+| $\mu^-$ | 6 | 35 | $S(n_s,4)$ (composite fixed point) |
 | $\tau^-$ | 10 | 23 | $n_c + n_u = 20+3$ |
 | $W^\pm$ | 2 | 76 | $d_\nu + n_{\rm top} - 1 = 5+72-1$ (g-rule) |
 | $Z^0$ | 2 | 81 | $n_W + \beta = 76+5$ |
@@ -223,7 +223,7 @@ The kernel vacuum fixed-point at $k_0 = n_s^2 = 16$ requires the self-consistenc
 
 $$\frac{n_s(n_s+1)}{S(n_s,4)} = \frac{4 \times 5}{35} = \frac{4}{7}, \qquad \frac{n_u(n_u+1)}{S(n_u,5)} = \frac{3 \times 4}{21} = \frac{4}{7}.$$
 
-Both ratios equal $4/7$ exactly. This double equality — the $d=3$ and $d=4$ sectors share the same self-consistency eigenvalue at $k_0$ — is what forces $n_u = n_s - 1 = 3$; no other value produces this coincidence. The Jacobi coupling amplitude at the resonance is $g_{\rm coeff} = \sqrt{4/7} = 2/\sqrt{7}$.
+Both ratios equal $4/7$ exactly. This double equality — the $d=3$ and $d=4$ sectors sharing the same self-consistency eigenvalue at $k_0$ — holds for $(n_u, n_s) = (3, 4)$ and no other consecutive positive-integer pair. It is an algebraic certificate of the seed pair, independent of the geometric grounding $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15). The Jacobi coupling amplitude at the resonance is $g_{\rm coeff} = \sqrt{4/7} = 2/\sqrt{7}$.
 
 The self-coupling constants follow from this fixed-point condition:
 
@@ -235,7 +235,7 @@ $$g_{33} \times g_{44} = \frac{n_s^3 n_u}{2} = \frac{4^3 \times 3}{2} = 96.$$
 
 The product identity $g_{33}g_{44} = 96$ implies $g_{34} = \sqrt{g_{33}g_{44}} = 4\sqrt{6}$, confirming the rank-1 factorisation $G_{dd'} = v_d v_{d'}$ as a consequence rather than an assumption.
 
-From Theorem S4, Step 2: $g_{66} = 1/n_s = 1/4$ (seed ratio for the $\mathbb{CP}^3$ lepton sector). $g_{22} = 722.5$ (Theorem S3). $g_{55} = 96/g_{22} \approx 0.1329$ (Hopf universality: $v_3/v_2 = v_5/v_4$).
+From Theorem S4, Step 2: $g_{66} = 1/n_s = 1/4$ (composite ratio for the $\mathbb{CP}^3$ lepton sector). $g_{22} = 722.5$ (Theorem S3). $g_{55} = 96/g_{22} \approx 0.1329$ (Hopf universality: $v_3/v_2 = v_5/v_4$).
 
 ### 5.2 Sector Mass Scales
 
@@ -321,11 +321,11 @@ This is normalised at the resonance site $k_0 = 16$ and at the muon mode $n_\mu 
 
 $$\varepsilon = \frac{g_{\rm coeff}}{k_0 \times n_\mu} = \frac{2/\sqrt{7}}{16 \times 35} = \frac{1}{280\sqrt{7}} \approx 0.001350.$$
 
-This is not fitted. Every factor is forced: $g_{\rm coeff}$ from the double self-consistency condition, $k_0$ from the seed $n_s$, $n_\mu$ from $S(n_s,4)$.
+This is not fitted. Every factor is forced: $g_{\rm coeff}$ from the double self-consistency condition, $k_0$ from the composite $n_s$, $n_\mu$ from $S(n_s,4)$.
 
 Cross-check: from PDG mass ratios, $\varepsilon_{\rm PDG} \approx 0.001340$; derived $\varepsilon = 0.001350$, a $0.74\%$ discrepancy within light-quark uncertainties.
 
-**Generation depth $k$.** The exponent $k$ counts the number of hockey-stick steps through which mode $n$ descends from the seed:
+**Generation depth $k$.** The exponent $k$ counts the number of hockey-stick steps through which mode $n$ descends from the seeds $\{(1,3),(3,4)\}$:
 
 $$k_u = 0, \quad k_c = n_u = 3 \text{ (depth 1; GTC depth equals Hopf chain reduction)}, \quad k_t = S(n_u,3) = 10 \text{ (depth 2; equals } n_{\nu_1}\text{)}.$$
 
@@ -345,11 +345,11 @@ The $d=3$ and $d=6$ sectors have $k=0$ effective depth (the correction cancels i
 
 ### 7.2 Tau Lepton Geometric Back-reaction Correction — Complete Derivation
 
-The $d=6$ ($\mu$) and $d=10$ ($\tau$) sectors share identical coupling $g_{66} = g_{6,10} = g_{10,10} = 1/n_s = 1/4$ from the seed. The leading $d=6 \to d=10$ back-reaction perturbation at the $\tau$ level is:
+The $d=6$ ($\mu$) and $d=10$ ($\tau$) sectors share identical coupling $g_{66} = g_{6,10} = g_{10,10} = 1/n_s = 1/4$ from the composite $n_s=4$. The leading $d=6 \to d=10$ back-reaction perturbation at the $\tau$ level is:
 
 $$\varepsilon_{6\to10} = \frac{1}{n_s^3 \times S(n_s,4)} = \frac{1}{64 \times 35} = \frac{1}{2240}.$$
 
-The physical interpretation: $n_s^3 = k_0 \times n_s$ is the volume factor of the seed resonance; $S(n_s,4) = n_\mu$ is the frequency normalization. The back-reaction feeds through $g_{10,10} = 1/n_s = 1/4$, creating a geometric series:
+The physical interpretation: $n_s^3 = k_0 \times n_s$ is the volume factor of the composite resonance; $S(n_s,4) = n_\mu$ is the frequency normalization. The back-reaction feeds through $g_{10,10} = 1/n_s = 1/4$, creating a geometric series:
 
 $$\frac{\Delta m_\tau}{m_\tau} = \frac{\varepsilon_{6\to10}}{1 - g_{10,10}} = \frac{1/2240}{1 - 1/4} = \frac{1/2240}{3/4} = \frac{4}{3 \times 2240} = \frac{1}{1680},$$
 
@@ -394,7 +394,7 @@ The $\Gamma_{W,Z}$ discrepancies are consistent with missing one-loop QCD correc
 
 $$\sin\theta_C = \frac{1 + \chi(\mathbb{CP}^1)/(24\cdot S(n_s,3))}{\sqrt{S(n_s,3)}} = \frac{1+1/240}{\sqrt{20}} = 0.22454.$$
 
-The bare value $1/\sqrt{S(n_s,3)} = 1/\sqrt{20}$ comes from the ratio of $d=3$ mode counts at the seed level. The $1/240$ correction is the first Seeley-DeWitt coefficient for the heat kernel on $S^2 \cong \mathbb{CP}^1$ (Euler characteristic $\chi = 2$, seed count $S(n_s,3) = 20$): $\chi/(24 \cdot S(n_s,3)) = 2/480 = 1/240$.
+The bare value $1/\sqrt{S(n_s,3)} = 1/\sqrt{20}$ comes from the ratio of $d=3$ mode counts at the composite level. The $1/240$ correction is the first Seeley-DeWitt coefficient for the heat kernel on $S^2 \cong \mathbb{CP}^1$ (Euler characteristic $\chi = 2$, composite count $S(n_s,3) = 20$): $\chi/(24 \cdot S(n_s,3)) = 2/480 = 1/240$.
 
 $$|V_{cb}| = \sqrt{\frac{S(n_u,4)}{S(n_c,4)}} = \sqrt{\frac{15}{8855}} = 0.04116, \qquad A_{\rm Wolf} = |V_{cb}| \times S(n_s,3) = 0.82315.$$
 
@@ -574,8 +574,8 @@ All results from $n_s = 4$ and $m_e$ alone.
 | $g_{44}$ | $12/\sqrt{7} \approx 4.536$ | $d=4$ quarks |
 | $g_{22}$ | $722.5$ (Theorem S3) | $d=2$ gauge |
 | $g_{55}$ | $96/722.5 \approx 0.1329$ | $d=5$ neutrinos |
-| $g_{66}$ | $1/4$ (seed) | $d=6$ leptons |
-| $g_{10,10}$ | $1/4$ (seed, shared with $d=6$) | $d=10$ tau |
+| $g_{66}$ | $1/4$ (composite) | $d=6$ leptons |
+| $g_{10,10}$ | $1/4$ (composite, shared with $d=6$) | $d=10$ tau |
 
 ---
 

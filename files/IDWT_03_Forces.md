@@ -45,7 +45,7 @@ S_IDWT[Ψ∞, g_μν]
       dμ_4 dμ_ξ dμ_{ξ'}
 ```
 
-where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed n_s=4 (with n_u = n_s−1 derived).
+where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed pair {n_u=3, n_s=4}.
 
 The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector (T2). Its quartic-in-Ψ form gives confinement, mass, and inter-sector coupling from a single geometric term.
 
@@ -73,7 +73,7 @@ where J^{d'}(x,ξ) = ∫ (ξ_{d'}·ξ')² [Ψ̄∞ P_{d'} Ψ∞](x,ξ') dμ_{ξ'
 [iΓ^μ ∇_μ + iΓ^a ∂_a  −  V_conf(ξ)] Ψ∞ = 0
 ```
 
-with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r²/(1+r²) and λ_d = (g_{dd}/2)^{2/3} (Part 4 §3.10).
+with sector potential V_conf = Σ_d V_d(|ξ_d|), V_d(r) = λ_d r² and λ_d = (g_{dd}/2)^{2/3} (Part 4 §3.10).
 
 ### 0.4 What Each Term Produces
 
@@ -141,10 +141,10 @@ g₂ = (2/3)√g_s = 0.65275
 PDG: 0.65270.  Error: +0.008%
 ```
 
-**The coupling cascade.** All three couplings descend from a single seed-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
+**The coupling cascade.** All three couplings descend from a single tower-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
 
 ```
-g_{44}  [seed: n_s=4, n_u=3]
+g_{44}  [seeds: n_u=3 (primitive), composite n_s=4]
   → g_s = √(2g_{44}/π²)         [CP² kernel volume integral, factor 2/π² from Fubini-Study volume]
   → g_2 = (2/3)√g_s             [coordinate ratio: d_photon/d_hadronic = 2/3]
   → sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))²   [mode index ratio]
@@ -186,7 +186,7 @@ Each force couples to a particle through the sector coordinates the particle occ
 
 **Coordinate containment.** A particle couples to a force only when the particle's sector contains the sector where that force's coupling geometry lives. A particle with no d=2 support cannot couple electromagnetically. The strong coupling (d=4, kernel contact) cannot reach a particle with no d=3 or d=4 support. Coordinate containment is a necessary condition. The sufficient condition additionally requires the appropriate topological structure — electric charge from the U(1) holonomy on the d=2 sector, colour from χ(CP²) = 3 (the d=4 manifold), and weak isospin from the SU(2) factor of the U(2) holonomy of CP² (§6, §7).
 
-**Why coordinate containment guarantees coverage — transverse picture.** A lower-d particle's wavefunction is automatically spread across all of a higher-d particle's extra directions. The photon (d=2) illustrates this directly: its wavefunction spans the two transverse directions and need not be aimed at a target in those directions — anything sharing that plane is covered automatically. The same structure repeats at every level of the sector nesting. A d=3 quark's wavefunction is transverse to the one extra direction of a d=4 particle: it covers that full direction without aiming. A d=2 photon interacting with a d=10 tau is transverse to eight of the tau's dimensions simultaneously — no alignment is required or even possible in any of them. This is the geometric reason coordinate containment produces automatic coupling rather than conditional coupling: the lower-d particle does not need to find the higher-d particle in its hidden dimensions because it is already everywhere in those dimensions. The coupling strength is set by the sector geometry as usual; the transversality explains why the coupling fires at all. The same reasoning accounts for the quantum mechanical statement that the electron can be found anywhere in the universe: the electron is a d=6 object, and a d=3 observer detects it only at the intersection of its 6D orbit with our three observable coordinates. The 6D orbit sweeps through our 3D slice freely — no confinement in the d=3 directions — so those intersections fall anywhere across observable space. The apparent delocalization is not uncertainty; it is what a 6D orbit looks like when projected onto a 3D subspace it has no reason to be localized within.
+**Why coordinate containment guarantees coverage — transverse picture.** A lower-d particle's wavefunction is automatically spread across all of a higher-d particle's extra directions. The photon (d=2) illustrates this directly: its wavefunction spans the two transverse directions and need not be aimed at a target in those directions — anything sharing that plane is covered automatically. The same structure repeats at every level of the sector nesting. A d=3 quark's wavefunction is transverse to the one extra direction of a d=4 particle: it covers that full direction without aiming. A d=2 photon interacting with a d=10 tau is transverse to eight of the tau's dimensions simultaneously — no alignment is required or even possible in any of them. This is the geometric reason coordinate containment produces automatic coupling rather than conditional coupling: the lower-d particle does not need to find the higher-d particle in its hidden dimensions because it is already everywhere in those dimensions. The coupling strength is set by the sector geometry as usual; the transversality explains why the coupling fires at all. The same reasoning accounts for the quantum mechanical statement that the electron can be found anywhere in the universe: the electron is a d=6 object, and a d=3 observer detects it only at the intersection of its 6D orbit with our three observable coordinates. The 6D orbit sweeps through our 3D slice freely — no confinement in the d=3 directions — so those intersections fall anywhere across observable space. The apparent delocalization is not uncertainty; it is what a 6D orbit looks like when intersected by three observable coordinates it is not confined to.
 
 **Gravity as the exception.** Gravity carries no sector label and is confined to no subset of the spatial dimensions. The effective stress-energy sourcing gravity integrates over all sector coordinates:
 
@@ -258,7 +258,7 @@ The table below consolidates, for each sector $d \in D$, the geometric, coupling
 | 6 | $\mathbb{CP}^3$ | $\mathrm{SU}(4)$ | 4 | $1/4$ | $2.75\times10^{-5}$ MeV | $e^-,\;\mu^-$ | Colour-silence filter: $\chi(\mathbb{CP}^3)=4\neq N_c$; colour contributions cancel in $\mathrm{SU}(4)$ representation; zero strong coupling at all energies |
 | 10 | $\mathbb{CP}^5$ | $\mathrm{SU}(6)$ | 6 | $1/4$ | $2.75\times10^{-5}$ MeV | $\tau^-$ | Gegenbauer-critical filter: $b_{k_0}(10)=1/2$ exactly (Part 9 T5); coupling weight distributed with no dominant decay channel; back-reaction correction $+1/1680$ required |
 
-**Column notes.** $\chi$ is the Euler characteristic of the compact local $\mathbb{CP}^k$ model; for odd-sphere sectors ($d=3,5$) the sphere has $\chi(S^d)=0$ and structural counting roles are carried by the CP sector in the Hopf pair. Specifically: $\chi(\mathbb{CP}^2)=N_c=3$, $\chi(\mathbb{CP}^3)=n_s=4$, $\chi(\mathbb{CP}^5)=N_f=6$ (Part 9 T15). The $g_{dd}$ values are exact from seeds $n_s=4$, $n_u=3$; derivations in §0.7 and Part 2 §9. The $m_{\rm scale}$ values use $m_e=0.511$ MeV as the unit reference (Part 2 §10).
+**Column notes.** $\chi$ is the Euler characteristic of the compact local $\mathbb{CP}^k$ model; for odd-sphere sectors ($d=3,5$) the sphere has $\chi(S^d)=0$ and structural counting roles are carried by the CP sector in the Hopf pair. Specifically: $\chi(\mathbb{CP}^2)=N_c=3$, $\chi(\mathbb{CP}^3)=n_s=4$, $\chi(\mathbb{CP}^5)=N_f=6$ (Part 9 T15). The $g_{dd}$ values are exact from seeds $n_u=3$ (primitive) and composite $n_s=4$; derivations in §0.7 and Part 2 §9. The $m_{\rm scale}$ values use $m_e=0.511$ MeV as the unit reference (Part 2 §10).
 
 **Coordinate containment vs coupling filter.** These are two distinct necessary conditions. Coordinate containment (§0.8) governs which forces can reach a particle: a force couples to a particle only if the particle's sector contains that force's sector. The coupling filter governs what happens within that sector: even with support in the sector, the particle's own sector geometry may project the relevant representation to zero. Both must hold for coupling to occur. Neutrinos ($d=5$): coordinates are nested inside $\Xi_4$ (colour sector), but the $S^5$ Hopf projection selects only the colour singlet — they are colour-neutral despite spatial overlap with the colour sector. Electrons ($d=6$): $\chi(\mathbb{CP}^3)=4\neq 3$; colour contributions cancel in the $\mathrm{SU}(4)$ representation regardless of spatial overlap with $\Xi_4$.
 
@@ -603,7 +603,7 @@ For the d=6 lepton sector (CP³), the Kähler geometry splits the spinor into ho
 
 ## 8. Hypercharges from Anomaly Cancellation
 
-With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geometry (Part 2 §9c), all SM hypercharges follow from anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the seed coupling.
+With N_c = 3 from χ(CP²), and g₆₆ = 1/4 established from CP³ complex geometry (Part 2 §9c), all SM hypercharges follow from anomaly cancellation. Full derivation in §13; result: Y_Q = 1/6, Y_L = −1/2 = −√g₆₆, Q_u = 2/3, Q_d = −1/3. Fractional charges are not inputs — they follow from three colours and the composite coupling $g_{66}=1/n_s$.
 
 **Note on derivation order.** The anomaly cancellation route works from d=4 geometry upward: χ(CP²) = 3 gives N_c = 3, then CP³ complex geometry (χ(CP³) = n_s) gives g₆₆ = 1/4, and N_c = 3 together with Y_L = −√g₆₆ = −1/2 force the remaining hypercharge assignments via SU(2)²U(1) anomaly cancellation. Anomaly cancellation is the mechanism that propagates the geometric inputs into a complete hypercharge table — it is not the source of g₆₆.
 
@@ -701,7 +701,7 @@ Equivalently, from the Jacobi boundary identity n_W + S(2,3) = n_s × S(n_s,3):
 sin²θ_C = S(2,3) / (S(2,3) + n_W) = 4/80 = 1/20
 ```
 
-This is a theorem of the seed n_s=4 and the Vandermonde structure, determined entirely by the combinatorial fixed point.
+This is a theorem of the composite n_s=4 and the Vandermonde structure, determined entirely by the combinatorial fixed point.
 
 ### Curvature Correction from the Mediating Sector
 
@@ -896,7 +896,7 @@ The statement from P4 — all physics follows from the geometry of M_∞ — is 
 
 **Electric charge is derived.** The electromagnetic coupling is $e = g_2 \sin\theta_W$, where $g_2 = (2/3)\sqrt{g_s}$ follows from the CP² kernel volume integral (§4) and $\sin\theta_W = \sqrt{1-(S(76,2)/S(81,2))^2}$ follows from the mode indices. The fine structure constant at the d=2 sector scale — the natural coupling scale of the d=2 sector, ≈m_W, where the IDWT couplings are defined as fixed geometric numbers — is $\alpha = e^2/(4\pi)$, giving $1/\alpha = 131.8$. Translating to $q\to0$ with the SM 1-loop vacuum-polarisation formula applied to the IDWT inputs (a cross-framework comparison; IDWT couplings themselves do not run), $1/\alpha(0) \approx 133.1$ (−2.9% from PDG 137.036); the residual traces to the $\sin^2\theta_W$ +0.37% gap, not a separate parameter.
 
-**Open item — charge quantization from fiber topology.** The derivation above computes the numerical value of e from g_2 and sinθ_W. A separate question is why charge is quantized — why all observable charges are rational multiples of e. The U(1) Hopf fiber S¹ → S³ → S² has integer first Chern class (winding number), which naturally produces quantized couplings to the fiber. Whether this topological integer structure is the IDWT mechanism for charge quantization — and how it yields the fractional quark charges e/3, 2e/3 alongside the integer lepton charges — has not been shown in closed form. The fractional values follow from anomaly cancellation (§13), but the connection between the integer Chern class of the Hopf bundle and the observed charge spectrum is an open derivation.
+**Open item — charge quantization from fiber topology.** The derivation above computes the numerical value of e from g_2 and sinθ_W. A separate question is why charge is quantized — why all observable charges are rational multiples of e. The U(1) Hopf fiber S¹ → S³ → S² has integer first Chern class (winding number), which naturally produces quantized couplings to the fiber. The Chern–Weil integral ∫_{CP¹} c₁(O(n)) = n is exact for every line bundle degree n (⭐ Identity, pure topology; `files/idwt.py` STEP 78), so the integer labelling the d=2 Hopf bundle is rigid — this is the topological origin of the integer structure. Whether this topological integer structure is the IDWT mechanism for charge quantization — and how it yields the fractional quark charges e/3, 2e/3 alongside the integer lepton charges — has not been shown in closed form. The fractional values follow from anomaly cancellation (§13), but the connection between the integer Chern class of the Hopf bundle and the observed charge spectrum is an open derivation.
 
 ---
 

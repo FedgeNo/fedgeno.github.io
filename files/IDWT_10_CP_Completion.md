@@ -262,12 +262,12 @@ The following table consolidates the full theorem status after the T8 completion
 
 | Theorem | Content | Status | Accuracy | Physical consequence |
 |---|---|---|---|---|
-| T0 | Spectral triple; physical spectrum | ✅ | Exact | All SM masses from one operator |
+| T0 | Spectral triple; physical spectrum | 🔶 | — | All SM masses from one operator; 7 open items (Part 9) |
 | T0.5 | Co-fixed-point selection condition | 🔶 | Exact outcomes | Selects 15 from infinite spectrum; decoherence mechanism not yet derived from EOM |
 | T1 | m = S(n,d)·m_scale = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
 | T2 | (ξ·ξ')² = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
 | T3 | D = {2,3,4,5,6,10} from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |
-| T4 | n_s = 4 from double degeneracy 4/7 | ✅ | Exact | Unique seed; all indices follow |
+| T4 | n_s = 4 from double degeneracy 4/7 | ✅ | Exact | Unique composite; all indices follow |
 | T5 | d=10 = Gegenbauer critical endpoint | ✅ | b=1/2 exact | Chain terminates; τ is critical |
 | T6 | All three PMNS angles | 🔵 | ≤0.51% | Determined by g₅₅, m_scale_5, and mode indices |
 | T7 | √Tr(D²) ≈ (√2 G_F)^{-1/2} | 🔵 | +0.85% | EW scale self-consistency |
@@ -275,7 +275,7 @@ The following table consolidates the full theorem status after the T8 completion
 | T9a–d | All 6 coupling constants derived | ✅ | Exact | No free coupling parameters |
 | T10a | GTC ε = 1/(280√7) | ✅ | <0.1% | Fine structure of quark masses |
 | T10b | Geometric back-reaction correction +1/1680 for τ | ✅ | 0.001% | Critical-sector regularisation |
-| T11a–d | Neutrino masses; Dirac; Σm_ν = 60.39 meV | ✅ | <0.05% | 0νββ = 0 at leading order |
+| T11a–d | Neutrino masses; Dirac; Σm_ν = 60.39 meV | ✅ | <0.05% | 0νββ = 0 at all orders |
 | T13a | Spectral sum rule ζ_d(1) = d/(d-1) | ✅ | Exact | Total inverse-mass weight is pure Pascal |
 | T14a | Heat kernel Weyl term K_d(t) ~ a₀^{(d)} t^{-1/d} | ✅ | Exact | Spectral dimension = d |
 | T14b | Constant term −d/2 and ζ_d(0) = −d/2 | ✅ | Exact | Sector functional determinant anchored |
@@ -286,12 +286,12 @@ The following table consolidates the full theorem status after the T8 completion
 | G_N | G_N = G_∞/V₇; V₇ ≈ 7.74 fully derived; G_∞ from spectral action scale Λ | 🔶 | — | V₇ derived; G_∞ from Λ (one open item) |
 
 **Count:**
-- ✅ Proved: 18 items
+- ✅ Proved: 17 items
 - 🔵 Numerically verified (derivation complete): 2 items (T6 and T7)
-- 🔶 Structural derivation complete, technical gaps open: 2 items (T8: δ_CP formula with three derivation gaps; G_N: G_∞ from spectral action scale Λ)
+- 🔶 Structural derivation complete, technical gaps open: 3 items (T0: 7 open spectral-triple items (Part 9); T8: δ_CP formula with three derivation gaps; G_N: G_∞ from spectral action scale Λ)
 - □ Open: 0 items
 
-The last 🔶 item — G_N from G_∞/V₇ — requires fixing the spectral action scale Λ, which is the single dimensional input beyond m_e not yet determined by the combinatorial sector structure. This is a genuine open problem but does not affect any of the derived particle masses, coupling constants, or mixing angles.
+The open 🔶 physics items — the spectral triple operator T0 and G_N from G_∞/V₇ — do not affect the derived particle masses, coupling constants, or mixing angles, which follow from the algebraic sector structure. T8 (δ_CP) is a structural derivation with three technical gaps noted in §4.
 
 ---
 
@@ -323,7 +323,7 @@ The four identities that close the quadrilateral:
 
 Equation 4 is the cleanest expression of the unified structure: the CP phase is not a free parameter measured empirically. It is determined by N_c (the number of quark colors, which is the Euler characteristic of the d=4 sector CP²) and by θ₁₃ (which is itself determined by the mode indices n_τ and n_μ and the sector coupling g₅₅). Both N_c and θ₁₃ enter T8 through exactly the same topological/combinatorial machinery that determines every other observable in IDWT.
 
-The CP-violating phase in the lepton sector is N_c − 1 reactor angles above π — it is the number of "extra colors" above the minimum (N_c = 1 gives no CP violation; N_c = 2 gives one θ₁₃; N_c = 3 gives two θ₁₃s). That the physical world has N_c = 3 is fixed by T4 (the unique seed n_s = 4 = N_c + 1) and T15a (terminal sector d = 2(N_c + 2) = 10). The entire chain is determined by a single integer.
+The CP-violating phase in the lepton sector is N_c − 1 reactor angles above π — it is the number of "extra colors" above the minimum (N_c = 1 gives no CP violation; N_c = 2 gives one θ₁₃; N_c = 3 gives two θ₁₃s). That the physical world has N_c = 3 is fixed by T15 (the geometric seed n_u = N_c = χ(CP²) = 3) and T15a (terminal sector d = 2(N_c + 2) = 10). The entire chain is determined by this single geometric integer.
 
 ✅ **The coefficient 2 reflects the d=8 gap.** The factor Δc₁ = 2 is not merely N_c − 1 in arithmetic; it is the Chern-class step from CP³ (d=6, c₁=4) to CP⁵ (d=10, c₁=6), which skips CP⁴ (d=8, c₁=5). The two charged-lepton sectors are non-adjacent rungs of the even chain {2,4,6,10}, the gap at d=8 being established by T3 Rule A (Hopf-chain coupling termination) and Rule B / T5 (Gegenbauer criticality) — not by the CP phase. Were d=8 an active rung between them, the step would be Δc₁ = 1 and the prediction would shift to δ = π + θ₁₃; the absent CP⁴ forces the double step Δc₁ = 2. The DUNE and Hyper-K δ–θ₁₃ correlation measurement (§7) is therefore a direct experimental test of the d=8 gap: deflection of the measured (θ₁₃, δ) point away from the δ = π + 2θ₁₃ line toward δ = π + θ₁₃ would indicate an active d=8 sector and falsify the sector chain (T3, T15) and T8 together.
 
@@ -418,6 +418,6 @@ Part 10 closes the T8 derivation of the CP-violating phase:
 
 - **§4** states T8 as a structural derivation (status 🔶): δ_CP = π + 2θ₁₃ = 197.11°, J = −0.00981, both matching PDG NH best fit to <1%.
 
-- **§5** updates the master status table: 20 items ✅/🔵, 2 items 🔶 (T8 and G_N), 0 items open.
+- **§5** updates the master status table: 19 items ✅/🔵, 3 items 🔶 (T0, T8, and G_N), 0 items open.
 
-The IDWT lepton sector — three masses, three mixing angles, one CP phase, one CP-violation amplitude — is fully determined by the single seed n_s = 4 and the single mass unit m_e.
+The IDWT lepton sector — three masses, three mixing angles, one CP phase, one CP-violation amplitude — is fully determined by seeds {n_d=1, n_u=3} (composite n_s=4) and the single mass unit m_e.

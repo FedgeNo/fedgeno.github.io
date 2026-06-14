@@ -3286,32 +3286,30 @@ _dVHH_NH3  = (_VHH52(0.021,3,_RNH52)
               -_VHH52(0.011,3,_RNH52)) / 0.010
 
 # STEP 53 -- KERNEL CONTACT AMPLITUDE (Part 11 section 6.4)
-# Computes V0_actual from the (n=13, d=6) sector eigenfunction parity.
+# Contact residue for the (n=13, d=6) electron mode.
 # Key question: what fraction f_contact of the kernel's l=0 output
 # falls within the contact range L_6 = 1.414 fm?
 #
-# d=6 harmonic oscillator: at level n, the allowed angular momenta
-# satisfy (n mod 2) == (l mod 2).  For n=13 (ODD), l must be ODD:
-#   l = 1, 3, 5, 7, 9, 11, 13
-# l=0 is ABSENT.  Therefore:
-#   <n=13,d=6 | K_{l=0} | n=13,d=6> = 0  (parity)
-#   f_contact = 0,  V0_actual = m_e * 0 = 0 MeV
+# Level convention (anchored by S(1,d)=1: n=1 is the ground state at
+# oscillator level 0, so the level is N = n-1; STEP 30, Part 7 sec
+# 1.2, Appendix A sec 15). In the d=6 isotropic oscillator the l at
+# level N satisfy (N mod 2) == (l mod 2). For the electron n=13:
+#   N = 12 (even)  ->  l = 0, 2, 4, 6, 8, 10, 12
+# so l=0 is PRESENT. The contact matrix element <13|K_{l=0}|13> is
+# therefore NOT forced to zero by parity. The residue reverts to the
+# generous STEP 48 / sec 6.3 bound (the result):
+#   dE / (alpha^2 m_e) <= (4/3)(L_6/a_0)^3 ~= 4.8e-10  (negligible).
+# The Marginal-Exactness conclusion (no measurable chemistry residue)
+# stands via this bound. The earlier "exactly zero by parity" reading
+# was an off-by-one in the level index (N = n-1, not n) and is
+# withdrawn; it disagreed with STEP 30, which states the odd-n modes
+# (n=3,5,...,13) carry l=0 components -- the electron is one of them.
 #
-# Angular selection for s-state corrections:
-# An odd-l effective potential Y_l^m(theta,phi) integrated over the
-# sphere against any spherically symmetric atomic orbital gives zero.
-# All odd-l kernel pieces therefore give ΔE = 0 for s-states.
-#
-# Combined result: ΔE = 0 at leading contact order, converting the
-# §6.3 bound to an equality at zero.  Leading non-zero contribution
-# comes at 2nd order in (L_6/a_0)^2 (from even-l mixing induced by
-# the odd-l sector kernel at 2nd order perturbation theory).
-#
-# The electron mode n_e=13 being ODD is not accidental: it reflects
-# the seed decomposition n_e = n_nu1 + n_up = 10 + 3 = 13
-# (Part 2 sec 2/6).  A hypothetical even n would produce a nonzero
-# contact amplitude; odd n is what the seed structure selects.
-# (Part 11 section 6.4)
+# Fine-structure protection (orbital-DEPENDENT shifts) is a separate
+# statement and survives unchanged: Lemma 1/2 channel cancellation
+# (STEP 77). The CP^3 representation content (exact l multiplicities,
+# the SO(3) in SU(4) embedding) is open (STEP 66); l=0 PRESENCE is
+# robust independent of it. (Part 11 section 6.4)
 
 _n_e53   = 13                         # electron mode index (Part 2)
 _S_e53   = S(_n_e53, 6)               # = 18564
@@ -3319,20 +3317,21 @@ _L6_53   = 1.414                      # fm  (Part 1 sec 3e)
 _m_e53   = m_e                        # MeV
 _a0_53   = 0.529177e5                 # Bohr radius in fm
 
-# l values at n=13 in d=6 oscillator (same parity as n)
-_l_vals53 = list(range(_n_e53 % 2, _n_e53 + 1, 2))
-_l0_53    = 0 in _l_vals53            # False -> l=0 absent
+# l values at level N=n-1 in d=6 oscillator (same parity as N)
+_N_e53    = _n_e53 - 1                 # oscillator level = 12
+_l_vals53 = list(range(_N_e53 % 2, _N_e53 + 1, 2))  # [0,2,...,12]
+_l0_53    = 0 in _l_vals53            # True -> l=0 PRESENT
 
-# Contact fraction and amplitude
-_f_contact53  = 0.0 if not _l0_53 else None
-_V0_actual53  = _m_e53 * _f_contact53 if not _l0_53 else None
+# l=0 present -> contact not parity-protected; use the sec 6.3 bound
+_f_contact53  = None                  # not zero; bounded, not pinned
+_V0_actual53  = None                  # reverts to V0 <= m_e (STEP 48)
 
 # §6.3 bound (STEP 48) and next-order suppression
 _ratio53    = _L6_53 / _a0_53
-_dE_bnd_ha = 4.78e-10                 # hartree, from STEP 48
-_dE_next53 = _dE_bnd_ha * _ratio53**2  # leading non-zero order
+_dE_bnd_ha = 4.78e-10                 # hartree, from STEP 48 (result)
+_dE_next53 = _dE_bnd_ha * _ratio53**2  # 2nd-order fine-structure piece
 
-# S(12,6): nearest even mode -- l=0 WOULD be present
+# S(12,6): opposite-parity neighbour (n=12 -> N=11 odd, l=0 absent)
 _S_12_53 = S(12, 6)
 
 # STEP 54 -- [18]ANNULENE NMR: DISTRIBUTED p_z CURRENT (Part 11 sec 5.1)
@@ -4039,30 +4038,29 @@ for _d65 in [3, 4, 5, 6, 10]:
 # =============================================================================
 # (Part 11 section 6.4; Part 8 section 14.3; Part 9 T2)
 #
-# In the d=6 sector (CP³ = SU(4)/U(3)), mode n has allowed angular
-# momentum quantum numbers satisfying l ≡ n (mod 2), l ∈ {n%2,...,n}.
-# This is the parity rule for the 6D harmonic oscillator eigenstates
-# (Part 11 §6.4; idwt.py STEP 53).
+# In the d=6 sector (CP³ = SU(4)/U(3)), mode n sits at oscillator
+# level N = n-1 (anchored by S(1,d)=1: n=1 is the level-0 ground;
+# STEP 30, Part 7 §1.2, Appendix A §15). The allowed angular momenta
+# satisfy l ≡ N (mod 2), l ∈ {N%2,...,N} (isotropic-oscillator parity
+# rule). l=0 is present iff N is even iff n is ODD.
 #
-# For the electron n_e = 13 (odd):
-#   l ∈ {1, 3, 5, 7, 9, 11, 13}
-#   l=0 (s-type contact) is ABSENT -- parity argument (Part 11 §6.4 ✅)
+# For the electron n_e = 13 (odd) -> N = 12 (even):
+#   l ∈ {0, 2, 4, 6, 8, 10, 12}
+#   l=0 (s-type contact) is PRESENT (Part 11 §6.4).
+# Consistent with STEP 30 (odd-n modes carry l=0 components) and with
+# Part 8 §14.3 (the electron has an |s>, L=0, orbit state).
 #
-# Physical content for the periodic table (Marginal Exactness, Part 11 §6.1):
-#   l=1  (p)  -- accessible; lowest odd l; hybridization and bonding
-#   l=3  (f)  -- accessible (lanthanides, actinides)
-#   l=5  (h)  -- accessible (beyond current experimental reach)
-#   l=7,9,11,13 -- higher harmonics; no known chemistry
+# The muon (n_mu = 35, odd -> N=34 even) is identical in parity:
+#   l ∈ {0, 2, ..., 34}, l=0 present.
 #
-# The l-content of the muon (n_mu = 35, d=6, also odd) is identical in parity:
-#   l ∈ {1, 3, 5, ..., 35}
-# The muon does not participate in chemistry because it is not stable (STEP 64,
-# T0.5 classification); its l-content is identical in structure.
+# For even-n modes (e.g. n=12 -> N=11 odd; n=14 -> N=13 odd):
+#   l ∈ {1, 3, 5, ...}  -- l=0 (s-type) is ABSENT (opposite parity).
+#   These are not occupied in IDWT (not co-fixed-points).
 #
-# For even-n modes (e.g. n=12, n=14):
-#   l ∈ {0, 2, 4, ..., n}  -- l=0 (s-type) IS present
-#   These are not occupied in IDWT (not co-fixed-points); the nearest
-#   even mode S(12,6)=12376 would have l=0 contact. (Part 11 §6.4)
+# Chemistry caveat: the periodic-table orbitals (s,p,d,f) are d=3
+# MARGINAL bound states of the Coulomb problem (Marginal Exactness,
+# Part 11 §6.1), NOT this single sector mode's harmonic content; the
+# two must not be conflated.
 #
 # Multiplicities m(l) of each SO(3) irrep in the n=13 mode:
 # Rigorous derivation requires identifying the precise representation of
@@ -4070,23 +4068,24 @@ for _d65 in [3, 4, 5, 6, 10]:
 # under SO(3) via the SU(4) -> SU(2) (spin) chain. S(n,d) = C(n+d-1,d)
 # is the IDWT multiset number -- NOT the dimension of Sym^n(R^6) --
 # so the naive branching formula Sym^n(R^6) -> SO(3) does not apply
-# directly. This derivation is open. (ASK FEDGE before writing result
-# to Part documents.)
+# directly. This derivation is open (l=0 PRESENCE is robust of it).
+# (ASK FEDGE before writing result to Part documents.)
 
-# l-value list for mode n in sector d (parity rule)
+# l-value list for mode n: level N=n-1, l-parity = N (mod 2)
 def l_values_66(n):
-    """Allowed SO(3) angular momentum values for mode n in d=6."""
-    return list(range(n % 2, n + 1, 2))
+    """Allowed SO(3) l for mode n (oscillator level N=n-1, d=6)."""
+    _N = n - 1
+    return list(range(_N % 2, _N + 1, 2))
 
-# Electron
-_l_e66 = l_values_66(n_e)             # [1,3,5,7,9,11,13]
+# Electron: n=13 -> N=12 -> [0,2,...,12], l=0 present
+_l_e66 = l_values_66(n_e)
 
-# Muon
-_l_mu66 = l_values_66(n_mu)           # [1,3,5,...,35]
+# Muon: n=35 -> N=34 -> [0,2,...,34]
+_l_mu66 = l_values_66(n_mu)
 
-# Even comparison modes (not occupied, not co-fixed-points)
-_l_12_66 = l_values_66(12)            # [0,2,4,...,12] -- l=0 present
-_l_14_66 = l_values_66(14)            # [0,2,4,...,14] -- l=0 present
+# Even-n comparison modes (not occupied): opposite parity, l=0 absent
+_l_12_66 = l_values_66(12)            # n=12 -> N=11 -> [1,3,...,11]
+_l_14_66 = l_values_66(14)            # n=14 -> N=13 -> [1,3,...,13]
 
 # Per-sector l-value summary for all occupied modes
 _l_table66 = {}
@@ -4103,7 +4102,8 @@ for _nm66, _n66, _d66 in [
     ("mu",   n_mu,      6),
     ("tau",  n_tau,     10),
 ]:
-    _lv = list(range(_n66 % 2, _n66 + 1, 2))
+    _N66 = _n66 - 1
+    _lv = list(range(_N66 % 2, _N66 + 1, 2))
     _l_table66[_nm66] = (_n66, _d66, _lv, len(_lv))
 
 
@@ -6798,18 +6798,17 @@ print("  Status: 🔶 framework and ingredients in place.")
 print("\n" + "=" * 70)
 print("=== STEP 53: KERNEL CONTACT AMPLITUDE (Part 11 sec 6.4) ===")
 print("=" * 70)
-print(f"  Electron mode n_e={_n_e53} (ODD):"
-      f" l values = {_l_vals53}")
+print(f"  Electron mode n_e={_n_e53}, level N=n-1={_N_e53} (even):")
+print(f"    l values = {_l_vals53}")
 print(f"  l=0 present: {_l0_53}"
-      f"  => contact fraction f = {_f_contact53}")
-print(f"  V0_actual = m_e * f = {_V0_actual53} MeV"
-      f"  (l-parity kills l=0 matrix element)")
+      f"  => contact NOT parity-protected")
+print(f"  V0_actual: {_V0_actual53} (not pinned; use sec 6.3 bound)")
 print(f"  STEP 48 bound: dE <= {_dE_bnd_ha:.2e} hartree"
-      f"  -> sharpens to equality at 0")
-print(f"  Next non-zero order: ~ {_dE_next53:.2e} hartree"
-      f"  (2nd order in (L_6/a0)^2)")
-print(f"  Nearest even mode S(12,6) = {_S_12_53}"
-      f"  (l=0 WOULD be present for n=12)")
+      f"  (the result; negligible)")
+print(f"  2nd-order piece: ~ {_dE_next53:.2e}"
+      f" hartree (fine-structure, STEP 77)")
+print(f"  Opposite-parity neighbour S(12,6) = {_S_12_53}"
+      f"  (n=12 -> N=11 odd, l=0 absent)")
 
 
 # =========================================================================
@@ -7134,16 +7133,16 @@ print("  Why co-fixed-point even modes are stable: open (T0.5 🔶).")
 print("\n" + "=" * 70)
 print("=== STEP 66: d=6 SECTOR l-VALUE CONTENT (CP3 -> SO(3)) ===")
 print("=" * 70)
-print("  Parity rule: mode n has l in {n%2, n%2+2, ..., n}.")
+print("  Parity rule: level N=n-1, l in {N%2, N%2+2, ..., N}.")
 print()
-print("  Electron (n=13, d=6, odd):")
+print("  Electron (n=13, d=6 -> N=12, even):")
 print(f"    l values: {_l_e66}")
-print("    l=0 (s-type) absent -- parity argument (Part 11 s6.4 ✅)")
-print("    Chemistry-relevant: l=1 (p), l=3 (f), l=5 (h)")
+print("    l=0 (s-type) PRESENT -- N=n-1=12 even (Part 11 s6.4)")
+print("    (chemistry orbitals are d=3 marginal states, not these)")
 print()
-print("  Comparison even modes (NOT occupied -- shown for contrast):")
-print(f"    n=12: l values: {_l_12_66}  (l=0 present)")
-print(f"    n=14: l values: {_l_14_66}  (l=0 present)")
+print("  Comparison even-n modes (NOT occupied -- shown for contrast):")
+print(f"    n=12 (N=11): l values: {_l_12_66}  (l=0 absent)")
+print(f"    n=14 (N=13): l values: {_l_14_66}  (l=0 absent)")
 print()
 print("  l-content of all occupied modes:")
 print(f"  {'Part':>5} {'n':>4} {'d':>3}  {'l range':<40} {'# l vals':>8}")

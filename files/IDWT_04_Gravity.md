@@ -325,6 +325,27 @@ This is the self-consistency condition: the sector potential depth is determined
 
 E_0 = d√λ_d is the exact ground-state energy of the d-dimensional isotropic harmonic oscillator. L_d = λ_d^{−1/4} is the oscillator length (Gaussian width of the ground state). λ̂_d = √λ_d varies across sectors; the previous claim λ̂_d ≈ 1 was an artifact of the saturating-potential ansatz (MC-2) and does not hold for the harmonic self-binding operator derived in §3.10.2.
 
+### 3.10.5 The vacuum functional whose stationary point is λ_d
+
+The §3.10.1–§3.10.3 derivation is the stationarity condition of a single explicit energy functional on the sector field. Writing Ψ for the sector amplitude on Ξ_d,
+
+```
+E[Ψ] = ∫_{Ξ_d} |∇Ψ|² dμ  +  (g_{dd}/2) ∫∫ (ξ·ξ')² |Ψ(ξ)|² |Ψ(ξ')|² dμ dμ'
+```
+
+Variation δE/δΨ* = μΨ gives the Gross–Pitaevskii form −ΔΨ + V_self[Ψ]Ψ = μΨ with V_self the §3.10.2 mean field; the isotropic average reproduces V_self = λ_d r² and the self-consistency λ_d = (g_{dd}/2)^{2/3}. **The functional (1) exhibits the sector closure as its stationary point — the soap-bubble fixed point of the wave–well loop. ✅** (= §3.10.3.)
+
+Expanding Ψ = Σ_n A_n χ_n in the well's own modes (ground state n = 1, level N = n−1, ε_n = (2(n−1)+d)√λ_d) puts the functional in coupled-mode form,
+
+```
+E[{A_n}] = Σ_n ε_n |A_n|²
+         + (g_{dd}/2) Σ_{N1+N2=N3+N4} K_{n1n2n3n4} A*_{n1} A*_{n2} A_{n3} A_{n4}
+```
+
+with K the (ξ·ξ')² overlap, nonzero only on the l = 0 ⊕ l = 2 channel. Two features of (2) are exact and structural. The quartic term enforces the index resonance N1+N2 = N3+N4: the generation-tower production edges are four-wave-resonant in the mode index (⭐, Appendix A §15) — the spectrum is an index-locked four-wave comb on the condensate. Its l = 0 ⊕ l = 2 content is the l-parity rule: the ground mode connects only to even levels, so the conservative flow of (2) populates the even-level ladder and excludes the odd levels exactly (⭐, Part 7 §1.2).
+
+What the functional does **not** do is select the occupancy. Its stationary point fixes the well (λ_d); its quartic term fixes the four-wave comb structure; but the choice of which modes occupy the comb — the co-fixed-point selection (Part 9 T0.5) — is not a minimum of (1)/(2). The conservative Gross–Pitaevskii flow of (2) from the condensate reproduces the l-parity cut and the first injection (ground → up) and then spreads amplitude across the whole even ladder without isolating the tower (🔶/🔵, Appendix A §15). The even-level selection is therefore not a property of this vacuum functional; it is the radiative-stability statement of Part 7 §1.2 — which even modes are protected against decay through the downward kernel links. The functional (1) is the well closure and the comb kinematics; the occupancy selection is a separate, radiative question, and the sector-activation arbiter for Rule A is the distinct coupled (Ψ_∞, {M_d}) fixed point of Part 6 Open Theorem A.
+
 ---
 
 ## 3.11 Newton's Constant: Sector-Independence

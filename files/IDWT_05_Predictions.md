@@ -524,7 +524,7 @@ is a **spectral counting theorem**: the mass equals the total spectral weight be
 
 ## 9. Falsification Criteria — Complete Reference
 
-IDWT is a rigid framework with no adjustable parameters. Every prediction derives from one integer (n_s = 4) and one unit of mass (m_e = 0.511 MeV). The following inventory is organized from the most decisive tests — single observations that directly falsify the framework — through precision quantitative thresholds, structural qualitative predictions differing from SM assumptions, and near-future experimental windows.
+Every prediction derives from one integer (n_s = 4) and one unit of mass (m_e = 0.511 MeV). The following inventory is organized from the most decisive tests — single observations that directly falsify the framework — through precision quantitative thresholds, structural qualitative predictions differing from SM assumptions, and near-future experimental windows.
 
 The distinction between a *falsifier* and a *residual* is sharpness. IDWT residuals are small (≤ 0.51% for PMNS angles, ≤ 0.003% for W mass), structurally explained by identified open items (CP phase, G_N derivation), and lie within PDG measurement uncertainties. A falsifier is a prediction where IDWT has no adjustment available: either the geometric argument holds or it does not.
 
@@ -562,7 +562,7 @@ These predictions have specific numerical values from mode indices and sector ge
 | **F16** | Cabibbo angle sin θ_C | 0.22454 (PDG +0.09σ) | sin²θ_C = 1/S(n_s,3) + CP¹ sector curvature correction | Outside 0.2237–0.2254 at > 3σ |
 | **F17** | ρ parameter at tree level | ρ = 1.00000 exactly | m_W²/(m_Z² cos²θ_W) from mode indices 76, 81 | ρ ≠ 1 at tree level beyond radiative corrections (~0.4%) |
 | **F18** | Number of light neutrino species | N_ν = 3 exactly | Three d=5 modes; no sterile neutrinos; closed spectrum | Z invisible width implying N_ν ≠ 3 |
-| **F19** | 0νββ effective Majorana mass | m_ββ = 0 at leading order | d=5 Majorana mass term absent; induced operators not yet analyzed | Any detection m_ββ > 0 with > 3σ significance |
+| **F19** | 0νββ effective Majorana mass | m_ββ = 0 at all orders | d=5 Clifford structure: no C on S⁵ → no Majorana operator at any order (see F1) | Any detection m_ββ > 0 with > 3σ significance |
 | **F20** | Beta-decay effective neutrino mass | m_β ≈ 8.77 meV | PMNS mixing + neutrino mass spectrum from mode indices | m_β measured > 50 meV (KATRIN 5-year sensitivity ~200 meV; Project 8 targets ~40 meV) |
 | **F21** | W/Z mass ratio | m_W/m_Z = √(S(76,2)/S(81,2)) = 0.93896 | Mode indices 76, 81 | Measured ratio outside 0.9386–0.9394 |
 | **F22** | Leptonic CP phase δ_CP | 197.11° (PDG NH best fit: 197° ± 27°, +0.05°; J = −0.00981) | δ_CP = π + 2θ₁₃; APS spectral flow Δc₁ = −2 (T8 🔶, Part 10 §4) | δ_CP outside 185°–210° at 5σ, or δ–θ₁₃ correlation violated by > 5° at fixed θ₁₃ |
@@ -597,7 +597,7 @@ These predictions are within reach of running or funded experiments within the n
 
 | Prediction | IDWT value | Key experiment | Current status | Timescale |
 |---|---|---|---|---|
-| 0νββ signal absent at leading order | m_ββ = 0 at leading order | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | now–2035; reaching ~2–5 meV sensitivity |
+| 0νββ signal absent (all orders) | m_ββ = 0 at all orders | nEXO, LEGEND-1000, KamLAND-Zen 800 | No signal (m_ββ < 36 meV) | now–2035; reaching ~2–5 meV sensitivity |
 | Σm_ν = 60.39 meV | 60.39 meV | CMB-S4 (target ~30 meV) | Below Planck bound (< 120 meV) | 2030s; within 2× of detection |
 | Normal ordering (definitive) | m_ν₁ < m_ν₂ < m_ν₃ | JUNO, DUNE, Hyper-Kamiokande | 3–4σ preference | now–2030 |
 | sin²θ₂₃ = 0.5590 | 0.5590 ± 0.001 | T2K, NOvA, DUNE | PDG 2024: 0.553, +1.07% | Running now |
@@ -613,7 +613,7 @@ The table below condenses the hardest predictions in order of experimental decis
 
 | Rank | Prediction | Threshold for falsification |
 |---|---|---|
-| 1 | 0νββ absent at leading order (F1, F19) | Any signal above background at > 3σ |
+| 1 | 0νββ absent at all orders (F1, F19) | Any signal above background at > 3σ |
 | 2 | Normal neutrino mass ordering (F2) | Definitive inverted-ordering measurement |
 | 3 | Σm_ν = 60.39 meV (F10) | Measured < 40 meV or > 80 meV |
 | 4 | No new stable particles (F3) | Any confirmed new fundamental particle |

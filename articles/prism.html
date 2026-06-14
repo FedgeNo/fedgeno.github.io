@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IDWT's six particle sectors are one sector-blind lattice of whole numbers refracted by the complex Hopf chain — a prism that splits a single massless spectrum into four Kähler bases and two real totals, with the sector mass scales as the refraction angles.">
+<meta name="keywords" content="IDWT, prism, sector splitting, complex Hopf chain, Kähler sectors, Gegenbauer criticality, sector scales, two-layer separation, mass spectrum, infinite-dimensional wave theory">
+<meta name="author" content="Fedge No">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedgeno.github.io/articles/prism">
+<meta property="og:title" content="The Prism — IDWT">
+<meta property="og:description" content="One massless lattice of whole numbers, refracted by the complex Hopf chain into six sectors with six geometries and six scales — how IDWT's spectrum splits.">
+<meta property="og:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<meta property="og:image:width" content="2000">
+<meta property="og:image:height" content="2000">
+<meta property="og:site_name" content="IDWT — Infinite-Dimensional Wave Theory">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Prism — IDWT">
+<meta name="twitter:description" content="One massless lattice of whole numbers, refracted by the complex Hopf chain into six sectors with six geometries and six scales — how IDWT's spectrum splits.">
+<meta name="twitter:image" content="https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png">
+<title>The Prism — IDWT</title>
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}]})"></script>
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "The Prism — IDWT",
+  "description": "One massless lattice of whole numbers, refracted by the complex Hopf chain into six sectors with six geometries and six scales — how IDWT's spectrum splits.",
+  "url": "https://fedgeno.github.io/articles/prism",
+  "author": { "@type": "Person", "name": "Fedge No", "email": "fedge-no@hotmail.com" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IDWT",
+    "url": "https://fedgeno.github.io",
+    "logo": { "@type": "ImageObject", "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png" }
+  },
+  "image": { "@type": "ImageObject", "url": "https://fedgeno.github.io/styles/idwt_logo_concentric_waves.png", "width": 2000, "height": 2000 },
+  "keywords": "IDWT, prism, sector splitting, complex Hopf chain, Kähler sectors, Gegenbauer criticality, sector scales, mass spectrum, infinite-dimensional wave theory",
+  "isPartOf": { "@type": "WebSite", "name": "IDWT — Infinite-Dimensional Wave Theory", "url": "https://fedgeno.github.io" }
+}
+</script>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav class="site-nav">
+  <a class="nav-logo" href="/">IDWT</a>
+  <div class="nav-links">
+    <a href="/articles/" aria-current="page">Articles</a>
+    <a href="/visualizations/">Visualizations</a>
+    <a href="/notebook/">Notebook</a>
+    <a href="/notes/">Notes</a>
+    <a href="/published/">Published</a>
+  </div>
+</nav>
+
+<div class="corner-orb left"><canvas id="orbL"></canvas></div>
+<div class="corner-orb right"><canvas id="orbR"></canvas></div>
+
+<header class="page-hero">
+  <div class="eyebrow">Article · The Prism</div>
+  <h1>The Prism</h1>
+  <p class="sub">The fifteen particles arrive sorted into six sectors with six geometries and six mass scales. Underneath is a single lattice of whole numbers that knows nothing about sectors at all. The prism is how that one lattice becomes six.</p>
+</header>
+
+<main>
+<section>
+  <h2>One beam, six rays</h2>
+  <div class="prose">
+    <p>White light enters a prism as one beam and leaves as a fan of colours. IDWT's spectrum does the same thing, and the analogy is exact enough to be useful. The particles reach us already split: a quark lives in one sector, a neutrino in another, each sector carrying its own shape and its own scale. But the structure that decides <em>which</em> particles exist at all is a single lattice of mode indices — whole numbers — that carries no sector label and no energy. The sectors, their geometries, and their scales are what that one sector-blind lattice becomes after it passes through a prism.</p>
+    <p>The prism is the complex Hopf chain. This article is the picture of the splitting: what the beam is, what the prism is made of, where the six rays come from, and why the fan stops where it does. It is a lens on results derived elsewhere — the <a href="/articles/sectors.html">sector set</a>, the <a href="/articles/generation-tower.html">generation tower</a>, the <a href="/articles/euler-characteristic-chain.html">Euler-characteristic chain</a> — not a separate mechanism.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The beam is massless</h2>
+  <div class="prose">
+    <p>Before anything is split, there is only the lattice of mode indices \(n\) and the arithmetic that builds it: the hockey-stick recursion and the simplex numbers \(S(n,d) = \binom{n+d-1}{d}\) that count a sector's microstates. This arithmetic is pure integer combinatorics. No mass, no energy, no scale is attached to it.</p>
+    <p>A sector only gets a scale once its wave condenses. The sector mass scale is set by \(m_{\text{scale},d}^2 = g_{dd}\,\langle|\Psi^{(d)}|^2\rangle\) — and with no condensate that is exactly zero. So before the split the lattice is not a spectrum sitting at some common frequency; it is a list of labels with no energy at all. The integers come first in the one sense that matters here: the six sector scales are all built downward from a single input — the electron mass and the seed \(n_s = 4\) — and nothing flows back from the scales to the integers. The whole numbers generate the scales; the scales never reach back to move a whole number.</p>
+    <p>Whether there was ever a literal era in which the world was massless and the scales later switched on is a separate question, and an open one: IDWT has not derived an equation for condensation, so that temporal reading stays a motivating picture rather than a claim. The logical order — integers prior to scales — does not depend on it and stands without it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The prism is the Hopf chain</h2>
+  <div class="prose">
+    <p>The refracting surface is the complex Hopf fibration \(S^1 \to S^{2n+1} \to \mathbb{CP}^n\), run for \(n = 1, 2, 3, \ldots\). Each step introduces a matched pair of sectors: a <strong>Kähler base</strong> \(\mathbb{CP}^n\), of dimension \(2n\), and the <strong>real total space</strong> \(S^{2n+1}\) above it, of dimension \(2n+1\). Stepping down the chain is the condensate cascade — one refracting surface per fibration, peeling off one base and one total at a time.</p>
+    <p>The two kinds of ray are genuinely different geometry. The Kähler bases — \(\mathbb{CP}^1, \mathbb{CP}^2, \mathbb{CP}^3, \mathbb{CP}^5\) — are complex projective spaces with a built-in complex structure and a natural chirality. The real totals — \(S^3\) and \(S^5\) — are ordinary spheres with no inherent complex structure, which is why the quarks and neutrinos that live in them are vector-like from their own geometry.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The six rays</h2>
+  <svg viewBox="0 0 1200 720" width="100%" style="display:block;margin:26px auto;max-width:940px" role="img" aria-label="The Hopf-chain prism splitting the sector-blind integer lattice into six sectors: four Kähler bases d=2,4,6,10 and two real totals d=3,5, with d=7,8,9 and d greater than or equal to 11 excluded.">
+<rect width="1200" height="720" fill="#05070e"/>
+<defs><linearGradient id="beam" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#8b9cff"/></linearGradient></defs>
+<text x="40" y="46" fill="#e6e8f0" font-size="25" font-weight="700">How the prism splits the lattice into six sectors</text>
+<text x="40" y="78" fill="#8b9cff" font-size="16">D = {2, 3, 4, 5, 6, 10}  =  4 Kähler bases  +  2 real totals</text>
+<line x1="40" y1="300" x2="250" y2="300" stroke="url(#beam)" stroke-width="11" stroke-linecap="round"/>
+<polygon points="250,289 272,300 250,311" fill="#8b9cff"/>
+<text x="150" y="274" fill="#e6e8f0" font-size="14.5" font-weight="600" text-anchor="middle">sector-blind integer lattice</text>
+<text x="150" y="334" fill="#9aa3b8" font-size="12" text-anchor="middle">massless · scale-free (Layer 1)</text>
+<polygon points="270,205 270,395 392,300" fill="#8b9cff" fill-opacity="0.16" stroke="#8b9cff" stroke-width="2"/>
+<text x="318" y="180" fill="#8b9cff" font-size="14.5" font-weight="700" text-anchor="middle">Hopf chain</text>
+<text x="318" y="442" fill="#9aa3b8" font-size="13" text-anchor="middle">S¹ → S²ⁿ⁺¹ → CPⁿ</text>
+<text x="318" y="463" fill="#7a8499" font-size="11.5" text-anchor="middle">condensate cascade</text>
+<line x1="392" y1="300" x2="695" y2="110" stroke="#8b9cff" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="87" width="462" height="46" rx="9" fill="#101524" stroke="#8b9cff" stroke-width="1.4"/>
+<text x="716" y="116" fill="#8b9cff" font-size="17" font-weight="700">d=2</text>
+<text x="778" y="116" fill="#e6e8f0" font-size="16">CP¹</text>
+<text x="850" y="116" fill="#e6e8f0" font-size="15">·  photon, W, Z, H</text>
+<text x="1148" y="115" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">Kähler base</text>
+<line x1="392" y1="300" x2="695" y2="170" stroke="#60a5fa" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="147" width="462" height="46" rx="9" fill="#101524" stroke="#60a5fa" stroke-width="1.4"/>
+<text x="716" y="176" fill="#60a5fa" font-size="17" font-weight="700">d=3</text>
+<text x="778" y="176" fill="#e6e8f0" font-size="16">S³</text>
+<text x="850" y="176" fill="#e6e8f0" font-size="15">·  down, strange, b</text>
+<text x="1148" y="175" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">real total</text>
+<line x1="392" y1="300" x2="695" y2="230" stroke="#8b9cff" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="207" width="462" height="46" rx="9" fill="#101524" stroke="#8b9cff" stroke-width="1.4"/>
+<text x="716" y="236" fill="#8b9cff" font-size="17" font-weight="700">d=4</text>
+<text x="778" y="236" fill="#e6e8f0" font-size="16">CP²</text>
+<text x="850" y="236" fill="#e6e8f0" font-size="15">·  up, charm, top</text>
+<text x="1148" y="235" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">Kähler base</text>
+<line x1="392" y1="300" x2="695" y2="290" stroke="#60a5fa" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="267" width="462" height="46" rx="9" fill="#101524" stroke="#60a5fa" stroke-width="1.4"/>
+<text x="716" y="296" fill="#60a5fa" font-size="17" font-weight="700">d=5</text>
+<text x="778" y="296" fill="#e6e8f0" font-size="16">S⁵</text>
+<text x="850" y="296" fill="#e6e8f0" font-size="15">·  ν₁, ν₂, ν₃</text>
+<text x="1148" y="295" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">real total</text>
+<line x1="392" y1="300" x2="695" y2="350" stroke="#8b9cff" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="327" width="462" height="46" rx="9" fill="#101524" stroke="#8b9cff" stroke-width="1.4"/>
+<text x="716" y="356" fill="#8b9cff" font-size="17" font-weight="700">d=6</text>
+<text x="778" y="356" fill="#e6e8f0" font-size="16">CP³</text>
+<text x="850" y="356" fill="#e6e8f0" font-size="15">·  e, μ</text>
+<text x="1148" y="355" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">Kähler base</text>
+<line x1="392" y1="300" x2="630" y2="410" stroke="#7a8499" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.55"/>
+<text x="648" y="415" fill="#7a8499" font-size="14" text-anchor="middle" font-weight="700">✕</text>
+<text x="664" y="415" fill="#7a8499" font-size="12.5" opacity="0.85">d=7  S⁷</text>
+<text x="772" y="415" fill="#7a8499" font-size="11.5" font-style="italic" opacity="0.75">— no coupling</text>
+<line x1="392" y1="300" x2="630" y2="470" stroke="#7a8499" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.55"/>
+<text x="648" y="475" fill="#7a8499" font-size="14" text-anchor="middle" font-weight="700">✕</text>
+<text x="664" y="475" fill="#7a8499" font-size="12.5" opacity="0.85">d=8  CP⁴</text>
+<text x="772" y="475" fill="#7a8499" font-size="11.5" font-style="italic" opacity="0.75">— χ = 5 gap</text>
+<line x1="392" y1="300" x2="630" y2="530" stroke="#7a8499" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.55"/>
+<text x="648" y="535" fill="#7a8499" font-size="14" text-anchor="middle" font-weight="700">✕</text>
+<text x="664" y="535" fill="#7a8499" font-size="12.5" opacity="0.85">d=9  S⁹</text>
+<text x="772" y="535" fill="#7a8499" font-size="11.5" font-style="italic" opacity="0.75">— inherits gap</text>
+<line x1="392" y1="300" x2="695" y2="590" stroke="#a78bfa" stroke-width="2.4" stroke-linecap="round"/>
+<rect x="700" y="567" width="462" height="46" rx="9" fill="#101524" stroke="#a78bfa" stroke-width="1.4"/>
+<text x="716" y="596" fill="#a78bfa" font-size="17" font-weight="700">d=10</text>
+<text x="778" y="596" fill="#e6e8f0" font-size="16">CP⁵</text>
+<text x="850" y="596" fill="#e6e8f0" font-size="15">·  τ</text>
+<text x="1148" y="595" fill="#7a8499" font-size="11" font-style="italic" text-anchor="end">Kähler base</text>
+<line x1="392" y1="300" x2="630" y2="650" stroke="#7a8499" stroke-width="1.1" stroke-dasharray="5 4" opacity="0.55"/>
+<text x="648" y="655" fill="#7a8499" font-size="14" text-anchor="middle" font-weight="700">✕</text>
+<text x="664" y="655" fill="#7a8499" font-size="12.5" opacity="0.85">d=11  S¹¹</text>
+<text x="772" y="655" fill="#7a8499" font-size="11.5" font-style="italic" opacity="0.75">— subcritical</text>
+<path d="M1178,87 h8 v106 h-8" fill="none" stroke="#7a8499" stroke-width="1.1" opacity="0.7"/>
+<text x="1174" y="144" fill="#7a8499" font-size="11" text-anchor="end">n=1</text>
+<path d="M1178,207 h8 v106 h-8" fill="none" stroke="#7a8499" stroke-width="1.1" opacity="0.7"/>
+<text x="1174" y="264" fill="#7a8499" font-size="11" text-anchor="end">n=2</text>
+<path d="M1178,327 h8 v106 h-8" fill="none" stroke="#7a8499" stroke-width="1.1" opacity="0.7"/>
+<text x="1174" y="384" fill="#7a8499" font-size="11" text-anchor="end">n=3</text>
+<path d="M1178,447 h8 v106 h-8" fill="none" stroke="#7a8499" stroke-width="1.1" opacity="0.7"/>
+<text x="1174" y="504" fill="#7a8499" font-size="11" text-anchor="end">n=4</text>
+<path d="M1178,567 h8 v106 h-8" fill="none" stroke="#7a8499" stroke-width="1.1" opacity="0.7"/>
+<text x="1174" y="624" fill="#7a8499" font-size="11" text-anchor="end">n=5</text>
+<rect x="468" y="320" width="150" height="60" rx="8" fill="#101524" stroke="#60a5fa" stroke-width="1"/>
+<text x="543" y="340" fill="#60a5fa" font-size="11.5" font-weight="700" text-anchor="middle">real totals end</text>
+<text x="543" y="357" fill="#9aa3b8" font-size="10.5" text-anchor="middle">Rule A: coupling chain</text>
+<text x="543" y="372" fill="#9aa3b8" font-size="10.5" text-anchor="middle">stops at d = 6</text>
+<rect x="446" y="558" width="196" height="64" rx="8" fill="#101524" stroke="#a78bfa" stroke-width="1"/>
+<text x="544" y="578" fill="#a78bfa" font-size="11.5" font-weight="700" text-anchor="middle">Kähler bases end</text>
+<text x="544" y="594" fill="#9aa3b8" font-size="10.5" text-anchor="middle">Rule B: Gegenbauer endpoint</text>
+<text x="544" y="610" fill="#9aa3b8" font-size="10.5" text-anchor="middle">b(10)=½,  (10−2)²=64=4·16</text>
+<line x1="642" y1="590" x2="694" y2="590" stroke="#a78bfa" stroke-width="1.1"/>
+<polygon points="694,586 702,590 694,594" fill="#a78bfa"/>
+<text x="40" y="700" fill="#9aa3b8" font-size="12">geometry &amp; survival (which rays): scale-free, exact     scales m_scale_d (how far apart they land): seed-built (Layer 2)</text>
+</svg>
+  <div class="prose">
+    <p>Six rays survive: four Kähler bases — \(\mathbb{CP}^1, \mathbb{CP}^2, \mathbb{CP}^3, \mathbb{CP}^5\) at \(d = 2, 4, 6, 10\) — and two real totals — \(S^3, S^5\) at \(d = 3, 5\). The first two fibration steps each contribute a full pair: \(n=1\) gives the \(d=2\) base and the \(d=3\) total, \(n=2\) gives \(d=4\) and \(d=5\). The last two surviving bases, \(d=6\) and \(d=10\), are bases whose total spaces did not make it through — their rays are cut short, and the article returns to why below.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Two edges close the fan</h2>
+  <div class="prose">
+    <p>The fan does not run on forever; two different limits close it.</p>
+    <p>The <strong>real totals stop after \(d=5\)</strong>. Each active sector needs a self-coupling, and the chain that constructs those couplings runs out at \(d=6\): the Euler characteristic \(\chi(\mathbb{CP}^3) = 4 = n_s\) fixes the \(d=6\) coupling as a composite ratio rather than a fresh fixed point, and the construction has nowhere left to go. The would-be totals above — \(S^7, S^9, S^{11}\) at \(d = 7, 9, 11\) — never acquire a coupling, so no sector well forms there and no particles can localize.</p>
+    <p>The <strong>Kähler bases stop at \(d=10\)</strong>. That sector is the Gegenbauer critical endpoint: the binding coefficient reaches exactly the threshold value \(b = \tfrac{1}{2}\), at the point where \((d-2)^2 = 4k_0\), i.e. \((10-2)^2 = 64 = 4\cdot 16\). Past \(d=10\) the coefficient falls below threshold and modes cannot bind at all — they disperse into the bulk. The base \(d=8\) was already skipped one step earlier, by a gap in the Euler-characteristic sequence \(\{2,3,4,\_,6\}\) of the active sectors, where \(\chi = 5\) supplies no coupling.</p>
+    <p>So the two edges are different in kind. The \(d \ge 11\) sectors are ruled out at the deepest level — localization there is geometrically impossible. The \(d \in \{7,8,9\}\) band is not: those sectors could in principle bind a mode, but the prism builds no well to trap one. One honest caveat sits on \(d=7\): the precise rule that excludes it is not yet uniquely pinned. Two candidate conditions agree on every sector that <em>is</em> active and disagree only at \(d=7\), and settling which one governs is a dynamical question still open. The rest of the split is fixed; this single edge carries the open work.</p>
+  </div>
+</section>
+
+<section>
+  <h2>The undeviated ray</h2>
+  <div class="prose">
+    <p>One ray passes straight through. The \(d=2\) sector is the base of the entire chain, and it is the only sector that never condenses. That is the same fact, seen from the splitting side, as the photon being massless: with no \(d=2\) condensate there is no \(d=2\) scale. The \(d=2\) ray is the reference beam, the part of the light that leaves the prism undeflected, and electromagnetism is simply the geometry of that sector — the \(U(1)\) of \(\mathbb{CP}^1\). Because \(d=2\) is nested inside every sector above it, every charged particle carries this ray within itself. (See <a href="/articles/sector-2.html">Sector 2</a> and <a href="/articles/photon-vs-electron.html">Photon versus Electron</a>.)</p>
+  </div>
+</section>
+
+<section>
+  <h2>The refraction angles are the scales</h2>
+  <div class="prose">
+    <p>The geometry fixes <em>which</em> six rays there are and <em>what each one is</em> — real or Kähler, base or total, which family it carries. That part of the split is scale-free: it is pure geometry and topology, and it is the same whatever the masses turn out to be.</p>
+    <p>How far apart the rays land — the actual masses — is the one place real numbers enter. The six sector scales \(m_{\text{scale},d}\) are built downward from the electron mass and the seeds, and they set the spacing. They are not ordered by dimension in any simple way: \(d=3\) carries the heaviest matter scale, \(d=5\) the lightest by a factor of \(10^{13}\), and \(d=6\) and \(d=10\) — the muon and tau sectors — share one scale exactly. The geometry is the shape of the prism; the seeds are the angles at which it bends.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Reading the split</h2>
+  <div class="prose">
+    <p>The division into a scale-free geometry and a scale-bearing spacing is more than bookkeeping — it sorts the theory's predictions. Any quantity you can build <em>inside one ray</em>, such as a ratio of two masses in the same sector, has its scale cancel, leaving a pure number fixed by the integer lattice. The same holds across the one degenerate pair, \(d=6\) and \(d=10\): because the muon and tau sectors share a scale, a relation built across them is also scale-free. This is why the Koide relation among the charged leptons comes out as a clean number.</p>
+    <p>Quantities that <em>cross rays</em> are different: they carry a surviving ratio of two different sector scales, and they pick up the small residuals the framework records when it compares to measurement. So the prism doubles as a rule of thumb for what to expect: a relation that stays within a ray, or within the lepton pair, should be exact integer arithmetic; a relation that bridges rays carries a measured scale and a modest error. The structural skeleton is one layer; the metric spacing is the other.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What the prism is, and is not</h2>
+  <div class="prose">
+    <p>The six sectors are not six separate spaces standing side by side. They are nested depths of one manifold — \(\Xi_2 \subset \Xi_3 \subset \cdots \subset \Xi_{10}\) — and the prism is a way of seeing how that one manifold's integer lattice acquires six geometries and six scales, not a device that lives somewhere or a sequence that happens in time. "Late" means logically downstream of the integers, not literally afterward.</p>
+    <p>Two threads stay open. The exclusion of \(d=7\) waits on the dynamical rule that arbitrates it. And whether the massless, scale-free description is only the logical floor of the theory or also a real early phase that condensed is a question the framework cannot yet answer, because it has not derived an equation for the condensation itself. What is settled is the shape of the split: one sector-blind lattice of whole numbers, refracted by the complex Hopf chain into four Kähler bases and two real totals, closed at one end by the coupling chain and at the other by Gegenbauer criticality, with the seeds setting the spacing.</p>
+  </div>
+</section>
+</main>
+
+<footer>IDWT v2026 · CC BY 4.0 · <a href="mailto:fedge-no@hotmail.com">contact for discussion or full notes</a></footer>
+<script type="module" src="/scripts/orbs.js"></script>
+</body>
+</html>

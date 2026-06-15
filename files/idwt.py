@@ -4062,14 +4062,20 @@ for _d65 in [3, 4, 5, 6, 10]:
 # Part 11 §6.1), NOT this single sector mode's harmonic content; the
 # two must not be conflated.
 #
-# Multiplicities m(l) of each SO(3) irrep in the n=13 mode:
-# Rigorous derivation requires identifying the precise representation of
-# SU(4) = Sp(6) that has dimension S(13,6) = 18564 and decomposing it
-# under SO(3) via the SU(4) -> SU(2) (spin) chain. S(n,d) = C(n+d-1,d)
-# is the IDWT multiset number -- NOT the dimension of Sym^n(R^6) --
-# so the naive branching formula Sym^n(R^6) -> SO(3) does not apply
-# directly. This derivation is open (l=0 PRESENCE is robust of it).
-# (ASK FEDGE before writing result to Part documents.)
+# The free mode carries NO intrinsic SO(3): a flat R^6 sector has rotation
+# group SO(6) ~ Spin(6) ~ SU(4), and the free electron marks out no three of
+# its six dimensions (section 14.2). Its frame-free content is the SO(6)
+# harmonic tower H_m = (0,m,0) (STEP 82), with sum_m mult(m,n) dim H_m =
+# S(n,6) exactly (electron 18564 from the m=0..12 tower). S(13,6) = 18564 is
+# that tower sum -- not a single SU(4) irrep, and not a compact-CP^3 (a,0,a)
+# eigenspace (15,84,300,825,1911,...): the flat sector uses the R^6/S^5
+# harmonics. An SO(3) l exists only when the nucleus breaks
+# SO(6) -> SO(3)_obs x SO(3)_hid in the BOUND problem (STEP 81). The l-list
+# below is the holomorphic SU(4)>SU(3)>SO(3) embedding; it and the STEP 81
+# SO(3)_obs branch differ -- both frame-dependent, neither intrinsic. The
+# "l=0 contact" component is frame-freely the SO(6) singlet H_0, present iff
+# n is odd (STEP 82). This also dissolves the old "Sym^n != S(n,d)" mismatch
+# (S is cumulative, not Sym^n).
 
 # l-value list for mode n: level N=n-1, l-parity = N (mod 2)
 def l_values_66(n):
@@ -4985,6 +4991,280 @@ _I1_79 = math.sqrt(2*_s3_79*_s4_79/(_s3_79**2 + _s4_79**2))
 _f_swave79 = _I1_79**3                            # clean s-wave overlap ~0.95
 _g34_79 = math.sqrt(8*_sq7_79 * 12/_sq7_79)       # 4 sqrt6
 _enh79 = 125.0/_g34_79                            # ~12.8, not pinned
+
+
+# =============================================================================
+# STEP 80 -- SPECTRAL-TRIPLE SUMMABILITY: p-SUMMABILITY, SPECTRAL
+#            DIMENSION, COMPACT RESOLVENT  (Part 9 T0 items 2, 3, 7)
+# =============================================================================
+# The internal Dirac operator D_int = (+)_d D_d has eigenvalues = the IDWT
+# masses m_scale_d * S(n,d). Since S(n,d) = C(n+d-1,d) ~ n^d / d! grows
+# polynomially of degree d in the mode index n, the sector zeta function
+#   zeta_d(s) = sum_{n>=1} S(n,d)^{-s}
+# has abscissa of convergence (rightmost pole) at s = 1/d. Equivalently the
+# sector heat kernel K_d(t) = sum_n e^{-t S(n,d)} ~ a0_d * t^{-1/d} with
+# a0_d = Gamma(1+1/d) (d!)^{1/d}  (matches T0/T14; confirmed numerically).
+#
+# Full internal zeta: zeta_int(s) = sum_{d in D} zeta_d(s). D is FINITE (6
+# sectors), so the abscissa of the sum is the max of the per-sector
+# abscissae: s_* = max_{d in D} 1/d = 1/2, at d=2 (slowest-growing, hence
+# dominant). Therefore:
+#   (item 3) |D_int|^{-p} is trace-class iff p > 1/2 -- p-summable for all
+#            p > 1/2, summability dimension 1/2.
+#   (item 7) spectral dimension d_s = rightmost pole of zeta_int = 1/2.
+#            NOTE: this is the summability dim of the MASS operator
+#            (eigenvalues = masses ~ cumulative state counts ~ n^d), NOT the
+#            geometric dimension of M_inf. T0 item 7's "expected to equal the
+#            effective dimension" does NOT hold: mass = count makes |D| grow
+#            far faster than Weyl, pushing the pole down to 1/2.
+#   (item 2) compact resolvent (internal): each D_d has purely discrete
+#            spectrum with S(n,d) -> infinity (sigma_ess = empty, Part 4
+#            §3.13); a finite direct sum of such operators has discrete
+#            spectrum diverging to infinity, so (D_int - z)^{-1} is compact.
+#            CAVEAT: the FULL D on M_inf includes the spacetime Dirac part
+#            -i gamma^mu d_mu on R^{3,1} (continuous spectrum), so the full
+#            resolvent is NOT compact -- compactness is a statement about the
+#            internal/sector operator (the projected P_xi0 D P_xi0 of T0), as
+#            for any spacetime spectral triple.
+# Items 1 (self-adjointness), 4 (Fredholm), 5 (KO-dim), 6 (regularity) are
+# not addressed here.
+import math as _m80
+
+def _S80(n, d):
+    return _m80.comb(n + d - 1, d)
+
+_D80 = [2, 3, 4, 5, 6, 10]
+_absc80 = {d: 1.0 / d for d in _D80}                 # zeta_d pole at 1/d
+_a0_80 = {d: _m80.gamma(1 + 1.0/d) * _m80.factorial(d)**(1.0/d)
+          for d in _D80}                             # Weyl coeff (T0/T14)
+_ds80 = max(_absc80.values())                        # spectral dim = 1/2
+_p_summ80 = _ds80                                     # trace-class iff p>1/2
+
+def _Kd80(d, t):                                     # K_d(t) = sum e^{-tS}
+    s = 0.0
+    n = 1
+    while True:
+        x = t * _S80(n, d)
+        if x > 700:
+            break
+        s += _m80.exp(-x)
+        n += 1
+    return s
+
+_t80 = 1e-6
+_ratio_d2_80 = _Kd80(2, _t80) / (_a0_80[2] * _t80**(-0.5))   # -> 1
+
+# Special value zeta_int(0) = sum_d zeta_d(0), using zeta_d(0) = -d/2 (T14).
+# = -(sum_d d)/2 = -(2+3+4+5+6+10)/2 = -15. The coincidence with the
+# 15-particle count is via sum_d d = 30 (total active sector dimension);
+# treat as ❓, not a derived equality (the 15 selection is T0.5, not zeta).
+_zeta_int_0_80 = sum(-d / 2.0 for d in _D80)          # = -15.0
+_sum_d_80 = sum(_D80)                                  # = 30
+
+
+# =============================================================================
+# STEP 81 -- d=6 BOUND-PROBLEM SO(3) MULTIPLICITIES: the nucleus-anchored
+#            observable-coordinate rotation SO(3) c SO(6) ~ SU(4)
+# =============================================================================
+# (Part 11 §6.4; Part 8 §14.3.)
+#
+# This is the BOUND-electron branch of STEP 82: an SO(3) angular momentum l
+# exists only once an external d=3 object (the nucleus) breaks
+# SO(6) -> SO(3)_obs x SO(3)_hid (Part 8 §14.2: "the split is anchored by the
+# nucleus, not the electron"). The free mode itself carries no intrinsic
+# SO(3) -- it is the SO(6)~SU(4) (0,m,0) harmonic tower (STEP 82). Here the
+# SO(3) that defines l is the rotation of the 3 OBSERVABLE spatial
+# coordinates (the d=3 marginal, Part 11 §6.1), embedded SO(3) c SO(6).
+# Split R^6 = R^3_obs (+) R^3_hidden; the isotropic oscillator factorizes,
+# level N = N_obs + N_hid. The 3D oscillator at level N_obs carries each
+# l in {N_obs, N_obs-2, ..., 1 or 0} once; the hidden R^3 at level N_hid
+# contributes C(N_hid+2,2) SO(3)_obs-scalar states as multiplicity. Hence
+#   m(l, N) = sum_{N_obs = l, l+2, ..., <= N} C(N - N_obs + 2, 2).
+# Per level this reproduces C(N+5,5) exactly (verified), and the CUMULATIVE
+# mode n (levels 0..n-1, Thm S1) reproduces S(n,6) = C(n+5,6) exactly:
+#   sum_l (2l+1) M_n(l) = S(n,6),  M_n(l) = sum_{N=l}^{n-1} m(l,N).
+# This is the embedding that works: observable-rotation-natural AND it
+# matches the mode dimension exactly (electron n=13 -> 18564; muon n=35 ->
+# 3838380). It avoids the non-regular-torus 0/0 of the SU(4) Weyl formula
+# (no character formula needed) and resolves the "Sym^n != S(n,d)" mismatch:
+# S(n,d) is the CUMULATIVE count, not Sym^n. l=0 has nonzero multiplicity
+# (M_13(0)=1036) -> l=0 PRESENT, consistent with the §6.4 contact correction.
+
+def _mlN81(l, N):
+    t = 0
+    no = l
+    while no <= N:
+        t += math.comb(N - no + 2, 2)
+        no += 2
+    return t
+
+_Me81 = {l: sum(_mlN81(l, N) for N in range(l, 13)) for l in range(0, 13)}
+_tot_e81 = sum((2*l + 1) * _Me81[l] for l in range(0, 13))    # = 18564
+_tot_mu81 = sum((2*l + 1) * sum(_mlN81(l, N) for N in range(l, 35))
+                for l in range(0, 35))                         # = 3838380
+
+
+# =============================================================================
+# STEP 82 -- d=6 FREE-MODE CLASSIFICATION UNDER THE SECTOR ROTATION GROUP
+#            SO(6) ~ Spin(6) ~ SU(4): NO INTRINSIC SO(3) (frame-free)
+# =============================================================================
+# (Part 8 section 14.2; Appendix A section 35.)
+#
+# The d=6 sector space is flat R^6 (the CP^3 label is the LOCAL symmetry of
+# the potential minimum near r=0, not the global topology -- CLAUDE.md). The
+# count S(n,6) = C(n+5,6) is the R^6 isotropic-oscillator count: level N holds
+# the degree-N homogeneous polynomials in 6 real vars, dim C(N+5,5); mode n is
+# the cumulative count over levels 0..n-1 (Thm S1, hockey stick).
+#
+# The geometric symmetry of a flat R^6 sector is the rotation group
+# SO(6) ~ Spin(6) ~ SU(4) -- the same SU(4) named as the CP^3 isometry in
+# section 14.2. A free electron marks out NO three of its six dimensions
+# (section 14.2), so the free mode carries SU(4) labels, not an l. The
+# frame-free content is each level decomposed into SO(6) harmonics:
+#   Sym^N(R^6) = (+)_k H_{N-2k},  H_m = sym. traceless rank-m SO(6) tensor
+#                                     = S^5 harmonic = SU(4) irrep (0,m,0).
+#   dim H_m = C(m+5,5) - C(m+3,5)   (m=1: vector 6; m=2: 20'; m=3: 50; ...).
+# Multiplicity of H_m in mode n = #{N in 0..n-1 : N >= m, N = m (mod 2)}.
+# Verified: sum_m mult(m,n) dim H_m = S(n,6) exactly for all n (electron
+# n=13 -> 18564 from the m=0..12 tower; muon n=35 -> S(35,6)).
+#
+# Contact/invariant component: the SO(6) SINGLET is H_0 (dim 1), present iff
+# N = n-1 is even iff n is ODD. This is the frame-free content behind the
+# documents' "l=0 contact present iff n odd" (Part 7 section 1.2; Part 11
+# section 6.4): "l=0" there names the rotationally invariant contact harmonic
+# = the SO(6) singlet, not an SO(3) label.
+#
+# An SO(3) l exists only when an external d=3 object (the nucleus) breaks
+# SO(6) -> SO(3)_obs x SO(3)_hid in the BOUND problem (STEP 81, the
+# nucleus-anchored branch). The STEP 66 parity-N list is instead the
+# holomorphic SU(4)>SU(3)>SO(3) embedding. The two SO(3) pictures differ
+# (STEP 81 carries mixed-parity l with l=0 for every n; STEP 66 carries
+# parity-N l) -- which is the proof that no SO(3) is intrinsic to the free
+# mode. 18564 is the (0,m,0) S^5 tower sum, NOT a compact-CP^3 (a,0,a)
+# Laplacian eigenspace (15,84,300,825,1911,...): the flat sector uses the
+# R^6/S^5 harmonics, not the compact CP^3 spectrum.
+
+def _Hdim82(m):
+    """dim of the sym. traceless rank-m SO(6) tensor (S^5 harmonic)."""
+    return math.comb(m + 5, 5) - math.comb(m + 3, 5)
+
+def _mult82(m, n):
+    """# of levels N in 0..n-1 with N >= m and N == m (mod 2)."""
+    return 0 if m > n - 1 else (n - 1 - m) // 2 + 1
+
+_so6_e82 = {m: _mult82(m, n_e) for m in range(0, n_e)}
+_tot_e82 = sum(_mult82(m, n_e) * _Hdim82(m) for m in range(0, n_e))
+_tot_mu82 = sum(_mult82(m, n_mu) * _Hdim82(m) for m in range(0, n_mu))
+_singlet_present82 = (n_e % 2 == 1)        # SO(6) singlet H_0 iff n odd
+
+
+# =========================================================================
+# STEP 83 -- 6D PROBE: e-e SCATTERING, THE HIDDEN-COORDINATE MOMENTUM
+# CHANNEL (falsifiable; Part 6; Appendix A s36)
+#   The electron is a d=6 object -- six equal macroscopic dimensions, none
+#   special (Part 1 ontology). Two electrons scatter conserving 6-momentum;
+#   a d=3 detector resolves only 3 of the 6 momentum components. A 3D source
+#   prepares the beam with momentum in observable coords alone
+#   (P_4=P_5=P_6=0; Part 1 sec 3h-3i; the centroid is free, E^2=|P|^2+m^2,
+#   with P a 6-vector).
+#   Long-range e-e EM is the d=2 zero mode on shared OBSERVABLE coords:
+#   uniform in the hidden coords, so the projection theorem (Part 3 sec
+#   0.8a) collapses it to ordinary 3D Moller -- no deviation. The short-
+#   range kernel contact (xi.xi')^2, 6D range L_6 (STEP 59/60), acts on all
+#   6 shared coords; the projection theorem does NOT apply, because the
+#   probe is a localized 6D electron, not a uniform 3D source. So the
+#   relative momentum can deflect into the hidden coords 4,5,6.
+# KINEMATIC FACTOR (exact, geometric): in the 6D CM the incoming relative
+#   momentum k lies along observable khat; the outgoing k' = k cos(th) khat
+#   + k sin(th) nhat, with nhat uniform on S^4 (the 5-dim space perp to
+#   khat = 2 observable + 3 hidden). Hence <|nhat_hidden|^2> = 3/5: that
+#   fraction of the transverse transfer is invisible, and per electron the
+#   observer reconstructs m_app^2 = m^2 + |p_hidden|^2 (missing momentum).
+#   Equal-and-opposite hidden momenta keep total observable momentum
+#   conserved.
+# THRESHOLD: reaching R=L_6 against Coulomb needs CM rel. KE >=
+#   alpha*hbarc/L_6.
+# RATE: sigma_contact <~ pi L_6^2 (flat in E; Moller falls ~1/E^2) times an
+#   open hidden-overlap factor f_hid = exp(-dX^2/(4 L_6^2)) set by where 3D
+#   matter sits in coords 4,5,6 (the open structural piece). The signature
+#   is missing momentum / beam diffusion, NOT excess wide-angle scattering,
+#   so e-e compositeness limits do not bound it directly.
+_hbarc83   = 197.3269                      # MeV fm
+_L6_83     = 1.414                         # fm (e-e contact range, STEP 59/60)
+_hidfrac83 = 3.0 / 5.0                     # <|nhat_hidden|^2>, 6D elastic
+_Ethr83    = alpha_em * _hbarc83 / _L6_83  # MeV, CM rel. KE to reach L_6
+_sig83_fm2 = math.pi * _L6_83**2           # fm^2, contact upper scale
+_sig83_mb  = _sig83_fm2 * 10.0             # mb (1 fm^2 = 10 mb)
+
+
+# STEP 84 -- 6D PROBE f_hid: HIDDEN-COORDINATE OVERLAP FACTOR
+#   (Appendix A s36 addendum; resolves "where 3D matter sits in 4,5,6")
+#   The d=6 electron has a hidden-coord profile of width L_6 = lam_6^{-1/4}.
+#   Two electrons separated by dX in coords 4,5,6 overlap (amplitude) as
+#       f_hid(dX) = exp(-dX^2 / (4 L_6^2))      (exact Gaussian overlap)
+#   The hidden CENTROID is a free translational zero mode: no d<=4 lab
+#   field localizes coords 4,5,6 (e-e / e-nucleus EM is the d=2 zero mode
+#   on the observable coords, uniform in 4,5,6; Marginal Exactness), so by
+#   "bound within / free without" (STEP 33) its rest state is UNIFORM.
+#   Averaged over uniform centroids in a hidden extent L_hid >> L_6:
+#       <f_hid> = (4 pi L_6^2)^{3/2} / L_hid^3   ~ (L_6/L_hid)^3 -> 0.
+#   So f_hid is a hidden-VOLUME suppression, zero in the delocalized
+#   (rest) limit -- structurally explaining non-observation. The single
+#   open number is L_hid (cosmological hidden clustering; gravity is the
+#   only force acting in all coords that could make it finite).
+_g66_84   = 1.0 / n_strange                 # = 1/4 (d=6 self-coupling)
+_lam6_84  = (_g66_84 / 2.0) ** (2.0 / 3.0)  # = 1/4
+_L6sec_84 = _lam6_84 ** (-0.25)             # = 4^{1/4} = sqrt(2), sector units
+def _fhid_84(dX, L):                         # amplitude overlap
+    return math.exp(-dX * dX / (4.0 * L * L))
+def _fhid_avg_84(L_hid, L):                  # uniform-centroid volume average
+    return (4.0 * math.pi * L * L) ** 1.5 / L_hid ** 3
+_fhid_demo_84 = [(r, _fhid_84(r * _L6sec_84, _L6sec_84)) for r in (0, 1, 2)]
+_fhid_vol_84  = [(s, _fhid_avg_84(s * _L6sec_84, _L6sec_84)) for s in (5, 100)]
+
+
+# STEP 85 -- PRE-PRISM FOUR-WAVE LEVEL BALANCE; THE PRISM FREEZES THE TOWER
+#   (Appendix A s22 addendum; the late-prism Layer-1 -> Layer-2 bridge)
+#   The kernel four-wave term couples modes by index: n_i+n_j = n_k+n_l.
+#   IDENTITY (pure combinatorics): with the harmonic oscillator level
+#   N = n-1 (pre-prism, common omega), index conservation is EXACTLY
+#   level (energy) conservation -- the four (-1) zero-points cancel:
+#       n_i+n_j = n_k+n_l   <=>   N_i+N_j = N_k+N_l.
+#   So pre-prism every index-resonant four-wave is energy ON-shell; the
+#   additive index tower is a harmonic resonance network. The PRISM is the
+#   nonlinear scale-differentiating map N -> S(n,d)*m_scale_d; it throws
+#   the network OFF-shell (cross-sector detuning up to ~1e7), FREEZING the
+#   integer tower -- a dynamical origin of even-level stability (T0.5).
+#   On-shell-ness is generic to all index-conserving four-wave, so it does
+#   NOT by itself select WHICH modes: firing-as-a-set stays open (MC-4).
+def _lvlbal_85(ni, nj, nk, nl):              # index <=> level identity
+    return (ni + nj == nk + nl) == ((ni-1)+(nj-1) == (nk-1)+(nl-1))
+# verify the identity on a grid (always True)
+_lvlbal_ok_85 = all(
+    _lvlbal_85(a, b, c, a + b - c)
+    for a in range(1, 25) for b in range(1, 25) for c in range(1, 25)
+    if a + b - c >= 1)
+# nu3 = nu1 + nu2 - up : index-conserving four-wave, 10+15 = 22+3
+_pre_dE_85  = (10-1)+(15-1) - (22-1) - (3-1)          # = 0 (on-shell pre-prism)
+_post_dE_85 = (S(10,5)+S(15,5)-S(22,5))*m_scale5 - S(3,4)*m_scale4   # MeV
+_freeze_85  = abs(_post_dE_85) / (S(3,4)*m_scale4)    # off-shell ratio
+# PHOTON-INCLUSIVE EXTENSION: the cross-sector 'condensate-assisted
+# 3-waves' of STEP 1 are exact 4-waves with the photon (n=0, N=-1).
+# n_gamma=0 => N_gamma=-1, supplying the -1 level missing in 3-waves.
+# 4-wave: (n_a,d_a)+(n_b,d_b) = (n_out,d_out)+(0,d=2)
+#   index: n_a+n_b = n_out+0 = n_out  (same as 3-wave sum)
+#   level: (n_a-1)+(n_b-1) = (n_out-1)+(-1) => n_a+n_b = n_out (same)
+# So both conditions reduce to n_out=n_a+n_b -- exact but NOT selective
+# (holds for ANY input pair). Records the balancing mode correctly.
+_photo_85 = [
+    ('e',   10,  3, 13),    # nu1+up    = e+gamma
+    ('mu',  20, 15, 35),    # charm+nu2 = mu+gamma
+    ('tau', 22,  1, 23),    # nu3+down  = tau+gamma
+]
+_photo_ok_85 = all(
+    (na + nb == nout)
+    and ((na-1)+(nb-1) == (nout-1)+(-1))
+    for _, na, nb, nout in _photo_85)
 
 
 # =========================================================================
@@ -7152,8 +7432,9 @@ for _nm66p, (_n66p, _d66p, _lv66p, _nl66p) in _l_table66.items():
     print(f"  {_nm66p:>5} {_n66p:>4} {_d66p:>3}  {_lstr:<40}"
           f" {_nl66p:>8}")
 print()
-print("  SU(4)->SO(3) multiplicity m(l): open (representation-theory")
-print("  derivation needed; S(n,d) != dim Sym^n(R^d). ASK FEDGE.)")
+print("  free mode = SO(6)~SU(4) (0,m,0) harmonic tower (STEP 82),")
+print("  no intrinsic SO(3); l-list above is the holomorphic embedding,")
+print("  the nucleus-anchored SO(3)_obs branch is STEP 81.")
 
 
 # STEP 67 -- OUTPUT: E1 ELECTRIC-DIPOLE SELECTION RULES
@@ -7446,9 +7727,10 @@ print(f"  (iii) mixed obs x sector: orbital-DEPENDENT, spread = "
       f"{_mixed_spread77:.2e}")
 print(f"        scale (L6/a0)^2 = {_mixed_scale77:.2e} -> the §6.4 next-")
 print("        order residual ~1e-19 hartree (🔶), nine orders < Lamb shift")
-print("=> 4 dark d-states do NOT shift fine structure; leading effect")
-print("   exactly zero (parity); residual protected by selection rule, not")
-print("   only smallness. Explicit mixed value blocked on STEP 66.")
+print("=> 4 dark d-states do NOT shift fine structure; leading contact")
+print("   bounded at §6.3 level (not parity-zero: electron has l=0, §6.4);")
+print("   residual protected by selection rule, not only smallness;")
+print("   mixed value now computable via STEP 81 multiplicities.")
 
 
 # STEP 78 -- OUTPUT: d=2 HOPF-BUNDLE FIRST CHERN NUMBER
@@ -7487,6 +7769,129 @@ print(f"   enhancement g34_eff/g34 = 125/{_g34_79:.2f} = {_enh79:.2f}"
       f" (not an O(1) baryon factor)")
 print("Status 🔶: relocates the l=1 admixture; g_A/mu/kappa-Delta/deuteron")
 print("tensor remain blocked on the collective d=3(+)d=4 mode (Part 8 §11).")
+
+
+# ==========================================================================
+# STEP 80 -- OUTPUT: SPECTRAL-TRIPLE SUMMABILITY (Part 9 T0 items 2, 3, 7)
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 80: SPECTRAL TRIPLE -- SUMMABILITY & SPECTRAL DIM ===")
+print("=" * 70)
+print("internal |D| eigenvalues = masses m_scale_d * S(n,d); S ~ n^d/d!")
+print(f"{'d':>3} {'1/d (abscissa)':>15} {'a0_d=G(1+1/d)(d!)^(1/d)':>26}")
+for _d in _D80:
+    print(f"{_d:>3} {_absc80[_d]:>15.4f} {_a0_80[_d]:>26.4f}")
+print(f"full internal zeta abscissa = max_d 1/d = {_ds80:.3f} (d=2)")
+print(f"  => p-summable iff p > {_p_summ80:.3f};  spectral dim d_s ="
+      f" {_ds80:.3f}")
+print(f"  K_2(t)/(a0 t^-1/2) at t=1e-6 = {_ratio_d2_80:.5f} (-> 1)")
+print("  compact resolvent: internal YES (discrete, S->inf, finite sum);")
+print("  full D NO (spacetime continuum). Items 1,4,5,6 not addressed.")
+print("  d_s=1/2 is the mass-operator summability dim, NOT geometric.")
+print(f"  zeta_int(0) = sum_d(-d/2) = {_zeta_int_0_80:.1f}"
+      f"  (sum_d d = {_sum_d_80}; '=15' coincidence ❓)")
+
+
+# ==========================================================================
+# STEP 81 -- OUTPUT: d=6 SO(3) MULTIPLICITIES (observable SO(3) c SO(6))
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 81: d=6 BOUND-PROBLEM SO(3) MULTIPLICITIES ===")
+print("=" * 70)
+print("nucleus-anchored SO(3)_obs = observable-coord rotation c SO(6)")
+print("(free mode has no intrinsic SO(3); see STEP 82). R^6=R^3_obs(+)R^3_hid")
+print("m(l,N)=sum_{No=l,l+2,..<=N} C(N-No+2,2)")
+print("electron n=13 (cumulative levels 0..12) M(l):")
+for _l81 in range(0, 13):
+    print(f"   l={_l81:>2}: M={_Me81[_l81]:>5}"
+          f"  (2l+1)M={(2*_l81 + 1)*_Me81[_l81]:>6}")
+print(f"   total sum_l(2l+1)M(l) = {_tot_e81} = S(13,6) (EXACT)")
+print(f"   M(0)={_Me81[0]} > 0 -> l=0 PRESENT (contact nonzero, §6.4)")
+print(f"   muon cross-check: total = {_tot_mu81} = S(35,6) (EXACT)")
+
+
+# ==========================================================================
+# STEP 82 -- OUTPUT: d=6 FREE-MODE SO(6)~SU(4) CLASSIFICATION (frame-free)
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 82: d=6 FREE MODE -- SO(6)~SU(4) CONTENT (no SO(3)) ===")
+print("=" * 70)
+print("flat R^6 sector: rotation group SO(6)~Spin(6)~SU(4); free mode")
+print("carries SU(4) labels, NOT an l. H_m = (0,m,0) = S^5 harmonic.")
+print("electron n=13: SO(6) harmonic tower (m, mult, dim, mult*dim):")
+for _m82 in range(0, n_e):
+    _mu82 = _mult82(_m82, n_e)
+    print(f"   H_{_m82:<2} mult={_mu82}  dim={_Hdim82(_m82):>5}"
+          f"  -> {_mu82*_Hdim82(_m82):>6}")
+print(f"   total = {_tot_e82} = S(13,6) (EXACT)")
+print(f"   muon n=35 total = {_tot_mu82} = S(35,6) (EXACT)")
+print(f"SO(6) singlet H_0 (contact) present iff n odd: n_e=13 ->"
+      f" {_singlet_present82}")
+print("(STEP 66/81 SO(3) l-lists are nucleus-anchored bound-problem")
+print(" branches; no SO(3) is intrinsic to the free mode.)")
+
+
+# ==========================================================================
+# STEP 83 -- OUTPUT: 6D PROBE, e-e HIDDEN-COORDINATE MOMENTUM CHANNEL
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 83: 6D PROBE -- e-e HIDDEN-COORDINATE MOMENTUM CHANNEL ===")
+print("=" * 70)
+print("electron = d=6 object; two e- scatter conserving 6-momentum;")
+print("a d=3 detector sees only 3 of the 6 momentum components.")
+print(f"hidden fraction of transverse transfer <|n_hid|^2> = 3/5"
+      f" = {_hidfrac83:.3f}")
+print(f"Coulomb threshold to reach L_6 = {_L6_83} fm:"
+      f" E_cm,rel >= {_Ethr83:.3f} MeV")
+print(f"contact scale sigma <~ pi L_6^2 = {_sig83_fm2:.2f} fm^2"
+      f" = {_sig83_mb:.1f} mb (flat in E)")
+print("times open hidden-overlap factor f_hid in [0,1].")
+print("signature: missing momentum / beam diffusion, NOT excess")
+print("wide-angle scattering (e-e compositeness limits do not bound it).")
+
+
+# ==========================================================================
+# STEP 84 -- OUTPUT: 6D PROBE f_hid HIDDEN-COORDINATE OVERLAP FACTOR
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 84: 6D PROBE f_hid -- HIDDEN-COORDINATE OVERLAP ===")
+print("=" * 70)
+print(f"L_6 = lam_6^(-1/4) = {_L6sec_84:.6f} (sector units; = 1.414 fm)")
+print("amplitude overlap f_hid(dX) = exp(-dX^2 / 4 L_6^2):")
+for _r84, _v84 in _fhid_demo_84:
+    print(f"  dX = {_r84} L_6:  f_hid = {_v84:.4f}")
+print("hidden centroid = free zero mode (no d<=4 field localizes 4,5,6;")
+print("Marginal Exactness) -> rest state uniform (STEP 33), so f_hid is a")
+print("hidden-VOLUME overlap, <f_hid> = (4 pi L_6^2)^{3/2} / L_hid^3:")
+for _s84, _v84 in _fhid_vol_84:
+    print(f"  L_hid = {_s84} L_6:  <f_hid> = {_v84:.3e}")
+print("=> f_hid -> 0 for delocalized (rest) hidden centroids; the channel")
+print("is volume-suppressed. Open number: L_hid (cosmological clustering).")
+
+
+# ==========================================================================
+# STEP 85 -- OUTPUT: PRE-PRISM FOUR-WAVE LEVEL BALANCE; PRISM FREEZING
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 85: PRE-PRISM FOUR-WAVE BALANCE; THE PRISM FREEZES ===")
+print("=" * 70)
+print("identity n_i+n_j=n_k+n_l <=> N_i+N_j=N_k+N_l (N=n-1) holds on grid:"
+      f" {_lvlbal_ok_85}")
+print("edge nu3 = nu1+nu2-up (index 10+15 = 22+3):")
+print(f"  pre-prism detuning (E=N):           dE = {_pre_dE_85} (on-shell)")
+print(f"  post-prism detuning (E=S*m_scale):  dE = {_post_dE_85:+.3e} MeV")
+print(f"  off-shell ratio post-prism:         {_freeze_85:.2e}")
+print("=> pre-prism the additive index tower is an ON-shell harmonic")
+print("resonance network; the prism (N -> S*m_scale_d) detunes it and")
+print("FREEZES the tower (even-level stability). Selection of WHICH modes")
+print("is generic to on-shell four-wave -> firing-as-a-set open (MC-4).")
+print()
+print("photon-inclusive 4-waves (STEP 1 cross-sector composites):")
+print("  photon n=0, N=-1 balances the -1 level offset in each 3-wave.")
+print("  e  : nu1(10)+up(3)    = e(13)+gamma(0):   n ok  N 9+2=12-1")
+print("  mu : charm(20)+nu2(15)= mu(35)+gamma(0):  n ok  N 19+14=34-1")
+print("  tau: nu3(22)+down(1)  = tau(23)+gamma(0): n ok  N 21+0=22-1")
+print(f"  all exact: {_photo_ok_85}  (not selective: n_out=n_a+n_b is generic)")
 
 
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")

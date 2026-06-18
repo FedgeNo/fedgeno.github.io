@@ -48,7 +48,7 @@ Even-level non-$\Sigma_{\rm pairs}$ modes have nonzero off-diagonal matrix eleme
 
 The $\Sigma_{\rm pairs}$ co-fixed-point modes are stable because the most dangerous (nearest-gap) same-sector channels are the odd-level neighbours, killed exactly by Mechanism 1 above; the remaining reachable even-$l$ neighbours are gap-dominated. The full-tower BdG check over all 15 modes confirms this: the worst-case ratio $|\Delta|/|\epsilon|$ is $0.148$ (attained by the seed $n=1$, $d=3$) and every reachable neighbour of every $\Sigma_{\rm pairs}$ mode has ratio $<1$, placing $\sigma(L_{n,d})$ on the real axis for all 15. (`files/idwt.py` STEP 36.)
 
-Non-$\Sigma_{\rm pairs}$ even-level modes are not BdG-unstable (their gaps also exceed their couplings) — they are excluded by dephasing, not exponential growth. The amplitude of an even-level non-member disperses across the mode tower with no common revival period, because the cross-sector mass scales $m_{\rm scale,d}$ are incommensurate: every cross-sector ratio $m_{\rm scale,d}/m_{\rm scale,d'}$ is irrational except $m_{\rm scale,6}/m_{\rm scale,10} = 1$ (the μ–τ symmetric pair). This is a proved lemma — verified exactly by symbolic algebra over the algebraic definitions of the scales (`files/idwt.py` STEP 40; `claude/explore_scale_incommensurability.py`; Appendix A §15). The incommensurability removes any common revival period for the 14 pairs excluding the μ–τ pair, so the time-averaged return amplitude vanishes (Wiener). The active sectors $d\le 10$ are a countable, discrete spectrum, however, so the survival amplitude is almost-periodic and recurs (Poincaré): the time-average is zero, but the pointwise amplitude returns, bounded at $\lesssim 4\times10^{-4}$ (Appendix A §22). Exact non-return requires the reduced spectral measure to be continuous, which a discrete spectrum cannot supply — and the $d>10$ free dimensions cannot supply it either: the kernel has support only on sector coordinates $1..10$ (coordinate $j$ appears in the $(d,d')$ term iff $j\le\min(d,d')$), so translations of the coordinates beyond 10 are exact symmetries of the action, outer momentum is conserved, and an outer-uniform mode (Part 1 §3i) has exactly zero coupling width into that continuum at all orders (✅, `files/idwt.py` STEP 64; Appendix A §22). The only absolutely continuous spectrum dynamically coupled to sector excitations is the spacetime momentum of the propagation factor: exact irreversible loss, where it exists, is spatial radiation — kernel redistribution of the excitation into lighter linked configurations carrying continuous spatial momentum. Every mode with $n\ge3$ has a parity-allowed downward link of this kind (STEP 64), so the radiation channel is open for members and non-members alike; the even-level exclusion is the quantitative persistence statement the status 🔵 records, not an exact theorem.
+Non-$\Sigma_{\rm pairs}$ even-level modes are not BdG-unstable (their gaps also exceed their couplings) — they are excluded by dephasing, not exponential growth. The amplitude of an even-level non-member disperses across the mode tower with no common revival period, because the cross-sector mass scales $m_{\rm scale,d}$ are incommensurate: every cross-sector ratio $m_{\rm scale,d}/m_{\rm scale,d'}$ is irrational except $m_{\rm scale,6}/m_{\rm scale,10} = 1$ (the μ–τ symmetric pair). This is a proved lemma — verified exactly by symbolic algebra over the algebraic definitions of the scales (`files/idwt.py` STEP 40; Appendix A §15). The incommensurability removes any common revival period for the 14 pairs excluding the μ–τ pair, so the time-averaged return amplitude vanishes (Wiener). The active sectors $d\le 10$ are a countable, discrete spectrum, however, so the survival amplitude is almost-periodic and recurs (Poincaré): the time-average is zero, but the pointwise amplitude returns, bounded at $\lesssim 4\times10^{-4}$ (Appendix A §22). Exact non-return requires the reduced spectral measure to be continuous, which a discrete spectrum cannot supply — and the $d>10$ free dimensions cannot supply it either: the kernel has support only on sector coordinates $1..10$ (coordinate $j$ appears in the $(d,d')$ term iff $j\le\min(d,d')$), so translations of the coordinates beyond 10 are exact symmetries of the action, outer momentum is conserved, and an outer-uniform mode (Part 1 §3i) has exactly zero coupling width into that continuum at all orders (✅, `files/idwt.py` STEP 64; Appendix A §22). The only absolutely continuous spectrum dynamically coupled to sector excitations is the spacetime momentum of the propagation factor: exact irreversible loss, where it exists, is spatial radiation — kernel redistribution of the excitation into lighter linked configurations carrying continuous spatial momentum. Every mode with $n\ge3$ has a parity-allowed downward link of this kind (STEP 64), so the radiation channel is open for members and non-members alike; the even-level exclusion is the quantitative persistence statement the status 🔵 records, not an exact theorem.
 
 **The dephasing cannot be sharpened to an exact cut.** The $l=0$ seed-coupling overlap of an even-level $d=3$ mode (radial number $n_r=(n-1)/2$) against the vacuum is the Laguerre transform $J(n_r,s)=\Gamma(n_r+\tfrac32)/n_r!\cdot(s-1)^{n_r}/s^{n_r+3/2}$, whose only zero in $s$ is $s=1$. The kernel fixes $s=3/2$, where the factor $(1/3)^{n_r}>0$ never vanishes. An exact cut within the reachable even-$l$ class does not exist under the $(\xi\cdot\xi')^2$ kernel. (`files/idwt.py` STEP 34; Appendix A §15.)
 
@@ -92,9 +92,11 @@ These raise the drive D_{16} by a factor of three, making the single-mode soluti
 m_b = √(S(16,3) × S(17,3)) × m_scale_3
     = √(816 × 969) × 4.702 ≈ 4,181 MeV
 ```
-PDG: 4,180 ± 10 MeV. Error: +0.02%.
+PDG: 4,183 ± 7 MeV. Error: −0.05%.
 
 The beat partner n=17 = k₀+1 = n_c−n_u = 20−3.
+
+**The two product-form quark sites. ⭐** The bottom beat site $k_0 = n_s^2 = 16$ and the top index $n_{\rm top} = N_c\,n_s\,N_f = 72$ have no solution to $S(n,d) = 16$ or $72$ (checked $d\le 11$, $n\le 200$). Among the six quarks they are the only two not given by a single $S(n,d)$ value — the other four are ($1,3,4,20$). Several non-quark indices are also not single $S$-values ($13,22,23$ for the leptons/neutrinos, $76,81,95$ for the bosons), but those are additive simplex sums and Vandermonde $g$-steps; $16$ and $72$ are instead products. That product character is why the bottom appears as a beat rather than a simplex mode and why the binomial restatement of the tower (Part 9 T0.5) reaches the top only through a $+1$ offset. Both are 3rd-generation quarks. Both are divisible by 8 — a consequence of $n_s = 4$ carrying the even factors ($16 = n_s^2$, $72 = N_c n_s N_f$ with $n_s N_f = 24$), an arithmetic observation about the factorizations and not a spinor selection rule, since no Clifford reality invariant singles out $n \equiv 0 \pmod 8$ (Appendix A §43).
 
 ### 1.3c g_{3,4} Effective Coupling at the Bifurcation 🔶
 
@@ -121,7 +123,7 @@ The formula beat(n,n+1) = √(S(n,3) × S(n+1,3)) × m_scale_3 produces a full t
 |--------|------------|---------------|-------|
 | 4, 5 | 124.4 | (no identification — pion is a collective excitation, absent from sector spectrum; §3d Part 5) | — |
 | 11, 12 | 1517.1 | mass consistent with f₂(1525); quantum numbers and decay channels not yet verified | −0.5% |
-| **16, 17** | **4181** | **b quark (4180)** | **+0.02%** |
+| **16, 17** | **4181** | **b quark (4183)** | **−0.05%** |
 
 ---
 
@@ -159,13 +161,13 @@ Full enumeration of the low-n modes and their masses. Co-fixed-point membership 
 
 The n=2 and n=3 d=3 modes are not co-fixed-points. They are not stable hadrons; they may appear as very short-lived colour-triplet resonances. No stable particles are predicted in the 15–50 MeV window beyond known pion sector states.
 
-**d=4 (Up-type quarks)** — m_scale_4 = 0.14510 MeV. Charm (k=3) and top (k=10) masses include the GTC correction (1−ε)^k, ε = 1/(280√7):
+**d=4 (Up-type quarks)** — m_scale_4 = 0.14510 MeV. Masses are quoted bare, m_scale_4 × S(n,4); the former (1−ε)^k correction is removed (fitted exponent, Part 2 §11). Charm and top overshoot PDG and are open residues, and the top index n=72 is a tier-2 input (origin open):
 
-| n | S(n,4) | Mass (MeV) | GTC k | Status |
-|---|--------|------------|-------|--------|
-| 3 | 15 | 2.177 | 0 | **Occupied (up)** |
-| 20 | 8,855 | 1,279.7 | 3 | **Occupied (charm)** |
-| 72 | 1,215,450 | 174,000 | 10 | **Occupied (top)** |
+| n | S(n,4) | Mass (MeV) | PDG | Status |
+|---|--------|------------|-----|--------|
+| 3 | 15 | 2.177 | 2.16 (+0.8%) | **Occupied (up)** |
+| 20 | 8,855 | 1,284.9 | 1273.0 (+2.6σ) | **Occupied (charm)** 🔶 |
+| 72 | 1,215,450 | 176,365 | 172570 (+13σ) | **Occupied (top)** 🔶 |
 
 **d=5 (Neutrinos)** — m_scale_5 = 7.429 × 10⁻¹³ MeV:
 

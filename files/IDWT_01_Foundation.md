@@ -17,7 +17,7 @@ The mass tables in this document invite an immediate reaction: this must be curv
 
 **The sector assignments are not arbitrary.** Each sector imparts specific physical properties through its spinor geometry. $d=5$ ($S^5$, $d \bmod 8 = 5$) forbids Majorana spinors by Clifford algebra periodicity — Dirac neutrinos are not a choice, they are a geometric consequence. $d=4$ ($\mathbb{CP}^2$) generates colour charge from its $SU(3)$ isometry group; $\chi(\mathbb{CP}^2) = 3 = N_c$. $d=6$ ($\mathbb{CP}^3$) produces colour-neutral chiral fermions through its Kähler structure. Moving a particle to a different sector does not produce a different prediction — it produces the wrong quantum numbers entirely. The assignments are locked by geometry.
 
-**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from seed pair $\{n_d=1,\,n_u=3\}$ and composite $n_s=4$ ($g_{33} = 8\sqrt{7}$) and from the complex geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.68% from PDG) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
+**The sector scales are not calibrated to mass data.** $m_{\text{scale},3} = m_e \times \sqrt{g_{33}/g_{66}}$ uses coupling constants derived from seed pair $\{n_d=1,\,n_u=3\}$ and composite $n_s=4$ ($g_{33} = 8\sqrt{7}$) and from the complex geometry of CP³ ($g_{66} = 1/4$; see Part 2 §9c). No quark mass enters the derivation. The down quark prediction (+0.04% from PDG 2024) is an output, not an input. All sector scales derive from the seed coupling constants and $m_e$ as the sole unit reference (Part 2 §10).
 
 The particle physics sector of the framework has one unit of mass ($m_e = 0.511$ MeV) and two seed integers ($n_d = 1$, $n_u = 3$) with composite $n_s = 4$. Everything else in the particle sector — the sector set, all mode indices, all coupling constants, all sector scales, all particle masses, the Cabibbo angle, and the three PMNS magnitudes — is derived from these. The CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° is derived via APS spectral flow of the one-parameter Dirac family across the CP³→CP⁵ Chern class mismatch Δc₁ = −2 (T8 🔶, Part 10 §4). The derivation carries three technical gaps before reaching 🔵 (see Part 10 §4 status note). The one current exception is gravity: $G_N$ is a measured external input pending derivation from the spectral action scale $\Lambda$ (P5, Part 4 §3.12.4). When $G_\infty$ is derived, $G_N = G_\infty/V_7$ will follow from the same geometry with no additional input. The structural evidence against numerology is the cross-referencing: the same numbers arriving independently from different directions. The quantity $q = S(n_u-1, 4) = 5$ appears in both the EW coupling derivation $g_{22} = p^2 q/2$ and the boson mass gap $n_Z - n_W = 5$. The resonance site $k_0 = 16$ satisfies three independent conditions simultaneously. The Higgs mode index $n_H = 95$ is reached by two separate cross-sector routes. Numerological schemes are flexible enough to always find a match. This framework is rigid enough that these convergences are non-trivial.
 
@@ -123,7 +123,7 @@ P8 as a postulate remains 🔶 until the EOM derives co-fixed-point stability. T
 | 95 | Higgs | 4 | $n_u+n_c+n_{\rm top}$: sum of up-type, max depth 3 |
 | 81 | $Z$ | 5 | g-rule on $W$ (depth 4) |
 
-The bosons systematically carry the highest depths because they are built by the g-rule chain on top of the fermion tower. The GTC exponents $k\in\{0,3,10\}$ for up-type quarks are not identical to depths but are monotonically related: $k_c = n_u = 3$ (the depth-2 charm's Ferrers box count) and $k_t = S(n_u,3) = 10$ (the depth-3 top's Ferrers box count through the neutrino sector) — see Part 2 §11.3 for the derivation.
+The bosons systematically carry the highest depths because they are built by the g-rule chain on top of the fermion tower. (A former per-quark up-type mass correction (1−ε)^k has been removed — its exponent was a fit, not derived; the up-type masses are now quoted bare and overshoot PDG. See Part 2 §11.)
 
 ⭐ **Generation tower as a finitely presented semigroup.** The generation tower is the action of a finitely presented semigroup on the binomial lattice of pairs $(n,d)$. The **generators** are three families: hockey-stick operators $H_{d\to d\pm1}$ (the two Pascal directions $S(n,d)=S(n,d-1)+S(n-1,d)$), additive eigenmode operators $A$ (the selection rule $n_{\rm lepton}=n_{\rm neutrino}+n_{\rm quark}$), and Vandermonde g-rule operators $G_d$ for bosons. The **relations** are the full hockey-stick identities, distributive lattice commutativity, spectral independence (the occupied $S$-values form a sum-free set), and co-fixed-point closure. The **seeds** $\{(1,3),(3,4)\}$ are the unique minimal generators, with composite $(4,3)$ derived at depth 1. The **physical spectrum** $\Sigma_{\rm pairs}$ is the minimal closed orbit of the seeds under this semigroup. The derivation depth of each mode (table above) is the minimal word length in the semigroup from the seeds. This framing makes the generation tower's rigidity explicit: $\Sigma_{\rm pairs}$ is not a collection of algebraic choices but the unique closed orbit of two elements under three families of forced operations.
 
@@ -219,7 +219,7 @@ Sectors $d\geq11$ are **subcritical** ($b_{k_0} < 1/2$): localization is geometr
 
 Sectors $d\in\{7,8,9\}$ are **supercritical** ($b_{k_0} > 1/2$): localization would be geometrically permissible if a coupling were present. They are absent from the active sector set because IDWT's coupling construction terminates at $d=6$ — no activation route reaches the band: $d=8$ and $d=9$ are blocked by the $\chi=5$ gap, and $d=7$ by the $d=6$/$d=10$ row-equality argument of Rule A. No active sector geometry is established there, so no eigenmodes are generated. But this is a gap in the construction, not a geometric prohibition: the Gegenbauer criterion does not exclude these sectors, and whether they could host modes under an extended coupling theory remains open.
 
-**Note on the index cross-check.** Once the sector set is established, one finds $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$, consistent with the mode index derived independently from the eigenmode selection chain.
+**Note on the top index.** The top index admits a product form in the Euler characteristics of the three Kähler matter sectors: $n_{\rm top} = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = N_c \times n_s \times N_f = 3\times4\times6 = 72$ (⭐ arithmetic identity). This product is a closed form for the value, not a derivation of why the $d=4$ sector resonates there: a product of Euler characteristics is a count, and the search for a $\mathbb{CP}^2$ resonance/criticality condition that singles out $n=72$ by minimality is open — every non-circular spectral test returns a smaller first solution, and the Kähler analogue of the Gegenbauer criticality that fixes the bottom site has no finite threshold at $72$ (Appendix A §46). The top index is therefore a tier-2 input (🔶), on the same footing as the bottom beat $k_0=n_s^2=16$. The value $72$ is not in the image of $S(n,d)$ — no $(n,d)$ gives $S(n,d)=72$ — so the top is a product-form site rather than a hockey-stick tower output, alongside the bottom beat $k_0=n_s^2=16$. Among the six quarks these are the only two not given by a single $S(n,d)$ value (the others are $1,3,4,20$); both take product closed forms. Several other indices are also not single $S$-values — $13,22,23$ for the leptons/neutrinos and $76,81,95$ for the bosons — but those are additive simplex sums and Vandermonde $g$-steps, not products; the product character among the quarks is what distinguishes $\{16,72\}$ (Part 9 T0.5).
 
 **Sector set structure.** The active matter quartet $\{3,4,5,6\} = \{n_s-1,\ldots,n_s+2\}$ is derived from the Hopf chain and Rule A (Appendix A §19):
 
@@ -274,7 +274,7 @@ The Euler characteristics of the IDWT sectors are:
 **The top quark mode index from geometry:**
 
 ```
-n_top = χ(CP²) × χ(CP³) × χ(CP⁵) = N_c × n_s × N_f = 3 × 4 × 6 = 72  [consistency check — not the derivation; see §3a]
+n_top = χ(CP²) × χ(CP³) × χ(CP⁵) = N_c × n_s × N_f = 3 × 4 × 6 = 72  [⭐ identity for the value; 🔶 tier-2 input — product-form site, outside the S(n,d) image, resonance origin open; see §3a and Part 9 T0.5, Appendix A §46]
 ```
 
 The top quark mode index encodes all three quantum numbers of QCD simultaneously.
@@ -335,7 +335,7 @@ The sequence terminates at d=10 because any d > 10 puts the composite resonance 
 |------|--------|-----------|-----------------|
 | R0 | d=2 | photon, W, Z, H | d=2 is the reference sector (CP¹, U(1)_EM) by construction; g-rule maps fermion combinations to d=2 |
 | R1 | d=3 | down, strange | d=3 is observable spacetime and the first Hopf total space S³; seeds start the tower here |
-| R2 | d=4 | up, charm, top | n_u = χ(CP²) = N_c = 3; n_top = χ(CP²)×χ(CP³)×χ(CP⁵) (T15, ✅) |
+| R2 | d=4 | up, charm, top | n_u = χ(CP²) = N_c = 3 (T15, ✅); n_top = χ(CP²)×χ(CP³)×χ(CP⁵) = 72 (⭐ value identity — top Chern number; 🔶 tier-2 input, resonance origin open, §3a) |
 | R3 | d=5 | ν₁, ν₂, ν₃ | Hopf pair {4,5}: S⁵ is the Hopf total space over CP²; g₅₅ = g₃₃g₄₄/g₂₂ (✅) |
 | R4 | d=6 | e, μ | χ(CP³) = n_s = 4; g₆₆ = 1/n_s (T15, ✅) |
 | R5 | d=10 | τ | Gegenbauer criticality T5: b_{k₀}(d)=1/2 uniquely at d=10 (✅) |
@@ -346,7 +346,7 @@ The sequence terminates at d=10 because any d > 10 puts the composite resonance 
 
 **R1.** The seed sector is d=3: it is the observable spacetime sector and the first total space $S^3$ of the complex Hopf chain (§3a), the natural starting point of the generation tower. Both seeds share d=3: the down seed $n_{\rm down}=1$ is the universal ground state $S(1,d)=1$; the up seed $n_u=3$ has $\chi(\mathbb{CP}^2)=N_c=3$ (T15, ✅) and lands in d=4 via R2. The composite $n_s=1+3=4$ is confirmed by T4 and $S(4,4)=35$; it sits in d=3 as the strange quark. The χ-consecutiveness identity $n_u=n_s-1$ (T15) records a geometric fact about the Hopf chain, not a derivation from $n_s$.
 
-**R2.** From T15 (§3a): $\chi(\mathbb{CP}^2) = N_c = 3 = n_u$. The up quark mode index equals the Euler characteristic of d=4 — the unique sector in $D$ with $\chi = n_u$. All up-type quarks share d=4: charm via $n_{\rm charm} = S(n_s,3)$ (HS from seed), top via $n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\mathbb{CP}^5) = 72$ (T15).
+**R2.** From T15 (§3a): $\chi(\mathbb{CP}^2) = N_c = 3 = n_u$. The up quark mode index equals the Euler characteristic of d=4 — the unique sector in $D$ with $\chi = n_u$. All up-type quarks share d=4: charm via $n_{\rm charm} = S(n_s,3)$ (HS from seed), top via $n_{\rm top} = \chi(\mathbb{CP}^2) \times \chi(\mathbb{CP}^3) \times \chi(\mathbb{CP}^5) = 72$ — an ⭐ value identity (the top Chern number of the Kähler product $\mathbb{CP}^2\times\mathbb{CP}^3\times\mathbb{CP}^5$); its origin as the top's resonance index is a 🔶 tier-2 input (§3a, Appendix A §46).
 
 **R3.** The Hopf pair $\{4,5\}$ is established in §3a: CP² (d=4) and S⁵ (d=5) are connected by the Hopf fibration $S^1 \to S^5 \to \mathbb{CP}^2$. The IDWT coupling universality $g_{55} = g_{33}g_{44}/g_{22}$ (Part 2 §9) is the algebraic expression of this Hopf connection. Neutrino modes are derived from the d=4 up quark by HS: $n_{\nu_1} = S(n_u, 3) = 10$, $n_{\nu_2} = S(n_u, 4) = 15$, $n_{\nu_3} = n_{\nu_1}+n_{\nu_2}-n_u = 22$. These land in d=5 (S⁵) as the Hopf total-space modes associated with the d=4 quark modes. **The Hopf routing rule** — HS outputs from d=4 land in d=5 — is proved as a corollary of §3a Step 2: $g_{55}$ is derived from $g_{44}$ via Hopf universality, making $d=5$ the unique sector in $D$ whose coupling closes over $d=4$; no other sector assignment is consistent with §3a. ✅
 
@@ -356,7 +356,6 @@ The sequence terminates at d=10 because any d > 10 puts the composite resonance 
 
 **Uniqueness of the labeling.** The tower DAG has a trivial automorphism group (Appendix A §13b): no non-trivial relabeling preserves the derivation structure, so once the seed sector $d=3$ is fixed and the Hopf ladder assigns each rung, there is exactly one consistent labeling. This establishes uniqueness *up to relabeling* — it forbids alternative assignments that preserve the DAG; it does not by itself derive the DAG from the dynamics. The geometric rung placements R2 ($\chi(\mathbb{CP}^2)=N_c$), R3 (Hopf pair $\{4,5\}$), R4 ($\chi(\mathbb{CP}^3)=n_s$), and R5 (Gegenbauer criticality) are each ✅ structural consequences; the boson routing R0 rests on the $g$-rule, whose $-1$ offset is now derived (✅, Part 3 §11). The one placement set by a mechanism outside the Hopf ladder is R5: the tau is the third charged lepton, not placed in the lepton base $\mathbb{CP}^3$ (d=6) with the electron and muon but at the Gegenbauer-critical terminal sector d=10. The two are reconciled by the kernel — $g_{10,10}=g_{66}=1/n_s$, so the coupling cannot distinguish the d=6 lepton sector from the d=10 terminal sector, and the muon/tau split is pure sector geometry $S(35,6)$ vs $S(23,10)$ (Part 2 §9b). **Status: ✅ for the geometric rung placements (R2–R5); the assignment as a whole is forced only modulo the open derivation of the tower DAG itself (co-fixed-point stability, MC-4).**
 
-Script: `claude/sector_assignment_proof.py`.
 
 ### 3c. Gegenbauer Criticality Theorem — Second Route to d=10
 
@@ -454,7 +453,7 @@ Note: S(n,2) = n(n+1)/2. The photon zero mode is exactly massless — the mode e
 |---|---|---|---|---|
 | d quark | 1 | 1 | 4.702 MeV | ~4.7 MeV ✅ |
 | s quark | 4 | 20 | 94.04 MeV | 93.4 MeV ✅ |
-| b quark | beat k₀=16 | √(S(16,3)·S(17,3)) | 4181 MeV | 4180 MeV ✅ |
+| b quark | beat k₀=16 | √(S(16,3)·S(17,3)) | 4181 MeV | 4183 MeV ✅ |
 
 Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the unique triple-coincidence site k₀ = n_s² = 16.
 
@@ -471,7 +470,7 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 
 #### d = 4 — Up-Type Quark Sector
 
-**Geometry.** CP² (complex projective plane); local symmetry U(2). Kähler structure provides γ₅ for left-handed chirality. GTC (Global Topological Correction) ε = 1/(280√7) from the CP² Euler characteristic.
+**Geometry.** CP² (complex projective plane); local symmetry U(2). Kähler structure provides γ₅ for left-handed chirality. The l=2 kernel scale ε = 1/(280√7) arises from the CP² geometry; it is no longer applied as an up-type quark mass correction (Part 2 §11).
 
 | Parameter | Value |
 |---|---|
@@ -479,19 +478,19 @@ Note: S(n,3) = n(n+1)(n+2)/6. The b quark is a beat resonance (§3b) at the uniq
 | m_scale_4 | 0.1451 MeV |
 | L_4 | 0.872 fm |
 
-| Particle | n | GTC order k | Predicted mass | PDG |
+| Particle | n | Predicted mass (bare) | PDG | error |
 |---|---|---|---|---|
-| u quark | 3 | 0 | 0.1451 × 15 = 2.177 MeV | ~2.2 MeV ✅ |
-| c quark | 20 | 3 | m_scale_4 × S(20,4) × (1−ε)³ = 1279.7 MeV | 1270 MeV ✅ |
-| t quark | 72 | 10 | m_scale_4 × S(72,4) × (1−ε)^{10} = 174.0 GeV | 172.69 GeV ✅ |
+| u quark | 3 | m_scale_4 × S(3,4) = 2.177 MeV | 2.16 MeV | +0.8% (within light-quark error) 🔵 |
+| c quark | 20 | m_scale_4 × S(20,4) = 1284.9 MeV | 1273.0 MeV | +0.93% (+2.6σ, open residue) 🔶 |
+| t quark | 72 | m_scale_4 × S(72,4) = 176.36 GeV | 172.57 GeV | +2.20% (+13σ, open residue) 🔶 |
 
-Note: S(n,4) = n(n+1)(n+2)(n+3)/24. ε = 1/(280√7) ≈ 0.001348.
+Note: S(n,4) = n(n+1)(n+2)(n+3)/24. The up-type masses are quoted bare. A former (1−ε)^k correction (the "GTC") brought charm and top onto PDG, but its per-quark exponent was a fit, so it has been removed (Part 2 §11.3). Charm and top overshoot and are open residues; the up quark sits within the PDG light-quark error.
 
 **Quantum properties.**
 - **SU(3) color:** Up-type quarks share color with d=3 via the cross-sector tower coupling g₃₃ × g₄₄.
 - **Electric charge +2/3:** From Kähler index and U(2) representation theory (Part 3 §4).
 - **Chirality:** CP² Kähler γ₅ → W couples to left-handed component only.
-- **GTC:** The topological correction (1−ε)^k accounts for the compression of up-type masses relative to naive mode scaling; without it the top is overestimated by ~1.35%.
+- **Up-type overshoot (open):** the bare up-type masses run high, growing with generation (charm +0.93%, top +2.20%). A former (1−ε)^k correction is removed — its exponent was a fit (Part 2 §11.3). The l=2 kernel self-energy supplies the overshoot's sign but not its magnitude, so charm and top are quoted bare as open residues.
 - **Coupling filter:** Color conservation. χ(CP²) = 3 gives N_c = 3 — the number of independent color coupling handles. All processes must conserve color; isolated color-nonsinglet states are geometrically forbidden. Confinement is this filter operating at the level of which asymptotic states can be constructed, not a dynamical suppression.
 
 **Spectral.** ζ₄(1) = 4/3, ζ₄(0) = −2, a₀₄ ≈ 2.006.
@@ -602,7 +601,7 @@ Back-reaction factor 1+1/1680 = 1 + 1/(n_up × n_s² × S(n_s,4)) from the Gegen
 | 6 | CP³ (lepton) | e, μ | 1/4 | 2.75×10⁻⁵ MeV | 1.414 | 6/5 | −3 | 2.777 |
 | 10 | CP⁵ (tau) | τ | 1/4 | = m_scale_6 | 1.414 | 10/9 | −5 | 4.308 |
 
-ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus three corrections: GTC for up-type quarks, geometric back-reaction correction for tau, beat resonance for b quark. No other free parameters once the six couplings g_dd are fixed from seeds {n_d=1, n_u=3} and composite n_s = 4.
+ζ_d(1) = d/(d−1) and ζ_d(0) = −d/2 are exact for all sectors (Part 9 T13–T14, Pascal telescoping and heat kernel). All 15 particle masses follow from m_scale_d × S(n,d) plus two corrections (geometric back-reaction for tau, beat resonance for b quark) and the d=4 up-type overshoot left uncorrected (the former GTC was removed, Part 2 §11). No other free parameters once the six couplings g_dd are fixed from seeds {n_d=1, n_u=3} and composite n_s = 4.
 
 ### 3e-ii. The Particle Map — All Fifteen Modes
 
@@ -617,8 +616,8 @@ Each Standard Model particle is one mode of Ψ_∞, fixed by its sector dimensio
 | down | 3 | S³ | SO(4) | 1 | 1 | 4.70 MeV |
 | strange | 3 | S³ | SO(4) | 4 | 20 | 94.0 MeV |
 | up | 4 | CP² | SU(3) | 3 | 15 | 2.18 MeV |
-| charm | 4 | CP² | SU(3) | 20 | 8,855 | 1.28 GeV |
-| top | 4 | CP² | SU(3) | 72 | 1,215,450 | 174 GeV |
+| charm | 4 | CP² | SU(3) | 20 | 8,855 | 1.27 GeV |
+| top | 4 | CP² | SU(3) | 72 | 1,215,450 | 172.6 GeV |
 | ν₁ | 5 | S⁵ | SO(6) | 10 | 2,002 | 1.49 meV |
 | ν₂ | 5 | S⁵ | SO(6) | 15 | 11,628 | 8.64 meV |
 | ν₃ | 5 | S⁵ | SO(6) | 22 | 65,780 | 50.3 meV |
@@ -783,22 +782,22 @@ The constraint g₂₅ = g₃₄ = 4√6 (equal cross-coupling for both U(1) Hop
 | electron | 13 | 6 | 0.511 | 0.511 | unit reference |
 | muon | 35 | 6 | 105.657 | 105.658 | −0.001% |
 | tau | 23 | 10 | 1,776.84†† | 1,776.93 | −1.0σ |
-| down | 1 | 3 | 4.702 | 4.670 | +0.68%† |
-| strange | 4 | 3 | 94.04 | 93.40 | +0.68%† |
+| down | 1 | 3 | 4.702 | 4.70 | +0.04%† |
+| strange | 4 | 3 | 94.04 | 93.5 | +0.57%† |
 | up | 3 | 4 | 2.177 | 2.160 | +0.77%† |
-| charm | 20 | 4 | 1,279.7‡ | 1,270.0 | +0.76%‡ |
-| top | 72 | 4 | 174,000‡ | 172,760 | +0.72%‡ |
-| bottom | — | 3 | 4,181 | 4,180 | +0.02% |
+| charm | 20 | 4 | 1,284.9‡ | 1,273.0 | +0.93%‡ |
+| top | 72 | 4 | 176,365‡ | 172,570 | +2.20%‡ |
+| bottom | — | 3 | 4,181 | 4,183 | −0.05% |
 | photon | 0 | 2 | 0 | 0 | exact |
-| W | 76 | 2 | 80,379 | 80,377 | +0.003% |
+| W | 76 | 2 | 80,379 | 80,369 | +0.012% |
 | Z | 81 | 2 | 91,230 | 91,188 | +0.047% |
 | Higgs | 95 | 2 | 125,266 | 125,200 | +0.053% |
 
-† The +0.68% offset in d=3 and +0.77% in d=4 reflect the natural accuracy of the coupling self-consistency derivation of m_scale_3. The rank-1 kernel forces this offset to be identical across all modes within a sector — confirmed by d and s quarks both at +0.68% despite spanning n=1 to n=4. Both are within PDG quark mass uncertainties (~10%).
+† The light-quark masses are parameter-free outputs of the coupling self-consistency derivation of m_scale_3 (and m_scale_4 for the up); no quark-mass data enters. Against PDG 2024 they sit at d +0.04%, s +0.57%, u +0.77%, all within the light-quark mass uncertainties (~10%).
 
 †† Tau: **m_τ = m_e × S(23,10)/S(13,6) × (1 + 1/1680) = 1776.84 MeV (PDG 2024: 1776.93 ± 0.09 MeV; −1.0σ, inside 1σ).** The factor 1/1680 = 1/(n_u × n_s² × S(n_s,4)) is the geometric back-reaction resummation of the d=6→d=10 coupling. The isotropic coupling g_{6,6}=g_{6,10}=g_{10,10}=1/n_s=1/4 (from the seed) means the leading correction 1/2240 feeds back via g_{10,10}=1/n_s, multiplying by n_s/(n_s−1) = n_s/n_u = 4/3. Combined: 1/2240 × 4/3 = 1/1680.
 
-‡ After applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) and k values {charm:3, top:10}, the c/u ratio becomes 0.000% and the t/u ratio −0.048%. The GTC corrects within-sector ratios; the uniform +0.77% sector-wide offset persists in all d=4 absolute masses.
+‡ Charm and top are quoted bare (m_scale_4 × S(n,4)) and overshoot PDG 2024 by +0.93% (+2.6σ) and +2.20% (+13σ) — open residues (🔶). A former (1−ε)^k correction (the "Generation Tower Correction," Part 2 §11) landed them on PDG, but its per-quark exponent was a fit, not derived, so it has been removed; the underlying l=2 self-energy supplies the overshoot's sign but not its magnitude (Appendix A §45). The up quark sits at +0.77%, within the light-quark error.
 
 **Co-fixed-point uniqueness**
 

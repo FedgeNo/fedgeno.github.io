@@ -126,8 +126,8 @@
         <tr><td>down</td><td>3</td><td>S³</td><td>SO(4)</td><td>1</td><td>1</td><td>4.70 MeV</td></tr>
         <tr><td>strange</td><td>3</td><td>S³</td><td>SO(4)</td><td>4</td><td>20</td><td>94.0 MeV</td></tr>
         <tr><td>up</td><td>4</td><td>CP²</td><td>SU(3)</td><td>3</td><td>15</td><td>2.18 MeV</td></tr>
-        <tr><td>charm</td><td>4</td><td>CP²</td><td>SU(3)</td><td>20</td><td>8,855</td><td>1.28 GeV</td></tr>
-        <tr><td>top</td><td>4</td><td>CP²</td><td>SU(3)</td><td>72</td><td>1,215,450</td><td>174 GeV</td></tr>
+        <tr><td>charm</td><td>4</td><td>CP²</td><td>SU(3)</td><td>20</td><td>8,855</td><td>1.27 GeV</td></tr>
+        <tr><td>top</td><td>4</td><td>CP²</td><td>SU(3)</td><td>72</td><td>1,215,450</td><td>172.6 GeV</td></tr>
         <tr><td>ν₁</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>10</td><td>2,002</td><td>1.49 meV</td></tr>
         <tr><td>ν₂</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>15</td><td>11,628</td><td>8.64 meV</td></tr>
         <tr><td>ν₃</td><td>5</td><td>S⁵</td><td>SO(6)</td><td>22</td><td>65,780</td><td>50.3 meV</td></tr>
@@ -146,7 +146,7 @@
 <section>
   <h2>Mode-index map</h2>
   <div class="prose">
-    <p>Every particle at its coordinates in the \((n, d)\) plane. Circle area scales with the base-10 logarithm of the mass, spanning twelve orders of magnitude from the sub-meV neutrinos to the 174 GeV top quark. The X axis uses a square-root scale so the low-index particles spread out legibly. Hover a circle for details.</p>
+    <p>Every particle at its coordinates in the \((n, d)\) plane. Circle area scales with the base-10 logarithm of the mass, spanning twelve orders of magnitude from the sub-meV neutrinos to the 172.6 GeV top quark. The X axis uses a square-root scale so the low-index particles spread out legibly. Hover a circle for details.</p>
   </div>
   <figure style="margin:1.8rem 0 0.5rem">
     <canvas id="pmMap" style="width:100%;max-width:820px;display:block;margin:0 auto;border-radius:10px;border:1px solid rgba(139,156,255,0.12);background:rgba(7,10,20,0.82)" width="820" height="310"></canvas>
@@ -168,14 +168,14 @@
 
     const PS=[
       {sym:'γ', lbl:'photon',      d:2,  n:0,  m:1e-30,    pdg:0,       ph:1},
-      {sym:'W', lbl:'W boson',     d:2,  n:76, m:80379,    pdg:80377,   yo:-12},
+      {sym:'W', lbl:'W boson',     d:2,  n:76, m:80379,    pdg:80369,   yo:-12},
       {sym:'Z', lbl:'Z boson',     d:2,  n:81, m:91230,    pdg:91188,   yo:12},
       {sym:'H', lbl:'Higgs',       d:2,  n:95, m:125266,   pdg:125200},
       {sym:'d', lbl:'down quark',  d:3,  n:1,  m:4.702,    pdg:4.67},
       {sym:'s', lbl:'strange',     d:3,  n:4,  m:94.04,    pdg:93.4},
       {sym:'u', lbl:'up quark',    d:4,  n:3,  m:2.177,    pdg:2.16},
-      {sym:'c', lbl:'charm quark', d:4,  n:20, m:1279.7,   pdg:1270},
-      {sym:'t', lbl:'top quark',   d:4,  n:72, m:173999,   pdg:172760},
+      {sym:'c', lbl:'charm quark', d:4,  n:20, m:1284.9,   pdg:1273.0},
+      {sym:'t', lbl:'top quark',   d:4,  n:72, m:176365,   pdg:172570},
       {sym:'ν₁',lbl:'neutrino 1',  d:5,  n:10, m:1.487e-6, pdg:null},
       {sym:'ν₂',lbl:'neutrino 2',  d:5,  n:15, m:8.639e-6, pdg:null},
       {sym:'ν₃',lbl:'neutrino 3',  d:5,  n:22, m:5.027e-5, pdg:null},

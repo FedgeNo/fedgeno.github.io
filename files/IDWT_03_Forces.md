@@ -116,7 +116,7 @@ All physical coupling constants follow from {g_{dd'}} and the sole unit referenc
 |---|---|---|
 | Effective colour coupling | g²_eff = 2g_{44}/π² | 0.919 |
 | Weinberg angle | sin²θ_W = 1−(S(n_W,2)/S(n_Z,2))² | 0.2237 |
-| GTC correction | ε = 1/(280√7) | 0.001350 |
+| l=2 kernel scale (sets δ_ν₃) | ε = 1/(280√7) | 0.001350 |
 | Cabibbo angle | sin θ_C = (1+χ(CP¹)/24S)/√S(n_s,3) | 0.22454 |
 | Newton's constant | G_N = G_fund / V_7, V_7 = L_4 L_5 L_6 L_{10}^4 ≈ 7.74 (all six sector manifold geometries; G_fund one input) | — |
 | **SU(2)_L coupling** | **g₂ = Q_u √g_s = (2/3)√g_s = (2/3)(2g₄₄/π²)^(1/4)** | **0.65275** |
@@ -337,7 +337,7 @@ PDG |V_cb| = 0.04100 ± 0.0014 (exclusive). Tension: +0.11σ.
 
 **|V_ts| from unitarity:** The third row of the CKM matrix has |V_tb| ≈ 1, so |V_ts|² ≈ |V_cb|². IDWT predicts |V_ts| ≈ |V_cb| = 0.04116. PDG: 0.04183 ± 0.0007. Tension: −0.96σ.
 
-**|V_ub|:** The full |V_ub| prediction requires the complete CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° (T8 🔶, Part 10 §4), which is now structurally derived. With δ_CP = 197.11°: |V_ub| = A s_C³ √(ρ² + η²) where the unitarity triangle parameters follow from the CKM phase. Full numerical prediction awaits T8 reaching 🔵 (three technical gaps in the APS spectral flow proof). Lower bound: |V_ub|_lower = A s_C³ = 0.00920 (setting the CP-phase factor to its minimum). SM cross-reference: the Wolfenstein parameter A = |V_cb|/sin²θ_C = 0.82315 matches PDG A = 0.8230 ± 0.0046 at +0.03σ.
+**|V_ub|:** The full |V_ub| prediction requires the complete CP-violating phase δ_CP = π + 2θ₁₃ = 197.11° (T8 🔶, Part 10 §4), which is now structurally derived. With δ_CP = 197.11°: |V_ub| = A s_C³ √(ρ² + η²) where the unitarity triangle parameters follow from the CKM phase. Full numerical prediction awaits T8 reaching 🔵 (three technical gaps in the APS spectral flow proof). Lower bound: |V_ub|_lower = A s_C³ = 0.00920 (setting the CP-phase factor to its minimum). SM cross-reference: the Wolfenstein parameter A = |V_cb|/sin²θ_C = 0.82315 matches PDG A = 0.826 ± 0.012 at −0.24σ.
 
 ### 0.10 Pure Sector Identities from the Lagrangian
 
@@ -767,7 +767,7 @@ sin θ_C = (1 + χ(CP¹)/(24 · S(n_s,3))) / √S(n_s,3)
 |---|---|
 | sin θ_C (bare) | 0.22361 |
 | sin θ_C (curvature corrected) | 0.22454 |
-| PDG \|V_us\| | 0.22450 ± 0.00044 |
+| PDG λ (Cabibbo angle) | 0.22450 ± 0.00044 |
 | Tension | +0.09σ |
 
 The correction closes the tension from −2.03σ to +0.09σ with no free parameters. The inputs are: χ(CP¹) = 2 (topology of the W boson sector), S(n_s,3) = 20 (seed structure), and the CP¹ sector curvature correction coefficient −R/12 (a theorem of spin geometry).

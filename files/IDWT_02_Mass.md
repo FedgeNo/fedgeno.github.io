@@ -80,14 +80,13 @@ the exact $q$-lift of the hockey-stick identity $S(n,d)=S(n,d-1)+S(n-1,d)$. Sett
 
 ⭐ **Root systems of type $A_d$ — Kostant partition function.** The positive roots of $A_d$ are $e_i - e_j$ for $1 \leq i < j \leq d+1$. The number of ways to write a weight of total height $n-1$ as a nonneg­ative sum of simple roots is $S(n,d)$ — the hockey-stick identity is the Kostant partition function for $A_d$. Each IDWT mode $(n,d)$ is thus a weight in the $A_d$ root lattice, and the Weyl group $S_{d+1}$ acts by permuting the $d+1$ sector coordinates, giving the symmetry of $S(n,d)$ in the sector labels as a consequence of Weyl symmetry rather than an assumption. The Kostant multiplicity formula supplies closed-form expressions for mode degeneracies, and the Weyl character formula gives their generating function — both without new parameters.
 
-⭐ **Ferrers diagram depth — combinatorial derivation of GTC exponents.** Each IDWT mode $(n,d)$ corresponds to a Ferrers diagram fitting inside a $d\times(n-1)$ rectangle, and $S(n,d)$ counts the number of such diagrams. The generation tower depth $k$ of a mode equals the number of boxes that must be added to reach its Ferrers diagram from the seed diagram. Reading directly:
+⭐ **Ferrers diagram depth — structural box-count sequence from $n_u$.** Each IDWT mode $(n,d)$ corresponds to a Ferrers diagram fitting inside a $d\times(n-1)$ rectangle, and $S(n,d)$ counts the number of such diagrams. The minimal box-count from the seed diagram yields a natural depth sequence for the up-type quarks:
 
-- **down** ($n=1$, seed): empty diagram → depth $k=0$
-- **up** ($n=3$, $d=4$): seed ($\chi(\mathbb{CP}^2) = N_c = 3$, T15); seed Ferrers diagram is the starting point → depth $k=0$
+- **up** ($n=3$, $d=4$): seed Ferrers diagram is the starting point → depth $k=0$
 - **charm** ($n=20$, $d=4$): one hockey-stick extension of the $d=3$ seed column → depth $k=n_u=3$
 - **top** ($n=72$, $d=4$): Hopf depth-2 extension, $k=S(n_u,3)=10$ boxes → depth $k=10$
 
-This is the same sequence $\{0, n_u, S(n_u,3)\} = \{0,3,10\}$ derived via the Hopf chain in §11.3, now obtained by counting boxes — no Hopf-chain argument required. The GTC exponents are small integers because they are box counts in a bounded rectangle, not tuning parameters. This provides a fully combinatorial derivation of the GTC correction sequence from $n_u=3$ alone.
+The sequence $\{0,n_u,S(n_u,3)\}=\{0,3,10\}$ emerges combinatorially from $n_u=3$ alone and agrees with the Hopf-chain argument in §11.3. However, this set is excluded by the derived sector scale: with $m_{\rm scale,4}$ determined by coupling self-consistency (§3–§5), the assignments $k\in\{0,3,10\}$ give charm $+1.45\sigma$ and top $+4.9\sigma$ above PDG 2024, and no single scale value reproduces both simultaneously. The exponents actually used, $k\in\{0,7,16\}$, are fixed by self-consistency with the derived scale rather than by this structural argument (🔶, §11.3). The Ferrers counting identifies the combinatorially natural depth sequence; the observed quark masses select different exponents.
 
 ⭐ **Large-n asymptotic (proved by Stirling's approximation):**
 
@@ -133,7 +132,7 @@ The cross-sector coupling term (ξ_d·ξ_{d'})² decomposes on the unit sphere S
 
 For general d, the l=0 coefficient is 1/d and the l=2 coefficient involves the Gegenbauer polynomial C₂^{(d-2)/2}. The d=3 formula is given because the d=3 quark sector is the primary source of the corrections discussed here.
 
-The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the l=1 admixture in the d=3 sector that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession corrected by the GTC. All of those come from the same tensor term.
+The l=0 part is a constant — it generates sector masses and is the source of the entire simplex spectrum. The l=2 part depends on the relative orientation of ξ_d and ξ_{d'} and is responsible for every non-trivial correction in the theory: the l=1 admixture in the d=3 sector that gives μ_p, μ_n, and g_A, and the n-dependent frequency precession behind the d=4 up-type overshoot (§11). All of those come from the same tensor term.
 
 For the self-coupling (d=d'), ξ=ξ' so (ξ·ξ)²=|ξ|⁴=1 on the unit sphere. The Gegenbauer l=2 component is present but averages to zero over the rotationally symmetric vacuum (Gegenbauer orthogonality): only the l=0 piece contributes to the sector self-energy after vacuum averaging. Cross-sector angular mixing is absent in the vacuum expectation value of the self-coupling.
 
@@ -265,8 +264,8 @@ n_e     = n_ν₁ + n_u   = 13      [hockey-stick generation law, generation 1]
 n_muon  = S(4, 4)       = 35      [= S(4,3) + S(3,4) = n_charm + n_ν₂, Pascal]
 n_ν₃    = n_ν₁ + n_ν₂ − n_u = 22  [inclusion-exclusion: n_ν₁ = S(n_u,3) and n_ν₂ = S(n_u,4) both arise from the same up-quark seed n_u=3, evaluated in d=3 and d=4 respectively. Adding them counts the shared base n_u once too many; subtracting n_u removes the overlap exactly. This is forced — without it n_ν₃ = 25 and S(25,5)×m_scale_5 gives Σm_ν ≈ 98 meV, excluded by DESI. Cross-check: n_ν₃ = n_τ − n_d = 23−1 = 22 (Generation Law from the tau side).]
 n_τ     = n_ν₃ + S(1,d) = 23      [base case S(1,d)=1 for all d]
-n_top   = S(n_e,2) − n_c + 1 = 91 − 20 + 1 = 72   [eigenmode selection chain]
-          [cross-check: χ(CP²)×χ(CP³)×χ(CP⁵) = 3×4×6 = 72 — consistency, not derivation]
+n_top   = χ(CP²)×χ(CP³)×χ(CP⁵) = N_c×n_s×N_f = 3×4×6 = 72   [T15, ✅; product-form site]
+          [72 is not in the S(n,d) image, so the top is not a hockey-stick output; the binomial form S(n_e,2)−n_c+1 = 91−20+1 reproduces it only with a +1 offset — Part 9 T0.5, Appendix A §43]
 n_W     = g(d_ν, n_top) = d_ν + n_top − 1 = 5 + 72 − 1 = 76   [g-rule: neutrino sector dim + top mode − 1; see Part 3 §11]
           [note: d_ν − 1 = 4 = n_s numerically, but the structural source is the neutrino sector dimension, not the seed]
 n_Z     = g(d_ℓ, n_W) = d_ℓ + n_W − 1 = 6 + 76 − 1 = 81       [g-rule: lepton sector dim + W mode − 1; = n_W + q, q = d_ℓ−1 = S(n_u−1,4) = 5]
@@ -336,7 +335,7 @@ All three hold exactly from seeds; no other site in any sector satisfies all thr
 
 ```
 m_b = √(S(16,3) × S(17,3)) × m_scale_3
-    = √(816 × 969) × 4.7019 MeV = 4,181 MeV    (+0.023% vs PDG 4,180 ± 10 MeV)
+    = √(816 × 969) × 4.7019 MeV = 4,181 MeV    (−0.05% vs PDG 4,183 ± 7 MeV)
 ```
 
 🔶 This dimensional argument fixes the geometric mean; a closed derivation from the quartic kernel eigenvalue problem remains open.
@@ -393,7 +392,7 @@ The step $n_\phi - n_\rho = n_{\rm strange} - n_{\rm up} = 1$ is the algebraic s
 | ρ/ω | 9 | 165 | 775.8 | 775.3/782.7 | +0.1% |
 | φ(1020) | 10 | 220 | 1034.4 | 1019.5 | +1.4% |
 
-The ρ prediction is independently confirmed at +0.069% by the cross-sector filter $\Gamma_{346}$ (§10). The φ prediction at +1.4% uses the same formula; the slightly larger residual (vs the +0.68% sector-wide offset for quarks) reflects that composite resonances sit higher in the mode tower where next-order kernel corrections are less constrained. Script: `files/idwt.py` (resonance table output). **Status: 🔵**
+The ρ prediction is independently confirmed at +0.069% by the cross-sector filter $\Gamma_{346}$ (§10). The φ prediction at +1.4% uses the same formula; the slightly larger residual (vs the sub-percent light-quark residuals) reflects that composite resonances sit higher in the mode tower where next-order kernel corrections are less constrained. Script: `files/idwt.py` (resonance table output). **Status: 🔵**
 
 ⭐ **RSK combinatorial fusion rule.** The Robinson-Schensted-Knuth bijection maps each semistandard Young tableau of shape $(n-1)$ with entries at most $d+1$ to a pair of lattice paths, and $S(n,d)$ counts these tableaux. This gives a deterministic combinatorial fusion rule: inserting the word for mode $S(a,d)$ into the tableau for mode $S(b,d)$ via RSK yields the tableau for $S(a+b,d)$, with the shape of the result identifying the sector the product lands in — no Clebsch-Gordan coefficients. The ρ meson collision $n_\rho = 5+4 = 9$ (in mode-index terms, combining the $n_u=3$ and $n_s=4$ seed words) becomes, under RSK, the concatenation of two 2-row tableaux yielding a 2-row tableau of weight 9. The collision is not an arithmetic accident; it is the Pieri rule for tableaux, forced by the same seed algebra that fixes $n_s=4$.
 
@@ -540,7 +539,7 @@ g₆,₁₀ = √(g₆₆ × g₁₀,₁₀) = 1/4      [= g₆₆]
 
 ## 9b. Tau Mass — Geometric Back-reaction Correction
 
-The tau is the one lepton whose raw simplex prediction requires a correction beyond the GTC. The mechanism is the isotropic back-reaction between the d=6 and d=10 sectors.
+The tau is the one lepton whose raw simplex prediction requires a correction at all. The mechanism is the isotropic back-reaction between the d=6 and d=10 sectors.
 
 **Setup.** The d=6 and d=10 sectors share the coupling g_{6,6} = g_{6,10} = g_{10,10} = 1/n_s = 1/4, derived from the composite $n_s=4$ (not from hypercharge). This isotropy — both sectors carry identical coupling $1/n_s$ — means the back-reaction from d=6 onto d=10 feeds back on itself via g_{10,10}.
 
@@ -650,9 +649,9 @@ The corrected Σm_ν = 1.487 + 8.639 + 50.267 = 60.393 meV; bare 59.00 meV. Both
 
 ## 9d. The ν₃ Correction — Closure Relation 🔶
 
-The correction δ_ν₃ = 1/35 (§9c) is a highly constrained closure relation: given the GTC coefficient ε (§11) and the d=3 self-coupling g_{33} (T9), their product is 1/35 by an algebraic identity. The identity is exact and the inputs are fully derived elsewhere in the framework. What is not yet shown is the deeper operator mechanism — specifically, why the l=2 cross-term of the T2 kernel acts on the inclusion-exclusion mode n_{ν₃} with precisely this product of amplitudes, rather than a different kernel-level combination. Until that mechanism is derived from first principles, δ_ν₃ = 1/35 should be understood as a closure relation: an exact algebraic consequence of independently-derived quantities that happens to match observation, rather than an unavoidable structural prediction.
+The correction δ_ν₃ = 1/35 (§9c) is a highly constrained closure relation: given the ℓ=2 scale ε (§11.2) and the d=3 self-coupling g_{33} (T9), their product is 1/35 by an algebraic identity. The identity is exact and the inputs are fully derived elsewhere in the framework. What is not yet shown is the deeper operator mechanism — specifically, why the l=2 cross-term of the T2 kernel acts on the inclusion-exclusion mode n_{ν₃} with precisely this product of amplitudes, rather than a different kernel-level combination. Until that mechanism is derived from first principles, δ_ν₃ = 1/35 should be understood as a closure relation: an exact algebraic consequence of independently-derived quantities that happens to match observation, rather than an unavoidable structural prediction.
 
-**Setup.** Let k₀ = n_s² = 16 (the quartic bifurcation index). From §11, the GTC coefficient is:
+**Setup.** Let k₀ = n_s² = 16 (the quartic bifurcation index). From §11.2, the ℓ=2 scale ε is:
 
 ```
 ε = g_coeff / (k₀ × n_mu)
@@ -680,15 +679,15 @@ Therefore:
             = 1/n_mu  =  1/S(n_s,4)  =  1/35                 [exact]
 ```
 
-The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_mu alone — the same three quantities that determine k₀ and the GTC structure. No additional input enters.
+The √7 factors cancel algebraically. The result follows from n_s, n_u, and n_mu alone — the same three quantities that determine k₀ and the ℓ=2 scale ε. No additional input enters.
 
-**Why ν₃ and not ν₁ or ν₂.** The GTC l=2 cross-term (T2) generates corrections at inclusion-exclusion mode indices — modes that receive simultaneous contributions from two distinct sector images:
+**Why ν₃ and not ν₁ or ν₂.** The l=2 cross-term (T2) generates corrections at inclusion-exclusion mode indices — modes that receive simultaneous contributions from two distinct sector images:
 
 - n_ν₁ = S(n_u,3) = 10: primary Pascal evaluation in d=3 alone. No cross-sector l=2 mixing; no correction.
 - n_ν₂ = S(n_u,4) = 15: primary Pascal evaluation in d=4 alone. No cross-sector l=2 mixing; no correction.
 - n_ν₃ = n_ν₁ + n_ν₂ − n_u = 22: the unique inclusion-exclusion mode, combining the d=3 image (n_ν₁) and the d=4 image (n_ν₂) of the same seed n_u. The l=2 cross-term of the kernel (T2) then operates on the product of the two sector amplitudes: ε from the d=4 coupling geometry, g_{33} from the d=3 back-reaction. Their product is 1/35 by the identity above.
 
-**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both images of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 GTC (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 geometric back-reaction correction (T10b), which is a geometric-series resummation at the Gegenbauer critical endpoint. The ν₃ correction is a single-order cross-sector constructive interference.
+**Sign.** The correction is positive. The two sector images (d=3 and d=4) are both images of the same seed n_u and interfere constructively through the l=2 overlap, increasing the effective mode count and hence the eigenvalue. This is distinct from the d=4 up-type overshoot (T10a), where the l=2 term generates level-splittings between generations at different depths (a level-repulsion effect), and from the d=10 geometric back-reaction correction (T10b), which is a geometric-series resummation at the Gegenbauer critical endpoint. The ν₃ correction is a single-order cross-sector constructive interference.
 
 **Numerical check:**
 
@@ -726,7 +725,7 @@ This is one formula for all sectors. The apparent differences between sectors ar
 ```
 m_scale_3 = m_e × √(g₃₃/g₆₆) / 1 = 0.511 × √(8√7/0.25) = 4.702 MeV
 ```
-The lightest occupied mode is the down quark: m_d = m_scale_3 × S(1,3) = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
+The lightest occupied mode is the down quark: m_d = m_scale_3 × S(1,3) = 4.702 MeV. PDG 2024: 4.70 MeV. Error: +0.04%.
 
 S(1,3) = 1 makes the normalization factor trivially 1 for d=3.
 
@@ -738,7 +737,7 @@ The lightest occupied mode is the up quark: m_u = m_scale_4 × S(3,4) = m_e × �
 
 **Unified check:** m_u / m_d = √(g₄₄/g₃₃) = √(12/√7 ÷ 8√7) = √(3/14) = 0.4629. PDG: 0.462 ± ~0.10. Error: +0.20%.
 
-**The down quark is a pure prediction:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG: 4.67 MeV. Error: +0.68%.
+**The down quark is a pure prediction:** m_d = m_scale_3 × S(1,3) = m_scale_3 × 1 = 4.702 MeV. PDG 2024: 4.70 MeV. Error: +0.04%.
 
 ### The ρ Meson — Comb Filter Prediction
 
@@ -765,7 +764,7 @@ Note: τ_d = 1/(2√(k₀+d)) is a valid description of the inter-sector phase d
 | m_scale_10 | — | = m_scale_6 | g₁₀,₁₀ = g₆₆: d=10 shares d=6 coupling | 2.7526×10⁻⁵ MeV |
 | m_scale_2 | — | — | m_e × √(g₂₂/g₆₆) [cross-sector; §10b] | 27.47 MeV |
 
-The uniform +0.68% offset in d=3 quark predictions and +0.77% base in d=4 reflect the coupling self-consistency derivation's natural accuracy — they are below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%) and are structurally forced: the rank-1 kernel means all modes within a sector scale identically, so the offset is the same for every mode in that sector.
+The light-quark predictions are parameter-free outputs of the coupling self-consistency derivation. Against PDG 2024 they sit at d +0.04%, s +0.57%, u +0.77% — all below PDG measurement precision for light quarks (PDG d: ±10%, s: ±9%).
 
 ### All sector scales
 ```
@@ -778,7 +777,7 @@ m_scale_2  = m_e √(g₂₂/g₆₆)                           = 27.47 MeV     
 
 ### 10b. g₂₂ — the kernel back-reaction fixed-point 🔶
 
-**Status: 🔶 Structurally motivated (state-counting).** g₂₂ = p²q/2 = 722.5 is a multiplicity count: the product of available Dirac-eigenspace dimensions across the d=3 sector (two kernel legs → p²) and the d=4 sector (one leg → q), with the 1/2 from the ξ↔ξ' symmetry of the two-body kernel. It is not a kernel matrix element. Testing whether a genuine (ξ·ξ')² trace yields p²q/2 (`files/idwt.py` STEP 2d; `claude/g22_operator_trace.py`): the literal Tr[G²₂₃ + G²₂₄] is additive (∼ p²+q, the wrong structure for a product), and the actual (ξ·ξ')² overlap returns ⟨r²⟩ magnitudes that scale as the mode index n (Appendix A §20a) — O(1), orders of magnitude below the multiplicity product. p²q appears only as a trace of the identity over rank-(p,p,q) eigenspaces, where the multiplicities are the input. So g₂₂ is a state-count (IDOS), on the same footing as the CKM formula: combinatorial, empirically exact, mechanism = counting. The 1/2 and the leg-counting are kernel-motivated; the magnitude is a count of eigenstates, not a dynamical overlap.
+**Status: 🔶 Structurally motivated (state-counting).** g₂₂ = p²q/2 = 722.5 is a multiplicity count: the product of available Dirac-eigenspace dimensions across the d=3 sector (two kernel legs → p²) and the d=4 sector (one leg → q), with the 1/2 from the ξ↔ξ' symmetry of the two-body kernel. It is not a kernel matrix element. Testing whether a genuine (ξ·ξ')² trace yields p²q/2 (`files/idwt.py` STEP 2d): the literal Tr[G²₂₃ + G²₂₄] is additive (∼ p²+q, the wrong structure for a product), and the actual (ξ·ξ')² overlap returns ⟨r²⟩ magnitudes that scale as the mode index n (Appendix A §20a) — O(1), orders of magnitude below the multiplicity product. p²q appears only as a trace of the identity over rank-(p,p,q) eigenspaces, where the multiplicities are the input. So g₂₂ is a state-count (IDOS), on the same footing as the CKM formula: combinatorial, empirically exact, mechanism = counting. The 1/2 and the leg-counting are kernel-motivated; the magnitude is a count of eigenstates, not a dynamical overlap.
 
 The d=3 self-coupling g₃₃ is fixed by the intra-sector confinement condition g_eff(n_s,3) = g₃₃/S(n_s,3) ≈ 1 (Part 2 §8). The d=2 sector has no self-confinement — the W is massive but not confined in the quark sense. Its self-coupling g₂₂ is instead fixed by the **cross-sector back-reaction**: the requirement that the d=2 vacuum amplitude is consistent with the d=3 and d=4 quark sector structures at the composite level n_s=4.
 
@@ -819,8 +818,8 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 
 | Quantity | From seeds + m_e | PDG | Error |
 |---|---|---|---|
-| m_W | m_scale_2 × S(76,2) = 80,379 MeV | 80,377 MeV | +0.003% |
-| m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,187.6 MeV | +0.047% |
+| m_W | m_scale_2 × S(76,2) = 80,379 MeV | 80,369 MeV | +0.012% |
+| m_Z | m_scale_2 × S(81,2) = 91,230 MeV | 91,188.0 MeV | +0.046% |
 | m_H | m_scale_2 × S(95,2) = 125,266 MeV | 125,200 MeV | +0.053% |
 
 **IDWT has a sole unit reference m_e = 0.511 MeV.** All quarks, leptons, bosons, CKM angles, Fermi constant, Weinberg angle, and muon lifetime follow from m_e and seeds {n_d=1, n_u=3} (composite n_s=4). □
@@ -829,23 +828,19 @@ m_scale_2 = m_e × √(g₂₂/g₆₆) = m_e × √(722.5/0.25) = 27.471 MeV
 
 ---
 
-## 11. Generation Tower Correction
+## 11. The d=4 Up-Type Quark Mass Overshoot
 
-Each particle's mode index n is selected by the sector comb filters. At each comb stage, a small frequency shift ε accumulates — two eigenmodes passing through adjacent comb stages achieve ~99.865% coherence:
+The raw mass formula `m(n,d) = m_scale_d × S(n,d)` reproduces the spectrum within most sectors, but in the **d=4 up-type quark sector** it overshoots, systematically and growing with generation: up +0.79%, charm +0.93% (+2.6σ), top +2.20% (+13σ) vs PDG 2024. The up-type quark masses are quoted bare; this overshoot is an open residue of the framework, recorded honestly here.
 
-```
-m_corrected(n, d) = m_scale_d × S(n, d) × (1 − ε)^k
-```
+A multiplicative correction was previously applied — a factor `(1 − ε)^k` tuned per quark, the "Generation Tower Correction" — which brought charm and top onto their measured values. It has been removed. Only the scale ε was derived; the per-quark exponent k was a fit, and a fitted correction is not a derivation. The bare masses are quoted instead, with the overshoot left open. A physically motivated correction may be added in future if one is derived.
 
-where k counts the generation law stages that select n from seeds.
+### 11.1 The candidate mechanism (open)
 
-### 11.1 Physical Origin
+The overshoot has a known sign and a known candidate source, though it is not yet derived to magnitude. The cross-sector kernel `(ξ_d · ξ_{d'})²` decomposes into an l=0 scalar part, which sets the sector mass scale, and an l=2 traceless tensor part, which contributes nothing to the scale but shifts each mode by a second-order self-energy. That self-energy was computed directly (Appendix A §45): it is real, correctly signed (it pulls the masses down), and grows near-linearly with the mode index n — matching the observed pattern of an overshoot that grows with generation. What it does not do is fix the magnitude: the computed shape does not single out a specific correction, and reproducing the measured masses requires a free prefactor. So the mechanism explains why the up-type masses sit above the bare prediction by a small, generation-growing amount, but does not remove the residual. Status: 🔶 (mechanism real, magnitude open).
 
-The raw simplex formula `m(n,d) = m_scale_d × S(n,d)` produces excellent ratios within most sectors but shows a small systematic excess in the **d=4 up-type quark sector** (c/u raw +0.403%, t/u raw +1.311%). This excess grows with mode index n and is absent in d=3 and d=6.
+### 11.2 Derivation of ε (retained for δ_ν₃, no longer applied to quarks)
 
-The source is the **l=2 tensor component** of the cross-sector kernel `(ξ_d · ξ_{d'})²`. The l=0 scalar part sets the overall sector potential and mass scale; the l=2 part introduces a small frequency shift in modes that pass through multiple generation law stages in the comb. This is a **higher-order correction to the resonance condition**, naturally parameterized as `(1 − ε)^k`.
-
-### 11.2 Derivation of ε
+The scale ε below is a genuinely derived quantity. It is no longer applied to the up-type quark masses (§11.3); it is retained only because the separate, motivated ν₃ closure δ_ν₃ = ε × g₃₃ = 1/35 (§9d) depends on it.
 
 **g_coeff = 2/√7 from the kernel self-consistency eigenvalue.**
 
@@ -874,85 +869,54 @@ Combined with the critical resonance site k₀ = n_s² = 16 and the muon mode n_
 
 Cross-check from c/u and t/u mass ratios: ε ≈ 0.001340 (inferred from PDG). Derived value: 0.001350. Gap: 0.74% — within PDG light-quark uncertainties.
 
-### 11.3 Depth k Values
+### 11.3 The per-quark correction is removed
 
-The exponent k is the generation depth — the number of generation law steps a mode index passes through from the seeds {(1,3),(3,4)}. These are themselves derived mode indices, not fitted parameters:
+The former correction multiplied each d=4 up-type mass by $(1-\varepsilon)^k$ with a per-quark exponent $k$ (up 0, charm 7, top 16). Only $\varepsilon$ was derived; the exponents were fixed by requiring charm and top to land on their PDG masses given the derived scale — that is, tuned to the data, not predicted. The closed-form labels the exponents happen to carry ($k_c = 7 = n_s + n_u$, $k_t = 16 = n_s^2$) are recognised after the fact, not derived. A correction whose only free choice is set to reproduce the answer is a parameterization, not a derivation, so it is removed. The up-type masses are quoted bare (§11.5), and the overshoot is left as the open residue described in §11.1 and §11.4.
 
-| Particle | n | k | Construction path |
+### 11.4 Open item
+
+The overshoot is real and its sign is understood (§11.1): the $\ell=2$ second-order self-energy of the cross-sector kernel pulls the up-type masses down by an amount growing with generation, computed directly in Appendix A §45 with the correct sign and near-linear growth. What remains open is the magnitude — the exact overlap-integral prefactor, and whether it yields the observed $\sim$1–2% residual without a free parameter. Until that is derived, no correction is applied. This is the principal open item of the mass sector; the top is its sharpest case (§11.7).
+
+### 11.5 Results (bare masses)
+
+Absolute up-type masses vs PDG 2024, quoted bare — no correction applied:
+
+| Particle | $n$ | $S(n,4)\,m_{\rm scale,4}$ | error |
 |---|---|---|---|
-| down | 1 | 0 | seed |
-| strange | 4 | 0 | composite $b = 1+a$ (🔶) |
-| up | 3 | 0 | seed: $\chi(\mathbb{CP}^2) = N_c = 3$ (T15) |
-| charm | 20 | 3 | S(n_s,3): depth n_u = 3 internal additions |
-| top | 72 | 10 | k_top = S(n_u,3) = 10 (first neutrino mode index; Hopf depth 2) |
+| up | 3 | 2.177 MeV | $+0.79\%$ ($0.2\sigma$, within the PDG light-quark margin) |
+| charm | 20 | 1284.9 MeV | $+0.93\%$ ($+2.6\sigma$, outside margin — open residue) |
+| top | 72 | 176{,}365 MeV | $+2.20\%$ ($+13\sigma$, outside margin — open residue) |
 
-**GTC exponents from the Hopf sector chain:**
-
-```
-k_charm = n_u = 3          [n_u = 3 seed (T15); GTC generation depth 1 at the generation 2 comb boundary]
-k_top   = S(n_u,3) = 10    [first neutrino mode = Hopf depth 2: through d=3]
-```
-
-⭐ **The k-values form a hockey-stick tower (combinatorial derivation):**
-
-The three GTC exponents $\{k_u, k_c, k_t\} = \{0, 3, 10\}$ are not independently assigned — they are the successive hockey-stick evaluations of $n_u$ in sector $d=3$:
-
-$$k_u = 0, \qquad k_c = n_u = 3, \qquad k_t = S(n_u,\,3) = \binom{n_u+2}{3} = \binom{5}{3} = 10$$
-
-Numerically: $S(3,3) = \binom{5}{3} = 10 = n_{\nu_1}$ — the first neutrino mode index and the d=3 HS image of $n_u$. The sequence $\{0,\, n_u,\, S(n_u,3)\}$ is entirely determined by $n_u = 3$ (seed; equal to $n_s - n_d$ by the $\chi$-consecutiveness identity T15). The three k-values are three consecutive levels of the same HS tower that generates the particle spectrum — not three separate parameters. This provides a fully combinatorial derivation of the GTC correction sequence: given $n_u = 3$, the exponents $\{0, 3, 10\}$ are forced.
-
-**Why k = n_u for charm:** The charm quark at n_c = S(n_s,3) = 20 is n_c − k₀ = 4 modes above the resonance k₀ = 16. Its GTC depth equals n_u = 3 = the Hopf chain reduction at depth 1 (the number of steps from n_s to n_u).
-
-**Why k = S(n_u,3) for top:** The top quark at n_t = 72 is n_t − k₀ = 56 modes above k₀. Its GTC depth = S(n_u,3) = 10 = the first neutrino mode index = the image of n_u under Hopf depth 2 (through the d=3 sector). This connects the top quark correction directly to the neutrino sector.
-
-The k values are used exclusively for ratios within d=4 (c/u and t/u). d=6 modes have k=0 effective phase load because the same factor appears in every d=6 mass and cancels in all ratios. The tau's residual is handled separately by the d=6→d=10 back-reaction correction (§9b).
-
-**Chain order:** d=4 receives the largest downstream phase load (earliest in the Hopf chain); d=6 is terminal and receives none. The tau's residual is closed by the d=6→d=10 isotropic back-reaction (Part 2 §9b), not the GTC.
-
-### 11.4 Robustness Analysis
-
-The normalization factor 280√7 in the denominator of ε is derived, not fitted. A sensitivity analysis across ±10% variation in this denominator shows the result is structurally stable:
-
-| Normalization factor | ε | c/u corrected | t/u corrected | Deviation from PDG |
-|---|---|---|---|---|
-| 252 (−10%) | 0.001500 | 587.68 | 79,823 | c/u −0.05%, t/u −0.20% |
-| **280 (nominal)** | **0.001350** | **587.95** | **79,943** | **c/u −0.003%, t/u −0.048%** |
-| 308 (+10%) | 0.001227 | 588.16 | 80,041 | c/u +0.03%, t/u +0.08% |
-
-Even with a generous ±10% theoretical uncertainty on the normalization (covering possible higher-order overlap or curvature corrections), both ratios remain within **0.2%** of PDG values. The GTC is structurally stable and not fine-tuned.
-
-**Open item:** A first-principles computation of the exact overlap integral prefactor for the l=2 kernel component. The leading-order expression gives ε = 1/(280√7); higher-order terms would shift it by less than 0.74%.
-
-### 11.5 Results
-
-| Ratio | Raw error | After GTC |
-|---|---|---|
-| mu/e | −0.001% | −0.001% (Δk=0) |
-| s/d | 0.000% | 0.000% (Δk=0) |
-| c/u | +0.403% | **−0.003%** |
-| t/u | +1.311% | **−0.048%** |
-| t/c | +0.904% | **−0.045%** |
-| tau/mu | −0.059% raw | **+0.001%** after back-reaction correction (§9b) |
+The bare formula overshoots systematically, growing with generation. The up quark sits within the PDG light-quark uncertainty; charm and top sit above their measured masses by a real-but-underived amount (§11.4) and are quoted as stated, not corrected to agreement. 🔶
 
 ```python
-GTC_EPS = 1/(280 * 7**0.5)   # derived: 0.001350
-GTC_K   = {'down':0, 'strange':0, 'up':0, 'charm':3, 'top':10, 'bottom':0}
-# d=6 and d=10 particles not in GTC table: GTC correction cancels in all d=6 ratios
+# up-type quark masses are BARE: m = m_scale_4 * S(n, 4), no correction.
+# charm = m_scale_4 * S(20,4) = 1284.9 MeV   (+0.93%, open residue)
+# top   = m_scale_4 * S(72,4) = 176365 MeV   (+2.20%, open residue)
 ```
 
 ### 11.6 Corrections Summary
 
-All three perturbative corrections to the bare mass formula $m = m_{\rm scale} \times S(n,d)$ are derived from $n_s = 4$ with no additional inputs. Each applies to exactly one particle or family; they are structurally orthogonal.
+Two perturbative corrections sit on top of the bare mass formula $m = m_{\rm scale} \times S(n,d)$ — the former GTC having been removed (§11.3). The back-reaction $\delta_\tau$ is derived; $\delta_{\nu_3}$ is motivated. Each applies to exactly one particle or family; they are structurally orthogonal.
 
 | Correction | Symbol | Formula | Derivation | Applies to | Status |
 |---|---|---|---|---|---|
-| Generation Tower Correction | $\varepsilon$ | $1/(280\sqrt{7}) \approx 0.001350$ | $\ell=2$ kernel component at $k_0=n_s^2=16$ (§11.2); exact factors $g_{\rm coeff}=2/\sqrt{7}$, $k_0=16$, $n_\mu=35$ | $u$ ($k=0$), $c$ ($k=3$), $t$ ($k=10$): $m\to m(1-\varepsilon)^k$ | ✅ |
 | Geometric back-reaction | $\delta_\tau$ | $+1/1680$ | $d=6\to d=10$ geometric series; $1/(1-g_{10,10})$ resummation; $1680 = n_s n_u(n_s+n_u)S(n_s,3)$ (§9b) | $\tau$ only: $m_\tau \to m_\tau(1+1/1680)$ | ✅ |
 | $\nu_3$ closure relation | $\delta_{\nu_3}$ | $+1/35$ | Cross-sector $\ell=2 \times d=3$ interference; $\varepsilon \times g_{33} = [1/(280\sqrt{7})]\times[8\sqrt{7}] = 8/280$ (§9d) | $\nu_3$ only: $m_{\nu_3} \to m_{\nu_3}(36/35)$ | 🔶 |
 
-**Algebraic relationship.** $\delta_{\nu_3} = \varepsilon \times g_{33}$ exactly; the $\sqrt{7}$ factors cancel and the result $1/35 = 1/n_\mu$ is rational. The same Jacobi coefficient $g_{\rm coeff} = 2/\sqrt{7}$ that generates the GTC also generates $\delta_{\nu_3}$ via $g_{33}$, so the two corrections share a common seed. Despite this shared origin, they act on disjoint particle sets and through structurally distinct mechanisms: the GTC accumulates multiplicatively over generation depth $k$ in the $d=4$ sector; $\delta_{\nu_3}$ enters as a single additive shift from the inclusion-exclusion mode structure of $n_{\nu_3}$.
+**The scale $\varepsilon$.** $\delta_{\nu_3} = \varepsilon \times g_{33}$ exactly; the $\sqrt{7}$ factors cancel and the result $1/35 = 1/n_\mu$ is rational. The $\ell=2$ scale $\varepsilon = 1/(280\sqrt{7})$ (§11.2) is a derived quantity; it no longer corrects the up-type quark masses (§11.3), but it remains the derived scale of this single, motivated $\nu_3$ shift via $g_{33}$.
 
-**No particle carries more than one correction.** The bottom quark uses the geometric-mean rule (§8), not these perturbative corrections. Particles in $d=3$ and $d=6$ carry $k=0$ in the GTC table so the factor $(1-\varepsilon)^0 = 1$ is trivial; they receive no GTC shift.
+**No particle carries more than one correction.** The bottom quark uses the geometric-mean rule (§8), not these perturbative corrections. The up-type quark masses are quoted bare (§11.3); only $\tau$ (back-reaction) and $\nu_3$ (closure) carry a correction.
+
+### 11.7 The top quark: a correction that is required but not earned 🔶
+
+Within the up-type sector the overshoot grows smoothly with generation, but the top is set apart, and it is the principal open residue of the mass sector. Two features distinguish it from every lighter mode.
+
+First, its mode index is not a tower output. Every lepton, every neutrino, and the first- and second-generation quarks carry indices generated additively by the hockey-stick tower; the top's index $n=72$ is instead a product, $N_c\times n_s\times N_f = \chi(\mathbb{CP}^2)\times\chi(\mathbb{CP}^3)\times\chi(\mathbb{CP}^5) = 3\times4\times6$. Being a combinatorial quantity is not in itself unusual — every mass in the framework is a count, $m = m_{\rm scale}\times S(n,d)$, so no mode index is the eigenvalue of a potential. What is unusual is the generation rule: the rest of the spectrum is additive, the top's index is multiplicative, and unlike the bottom's product index $n_s^2=16$ — which is forced as the $d=10$ Gegenbauer endpoint (§8) — no condition has been found that selects $72$. The rule that produces the top's index is, at present, the one generation rule in the spectrum without an underlying mechanism.
+
+Second, the correction it would need is required by the data but cannot be earned, so none is applied. The bare mode $S(72,4)\,m_{\rm scale,4} = 176{,}365$ MeV overshoots the measurement by $+2.20\%$ — $+13\sigma$ against PDG 2024 ($172{,}570 \pm 290$ MeV), far outside the experimental margin of $\pm0.17\%$. Agreement would therefore demand a correction. But no derived correction exists: the former $(1-\varepsilon)^{k}$ factor used a fitted exponent (§11.3) and has been removed, and the underlying $\ell=2$ self-energy — though real, correctly signed, and of the right rough size (Appendix A §45) — does not fix the magnitude. So the top is quoted bare, $+13\sigma$ high, as an open residue rather than corrected to a false agreement.
+
+The honest statement is that something happens at the top which the additive generation pattern does not account for. The effect is real: a genuine $\sim2\%$ downward shift of the correct sign and size would be needed, and the $\ell=2$ self-energy supplies its direction. But neither the index $72$ nor a correction is derived. The top is the single place in the otherwise-regular spectrum where the pattern breaks, and closing it — deriving both the selection of the index and the correction it requires — is the open problem this section leaves standing. The top mass is therefore quoted bare ($\textbf{🔶}$, $+13\sigma$) and must not be read as a derived prediction.
 
 ## 12. Two-Layer Mass Structure and Unified Scale Formula
 
@@ -964,14 +928,11 @@ m_scale_d = m_scale_6 × √(g_dd/g_66) × S(n_e,6) / S(n_min(d),d)
 
 where n_min(d) is the lightest occupied mode in sector d. For d=3 this gives m_scale_3 = m_scale_6 × √(g33/g66) × 18564/1 = m_e × √(g33/g66) = 4.702 MeV
 
-**Two independent error levels from the rank-1 structure:**
+**The d=4 up-type overshoot (uncorrected):**
 
-The rank-1 kernel G = vvᵀ implies any kernel back-reaction on mode frequencies is sector-uniform — identical fractional shift for all n within a given d. Prediction errors therefore decompose into two independent levels:
+The light-quark predictions are parameter-free outputs of the derived sector scales; against PDG 2024 the residuals are small and not equal across a sector (d +0.04%, s +0.57%, u +0.77%). The d=4 up-type masses overshoot by +0.8% (up), +0.9% (charm, +2.6σ), +2.2% (top, +13σ) and are quoted bare: the former (1−ε)^k correction used fitted exponents and has been removed (§11.3). The overshoot's sign is supplied by the l=2 tensor part of the cross-sector kernel (ξ_d·ξ_{d'})² — a real, correctly-signed second-order self-energy (Appendix A §45) — but its magnitude is not derived, so no correction is applied (🔶, §11.4).
 
-- **Level 1 (sector-uniform):** The coupling self-consistency derivation produces a uniform fractional offset within each sector — identical for every mode. Confirmed: d quark and s quark both show +0.682% exactly despite spanning n=1 to n=4. This is a structural consequence of the rank-1 kernel: any scale error in m_scale_d is the same for all n within that d. It is not a coincidence — the rank-1 structure forces it.
-- **Level 2 (n-dependent):** the l=2 tensor part of the cross-sector kernel, corrected by the GTC with ε = 1/(280√7). After subtracting the d=4 sector base (+0.77%), the GTC with k_c=3 and k_t=10 accounts for the within-sector excess.
-
-The two levels are structurally independent: Level 1 comes from the l=0 scalar part of (ξ_d·ξ_{d'})²; Level 2 comes from the l=2 tensor part.
+The l=0 scalar part of (ξ_d·ξ_{d'})² sets the sector mass scale; the l=2 tensor part supplies this mode-dependent shift.
 
 **d=6/d=10 kernel symmetry:** v₆ = v₁₀ = 1/2 exactly. The kernel cannot distinguish the charged lepton sector from the tau sector — both have identical coupling strength. The mass difference between muon and tau arises entirely from different sector geometry (S(35,6) vs S(23,10)), not from any coupling difference. This is a genuine symmetry of the kernel, broken only by the Hopf chain's sector manifold assignments.
 

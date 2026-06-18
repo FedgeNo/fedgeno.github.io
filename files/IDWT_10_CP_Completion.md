@@ -254,6 +254,24 @@ $$J_{\mathrm{PMNS}} = J_{\mathrm{max}} \times \sin\delta_{CP} = 0.033351 \times 
 
 **Status:** T8 remains 🔶. The formula δ_CP = π + 2θ₁₃ = 197.11° is a concrete, testable prediction with strong topological motivation (Δc₁ = −2, δ = π in the μ–τ symmetric limit). Three content gaps prevent elevation to 🔵: (i) the spectral flow coefficient c₁(CP^n) per π needs a rigorous derivation from the IDWT rank-1 perturbation rather than the Weyl-density heuristic (§1.3); (ii) the sign ∂U_{e3}/∂θ_{13}|_{0^+} < 0 follows from the inclusion-exclusion (cumulant) structure of n_{ν₃} — now made explicit as the relative sign via the condensate matrix-element computation (§2; Appendix A §25), with the full T6-coupling-matrix derivation including the branch convention not yet assembled at the same rigor; (iii) the equivalence between spectral flow along the θ₁₃ path and the Part 9 spectral-phase coupling-space integral has not been proved formally. Four additional rigorous-mathematics gaps also remain: (iv) Fredholm continuity of the one-parameter operator family D_{CP^n}(θ₁₃) is not proved; (v) the spectral-flow definition used is heuristic (eigenvalue counting) rather than the rigorous APS definition (η function regularization); (vi) the family index construction (determinant line bundle with connection) is not formalized; (vii) regularity conditions on the mode functions and domain under the θ₁₃ perturbation are not verified. Closing (i)–(iii) would move T8 to 🔵; (iv)–(vii) are needed for a ✅ proof.
 
+### 4.1 Quark sector: the leading CKM CP phase vanishes by sector structure
+
+The same spectral-flow mechanism applied to the quark sector gives a qualitatively different result, and the difference is geometric. The leptonic phase is nonzero because the charged leptons span two distinct Kähler sectors — the electron and muon in CP³ (d=6, c₁=4) and the tau in CP⁵ (d=10, c₁=6) — so different generations accumulate different spectral flow, and the relative phase Δc₁ = 2 survives. The quark generations have no such spread. All three up-type quarks (u, c, t) are d=4 sector excitations on CP², and all three down-type quarks (d, s, b) are d=3 sector excitations on S³.
+
+Two facts then fix the leading-order phase. First, S³ is a real sphere: it carries no complex structure and no holomorphic line bundle, so its spectral flow is zero (the same reason §4 gives for S⁵). Second, the CP² spectral flow is common to all three up-type generations. Consequently the spectral-flow phase of every CKM element V_{u_i → d_j} is the same up-sector-minus-down-sector value,
+
+$$\arg V_{u_i\to d_j}^{(\mathrm{spec})} \;=\; c_1(\mathbb{CP}^2) - c_1(S^3) \;=\; 3 - 0,$$
+
+independent of the generation indices i and j. A phase that is constant across the matrix is a global rephasing of the up-type relative to the down-type fields; it cancels in every rephasing-invariant. The Jarlskog invariant is therefore zero at leading order:
+
+$$\boxed{J_{\mathrm{CKM}}^{(\mathrm{leading})} = 0.}$$
+
+This is the structural origin of the tree-level result ρ = η = 0 (Part 5): the CKM phase is not merely numerically small at tree level — the holonomy mechanism that generates the leptonic phase is switched off for quarks, because the quark generations of each type occupy a single sector. The result requires only the sector assignments and the rephasing identity, not the spectral-flow coefficient of §1.3, so it is insensitive to the gaps (i)–(vii) that keep T8 at 🔶.
+
+The observed quark CP violation, J_CKM ≈ 3×10⁻⁵, is therefore necessarily a subleading effect. The only remaining source is the cross-sector overlap between the holomorphic CP² up-modes and the real S³ down-modes: a holomorphic-versus-real mismatch in the kernel overlap on the shared d=3 coordinates, which carries a non-factorizable phase and sits on the single suppressed element V_ub. This is small for a structural reason — it is the residue left after the leading mechanism vanishes — which matches the smallness of J_CKM relative to the order-one leptonic phase. Its magnitude awaits the explicit CP² mode functions (the open item of §3) and is recorded in Appendix A §47.
+
+**Status:** the leading-order vanishing J_CKM^{(leading)} = 0 is ✅ within the T8 framework (it follows from the sector assignments and the rephasing identity alone). The hierarchy J_CKM ≪ J_PMNS is thereby explained structurally. The subleading magnitude of the quark phase is 🔶 (open, blocked on the §3 mode functions). This replaces the earlier practice of estimating |V_ub| with the leptonic phase, which is geometrically inadmissible: the leptonic δ is a relative holonomy between two Kähler sectors and cannot be carried into a sector pair that is one Kähler (CP²) and one real (S³).
+
 ---
 
 ## §5. Updated Status of the Complete IDWT Framework
@@ -263,7 +281,7 @@ The following table consolidates the full theorem status after the T8 completion
 | Theorem | Content | Status | Accuracy | Physical consequence |
 |---|---|---|---|---|
 | T0 | Spectral triple; physical spectrum | 🔶 | — | All SM masses from one operator; 7 open items (Part 9) |
-| T0.5 | Co-fixed-point selection condition | 🔶 | Exact outcomes | Selects 15 from infinite spectrum; decoherence mechanism not yet derived from EOM |
+| T0.5 | Co-fixed-point selection condition | 🔶 | Exact outcomes | Selects the 11-mode lattice (photon + hockey-stick fermions); the 2 product-form quarks {16,72} and the EW g-chain {76,81,95} are tiers 2–3 (Part 9 T0.5 scope); decoherence mechanism not yet derived from EOM |
 | T1 | m = S(n,d)·m_scale = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
 | T2 | (ξ·ξ')² = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
 | T3 | D = {2,3,4,5,6,10} from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |

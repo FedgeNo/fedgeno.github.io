@@ -361,7 +361,7 @@ Antiquark vectors are exact negatives of quark vectors: n⃗(q̄) = −n⃗(q).
 N⃗ = Σᵢ n⃗(qᵢ)     E_conf = λ_c |N⃗|
 ```
 
-This is the unique SU(3)-invariant linear energy functional, where λ_c is an energy scale (related to Λ_QCD, not to the Generation Tower Correction ε; λ_c is an open item — see below). The colour-neutrality condition |N⃗|=0 follows geometrically as the zero-energy criterion:
+This is the unique SU(3)-invariant linear energy functional, where λ_c is an energy scale (related to Λ_QCD, not to the ℓ=2 kernel scale ε; λ_c is an open item — see below). The colour-neutrality condition |N⃗|=0 follows geometrically as the zero-energy criterion:
 
 | System | |N⃗| | E_conf | Colour-neutral? |
 |--------|------|---|-----------|

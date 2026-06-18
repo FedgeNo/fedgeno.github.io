@@ -24,19 +24,19 @@ S(35,6) / S(13,6) = 3,838,380 / 18,564 = 206.7647   (PDG: 206.7683,  −0.002%)
 S(23,10) / S(13,6) = 64,512,240 / 18,564 = 3,475.126   (PDG: 3,477.23, bare −0.060%; back-reaction corrected: −0.14σ inside 1σ)
 ```
 
-**Up-type quark mass ratios — with Generation Tower Correction**
+**Up-type quark mass ratios (bare)**
 
-The raw simplex predictions for d=4 run systematically high (+0.40% to +1.31%). Applying the Generation Tower Correction (Part 2 §11) with ε = 1/(280√7) = 0.001350 (derived) and k values {u:0, c:3, t:10}:
+The d=4 up-type mass ratios are quoted bare; the former Generation Tower Correction is removed (its per-quark exponent was a fit — Part 2 §11). The ratios run high because charm and top overshoot:
 
 ```
-c/u corrected: 590.333 × (1−ε)³  / 1 = 587.95   (PDG 587.96,  0.000%)
-t/u corrected: 81,030  × (1−ε)¹⁰ / 1 = 79,943   (PDG 79,981, −0.048%)
-t/c corrected: 137.261 × (1−ε)⁷      = 135.97   (PDG 136.03, −0.045%)
+c/u bare: S(20,4)/S(3,4)  = 590.33   (PDG ≈ 589.4,  +0.16%)
+t/u bare: S(72,4)/S(3,4)  = 81,030   (PDG ≈ 79,893, +1.42%)
+t/c bare: S(72,4)/S(20,4) = 137.26   (PDG ≈ 135.6,  +1.25%)
 ```
 
 **Bottom quark**
 ```
-√(S(16,3) × S(17,3)) × m_scale_3 = √(816 × 969) × 4.702 = 4,181 MeV   (PDG: 4,180 ± 10,  +0.02%)
+√(S(16,3) × S(17,3)) × m_scale_3 = √(816 × 969) × 4.702 = 4,181 MeV   (PDG: 4,183 ± 7,  −0.05%)
 ```
 
 **Photon mass = 0**
@@ -46,7 +46,7 @@ S(0, 2) = C(1, 2) = 0   →   m_photon = 0   (exact, derived)
 
 **Electroweak sector**
 ```
-m_W:      80,379 MeV   (PDG: 80,377,   +0.003%)
+m_W:      80,379 MeV   (PDG: 80,369,   +0.012%)
 m_Z:      91,230 MeV   (PDG: 91,188,   +0.047%)
 m_Higgs: 125,266 MeV   (PDG: 125,200,  +0.053%)
 sin²θ_W:      0.2237   (PDG on-shell: 0.22290,   +0.37%)
@@ -82,15 +82,17 @@ The kernel off-diagonal matrix element between modes n_i (lighter) and n_j (heav
           (PDG exclusive: 0.04100 ± 0.0014,  +0.11σ)
 
 A = |V_cb| / sin²θ_C = √(S(n_u,4)/S(n_c,4)) × S(n_s,3) = 0.82315
-          (PDG: 0.8230 ± 0.0046,  +0.03σ)
+          (PDG: 0.826 ± 0.012,  −0.24σ)
 
 |V_ts| ≈ |V_cb| = 0.04116    [from CKM unitarity, third row]
           (PDG: 0.04183 ± 0.0007,  −0.96σ)
 
-|V_ub|_lower = A s_C³ = 0.00920    [lower bound, δ_CP = π+2θ₁₃ = 197.11° (T8 🔶, Part 10)]
-          (PDG: 0.00382 — difference encodes the CP-violation factor √(ρ²+η²);
-           full prediction awaits T8 reaching 🔵)
+|V_ub| = A s_C³ × √(ρ²+η²);  A s_C³ = 0.00920 is the CP-conserving prefactor.
+          √(ρ²+η²) is the quark CP factor — NOT YET DERIVED (see warning below).
+          (PDG: 0.00382)
 ```
+
+> **⚠ Correction (2026-06-16).** A previous version assigned `|V_ub|` using the *leptonic* CP phase δ = π + 2θ₁₃ = 197.11° (and mislabelled the result a "lower bound"). That is wrong in the IDWT context and has been removed. The leptonic CP phase is a relative Berry holonomy between two **Kähler** sectors, CP³ (d=6) and CP⁵ (d=10), both complex (Part 10 §1); the quark CP phase spans CP² (d=4, Kähler, up-type) and S³ (d=3, **real**, down-type) — entirely different geometries — so the leptonic phase cannot be imported here. The holonomy mechanism that fixes the leptonic phase is switched off here: all three up-type quarks share one Kähler sector (CP²) and all three down-type share one real sector (S³), so the spectral-flow phase is a generation-independent up-vs-down offset, rephased away — giving J = 0 at leading order, consistent with ρ = η = 0 above (Appendix §47, ✅). The small measured CP violation is therefore a *subleading* holomorphic(CP²)-vs-real(S³) overlap mismatch on V_ub; its magnitude √(ρ²+η²) awaits the explicit CP² mode functions (Appendix §47, 🔶). Until then `|V_ub|` carries only its CP-conserving prefactor A s_C³.
 
 See Part 3 §0.8 for the derivation.
 
@@ -199,14 +201,13 @@ Using m_e = 0.511 MeV as the sole unit reference:
 | e | 0.5110 | 0.5110 | 0.000% | unit reference |
 | μ | 105.657 | 105.658 | −0.001% | — |
 | τ | 1776.84 | 1776.93 | −1.0σ† | — |
-| d | 4.702 | 4.670 | +0.68% | sector-uniform offset |
-| s | 94.04 | 93.40 | +0.68% | sector-uniform offset |
-| u | 2.177 | 2.160 | +0.77% | sector-uniform offset |
-| c | 1279.7 | 1270.0 | +0.76% | GTC k=3 |
-| t (raw) | 176,365 | 172,760 | +2.09% | GTC k=10 below |
-| t (GTC, k=10) | 173,999 | 172,760 | +0.72% | ε = 1/(280√7) |
-| b | 4,181 | 4,180 | +0.02% | — |
-| W | 80,379 | 80,377 | +0.003% | — |
+| d | 4.702 | 4.70 | +0.04% | parameter-free output |
+| s | 94.04 | 93.5 | +0.57% | parameter-free output |
+| u | 2.177 | 2.160 | +0.77% | parameter-free output |
+| c (bare) | 1284.9 | 1273.0 | +0.93% (+2.6σ) | open residue (§11) |
+| t (bare) | 176,365 | 172,570 | +2.20% (+13σ) | open residue (§11) |
+| b | 4,181 | 4,183 | −0.05% | — |
+| W | 80,379 | 80,369 | +0.012% | — |
 | Z | 91,230 | 91,188 | +0.047% | — |
 | H | 125,266 | 125,200 | +0.053% | — |
 
@@ -225,7 +226,7 @@ This scores each prediction. For a parameter-free dimensionless ratio (sector sc
 | m_Z/m_W = S(81,2)/S(76,2) | 1.13500 | 1.13461 | 3.4×10⁻⁴ | 0.025 | 2.7×10⁻² |
 | m_H/m_W = S(95,2)/S(76,2) | 1.55844 | 1.55781 | 4.1×10⁻⁴ | 0.021 | 8.5×10⁻² |
 
-The τ row uses PDG 2024 (m_τ = 1776.93 ± 0.09 MeV); its ε is the measurement floor — the fit residual is 4.9×10⁻⁵ (−0.9σ). The four independent luck factors multiply to ≈ 1.1×10⁻¹⁰ (≈ 1 in 9×10⁹). The lepton ratios dominate: a sub-10⁻⁴ hit on a 17–43% grid is what a flexible fit cannot manufacture. (Computed in `idwt.py` STEP 38; exploratory script `claude/significance_audit.py`.)
+The τ row uses PDG 2024 (m_τ = 1776.93 ± 0.09 MeV); its ε is the measurement floor — the fit residual is 4.9×10⁻⁵ (−0.9σ). The four independent luck factors multiply to ≈ 1.1×10⁻¹⁰ (≈ 1 in 9×10⁹). The lepton ratios dominate: a sub-10⁻⁴ hit on a 17–43% grid is what a flexible fit cannot manufacture. (Computed in `idwt.py` STEP 38.)
 
 **Honest scope.** The L = 2ε/g luck model treats each quantity separately; multiplying the four L values overstates the joint significance because a proper combination must account for the many ways a set of quantities can be jointly "this lucky." §2b does the combination properly and adds the Monte-Carlo null over random index sets. The figure is conditional on the scales being derived, not refit (they are). The quantities were selected by a principled rule — precisely measured and parameter-free — not by closeness; looser predictions exist (g_A +4%, f_π +2.1%, nucleon moments using fitted parameters, §3) and stand alongside these. The result retires the "fit anything" objection: the spectrum is not a flexible structure.
 
@@ -233,7 +234,7 @@ The τ row uses PDG 2024 (m_τ = 1776.93 ± 0.09 MeV); its ε is the measurement
 
 ### 2b. Joint p-value and random-theory Monte Carlo 🔵
 
-Two null models make the §2a estimate a defensible joint p-value. Both are computed in `idwt.py` STEP 39 (full runs in `claude/significance_mc.py`).
+Two null models make the §2a estimate a defensible joint p-value. Both are computed in `idwt.py` STEP 39.
 
 **Null A — random target position.** The hypothesis being tested: the measured values are unrelated to the simplex grid, so each sits at a uniformly random position inside its local inter-rung cell. The normalized distance from a measured value to its nearest rung is then uniform on [0,1]; with the measurement floor f = min(1, 2σ/g) the per-quantity luck is L = max(p, f), and the joint statistic is X = −Σ ln Lᵢ. The joint p-value P(X ≥ X_obs) is computed two ways: exactly, as the tail of the convolution of the per-quantity densities, and by Fisher's closed form P(χ²₂ₖ ≥ 2X_obs), which ignores the floors and is therefore conservative (floors only thin the null tail).
 
@@ -247,14 +248,14 @@ The quantity set is fixed by a rule stated in advance, not by closeness: a quant
 | m_H/m_W | 1.55844 | 1.55781 ± 0.00139 | 8.9×10⁻⁴ | 0.021 | 8.6×10⁻² |
 | sin θ_C | 0.22454 | 0.2245 ± 0.0008 | 3.6×10⁻³ | 0.245 | 2.9×10⁻² |
 | m_s/m_d | 20.000 | 19.81 ± 0.13 | 9.6×10⁻³ | 0.500 | 3.8×10⁻² |
-| m_t/m_c | 135.97 | 136.03 ± 2.15 | 1.6×10⁻² | 0.053 | 5.9×10⁻¹ |
-| Δm²₃₁/Δm²₂₁ | 34.86 | 34.10 ± 0.99 | 2.9×10⁻² | 0.348 | 1.7×10⁻¹ |
+| m_t/m_c | 135.60 | 135.56 ± 0.54 | 4.0×10⁻³ | 0.053 | 1.5×10⁻¹ |
+| Δm²₃₁/Δm²₂₁ | 34.86 | 33.60 ± 0.88 | 3.8×10⁻² | 0.348 | 2.2×10⁻¹ |
 
-Measured inputs: PDG 2024 (m_τ = 1776.93 ± 0.09 MeV; m_W = 80369.2 ± 13.3 MeV; m_Z = 91188.0 ± 2.0 MeV; m_H = 125200 ± 110 MeV; V_us = 0.2245 ± 0.0008; m_t = 172760 ± 300 MeV; m_c = 1270 ± 20 MeV; Δm²₃₁ = 2.530(28)×10⁻³ eV²; Δm²₂₁ = 7.53(18)×10⁻⁵ eV²) and FLAG 2024 (m_s/m_d = 19.81 ± 0.13 from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8)). ε_eff is |IDWT − obs|/obs floored at the relative measurement error. The m_s/m_d entry is the largest pull in the set (+1.5σ against the lattice ratio); it is scored as found.
+Measured inputs: PDG 2024 (m_τ = 1776.93 ± 0.09 MeV; m_W = 80369.2 ± 13.3 MeV; m_Z = 91188.0 ± 2.0 MeV; m_H = 125200 ± 110 MeV; V_us = 0.2245 ± 0.0008; m_t = 172570 ± 290 MeV; m_c = 1273.0 ± 4.6 MeV; Δm²₃₁ = 2.530(28)×10⁻³ eV²; Δm²₂₁ = 7.53(18)×10⁻⁵ eV²) and FLAG 2024 (m_s/m_d = 19.81 ± 0.13 from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8)). ε_eff is |IDWT − obs|/obs floored at the relative measurement error. The m_s/m_d entry is the largest pull in the set (+1.5σ against the lattice ratio); it is scored as found.
 
-The result: X_obs = 31.56, joint p = 8.9×10⁻¹¹ (6.4σ) exact; 1.5×10⁻⁷ (5.1σ) under the conservative Fisher treatment; a ×100 look-elsewhere allowance leaves 8.9×10⁻⁹ (5.6σ). The §2a core set alone gives 3.8×10⁻⁷ (4.9σ) under the same combination. The exact convolution was validated against Monte Carlo at every tail depth the simulation can resolve.
+The result: X_obs = 32.69, joint p = 5.4×10⁻¹¹ (6.5σ) exact; 6.4×10⁻⁸ (5.3σ) under the conservative Fisher treatment; a ×100 look-elsewhere allowance leaves 5.4×10⁻⁹ (5.7σ). The §2a core set alone gives 3.8×10⁻⁷ (4.9σ) under the same combination. The exact convolution was validated against Monte Carlo at every tail depth the simulation can resolve.
 
-The three PMNS angles and m_c/m_u fail the resolution rule — their effective grids are finer than current measurement errors, so under Null A they cannot carry evidence either way. As consistency checks they sit at +0.30σ (sin²θ₂₃), +0.13σ (sin²θ₁₂), +0.19σ (sin²θ₁₃), and −0.00σ (m_c/m_u).
+The three PMNS angles and m_c/m_u fail the resolution rule — their effective grids are finer than current measurement errors, so under Null A they cannot carry evidence either way. As consistency checks they sit at +0.30σ (sin²θ₂₃), +0.13σ (sin²θ₁₂), +0.19σ (sin²θ₁₃), and −0.04σ (m_c/m_u).
 
 **Null B — random theories.** This is the direct version: draw every mode index independently and uniformly from its allowed window (all n placing the sector mass below 1 TeV at the seed-chain scales; below 1 eV for d=5), recompute all twelve quantities — the eight above plus the PMNS angles and m_c/m_u, with g₅₅ fixed by the seeds — and score each random theory by T = Σ ln ε_eff,ᵢ against the same measured set. No random index assignment in 8.4×10⁶ draws (6×10⁶ at the stated windows, the rest at halved and doubled windows) scored as well as IDWT; at the stated windows this gives p_B < 5×10⁻⁷ (95% CL). The best random theory fell short by 36 ln-units (a factor ~10¹⁵ in joint residual). Per quantity, random draws match the lepton ratios essentially never (m_μ/m_e: ~3×10⁻⁵ per draw; m_τ/m_e: zero in all draws) and the remaining quantities at the 10⁻⁴–10⁻² level, so the joint match is far beyond reach of the family of integer assignments the skeptic's objection invokes.
 
@@ -262,19 +263,17 @@ Both nulls leave the conclusion of §2a in place with the arithmetic now rigorou
 
 ---
 
-## 3. d=4 Sector: GTC Correction
+## 3. d=4 Sector: Up-Type Overshoot (uncorrected, open)
 
-The d=4 sector carries a uniform +0.77% offset (from the coupling self-consistency derivation) plus a mode-dependent excess that grows with n. The GTC with ε = 1/(280√7) and k values {u:0, c:3, t:10} corrects the mode-dependent part:
+The d=4 up-type masses are quoted bare and overshoot PDG, growing with generation:
 
-| Particle | Absolute raw | Absolute after GTC | Ratio (vs u) raw | Ratio after GTC |
-|---|---|---|---|---|
-| u | +0.77% | +0.77% (k=0) | — | — |
-| c | +0.76% raw | +0.76%‡ | +0.403% | 0.000% |
-| t | +2.09% | **+0.72%** | +1.311% | **−0.048%** |
+| Particle | n | Bare $S(n,4)\,m_{\rm scale,4}$ | Error vs PDG |
+|---|---|---|---|
+| u | 3 | 2.177 MeV | +0.77% (within light-quark margin) |
+| c | 20 | 1284.9 MeV | +0.93% (+2.6σ, outside) |
+| t | 72 | 176,365 MeV | +2.20% (+13σ, outside) |
 
-The GTC closes the within-sector ratio errors exactly. The uniform +0.77% offset persists in absolute masses — it is the same for every d=4 mode because the rank-1 kernel forces sector-wide uniformity.
-
-The l=2 tensor part of the kernel (explained by Wigner-Eckart) gives the √C₂(n) functional form of the within-sector correction — confirming that the GTC's growing correction with k is geometrically natural. The coefficient is derived (ε = 1/(280√7)), not fitted.
+A former correction (the "Generation Tower Correction," (1−ε)^k with ε = 1/(280√7) derived and per-quark exponents {0,7,16}) brought charm and top onto PDG, but the exponents were a fit, not derived (§11.3), so it has been removed. Charm and top are open residues. The l=2 tensor part of the kernel supplies the overshoot's sign — a real, correctly-signed second-order self-energy (Appendix A §45) — but its magnitude is not derived, so no correction is applied (🔶, §11.4).
 
 🔶 **Nucleon static properties** (from l=1 admixture in the d=3 sector, Part 8 §10)
 ```

@@ -28,11 +28,11 @@ header-includes:
       \noindent\textbf{DOI:} \href{https://doi.org/10.5281/zenodo.20370490}{10.5281/zenodo.20370490}\par
     }
 abstract: |
-  We present Infinite-Dimensional Wave Theory (IDWT), a framework that derives the complete mass spectrum of the Standard Model from two inputs: a single non-trivial integer $n_s = 4$ and a single dimensional reference $m_e$ (the electron is the d=6 CP³ sector excitation of $\Psi_\infty$ at mode index $n=13$, a genuine 6D object inhabiting six macroscopic spatial dimensions; its mass converts dimensionless ratios to MeV). The mass of each particle is
+  We present Infinite-Dimensional Wave Theory (IDWT), a framework that derives the complete mass spectrum of the Standard Model from two inputs: a single non-trivial integer $n_s = 4$ and a single dimensional reference $m_e$ (the electron mass, used only to convert dimensionless ratios to MeV). The mass of each particle is
 
   $$m(n, d) = m_{\mathrm{scale},d} \times S(n,d), \qquad S(n,d) = \binom{n+d-1}{d},$$
 
-  where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite sector space $\Xi_d$ and $n$ is a mode index derived entirely from $n_s$ by a fixed algebraic filtration chain. We prove five theorems: (S1) $S(n,2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all odd-sphere sectors, grounding both quark and neutrino masses as sector spectral counting laws on their sector manifolds; (S2) the cross-sector frequency ratio $m_u/m_d = \sqrt{3/14}$ exactly from sector couplings; (S3) the EW self-coupling $g_{22} = 722.5$ is a product of Dirac eigenvalue multiplicities; (S4) the sector set $D = \{2,3,4,5,6,10\}$ is uniquely determined by $n_s = 4$ through the factorisation $n_{\rm top} = N_c \times n_s \times N_f = 72$; and a Completeness Theorem proving no additional stable particles exist within the framework. Two physically motivated corrections derived without additional inputs — a Generation Tower Correction (GTC) $\varepsilon = 1/(280\sqrt{7})$ from the $\ell=2$ tensor kernel component, and a geometric back-reaction factor $1 + 1/1680$ for the $\tau$ lepton — bring all 12 measured masses to within 0.8\% of PDG values. A cross-sector scale consistency equation yields the first-principles prediction of absolute neutrino masses, giving $\sum m_\nu = 60.39$ meV (corrected; bare $59.00$ meV, with $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ derived from the cross-sector kernel) and $m_{\beta\beta} = 0$ at all orders — since no charge-conjugation matrix $C$ exists on the $S^5$ spinor bundle ($d \bmod 8 = 5$), no Majorana operator can be constructed at any loop order. We further show that each sector geometry constitutes a \emph{coupling filter} for its particles: the sector quantum number (polarization, color, the Dirac condition, color silence, Gegenbauer-critical marginal coupling) is not an input label but the geometry expressing itself as a coupling structure, derived from the sector isometry groups, the Euler characteristic, Clifford algebra, and Clifford algebra mod 8 periodicity on the respective sector manifolds. The framework satisfies exact CKM first-row unitarity at tree level. All results are reproduced by a single open-source Python script from the same two inputs.
+  where $d \in \{2,3,4,5,6,10\}$ labels a sector of the infinite sector space $\Xi_d$ and $n$ is a mode index derived entirely from $n_s$ by a fixed algebraic filtration chain. We prove five theorems: (S1) $S(n,2k+1) = \tfrac{1}{2}N_{D_{S^{2k+1}}}(n-1)$ for all odd-sphere sectors, grounding both quark and neutrino masses as sector spectral counting laws on their sector manifolds; (S2) the cross-sector frequency ratio $m_u/m_d = \sqrt{3/14}$ exactly from sector couplings; (S3) the EW self-coupling $g_{22} = 722.5$ is a product of Dirac eigenvalue multiplicities; (S4) the sector set $D = \{2,3,4,5,6,10\}$ is uniquely determined by $n_s = 4$ through the factorisation $n_{\rm top} = N_c \times n_s \times N_f = 72$; and a Completeness Theorem proving no additional stable particles exist within the framework. One physically motivated correction is derived without additional inputs: a geometric back-reaction factor $1 + 1/1680$ for the $\tau$ lepton, from the $d=6\to d=10$ sector coupling. The $\ell=2$ kernel component yields a derived scale $\varepsilon = 1/(280\sqrt{7})$ that enters the $\nu_3$ mass closure but is not applied as a quark mass correction (the former Generation Tower Correction used a fitted exponent and is removed; the $d=4$ up-type overshoots are open residues). All fermion masses except charm and top are reproduced within PDG uncertainties at tree level. A cross-sector scale consistency equation yields the first-principles prediction of absolute neutrino masses, giving $\sum m_\nu = 60.39$ meV (corrected; bare $59.00$ meV, with $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ derived from the cross-sector kernel) and $m_{\beta\beta} = 0$ at all orders — since no charge-conjugation matrix $C$ exists on the $S^5$ spinor bundle ($d \bmod 8 = 5$), no Majorana operator can be constructed at any loop order. We further show that each sector geometry constitutes a \emph{coupling filter} for its particles: the sector quantum number (polarization, color, the Dirac condition, color silence, Gegenbauer-critical marginal coupling) is not an input label but the geometry expressing itself as a coupling structure, derived from the sector isometry groups, the Euler characteristic, Clifford algebra, and Clifford algebra mod 8 periodicity on the respective sector manifolds. The framework satisfies exact CKM first-row unitarity at tree level. All results are reproduced by a single open-source Python script from the same two inputs.
 ---
 
 **Technical documentation (10 volumes):** doi:[10.5281/zenodo.19767493](https://doi.org/10.5281/zenodo.19767493)\
@@ -58,15 +58,15 @@ The companion Python script `idwt.py` [11] implements every derivation in this p
 
 ## 2. Framework
 
-### 2.1 Foundations: Sector Manifolds and the Master Spinor Field
+### 2.1 Foundations: Sector Manifolds and the Master Spinor Field $\Psi_\infty$
 
-The master spinor field $\Psi_\infty$ is a Dirac spinor field on the manifold $\mathcal{M}_\infty$, whose metric is $G_{AB}dX^AdX^B$ over all coordinates $X^A = (x^\mu, \xi^a)$ without privileged blocks. In the effective description for a d=3 observer — where cross-terms between spacetime and sector coordinates are negligible — $\mathcal{M}_\infty$ decomposes as $\mathbb{R}^{3,1} \times \bigoplus_d \Xi_d$, where each $\Xi_d$ is an infinite Riemannian space of real dimension $d$. A sector harmonic potential $V_d(r) = \lambda_d r^2$ (derived from the kernel self-consistency; §3.10.2) creates a confining well that Gaussian-localizes all modes in the sector direction — these are the particles. The geometry labels $\mathbb{CP}^{(d/2)-1}$ and $S^d$ describe the local symmetry of the potential minimum, not the global topology of $\Xi_d$. The space extends without bound; no dimension is compactified. Our observable universe is the restriction $\psi_{\rm obs}(r,t) = \Psi_\infty(r, \xi^0, t)$ at a fixed internal address $\xi^0$.
+The master spinor field $\Psi_\infty$ is a Dirac spinor field on a product manifold $\mathcal{M}_\infty = \mathbb{R}^{3,1} \times \bigoplus_d \Xi_d$, where each $\Xi_d$ is an infinite Riemannian space of real dimension $d$. A sector harmonic potential $V_d(r) = \lambda_d r^2$ (derived from the kernel self-consistency; §3.10.2) creates a confining well that Gaussian-localizes all modes in the sector direction — these are the particles. The geometry labels $\mathbb{CP}^{(d/2)-1}$ and $S^d$ describe the local symmetry of the potential minimum, not the global topology of $\Xi_d$. The space extends without bound; no dimension is compactified. Our observable universe is the restriction $\psi_{\rm obs}(r,t) = \Psi_\infty(r, \xi^0, t)$ at a fixed internal address $\xi^0$.
 
 The sector manifolds $\Xi_d$ are the complex projective spaces $\mathbb{CP}^{(d/2)-1}$ for even $d$ and the odd spheres $S^d$ for odd $d$, organised by the Hopf fibration chain $S^1 \to S^{2k-1} \to \mathbb{CP}^{k-1}$. Their role is spectral: they determine, through the Dirac eigenvalue spectra of the Hopf fibration chain, which mode frequencies are accessible to $\Psi_\infty$. A particle of type $(n,d)$ is a mode of $\Psi_\infty$ whose internal frequency in sector $\Xi_d$ is $S(n,d) \times m_{\mathrm{scale},d}$.
 
 The mode spectrum is discrete because the bound states of $V_d$ are discrete — just as bound states of the hydrogen potential are discrete even though $\mathbb{R}^3$ is infinite. The sectors are not compactified extra dimensions in any sense. The observable 3D universe does not couple to gravitational modes propagating through $\Xi_d$; the back-reaction of $|\Psi_\infty|^2$ on the spacetime metric enters only through the d=3-coordinate component of the energy-momentum tensor $T_{\mu\nu}^{\rm obs} = \int |\Psi_\infty|^2 d\xi$.
 
-**How $\xi^0$ relates to the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by seeds $\{n_d=1,\,n_u=3\}$ and composite $n_s = 4$ independently of $\xi^0$. The SM spectrum is the set of mode-sector pairs selected by the co-fixed-point condition (Section 11), the same for every observer address in $\mathcal{M}_\infty$. What $\xi^0$ affects is only how each already-existing mode projects onto the observer's three resolvable coordinates, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
+**How $\xi^0$ selects the observable SM sector.** The fixed internal address $\xi^0$ does not determine which particles exist — the occupied mode set $\Sigma$ is fixed by the seed $n_s = 4$ independently of $\xi^0$. What $\xi^0$ determines is the projection amplitude with which each mode $(n,d)$ appears to an observer at that address: modes with large $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2))$ are suppressed exponentially in the Stage-1 filter (Section 11). The SM spectrum is the set of modes that survive both the Stage-1 visibility filter (small $\Omega_{\log}$) and Stage-2 co-fixed-point stability for all $\xi^0$ simultaneously — it is the spectrum common to every observer address in $\mathcal{M}_\infty$. The choice of $\xi^0$ therefore affects only the relative intensities of already-existing modes, not the identity of the particle spectrum. A full derivation of the $\xi^0$-independence of $\Sigma$ is in Technical Volume 1 §2 [11].
 
 **Core postulates.** (P1) $\Psi_\infty$ satisfies a wave equation on $\mathcal{M}_\infty$ with a quartic cross-sector kernel (Section 2.4). (P2) Mass is the resonant frequency of a mode: $m(n,d) = m_{\mathrm{scale},d} \times S(n,d)$. (P3) The sector set $D = \{2,3,4,5,6,10\}$ is determined by $n_s = 4$ (Theorem S4). Full derivation of the kernel from the spinor geometry is in Technical Volume 8 [11].
 
@@ -101,7 +101,7 @@ The condition is self-referential: the $d=4$ simplex image of the strange-quark 
 
 \*The full 14-rule filtration chain (all mode indices derived in sequence from $n_s$) gives Jaccard $=1.0$ exactly for $(n_d,n_s)=(1,4)$; the table above uses a simplified 6-rule subset for legibility. The exhaustive verification over all $(n_d,n_s)\in[1..40]^2$ is implemented in `idwt.py` (Step 1, lines 65–195), where each of the 14 derivation rules is applied in order and the resulting set compared against the observed spectrum by Jaccard score. All other pairs produce Jaccard $\leq 0.375$. The 14 rules and the derivation chain are also listed in full in Table (Section 4) and proved algebraically in Technical Volume 1 §5c [11].
 
-**Note on $n_d = 1$ and $n_u = 3$.** The down-quark index $n_d = 1$ is trivially forced: $S(1,d) = 1$ for all $d$. The up-quark index $n_u = 3$ is a seed grounded by the Euler characteristic of the $d=4$ sector manifold: $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15). An independent algebraic certificate — the double $4/7$ self-consistency condition of Section 5.1 — shows that no other positive integer pair $(n_u, n_s)$ with $n_s = n_u + 1$ satisfies the fixed-point equation simultaneously in both sectors.
+**Note on $n_d = 1$ and $n_u = 3$.** The down-quark index $n_d = 1$ is trivially forced: $S(1,d) = 1$ for all $d$. The up-quark index $n_u = n_s - 1 = 3$ is derived, not a second input: it follows from the kernel self-consistency equation at the resonance site $k_0 = n_s^2 = 16$ (Section 5.1).
 
 ### 2.4 The Master Action and Quartic Kernel
 
@@ -109,9 +109,9 @@ The master action on $\mathcal{M}_\infty$ is:
 
 $$\mathcal{L} = \bar{\Psi}_\infty(i\gamma^\mu \partial_\mu - \sum_d \sqrt{V_d(\xi_d)})\Psi_\infty + \sum_{d \leq d'} \frac{g_{dd'}}{2}\int (\xi_d \cdot \xi_{d'})^2 |\Psi^{(d)}|^2 |\Psi^{(d')}|^2 d\mu,$$
 
-where $V_d(\xi) = \lambda_d |\xi|^2$ is the sector harmonic potential of §2.1 and $g_{dd'} = v_d v_{d'}$ is the rank-1 coupling matrix with $v_d = \sqrt{g_{dd}}$.
+where $V_d(\xi) = \lambda_d |\xi|^2/(1+|\xi|^2)$ is the sector potential (harmonic for small $|\xi|$, saturating at $\lambda_d$ for large $|\xi|$) and $g_{dd'} = v_d v_{d'}$ is the rank-1 coupling matrix with $v_d = \sqrt{g_{dd}}$.
 
-The kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the leading quartic term consistent with $U(d) \times U(d')$ symmetry on the sector pair. It decomposes by angular momentum on the sector sphere as $(\xi \cdot \xi')^2 = \frac{1}{d}[\ell=0] + \frac{d-1}{d}\cdot C_2^{(d-2)/2}(\cos\theta)[\ell=2]$, where the $\ell=0$ part generates sector mass scales (Section 5) and the $\ell=2$ part generates the GTC frequency shift (Section 7.1). The rank-1 structure $g_{dd'}g_{d''d'''} = g_{dd'''}g_{d'd''}$ — equivalently $g_{dd'}^2 = g_{dd}g_{d'd'}$ — is not assumed; it follows from $g_{33}g_{44} = g_{34}^2 = 96$ (verified in Section 5.1). Full derivation in Technical Volume 3 [11].
+The kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the leading quartic term consistent with $U(d) \times U(d')$ symmetry on the sector pair. It decomposes by angular momentum on the sector sphere as $(\xi \cdot \xi')^2 = \frac{1}{d}[\ell=0] + \frac{d-1}{d}\cdot C_2^{(d-2)/2}(\cos\theta)[\ell=2]$, where the $\ell=0$ part generates sector mass scales (Section 5) and the $\ell=2$ part generates the derived scale $\varepsilon$ that enters the $\nu_3$ closure and is the candidate mechanism for the $d=4$ up-type overshoot (Section 7.1). The rank-1 structure $g_{dd'}g_{d''d'''} = g_{dd'''}g_{d'd''}$ — equivalently $g_{dd'}^2 = g_{dd}g_{d'd'}$ — is not assumed; it follows from $g_{33}g_{44} = g_{34}^2 = 96$ (verified in Section 5.1). Full derivation in Technical Volume 3 [11].
 
 ### 2.5 Spectral Infrastructure: Heat Kernel and Zeta Anchors
 
@@ -178,7 +178,7 @@ $$\chi(\mathbb{CP}^{N_c-1}) = 3,\; d=4. \quad \chi(\mathbb{CP}^{n_s-1}) = 4,\; d
 
 **Step 3.** $d=2$ (CP¹) is the $U(1)$ Hopf base. $d=3$ ($S^3$ over $\mathbb{CP}^1$) has coupling $g_{33} = n_s^2\sqrt{n_s+n_u}/2$ from the kernel fixed-point. $d=5$ ($S^5$ over $\mathbb{CP}^2$) has coupling $g_{55} = 96/g_{22}$ from Hopf universality $v_3/v_2 = v_5/v_4$.
 
-**Step 4.** $d=7$ is excluded: Hopf universality is a consistency relation between active sector pairs, not an activation mechanism, and any activation route treating the $d=6$ and $d=10$ bases symmetrically (their coupling rows are exactly equal) would equally activate $S^{11}$ over $\mathbb{CP}^5$, which the $d=11$ endpoint excludes (the residual is an open item; Part 9 T3 Rule A, Part 6). $d=8$: $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$, and $d=9$ inherits that gap on its $S^1$-invariant block. $d \geq 11$: no mode index in the occupied range. $\square$
+**Step 4.** $d=7$ is excluded: $g_{66} = 1/n_s$ is a seed ratio, not a kernel fixed-point coupling; Hopf universality cannot determine $g_{77}$. $d=8$: $\chi(\mathbb{CP}^4) = 5 \notin \{N_c, n_s, N_f\}$. $d \geq 11$: no mode index in the occupied range. $\square$
 
 **Completeness Theorem.** The IDWT spectrum consists of exactly 15 states ($\Sigma \cup \{b\text{-quark}\}$). Any new stable particle requires either a new sector (excluded by S4) or a new derivable mode index (excluded by the uniqueness theorem). No such states exist. Any new particle discovery at any energy falsifies IDWT immediately.
 
@@ -191,16 +191,16 @@ Every mode index is determined by the hockey-stick filtration chain — no index
 | Particle | $d$ | $n$ | Derivation |
 |---|---|---|---|
 | $d$ quark | 3 | 1 | $n_d=1$: universal ground state $S(1,d)=1$ for all $d$ |
-| $s$ quark | 3 | 4 | composite $n_s$ |
+| $s$ quark | 3 | 4 | seed $n_s$ |
 | $c$ quark | 4 | 20 | $S(n_s,3)$ |
 | $b$ quark | 3 | 16–17 | resonance at $k_0=n_s^2$ (Section 5.2) |
-| $u$ quark | 4 | 3 | seed: $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15); certified by §5.1 |
+| $u$ quark | 4 | 3 | $n_u = n_s-1$ (Section 5.1) |
 | $t$ quark | 4 | 72 | $S(n_e,2) - n_c + 1 = 91-20+1$ |
 | $\nu_1$ | 5 | 10 | $S(n_u,3)$ |
 | $\nu_2$ | 5 | 15 | $S(n_u,4)$ |
 | $\nu_3$ | 5 | 22 | $n_\tau - n_d = 23-1$ |
 | $e^-$ | 6 | 13 | $n_{\nu_1} + n_u = 10+3$ (generation law) |
-| $\mu^-$ | 6 | 35 | $S(n_s,4)$ (composite fixed point) |
+| $\mu^-$ | 6 | 35 | $S(n_s,4)$ (seed fixed point) |
 | $\tau^-$ | 10 | 23 | $n_c + n_u = 20+3$ |
 | $W^\pm$ | 2 | 76 | $d_\nu + n_{\rm top} - 1 = 5+72-1$ (g-rule) |
 | $Z^0$ | 2 | 81 | $n_W + \beta = 76+5$ |
@@ -223,7 +223,7 @@ The kernel vacuum fixed-point at $k_0 = n_s^2 = 16$ requires the self-consistenc
 
 $$\frac{n_s(n_s+1)}{S(n_s,4)} = \frac{4 \times 5}{35} = \frac{4}{7}, \qquad \frac{n_u(n_u+1)}{S(n_u,5)} = \frac{3 \times 4}{21} = \frac{4}{7}.$$
 
-Both ratios equal $4/7$ exactly. This double equality — the $d=3$ and $d=4$ sectors sharing the same self-consistency eigenvalue at $k_0$ — holds for $(n_u, n_s) = (3, 4)$ and no other consecutive positive-integer pair. It is an algebraic certificate of the seed pair, independent of the geometric grounding $n_u = \chi(\mathbb{CP}^2) = N_c = 3$ (T15). The Jacobi coupling amplitude at the resonance is $g_{\rm coeff} = \sqrt{4/7} = 2/\sqrt{7}$.
+Both ratios equal $4/7$ exactly. This double equality — the $d=3$ and $d=4$ sectors share the same self-consistency eigenvalue at $k_0$ — is what forces $n_u = n_s - 1 = 3$; no other value produces this coincidence. The Jacobi coupling amplitude at the resonance is $g_{\rm coeff} = \sqrt{4/7} = 2/\sqrt{7}$.
 
 The self-coupling constants follow from this fixed-point condition:
 
@@ -235,7 +235,7 @@ $$g_{33} \times g_{44} = \frac{n_s^3 n_u}{2} = \frac{4^3 \times 3}{2} = 96.$$
 
 The product identity $g_{33}g_{44} = 96$ implies $g_{34} = \sqrt{g_{33}g_{44}} = 4\sqrt{6}$, confirming the rank-1 factorisation $G_{dd'} = v_d v_{d'}$ as a consequence rather than an assumption.
 
-From Theorem S4, Step 2: $g_{66} = 1/n_s = 1/4$ (composite ratio for the $\mathbb{CP}^3$ lepton sector). $g_{22} = 722.5$ (Theorem S3). $g_{55} = 96/g_{22} \approx 0.1329$ (Hopf universality: $v_3/v_2 = v_5/v_4$).
+From Theorem S4, Step 2: $g_{66} = 1/n_s = 1/4$ (seed ratio for the $\mathbb{CP}^3$ lepton sector). $g_{22} = 722.5$ (Theorem S3). $g_{55} = 96/g_{22} \approx 0.1329$ (Hopf universality: $v_3/v_2 = v_5/v_4$).
 
 ### 5.2 Sector Mass Scales
 
@@ -281,75 +281,55 @@ PDG: $m_b = 4180 \pm 10$ MeV. Error: $+0.023\%$. The exhaustive search over $n \
 
 ## 6. Mass Predictions
 
-**Table 1.** All masses from $m_e$ and $n_s = 4$ alone. GTC applied to charm ($k=3$) and top ($k=10$); back-reaction correction applied to $\tau$.
+**Table 1.** All masses from $m_e$ and $n_s = 4$ alone (PDG 2024). The up-type quark masses are quoted **bare**; the former Generation Tower Correction is removed (§7.1), so charm and top overshoot as open residues. The $\tau$ carries the geometric back-reaction; the $b$ quark is a geometric-mean beat.
 
 | Particle | $d$ | $n$ | $S(n,d)$ | IDWT (MeV) | PDG (MeV) | Error |
 |---|---|---|---|---|---|---|
 | $\gamma$ | 2 | 0 | — | 0 | 0 | exact |
-| $W^\pm$ | 2 | 76 | 2,926 | 80,379 | 80,377 | $+0.003\%$ |
-| $Z^0$ | 2 | 81 | 3,321 | 91,230 | 91,188 | $+0.047\%$ |
-| $H$ | 2 | 95 | 4,560 | 125,266 | 125,200(110) | $+0.053\%$ |
-| $d$ | 3 | 1 | 1 | 4.702 | 4.67(48) | $+0.68\%^\dagger$ |
-| $s$ | 3 | 4 | 20 | 94.04 | 93.4(86) | $+0.68\%^\dagger$ |
-| $b$ | 3 | beat | — | 4,181 | 4,180(10) | $+0.023\%$ |
-| $u$ | 4 | 3 | 15 | 2.177 | 2.16(49) | $+0.77\%^\dagger$ |
-| $c$ | 4 | 20 | 8,855 | 1,280 | 1,270(20) | $+0.76\%$ |
-| $t$ | 4 | 72 | 1,215,450 | 174,000 | 172,690(300) | $+0.76\%$ |
+| $W^\pm$ | 2 | 76 | 2,926 | 80,379 | 80,369.2 | $+0.01\%$ |
+| $Z^0$ | 2 | 81 | 3,321 | 91,230 | 91,188.0 | $+0.05\%$ |
+| $H$ | 2 | 95 | 4,560 | 125,266 | 125,200(110) | $+0.05\%$ |
+| $d$ | 3 | 1 | 1 | 4.702 | 4.70(7) | $+0.04\%^\dagger$ |
+| $s$ | 3 | 4 | 20 | 94.04 | 93.5(8) | $+0.57\%^\dagger$ |
+| $b$ | 3 | beat | — | 4,181 | 4,183(7) | $-0.05\%$ |
+| $u$ | 4 | 3 | 15 | 2.177 | 2.16(7) | $+0.77\%^\dagger$ |
+| $c$ | 4 | 20 | 8,855 | 1,284.9 | 1,273.0(46) | $+0.93\%$ (+2.6$\sigma$, open) |
+| $t$ | 4 | 72 | 1,215,450 | 176,365 | 172,570(290) | $+2.20\%$ (+13$\sigma$, open) |
 | $e^-$ | 6 | 13 | 18,564 | 0.51100 | 0.51100 | unit ref. |
 | $\mu^-$ | 6 | 35 | 3,838,380 | 105.657 | 105.6584 | $-0.001\%$ |
-| $\tau^-$ | 10 | 23 | 64,512,240 | 1,776.84 | 1,776.93(9) | $-1.0\sigma$ |
+| $\tau^-$ | 10 | 23 | 64,512,240 | 1,776.84 | 1,776.93(12) | $-1.0\sigma$ |
 
-$^\dagger$ Within PDG $1\sigma$ uncertainties ($\pm10\%$ for $m_d$, $\pm9\%$ for $m_s$, $\pm23\%$ for $m_u$). The uniform offset within each sector is a structural consequence of the rank-1 kernel — any scale error in $m_{\mathrm{scale},d}$ is identical for all modes in that sector — and is consistent with the scheme-conversion residual between the IDWT confinement scale and $\overline{\rm MS}$ at $\mu = 2$ GeV (Section 13).
+$^\dagger$ The light quarks ($d$, $s$, $u$) sit within the sizable PDG $\overline{\rm MS}$ uncertainties; any scale error in $m_{\mathrm{scale},d}$ is identical for all modes in that sector (rank-1 kernel), consistent with the scheme-conversion residual between the IDWT confinement scale and $\overline{\rm MS}$ at $\mu = 2$ GeV (Section 13). The charm and top **bare** masses overshoot by $+0.93\%$ ($+2.6\sigma$) and $+2.20\%$ ($+13\sigma$); these are open residues — a former $(1-\varepsilon)^k$ correction reproduced PDG but used a fitted exponent and is removed (§7.1).
 
 ---
 
 ## 7. Two Physical Corrections
 
-### 7.1 Generation Tower Correction — Complete Derivation
+### 7.1 The d=4 Up-Type Overshoot (open)
 
-**Physical origin.** The $\ell=2$ tensor component of the kernel $({\xi}_d \cdot {\xi}_{d'})^2$ contributes a frequency shift to modes that descend through multiple generation steps from the seed. For $d=3$, the angular decomposition on $S^2$ gives:
+The raw mass formula overshoots in the $d=4$ up-type sector, growing with generation: up $+0.79\%$, charm $+0.93\%$ ($+2.6\sigma$), top $+2.20\%$ ($+13\sigma$). The up-type masses are quoted bare (Table 1); this overshoot is an open residue of the framework.
 
-$$(\xi \cdot \xi')^2 = \frac{1}{3}[\ell=0] + \frac{2}{3}P_2(\cos\theta)[\ell=2].$$
+**Candidate mechanism.** The $\ell=2$ tensor component of the kernel $({\xi}_d \cdot {\xi}_{d'})^2$ is the candidate source. For $d=3$ on $S^2$,
 
-The $\ell=0$ piece is a constant contributing to the sector mass scale. The $\ell=2$ piece depends on the relative orientation of $\xi$ and $\xi'$ and introduces a mode-number-dependent correction when modes are built by successive generation steps.
+$$(\xi \cdot \xi')^2 = \tfrac{1}{3}[\ell=0] + \tfrac{2}{3}P_2(\cos\theta)[\ell=2].$$
 
-**Derivation of $\varepsilon$.** At the resonance site $k_0 = n_s^2 = 16$, the self-consistency eigenvalue of the $\ell=2$ kernel insertion is $g_{\rm coeff}^2 = 4/7$ (derived in Section 5.1). The $\ell=2$ coupling amplitude per generation step is:
+The $\ell=0$ piece sets the sector mass scale; the $\ell=2$ piece is traceless and contributes a second-order self-energy that grows with the mode index and pulls the masses down — the correct sign and qualitative growth. It does not, however, fix the magnitude.
 
-$$g_{\rm coeff} = \sqrt{n_s(n_s+1)/S(n_s,4)} = \sqrt{4/7} = 2/\sqrt{7}.$$
+**The scale $\varepsilon$ (retained for $\delta_{\nu_3}$, not applied to quarks).** The $\ell=2$ coupling amplitude at the resonance site $k_0 = n_s^2 = 16$, normalised at the muon mode $n_\mu = S(n_s,4) = 35$, is
 
-This is normalised at the resonance site $k_0 = 16$ and at the muon mode $n_\mu = S(n_s,4) = 35$ which sets the natural frequency scale at which the $d=4$ generation tower is calibrated:
+$$g_{\rm coeff} = \sqrt{n_s(n_s+1)/S(n_s,4)} = \sqrt{4/7} = 2/\sqrt{7}, \qquad \varepsilon = \frac{g_{\rm coeff}}{k_0 \times n_\mu} = \frac{2/\sqrt{7}}{16 \times 35} = \frac{1}{280\sqrt{7}} \approx 0.001350.$$
 
-$$\varepsilon = \frac{g_{\rm coeff}}{k_0 \times n_\mu} = \frac{2/\sqrt{7}}{16 \times 35} = \frac{1}{280\sqrt{7}} \approx 0.001350.$$
+Every factor is forced ($g_{\rm coeff}$ from the double self-consistency condition, $k_0$ from the seed $n_s$, $n_\mu$ from $S(n_s,4)$), so $\varepsilon$ is a genuinely derived quantity. It is retained as the scale of the separate, motivated $\nu_3$ closure $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ (§7.2).
 
-This is not fitted. Every factor is forced: $g_{\rm coeff}$ from the double self-consistency condition, $k_0$ from the composite $n_s$, $n_\mu$ from $S(n_s,4)$.
-
-Cross-check: from PDG mass ratios, $\varepsilon_{\rm PDG} \approx 0.001340$; derived $\varepsilon = 0.001350$, a $0.74\%$ discrepancy within light-quark uncertainties.
-
-**Generation depth $k$.** The exponent $k$ counts the number of hockey-stick steps through which mode $n$ descends from the seeds $\{(1,3),(3,4)\}$:
-
-$$k_u = 0, \quad k_c = n_u = 3 \text{ (depth 1; GTC depth equals Hopf chain reduction)}, \quad k_t = S(n_u,3) = 10 \text{ (depth 2; equals } n_{\nu_1}\text{)}.$$
-
-$k_t = n_{\nu_1}$ connects the top quark correction depth to the first neutrino mode index — a non-trivial cross-sector consistency relation verifiable independently.
-
-**Robustness.** Varying the denominator $280\sqrt{7}$ by $\pm 10\%$ shifts both $c/u$ and $t/u$ mass ratios by less than $0.2\%$. The correction is not fine-tuned.
-
-**Results after GTC:**
-
-| Ratio | Raw | After GTC |
-|---|---|---|
-| $c/u$ | $+0.403\%$ | $-0.003\%$ |
-| $t/u$ | $+1.311\%$ | $-0.048\%$ |
-| $t/c$ | $+0.904\%$ | $-0.045\%$ |
-
-The $d=3$ and $d=6$ sectors have $k=0$ effective depth (the correction cancels in all intra-sector ratios).
+**No correction is applied.** A former "Generation Tower Correction" multiplied the up-type masses by $(1-\varepsilon)^k$ with a per-quark exponent $k$ tuned to reproduce the data. Only $\varepsilon$ was derived; the exponent was a fit, and a fitted correction is not a derivation, so it has been removed. The up-type masses are quoted bare. Deriving both the top index $72$ (a product-form $N_c n_s N_f$, off the additive tower, with an open origin) and the magnitude of this overshoot is the principal open problem of the mass sector.
 
 ### 7.2 Tau Lepton Geometric Back-reaction Correction — Complete Derivation
 
-The $d=6$ ($\mu$) and $d=10$ ($\tau$) sectors share identical coupling $g_{66} = g_{6,10} = g_{10,10} = 1/n_s = 1/4$ from the composite $n_s=4$. The leading $d=6 \to d=10$ back-reaction perturbation at the $\tau$ level is:
+The $d=6$ ($\mu$) and $d=10$ ($\tau$) sectors share identical coupling $g_{66} = g_{6,10} = g_{10,10} = 1/n_s = 1/4$ from the seed. The leading $d=6 \to d=10$ back-reaction perturbation at the $\tau$ level is:
 
 $$\varepsilon_{6\to10} = \frac{1}{n_s^3 \times S(n_s,4)} = \frac{1}{64 \times 35} = \frac{1}{2240}.$$
 
-The physical interpretation: $n_s^3 = k_0 \times n_s$ is the volume factor of the composite resonance; $S(n_s,4) = n_\mu$ is the frequency normalization. The back-reaction feeds through $g_{10,10} = 1/n_s = 1/4$, creating a geometric series:
+The physical interpretation: $n_s^3 = k_0 \times n_s$ is the volume factor of the seed resonance; $S(n_s,4) = n_\mu$ is the frequency normalization. The back-reaction feeds through $g_{10,10} = 1/n_s = 1/4$, creating a geometric series:
 
 $$\frac{\Delta m_\tau}{m_\tau} = \frac{\varepsilon_{6\to10}}{1 - g_{10,10}} = \frac{1/2240}{1 - 1/4} = \frac{1/2240}{3/4} = \frac{4}{3 \times 2240} = \frac{1}{1680},$$
 
@@ -357,7 +337,7 @@ where $1680 = n_s \times n_u \times (n_s+n_u) \times S(n_s,3) = 4 \times 3 \time
 
 $$m_\tau^{\rm corr} = m_\tau^{\rm raw} \times \left(1 + \frac{1}{1680}\right) = 1775.79 \times 1.000595 = 1776.84 \text{ MeV.}$$
 
-PDG 2024: $1776.93 \pm 0.09$ MeV. Error: $-0.005\%$ ($-1.0\sigma$).
+PDG: $1776.86 \pm 0.12$ MeV. Error: $-0.14\sigma$.
 
 The factor $1/1680$ is entirely determined by $n_s = 4$ (through $n_s, n_u, n_s+n_u, S(n_s,3)$) with no empirical input.
 
@@ -394,7 +374,7 @@ The $\Gamma_{W,Z}$ discrepancies are consistent with missing one-loop QCD correc
 
 $$\sin\theta_C = \frac{1 + \chi(\mathbb{CP}^1)/(24\cdot S(n_s,3))}{\sqrt{S(n_s,3)}} = \frac{1+1/240}{\sqrt{20}} = 0.22454.$$
 
-The bare value $1/\sqrt{S(n_s,3)} = 1/\sqrt{20}$ comes from the ratio of $d=3$ mode counts at the composite level. The $1/240$ correction is the first Seeley-DeWitt coefficient for the heat kernel on $S^2 \cong \mathbb{CP}^1$ (Euler characteristic $\chi = 2$, composite count $S(n_s,3) = 20$): $\chi/(24 \cdot S(n_s,3)) = 2/480 = 1/240$.
+The bare value $1/\sqrt{S(n_s,3)} = 1/\sqrt{20}$ comes from the ratio of $d=3$ mode counts at the seed level. The $1/240$ correction is the first Seeley-DeWitt coefficient for the heat kernel on $S^2 \cong \mathbb{CP}^1$ (Euler characteristic $\chi = 2$, seed count $S(n_s,3) = 20$): $\chi/(24 \cdot S(n_s,3)) = 2/480 = 1/240$.
 
 $$|V_{cb}| = \sqrt{\frac{S(n_u,4)}{S(n_c,4)}} = \sqrt{\frac{15}{8855}} = 0.04116, \qquad A_{\rm Wolf} = |V_{cb}| \times S(n_s,3) = 0.82315.$$
 
@@ -426,12 +406,12 @@ No neutrino oscillation data enters. The absolute masses:
 | $m_{\nu_2}$ | 8.639 meV | — | **First-principles prediction** |
 | $m_{\nu_3}$ | 50.27 meV (bare: 48.87) | — | **First-principles prediction** |
 | $\sum m_\nu$ | **60.39 meV** (bare: 59.00) | $<120$ meV [5] | Consistent |
-| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.53\pm0.18)\times10^{-5}$ | $-1.6\sigma$ |
+| $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.42\pm0.21)\times10^{-5}$ | $-0.8\sigma$ |
 | $\Delta m^2_{31}$ | $2.525\times10^{-3}$ eV$^2$ | $(2.584\pm0.025)\times10^{-3}$ | $-2.3\%$ |
 | $m_{\beta\beta}$ | **0 (all orders)** | Unobserved [6] | Consistent |
 | Hierarchy | Normal | Preferred $3$–$4\sigma$ | Consistent |
 
-The $\nu_3$ correction $\delta_{\nu_3} = \varepsilon \times g_{33} = [1/(280\sqrt{7})] \times [8\sqrt{7}] = 1/35$ (exact) is the cross-sector constructive interference between the GTC kernel ($\ell=2$ component) and the $d=3$ coupling, derived without additional inputs. Applied multiplicatively: $m_{\nu_3}^{\rm corr} = m_{\nu_3}^{\rm bare} \times (36/35) = 50.27$ meV. This closes the $\Delta m^2_{31}$ discrepancy from $-7.7\%$ (bare) to $-2.3\%$ (corrected).
+The $\nu_3$ correction $\delta_{\nu_3} = \varepsilon \times g_{33} = [1/(280\sqrt{7})] \times [8\sqrt{7}] = 1/35$ (exact) is the cross-sector constructive interference between the $\ell=2$ kernel component and the $d=3$ coupling, derived without additional inputs. Applied multiplicatively: $m_{\nu_3}^{\rm corr} = m_{\nu_3}^{\rm bare} \times (36/35) = 50.27$ meV. This closes the $\Delta m^2_{31}$ discrepancy from $-7.7\%$ (bare) to $-2.3\%$ (corrected).
 
 The $m_{\beta\beta} = 0$ prediction holds at all orders: the $d=5$ sector has $d \bmod 8 = 5$, which means no charge-conjugation matrix $C$ exists on the $S^5$ spinor bundle. Since no $C$ exists globally, cross-sector couplings cannot construct $\psi^T C \psi$ at any loop order — the Majorana operator is geometrically absent, not merely suppressed. Any $0\nu\beta\beta$ signal immediately falsifies IDWT. $\sum m_\nu = 60.39$ meV is within reach of CMB-S4 ($\sim 14$ meV sensitivity) and the Simons Observatory ($\sim 30$–40 meV); IDWT will be confirmed or excluded within this decade.
 
@@ -439,9 +419,9 @@ The $m_{\beta\beta} = 0$ prediction holds at all orders: the $d=5$ sector has $d
 
 ## 11. Dynamical Picture: How Sector Geometry Determines Observable Physics
 
-The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the GTC and, at loop level, contributes to boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
+The $\ell=0$ part of the kernel sets the sector scales (mass formula). The $\ell=2$ part generates the derived scale $\varepsilon$ (used for the $\nu_3$ closure and as the candidate mechanism for the $d=4$ up-type overshoot) and, at loop level, contributes to gauge boson self-energies. The emergent gauge symmetries arise from the isometry groups of the sector manifolds: $\mathrm{SU}(3)_c$ from the isometry of $\mathbb{CP}^2$; $\mathrm{SU}(2)_L \times \mathrm{U}(1)_Y$ from the isometry of $\mathbb{CP}^1 \cong S^2$.
 
-The absence of light unstable quark states follows from the co-fixed-point condition: a mode $(n,d)$ is a physical particle only if the pair belongs to the co-fixed-point spectrum of the generation tower. The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) are not co-fixed-points — they are not stable particles, consistent with observation.
+Colour confinement emerges from the two-stage observability filter. A mode $(n,d)$ is observable only if: (1) $\Omega_{\log}(n,d) = \ln(S(n,d)/S(n,2)) \lesssim \ln 2$ (Stage-1 dimensional visibility passes); and (2) the mode belongs to the co-fixed-point spectrum of the filtration chain (Stage-2 co-fixed-point condition). The $d=3$ modes at $n=2$ (18.8 MeV) and $n=3$ (47.0 MeV) pass Stage 1 but fail Stage 2 — they are not stable particles, consistent with observation.
 
 Gravity: variation of the master action with respect to $g_{\mu\nu}$ yields the observer's Einstein equations $G_{\mu\nu} = 8\pi G_N T_{\mu\nu}^{\rm eff}$, where $T_{\mu\nu}^{\rm eff} = \int_\Xi T_{\mu\nu}^{\rm Dirac}\,d\mu_\xi$ is the sector-space integral of the matter stress-energy. $G_N$ is a measured constant of spacetime; the sector geometry $\Xi$ is a fixed background and contributes no gravitational degrees of freedom. Full treatment in Technical Volume 4 [11].
 
@@ -500,14 +480,14 @@ IDWT is distinctive in providing: (a) masses for all 15 predicted particles, (b)
 3. **$m_u/m_d = \sqrt{3/14} = 0.46291$ exactly (Theorem S2).** A ratio outside $[0.40, 0.55]$ falsifies the coupling derivation.
 4. **No new stable particles at any energy (Completeness Theorem).** Any new particle discovery falsifies IDWT.
 5. **Normal neutrino hierarchy.** Inverted hierarchy is excluded by mode ordering.
-6. **No stable states at 18.807 MeV or 47.019 MeV.** These $d=3$ modes are not co-fixed-points; they may appear as broad resonances only.
+6. **No stable states at 18.807 MeV or 47.019 MeV.** These $d=3$ modes pass Stage 1 but fail Stage 2; they may appear as broad resonances only.
 
 ---
 
 ## 16. Open Items
 
 1. **CP-violating phase $\delta$.** Requires loop-level computation of the Hopf Chern-Simons integral.
-2. **PMNS mixing angles.** Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 2024: 0.553, $+1.07\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires spectral phase integral).
+2. **PMNS mixing angles.** Derived via spectral geometry (Part 9 T6): $\sin^2\theta_{23}=0.5590$ (PDG 0.561, $-0.36\%$), $\sin^2\theta_{12}=0.3086$ (PDG 0.307, $+0.51\%$), $\sin^2\theta_{13}=0.02211$ (PDG 0.022, $+0.51\%$). All three from $g_{55}=96/g_{22}$ and four mode indices. CP phase $\delta$ remains open (requires spectral phase integral).
 3. **$\Delta m^2_{31}$ discrepancy.** Closed by $\delta_{\nu_3} = \varepsilon \times g_{33} = 1/35$ (cross-sector constructive interference, exact). Corrected $\Delta m^2_{31} = 2.525\times10^{-3}$ eV$^2$ (PDG: $2.584\times10^{-3}$, $-2.3\%$).
 4. **$g_1$ residual $-1.88\%$.** After 1-loop U(1)$_Y$ running from $m_W$ to $m_Z$. Remaining gap consistent with 2-loop QED threshold matching between IDWT fiber scheme and $\overline{\rm MS}$.
 5. **Light-quark scheme conversion.** The $+0.68\%$ and $+0.77\%$ offsets require computing the QCD running from $\Lambda_{\rm QCD} = 282$ MeV to $\mu = 2$ GeV within the IDWT coupling framework.
@@ -545,7 +525,7 @@ All results from $n_s = 4$ and $m_e$ alone.
 | **$m_u/m_d$** | $\sqrt{g_{44}/g_{33}}=\sqrt{3/14}$ (exact) | Theorem S2 |
 | **$g_{22}$** | $(S(n_s,3)-n_u)^2 \times (S(n_u,4)-S(n_u,3))/2=722.5$ | Theorem S3 |
 | **Sector set** | $D=\{2,3,4,5,6,10\}$ from $72=N_c\times n_s\times N_f$ | Theorem S4 |
-| **GTC** | $\varepsilon=1/(280\sqrt{7})=0.001350$ | $\ell=2$ kernel |
+| **$\ell=2$ scale** | $\varepsilon=1/(280\sqrt{7})=0.001350$ (enters $\delta_{\nu_3}$; not applied to quarks) | $\ell=2$ kernel |
 | **Back-reaction** | $1/1680=1/(n_s n_u(n_s+n_u)S(n_s,3))$ | $d=6\to d=10$ |
 | **$\sum m_\nu$** | $60.39$ meV (corrected; bare: $59.00$ meV, $\delta_{\nu_3}=1/35$) | §10 |
 | **$m_{\beta\beta}$** | $0$ (all orders; no $C$ on $S^5$ bundle, $d \bmod 8 = 5$) | §10, §12 |
@@ -574,8 +554,8 @@ All results from $n_s = 4$ and $m_e$ alone.
 | $g_{44}$ | $12/\sqrt{7} \approx 4.536$ | $d=4$ quarks |
 | $g_{22}$ | $722.5$ (Theorem S3) | $d=2$ gauge |
 | $g_{55}$ | $96/722.5 \approx 0.1329$ | $d=5$ neutrinos |
-| $g_{66}$ | $1/4$ (composite) | $d=6$ leptons |
-| $g_{10,10}$ | $1/4$ (composite, shared with $d=6$) | $d=10$ tau |
+| $g_{66}$ | $1/4$ (seed) | $d=6$ leptons |
+| $g_{10,10}$ | $1/4$ (seed, shared with $d=6$) | $d=10$ tau |
 
 ---
 

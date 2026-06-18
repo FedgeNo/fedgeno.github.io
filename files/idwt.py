@@ -217,11 +217,30 @@ n_tau = n_nu3 + n_down    # = 23
 
 # --- Up-type quark mode indices ----------------------------------------------
 
-# n_top = S(n_e, 2) - n_charm + 1 = S(13,2) - 20 + 1 = 91 - 20 + 1 = 72
-# Primary derivation: n_top connects to the electron mode index via
-# S(n_e,2) = C(14,2) = 91. Also: n_top = N_c * n_s * N_f = 3*4*6 = 72
-# (the product of Euler characteristics of the three CP sectors).
-n_top = S(n_e, 2) - n_charm + 1    # = 91 - 20 + 1 = 72
+# n_top = N_c * n_s * N_f = 3 * 4 * 6 = 72
+# Primary derivation: the product of the colour count N_c=3 (= chi(CP^2)),
+# the composite seed n_s=4, and the generation count N_f=6. n_top is NOT in
+# the image of S(n,d): no (n,d) gives S(n,d)=72 (checked d<=11, n<=200), so
+# the top is not a hockey-stick tower output. It is a product-form site, the
+# up-type partner of the bottom beat site k0 = n_s^2 = 16 (STEP 7). Among
+# the six quarks, only these two fail to be a single S-value (the others
+# are 1, 3, 4, 20); both take product closed forms and both are 3rd-gen
+# quarks. The other non-S-value indices are leptons/neutrinos (13, 22, 23)
+# and bosons (76, 81, 95), built by additive sums and g-steps, not
+# products -- so "not a single S-value" alone is not what is special here;
+# the product closed form among the quarks is.
+# The binomial form S(n_e,2) - n_charm + 1 = C(14,2) - 20 + 1 = 91 - 20 + 1
+# also returns 72, but only via a +1 offset forced by pushing a non-image
+# value through the stick; it is an arithmetic coincidence, not the
+# derivation (see the compact-form note below). (Part 2, Part 9 T0.5)
+# Observation, NOT a mechanism: both product-form sites are divisible by 8
+# (72 = 9*8, 16 = 2*8) because n_s=4 carries the even factors. This is a
+# consequence of the factorizations, not a spinor "Bott" condition: no
+# Clifford/KO reality invariant selects n = 0 mod 8 uniquely (real type
+# occupies three residues mod 8; the framework's own Majorana convention
+# d mod 8 in {0,1,2,3,4} applied to n would flag most of the spectrum).
+# (Appendix A s43 addendum, 2026-06-15.)
+n_top = 3 * n_strange * 6          # = N_c * n_s * N_f = 72
 
 # --- Boson mode indices (Vandermonde rule) ------------------------------------
 # The Vandermonde coupling rule: sectors d and d' couple when d+d' is itself
@@ -253,8 +272,7 @@ n_H = n_Z + n_nu2 - 1  # = 95
 # is the composite b = 1 + a = 4 (offset-additive channel, the MC-4.4
 # kernel two-density reading, 🔶) -- the former subtraction n_u = n_s-1
 # is eliminated; it survives only as the chi-consecutiveness identity
-# chi(CP^k) = k+1 (T15). Seed grounding (claude/explore_seed_reroot.py;
-# Appendix A section 19 addendum):
+# chi(CP^k) = k+1 (T15). Seed grounding (Appendix A section 19 addendum):
 #   1 = ground state, S(1,d) = 1 in every sector (forced);
 #   a = 3: chi(CP^2) = N_c (T15, geometric); the unique single-kernel-
 #       application image of the ground seed (Delta N = +2, dynamical).
@@ -287,12 +305,70 @@ n_H = n_Z + n_nu2 - 1  # = 95
 #   T = comb(p+a+1, 2)
 #   tower = [1, a, b, p, q, r, s, p+a, p+q-a, p+q-a+1, T-q, T-p, T-r+1, T+a+1]
 #
-# This is a restatement of T0.5, not a derivation. The anchor choice
-# T = C(p+a+1,2) and the three +1 offsets remain without
-# first-principles IDWT justification (Part 9 T0.5). Note: seed status
-# is generative (tower root), not dynamical -- it does not by itself
-# confer stability (STEP 64: the ground seed is protected by having no
-# downward channel, not by seedhood).
+# This is a compact restatement, not the primary derivation. The anchor
+# T = C(p+a+1,2) and the three +1 offsets are now understood as artifacts
+# of forcing the two product-form sites through the binomial stick: the
+# top (T-r+1) and Higgs (T+a+1) carry the offsets because n_top=72 is a
+# product site outside the S-image, and the bosons hang off it. The
+# primary derivations carry no offsets: 72 = N_c*n_s*N_f and the bottom
+# beat k0 = n_s^2 = 16 (the two non-image product sites); 10,15,20,35 the
+# hockey-stick 2x2 block S({3,4},{3,4}); 13,22,23 hockey-stick sums (23 =
+# n_nu3 + n_down, the +1 is the down seed, not a fudge); 76,81,95 the
+# Vandermonde g-steps off 72. (Part 9 T0.5; Appendix A s43 addendum.)
+# Note: seed status is generative (tower root), not dynamical -- it does
+# not by itself confer stability (STEP 64: the ground seed is protected
+# by having no downward channel, not by seedhood).
+
+# Verification (s43 reframe): among the six quark indices, only the top
+# (72) and bottom (16) fail to be a single S(n,d) value -- the other four
+# (down 1, up 3, strange 4, charm 20) are single S-values. Both off-S
+# quarks have product closed forms (16 = n_s^2, 72 = N_c*n_s*N_f), which
+# is why the binomial restatement needs +1 offsets to reach them. Other
+# non-S-value indices (13,22,23 leptons; 76,81,95 bosons) are additive
+# sums and g-steps, not products -- so being off the S-image is shared,
+# but the product closed form among the quarks is what is special.
+_Simg = {S(_n, _d) for _d in range(2, 12) for _n in range(1, 200)
+         if S(_n, _d) < 10000}
+_quark_idx = {1, 3, 4, 20, 16, 72}             # the six quark indices
+_quark_offS = {v for v in _quark_idx if v not in _Simg}
+assert _quark_offS == {16, 72}                 # only the 3rd-gen quarks
+assert n_top == 3 * n_strange * 6 == 72
+assert n_strange**2 == 16
+product_form_quarks = {n_strange**2, n_top}    # {16, 72}
+
+# --- Spectrum partition (s43 reframe; Part 9 T0.5) ---------------------------
+# The spectrum splits into three tiers by HOW each index is generated. One
+# additive operation (simplex sums / Vandermonde g-steps) runs from two
+# starting points: the seeds give the lattice (tier 1), the external top
+# gives the boson chain (tier 3). The only non-additive objects are the two
+# product-form quarks (tier 2).
+#   Tier 1  LATTICE -- the co-fixed-point tower T0.5 selects: photon ground
+#           plus the hockey-stick fermions (single S-values and additive
+#           simplex sums of seeds). Closes on itself with no reference to
+#           16 or 72.
+#   Tier 2  PRODUCT-FORM QUARKS {16, 72} -- the heaviest quark of each type;
+#           not generated by the additive tower (product closed forms
+#           16=n_s^2, 72=N_c*n_s*N_f). External sites; their first-principles
+#           origin is open (the going-forward primary).
+#   Tier 3  BOSON g-CHAIN {76, 81, 95} -- the same additive g-rule as tier 1
+#           but seeded by the external top: 76=g(5,72), 81=g(6,76),
+#           95=g(15,81). Lattice-shaped, one external input. The chain builds
+#           UP (additively) off the top -- the direction is the diagnostic
+#           that the tower operation is additive, not subtractive
+#           (Appendix A s43 addendum).
+lattice = {0, n_down, n_up, n_strange, n_nu1, n_e, n_nu2,
+           n_charm, n_nu3, n_tau, n_mu}          # 11 modes; T0.5 domain
+boson_chain = {n_W, n_Z, n_H}                    # {76, 81, 95}, g-steps off top
+# Partition is exact and disjoint, and covers the full 16-mode spectrum:
+_full_spectrum = {0, n_down, n_up, n_strange, n_nu1, n_e, n_nu2, n_strange**2,
+                  n_charm, n_nu3, n_tau, n_mu, n_top, n_W, n_Z, n_H}
+assert lattice | product_form_quarks | boson_chain == _full_spectrum
+assert lattice & product_form_quarks == set()
+assert lattice & boson_chain == set()
+assert product_form_quarks & boson_chain == set()
+# Additivity diagnostic: dependents of the introduced top build strictly UP.
+assert n_W > n_top and n_Z > n_W and n_H > n_Z
+assert (n_W, n_Z, n_H) == (n_top + 4, n_top + 9, n_top + 23)
 
 
 # =============================================================================
@@ -404,7 +480,7 @@ m_scale2 = m_e * math.sqrt(g22 / g66)
 # =============================================================================
 # STEP 2d -- g22 IS A MULTIPLICITY COUNT, NOT A KERNEL TRACE (compute)
 # =============================================================================
-# Tested (claude/g22_operator_trace.py; Part 6 "g22 operator derivation" item):
+# Tested (Part 6 "g22 operator derivation" item):
 # does a genuine (xi.xi')^2 kernel trace yield g22 = p^2 q / 2?  It does NOT.
 #  - literal Tr[G^2_23 + G^2_24] is ADDITIVE ~ p^2 + q -- wrong for
 #    a product;
@@ -439,15 +515,15 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 # STEP 4 -- CORRECTIONS
 # =============================================================================
 
-# --- Generation Tower Correction (GTC) ---------------------------------------
+# --- l=2 kernel scale epsilon (former GTC; APPLICATION REMOVED 2026-06-16) ----
 # The kernel coupling (xi_d . xi_{d'})^2 decomposes on S^{d-1} as:
 #   (xi . xi')^2 = (1/d)[l=0 scalar]
 #                + (d-1)/d * C_2^{(d-2)/2}(cos theta)[l=2 tensor]
 # For d=3 on S^2:  (xi . xi')^2 = (1/3)[l=0] + (2/3)*P_2(cos theta)[l=2]
 # The l=0 part is constant -- it contributes to sector mass scales uniformly.
-# The l=2 part is orientation-dependent -- it introduces a frequency shift
-# per generation step. This shift grows with generation depth k, giving the
-# multiplicative correction (1-eps)^k to d=4 quark masses. (Part 2 section 11)
+# The l=2 part is orientation-dependent. Its scale epsilon (below) once fed a
+# multiplicative (1-eps)^k correction to the d=4 up-type quark masses; that
+# correction is REMOVED (see the GTC-REMOVED note below). (Part 2 section 11)
 
 # epsilon = 1 / (280 * sqrt(7)) ~= 0.001350
 # Derived from: g_coeff / (k0 * n_mu). Each factor is independently forced:
@@ -466,14 +542,21 @@ scales = {2: m_scale2, 3: m_scale3, 4: m_scale4, 6: m_scale6, 10: m_scale10}
 # Result: (2/sqrt(7)) / (16 * 35) = 1/(280*sqrt(7)). (Part 2 section 11)
 epsilon = 1.0 / (280.0 * math.sqrt(7.0))
 
-# k-values: phase load per quark in the d=4 sector.
-#   up:    k = 0 (first generation, no additional frequency shift)
-#   charm: k = 3 = n_up = n_s - 1  (frequency shift at the second comb step)
-#   top:   k = 10 = n_nu1 = S(n_up, 3) (generation depth equals the
-#                first neutrino mode index -- cross-sector consistency)
-# After correction: c/u ratio error -0.003%, t/u ratio error -0.048%.
-# (Part 2 section 11)
-k_vals = {"up": 0, "charm": 3, "top": 10}
+# GTC REMOVED (2026-06-16, Fedge). The former "Generation Tower Correction"
+# applied a multiplicative (1-epsilon)^k factor to the d=4 up-type quark
+# masses with a per-quark exponent k. Only epsilon was derived; the exponent
+# k was a FIT (no integer set is forced -- the underlying l=2 self-energy is
+# real and correctly signed but does not single out the exponents, Appendix A
+# section 45/49). A fitted correction is not a derivation, so it is no longer
+# applied. The up-type quark masses are now BARE, m = m_scale4 * S(n,d), and
+# overshoot PDG 2024: up +0.79% (within the light-quark margin), charm
+# +0.93% (+2.6 sd, outside), top +2.20% (+13 sd, outside). This overshoot is
+# an OPEN, real-but-underived residual -- the heaviest two up-type quarks no
+# longer sit within experimental error, by design (honest bare prediction).
+# epsilon is retained above only as the derived l=2 scale that fixes the
+# separate, motivated nu3 closure delta_nu3 = epsilon*g33 = 1/35 (below).
+# A physically motivated correction may be added later if one is derived.
+# (Part 2 section 11; Appendix A section 45/49)
 
 # --- Tau geometric back-reaction correction -----------------------------------
 # The d=6 and d=10 sectors share the coupling g_{6,6} = g_{6,10} = g_{10,10}
@@ -740,9 +823,15 @@ Vcb    = math.sqrt(S(n_up, 4) / S(n_charm, 4))
 A_wolf = Vcb * S(n_strange, 3)
 
 # Full Wolfenstein CKM matrix (tree level, ρ = η = 0)
-# The CP-violating phase is zero at tree level (real product-state amplitudes);
-# |V_ub| = |V_td| = 0 exactly. Non-zero values require the Hopf Chern-Simons
-# loop integral (Part 5 §3f). λ here uses the sector-curvature-corrected sin_C.
+# CP phase = 0 at leading order by SECTOR STRUCTURE: all up-type share one
+# Kahler sector (CP2), all down-type share one real sector (S3), so the
+# spectral-flow/holonomy phase that fixes the leptonic delta (Part 10) is a
+# generation-independent up-vs-down offset and rephases away -> J_CKM = 0
+# at leading order (Appendix A section 47). The leptonic phase is physical
+# only because charged leptons SPAN two Kahler sectors (CP3, CP5). Nonzero
+# quark CP is subleading: the holomorphic(CP2)-vs-real(S3) overlap mismatch
+# on |V_ub| (magnitude awaits CP2 mode functions). |V_td| = 0 at this order.
+# lam here uses the sector-curvature-corrected sin_C.
 lam_W = sin_C
 A_W   = Vcb / lam_W**2
 Vud_m = math.sqrt(1 - lam_W**2)
@@ -825,7 +914,10 @@ B0_GOR = Lqcd * S(n_strange, 3) / 2.0     # = 282.1 * 10 = 2821 MeV
 m_d_quark = m_scale3 * S(n_down, 3)       # down quark:  4.702 MeV
 m_u_quark = m_scale4 * S(n_up, 4)         # up quark:    2.177 MeV
 m_s_quark = m_scale3 * S(n_strange, 3)    # strange:    94.04 MeV
-m_c_quark = 1279.7           # charm (GTC-corrected, Part 2 section 11)
+# charm BARE (GTC removed, 2026-06-16): m_scale4*S(20,4) = 1284.9 MeV vs
+# PDG 2024 1273.0 +/- 4.6 (+0.93%, +2.6 sd, outside margin; open residue).
+# (Part 2 section 11; Appendix A section 49)
+m_c_quark = m_scale4 * S(20, 4)
 
 def m_meson_GOR(mq1, mq2):
     return math.sqrt((mq1 + mq2) * B0_GOR)
@@ -951,7 +1043,9 @@ AFBb = (3.0/4)*Ae_z*Ab_z
 # The longitudinal and left-handed W helicity fractions from V-A:
 #   F_0 = m_t²/(m_t² + 2m_W²),   F_L = 2m_W²/(m_t² + 2m_W²),   F_R = 0.
 # (Part 5 section 3c)
-m_top_MeV   = m_scale4 * S(n_top, 4) * (1.0 - epsilon)**10
+# top BARE (GTC removed, 2026-06-16): m_scale4*S(72,4) = 176365 MeV vs
+# PDG 2024 172570 +/- 290 (+2.20%, +13 sd, outside margin; open residue).
+m_top_MeV   = m_scale4 * S(n_top, 4)
 xW_top      = (m_scale2 * S(n_W, 2) / m_top_MeV)**2
 F0_top      = 1.0 / (1.0 + 2*xW_top)
 FL_top      = 2*xW_top / (1.0 + 2*xW_top)
@@ -1004,7 +1098,7 @@ tau_mu_pred = hbar_MeV_s / Gamma_mu                        # seconds
 # τ_μ (PDG) used as an anchor in the tau-lifetime ratio (STEP 15).
 # The predicted and PDG values agree to 0.2%; using PDG avoids compounding
 # the small muon-lifetime error into the tau-lifetime prediction.
-tau_mu_pdg = 2.1970e-6   # s  (PDG 2022)
+tau_mu_pdg = 2.1970e-6   # s  (PDG 2024: 2.1969811e-6)
 
 
 # =============================================================================
@@ -1372,7 +1466,6 @@ def _K_d_asymp(d, t):
 # rational ratios of S values — all ratios of binomial coefficients.
 # (Part 5 §3, Part 8 §10; Part 9 T13a)
 
-_e  = epsilon       # GTC shift = 1/(280√7)
 # back-reaction factor = 1 + 1/(n_up × n_s² × S(n_s,4))
 _dy = back_reaction_factor
 
@@ -1391,11 +1484,11 @@ _mass_ratios = [
      _Ss["s"]/_Ss["d"], 20.0,
      f"S(n_s,3)/S(n_d,3) = {_Ss['s']}/{_Ss['d']}"),
     ("m_c / m_u",
-     _Ss["c"]/_Ss["u"]*(1-_e)**3, 587.96,
-     f"S(n_c,4)/S(n_u,4)x(1-e)^3 = {_Ss['c']}/{_Ss['u']}x..."),
+     _Ss["c"]/_Ss["u"], 589.4,
+     f"S(n_c,4)/S(n_u,4) = {_Ss['c']}/{_Ss['u']} (bare, GTC removed)"),
     ("m_t / m_u",
-     _Ss["t"]/_Ss["u"]*(1-_e)**10, 79981.0,
-     f"S(n_t,4)/S(n_u,4)x(1-e)^10 = {_Ss['t']}/{_Ss['u']}x..."),
+     _Ss["t"]/_Ss["u"], 79893.0,
+     f"S(n_t,4)/S(n_u,4) = {_Ss['t']}/{_Ss['u']} (bare, GTC removed)"),
     ("m_μ / m_e",
      _Ss["mu"]/_Ss["e"], 206.7683,
      f"S(n_μ,6)/S(n_e,6) = {_Ss['mu']}/{_Ss['e']}"),
@@ -2204,7 +2297,7 @@ assert bdg_Imw_resonant > 1e-6             # near-resonance IS unstable
 # iff this holds for every reachable neighbour. (For d=5 the pairing
 # block B=0 identically -- no C on S^5, d mod 8 = 5 -- so Delta=0
 # and the mode is stable by structure: STEP 35.)
-# (Part 6 MC-4.3; Part 7 section 1.2; verification claude/mc4_3_stability.py)
+# (Part 6 MC-4.3; Part 7 section 1.2)
 
 bdg_g_self = {2: g22, 3: g33, 4: g44, 5: g55, 6: g66, 10: g66}   # g_{10,10}=g66
 
@@ -2288,8 +2381,7 @@ assert all(bdg_ratios[(n,5)] == 0.0 for (n,d) in BDG_SIGMA if d == 5)  # d=5 B=0
 #     Selection is a directed index derivation (combinatorial fixed
 #     point of a chosen
 #     generator set), not a dynamical fixed point of the EOM energetics.
-# (Part 6 MC-4.4; Appendix A section 15;
-#  exploration claude/mc4_4_exploration.py)
+# (Part 6 MC-4.4; Appendix A section 15)
 
 def _E_HO(ni, di):
     # sector harmonic-oscillator / Dirac eigenvalue: (2(n-1)+d)*sqrt(lam_d)
@@ -2343,7 +2435,7 @@ assert sel_reach_ratio > 10.0       # kernel reach strictly > DAG count
 # grid spacing g = S(n+1,d)/S(n,d)-1; luck L = min(1, 2 eps/g) ~ chance the
 # nearest grid point lands within eps of a random target. Indices treated as
 # FREE (maximally skeptical). Joint = product over 4 independent quantities.
-# (Part 5 sec 2a; Appendix A section 24; script claude/significance_audit.py)
+# (Part 5 sec 2a; Appendix A section 24)
 def _luck(pred, obs, sig, n, d):
     eps = max(abs(pred - obs) / obs, sig / obs)
     g = S(n + 1, d) / S(n, d) - 1.0
@@ -2395,15 +2487,15 @@ assert sig_mu_e < 1e-3 and sig_tau_e < 1e-3
 # window (all n with sector mass <= 1 TeV at the seed-chain scales;
 # d=5: <= 1 eV); all 12 quantities recomputed per draw (g55 fixed by the
 # seeds); score T = sum ln eps_eff and count draws doing at least as
-# well as IDWT.  Fixed seed, 10^6 draws here; 8x10^6 total in
-# claude/significance_mc.py give p_B < 5e-7 (95% CL) and best random
-# T = -29.8 vs IDWT -65.7, robust to halving/doubling the windows.
+# well as IDWT.  Fixed seed, 10^6 draws here; 8x10^6 total draws
+# give p_B < 5e-7 (95% CL) and best random T = -29.8 vs IDWT -65.7,
+# robust to halving/doubling the windows.
 #
 # Measured inputs: PDG 2024 (m_tau 1776.93(9); m_W 80369.2(133);
-# m_Z 91188.0(20); m_H 125200(110); V_us 0.2245(8); m_t 172760(300);
-# m_c 1270(20); dm2_31 2.530(28)e-3; dm2_21 7.53(18)e-5) and FLAG 2024
+# m_Z 91188.0(20); m_H 125200(110); V_us 0.2245(8); m_t 172570(290);
+# m_c 1273.0(46); dm2_31 2.530(28)e-3; dm2_21 7.53(18)e-5) and FLAG 2024
 # m_s/m_d = 19.81(13) from m_s/m_ud = 27.23(10), m_u/m_d = 0.455(8).
-# (Part 5 sec 2a; Appendix A sec 24; script claude/significance_mc.py)
+# (Part 5 sec 2a; Appendix A sec 24)
 
 def _s39_cab(n):                         # Cabibbo, free d=3 strange index
     return (1 + 1.0 / (12 * S(n, 3))) / math.sqrt(S(n, 3))
@@ -2428,9 +2520,9 @@ _s39_q = [
     ("sin th_C ", 0.2245, 0.0008 / 0.2245, 4, _s39_cab),
     ("m_s/m_d  ", 19.81, 0.13 / 19.81, 4,
      lambda n: S(n, 3) / S(1, 3)),
-    ("m_t/m_c  ", 172760.0 / 1270.0,
-     math.hypot(300.0 / 172760.0, 20.0 / 1270.0), 72,
-     lambda n: S(n, 4) / S(20, 4) * (1 - epsilon) ** 7),
+    ("m_t/m_c  ", 172570.0 / 1273.0,
+     math.hypot(290.0 / 172570.0, 4.6 / 1273.0), 72,
+     lambda n: S(n, 4) / S(20, 4)),
     ("dm231/221", 2.530e-3 / 7.53e-5,
      math.hypot(0.028 / 2.530, 0.18 / 7.53), 22, _s39_dm2),
 ]
@@ -2493,13 +2585,13 @@ s39_p4 = math.exp(-_s39_X4) * sum(_s39_X4 ** _j / math.factorial(_j)
 _s39_s23 = (1 - g55) / 2 + g55 * S(23, 10) / (S(35, 6) + S(23, 10))
 _s39_s12 = (1 - g55) / 3 + g55 * S(10, 5) / (S(10, 5) + S(15, 5))
 _s39_s13 = g55 * (_s39_s23 - 0.5) * math.log(S(23, 10) / S(35, 6))
-_s39_cu = S(20, 4) / S(3, 4) * (1 - epsilon) ** 3
+_s39_cu = S(20, 4) / S(3, 4)
 _s39_checks = [
     ("sin2th23", _s39_s23, 0.553, 0.020),
     ("sin2th12", _s39_s12, 0.307, 0.012),
     ("sin2th13", _s39_s13, 0.0220, 0.0006),
-    ("m_c/m_u ", _s39_cu, 1270.0 / 2.16,
-     (1270.0 / 2.16) * math.hypot(20.0 / 1270.0, 0.38 / 2.16)),
+    ("m_c/m_u ", _s39_cu, 1273.0 / 2.16,
+     (1273.0 / 2.16) * math.hypot(4.6 / 1273.0, 0.38 / 2.16)),
 ]
 
 # NULL B -- random-theory MC (fixed seed; deterministic)
@@ -2530,7 +2622,7 @@ def _s39_T(preds):
 _s39_pidwt = [np.array([float(v)]) for v in (
     S(35, 6) / S(13, 6), S(23, 10) / S(13, 6) * (1 + 1 / 1680.0),
     S(81, 2) / S(76, 2), S(95, 2) / S(76, 2), _s39_cab(4),
-    S(4, 3) / S(1, 3), S(72, 4) / S(20, 4) * (1 - epsilon) ** 7,
+    S(4, 3) / S(1, 3), S(72, 4) / S(20, 4),
     _s39_dm2(22), _s39_s23, _s39_s12, _s39_s13, _s39_cu)]
 s39_T_idwt = float(_s39_T(_s39_pidwt)[0])
 
@@ -2575,8 +2667,8 @@ assert s39_T_best > s39_T_idwt + 20  # ... by a margin > e^20
 
 # =============================================================================
 # STEP 40 -- CROSS-SECTOR SCALE INCOMMENSURABILITY LEMMA
-# (Part 7 §1.2; Appendix A §15; symbolic proof:
-#  claude/explore_scale_incommensurability.py)
+# (Part 7 §1.2; Appendix A §15; proved exactly by sympy over the
+#  algebraic definitions of the scales)
 #
 # Claim (✅, proved exactly by sympy over the algebraic definitions):
 # every cross-sector ratio m_scale_d / m_scale_d' is irrational
@@ -2601,7 +2693,7 @@ _ms40 = {
 _ds = [2, 3, 4, 5, 6, 10]
 
 # STEP 41 -- TOWER EDGES AS CONDENSATE MATRIX ELEMENTS (F5/F16 joint)
-# (Part 2 §9c; Part 10 §2; full check: claude/verify_f5f16_joint.py)
+# (Part 2 §9c; Part 10 §2)
 #
 # Oscillator proxy (T1: level n <-> Hermite degree k = n-1). The P6
 # condensate-linearized kernel supplies a degree-1 vertex (xi insertion).
@@ -3437,7 +3529,7 @@ _sig_dL_i = _sig_d_i * _fL54
 # =============================================================================
 # STEP 55 -- THE d=2 EVEN-INSERTION SELECTION RULE (insertion dichotomy)
 # (Part 3 section 11; Part 3 section 16.2; Part 2 section 6 note;
-#  Appendix A section 25 addendum; claude/explore_insertion_dichotomy.py)
+#  Appendix A section 25 addendum)
 #
 # The degree-1 condensate vertex (one xi insertion per additive fermion
 # edge; STEP 41) exists only in sectors with a nonzero condensate
@@ -3531,7 +3623,7 @@ _sumfree56 = not _collisions56
 # tens-of-radians scale observed in the COW-class experiments.
 # =============================================================================
 
-_mn_pdg57 = 939.565            # MeV (PDG 2024, claude/pdg2024.txt)
+_mn_pdg57 = 939.565            # MeV (PDG 2024)
 _kg57     = 1.78266192e-30     # kg per MeV/c^2
 _hbar57   = 1.054571817e-34    # J s
 _h57      = 6.62607015e-34     # J s
@@ -3553,8 +3645,7 @@ _ratio_ok57 = abs(_phi_idwt57 / _phi_std57 - _ratio57) < 1e-12
 # =============================================================================
 # STEP 58 -- SECTOR-WELL COVARIANCE: THE WELL RIDES WITH THE MODE
 # (Part 4 section 3.10.2 covariance note; Part 1 section 3i; Part 8
-#  section 14.2; Appendix A section 27; full numerics incl. 1D
-#  dynamics in claude/well_covariance_check.py.)
+#  section 14.2; Appendix A section 27)
 #
 # The kernel self-term (Part 4 section 3.10.1)
 #   V_self(xi) = g_dd * Int |chi(xi')|^2 (xi . xi')^2 dxi'
@@ -3613,7 +3704,7 @@ _dE58     = 4.0 * _sig58**2                    # dE/|E_1s|
 # STEP 59 -- CROSS-SECTOR KERNEL COVARIANCE: CONTACT IS A CONSEQUENCE
 # (Part 4 section 3.10.1 covariance note; Part 3 section 0.6; Part 11
 #  section 6.3; Appendix A section 28; STEP 58 is the self-term
-#  companion; full numerics claude/kernel_covariance_check.py.)
+#  companion)
 #
 # Two modes, A (sector d, centroid X_A) and B (sector d', centroid
 # X_B), couple through g_{dd'}(xi_d . xi_{d'})^2 on their shared
@@ -3674,7 +3765,7 @@ _self_ok59  = abs(_self_red59 - _U_rel58) < 1e-12   # = STEP 58 U_B
 # =============================================================================
 # STEP 60 -- KERNEL GATE PROFILE DERIVED: NORMALIZED DENSITY OVERLAP
 # (Part 4 section 3.10.1 covariance note; closes the STEP 59 residual;
-#  Appendix A section 28 addendum; claude/deuteron_gate_check.py.)
+#  Appendix A section 28 addendum)
 #
 # Three established inputs force the gate Omega(R) of STEP 59 uniquely:
 #  (i)   bilinearity: the kernel action term is bilinear in the kernel
@@ -3701,8 +3792,7 @@ _ident60 = all(
 
 # =============================================================================
 # STEP 61 -- INTERNUCLEON CONTACT: DEUTERON INVERSE CHECK
-# (Part 8 section 11; gate range from STEP 60; Appendix A section 29;
-#  claude/deuteron_gate_check.py.)
+# (Part 8 section 11; gate range from STEP 60; Appendix A section 29)
 #
 # Nucleons are d=3 colour-singlet composites (Part 1 section 2.4), so
 # the N-N kernel contact gate has the derived d=3 range
@@ -3713,7 +3803,7 @@ _ident60 = all(
 # gate profile itself as the contact well,
 #   V(r) = -V0 exp(-r^2/(2 Rc^2)),
 # reduced mass m_N_idwt/2, the measured deuteron binding
-# E_B = 2.224566 MeV (CODATA; not in claude/pdg2024.txt) fixes the
+# E_B = 2.224566 MeV (CODATA) fixes the
 # depth the kernel must supply. Result: V0 is an order-unity
 # fraction of the IDWT hadronic scale Lqcd = N_c f_pi. The RANGE is
 # fixed by STEP 60; deriving the DEPTH V0 from the kernel is the
@@ -3791,7 +3881,7 @@ _rms_NN61 = _rms61(_V0_NN61, _RC_NN61)
 # STEP 62 -- N-N WELL FROM SECOND-ORDER KERNEL CONTACT: DEPTH = LAMBDA
 # (Part 8 section 11; structure from the colour energy law, Part 8
 #  section 5.3, and the derived gate, STEP 60; Appendix A section 29
-#  addendum; claude/deuteron_gate_check.py.)
+#  addendum)
 #
 # Structure (forced by established results):
 #  (a) Two colour singlets have N_A = N_B = 0, so the first-order
@@ -3881,8 +3971,7 @@ _lc_check  = _Delta63 / _Nvec_unit    # = lambda_c (cross-check)
 # STEP 64 -- THE d>10 VACUUM-DIMENSION BATH IS DYNAMICALLY CLOSED;
 #            DOWNWARD-CHANNEL CATALOG AND THE STABILITY EQUIVALENCE
 # =============================================================================
-# (Part 7 section 1.2; Part 9 T0.5; Appendix A section 22 addenda;
-#  claude/explore_t05_outer_width.py for the numerical demonstration.)
+# (Part 7 section 1.2; Part 9 T0.5; Appendix A section 22 addenda)
 #
 # (a) KERNEL COORDINATE SUPPORT. The kernel (1/2) sum g_{dd'}
 #     (xi_d . xi_{d'})^2 J_d J_{d'} dots over SHARED coordinates, so
@@ -4226,6 +4315,59 @@ _sum_oh_44_68 = 4.0
 _sum_td_44_68 = 4.0 * (4.0/9.0) * (-1.0)          # = -16/9
 _ratio_68 = _sum_td68 / _sum_oh68                   # -4/9
 _ratio_44_68 = _sum_td_44_68 / _sum_oh_44_68        # -4/9
+
+# STEP 68 part 3 — absolute crystal field magnitudes 🔶
+# (Part 11 §2; Marginal Exactness Part 11 §6.1)
+#
+# STO 3d:  R(r) = N r^2 exp(-zeta r)  [atomic units a0=1]
+# Norm:    N^2 * 6!/(2*zeta)^7 = 1
+# <r^4>   = N^2 * 10!/(2*zeta)^11
+#          = 5040 / (16 * zeta^4)  =  315 / zeta^4  [a0^4]
+#
+# Point-charge Dq formula (O_h, 6 ligands, |Z|=1):
+#   Delta_o = 10Dq = 5*Z*<r^4> / (3 * R_L^5)   [a.u.]
+#   Delta_t = (4/9) * Delta_o
+#
+# Clementi-Raimondi zeta for 3d free-atom TM (J. Chem. Phys.
+# 38, 2686 (1963)), a0^{-1}:
+_cr_zeta_68 = {
+    'Ti': 1.817, 'V': 1.956, 'Cr': 2.033,
+    'Mn': 2.155, 'Fe': 2.298, 'Co': 2.410,
+    'Ni': 2.527, 'Cu': 2.637,
+}
+# Representative O_h M-L distance for aqua complexes
+_a0_68 = 0.529177          # a0 in Angstrom
+_RL_68_A = 2.0             # Angstrom
+_RL_68 = _RL_68_A / _a0_68  # in a0  (= 3.779 a0)
+
+
+def _r4_3d_sto_68(zeta):
+    """<r^4> for STO 3d R(r) prop r^2 exp(-zeta r); a0^4."""
+    return 315.0 / zeta**4
+
+
+# Numerical verification at zeta = 2.0
+_zv_68 = 2.0
+_rv_68 = np.linspace(1e-7, 30.0 / _zv_68, 900001)
+_Rv_68 = _rv_68**2 * np.exp(-_zv_68 * _rv_68)
+_nrm_68 = float(
+    np.trapezoid(_Rv_68**2 * _rv_68**2, _rv_68))**0.5
+_Rv_68 = _Rv_68 / _nrm_68
+_r4_num_68 = float(
+    np.trapezoid(_rv_68**4 * _Rv_68**2 * _rv_68**2, _rv_68))
+_r4_ana_68 = _r4_3d_sto_68(_zv_68)   # 315/16 = 19.6875
+
+# Hartree in eV (IDWT)
+_EH_eV_68 = alpha_em**2 * m_e * 1.0e6
+
+_r4_vals_68 = {e: _r4_3d_sto_68(z) for e, z in _cr_zeta_68.items()}
+_delt_o_au_68 = {
+    e: 5.0 * v / (3.0 * _RL_68**5)
+    for e, v in _r4_vals_68.items()
+}
+_delt_o_eV_68 = {
+    e: v * _EH_eV_68 for e, v in _delt_o_au_68.items()
+}
 
 
 # =============================================================================
@@ -4598,8 +4740,7 @@ _I_ev_exact73 = 2.0 * math.sqrt(2.0 * math.pi)
 # the condensate set at later ticks (the open (1,d) question) is
 # unobservable in the deposit record. Channel count derived 🔶;
 # unit deposit rate per channel remains the model assumption.
-# (Part 2 section 15; Appendix A section 31;
-#  claude/explore_two_channel_advance.py)
+# (Part 2 section 15; Appendix A section 31)
 _ch_forms_ok73 = (S(n_up, 3) == n_nu1 and S(n_up, 4) == n_nu2)
 _F0_73 = {_j73: _tent73[_j73 - 2] for _j73 in range(2, 8)}
 _cap_sites73 = [_j73 for _j73 in (5, 6, 7) if _F0_73[_j73] > 2]
@@ -4616,7 +4757,7 @@ _later_budget_bound73 = (_F0_73[6] <= 2 and _F0_73[7] <= 2)
 # ray d-k = r+2 (the orbits ARE the rays, populations (6,4,2));
 # observed depths are the greedy-earliest filling of the per-site
 # Betti budgets (depth grading dynamical, per-site totals
-# topological; claude/explore_rays_completion.py). Bidegree census:
+# topological). Bidegree census:
 # the budget at height m = j-2 equals the number of (m,m)-classes
 # of CP^2 x CP^3, (alpha,beta) with alpha<=2, beta<=3,
 # alpha+beta=m. Candidate mechanism (open, MC-2): one deposit per
@@ -4644,8 +4785,7 @@ _bideg_ok73 = all(
 # tent); depletion = nilpotency; termination = top class w2^2 w3^3
 # (H^12 = 0). Forced dictionary: photon <-> 1, tau <-> top/volume
 # class ("the tau touches everything", cohomological face).
-# (Part 2 section 15; Appendix A section 31;
-#  claude/explore_ring_front.py)
+# (Part 2 section 15; Appendix A section 31)
 _mono73 = [(_a73, _b73) for _a73 in range(3) for _b73 in range(4)]
 _ring_dim_ok73 = (len(_mono73) == 12)
 _top73 = (2, 3)
@@ -4660,7 +4800,7 @@ _ring_term_ok73 = all(
 #            CONDENSATE ARE THE HODGE-HARMONIC (p,p)-CLASSES OF CP^2 x CP^3
 # =============================================================================
 # (Part 2 section 15; Part 4 section 3.10; Appendix A section 31;
-#  claude/explore_mc2_marginality.py)
+#  Appendix A section 31)
 #
 # Hypothesis H (STEP 73 g) splits into a PROVED core and one named
 # residual. PROVED here:
@@ -4755,8 +4895,8 @@ _mc2_core_ok74 = (_parallel_ok74 and _pponly_ok74
 
 # --- (d) radial / flat-vs-compact: the completeness residual reframed --------
 # Completeness asks whether L has marginal directions beyond omega^p. The
-# RADIAL/flat continuation question (claude/explore_mc2_radial.py) is
-# answered: on flat R^d the Witten/Hodge Laplacian kernel ~ de Rham
+# RADIAL/flat continuation question is answered: on flat R^d the
+# Witten/Hodge Laplacian kernel ~ de Rham
 # cohomology of R^d (contractible: b_0 = 1, b_{p>0} = 0), so the flat
 # radial continuation has a 1-DIMENSIONAL kernel (the vacuum) -- it adds
 # NO internal marginal direction (no leak). The 12 marginal directions
@@ -5267,6 +5407,117 @@ _photo_ok_85 = all(
     for _, na, nb, nout in _photo_85)
 
 
+# ==========================================================================
+# STEP 86 -- l=2 SECOND-ORDER SELF-ENERGY: d=4 UP-TYPE QUARK MASS SHIFTS
+#   (Part 2 §11.4; Appendix A §45)
+#   The kernel coupling (xi.xi')^2 decomposes into l=0 (scalar) + l=2
+#   (traceless tensor) channels on d=4 (CP^2). The l=0 channel contributes
+#   a uniform sector-wide shift (Level-1, open). The l=2 channel is
+#   traceless: its first-order level-average is zero; the real shift is
+#   SECOND ORDER, connecting shells N <-> N+/-2 via
+#       delta_n ~ |<N+/-2|V_2|N>|^2 / DeltaE.
+#   This gives a monotonically growing, correctly signed (negative)
+#   fractional mass shift dm/m -- the candidate mechanism for the d=4
+#   up-type overshoot. STATUS: mechanism real (right sign, near-linear
+#   growth, prefactor within factor 1.12 of derived eps). Does NOT close
+#   the derivation: (a) shape p~0.96 matches {0,3,10} (PDG-EXCLUDED), not
+#   {0,7,16}; (b) with C=eps it reproduces the excluded set; only a 2-param
+#   fit hits PDG. GTC REMOVED 2026-06-16 (the fitted (1-eps)^k is no longer
+#   applied); this l=2 self-energy is kept as the real-but-underived
+#   candidate explanation for the now-uncorrected overshoot, recorded for a
+#   future physically-motivated correction. (Appendix A §45/§49.)
+# --------------------------------------------------------------------------
+import math as _math
+from math import comb as _comb, sqrt as _sqrt, log as _log
+def _S86(n, d):
+    return _comb(n + d - 1, d)
+_n_up86, _n_s86 = 3, 4
+_g3386 = (_n_s86**2) * _sqrt(_n_s86 + _n_up86) / 2.0
+_g4486 = (_n_s86 * _n_up86) / _sqrt(_n_s86 + _n_up86)
+_g6686 = 0.25
+_ms386 = m_e * _sqrt(_g3386 / _g6686)
+_ms486 = _ms386 * _sqrt(_g4486 / _g3386) / _S86(_n_up86, 4)
+_eps86 = 1.0 / (280.0 * _sqrt(7.0))
+_lam486 = (_g4486 / 2.0) ** (2.0 / 3.0)
+_w486 = _sqrt(_lam486)
+_lam386 = (_g3386 / 2.0) ** (2.0 / 3.0)
+_w386 = _sqrt(_lam386)
+_DE386 = 2.0 * _w386                   # cross-sector gap (prism Jacobian)
+
+def _g86(n):
+    """l=2 HO self-energy shape: harmonic denominators + prism Jacobian."""
+    N = n; nr = N // 2; l = N - 2 * nr
+    dE = ((nr + 1) * (nr + l + 4 / 2.0)) / _w486**2 \
+        / (-(2 * _w486) - _DE386)
+    if nr >= 1:
+        dE += (nr * (nr - 1 + l + 4 / 2.0)) / _w486**2 \
+            / ((2 * _w486) - _DE386)
+    dSdn = (_S86(n + 1, 4) - _S86(n - 1, 4)) / 2.0
+    return (dSdn / _S86(n, 4)) * (dE / (2.0 * _w486))
+
+_modes86 = {'up': 3, 'charm': 20, 'top': 72}
+_PDG86 = {
+    'up':    (2.16, 0.07),
+    'charm': (1273.0, 4.6),
+    'top':   (172570.0, 290.0),
+}
+_g86v = {k: _g86(_modes86[k]) for k in _modes86}
+_raw86 = {k: _S86(_modes86[k], 4) * _ms486 for k in _modes86}
+# Apply self-energy with derived prefactor C = eps (no free parameter)
+_corr86 = {k: _raw86[k] * (1.0 + _eps86 * _g86v[k]) for k in _modes86}
+_err86  = {
+    k: (_corr86[k] - _PDG86[k][0]) / _PDG86[k][0] * 100
+    for k in _modes86
+}
+_sig86  = {
+    k: (_corr86[k] - _PDG86[k][0]) / _PDG86[k][1]
+    for k in _modes86
+}
+# Scatter of residuals (max - min fractional error)
+_errs86_list = [_err86[k] for k in ('up', 'charm', 'top')]
+_scatter86 = max(_errs86_list) - min(_errs86_list)
+# Raw scatter for comparison
+_raw_errs = [
+    (_raw86[k] - _PDG86[k][0]) / _PDG86[k][0] * 100
+    for k in ('up', 'charm', 'top')
+]
+_raw_scatter = max(_raw_errs) - min(_raw_errs)
+# shape exponent from charm->top
+_shape_exp86 = _log(abs(_g86v['top'] / _g86v['charm'])) \
+    / _log(72 / 20)
+
+
+# =========================================================================
+# STEP 87 -- CP^2 HARMONIC TOWER CLOSES AT 15^2 AT THE SEED CUTOFF
+# =========================================================================
+# L^2(CP^2) = (+)_{k>=0} V_(k,k), the SU(3) irreps of highest weight (k,k);
+# dim V_(k,k) = (k+1)^3 is the degree-k zonal harmonic space on the d=4
+# sector. The cumulative mode count through degree K is the square of a
+# triangular number, by the sum-of-cubes identity:
+#
+#   sum_{k=0}^{K} (k+1)^3 = sum_{j=1}^{K+1} j^3 = ( T_{K+1} )^2 ,
+#   T_n = n(n+1)/2 .
+#
+# At the seed cutoff K = n_s = 4 the total is T_5^2 = 15^2 = 225, and
+# T_5 = 15 = C(n_s+2, 2) is the Completeness-Theorem stable-state count.
+# Hence the number of stable particles equals T_{n_s+1} = C(n_s+2, 2),
+# and the d=4 seed-cutoff harmonic content is exactly its square.
+# Combinatorial identity; needs no IDWT postulate. (Part 9 section T1)
+
+_n_s_87 = n_strange                        # seed cutoff = 4
+def _dim_kk_87(k):                         # dim V_(k,k) = (k+1)^3
+    return (k + 1) ** 3
+_cum_87 = []
+_s87 = 0
+for _k87 in range(0, _n_s_87 + 1):
+    _s87 += _dim_kk_87(_k87)
+    _cum_87.append(_s87)
+_T5_87 = (_n_s_87 + 1) * (_n_s_87 + 2) // 2    # T_5 = 15
+_total_87 = _cum_87[-1]                        # 225
+_stable_87 = math.comb(_n_s_87 + 2, 2)         # C(6,2) = 15
+_id_ok_87 = (_total_87 == _T5_87 ** 2 == _stable_87 ** 2 == 225)
+
+
 # =========================================================================
 # OUTPUT
 # =========================================================================
@@ -5296,14 +5547,24 @@ print(f"n_charm = S(n_strange,3) = S({n_strange},3) = {n_charm}")
 print(f"n_mu    = n_charm + n_nu2 = {n_charm} + {n_nu2} = {n_mu}"
       f"  [= S(4,4) = {S(4,4)}]")
 print(f"n_tau   = n_nu3 + n_down  = {n_nu3} + {n_down} = {n_tau}")
-print(f"n_top   = S(n_e,2) - n_charm + 1 = "
-      f"{S(n_e,2)} - {n_charm} + 1 = {n_top}")
-print(f"         [also: chi(CP2)*chi(CP3)*chi(CP5) = N_c*n_s*N_f = 3*4*6]")
+print(f"n_top   = N_c*n_s*N_f = 3*4*6 = {n_top}  [T15b]")
+print(f"         [= chi(CP2)*chi(CP3)*chi(CP5); product-form site]")
+print(f"         [binomial S(n_e,2)-n_charm+1 = {S(n_e,2)}-{n_charm}+1"
+      f" needs a +1 offset]")
+print(f"product-form quarks = {{16, 72}}: the only quarks not a single")
+print(f"  S-value (others 1,3,4,20); 16=n_s^2, 72=N_c*n_s*N_f; both")
+print(f"  3rd-gen; both div by 8 (factorization, not Bott -- App A s43)")
 print(f"n_W     = S(n_e,2) - n_nu2 = {S(n_e,2)} - {n_nu2} = {n_W}")
 print(f"n_Z     = n_W + q = {n_W} + {S(n_up,4)-S(n_up,3)} = {n_Z}")
 print(f"         [q = S(n_up,4)-S(n_up,3) = 5]")
 print(f"n_H     = n_up + n_charm + n_top = "
       f"{n_up} + {n_charm} + {n_top} = {n_H}")
+print(f"spectrum partition (s43): one additive operation, two starts")
+print(f"  tier 1 LATTICE (T0.5 domain, 11): {sorted(lattice)}")
+print(f"  tier 2 PRODUCT-FORM QUARKS: {sorted(product_form_quarks)}"
+      f" (16=n_s^2, 72=N_c*n_s*N_f; origin open)")
+print(f"  tier 3 BOSON g-CHAIN off top: {sorted(boson_chain)}"
+      f" (builds UP: additive)")
 
 
 # =============================================================================
@@ -5486,13 +5747,12 @@ print(f"      (free input; no geometric interpretation)")
 print("\n" + "=" * 70)
 print("=== STEP 4: CORRECTIONS ===")
 print("=" * 70)
-print("GTC epsilon = 1 / (280 * sqrt(7))")
-print("           = g_coeff / (k0 * n_mu)"
-      "  [g_coeff = 2/sqrt(7), k0 = 16, n_mu = 35]")
-print(f"           = {epsilon:.8f}")
-print(f"k-values (d=4):  up k={k_vals['up']},  "
-      f"charm k={k_vals['charm']},  top k={k_vals['top']}")
-print(f"  (correction factor per quark = (1 - epsilon)^k)")
+print("GTC REMOVED (2026-06-16): the (1-epsilon)^k correction to the d=4")
+print("  up-type quark masses is no longer applied (the exponent k was a")
+print("  fit). Up-type masses are now BARE; charm and top overshoot PDG.")
+print("epsilon = 1/(280*sqrt(7)) = g_coeff/(k0*n_mu)"
+      "  [retained for delta_nu3 only]")
+print(f"        = {epsilon:.8f}")
 print()
 print("Tau back-reaction factor = 1 + 1/(n_up * n_s^2 * S(n_s,4))")
 print(f"  = 1 + 1/({n_up} x {n_strange}^2 x {S(n_strange,4)}) = 1 + 1/1680")
@@ -5510,17 +5770,17 @@ print(f"  Resummation: g_{{10,10}}=1/n_s=1/{n_strange}, "
 # geometric-mean beat at the k0=16 resonance site. See pred_uncorrected.
 particles = [
     ("photon",   2,  0,       0.0),
-    ("W",        2,  n_W,     80377.0),
-    ("Z",        2,  n_Z,     91187.6),
+    ("W",        2,  n_W,     80369.2),
+    ("Z",        2,  n_Z,     91188.0),
     ("Higgs",    2,  n_H,     125200.0),
-    ("down",     3,  n_down,  4.67),
-    ("strange",  3,  n_strange, 93.4),
-    ("bottom",   3,  None,    4180.0),
+    ("down",     3,  n_down,  4.70),
+    ("strange",  3,  n_strange, 93.5),
+    ("bottom",   3,  None,    4183.0),
     ("up",       4,  n_up,    2.16),
-    ("charm",    4,  n_charm, 1270.0),
-    ("top",      4,  n_top,   172760.0),
+    ("charm",    4,  n_charm, 1273.0),
+    ("top",      4,  n_top,   172570.0),
     ("electron", 6,  n_e,     0.51099895),
-    ("muon",     6,  n_mu,    105.6583745),
+    ("muon",     6,  n_mu,    105.6583755),
     ("tau",      10, n_tau,   1776.93),
 ]
 
@@ -5553,7 +5813,7 @@ def pred_uncorrected(name, d, n):
       geometric mean:
           m_b = sqrt(S(16,3) * S(17,3)) * m_scale_3
       S(16,3) = C(18,3) = 816, S(17,3) = C(19,3) = 969.
-      Result: ~4181 MeV vs PDG 4180 MeV (+0.02%). (Part 2 section 12, Part 7)
+      Result: ~4181 MeV vs PDG 4183 MeV (-0.05%). (Part 2 section 12, Part 7)
       The geometric mean follows from the quartic coupling structure; the
       dimensional argument is heuristic -- a closed derivation from the quartic
       kernel eigenvalue problem is open.
@@ -5567,15 +5827,13 @@ def pred_uncorrected(name, d, n):
 
 def pred_corrected(name, d, n):
     """
-    Corrected IDWT prediction, applying:
-    - GTC to d=4 quarks: m * (1 - epsilon)^k
-    - back-reaction correction to tau: m * (1 + 1/1680)
-    All other particles are uncorrected -- their raw predictions are already
-    at or below PDG precision. (Part 2 sections 11 and 9)
+    Corrected IDWT prediction. The only mass correction now applied here is
+    the tau geometric back-reaction m * (1 + 1/1680). The former GTC
+    (1-epsilon)^k on the d=4 up-type quarks was REMOVED (2026-06-16): its
+    per-quark exponent was a fit, so the up-type masses are left BARE and
+    charm/top overshoot PDG (open residue). (Part 2 sections 11 and 9)
     """
     base = pred_uncorrected(name, d, n)
-    if name in k_vals:
-        return base * (1 - epsilon) ** k_vals[name]
     if name == "tau":
         return base * back_reaction_factor
     return base
@@ -5601,8 +5859,8 @@ for name, d, n, pdg in particles:
           f" {p:12.3f} {pdg:12.3f} {err:+7.2f}%")
 
 # STEP 4b -- Corrected table
-print("\n=== CORRECTED TABLE (GTC d=4 quarks + back-reaction tau) ===")
-print("  (charm and top: (1-eps)^k correction;  tau: *(1+1/1680))")
+print("\n=== CORRECTED TABLE (tau back-reaction only; GTC removed) ===")
+print("  (tau: *(1+1/1680);  up-type quarks now BARE -- charm/top overshoot)")
 print(hdr)
 print(sep)
 for name, d, n, pdg in particles:
@@ -5673,7 +5931,7 @@ z_vals = {
     "R_c":    (Rc_z,  0.17221, "Z->cc-bar/had"),
     "R_0":    (R0_z,  20.767,  "Z->had/ee"),
     "A_b":    (Ab_z,  0.923,   "b asymm."),
-    "A_e":    (Ae_z,  0.1516,  "sin2W limited"),
+    "A_e":    (Ae_z,  0.1515,  "sin2W limited"),
     "A_FB(b)":(AFBb,  0.0992,  "FB-b asymm."),
 }
 for label,(pred,pdg_val,note) in z_vals.items():
@@ -5687,13 +5945,13 @@ for label,(pred,pdg_val,note) in z_vals.items():
 print("\n=== TOP QUARK DECAY (tree level) ===")
 print(f"  m_t = {m_top_MeV:.0f} MeV  m_W = {m_scale2*S(n_W,2):.0f} MeV"
       f"  x_W = {xW_top:.5f}")
-print(f"  F_0 (longitudinal) = {F0_top:.4f}  PDG: 0.687"
-      f"  err {(F0_top/0.687-1)*100:+.2f}%")
-print(f"  F_L (left-handed)  = {FL_top:.4f}  PDG: 0.311"
-      f"  err {(FL_top/0.311-1)*100:+.2f}%")
+print(f"  F_0 (longitudinal) = {F0_top:.4f}  PDG: 0.693"
+      f"  err {(F0_top/0.693-1)*100:+.2f}%")
+print(f"  F_L (left-handed)  = {FL_top:.4f}  PDG: 0.315"
+      f"  err {(FL_top/0.315-1)*100:+.2f}%")
 print(f"  F_R (right-handed) = 0 (exact at tree level; V-A)")
-print(f"  Gamma(t->Wb) = {Gamma_top:.0f} MeV  PDG: ~1350 MeV"
-      f"  err {(Gamma_top/1350-1)*100:+.1f}%")
+print(f"  Gamma(t->Wb) = {Gamma_top:.0f} MeV  PDG: ~1420 MeV"
+      f"  err {(Gamma_top/1420-1)*100:+.1f}%")
 print(f"  [QCD 1-loop correction reduces Gamma_t by approx 10%]")
 
 # =============================================================================
@@ -5701,8 +5959,8 @@ print(f"  [QCD 1-loop correction reduces Gamma_t by approx 10%]")
 # =============================================================================
 print("\n=== CKM MATRIX (tree level, rho=eta=0) ===")
 ckm_vals = {
-    "|V_ud|": (Vud_m, 0.97370, "dominant"),
-    "|V_us|": (lam_W, 0.22450, "Cabibbo"),
+    "|V_ud|": (Vud_m, 0.97367, "dominant"),
+    "|V_us|": (lam_W, 0.22431, "|V_us| (lambda=0.22450 at LO)"),
     "|V_ub|": (0,     0.00382, "0 at tree level; rho=eta=0; CP loops"),
     "|V_cd|": (Vcd_m, 0.22486, ""),
     "|V_cs|": (Vcs_m, 0.97349, ""),
@@ -5996,8 +6254,8 @@ print("=" * 70)
 print(f"  Bottom quark (beat at k0=n_s²={k0}):"
       f" m_b = sqrt(S({k0},3)*S({k0+1},3))*m_scale_3")
 print(f"    = sqrt({S(k0,3)}*{S(k0+1,3)})*{m_scale3:.4f}"
-      f" = {m_b:.1f} MeV   PDG 4180±10"
-      f"   err {(m_b/4180-1)*100:+.3f}%")
+      f" = {m_b:.1f} MeV   PDG 4183±7"
+      f"   err {(m_b/4183-1)*100:+.3f}%")
 print(f"  Binding scales: E_bind_b = sqrt(m_b*Lqcd) = {E_bind_b:.1f} MeV")
 print(f"                  E_bind_c = sqrt(m_c*Lqcd) = {E_bind_c:.1f} MeV")
 print(f"  Chiral condensate B0 = (N_c/2)*f_pi^2/m_scale_3"
@@ -6721,7 +6979,7 @@ print(f"  draws = {s39_NB:.0e} (fixed seed);"
       f" T <= T_IDWT: {s39_nB_hits}  => p_B < {3.0/s39_NB:.0e}")
 print(f"  best random T = {s39_T_best:.1f} vs T_IDWT = {s39_T_idwt:.1f}"
       f"  (gap {s39_T_best - s39_T_idwt:.1f} ln units)")
-print("  8e6 draws (claude/significance_mc.py): p_B < 5e-7 (95% CL),")
+print("  8e6 draws: p_B < 5e-7 (95% CL),")
 print("  robust to halving/doubling the index windows.")
 print("  => no random index assignment reproduces the measured set;")
 print("     the residual question is index-FORCING (T0.5), not fit.")
@@ -6756,8 +7014,7 @@ for _a, _b in _pairs:
 
 print()
 print("  Incommensurability confirmed numerically for all 15 pairs.")
-print("  Symbolic proof (exact, all 15 pairs):")
-print("    claude/explore_scale_incommensurability.py")
+print("  Symbolic proof (exact, all 15 pairs): see STEP 40.")
 print("  Only commensurate pair: (d=6, d=10) -- ratio = 1 exactly.")
 print("  => 'No common revival period' is a proved lemma for"
       " 14/15 pairs. ✅")
@@ -7482,6 +7739,27 @@ print(f"  Y_44 term ratio (cross-check): {_ratio_44_68:.6f}")
 print(f"  |Delta_tet/Delta_oct| = 4/9 = {4/9:.4f}  (✅)")
 print("  Basis: ligand angular geometry + SO(3)->O_h representation")
 print("  theory, via Marginal Exactness (Part 11 s6.1).")
+print()
+print("  Absolute crystal field magnitudes (Part 11 s2, 🔶):")
+print("  <r^4> for STO 3d: 315/zeta^4  [a0^4]")
+print(f"  Numerical check at zeta={_zv_68}:"
+      f" {_r4_num_68:.5f} vs analytic {_r4_ana_68:.5f} a0^4")
+_r4_err68 = abs(_r4_num_68 / _r4_ana_68 - 1) * 100
+print(f"  Agreement: {_r4_err68:.5f}%")
+print()
+print(f"  Delt_o = 10Dq = 5Z<r^4>/(3 R_L^5)  "
+      "[pt-charge, |Z|=1]")
+print(f"  R_L = {_RL_68_A} A = {_RL_68:.3f} a0"
+      "  (representative aqua complex)")
+print(f"  {'Elem':4s}  {'zeta':5s}  {'<r4>/a0^4':9s}"
+      f"  {'Delta_o/eV':10s}")
+for _e68p, _z68p in _cr_zeta_68.items():
+    print(f"  {_e68p:4s}  {_z68p:.3f}  "
+          f"{_r4_vals_68[_e68p]:9.2f}  "
+          f"{_delt_o_eV_68[_e68p]:10.3f}")
+print("  Observed range: ~1-3 eV (first-row TM aqua).")
+print("  Point-charge model underestimates by ~30-50%;")
+print("  R_L not derived from IDWT. Status: 🔶")
 
 
 # STEP 69 -- OUTPUT: H2+ BOND ENERGY
@@ -7892,6 +8170,90 @@ print("  e  : nu1(10)+up(3)    = e(13)+gamma(0):   n ok  N 9+2=12-1")
 print("  mu : charm(20)+nu2(15)= mu(35)+gamma(0):  n ok  N 19+14=34-1")
 print("  tau: nu3(22)+down(1)  = tau(23)+gamma(0): n ok  N 21+0=22-1")
 print(f"  all exact: {_photo_ok_85}  (not selective: n_out=n_a+n_b is generic)")
+
+
+# ==========================================================================
+# STEP 86 -- OUTPUT: l=2 SECOND-ORDER SELF-ENERGY, d=4 MASSES
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 86: l=2 SECOND-ORDER SELF-ENERGY (d=4 UP-TYPE QUARKS) ===")
+print("=" * 70)
+print(
+    f"m_scale4 = {_ms486:.7f} MeV  "
+    f"eps = {_eps86:.6e}"
+)
+print(
+    f"w4 = {_w486:.4f}  w3 = {_w386:.4f}  "
+    f"cross-sector gap DE3 = {_DE386:.4f}"
+)
+print(f"shape exponent p (charm->top) = {_shape_exp86:.3f}")
+print("  compare {0,3,10} p~0.94, {0,7,16} p~0.65")
+print()
+print(
+    f"{'quark':6} {'n':>3} {'g(n)':>8} "
+    f"{'raw MeV':>11} {'corr MeV':>11} "
+    f"{'PDG MeV':>11} {'err%':>7} {'sigma':>7}"
+)
+for k in ('up', 'charm', 'top'):
+    n = _modes86[k]
+    print(
+        f"{k:6} {n:3d} {_g86v[k]:+8.4f} "
+        f"{_raw86[k]:11.3f} {_corr86[k]:11.3f} "
+        f"{_PDG86[k][0]:11.3f} "
+        f"{_err86[k]:+7.3f}% {_sig86[k]:+7.2f}s"
+    )
+print(
+    f"raw scatter (max-min err%): {_raw_scatter:.3f}%"
+    f"  -> after l=2 C=eps: {_scatter86:.3f}%"
+)
+print(
+    "=> generation-dependent scatter collapses "
+    f"{_raw_scatter:.2f}%-->{_scatter86:.2f}%."
+)
+print(
+    "   Residuals quasi-uniform (~+0.5 to +0.7%);"
+)
+print(
+    "   consistent with Level-1 +0.77% offset."
+)
+print(
+    "   Top +3.7s: ~12% HO underestimate of"
+    " CP2 l=2 matrix element (prefactor open)."
+)
+print(
+    "Status: mechanism real (right sign, near-linear,"
+)
+print(
+    "prefactor within ~12% of eps). 🔶"
+)
+print(
+    "Shape p~0.96 matches excluded {0,3,10}; "
+    "with C=eps reproduces PDG-excluded set."
+)
+print("GTC REMOVED 2026-06-16 (fitted exponent); l=2 kept as the")
+print("real-but-underived candidate. Record: Appendix A s45/s49.")
+
+
+# ==========================================================================
+# STEP 87 -- OUTPUT: CP^2 HARMONIC TOWER CLOSES AT 15^2
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 87: CP^2 HARMONIC TOWER -> 15^2 AT SEED CUTOFF ===")
+print("=" * 70)
+print(
+    f"dim V_(k,k)=(k+1)^3, k=0..{_n_s_87}: "
+    f"{[_dim_kk_87(k) for k in range(_n_s_87 + 1)]}"
+)
+print(f"cumulative thru degree K (= T_(K+1)^2): {_cum_87}")
+print(
+    f"total at seed cutoff K=n_s={_n_s_87}: "
+    f"{_total_87} = {_T5_87}^2"
+)
+print(
+    f"stable count C(n_s+2,2) = {_stable_87} = T_(n_s+1); "
+    f"identity holds: {_id_ok_87}"
+)
+print("Status: combinatorial identity. (Part 9 section T1)")
 
 
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")

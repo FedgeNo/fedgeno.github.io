@@ -113,7 +113,7 @@
       <li>\(n_u = 3\) — the up quark seed: \(\chi(\mathbb{CP}^2) = N_c = 3\) (T15). The Euler characteristic of the \(d=4\) sector directly fixes this value.</li>
       <li>\(n_s = 1 + 3 = 4\) — the strange quark mode index, the composite of the two seeds. Certified by the fixed-point condition \(S(n_s,\,4) = n_\mu\): only \(n_s = 4\) satisfies \(S(4,4) = 35\). The full uniqueness argument is at <a href="/articles/seed.html">Why \(n_s = 4\)</a>.</li>
     </ul>
-    <p>None of these values is chosen. All are forced. Everything above them in the tower is derived by addition — no further choices are made at any step.</p>
+    <p>None of these values is chosen. All are forced. Everything in the additive tower above them follows by addition or simplex imaging — no further choices are made. The two exceptions, n_top and the bottom beat index, are off-tower inputs covered separately below.</p>
   </div>
 
 </section>
@@ -121,10 +121,10 @@
 
   <h2>Dependency diagram</h2>
   <div class="prose">
-    <p>Each node is an integer. Arrows show which integers feed into which. Solid arrows are direct additions; dashed arrows are long-range dependencies that skip tiers. Color follows the sector of the particle that integer belongs to.</p>
+    <p>Each node is an integer. Arrows show which integers feed into which. Solid arrows are direct dependencies (additions, simplex imaging, or inclusion-exclusion); dashed arrows are long-range dependencies that skip tiers; dashed-border nodes have no tower connections. Color follows the sector of the particle that integer belongs to.</p>
   </div>
 
-  <svg viewBox="0 0 780 462" width="100%" style="display:block;margin:28px auto 0;max-width:780px" aria-label="Generation tower dependency diagram">
+  <svg viewBox="0 0 800 460" width="100%" style="display:block;margin:28px auto 0;max-width:800px" aria-label="Generation tower dependency diagram">
     <defs>
       <marker id="ah" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
         <path d="M0,0 L6,3 L0,6 Z" fill="rgba(139,156,255,0.5)"/>
@@ -135,81 +135,98 @@
     </defs>
 
     <!-- ── Dashed (long-range) arrows, drawn first so nodes sit on top ── -->
-    <!-- n_down → n_τ (left edge) -->
-    <path d="M85,48 C20,190 40,295 170,340" fill="none" stroke="rgba(0,255,68,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
-    <!-- n_up → n_e (skips row 2) -->
-    <path d="M415,128 C330,170 200,215 90,260" fill="none" stroke="rgba(255,102,0,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
-    <!-- n_top is an off-tower input (N_c × n_s × N_f); no derivation arrows into it -->
-    <!-- n_ν₂ → n_H (right side) -->
-    <path d="M480,208 C730,285 740,375 680,420" fill="none" stroke="rgba(204,0,255,0.22)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- A: n_down → n_τ (left edge, skips rows 1–2) -->
+    <path d="M85,48 C18,130 18,210 75,260" fill="none" stroke="rgba(0,255,68,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- B: n_up → n_e (skips row 1; n_e = n_ν₁ + n_up) -->
+    <path d="M705,48 C500,90 250,130 70,180" fill="none" stroke="rgba(255,102,0,0.28)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- C: n_ν₂ → n_μ (skips row 2; n_μ = n_charm + n_ν₂) -->
+    <path d="M595,128 C640,190 510,240 370,260" fill="none" stroke="rgba(204,0,255,0.22)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
+    <!-- D: n_ν₂ → n_H (long-range; n_H = n_Z + n_ν₂ − 1) -->
+    <path d="M595,128 C680,260 660,370 540,418" fill="none" stroke="rgba(204,0,255,0.22)" stroke-width="1.2" stroke-dasharray="5 3" marker-end="url(#ahd)"/>
 
     <!-- ── Solid arrows ── -->
-    <line x1="710" y1="48" x2="445" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="735" y1="48" x2="725" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="415" y1="128" x2="285" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="435" y1="128" x2="455" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="265" y1="208" x2="100" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="270" y1="208" x2="295" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="445" y1="208" x2="315" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="465" y1="208" x2="530" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="700" y1="128" x2="560" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="295" y1="288" x2="200" y2="340" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="465" y1="368" x2="310" y2="420" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="330" y1="434" x2="410" y2="434" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
-    <line x1="510" y1="434" x2="610" y2="434" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- Seeds → Row 1 -->
+    <!-- 1: n_down → n_s -->
+    <line x1="85" y1="48" x2="80" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 2: n_up → n_s (long curve, right to left; n_s = n_down + n_up) -->
+    <path d="M705,48 C500,60 300,75 80,100" fill="none" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 3: n_up → n_ν₁ (S(n_up,3)) -->
+    <line x1="705" y1="48" x2="330" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 4: n_up → n_ν₂ (S(n_up,4)) -->
+    <line x1="705" y1="48" x2="595" y2="100" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- Row 1 → Row 2 -->
+    <!-- 5: n_s → n_charm (S(n_s,3)) -->
+    <line x1="80" y1="128" x2="255" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 6: n_ν₁ → n_e (n_e = n_ν₁ + n_up) -->
+    <line x1="330" y1="128" x2="70" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 7: n_ν₁ → n_ν₃ (inclusion-exclusion) -->
+    <line x1="330" y1="128" x2="535" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 8: n_ν₂ → n_ν₃ -->
+    <line x1="595" y1="128" x2="535" y2="180" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- Row 2 → Row 3 -->
+    <!-- 9: n_charm → n_μ -->
+    <line x1="255" y1="208" x2="370" y2="260" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 10: n_ν₃ → n_τ (adjacent rows; long horizontal) -->
+    <path d="M535,208 C440,225 250,245 75,260" fill="none" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- Row 4 → Row 5 (boson chain) -->
+    <!-- 11: n_top → n_W -->
+    <line x1="395" y1="366" x2="225" y2="418" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 12: n_W → n_Z -->
+    <line x1="275" y1="432" x2="330" y2="432" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
+    <!-- 13: n_Z → n_H -->
+    <line x1="430" y1="432" x2="490" y2="432" stroke="rgba(139,156,255,0.45)" stroke-width="1.5" marker-end="url(#ah)"/>
 
     <!-- ── Nodes ── -->
-    <!-- Seeds row (y=20) -->
+    <!-- Seeds row (y=20): n_down (d=3) and n_up (d=4) are co-equal seeds -->
     <rect x="20"  y="20" width="130" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5"/>
     <text x="85"  y="38" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">n_down = 1</text>
 
-    <rect x="660" y="20" width="130" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5"/>
-    <text x="725" y="38" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">n_s = 4</text>
+    <rect x="640" y="20" width="130" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
+    <text x="705" y="38" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_up = 3</text>
 
-    <!-- Row 1 (y=100) -->
-    <rect x="365" y="100" width="110" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
-    <text x="420" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_up = 3</text>
+    <!-- Row 1 (y=100): n_s derived composite; n_ν₁ and n_ν₂ from n_up -->
+    <rect x="20"  y="100" width="120" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5"/>
+    <text x="80"  y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">n_s = 4</text>
 
-    <rect x="660" y="100" width="130" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
-    <text x="725" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_charm = 20</text>
+    <rect x="270" y="100" width="120" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="330" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2081; = 10</text>
+
+    <rect x="530" y="100" width="130" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="595" y="118" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2082; = 15</text>
 
     <!-- Row 2 (y=180) -->
-    <rect x="210" y="180" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
-    <text x="265" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2081; = 10</text>
+    <rect x="20"  y="180" width="100" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
+    <text x="70"  y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_e = 13</text>
 
-    <rect x="400" y="180" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
-    <text x="455" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2082; = 15</text>
+    <rect x="190" y="180" width="130" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
+    <text x="255" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_charm = 20</text>
+
+    <rect x="470" y="180" width="130" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
+    <text x="535" y="198" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2083; = 22</text>
 
     <!-- Row 3 (y=260) -->
-    <rect x="20"  y="260" width="100" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
-    <text x="70"  y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_e = 13</text>
+    <rect x="20"  y="260" width="110" height="28" rx="6" fill="#080c18" stroke="#ffdd00" stroke-width="1.5"/>
+    <text x="75"  y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ffdd00">n_&#x03C4; = 23</text>
 
-    <rect x="240" y="260" width="110" height="28" rx="6" fill="#080c18" stroke="#cc00ff" stroke-width="1.5"/>
-    <text x="295" y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#cc00ff">n_&#x03BD;&#x2083; = 22</text>
+    <rect x="310" y="260" width="120" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
+    <text x="370" y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_&#x03BC; = 35</text>
 
-    <rect x="490" y="260" width="100" height="28" rx="6" fill="#080c18" stroke="#ff3333" stroke-width="1.5"/>
-    <text x="540" y="278" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff4444">n_&#x03BC; = 35</text>
+    <!-- Row 4 (y=338): off-tower, no connections -->
+    <rect x="20"  y="338" width="140" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="90"  y="356" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">k&#x2080;(b) = 16</text>
 
-    <!-- Row 4 (y=340) -->
-    <rect x="120" y="340" width="100" height="28" rx="6" fill="#080c18" stroke="#ffdd00" stroke-width="1.5"/>
-    <text x="170" y="358" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ffdd00">n_&#x03C4; = 23</text>
+    <rect x="335" y="338" width="120" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5" stroke-dasharray="5 3"/>
+    <text x="395" y="356" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_top = 72</text>
 
-    <rect x="415" y="340" width="110" height="28" rx="6" fill="#080c18" stroke="#ff6600" stroke-width="1.5"/>
-    <text x="470" y="358" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#ff6600">n_top = 72</text>
+    <!-- Row 5 (y=418) bosons -->
+    <rect x="175" y="418" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="225" y="436" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_W = 76</text>
 
-    <!-- n_b = 16: beat index, no tower connections (dashed border signals isolated) -->
-    <rect x="618" y="340" width="142" height="28" rx="6" fill="#080c18" stroke="#00ff44" stroke-width="1.5" stroke-dasharray="5 3"/>
-    <text x="689" y="358" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00ff44">k&#x2080;(b) = 16</text>
+    <rect x="330" y="418" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="380" y="436" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_Z = 81</text>
 
-    <!-- Row 5 (y=420) bosons -->
-    <rect x="250" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
-    <text x="300" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_W = 76</text>
-
-    <rect x="410" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
-    <text x="460" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_Z = 81</text>
-
-    <rect x="610" y="420" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
-    <text x="660" y="438" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_H = 95</text>
+    <rect x="490" y="418" width="100" height="28" rx="6" fill="#080c18" stroke="#00aaff" stroke-width="1.5"/>
+    <text x="540" y="436" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00aaff">n_H = 95</text>
   </svg>
 
   <div style="display:flex;flex-wrap:wrap;gap:16px;margin:14px 0 0;font-size:0.82rem;font-family:'JetBrains Mono',monospace">
@@ -237,11 +254,11 @@
     <dt class="d3">\(n_{\text{down}} = 1\)</dt>
     <dd>The universal ground state. \(S(1,d) = \binom{d}{d} = 1\) for every sector \(d\), so the lowest occupied mode in any sector is always \(n=1\). The down quark sits at the ground state of the \(d=3\) sector (\(S^3\)). No other assignment is possible.</dd>
 
-    <dt class="d3">\(n_s = 4\)</dt>
-    <dd>The strange quark — the composite \(b = n_{\rm down} + n_u = 1 + 3 = 4\). Confirmed by the self-referential fixed point: the muon mode index must satisfy \(n_\mu = S(n_s, 4)\). Only \(n_s = 4\) works, because \(S(4,4) = \binom{7}{4} = 35\) and \(S(n,4) = 35\) has no other positive-integer solution. \(S(4,4) = 35\) is a uniqueness certificate of the composite — it does not define the value. See <a href="/articles/seed.html">Why \(n_s = 4\)</a> for the full argument.</dd>
-
     <dt class="d4">\(n_{\text{up}} = 3\)</dt>
-    <dd>The up quark seed: \(n_u = \chi(\mathbb{CP}^2) = N_c = 3\) (T15). The Euler characteristic of the \(d=4\) sector geometry directly fixes the up quark mode index — it is a seed, not derived from \(n_s\). The χ-consecutiveness identity \(n_u = n_s - 1\) (T15: \(\chi(\mathbb{CP}^k) = k+1\)) records the Hopf-chain geometry; it does not generate \(n_u\) from \(n_s\).</dd>
+    <dd>The up quark seed: \(n_u = \chi(\mathbb{CP}^2) = N_c = 3\) (T15). The Euler characteristic of the \(d=4\) sector geometry directly fixes the up quark mode index — it is a co-equal seed with \(n_{\text{down}}\), not derived from any other tower entry.</dd>
+
+    <dt class="d3">\(n_s = 4\)</dt>
+    <dd>The strange quark — the composite \(n_s = n_{\rm down} + n_u = 1 + 3 = 4\). Certified by the self-referential fixed point: the muon mode index must satisfy \(n_\mu = S(n_s, 4)\). Only \(n_s = 4\) works, because \(S(4,4) = \binom{7}{4} = 35\) and \(S(n,4) = 35\) has no other positive-integer solution. \(S(4,4) = 35\) is a uniqueness certificate of the composite — it does not define the value. See <a href="/articles/seed.html">Why \(n_s = 4\)</a> for the full argument.</dd>
 
     <dt class="d5">\(n_{\nu_1} = S(n_{\text{up}},\, 3) = S(3,3) = 10\)</dt>
     <dd>The first neutrino mode index. Neutrinos live in the \(d=5\) sector (\(S^5\)), which couples to \(d=3\) via the Vandermonde rule. The lightest \(d=5\) resonance lands at the \(d=3\) <a href="/articles/simplex-number.html">simplex image</a> of the up quark seed: \(S(3,3) = \binom{5}{3} = 10\). The first neutrino is entirely determined by \(n_{\text{up}}\).</dd>
@@ -297,8 +314,8 @@
       </thead>
       <tbody>
         <tr><td>down</td><td>1</td><td>3</td><td>\(S^3\)</td><td>Seed — \(S(1,d)=1\) for all \(d\)</td></tr>
-        <tr><td>strange</td><td>4</td><td>3</td><td>\(S^3\)</td><td>Composite \(b = 1+3\) — certified by \(S(4,4)=35\)</td></tr>
         <tr><td>up</td><td>3</td><td>4</td><td>\(\mathbb{CP}^2\)</td><td>Seed — \(\chi(\mathbb{CP}^2) = N_c = 3\) (T15)</td></tr>
+        <tr><td>strange</td><td>4</td><td>3</td><td>\(S^3\)</td><td>Composite \(n_s = n_{\text{down}}+n_{\text{up}} = 1+3\) — certified by \(S(4,4)=35\)</td></tr>
         <tr><td>\(\nu_1\)</td><td>10</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},3)\)</td></tr>
         <tr><td>\(\nu_2\)</td><td>15</td><td>5</td><td>\(S^5\)</td><td>\(S(n_{\text{up}},4)\)</td></tr>
         <tr><td>electron</td><td>13</td><td>6</td><td>\(\mathbb{CP}^3\)</td><td>\(n_{\nu_1} + n_{\text{up}}\)</td></tr>

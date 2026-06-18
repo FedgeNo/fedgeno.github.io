@@ -283,7 +283,7 @@ The following table consolidates the full theorem status after the T8 completion
 | T0 | Spectral triple; physical spectrum | 🔶 | — | All SM masses from one operator; 7 open items (Part 9) |
 | T0.5 | Co-fixed-point selection condition | 🔶 | Exact outcomes | Selects the 11-mode lattice (photon + hockey-stick fermions); the 2 product-form quarks {16,72} and the EW g-chain {76,81,95} are tiers 2–3 (Part 9 T0.5 scope); decoherence mechanism not yet derived from EOM |
 | T1 | m = S(n,d)·m_scale = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
-| T2 | (ξ·ξ')² = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
+| T2 | (ξ·ξ')² = unique kernel | ✅ | Exact | Forces rank-1 couplings and the ℓ=2 self-energy scale ε |
 | T3 | D = {2,3,4,5,6,10} from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |
 | T4 | n_s = 4 from double degeneracy 4/7 | ✅ | Exact | Unique composite; all indices follow |
 | T5 | d=10 = Gegenbauer critical endpoint | ✅ | b=1/2 exact | Chain terminates; τ is critical |
@@ -291,14 +291,14 @@ The following table consolidates the full theorem status after the T8 completion
 | T7 | √Tr(D²) ≈ (√2 G_F)^{-1/2} | 🔵 | +0.85% | EW scale self-consistency |
 | **T8** | **δ_CP = π + 2θ₁₃; J = −0.00981** | **🔶** | **+0.05°, +0.1%** | **Determined by spectral flow Δc₁ mismatch** |
 | T9a–d | All 6 coupling constants derived | ✅ | Exact | No free coupling parameters |
-| T10a | GTC ε = 1/(280√7) | ✅ | <0.1% | Fine structure of quark masses |
+| T10a | ℓ=2 self-energy scale ε = 1/(280√7) | ✅ | Exact | Applied to δ_ν₃ = ε·g₃₃ = 1/35; former (1−ε)^k quark correction removed 2026-06-16 |
 | T10b | Geometric back-reaction correction +1/1680 for τ | ✅ | 0.001% | Critical-sector regularisation |
 | T11a–d | Neutrino masses; Dirac; Σm_ν = 60.39 meV | ✅ | <0.05% | 0νββ = 0 at all orders |
 | T13a | Spectral sum rule ζ_d(1) = d/(d-1) | ✅ | Exact | Total inverse-mass weight is pure Pascal |
 | T14a | Heat kernel Weyl term K_d(t) ~ a₀^{(d)} t^{-1/d} | ✅ | Exact | Spectral dimension = d |
 | T14b | Constant term −d/2 and ζ_d(0) = −d/2 | ✅ | Exact | Sector functional determinant anchored |
 | T13b | Mode spacing S(n+1,d)−S(n,d) = S(n+1,d-1) | ✅ | Exact | Source of all mode-index chains |
-| T13c | Exact mass ratios | ✅ | ≤0.048% | From integer S ratios |
+| T13c | Exact mass ratios | ✅/🔶 | ≤0.002% non-up; charm +0.16%, top +1.42% 🔶 | Non-up-type ratios from integer S; d=4 up-type bare (GTC removed) |
 | T15 | N_c = χ(CP²) = n_u; all couplings/indices from one Euler characteristic | ✅ | Exact | Coupling filter and mass hierarchy share one root |
 | sin²θ_W | 1−(S(76,2)/S(81,2))² = 0.2237; +0.37% from PDG on-shell | ✅ | +0.37% | Within EW radiative corrections |
 | G_N | G_N = G_∞/V₇; V₇ ≈ 7.74 fully derived; G_∞ from spectral action scale Λ | 🔶 | — | V₇ derived; G_∞ from Λ (one open item) |
@@ -408,7 +408,7 @@ The entire observable content of IDWT — every particle mass, every coupling co
 
 | From N_c = 3 | Derivation chain | Result |
 |---|---|---|
-| Seed n_s | n_s = N_c + 1 = 4 (T4) | Unique fixed point of 4/7 equation |
+| Composite n_s | n_s = N_c + 1 = 4 (T4) | Unique fixed point of 4/7 equation |
 | Sector chain endpoint | d_max = 2(N_c+2) = 10 (T15a) | 6 sectors {2,3,4,5,6,10} |
 | All couplings | g_{dd} = f(n_s, n_u) (T9) | {722.5, 8√7, 12/√7, 0.133, 0.25, 0.25} |
 | All mode indices | n_e, n_{ν}, n_q from T15d | {1,4,13,10,15,22,23,35,72,...} |

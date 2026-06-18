@@ -616,8 +616,8 @@ Each Standard Model particle is one mode of Ψ_∞, fixed by its sector dimensio
 | down | 3 | S³ | SO(4) | 1 | 1 | 4.70 MeV |
 | strange | 3 | S³ | SO(4) | 4 | 20 | 94.0 MeV |
 | up | 4 | CP² | SU(3) | 3 | 15 | 2.18 MeV |
-| charm | 4 | CP² | SU(3) | 20 | 8,855 | 1.27 GeV |
-| top | 4 | CP² | SU(3) | 72 | 1,215,450 | 172.6 GeV |
+| charm | 4 | CP² | SU(3) | 20 | 8,855 | 1285 MeV (bare, +0.93% 🔶) |
+| top | 4 | CP² | SU(3) | 72 | 1,215,450 | 176.4 GeV (bare, +2.20% 🔶) |
 | ν₁ | 5 | S⁵ | SO(6) | 10 | 2,002 | 1.49 meV |
 | ν₂ | 5 | S⁵ | SO(6) | 15 | 11,628 | 8.64 meV |
 | ν₃ | 5 | S⁵ | SO(6) | 22 | 65,780 | 50.3 meV |

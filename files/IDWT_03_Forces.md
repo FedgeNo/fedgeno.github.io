@@ -45,11 +45,11 @@ S_IDWT[Ψ∞, g_μν]
       dμ_4 dμ_ξ dμ_{ξ'}
 ```
 
-where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed pair {n_u=3, n_s=4}.
+where P_d is the projector onto sector Ξ_d, and g_{dd'} = v_d × v_{d'} is the rank-1 coupling matrix with v_d = √g_{dd} determined by the seed pair {n_d=1, n_u=3} and composite n_s=4.
 
 The kernel term is the unique leading interaction invariant under U(d) × U(d') rotations of each sector (T2). Its quartic-in-Ψ form gives confinement, mass, and inter-sector coupling from a single geometric term.
 
-**Note on G_N.** The Einstein-Hilbert coefficient G_N appearing in the action as written is currently an external input — the one additional input beyond m_e and n_s=4 that the framework has not yet derived. In the complete IDWT picture, the EH term should emerge from the a₂ Seeley-DeWitt coefficient of the spectral action Tr(f(D/Λ)), giving G_∞ = f₂Λ²a₂/(8π) and G_N = G_∞/V_7 as a prediction. That computation is open (Part 4 §3.12.4, Part 6). Until it is completed, the action above is an effective description with G_N as a measured input, not a postulated constant of the theory. **Particle physics predictions (masses, mixing angles, coupling constants) are independent of G_N** — they depend only on m_e, n_s=4, and the kernel geometry.
+**Note on G_N.** The Einstein-Hilbert coefficient G_N appearing in the action as written is currently an external input — the one additional input beyond the seed pair {n_d=1, n_u=3}, composite n_s=4, and m_e that the framework has not yet derived. In the complete IDWT picture, the EH term should emerge from the a₂ Seeley-DeWitt coefficient of the spectral action Tr(f(D/Λ)), giving G_∞ = f₂Λ²a₂/(8π) and G_N = G_∞/V_7 as a prediction. That computation is open (Part 4 §3.12.4, Part 6). Until it is completed, the action above is an effective description with G_N as a measured input, not a postulated constant of the theory. **Particle physics predictions (masses, mixing angles, coupling constants) are independent of G_N** — they depend only on the seed pair {n_d=1, n_u=3}, composite n_s=4, m_e, and the kernel geometry.
 
 ### 0.3 Equations of Motion
 

@@ -411,7 +411,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 
 **What this single equation yields (all derived, no extra terms):**
 
-- **Particle spectrum:** Local minima after projection select exactly the {1,4} seeds and the full observed set (co-fixed-point uniqueness proved — Part 1 §5)
+- **Particle spectrum:** Local minima after projection select exactly the seeds (n_d=1, n_u=3) and, through the co-fixed-point tower, the full observed set (co-fixed-point uniqueness proved — Part 1 §5)
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)
 - **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
 - **Meson masses:** Binding shifts from kernel overlap integrals (derivation open — §12 not yet written)

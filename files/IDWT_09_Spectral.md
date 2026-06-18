@@ -440,7 +440,7 @@ As derived consequences in oscillation-experiment language, $\Delta m^2_{ij} = (
 | $\Delta m^2_{21}$ | $7.242\times10^{-5}$ eV$^2$ | $(7.53\pm0.18)\times10^{-5}$ | $-3.8\%$ |
 | $m_{\nu_3}$ (absolute) | $50.27$ meV (corrected; bare $48.87$ meV) | $2.523\times10^{-3}$ eV² (PDG 2023); $2.530\times10^{-3}$ eV² (PDG 2024 NO) | $+0.05\%$ (2023); $-0.22\%$ (2024) |
 
-The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure relation 🔶 (primary derivation Part 2 §9d): $g_{\rm coeff}\times g_{33} = n_s^2 = k_0$ (the $\sqrt{7}$ cancels algebraically), so $\varepsilon\cdot g_{33} = k_0/(k_0\cdot n_{\rm mu}) = 1/35$ — exact given independently-derived $\varepsilon$ and $g_{33}$, but the deeper operator mechanism is not yet derived. The corrected $m_{\nu_3}^{\rm corr} = 50.267$ meV implies $\Delta m^2_{31} = 2.5246\times10^{-3}$ eV$^2$ — within 0.05% of PDG 2023 and within 0.2σ of PDG 2024. Structural source: $n_{\nu_3}$ is the unique inclusion-exclusion mode index, combining the d=3 image ($n_{\nu_1}$) and d=4 image ($n_{\nu_2}$) of the seed $n_u$; the l=2 cross-term (T2) then mixes these via $\varepsilon$ (d=4 GTC coefficient) and $g_{33}$ (d=3 back-reaction). Expressing the correction as $\Delta m^2_{31}$ inflates the apparent significance without adding information.
+The correction $\delta_{\nu_3} = \varepsilon\cdot g_{33} = 1/35$ is a closure relation 🔶 (primary derivation Part 2 §9d): $g_{\rm coeff}\times g_{33} = n_s^2 = k_0$ (the $\sqrt{7}$ cancels algebraically), so $\varepsilon\cdot g_{33} = k_0/(k_0\cdot n_{\rm mu}) = 1/35$ — exact given independently-derived $\varepsilon$ and $g_{33}$, but the deeper operator mechanism is not yet derived. The corrected $m_{\nu_3}^{\rm corr} = 50.267$ meV implies $\Delta m^2_{31} = 2.5246\times10^{-3}$ eV$^2$ — within 0.05% of PDG 2023 and within 0.2σ of PDG 2024. Structural source: $n_{\nu_3}$ is the unique inclusion-exclusion mode index, combining the d=3 image ($n_{\nu_1}$) and d=4 image ($n_{\nu_2}$) of the seed $n_u$; the l=2 cross-term (T2) then mixes these via $\varepsilon$ (d=4 $\ell=2$ self-energy scale) and $g_{33}$ (d=3 back-reaction). Expressing the correction as $\Delta m^2_{31}$ inflates the apparent significance without adding information.
 
 **T11c** (Majorana forbidden). $d\bmod8=5$ (Clifford algebra mod 8 periodicity) forbids the Majorana condition on $\mathcal{S}_5$-spinors. Neutrinos are strictly Dirac. The $0\nu\beta\beta$ decay rate is therefore zero at all orders: no $C$ exists on the $S^5$ bundle, so no Majorana operator can be constructed at any loop order.
 
@@ -629,13 +629,13 @@ $$\binom{n+d}{d}-\binom{n+d-1}{d}=\binom{n+d-1}{d-1}=S(n+1,d-1).\quad\square$$
 
 ### T13c. Exact Mass Ratios
 
-Within a single sector, $m_{\rm scale}_d$ cancels, leaving pure rational ratios of simplex numbers $S(n,d)=\binom{n+d-1}{d}$. For $d=4$ up-type quarks the GTC factor $(1-\varepsilon)^k$ (T10a) and for the tau the back-reaction factor (T10b) are algebraic in $n_s$ and $\varepsilon=1/(280\sqrt{7})$, hence also parameter-free.
+Within a single sector, $m_{\rm scale}_d$ cancels, leaving pure rational ratios of simplex numbers $S(n,d)=\binom{n+d-1}{d}$. For $d=4$ up-type quarks the ratios are bare (the former GTC factor $(1-\varepsilon)^k$ has been removed — its per-quark exponent was a fit, Part 2 §11.3); charm and top overshoot PDG and are open residues. For the tau the back-reaction factor (T10b) is algebraic in $n_s$ and $\varepsilon=1/(280\sqrt{7})$, hence also parameter-free.
 
 | Ratio | IDWT exact form | IDWT value | PDG | Error |
 |---|---|---|---|---|
 | $m_s/m_d$ | $S(4,3)/S(1,3)=20/1$ | 20.000 | 20.00 | 0.000% |
-| $m_c/m_u$ | $\frac{S(20,4)}{S(3,4)}(1-\varepsilon)^3=\frac{8855}{15}(1-\varepsilon)^3$ | 587.946 | 587.96 | −0.002% |
-| $m_t/m_u$ | $\frac{S(72,4)}{S(3,4)}(1-\varepsilon)^{10}=\frac{1215450}{15}(1-\varepsilon)^{10}$ | 79943 | 79981 | −0.048% |
+| $m_c/m_u$ | $S(20,4)/S(3,4)=8855/15$ (bare) | 590.333 | 589.4 | +0.158% 🔶 |
+| $m_t/m_u$ | $S(72,4)/S(3,4)=1215450/15$ (bare) | 81030 | 79893 | +1.423% 🔶 |
 | $m_\mu/m_e$ | $S(35,6)/S(13,6)=3838380/18564$ | 206.765 | 206.768 | −0.002% |
 | $m_\tau/m_\mu$ | $\frac{S(23,10)}{S(35,6)}\times D=\frac{64512240}{3838380}\times D$ | 16.8172 | 16.8177 | −0.003% |
 | $m_\tau/m_e$ | $\frac{S(23,10)}{S(13,6)}\times D=\frac{64512240}{18564}\times D$ | 3477.19 | 3477.37 | −0.005% |
@@ -858,7 +858,7 @@ evaluating at $N_c=3$ to $\varepsilon = 1/(280\sqrt7)$, $\delta_\tau = 1/1680$, 
 | T0 | Spectral triple; physical spectrum | 🔶 | Exact | All SM masses from one operator; spectral triple properties (self-adjointness, compact resolvent, summability, KO-dimension, regularity) open — see Note |
 | T0.5 | Co-fixed-point selection condition | 🔶 | Exact | Selects the 11-mode lattice (photon + hockey-stick fermions) from the infinite spectrum; the 2 product-form quarks {16,72} and the EW g-chain {76,81,95} are tiers 2–3 (see T0.5 scope); derivation semi-structural — see T0.5 status note |
 | T1 | $m=S(n,d)\cdot m_{\rm scale}$ = Hilbert series | ✅ | Exact | Mass = IDOS; inflation rule |
-| T2 | $(\xi\cdot\xi')^2$ = unique kernel | ✅ | Exact | Forces rank-1 couplings and GTC |
+| T2 | $(\xi\cdot\xi')^2$ = unique kernel | ✅ | Exact | Forces rank-1 couplings and the $\ell=2$ self-energy scale $\varepsilon$ |
 | T3 | $D=\{2,3,4,5,6,10\}$ from Hopf chain | ✅ | Exact | 6 sectors, no more, no fewer |
 | T4 | $n_s=4$ from double degeneracy $4/7$ | ✅ | Exact | Unique composite; all indices follow |
 | T5 | $d=10$ = Gegenbauer critical endpoint | ✅ | $b=1/2$ exact | Chain terminates; $\tau$ is critical |
@@ -867,12 +867,12 @@ evaluating at $N_c=3$ to $\varepsilon = 1/(280\sqrt7)$, $\delta_\tau = 1/1680$, 
 | T8 | $\delta_{CP} = \pi + 2\theta_{13} = 197.11°$; $J = -0.00981$ | 🔶 | $+0.05°$, $+0.1\%$ | APS spectral flow across CP³→CP⁵; Δc₁ = −2; derived in Part 10; three technical gaps before 🔵 |
 | T9a-d | All 6 coupling constants derived | ✅ | Exact | No free coupling parameters |
 | T15 | $N_c=\chi(\mathbb{CP}^2)=n_u$; all couplings and the sector-chain extent from one Euler characteristic (T15a–f); mode-index values are Euler-character identities | ✅ | Exact | Coupling filter and mass scale hierarchy share one geometric root; $g_{dd}$ anti-correlates with isometry group dimension; $n_{\rm top}=72$ is a value identity (top Chern number), resonance origin a 🔶 tier-2 input; $m_e$ is the only dimensional input |
-| T10a | GTC $\varepsilon=1/(280\sqrt7)$ | ✅ | $<0.1\%$ | Fine structure of quark masses |
+| T10a | $\ell=2$ self-energy scale $\varepsilon=1/(280\sqrt7)$ | ✅ | Exact | Derived from T2; applied to $\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$; former $(1{-}\varepsilon)^k$ quark correction removed 2026-06-16 |
 | T10b | Geometric back-reaction correction $+1/1680$ for $\tau$ | ✅ | $0.001\%$ | Critical-sector regularisation |
 | T11a-d | Neutrino masses; Dirac; $\Sigma m_\nu=60.39$ meV ($\delta_{\nu_3}=\varepsilon\cdot g_{33}=1/35$ derived, §9d); uncorrected 59.00 meV | ✅ | $<0.05\%$ | $0\nu\beta\beta=0$ at all orders (no $C$ on $S^5$) |
 | T13a | Spectral sum rule $\zeta_d(1)=d/(d-1)$ | ✅ | Exact | Total inverse-mass weight of sector $d$ is $d/(d-1)$; pure Pascal |
 | T13b | Mode spacing $S(n+1,d)-S(n,d)=S(n+1,d-1)$ | ✅ | Exact | Filling-rate relation; source of all mode-index derivation chains |
-| T13c | Exact mass ratios; all $\leq 0.05\%$ | ✅ | $\leq 0.048\%$ | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$, etc. from integer $S$ ratios |
+| T13c | Exact mass ratios | ✅/🔶 | $\leq 0.002\%$ non-up; charm $+0.16\%$, top $+1.42\%$ 🔶 | $m_\mu/m_e$, $m_\tau/m_\mu$, $m_Z/m_W$ etc. exact; $d=4$ up-type bare (GTC removed) |
 | T13d | Partial sum $\sum_{n=1}^{N}S(n,d)=S(N,d+1)$ | ✅ | Exact | Cumulative sector-$d$ weight = single mode in sector $d+1$; vacuum energy at cutoff $N$ is $m_{{\rm scale},d}\times S(N,d+1)$ |
 | T13e | Iterated difference $\Delta^k_n S(n,d)=S(n+k,d-k)$ | ✅ | Exact | $S(n,d)$ is degree-$d$ polynomial; differences stay within simplex tower; $\Delta^d=1$, $\Delta^{d+1}=0$ |
 | T14a | Heat kernel Weyl term $K_d(t)\sim a_0^{(d)} t^{-1/d}$ | ✅ | Exact | Spectral dimension = $d$; Weyl coefficient $a_0^{(d)}=\Gamma(1+1/d)(d!)^{1/d}$ |

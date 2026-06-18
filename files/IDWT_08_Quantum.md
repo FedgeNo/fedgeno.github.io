@@ -306,7 +306,7 @@ m_u/m_d = 0.46291005
 
 **Meaning.** The first frequency in the d=4 sector and the first frequency in the d=3 sector differ by precisely the geometric mean of their coupling constants. The ratio
 $$\sqrt{g_{44}/g_{33}} = \sqrt{\frac{2N_c}{(N_c+1)(2N_c+1)}} = \sqrt{\frac{3}{14}}$$
-is $N_c$-determined: it is a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3 = n_u$, the Euler characteristic of the color sector (T15). The composite $n_s = \chi(\mathbb{CP}^3) = N_c+1 = 4$ is the next Euler characteristic in the chain. No free parameter, no fit.
+is $N_c$-determined: it is a direct consequence of $N_c = \chi(\mathbb{CP}^2) = 3 = n_u$, the Euler characteristic of the color sector (T15). The composite $n_s = \chi(\mathbb{CP}^3) = N_c+1 = 4$ is the next Euler characteristic in the chain. The ratio follows algebraically from the coupling formulas with no additional inputs.
 
 ---
 
@@ -557,7 +557,7 @@ The ratio of successive d=3 mode counts at the composite level n_s=4 gives the I
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
 
-The +4.0% gap corresponds to an l=1 admixture probability P ≈ 0.025–0.038 — small and physical — quenching the leading ratio through the standard configuration-mixing form g_A → g_A(1−κP). This admixture amplitude is the same l=1 content of the d=3 nucleon mode induced by the (ξ_3·ξ_4)² kernel that enters μ_p, μ_n through f_overlap; it is not separately closeable and is blocked on the same collective d=3⊕d=4 colour-singlet mode identification (Appendix A §15). The √7/2 leading value is the structural prediction; the residual is consistent with that admixture.
+The +4.0% gap corresponds to an l=1 admixture probability P ≈ 0.025–0.038 — small and physical — quenching the leading ratio through the standard configuration-mixing form g_A → g_A(1−κP). This admixture amplitude is the same l=1 content of the d=3 nucleon mode induced by the (ξ_3·ξ_4)² kernel that enters μ_p, μ_n through f_overlap; it is not separately closeable and is blocked on the same collective d=3⊕d=4 colour-singlet mode identification. The √7/2 leading value is the structural prediction; the residual is consistent with that admixture.
 
 **Status note (🔶):** g_{3,4}^eff = 125 is an estimated effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The enhancement factor has not been derived from kernel matrix elements; it is not the result of RG running (IDWT does not use renormalization group methods). f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry, also not computed from first principles. With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; the derivation of both from the kernel is an open item.
 
@@ -591,9 +591,9 @@ The +4.0% gap corresponds to an l=1 admixture probability P ≈ 0.025–0.038 �
 
 $$V_0 = \frac{\kappa^2}{\Delta} = \frac{N_c\Lambda^2}{N_c\Lambda} = \Lambda \qquad \text{(exact in large-}N_c\text{)}$$
 
-This also fixes the colour energy scale: λ_c = N_c Λ/2 = N_c² f_π/2 ≈ 423 MeV. The O(1) coefficients in κ and Δ are fixed by the leading large-N_c structure; exact kernel matrix elements require identifying the collective d=3 ⊕ d=4 mode of the colour-singlet baryon — the same open problem as §5.3. (`files/idwt.py` STEP 63; Appendix A §29.)
+This also fixes the colour energy scale: λ_c = N_c Λ/2 = N_c² f_π/2 ≈ 423 MeV. The O(1) coefficients in κ and Δ are fixed by the leading large-N_c structure; exact kernel matrix elements require identifying the collective d=3 ⊕ d=4 mode of the colour-singlet baryon — the same open problem as §5.3. (`files/idwt.py` STEP 63.)
 
-*Spin-tensor channel. 🔶* The deuteron has spin-1 (³S₁–³D₁ channel); this section checks only the central s-wave. The tensor component of the N–N kernel and the resulting ³S₁–³D₁ mixing require expanding the gated kernel in baryon spin operators, which in turn requires the collective-mode identification above. (`files/idwt.py` STEP 61–62; Appendix A §29.)
+*Spin-tensor channel. 🔶* The deuteron has spin-1 (³S₁–³D₁ channel); this section checks only the central s-wave. The tensor component of the N–N kernel and the resulting ³S₁–³D₁ mixing require expanding the gated kernel in baryon spin operators, which in turn requires the collective-mode identification above. (`files/idwt.py` STEP 61–62.)
 
 ---
 
@@ -639,7 +639,7 @@ Because the potential separates exactly, the Schrödinger equation on CP³ is ex
 H_eff = −(ℏ²/2m_e) ∇_r² − α/|r| + m_e
 ```
 
-**What anchors the r/ξ split. ✅** The decomposition into r and ξ is anchored by the nucleus, not by the electron. The nucleus is the d=3 structure in the problem, and its Coulomb term selects the three coordinates it has structure in; the sector well itself binds the electron's structure about the mode's own centroid, equally in all six of its dimensions, and travels with the mode (Part 4 §3.10.2 covariance note) — no three of the electron's six dimensions are marked out by anything in the electron. The V_6 factor above is the spectating sector structure written in the nucleus's split. The compact internal structure (width L_6) corrects the point-center treatment only through its smearing of the Coulomb term, ΔE/|E_{1s}| = 4(L_6/a₀)² ≈ 2.9×10⁻⁹ — the same order as the proton-finite-size correction catalogued in §14.4. (`files/idwt.py` STEP 58; Appendix A §27.)
+**What anchors the r/ξ split. ✅** The decomposition into r and ξ is anchored by the nucleus, not by the electron. The nucleus is the d=3 structure in the problem, and its Coulomb term selects the three coordinates it has structure in; the sector well itself binds the electron's structure about the mode's own centroid, equally in all six of its dimensions, and travels with the mode (Part 4 §3.10.2 covariance note) — no three of the electron's six dimensions are marked out by anything in the electron. The V_6 factor above is the spectating sector structure written in the nucleus's split. The compact internal structure (width L_6) corrects the point-center treatment only through its smearing of the Coulomb term, ΔE/|E_{1s}| = 4(L_6/a₀)² ≈ 2.9×10⁻⁹ — the same order as the proton-finite-size correction catalogued in §14.4. (`files/idwt.py` STEP 58.)
 
 ### 14.3 The Hydrogen Spectrum and Orbit Structure ✅
 

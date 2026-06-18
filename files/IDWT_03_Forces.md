@@ -141,7 +141,7 @@ g₂ = (2/3)√g_s = 0.65275
 PDG: 0.65270.  Error: +0.008%
 ```
 
-**The coupling cascade.** All three couplings descend from a single tower-derived quantity, g_{44}, through a fixed chain with no free parameters at any step:
+**The coupling cascade.** All three couplings descend from a single tower-derived quantity, g_{44}, through a fixed chain — each step determined by the sector geometry alone:
 
 ```
 g_{44}  [seeds: n_u=3 (primitive), composite n_s=4]

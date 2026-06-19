@@ -275,12 +275,12 @@ The d=4 up-type masses are quoted bare and overshoot PDG, growing with generatio
 
 A former correction (the "Generation Tower Correction," (1−ε)^k with ε = 1/(280√7) derived and per-quark exponents {0,7,16}) brought charm and top onto PDG, but the exponents were a fit, not derived (§11.3), so it has been removed. Charm and top are open residues. The l=2 tensor part of the kernel supplies the overshoot's sign — a real, correctly-signed second-order self-energy (`files/idwt.py` STEP 86) — but its magnitude is not derived, so no correction is applied (🔶, §11.4).
 
-🔶 **Nucleon static properties** (from l=1 admixture in the d=3 sector, Part 8 §10)
+🔶 **Nucleon static properties** (Dirac spin-orbit structure of the d=3 sector, Part 8 §10)
 ```
 μ_p = 2.793 μ_N    (PDG: 2.7928,  match to 0.01%)
 μ_n = −1.913 μ_N   (PDG: −1.9130, match to 0.02%)
 ```
-Magnetic moments from the l=1 spin-orbit admixture of the cross-sector kernel (Part 8 §10). **Disclosure:** the calculation uses two parameters that are not yet derived from the kernel: g_{3,4}^{eff} = 125 (approximately 13× the kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement is not yet derived) and f_{overlap} = 0.72 (an overlap integral not computed from first principles). With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; it is included here to show the correct scale is reached. The derivation of both parameters from the kernel matrix elements is an open item (Part 8 §10). The axial coupling is the geometric ratio g_A = √(S(n_s+1,3)/S(n_s,3)) = 1.3229 (+4.0% from PDG 1.2723); the residual reflects uncalculated higher-l mixing corrections (open item, Part 8 §10).
+The sign and the μ_p/μ_n ratio follow from the udd colour-singlet projector; the absolute magnitudes are set by the Dirac spin-orbit structure of the d=3 sector and await that computation. The values above were reached with two scale parameters — g_{3,4}^{eff} = 125 against the kernel value g_{3,4} = 4√6 ≈ 9.80, and f_{overlap} = 0.72 — neither of which follows from the scalar kernel: a magnetic moment is a spin observable, and the spin-independent contact kernel cannot source one (`files/idwt.py` STEP 94). Those parameters are withdrawn as a mechanism. The axial coupling is the geometric ratio g_A = √(S(n_s+1,3)/S(n_s,3)) = 1.3229 (+4.0% from PDG 1.2723); the residual is a relativistic Dirac spin-orbit quenching, not an orbital admixture (open item, Part 8 §10).
 
 **Neutrino absolute masses** (scale derived from m_scale_5 × m_scale_4² = (n_u/n_s) × m_scale_6³ — no neutrino data)
 ```

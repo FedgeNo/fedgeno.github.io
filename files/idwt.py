@@ -5217,26 +5217,28 @@ _chern_maxerr78 = max(abs(_chern_vals78[n] - n) for n in _chern_vals78)
 
 
 # ==========================================================================
-# STEP 79 -- NUCLEON l=1 ADMIXTURE IS 3-BODY RELATIVE-ORBITAL, NOT
-#            SINGLE-PARTICLE: PARITY SELECTION RULE (Part 8 §10-11)
+# STEP 79 -- NUCLEON l=1 ADMIXTURE: SINGLE-PARTICLE PARITY SELECTION
+#            (the scalar-kernel l=1 reading is closed by STEP 94)
 # ==========================================================================
-# The collective d=3 (+) d=4 colour-singlet baryon mode blocks g_A (+4%),
-# mu_p, mu_n (g34_eff=125, f_overlap=0.72), kappa/Delta, and the deuteron
-# tensor channel. One piece is rigorous now: WHERE the l=1 admixture can
-# live. On the shared d=3 subspace the cross-sector kernel is
+# The collective d=3 (+) d=4 colour-singlet baryon mode is the route to
+# g_A (+4%), mu_p, mu_n (g34_eff=125, f_overlap=0.72), kappa/Delta, and the
+# deuteron tensor channel. One piece is rigorous: WHERE a parity-odd l=1
+# admixture could couple. On the shared d=3 subspace the cross-sector
+# kernel is
 #     (xi3.xi4)^2 = sum_{ij} (xi3_i xi3_j)(xi4_i xi4_j),
 # whose d=3 index is the symmetric rank-2 tensor xi3_i xi3_j = (trace, l=0)
 # + (traceless, l=2). Both are parity-EVEN; l=1 is parity-ODD, so the
-# single-particle matrix element <l=1|(xi3.xi4)^2|l=0> = 0 exactly. The
-# nucleon's l=1 admixture therefore cannot be a single-particle effect; it
-# lives in the 3-body relative (Jacobi) orbital motion of the colour
-# singlet, where parity-odd relative configurations exist -- the admixture
-# is irreducibly collective. (The kernel acting PAIRWISE depends on the
-# relative coordinate and can populate relative l=1; a single quark mode
-# cannot.) Corollaries (numeric, confirm non-derivability without the
-# collective eigenmode): the clean s-wave d=3/d=4 Gaussian overlap is
-# ~0.95, not the documented f_overlap=0.72; the enhancement g34_eff/g34
-# ~ 12.8 is not pinned by any O(1) baryon factor (N_c, pair count, 4pi).
+# single-particle matrix element <l=1|(xi3.xi4)^2|l=0> = 0 exactly: no l=1
+# can arise from a single quark mode. STEP 94 carries this to the full
+# 3-body operator: for the physical nucleon (uud/udd) the pairwise scalar
+# kernel is even in each Jacobi coordinate, so no l=1 arises at any order,
+# collective or not. The g_A/mu/tensor residuals are therefore not orbital
+# l=1 at all; they live in the spinor (Dirac) spin-orbit structure the
+# scalar reduction discards (Part 8 6). The numeric corollaries below are
+# the symptom of forcing a spin observable out of a spin-independent
+# operator: the clean s-wave d=3/d=4 Gaussian overlap is ~0.95, not the
+# documented f_overlap=0.72, and the enhancement g34_eff/g34 ~ 12.8 is not
+# pinned by any O(1) baryon factor (N_c, pair count, 4pi).
 _lparity79 = {"l=0 (trace)": "even", "l=2 (traceless)": "even"}
 _single_particle_l1_ME79 = 0.0          # parity-even op, opposite-parity: 0
 _sq7_79 = math.sqrt(7.0)
@@ -6009,6 +6011,102 @@ _e_lightest_charged_93 = True   # m_e=0.511 < m_u=2.2 MeV (PDG 2024)
 # absolutely-stable set on structural grounds:
 _abs_stable_93 = ['up', 'e', 'nu1', 'nu2']
 _eff_stable_93 = ['nu3']
+
+
+# =========================================================================
+# STEP 94 -- SCALAR COLOUR KERNEL CANNOT SOURCE NUCLEON SPIN OBSERVABLES:
+#            3-BODY JACOBI SELECTION RULE (Part 8 §10-11; the scalar-kernel
+#            reading of STEP 79 is closed here)
+# =========================================================================
+# Colour-singlet baryon = three quarks sharing the d=3 coordinates; the
+# contact kernel is the pairwise scalar sum (Part 8 §6 master equation)
+#     V = sum_{i<j} g_ij (xi_i . xi_j)^2 .
+# 3-body Jacobi coords (CM = 0): rho = (xi1-xi2)/sqrt2,
+#   lam = (xi1+xi2-2 xi3)/sqrt6, so exchanging the like-flavour pair
+#   (1<->2) is rho -> -rho. Physical nucleon (uud/udd) = two like quarks
+#   + one unlike, so the two cross-pair couplings are EQUAL
+#   (g13 = g23 = g_ud), g12 = g_ll. Then V is a rotational scalar AND
+#   separately even in rho and in lam:
+#     V = g_ll(lam^2/6 - rho^2/2)^2
+#         + g_ud[(2/3)(rho.lam)^2 + (2/9)lam^4].
+# A scalar even in each Jacobi coordinate connects the L=0 ground only to
+# total-L=0, spatially-symmetric, even-l correlations (leading:
+# [l_rho=2 (x) l_lam=2]_{L=0}, a 4-quantum mode); no l=1 at any order.
+# These renormalise size/confinement energy but carry no net orbital
+# angular momentum and do not recouple the spin-flavour [56], so they
+# cannot quench g_A, give an orbital moment, or build the 3S1-3D1 tensor.
+# Those spin observables live in the spinor (Dirac) spin-orbit structure
+# the scalar reduction discards (Part 8 §6). A three-DISTINCT-flavour
+# baryon (Lambda/Sigma) has g13 != g23 and keeps an l=1-type term
+# (g13-g23)(rho.lam)lam^2 -- the rule is flavour-selective.
+def _dot94(a, b):
+    return a[0]*b[0] + a[1]*b[1] + a[2]*b[2]
+def _jac94(rho, lam):
+    s2, s6 = math.sqrt(2.0), math.sqrt(6.0)
+    x1 = [rho[i]/s2 + lam[i]/s6 for i in range(3)]
+    x2 = [-rho[i]/s2 + lam[i]/s6 for i in range(3)]
+    x3 = [-2.0*lam[i]/s6 for i in range(3)]
+    return x1, x2, x3
+def _Vk94(rho, lam, g12, g13, g23):
+    x1, x2, x3 = _jac94(rho, lam)
+    return (g12*_dot94(x1, x2)**2 + g13*_dot94(x1, x3)**2
+            + g23*_dot94(x2, x3)**2)
+def _neg94(v):
+    return [-c for c in v]
+_rho94 = [0.31, -0.52, 0.18]
+_lam94 = [-0.27, 0.44, 0.61]
+_gll94, _gud94 = 1.7, 0.9
+_V0_94 = _Vk94(_rho94, _lam94, _gll94, _gud94, _gud94)
+_even_rho94 = abs(_V0_94 - _Vk94(_neg94(_rho94), _lam94,
+                                 _gll94, _gud94, _gud94)) < 1e-12
+_even_lam94 = abs(_V0_94 - _Vk94(_rho94, _neg94(_lam94),
+                                 _gll94, _gud94, _gud94)) < 1e-12
+# closed-form decomposition check
+_r2_94 = _dot94(_rho94, _rho94)
+_l2_94 = _dot94(_lam94, _lam94)
+_rl_94 = _dot94(_rho94, _lam94)
+_Vform94 = (_gll94*(_l2_94/6 - _r2_94/2)**2
+            + _gud94*((2.0/3.0)*_rl_94**2 + (2.0/9.0)*_l2_94**2))
+_decomp94 = abs(_V0_94 - _Vform94) < 1e-12
+# three-distinct-flavour baryon: g13 != g23 -> parity (l=1) term survives
+_Vd0_94 = _Vk94(_rho94, _lam94, 1.7, 0.9, 1.3)
+_Vdr_94 = _Vk94(_neg94(_rho94), _lam94, 1.7, 0.9, 1.3)
+_l1_distinct94 = abs(_Vd0_94 - _Vdr_94) > 1e-9
+_nucleon_l1_94 = not (_even_rho94 and _even_lam94)   # False: no l=1
+
+
+# =========================================================================
+# STEP 95 -- g_A RELATIVISTIC QUENCH: DIRAC SMALL-COMPONENT (Part 8 sec10)
+#            LEAD (mechanism IDWT-native; P_L identification open)
+# =========================================================================
+# STEP 94 closed the scalar-kernel route to the nucleon spin observables;
+# they live in the spinor (Dirac) sector. The leading axial coupling is the
+# d=3 mode-count ratio g_A = sqrt(S(5,3)/S(4,3)) = sqrt(7/4) (Part 8 sec10).
+# The IDWT mode is a Dirac spinor (Part 8 sec6); a confined Dirac spinor
+# quenches the axial (Gamow-Teller) matrix element through its small
+# component f. The sigma operator averages to
+#     <g^2 - (1/3) f^2> / <g^2 + f^2> = 1 - (4/3) P_L,
+# with P_L the small-component probability and the (1/3) the angular average
+# of the opposite-parity (l=1) small component (Dirac gamma algebra). This
+# is the physically-motivated home of the +4.0% gap.
+# LEAD: setting P_L = 1/S(5,3) (one small-component unit per upper-level
+# count) gives q = 1 - 4/(3*35) = 101/105 and
+#     g_A = sqrt(7/4) * 101/105 = 1.2725,
+# matching PDG 1.2723(23) to +0.08 sigma. The mechanism is solid; P_L =
+# 1/S(5,3) is NOT derived -- it requires fixing the IDWT Dirac small/large
+# ratio (the m/omega identification of the sector Dirac operator against the
+# spectral mass). A Moshinsky-oscillator estimate gives the same P_L only
+# for omega/m ~ 0.021, which IDWT does not yet pin. Recorded as a lead
+# (open), not a correction to apply.
+_S43_95 = S(4, 3)
+_S53_95 = S(5, 3)
+_gA_lead_95 = math.sqrt(_S53_95 / _S43_95)
+_PL_95 = 1.0 / _S53_95
+_q_95 = 1.0 - (4.0/3.0)*_PL_95          # = 101/105
+_gA_95 = _gA_lead_95 * _q_95
+_gA_pdg_95, _gA_pdg_e_95 = 1.2723, 0.0023
+_gA_dev_95 = (_gA_95 - _gA_pdg_95)/_gA_pdg_95*100.0
+_gA_sig_95 = (_gA_95 - _gA_pdg_95)/_gA_pdg_e_95
 
 
 # =========================================================================
@@ -8538,26 +8636,29 @@ print("(QHE/TKNN transport identification is cross-framework: Appendix §32,")
 print(" not placed in the public documents.)")
 
 
-# STEP 79 -- OUTPUT: NUCLEON l=1 ADMIXTURE IS 3-BODY RELATIVE-ORBITAL
+# STEP 79 -- OUTPUT: NUCLEON l=1 SINGLE-PARTICLE PARITY SELECTION
 # ==========================================================================
 print("\n" + "=" * 70)
-print("=== STEP 79: NUCLEON l=1 ADMIXTURE -- PARITY SELECTION RULE ===")
+print("=== STEP 79: NUCLEON l=1 -- PARITY SELECTION RULE ===")
 print("=" * 70)
 print("(xi3.xi4)^2 in the d=3 index = symmetric rank-2 tensor:")
 for _k79, _v79 in _lparity79.items():
     print(f"   {_k79}: parity {_v79}")
 print("l=1 is parity-ODD -> single-particle matrix element")
 print(f"   <l=1|(xi3.xi4)^2|l=0> = {_single_particle_l1_ME79:.1f} exactly.")
-print("=> the nucleon l=1 admixture is NOT single-particle; it lives in")
-print("   the 3-body relative (Jacobi) orbital motion of the colour")
-print("   singlet (kernel acts pairwise on relative coords). Collective.")
-print("Non-derivability corollaries (need the collective eigenmode):")
+print("=> single-particle l=1 from the kernel = 0. STEP 94 extends this:")
+print("   for uud the full 3-body scalar kernel is even in each Jacobi")
+print("   coord, so no l=1 arises at any order. The g_A/mu/tensor")
+print("   residuals are not orbital l=1; they live in the Dirac sector.")
+print("Corollaries (artifacts of forcing a spin observable out of a")
+print("spin-independent operator):")
 print(f"   clean s-wave d=3/d=4 overlap = {_f_swave79:.3f}"
       f" (vs documented f_overlap=0.72)")
 print(f"   enhancement g34_eff/g34 = 125/{_g34_79:.2f} = {_enh79:.2f}"
       f" (not an O(1) baryon factor)")
-print("Status 🔶: relocates the l=1 admixture; g_A/mu/kappa-Delta/deuteron")
-print("tensor remain blocked on the collective d=3(+)d=4 mode (Part 8 §11).")
+print("Status: the scalar-kernel l=1 reading is closed (STEP 94); the")
+print("g_A/mu/kappa-Delta/deuteron tensor live in the Dirac spin-orbit")
+print("sector (open continuation).")
 
 
 # ==========================================================================
@@ -8919,6 +9020,48 @@ print("s,c,tau show no same-sector channel yet decay CROSS-sector (weak):")
 print("  conservation-law step is essential; same-sector test alone fails.")
 print("=> the sharp even-level anchors (u,e,nu1,nu2) are closed; the")
 print("   general even-level dispersal stays the dephasing bound (STEP 49).")
+
+
+# ==========================================================================
+# STEP 94 -- OUTPUT: SCALAR COLOUR KERNEL CANNOT SOURCE NUCLEON SPIN
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 94: SCALAR KERNEL -- 3-BODY JACOBI SELECTION RULE ===")
+print("=" * 70)
+print("Colour-singlet baryon, pairwise scalar kernel sum g_ij(xi_i.xi_j)^2.")
+print("Physical nucleon (uud/udd): like-pair => g13=g23, so V is a scalar")
+print("AND separately even in each Jacobi coord (rho->-rho, lam->-lam):")
+print(f"   even in rho: {_even_rho94}    even in lam: {_even_lam94}")
+print("   closed form V = g_ll(lam^2/6-rho^2/2)^2")
+print(f"     + g_ud[(2/3)(rho.lam)^2 + (2/9)lam^4] holds: {_decomp94}")
+print("=> connects the L=0 ground only to L=0, even-l correlations")
+print("   (leading [l_rho=2 (x) l_lam=2]_L=0); no l=1 at any order:")
+print(f"   nucleon l=1 admixture present: {_nucleon_l1_94}")
+print("   Such admixtures renormalise size/confinement but carry no net")
+print("   orbital L and do not recouple the spin-flavour [56]: cannot")
+print("   quench g_A, give an orbital moment, or build the 3S1-3D1 tensor.")
+print("   Those live in the spinor (Dirac) spin-orbit structure that the")
+print("   scalar reduction discards (Part 8 6).")
+print(f"3-distinct-flavour baryon (Lambda/Sigma) keeps an l=1 term:"
+      f" {_l1_distinct94}")
+print("Status: identity. The scalar contact kernel cannot source nucleon")
+print("spin observables; this closes the scalar-kernel reading of STEP 79.")
+
+
+# ==========================================================================
+# STEP 95 -- OUTPUT: g_A RELATIVISTIC QUENCH (Dirac small-component lead)
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 95: g_A DIRAC SMALL-COMPONENT QUENCH (lead) ===")
+print("=" * 70)
+print(f"leading g_A = sqrt(S(5,3)/S(4,3)) = sqrt(7/4) = {_gA_lead_95:.6f}")
+print("relativistic quench q = 1 - (4/3) P_L  (Dirac small component f,")
+print("  sigma average <g^2 - f^2/3>/<g^2 + f^2>): physical home of +4%.")
+print(f"LEAD P_L = 1/S(5,3) = 1/{_S53_95}: q = 101/105 = {_q_95:.6f}")
+print(f"  g_A = {_gA_95:.6f}  vs PDG {_gA_pdg_95}+-{_gA_pdg_e_95}"
+      f"  {_gA_dev_95:+.3f}% ({_gA_sig_95:+.2f} sigma)")
+print("Status: lead. Mechanism is IDWT Dirac structure; P_L=1/S(5,3) is")
+print("not derived (needs the sector Dirac small/large m/omega ratio). Open.")
 
 
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")

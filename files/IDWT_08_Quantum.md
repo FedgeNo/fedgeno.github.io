@@ -415,7 +415,7 @@ where the sum runs over Vandermonde-allowed pairs (d+d' ∈ {2,3,4,5,6,10}), and
 - **Bottom quark:** Quartic bifurcation at k₀ = n_s² = 16 → geometric-mean beat (Part 7 §49.4)
 - **Confinement:** Colour-singlet states have |Σ n⃗| = 0 → zero extra energy from V_kernel (§8)
 - **Meson masses:** Binding shifts from kernel overlap integrals (derivation open — §12 not yet written)
-- **Nucleon properties:** μ_p, μ_n, g_A from l=1 spin-orbit admixture in the d=3 sector (§10 below)
+- **Nucleon properties:** μ_p, μ_n, g_A from the Dirac spin-orbit structure of the d=3 sector (§10 below)
 - **Coupling dilution:** g_eff(n,d) = g_dd/S(n,d) — the geometric power-law decrease of the effective coupling across mode indices (Part 5 §1; IDWT couplings do not run and there is no β-function)
 - **Cosmological constant:** Λ_eff from V_kernel vacuum expectation over unoccupied modes — smallness is an open problem (§13; Part 4 §4)
 - **Gravity:** Effective Einstein equations from |Ψ∞|² back-reaction (Part 4)
@@ -534,9 +534,9 @@ The mass scale $m_{\rm scale,d}$ is itself derived from the coupling constants $
 
 ## 10. Baryon Magnetic Moments and Axial Coupling 🔶
 
-The same kernel that produces confinement, vector mesons, and mass scales provides the structural mechanism for nucleon static properties. Two parameters (g_{3,4}^eff and f_overlap) are estimated rather than derived from kernel matrix elements; see status note below.
+The nucleon static properties — μ_p, μ_n, and the axial coupling g_A — are spin observables. Their leading structural values follow from the d=3 sector: the g_A mode-count ratio derived below, and the moment signs and ratio from the colour-singlet projector. The residuals and the absolute moment magnitudes are set by the Dirac spin-orbit structure of the sector, an open computation.
 
-The proton/neutron mode in sector space has a dominant l=0 (ground state) component with a small l=1 admixture in the three-body relative orbital motion of the colour singlet. The admixture is relative-orbital, not single-particle: on the shared d=3 subspace the cross-sector kernel (ξ_3·ξ_4)² is parity-even in ξ_3 — its d=3 index is the symmetric tensor ξ_{3,i}ξ_{3,j} = (trace, l=0) ⊕ (traceless, l=2) — so a single quark mode cannot acquire a parity-odd l=1 component (⭐, `files/idwt.py` STEP 79). The kernel acting pairwise depends on the relative Jacobi coordinate, where parity-odd relative configurations exist and the l=1 admixture lives. This mixes relative orbital angular momentum into the observable magnetic moment. The effective sector coupling at the baryon scale is g_{3,4}^eff = 125 (estimated; kernel-level value g_{3,4} = 4√6 ≈ 9.80; the enhancement factor ~12.8× is not yet derived from kernel matrix elements) with centrifugal overlap factor f_overlap = 0.72 (not computed from first principles).
+The colour singlet carries no orbital l=1 admixture from the contact kernel. On the shared d=3 subspace the cross-sector kernel (ξ_3·ξ_4)² is parity-even in ξ_3 — its d=3 index is the symmetric tensor ξ_{3,i}ξ_{3,j} = (trace, l=0) ⊕ (traceless, l=2) — so a single quark mode cannot acquire a parity-odd l=1 component (⭐, `files/idwt.py` STEP 79). For the physical nucleon (two like quarks and one unlike, so the two cross-pair couplings are equal) the full three-body scalar kernel is separately even in each Jacobi coordinate, so no l=1 admixture arises at any order, single-particle or collective (⭐, `files/idwt.py` STEP 94). The scalar contact kernel sets the spatial size and confinement energy of the colour singlet; carrying no net orbital angular momentum and not recoupling the spin-flavour structure, it cannot source the magnetic moments, g_A, or the tensor channel. Those are spin observables of the spinor (Dirac) sector — spin-orbit coupling and the lower spinor component — which the scalar reduction of §6 discards.
 
 **Proton magnetic moment:**
 ```
@@ -548,7 +548,7 @@ The proton/neutron mode in sector space has a dominant l=0 (ground state) compon
 μ_n ≈ −1.913 μ_N     (PDG: −1.9130, match to 0.02%)
 ```
 
-Sign and magnitude emerge from the udd colour-singlet projector — not separately fitted.
+The sign and the μ_p/μ_n ratio emerge from the udd colour-singlet projector; the absolute magnitudes are set by the Dirac spin-orbit structure and await that computation.
 
 **Axial coupling g_A:**
 
@@ -557,9 +557,13 @@ The ratio of successive d=3 mode counts at the composite level n_s=4 gives the I
 g_A = √(S(n_s+1,3)/S(n_s,3)) = √(35/20) = √(7/4) = 1.3229     (PDG: 1.2723 ± 0.0023, +4.0%)
 ```
 
-The +4.0% gap corresponds to an l=1 admixture probability P ≈ 0.025–0.038 — small and physical — quenching the leading ratio through the standard configuration-mixing form g_A → g_A(1−κP). This admixture amplitude is the same l=1 content of the d=3 nucleon mode induced by the (ξ_3·ξ_4)² kernel that enters μ_p, μ_n through f_overlap; it is not separately closeable and is blocked on the same collective d=3⊕d=4 colour-singlet mode identification. The √7/2 leading value is the structural prediction; the residual is consistent with that admixture.
+The √7/2 leading value is the structural prediction. The +4.0% gap is a relativistic quench of this mode-count ratio. The IDWT mode is a Dirac spinor (§6); a confined Dirac spinor reduces its axial (Gamow–Teller) matrix element through its small component f, giving
 
-**Status note (🔶):** g_{3,4}^eff = 125 is an estimated effective coupling at the baryon scale — significantly larger than the kernel coupling g_{3,4} = 4√6 ≈ 9.80. The enhancement factor has not been derived from kernel matrix elements; it is not the result of RG running (IDWT does not use renormalization group methods). f_overlap = 0.72 is the centrifugal reduction from the l=1 admixture geometry, also not computed from first principles. With two undetermined parameters fitting two observables, this is a consistency check, not a prediction; the derivation of both from the kernel is an open item.
+$$q = \frac{\langle g^2 - \tfrac13 f^2\rangle}{\langle g^2 + f^2\rangle} = 1 - \tfrac{4}{3}P_L,$$
+
+where P_L is the small-component probability and the 1/3 is the angular average of the opposite-parity (l=1) small component. This is not an orbital l=1 admixture — none arises from the scalar contact kernel at any order (`files/idwt.py` STEP 94); the kernel sets only the spatial scale of the well. Taking P_L = 1/S(5,3) — one small-component unit relative to the S(5,3) states of the destination level — gives q = 101/105 and g_A = √(7/4)·(101/105) = 1.2725, within the PDG uncertainty (🔶, `files/idwt.py` STEP 95). The small-component fraction P_L = 1/S(5,3) is a count identity reproducing the quench, not yet derived from the first-order sector Dirac operator; that derivation — fixing the small/large ratio of the d=3 mode — is the open item, and the same structure sets μ_p, μ_n and the ³S₁–³D₁ tensor.
+
+**Status note (🔶):** The absolute magnetic moments quoted above were obtained with two scale parameters — an effective baryon-scale coupling g_{3,4}^eff = 125 against the kernel value g_{3,4} = 4√6 ≈ 9.80, and an overlap factor f_overlap = 0.72. Neither follows from the scalar kernel. A magnetic moment is a spin observable, and the spin-independent contact kernel cannot source one: the clean s-wave d=3/d=4 overlap is 0.95, and the 12.8× enhancement is pinned by no O(1) baryon factor (`files/idwt.py` STEP 94). These two parameters are the symptom of sourcing a spin observable from a spin-independent operator, and are withdrawn as a mechanism. The genuine mechanism is the Dirac spin-orbit structure of the d=3 sector — the open computation. What stands structurally is the g_A mode-count ratio √7/2 and the moment signs and ratio from the colour-singlet projector.
 
 ---
 
@@ -593,7 +597,7 @@ $$V_0 = \frac{\kappa^2}{\Delta} = \frac{N_c\Lambda^2}{N_c\Lambda} = \Lambda \qqu
 
 This also fixes the colour energy scale: λ_c = N_c Λ/2 = N_c² f_π/2 ≈ 423 MeV. The O(1) coefficients in κ and Δ are fixed by the leading large-N_c structure; exact kernel matrix elements require identifying the collective d=3 ⊕ d=4 mode of the colour-singlet baryon — the same open problem as §5.3. (`files/idwt.py` STEP 63.)
 
-*Spin-tensor channel. 🔶* The deuteron has spin-1 (³S₁–³D₁ channel); this section checks only the central s-wave. The tensor component of the N–N kernel and the resulting ³S₁–³D₁ mixing require expanding the gated kernel in baryon spin operators, which in turn requires the collective-mode identification above. (`files/idwt.py` STEP 61–62.)
+*Spin-tensor channel. 🔶* The deuteron has spin-1 (³S₁–³D₁ channel); this section checks only the central s-wave. The tensor component of the N–N kernel and the resulting ³S₁–³D₁ mixing are spin observables, and the spin-independent contact kernel cannot generate them (`files/idwt.py` STEP 94); they are not reachable from the scalar collective mode. They live in the Dirac spin-orbit structure of the sector — the same open computation as the nucleon moments and g_A (§10). (`files/idwt.py` STEP 61–62.)
 
 ---
 

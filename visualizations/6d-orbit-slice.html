@@ -328,6 +328,13 @@ html, body { margin:0; height:100%; overflow:hidden; }
 .cat-low.active { border-color: #44dd88; }
 .cat-low .swatch { background: #44dd88; }
 
+.aux-bar {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
 .viz-info {
   position: absolute;
   top: 14px;
@@ -431,6 +438,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
   <h1>Atomic Orbitals as CP³ Projection</h1>
   <p class="sub">The s, p, d, f orbital families are the 3D shadow of the electron's 6D orbit. Bohr levels, all multipole selection rules, Stark, Zeeman, and fine/hyperfine structure follow as theorems of CP³. At every shell with \(L \geq 1\), the SU(4) representation also carries states with angular momentum in the ξ-direction — and Lemma 2 makes them strictly invisible to any 3D apparatus.</p>
   <p>Note: \(\Xi_6 = \mathbb{CP}^3\) is a macroscopic 6-real-dimensional space in IDWT, not a compactified extra dimension. The electron moves freely in \(\Xi_6\); 3D experiments only see its \(\mathrm{SO}(3)\) projection.</p>
+  <p>The panel at right shows this directly. Each shell's electrons — one point particle per state, never a cloud — orbit continuously through \(\mathbb{CP}^3\); their observable projections accumulate over many laps into the familiar s, p, d, f shapes (blue). The \(z_4\)-direction hidden states orbit too, nested at smaller radius (pink), together with the lower-j 3D content (green); toggle each category at upper left. By Lemma 2 the hidden orbits leave no trace any 3D apparatus can read.</p>
 
   <h2>Setup</h2>
   <p>In IDWT, the electron is the \((d=6)\) mode \((n=13)\): an eigenmode of the sector-6 Dirac operator on \(\mathrm{CP}^3\), with isometry group \(\mathrm{SU}(4)\). Its 6D orbit is the full trajectory in \(Ξ_6\), while the observable 3D "orbital" is the projection of that orbit onto ordinary space. The hydrogen atom is a bound system on \(M_\infty = \mathbf{R}^3 \times \Xi_6\). The angular momentum eigenmodes are representations of \(\mathrm{SU}(4)\), restricted to the observable subgroup via the chain</p>
@@ -590,6 +598,7 @@ html, body { margin:0; height:100%; overflow:hidden; }
     <button class="shell-btn" id="btn-d">d (L=2)</button>
     <button class="shell-btn" id="btn-f">f (L=3)</button>
   </div>
+  <div class="aux-bar"><button class="shell-btn active" id="btn-shadow">Shadow: on</button></div>
   <div class="drag-hint">Drag = rotate</div>
   <div class="wheel-hint">Wheel = zoom</div>
 </div>
@@ -640,22 +649,83 @@ scene.add(pLight1);
 const pLight2 = new THREE.PointLight(0xffffff, 2.5, 20);
 scene.add(pLight2);
 
-// Top-level group rotates with user interaction; sub-groups split by category for toggling
-const group   = new THREE.Group();
-const grpOBS  = new THREE.Group();
-const grpHID  = new THREE.Group();
-const grpLOW  = new THREE.Group();
-group.add(grpOBS, grpHID, grpLOW);
+// One group holds the whole atom and rotates with user interaction.
+const group = new THREE.Group();
 group.rotation.x = 0.4;
 group.rotation.y = 0.6;
 scene.add(group);
 
+// colour conventions: observable / IDWT-hidden / lower-j 3D
 const OBS = 0x4488ff, HID = 0xee44aa, LOW = 0x44dd88;
+const R0 = 2.4;        // observable shell radius (world units)
+const MAX_TRAIL = 900;  // points in each electron's trail
+
+// per-category groups, so a whole category can be toggled at once
+const grpOBS = new THREE.Group();
+const grpHID = new THREE.Group();
+const grpLOW = new THREE.Group();
+group.add(grpOBS, grpHID, grpLOW);
 function groupFor(color) {
-  if (color === OBS) return grpOBS;
-  if (color === HID) return grpHID;
-  return grpLOW;
+  return color === OBS ? grpOBS : color === HID ? grpHID : grpLOW;
 }
+
+// nucleus at the origin
+const nucleus = new THREE.Mesh(
+  new THREE.SphereGeometry(0.16, 32, 24),
+  new THREE.MeshPhongMaterial({ color: 0xfff3d8, emissive: 0xffc890,
+    emissiveIntensity: 1.5, shininess: 80 }));
+group.add(nucleus);
+
+// one accumulating point-cloud per category — the shadow the orbiting
+// electrons fill in (their 3D projection = the orbital)
+function makeCloud(color, cap) {
+  const pos = new Float32Array(cap * 3);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setDrawRange(0, 0);
+  const pts = new THREE.Points(geo, new THREE.PointsMaterial({
+    color, size: 0.045, transparent: true, opacity: 0.45,
+    blending: THREE.AdditiveBlending, depthWrite: false }));
+  return { pos, geo, pts, cap, count: 0, head: 0 };
+}
+function depositCloud(c, x, y, z) {
+  c.pos[c.head*3] = x; c.pos[c.head*3+1] = y; c.pos[c.head*3+2] = z;
+  c.head = (c.head + 1) % c.cap;
+  c.count = Math.min(c.count + 1, c.cap);
+  c.geo.setDrawRange(0, c.count);
+  c.geo.attributes.position.needsUpdate = true;
+}
+function resetCloud(c) { c.count = 0; c.head = 0; c.geo.setDrawRange(0, 0); }
+const clouds = {
+  [OBS]: makeCloud(OBS, 5000),
+  [HID]: makeCloud(HID, 5000),
+  [LOW]: makeCloud(LOW, 2500),
+};
+grpOBS.add(clouds[OBS].pts);
+grpHID.add(clouds[HID].pts);
+grpLOW.add(clouds[LOW].pts);
+
+// electron + trail factories
+function makeElectron(color) {
+  const tint = new THREE.Color(color).lerp(new THREE.Color(0xffffff), 0.45);
+  return new THREE.Mesh(
+    new THREE.SphereGeometry(0.07, 16, 12),
+    new THREE.MeshPhongMaterial({ color: tint, emissive: color,
+      emissiveIntensity: 2.4, shininess: 120 }));
+}
+function makeTrail(color) {
+  const geo = new THREE.BufferGeometry();
+  const pos = new Float32Array(MAX_TRAIL * 3);
+  const col = new Float32Array(MAX_TRAIL * 3);
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('color',    new THREE.BufferAttribute(col, 3));
+  const line = new THREE.Line(geo, new THREE.LineBasicMaterial({
+    vertexColors: true, transparent: true, opacity: 0.8 }));
+  return { pts: [], geo, pos, col, line, base: new THREE.Color(color) };
+}
+
+// the live set of orbiting electrons for the current shell
+let electrons = [];
 
 // ── spherical harmonics ───────────────────────────────────────
 function realSH(L, m, theta, phi) {
@@ -686,94 +756,58 @@ function realSH(L, m, theta, phi) {
   return 0;
 }
 
-function buildOrbitalMesh(L, m, color, scale, res, opacity) {
-  const col    = new THREE.Color(color);
-  const colNeg = new THREE.Color(color).multiplyScalar(0.35).lerp(new THREE.Color(0x000818), 0.3);
-  const pos = [], cols = [], idx = [];
-  for (let i = 0; i <= res; i++) {
-    for (let j = 0; j <= res; j++) {
-      const theta = (i / res) * Math.PI;
-      const phi   = (j / res) * Math.PI * 2;
-      const v = realSH(L, m, theta, phi);
-      const r = Math.abs(v) * scale;
-      pos.push(r * Math.sin(theta) * Math.cos(phi),
-               r * Math.cos(theta),
-               r * Math.sin(theta) * Math.sin(phi));
-      const c = v >= 0 ? col : colNeg;
-      cols.push(c.r, c.g, c.b);
-    }
-  }
-  for (let i = 0; i < res; i++) {
-    for (let j = 0; j < res; j++) {
-      const a = i*(res+1)+j, b = a+1, c = a+(res+1), d = c+1;
-      idx.push(a,b,d, a,d,c);
-    }
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setIndex(idx);
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos,  3));
-  geo.setAttribute('color',    new THREE.Float32BufferAttribute(cols, 3));
-  geo.computeVertexNormals();
-  const mat = new THREE.MeshPhongMaterial({
-    vertexColors: true,
-    emissive: col.clone().multiplyScalar(0.15),
-    shininess: 120,
-    transparent: true, opacity,
-    side: THREE.DoubleSide,
-    depthWrite: opacity > 0.8,
-  });
-  return new THREE.Mesh(geo, mat);
-}
-
-// ── shell data ────────────────────────────────────────────────
+// ── per-shell electron set (old colour / nesting layout) ──────
+// Observable states (blue) trace the 2L+1 harmonics at full radius;
+// IDWT-hidden states (pink) and the lower-j 3D state (green) are the
+// inner, smaller-radius orbits — the same nesting as before, now
+// drawn as orbiting electrons rather than static shells.
 function shellData(L) {
   if (L === 0) return [
-    { L:0, m:0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.70 },
+    { L:0, m: 0, color:OBS, scale:1.00 },
   ];
   if (L === 1) return [
-    { L:1, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
-    { L:1, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
-    { L:1, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.62 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.50, opacity:0.38 },
+    { L:1, m: 1, color:OBS, scale:1.00 },
+    { L:1, m: 0, color:OBS, scale:1.00 },
+    { L:1, m:-1, color:OBS, scale:1.00 },
+    { L:0, m: 0, color:HID, scale:0.50 },
   ];
   if (L === 2) return [
-    { L:2, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
-    { L:2, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
-    { L:2, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
-    { L:2, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
-    { L:2, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.58 },
-    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
-    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
-    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.55, opacity:0.40 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.36, opacity:0.34 },
-    { L:0, m: 0, color:LOW, pos:[0,0,0], scale:0.22, opacity:0.24 },
+    { L:2, m: 0, color:OBS, scale:1.00 },
+    { L:2, m: 1, color:OBS, scale:1.00 },
+    { L:2, m:-1, color:OBS, scale:1.00 },
+    { L:2, m: 2, color:OBS, scale:1.00 },
+    { L:2, m:-2, color:OBS, scale:1.00 },
+    { L:1, m: 1, color:HID, scale:0.55 },
+    { L:1, m: 0, color:HID, scale:0.55 },
+    { L:1, m:-1, color:HID, scale:0.55 },
+    { L:0, m: 0, color:HID, scale:0.36 },
+    { L:0, m: 0, color:LOW, scale:0.22 },
   ];
   if (L === 3) return [
-    { L:3, m: 0, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m: 1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m:-1, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m: 2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m:-2, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m: 3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:3, m:-3, color:OBS, pos:[0,0,0], scale:1.0, opacity:0.54 },
-    { L:2, m: 0, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
-    { L:2, m: 1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
-    { L:2, m:-1, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
-    { L:2, m: 2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
-    { L:2, m:-2, color:HID, pos:[0,0,0], scale:0.58, opacity:0.36 },
-    { L:1, m: 1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
-    { L:1, m: 0, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
-    { L:1, m:-1, color:HID, pos:[0,0,0], scale:0.38, opacity:0.28 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.26, opacity:0.24 },
-    { L:0, m: 0, color:HID, pos:[0,0,0], scale:0.22, opacity:0.20 },
-    { L:1, m: 1, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
-    { L:1, m: 0, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
-    { L:1, m:-1, color:LOW, pos:[0,0,0], scale:0.28, opacity:0.20 },
+    { L:3, m: 0, color:OBS, scale:1.00 },
+    { L:3, m: 1, color:OBS, scale:1.00 },
+    { L:3, m:-1, color:OBS, scale:1.00 },
+    { L:3, m: 2, color:OBS, scale:1.00 },
+    { L:3, m:-2, color:OBS, scale:1.00 },
+    { L:3, m: 3, color:OBS, scale:1.00 },
+    { L:3, m:-3, color:OBS, scale:1.00 },
+    { L:2, m: 0, color:HID, scale:0.58 },
+    { L:2, m: 1, color:HID, scale:0.58 },
+    { L:2, m:-1, color:HID, scale:0.58 },
+    { L:2, m: 2, color:HID, scale:0.58 },
+    { L:2, m:-2, color:HID, scale:0.58 },
+    { L:1, m: 1, color:HID, scale:0.38 },
+    { L:1, m: 0, color:HID, scale:0.38 },
+    { L:1, m:-1, color:HID, scale:0.38 },
+    { L:0, m: 0, color:HID, scale:0.26 },
+    { L:0, m: 0, color:HID, scale:0.22 },
+    { L:1, m: 1, color:LOW, scale:0.28 },
+    { L:1, m: 0, color:LOW, scale:0.28 },
+    { L:1, m:-1, color:LOW, scale:0.28 },
   ];
   return [];
 }
 
-// ── shell management ──────────────────────────────────────────
 const SHELL_NAMES = ['s','p','d','f'];
 const SHELL_META  = [
   { name:'s shell — L=0', obs:1, hid:0,  low:0, dim:1  },
@@ -782,31 +816,47 @@ const SHELL_META  = [
   { name:'f shell — L=3', obs:7, hid:10, low:3, dim:20 },
 ];
 
+let tt = 0;                  // orbit phase
+const SPEED = 1.0;
+// incommensurate angular frequencies → each orbit fills its own lobe
+const F_PHI = 0.80, F_THETA = 0.80 / 1.6180339887;
 let targetCamDist = 7, actualCamDist = 7;
 
-function setShell(L) {
-  for (const sub of [grpOBS, grpHID, grpLOW]) {
-    while (sub.children.length) {
-      const c = sub.children[0];
-      if (c.geometry) c.geometry.dispose();
-      if (c.material) c.material.dispose();
-      sub.remove(c);
-    }
-  }
-  const res = L <= 1 ? 48 : 36;
-  for (const o of shellData(L)) {
-    const mesh = buildOrbitalMesh(o.L, o.m, o.color, o.scale, res, o.opacity);
-    mesh.position.set(...o.pos);
-    groupFor(o.color).add(mesh);
-  }
-  // Size camera against full shell extent (ignore current visibility toggles)
-  const box  = new THREE.Box3().setFromObject(group);
-  const size = box.getSize(new THREE.Vector3()).length();
-  targetCamDist = Math.max(5, Math.min(13, size * 0.65));
+// electron position along its lobe at orbit phase t
+const _v = new THREE.Vector3();
+function electronPoint(e, t) {
+  const phi   = F_PHI * t + e.phi0;
+  const theta = Math.acos(Math.sin(F_THETA * t + e.th0));
+  const val   = realSH(e.L, e.m, theta, phi);
+  const r     = e.radius * Math.abs(val);
+  const st    = Math.sin(theta);
+  e.val = val;
+  return _v.set(r*st*Math.cos(phi), r*Math.cos(theta), r*st*Math.sin(phi));
+}
 
+// ── shell switching ───────────────────────────────────────────
+function clearElectrons() {
+  for (const e of electrons) {
+    e.mesh.geometry.dispose(); e.mesh.material.dispose();
+    e.trail.geo.dispose();     e.trail.line.material.dispose();
+    groupFor(e.color).remove(e.mesh);
+    groupFor(e.color).remove(e.trail.line);
+  }
+  electrons = [];
+  resetCloud(clouds[OBS]); resetCloud(clouds[HID]); resetCloud(clouds[LOW]);
+}
+function setShell(L) {
+  clearElectrons();
+  tt = 0;
+  shellData(L).forEach((o, idx) => {
+    const g = groupFor(o.color);
+    const mesh = makeElectron(o.color); g.add(mesh);
+    const trail = makeTrail(o.color);   g.add(trail.line);
+    electrons.push({ L:o.L, m:o.m, color:o.color, radius:o.scale * R0,
+      mesh, trail, phi0: idx * 0.7, th0: idx * 1.31, val: 1 });
+  });
   SHELL_NAMES.forEach((n, i) =>
     document.getElementById('btn-' + n).classList.toggle('active', i === L));
-
   const m = SHELL_META[L];
   document.getElementById('vizInfo').innerHTML =
     `<div class="vi-title">${m.name}</div>` +
@@ -815,12 +865,10 @@ function setShell(L) {
     (m.low ? `<div class="vi-low">${m.low} lower-j 3D</div>` : '') +
     `<div class="vi-dim">S(${L+1},3) = ${m.dim}</div>`;
 }
-
-// Wire buttons — addEventListener only, no onclick attributes
 SHELL_NAMES.forEach((n, i) =>
   document.getElementById('btn-' + n).addEventListener('click', () => setShell(i)));
 
-// Category toggles
+// category toggles (Observable / IDWT-hidden / Lower-j 3D)
 const CAT_GROUPS = { obs: grpOBS, hid: grpHID, low: grpLOW };
 for (const [key, sub] of Object.entries(CAT_GROUPS)) {
   const btn = document.getElementById('cat-' + key);
@@ -829,6 +877,17 @@ for (const [key, sub] of Object.entries(CAT_GROUPS)) {
     btn.classList.toggle('active', sub.visible);
   });
 }
+
+// shadow (accumulated projection) on/off
+let shadowOn = true;
+const shadowBtn = document.getElementById('btn-shadow');
+shadowBtn.addEventListener('click', () => {
+  shadowOn = !shadowOn;
+  clouds[OBS].pts.visible = clouds[HID].pts.visible =
+    clouds[LOW].pts.visible = shadowOn;
+  shadowBtn.textContent = 'Shadow: ' + (shadowOn ? 'on' : 'off');
+  shadowBtn.classList.toggle('active', shadowOn);
+});
 
 // ── interaction ───────────────────────────────────────────────
 let isDragging = false, lastX = 0, lastY = 0;
@@ -862,13 +921,44 @@ new ResizeObserver(onResize).observe(panel);
 window.addEventListener('resize', onResize);
 
 // ── animate ───────────────────────────────────────────────────
-let t = 0;
+let frame = 0;
 function animate() {
   requestAnimationFrame(animate);
-  t += 0.016;
-  if (!isDragging) group.rotation.y += 0.008;
-  pLight1.position.set(4*Math.cos(t*0.6), 3, 4*Math.sin(t*0.6));
-  pLight2.position.set(-4*Math.cos(t*0.45), 3*Math.sin(t*0.5), 2);
+  frame++;
+  tt += 0.10 * SPEED;
+  if (!isDragging) group.rotation.y += 0.0035;
+
+  const deposit = shadowOn && frame % 2 === 0;
+  for (const e of electrons) {
+    const p = electronPoint(e, tt);
+    const x = p.x, y = p.y, z = p.z;
+    e.mesh.position.set(x, y, z);
+
+    // trail — newest point first, fading to the background behind
+    const t = e.trail;
+    t.pts.unshift(new THREE.Vector3(x, y, z));
+    if (t.pts.length > MAX_TRAIL) t.pts.pop();
+    for (let k = 0; k < t.pts.length; k++) {
+      const f = 1 - k / MAX_TRAIL;
+      t.pos[k*3]     = t.pts[k].x;
+      t.pos[k*3 + 1] = t.pts[k].y;
+      t.pos[k*3 + 2] = t.pts[k].z;
+      t.col[k*3]     = t.base.r * f;
+      t.col[k*3 + 1] = t.base.g * f;
+      t.col[k*3 + 2] = t.base.b * f;
+    }
+    t.geo.setDrawRange(0, t.pts.length);
+    t.geo.attributes.position.needsUpdate = true;
+    t.geo.attributes.color.needsUpdate = true;
+
+    // shadow — deposit the observable projection, skipping angular nodes
+    if (deposit && Math.abs(e.val) > 0.05)
+      depositCloud(clouds[e.color], x, y, z);
+  }
+
+  pLight1.position.set(4*Math.cos(tt*0.1), 3, 4*Math.sin(tt*0.1));
+  pLight2.position.set(-4*Math.cos(tt*0.08), 3, 2);
+
   actualCamDist += (targetCamDist - actualCamDist) * 0.08;
   camera.position.set(0, 0, actualCamDist);
   camera.lookAt(0, 0, 0);

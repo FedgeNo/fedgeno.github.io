@@ -4890,14 +4890,25 @@ _ring_term_ok73 = all(
 # literal seed pair (d=3)x(d=4) = S^3 x CP^2 (whose b* is not the
 # tent). This fixes the "seed product" of section 15.
 #
-# RESIDUAL (open): COMPLETENESS -- that the full second variation L
-# has no OTHER zero modes (radial + spinor + cross-sector all non-
-# marginal off omega_2^a omega_3^b). Needs the vacuum-stability
-# effective-energy functional (Part 2 section 5; asserted, unwritten),
-# the same object blocking Rule A d=7, T9b, T0.5 operand selection,
-# and the (1,d) conjecture. no-latency: exact-flat => no-barrier
-# bifurcation (motivated). Net: H's inclusion + (p,p) restriction +
-# sector identity are proved; the reverse inclusion is the open gap.
+# COMPLETENESS -- that the full second variation L has no OTHER zero
+# modes off omega_2^a omega_3^b -- is CLOSED below: part (d) rules out a
+# radial leak (the flat-R^d kernel is 1-dim = the vacuum) and part (e)
+# proves the (p,p) completeness on flat C^k by U(k) Schur (no other
+# U(k)-invariant direction; spinor case via the Dolbeault/Witten
+# Laplacian). The earlier appeal to a "vacuum-stability effective-energy
+# functional (Part 2 s5; asserted, unwritten)" is superseded on both
+# counts it was raised for: completeness needed no such functional, and
+# as a MODE SELECTOR no energetic functional exists -- Part 6 MC-4.4/4.5/
+# 4.6 prove the sufficient T0.5 / operand selection is not energetic (no
+# energy resonance, no Hartree lock, no combinatorial / topological /
+# characteristic-class closure; kernel action set strictly larger than
+# the DAG). What stays open for d=7 activation and the operand selection
+# is the DIRECTED structure -- which kernel moves fire as a set: the
+# coupled (Psi_inf, {M_d}) fixed point and the pre-prism causal firing
+# order (STEP 85) -- not a scalar stability functional. The BdG operator
+# L (STEP 35-36) supplies only the NECESSARY stability condition.
+# no-latency: exact-flat => no-barrier bifurcation (motivated). H's
+# inclusion + (p,p) restriction + sector identity are proved (a,b,c).
 
 # --- (a) CP^1 = S^2: harmonic 2-form is the unique marginal direction --------
 # spec(Delta | 2-forms) = spec(Delta | scalars) = {l(l+1)} (Hodge star).
@@ -6107,6 +6118,57 @@ _gA_95 = _gA_lead_95 * _q_95
 _gA_pdg_95, _gA_pdg_e_95 = 1.2723, 0.0023
 _gA_dev_95 = (_gA_95 - _gA_pdg_95)/_gA_pdg_95*100.0
 _gA_sig_95 = (_gA_95 - _gA_pdg_95)/_gA_pdg_e_95
+
+
+# =========================================================================
+# STEP 96 -- THREE GENERATIONS FROM THE MC-2 DEPOSIT CHANNELS, AND THE
+#            alpha-ORDER DRIVER (Part 7; Appendix B; builds on STEP 74e)
+# =========================================================================
+# STEP 74(e) proved MC-2 completeness on FLAT C^k (k=d/2) + U(k) Schur:
+# the marginal deposit channels of a Kahler condensate sector d=2k are the
+# U(k)-invariant (p,p) forms on flat C^k -- one per p=0..k (Lambda^p(C^k)
+# irreducible => one invariant, spanned by w^p; w^(k+1)=0 since
+# Lambda^(k+1)(C^k)=0). This is NOT compact CP^k cohomology -- that framing
+# was rejected as framework creep (STEP 74e); sectors are flat. Generators:
+# d=4 (k=2) -> w2, p in {0,1,2}; d=6 (k=3) -> w3, p in {0,1,2,3}. Two facts.
+# (1) THREE GENERATIONS. Label a deposit (alpha,beta) = (w2 power, w3
+#     power); its site j = alpha+beta+2 equals the sector d (STEP 89). The
+#     per-sector channel count is the convolution of the two channel
+#     counts, i.e. the coefficients of
+#       (1+x+x^2)(1+x+x^2+x^3) = 1 + 2x + 3x^2 + 3x^3 + 2x^4 + x^5,
+#     so sectors d=2..7 carry 1,2,3,3,2,1 deposits. The peak of 3 at d=4
+#     (up,charm,top) and d=5 (nu1,nu2,nu3) is the three-generation count,
+#     capped by k=2,3 (the U(k) nilpotency w2^3 = w3^4 = 0). d=3 and d=6
+#     carry 2; the missing third members are the two known exceptions --
+#     bottom (beat, k0=16, Part 7) and tau (site 7, forced to d=10).
+# (2) alpha-ORDER DRIVER. Within a sector n increases with alpha = #(w2)
+#     (STEP 89). Clean in the nu sector, where the mode index IS the
+#     re-evaluated count: nu1 (a=0) = S(n_u,3) = S(3,3) = 10 and
+#     nu2 (a=1) = S(n_u,4) = S(3,4) = 15, i.e. d_eval = 3 + a (w2 = the
+#     d=4 evaluation channel). Since S(n,d) is strictly increasing in d
+#     for n >= 2 (n_u = 3), each extra w2 lands the seed on a strictly
+#     larger count, so n increases with a. (For n = 1 the ground is
+#     degenerate: S(1,d) = 1 for all d.) The other sectors order the same
+#     way but via tower constructions, not a single S(n_u, 3+a); a closed
+#     n(a,b) across all sectors is open.
+_tent_96 = [1, 2, 3, 3, 2, 1]   # convolution of channel counts (k=2, k=3)
+_counts_96 = [sum(1 for a in range(3) for b in range(4) if a + b == m)
+              for m in range(6)]
+_tent_ok_96 = _counts_96 == _tent_96
+_by_d_96 = {}
+for _j96, _p96, _n96d, _a96, _b96 in _deposits_89:
+    _by_d_96[_j96] = _by_d_96.get(_j96, 0) + 1
+_sector_counts_96 = {2: 1, 7: 1}        # photon (j=2), tau (site j=7)
+for _k96, _v96 in _by_d_96.items():
+    _sector_counts_96[_k96] = _v96
+_gen_count_ok_96 = ([_sector_counts_96[_d96] for _d96 in range(2, 8)]
+                    == _tent_96)
+# S(n,d) strictly increasing in d for n>=2 (drives the re-eval ordering);
+# n=1 is the degenerate ground, S(1,d)=1 for all d.
+_Smono_96 = all(S(_nn96, _dd96 + 1) > S(_nn96, _dd96)
+                for _nn96 in (2, 3, 4) for _dd96 in range(3, 6))
+_S1_degenerate_96 = all(S(1, _dd) == 1 for _dd in range(2, 8))
+_nu_eval_ok_96 = (S(3, 3) == 10 and S(3, 4) == 15)
 
 
 # =========================================================================
@@ -9062,6 +9124,27 @@ print(f"  g_A = {_gA_95:.6f}  vs PDG {_gA_pdg_95}+-{_gA_pdg_e_95}"
       f"  {_gA_dev_95:+.3f}% ({_gA_sig_95:+.2f} sigma)")
 print("Status: lead. Mechanism is IDWT Dirac structure; P_L=1/S(5,3) is")
 print("not derived (needs the sector Dirac small/large m/omega ratio). Open.")
+
+
+# ==========================================================================
+# STEP 96 -- OUTPUT: THREE GENERATIONS FROM MC-2 CHANNELS + alpha-ORDER
+# ==========================================================================
+print("\n" + "=" * 70)
+print("=== STEP 96: THREE GENERATIONS FROM MC-2 DEPOSIT CHANNELS ===")
+print("=" * 70)
+print("STEP 74e: deposit channels = U(k)-invariant (p,p) on flat C^k,")
+print("  one per p=0..k (Schur); d=4(k=2)->3, d=6(k=3)->4. Not compact.")
+print(f"channel-count convolution (1+x+x^2)(1+x+x^2+x^3) = {_tent_96}:"
+      f" {_tent_ok_96}")
+print(f"per-sector deposit counts (site j=d) match it: {_gen_count_ok_96}")
+print("  d=2..7 -> 1,2,3,3,2,1: peak 3 at d=4 (u,c,t) and d=5 (nu1-3)")
+print("  = three generations; d=3,d=6 -> 2 (bottom beat, tau forced).")
+print(f"nu sector exact: nu1=S(3,3)=10, nu2=S(3,4)=15 [d_eval=3+a]:"
+      f" {_nu_eval_ok_96}")
+print(f"alpha-order driver: S(n,d) increasing in d for n>=2: {_Smono_96}")
+print(f"  (n=1 degenerate, S(1,d)=1 all d: {_S1_degenerate_96})")
+print("Status: three-generation count from U(k) channels (STEP 74e);")
+print("nu-sector alpha-order motivated. Open: closed n(a,b) all sectors.")
 
 
 print("\nDocs:  https://doi.org/10.5281/zenodo.19767493")

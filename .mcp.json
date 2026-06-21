@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "deepseek": {
+      "command": "python3",
+      "args": [
+        "/home/fedge/Downloads/fedgeno.github.io/.claude/tools/deepseek_mcp_server.py"
+      ]
+    }
+  }
+}

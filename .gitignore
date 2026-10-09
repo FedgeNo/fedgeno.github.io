@@ -1,0 +1,32 @@
+# Agent instructions and local tooling
+[Aa][Gg][Ee][Nn][Tt][Ss].md
+[Cc][Ll][Aa][Uu][Dd][Ee].md
+AGENTS.override.md
+.claude/
+.codex/
+claude/
+.mcp.json
+.vscode/
+.idea/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies, caches, and test output
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+test-results/
+playwright-report/
+
+# Editor and operating system files
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
